@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none" color="#101933">
+  <defs>
+    <clipPath id="hm-shield-l"><rect x="0" y="0" width="24" height="48"/></clipPath>
+    <clipPath id="hm-shield-r"><rect x="24" y="0" width="24" height="48"/></clipPath>
+  </defs>
+  <path d="M24 4c7 0 13 2.5 16 4.5V21c0 11-7 19.5-16 23-9-3.5-16-12-16-23V8.5C11 6.5 17 4 24 4z" fill="currentColor" clip-path="url(#hm-shield-l)"/>
+  <path d="M24 4c7 0 13 2.5 16 4.5V21c0 11-7 19.5-16 23-9-3.5-16-12-16-23V8.5C11 6.5 17 4 24 4z" fill="currentColor" fill-opacity="0.45" clip-path="url(#hm-shield-r)"/>
+</svg>

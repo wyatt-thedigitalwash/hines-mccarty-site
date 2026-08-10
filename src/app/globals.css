@@ -1,43 +1,193 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/*
+ * Hines & McCarty design system
+ * Palette: Prussian Blue (navy), Linen, Charcoal Blue, Golden Bronze, White
+ * Type: EB Garamond (display, 800) / Lora (subheaders all-caps + body)
+ */
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-navy: #101933;
+  --color-navy-700: #1a2444;
+  --color-charcoal: #3a4750;
+  --color-linen: #f6f0e8;
+  --color-linen-dim: #e7ddd0;
+  --color-bronze: #c5a059;
+  --color-bronze-soft: #d8bd86;
+  --color-white: #ffffff;
+
+  --color-background: var(--color-navy);
+  --color-foreground: var(--color-linen);
+
+  --font-display: var(--font-cormorant);
+  --font-serif: var(--font-lora);
+  --font-heading: var(--font-poppins);
+
+  --tracking-eyebrow: 0.02em;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  --background: #101933;
+  --foreground: #f6f0e8;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-poppins), "Helvetica Neue", Arial, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* h1 and h2 display headings use Cormorant Garamond */
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+/* h1 and h2 render at regular (400) weight, overriding any bold utility */
+h1,
+h2 {
+  font-weight: 400;
+}
+
+/* h3 and smaller headings use Poppins */
+.font-heading {
+  font-family: var(--font-heading), "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Safety net: any semantic h3 to h6 without an explicit font class is Poppins */
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading), "Helvetica Neue", Arial, sans-serif;
+}
+
+/* All-caps Lora subheader / eyebrow label, no tracking per brand spec */
+.eyebrow {
+  font-family: var(--font-serif), Georgia, serif;
+  text-transform: uppercase;
+  letter-spacing: 0;
+  font-weight: 600;
+  font-size: 0.8125rem;
+  line-height: 1.2;
+}
+
+/* Hide the horizontal scrollbar on the tools carousel while keeping scroll */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
 }
 
 /*
- * Section Spacing Rule
- * Each section defines its own vertical padding via its own class.
- * When two consecutive sections share the same background (matching data-bg
- * value), the second section drops its top padding to avoid double-stacked
- * gaps. When adjacent sections have different backgrounds, both keep full
- * padding so the color transition has breathing room.
- *
- * If CSS-only sibling selection is ever insufficient, apply this logic in the
- * layout component instead by conditionally adding a "pt-0" class when
- * consecutive sections share the same data-bg.
+ * Left padding that lines the first carousel card up with the centered content
+ * column (max-width 1400px + gutter), while the row still bleeds off the right
+ * edge. Plain CSS so the calc()/max() expression is reliable.
+ */
+.carousel-pad-left {
+  padding-left: max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem));
+  /* Match scroll-padding so snap does not hide the leading indent */
+  scroll-padding-left: max(1.5rem, calc((100vw - 1400px) / 2 + 1.5rem));
+}
+@media (min-width: 1024px) {
+  .carousel-pad-left {
+    padding-left: max(2.5rem, calc((100vw - 1400px) / 2 + 2.5rem));
+    scroll-padding-left: max(2.5rem, calc((100vw - 1400px) / 2 + 2.5rem));
+  }
+}
+
+/* Thin animated link with the arrow-up-right affordance */
+.link-arrow svg {
+  transition: transform 0.3s ease;
+}
+.link-arrow:hover svg {
+  transform: translate(0.15rem, -0.15rem);
+}
+
+::selection {
+  background: var(--color-bronze);
+  color: #101933;
+}
+
+/*
+ * Arch mask for the hero visual. One layer (video + gradient fallback) is cut
+ * into two overlapping shapes: a smaller arch on the left and a larger circle
+ * on the right (bottom-flattened at the baseline) that bleeds off the top and
+ * right edges. The circle is drawn on top with a black outline, so its curved
+ * left edge reads as a thin navy seam where it sweeps across and overlaps the
+ * small arch. Luminance masking is required so the black stroke hides rather
+ * than shows. The mask stretches to the wide 62vw by 36rem hero box.
+ */
+.arch-mask {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20590'%20preserveAspectRatio='none'%3E%3Cpath%20fill='white'%20fill-rule='evenodd'%20d='M-250%20590V0H400A260%20260%200%200%201%20700%20260V590Z%20M460%20590A240%20240%200%200%201%20940%20590Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20590'%20preserveAspectRatio='none'%3E%3Cpath%20fill='white'%20fill-rule='evenodd'%20d='M-250%20590V0H400A260%20260%200%200%201%20700%20260V590Z%20M460%20590A240%20240%200%200%201%20940%20590Z'/%3E%3C/svg%3E");
+  -webkit-mask-mode: luminance;
+  mask-mode: luminance;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+}
+
+/*
+ * Mirrored variant: same two shapes flipped horizontally so the large rounded
+ * rectangle bleeds off the LEFT edge. Only the mask is mirrored (via an SVG
+ * transform), so the video footage inside is NOT flipped. Use together with
+ * .arch-mask, which supplies mask-mode/size/repeat.
+ */
+.arch-mask-flip {
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20590'%20preserveAspectRatio='none'%3E%3Cpath%20fill='white'%20fill-rule='evenodd'%20d='M-250%20590V0H400A260%20260%200%200%201%20700%20260V590Z%20M460%20590A240%20240%200%200%201%20940%20590Z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%20590'%20preserveAspectRatio='none'%3E%3Cpath%20fill='white'%20fill-rule='evenodd'%20d='M-250%20590V0H400A260%20260%200%200%201%20700%20260V590Z%20M460%20590A240%20240%200%200%201%20940%20590Z'/%3E%3C/svg%3E");
+}
+
+/*
+ * Mobile (< lg): the hero box is square/taller, so a mobile-specific mask
+ * replicates the Sheppard MOBILE composition (mirrored): a large rounded
+ * rectangle bleeding off the left and top, and a smaller tall arch to its
+ * right, separated by a thin navy seam. Uses a 1:1 viewBox to match the
+ * aspect-square container so nothing distorts.
+ */
+@media (max-width: 1023px) {
+  .arch-mask,
+  .arch-mask-flip {
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%201000'%20preserveAspectRatio='none'%3E%3Cpath%20fill='white'%20fill-rule='evenodd'%20d='M-200%201000V0H400A220%20220%200%200%201%20620%20220V1000Z%20M300%201000V653a320%20320%200%200%201%20640%200V1000Z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%201000%201000'%20preserveAspectRatio='none'%3E%3Cpath%20fill='white'%20fill-rule='evenodd'%20d='M-200%201000V0H400A220%20220%200%200%201%20620%20220V1000Z%20M300%201000V653a320%20320%200%200%201%20640%200V1000Z'/%3E%3C/svg%3E");
+  }
+}
+
+/*
+ * Bottom fade for the hero video, matching the Sheppard treatment: the footage
+ * dissolves into the page navy across the lower band instead of ending hard.
+ */
+.video-fade::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 46%;
+  background: linear-gradient(0deg, #101933 1.06%, rgba(16, 25, 51, 0) 69.81%);
+}
+
+/*
+ * Section Spacing Rule (per CLAUDE.md)
+ * Each section defines its own vertical padding. When two consecutive sections
+ * share the same background family (matching data-bg), the second drops its top
+ * padding to avoid double-stacked gaps. Different backgrounds keep full padding.
  */
 section[data-bg="light"] + section[data-bg="light"],
-section[data-bg="dark"] + section[data-bg="dark"] {
+section[data-bg="dark"] + section[data-bg="dark"],
+section[data-bg="white"] + section[data-bg="white"],
+section[data-bg="linen"] + section[data-bg="linen"],
+section[data-bg="navy"] + section[data-bg="navy"] {
   padding-top: 0;
 }
