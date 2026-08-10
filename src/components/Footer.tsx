@@ -1,0 +1,88 @@
+import Link from "next/link";
+import {
+  firm,
+  formatOffice,
+  primaryNav,
+  primaryOffice,
+  capabilities,
+} from "@/lib/site";
+
+export default function Footer() {
+  const year = 2026;
+
+  return (
+    <footer className="bg-navy text-linen">
+      <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
+          <div>
+            <Link
+              href="/"
+              className="font-display text-3xl font-extrabold tracking-tight"
+            >
+              Hines <span className="text-bronze">&amp;</span> McCarty
+            </Link>
+            <p className="mt-5 max-w-sm text-linen/60">
+              A Brandon criminal defense firm handling serious state and federal
+              charges across {firm.serviceArea}.
+            </p>
+            <a
+              href={firm.phoneHref}
+              className="mt-8 inline-block font-display text-3xl font-extrabold hover:text-bronze"
+            >
+              {firm.phone}
+            </a>
+          </div>
+
+          <div>
+            <span className="eyebrow text-bronze">Explore</span>
+            <ul className="mt-5 space-y-3">
+              {primaryNav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className="text-linen/70 transition-colors hover:text-linen"
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <span className="eyebrow text-bronze">Cases We Defend</span>
+            <ul className="mt-5 space-y-3">
+              {capabilities.map((cap) => (
+                <li key={cap.key}>
+                  <Link
+                    href={cap.href}
+                    className="text-linen/70 transition-colors hover:text-linen"
+                  >
+                    {cap.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-16 border-t border-white/10 pt-8">
+          <div className="flex flex-col gap-6 text-sm text-linen/50 sm:flex-row sm:items-center sm:justify-between">
+            <p>
+              {firm.legalName}, {formatOffice(primaryOffice)}
+            </p>
+            <p>
+              &copy; {year} {firm.legalName}. All rights reserved.
+            </p>
+          </div>
+          <p className="mt-6 max-w-3xl text-xs leading-relaxed text-linen/40">
+            The information on this website is for general purposes only and is
+            not legal advice. Contacting the firm does not create an
+            attorney-client relationship. Every case is different and prior
+            results do not guarantee a similar outcome.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+}
