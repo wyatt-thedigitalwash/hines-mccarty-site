@@ -415,3 +415,28 @@ contents**, which the brief said not to do. The seven categories open:
 | (F) | "any act which is indictable under the Immigration and Nationality Act..." |
 | (G) | "any act that is indictable under any provision listed in section 2332b(g)(5)(B)" |
 
+---
+
+## Pair 2, fetched BEFORE writing, 2026-08-13
+
+The first use of the pre-write rule as intended. `npm run prewrite -- W2-02-drug-trafficking.md W2-03-gun-crimes.md` named two subsections the briefs had flagged and no fetch covered. Both were fetched before a word of either page was touched, which is the discipline the previous four review rounds existed to force.
+
+**F.S. 790.23(1)**, `https://www.flsenate.gov/Laws/Statutes/2025/790.23`, fetched 2026-08-13.
+
+Fetched in full at F.S. 790.23(1)(a), F.S. 790.23(1)(b), F.S. 790.23(1)(c), F.S. 790.23(1)(d) and F.S. 790.23(1)(e). W2-03 had read the subsection as containing criteria (a) to (e) without reading the criteria.
+
+> "It is unlawful for any person to own or to have in his or her care, custody, possession, or control any firearm, ammunition, or electric weapon or device, or to carry a concealed weapon, including a tear gas gun or chemical weapon or device, if that person has been:
+> (a) Convicted of a felony in the courts of this state;
+> (b) Found, in the courts of this state, to have committed a delinquent act that would be a felony if committed by an adult and such person is under 24 years of age;
+> (c) Convicted of or found to have committed a crime against the United States which is designated as a felony;
+> (d) Found to have committed a delinquent act in another state, territory, or country that would be a felony if committed by an adult and which was punishable by imprisonment for a term exceeding 1 year and such person is under 24 years of age; or
+> (e) Found guilty of an offense that is a felony in another state, territory, or country and which was punishable by imprisonment for a term exceeding 1 year."
+
+**Two things the page must carry, both of which a partial reading would have missed.** The prohibition is not limited to firearms: it reaches ammunition, electric weapons, and carrying a concealed weapon. And paragraphs (b) and (d) are age-limited to people under 24, so a juvenile adjudication does not disqualify indefinitely.
+
+**18 U.S.C. 922(g)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section922`, fetched 2026-08-13.
+
+W2-03 had recorded this as blocked by an allowlist gap; D2 resolved that gap and the fetch is now routine. Nine categories: a conviction punishable by more than one year; fugitive from justice; unlawful user of or addicted to a controlled substance; adjudicated as a mental defective or committed; certain aliens; dishonourable discharge; renounced citizenship; subject to a qualifying domestic violence restraining order; and a misdemeanour crime of domestic violence.
+
+**Two constraints that travel with it.** The federal predicate is "punishable by imprisonment for a term exceeding one year", which is not the same test as Florida's "convicted of a felony", so the two prohibitions do not cover identical populations. And the controlled-substance limb at paragraph (3) is the subject of live constitutional litigation, which is a C12-B byline-class matter: the subsection text is quotable, its application to a state-authorised medical marijuana patient is not, and that stays off the page.
+
