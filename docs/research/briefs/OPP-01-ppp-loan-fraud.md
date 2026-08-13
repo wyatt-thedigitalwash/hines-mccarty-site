@@ -128,6 +128,34 @@ general fraud statutes used in half the white-collar silo. The pass comes from
 Sections 6 and 7, which is why this must be its own page rather than a section
 of the bank fraud page.
 
+### Ready to populate, 2026-08-13, now that Section 6A is verified
+
+```
+statute:   "15 U.S.C. 636(a)(36)(W), against 18 U.S.C. 3293"
+section:   "Is this still live? The two ten-year clocks and the one that runs out"
+assertion: "This is the only charge in the set whose limitations period is set by the loan rather than by the offence: 15 U.S.C. 636(a)(36)(W) gives ten years for any charge alleging a borrower defrauded a first draw PPP loan whatever title 18 section is used, while 18 U.S.C. 3293 runs the other way and gives ten years to 1344 and 1014 outright but to 1343 only if the offence affects a financial institution as 18 U.S.C. 20 defines one, so a non-borrower charged with wire fraud on a fintech-originated loan can fall outside both and keep the ordinary five years under 3282."
+```
+
+**Why it is false or nonsensical if another charge is swapped in.** Cover "PPP"
+and read it. No other charge in this project's set has a limitations period
+located in the Small Business Act, and none has **two** ten-year provisions built
+on incompatible indexes, one keyed to the loan and the borrower and the other to
+the offence charged and the identity of the lender. Swap in embezzlement or grand
+theft and the sentence becomes nonsense: those run on the ordinary Florida
+periods and no federal programme statute touches them. Swap in bank fraud and
+half the sentence survives, 3293 does apply, but the 636(a)(36)(W) half is simply
+false, because there is no covered loan. **The differentiator is the mismatch
+between the two provisions**, which exists on exactly one page.
+
+**Hand-check against the populated set.** `statuteKey` resolves this to
+`15 usc 636`, which no sibling holds. WC-02 bank fraud rests on 18 U.S.C. 1344
+and FED-05 on 1341 and 1343; both are named here but neither makes a limitations
+claim, and the substance is a period rather than an element or a ladder. The
+nearest substantive neighbour is FED-08, whose assertion is also about the
+absence of a governing statute rather than its content; the two are not
+restatements, because FED-08's point is that no statute exists and this page's
+point is that two do and they do not agree.
+
 ---
 
 ## 6. Sources and verification status
@@ -171,7 +199,7 @@ structural rather than a failure of effort.
 |---|---|---|
 | 18 U.S.C. 1343 (wire fraud) and 1344 (bank fraud), text and maxima | **RESOLVED, now verified.** See the addition below. | -- |
 | 18 U.S.C. 1014 (false statement on a loan application), 1957 (monetary transactions), 371 (conspiracy) | **UNVERIFIED**, but now fetchable | uscode.house.gov, per DECISIONS.md D2. No longer blocked, just not yet done. |
-| **The ten-year limitations period for PPP and bank fraud offences** | **reported, not verified.** keywords.md attributes it to the "PPP and Bank Fraud Enforcement Harmonization Act" of 2022 and labels the ten-year claim reported. | This is the page's most important single fact and it is the one carrying the least support. Verify the operative limitations statute text before Section 7 publishes. This is a publish blocker, not a nice-to-have. |
+| **The ten-year limitations period for PPP and bank fraud offences** | **RESOLVED 2026-08-13, and the answer is conditional rather than a single number.** See Section 6A. | -- |
 | USSG 2B1.1 loss table values | **UNVERIFIED.** Two fetch attempts this session: ussc.gov/guidelines/2024-guidelines-manual/2024-chapter-2-b returned HTTP 404, and guidelines.ussc.gov's loss-table app exceeded the redirect limit. | ussc.gov is allowlisted and the material exists there. Retry against the current Guidelines Manual chapter 2B landing page, or the USSC loss-calculation primer at ussc.gov/guidelines/primers/loss-calculation, which was returned as a live result. |
 | That SBA-OIG, FBI, IRS-CI, or any specific agency investigates these cases in Tampa | **UNVERIFIED** | Each agency's official site. Do not name an agency from recall or from a competitor page. |
 | Any statement about how many PPP prosecutions the Middle District has brought | **Do not state it** | No allowlisted source was fetched. A case-count claim is also a record characterization and sits close to Rule 4-7.13(b), so it should not be reached for even if a number turns up. |
@@ -180,6 +208,146 @@ structural rather than a failure of effort.
 limitations-period statute and at least the primary charging statute are
 verified against an allowlisted official source. Given the revised 6-12mo grade,
 that is not a reason to rush the allowlist decision on this page's account.
+
+**Gate status 2026-08-13: the limitations half is CLEARED** (Section 6A). The
+charging-statute half is partly cleared: 1343 and 1344 are verified; 1014, 1957
+and 371 are fetchable and not yet fetched.
+
+---
+
+## 6A. The limitations period, resolved from operative text
+
+**Resolved 2026-08-13.** The figure previously carried as reported is
+**substantially correct and materially incomplete**, and the incompleteness is
+the part that matters. **There is no single limitations period for PPP loan
+fraud.** Which period applies turns on what the prosecution alleges and under
+which statute it is brought, and a page stating one number would be wrong in the
+way that matters most here, because the reader is asking whether they are still
+exposed.
+
+### The statute that actually sets the PPP period
+
+Not a title 18 provision. It sits in the Small Business Act.
+
+**https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title15-section636&num=0&edition=prelim**
+15 U.S.C. 636(a)(36)(W), quoted verbatim:
+
+> "(W) Fraud enforcement harmonization.-Notwithstanding any other provision of
+> law, any criminal charge or civil enforcement action alleging that a borrower
+> engaged in fraud with respect to a covered loan guaranteed under this
+> paragraph shall be filed not later than 10 years after the offense was
+> committed."
+
+**verified**, fetched 2026-08-13. This is the codification of what keywords.md
+called the "PPP and Bank Fraud Enforcement Harmonization Act." The brief should
+cite the code section, not the popular name of the act.
+
+**The structural point the page is built on.** This provision is **not indexed to
+offences at all.** It does not list charging statutes. It reaches "any criminal
+charge ... alleging that a borrower engaged in fraud with respect to a covered
+loan guaranteed under this paragraph," which is defined by **the loan and the
+defendant's relationship to it**, not by which title 18 section the government
+selects. That is the opposite of how the general financial-institution
+limitations statute works, and the contrast is the clearest thing on this page.
+
+### The other ten-year period, which is offence-indexed and does not track the first
+
+**https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3293&num=0&edition=prelim**
+18 U.S.C. 3293, quoted verbatim in full:
+
+> "No person shall be prosecuted, tried, or punished for a violation of, or a
+> conspiracy to violate-
+> (1) section 215, 656, 657, 1005, 1006, 1007, 1014, 1033, or 1344;
+> (2) section 1341 or 1343, if the offense affects a financial institution; or
+> (3) section 1963, to the extent that the racketeering activity involves a
+> violation of section 1344;
+> unless the indictment is returned or the information is filed within 10 years
+> after the commission of the offense."
+
+**verified**, fetched 2026-08-13.
+
+**Read the conditional in paragraph (2).** Bank fraud (1344) and false statement
+on a loan application (1014) get ten years **unconditionally**. Wire fraud (1343)
+and mail fraud (1341), which are the workhorse PPP charges, get ten years **only
+"if the offense affects a financial institution."** A limitations period that
+applies to bank fraud does not automatically apply to a wire fraud count.
+
+**And "financial institution" is a closed enumerated list.**
+
+**https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section20&num=0&edition=prelim**
+18 U.S.C. 20 defines the term for all of title 18 in ten numbered categories:
+insured depository institutions, insured credit unions, Federal home loan banks
+and members, Farm Credit System institutions, small business investment
+companies, depository institution holding companies, Federal Reserve banks and
+member banks, Edge Act organizations, branches or agencies of foreign banks, and
+"a mortgage lending business ... or any person or entity that makes in whole or
+in part a federally related mortgage loan."
+
+**verified**, fetched 2026-08-13. **A large share of PPP loans were originated by
+non-bank fintech lenders**, and nothing in this closed list obviously reaches
+one. Whether a given PPP lender is a section 20 financial institution is a
+question about that lender, not a general fact about the programme.
+
+### The default, when neither ten-year provision reaches
+
+18 U.S.C. 3282(a), **already verified in this project** and quoted in
+docs/research/briefs/FED-08-target-letter-defense.md Section 7: five years, and
+the section opens "Except as otherwise expressly provided by law," which is the
+hook both provisions above hang on.
+
+### What the page should actually say
+
+| If the prosecution ... | Period | Source |
+|---|---|---|
+| alleges **a borrower** committed fraud on a **first draw** PPP loan under 15 U.S.C. 636(a)(36) | **10 years**, whatever title 18 section is charged | 636(a)(36)(W) |
+| charges **1344 bank fraud** or **1014 false statement on a loan application** | **10 years**, independently of the PPP provision | 3293(1) |
+| charges **1343 wire fraud** and the offence **affects a section 20 financial institution** | **10 years** | 3293(2) |
+| charges **1343 wire fraud** and it does **not** affect a section 20 financial institution, and 636(a)(36)(W) does not reach the defendant or the loan | **5 years**, the default | 3282(a) |
+
+**The two ten-year routes are independent and neither swallows the other.** One
+is defined by the loan and the borrower; the other by the offence charged and
+whether a financial institution was affected. A defendant can be inside one and
+outside the other.
+
+### Two sub-questions the operative text does NOT settle. UNMET, and they matter.
+
+Both are recorded rather than resolved, because resolving either would require
+going outside operative text.
+
+1. **Second draw loans.** 636(a)(36)(W) reaches a covered loan "guaranteed under
+   **this paragraph**," which is paragraph (36), the first draw programme. Second
+   draw loans are paragraph (37), and **paragraph (37) contains no limitations
+   provision of its own**. It does carry a general incorporation clause at
+   (37)(B), under which the Administrator may guarantee covered loans "under the
+   same terms, conditions, and processes as a loan made under paragraph (36)."
+   **Whether that clause carries a criminal limitations provision across is a
+   question of statutory construction the text does not answer.** Do not assert
+   either reading on the page.
+2. **Non-borrower defendants.** 636(a)(36)(W) is written in terms of "a borrower"
+   engaging in fraud. Many PPP prosecutions target facilitators, preparers, and
+   ring organisers who were not themselves the borrower. **Whether the provision
+   reaches a non-borrower defendant is not resolved by its text.** Such a
+   defendant may still be inside 3293 through the charging statute, which is a
+   different route with a different condition.
+
+**Consequence for the page.** The FAQ "Is PPP fraud still being investigated?"
+and outline item 7 can now be written, but **only in the conditional form above**.
+A flat "you have ten years of exposure" would be wrong for a second-draw-only
+non-borrower charged under 1343 with a fintech lender, which is not an exotic
+fact pattern. The conditional structure is also the page's strongest asset,
+because no competitor page observed in this SERP states the condition at all.
+
+### An EIDL provision was looked for and NOT established
+
+15 U.S.C. 636 was searched for any parallel limitations provision covering
+economic injury disaster loans. **The fetch reported none outside (36)(W), and
+that result is being treated as inconclusive rather than negative.** Section 636
+is very long, the fetch converts and truncates, and one returned description of
+subsection (b)(2)'s subject matter did not match what (b)(2) covers, which is a
+sign the page was truncated before that point. **A truncated fetch returns the
+same "not present" as a genuine absence**, which is docs/research/HUNT-LIST.md
+defect 1. Recorded UNMET. If the page ever addresses EIDL, this needs its own
+targeted verification.
 
 ---
 

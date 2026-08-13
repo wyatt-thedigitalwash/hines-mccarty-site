@@ -67,6 +67,24 @@ never by recall (done-criterion C12).
   allowlist prefers the source that publishes the law over the agency that
   applies it.
 
+#### RESOLVED 2026-08-13: the PPP limitations period
+
+Carried as **reported, not verified** since the wave 1 work, and the publish
+blocker on `/white-collar-defense/ppp-loan-fraud`. **Resolved from operative
+text** at uscode.house.gov: 15 U.S.C. 636(a)(36)(W), 18 U.S.C. 3293, 18 U.S.C.
+20, against the 18 U.S.C. 3282(a) default.
+
+**The answer is conditional and the page must state it that way.** There is no
+single limitations period for PPP loan fraud: one ten-year provision is keyed to
+the loan and the borrower, the other to the offence charged and whether the
+lender is a section 20 financial institution, and a defendant can sit outside
+both. Full working in docs/research/briefs/OPP-01-ppp-loan-fraud.md Section 6A.
+
+**A reviewer should treat any flat "ten years" statement on this page as an
+error**, not as a detail to check. Two sub-questions remain UNMET by design,
+second draw loans and non-borrower defendants, and neither may be asserted in
+either direction.
+
 #### Standing unverified source, escalated 2026-08-13
 
 **USSG 2B1.1, the federal loss table.** Six fetch attempts across three briefs

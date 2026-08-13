@@ -33,7 +33,7 @@ resolve.
 | TEMPLATE-FINDINGS.md | **DONE** | 1 of 2 | 3 template changes recommended, 8 items confirmed unchanged. Two corrections to the standing research caveats recorded. |
 | W1-01-middle-district-florida-hub.md | **DONE** | 1 of 2 | Not a level 3 charge page. Scope resolved by D1. |
 | W1-02-embezzlement.md | **DONE, C9 revised** | 1 of 2 | Strongest source position in wave 1. C9 moved off the shared 812.014 table onto the position-of-trust fact pattern. |
-| OPP-01-ppp-loan-fraud.md | **DONE, demoted out of wave 1** | 1 of 2 | Revised from NOW to 6-12mo. Publish-blocked on the limitations period. Deferred, not cancelled: Section 7.2. |
+| OPP-01-ppp-loan-fraud.md | **DONE. Limitations gap closed 2026-08-13** | 2 of 2 | Revised from NOW to 6-12mo. **The limitations publish blocker is cleared** and the answer is conditional; see the PPP section below. C9 now populated. Deferred, not cancelled: Section 7.2. |
 | W1-03-grand-theft.md | **DONE, promoted into wave 1** | 1 of 2 | Strongest single opportunity in the set. Keeps the 812.014 value ladder under the C9 collision ruling. |
 | W2-02-drug-trafficking.md | **DONE** | 1 of 2 | Two publish blockers, both single fetches. |
 | W2-03-gun-crimes.md | **DONE** | 1 of 2 | Carries the best verified C9 fact in the set. |
@@ -375,11 +375,84 @@ reason it already refuses to collapse excused-by-decision into not-yet-written.
 
 ### Current C9 state
 
-**29 of 30 charge pages resolved.** 27 compared (of which 1 category overview),
-2 exempt by decision under 2 distinct types, and **1 genuinely outstanding**:
-`/white-collar-defense/ppp-loan-fraud`, still blocked on identifying which
-limitations statute governs PPP fraud prosecutions. That is a research gap with a
-known shape, not an open question.
+**All 30 charge pages resolved as of 2026-08-13. Nothing outstanding.**
+
+- **28 compared**, of which 1 is a category overview.
+- **2 exempt by decision**, under 2 distinct types: `/white-collar-defense/
+  corporate-fraud` (`no-statute`, D12) and `/federal-criminal-defense/
+  target-letter-defense` (`policy-governed`, D15).
+- **0 carrying `[NEEDS]` and not exempt.**
+
+The last one closed was `/white-collar-defense/ppp-loan-fraud`. See the PPP
+limitations section below.
+
+---
+
+## The PPP limitations period, resolved from operative text
+
+**The last open research gap in the programme. Closed 2026-08-13**, and the
+answer is **conditional rather than a single number**. Full working in
+docs/research/briefs/OPP-01-ppp-loan-fraud.md Section 6A.
+
+**The figure carried as reported was substantially correct and materially
+incomplete**, and the incompleteness is the part that matters, because the reader
+is asking whether they are still exposed.
+
+### What was actually verified
+
+| Source | Fetched | Holding |
+|---|---|---|
+| **15 U.S.C. 636(a)(36)(W)** | uscode.house.gov | 10 years for "any criminal charge ... alleging that **a borrower** engaged in fraud with respect to a covered loan guaranteed **under this paragraph**" |
+| **18 U.S.C. 3293** | uscode.house.gov | 10 years for 1344 and 1014 **outright**; for 1341 and 1343 **only "if the offense affects a financial institution"** |
+| **18 U.S.C. 20** | uscode.house.gov | "Financial institution" is a **closed list of ten categories**, none of which obviously reaches a non-bank fintech PPP lender |
+| **18 U.S.C. 3282(a)** | already in corpus, FED-08 | 5 years by default, "Except as otherwise expressly provided by law" |
+
+**The statute that sets the PPP period is not in title 18 at all.** It is in the
+Small Business Act, and the brief should cite 15 U.S.C. 636(a)(36)(W) rather than
+the popular name of the 2022 act, which is what the reported figure was
+attributed to.
+
+### Why the answer is conditional, and what makes it interesting
+
+**The two ten-year provisions are built on incompatible indexes and neither
+swallows the other.** 636(a)(36)(W) is keyed to **the loan and the borrower** and
+does not name a single charging statute. 3293 is keyed to **the offence charged**
+and, for the workhorse wire fraud count, to **the identity of the lender**. A
+defendant can be inside one and outside the other.
+
+**A non-borrower charged under 1343 on a fintech-originated loan can fall outside
+both**, and keep the ordinary five years. That is not an exotic fact pattern, and
+it is why a page stating one number would be wrong in the way that matters most.
+
+**This became the page's C9.** The differentiator is the mismatch itself, which
+exists on exactly one page in the set. Barrier: 406 pairs, statute ignored, max
+0.196 against the 0.34 threshold, `statuteKey` resolving to `15 usc 636` which no
+sibling holds.
+
+### Two sub-questions the text does NOT settle, recorded UNMET
+
+Neither was closed with a reported figure, and neither should be asserted on the
+page in either direction.
+
+1. **Second draw loans.** (36)(W) reaches loans "under **this paragraph**",
+   which is (36). Second draw loans are (37), and **(37) has no limitations
+   provision of its own**. It carries a general incorporation clause at (37)(B)
+   ("same terms, conditions, and processes"), and **whether that carries a
+   criminal limitations provision across is a question of construction the text
+   does not answer**.
+2. **Non-borrower defendants.** (36)(W) says "**a borrower**". Many PPP
+   prosecutions target facilitators, preparers, and organisers who were not the
+   borrower. The text does not resolve whether it reaches them.
+
+### An absence that was refused as evidence
+
+15 U.S.C. 636 was searched for a parallel **EIDL** limitations provision and the
+fetch reported none. **That result was recorded as inconclusive, not negative.**
+Section 636 is very long, the fetch truncates, and one returned description of
+subsection (b)(2)'s subject matter did not match what (b)(2) covers, which is the
+signature of a truncated page. **A truncated fetch returns the same "not present"
+as a genuine absence**, which is HUNT-LIST defect 1. Recorded UNMET rather than
+resolved.
 
 ---
 

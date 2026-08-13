@@ -1119,6 +1119,17 @@ const CHARGE_C9: Record<string, C9Assertion> = {
     assertion:
       "Every state attorney is directed by statute to adopt a pro-prosecution policy for this category of case, so the complainant does not control whether it proceeds.",
   },
+  // Recorded 2026-08-13, closing the last outstanding C9. The limitations
+  // period was carried as "reported" for the whole programme and is now
+  // resolved from operative text; see OPP-01 Section 6A. The answer is
+  // conditional, and the C9 rests on the conditionality itself.
+  "white-collar/ppp-loan-fraud": {
+    statute: "15 U.S.C. 636(a)(36)(W), against 18 U.S.C. 3293",
+    section: "Is this still live? The two ten-year clocks and the one that runs out",
+    assertion:
+      "This is the only charge in the set whose limitations period is set by the loan rather than by the offence: 15 U.S.C. 636(a)(36)(W) gives ten years for any charge alleging a borrower defrauded a first draw PPP loan whatever title 18 section is used, while 18 U.S.C. 3293 runs the other way and gives ten years to 1344 and 1014 outright but to 1343 only if the offence affects a financial institution as 18 U.S.C. 20 defines one, so a non-borrower charged with wire fraud on a fintech-originated loan can fall outside both and keep the ordinary five years under 3282.",
+  },
+
   // Recorded 2026-08-13 under D15. This page is c9Exempt with type
   // "policy-governed", and the exemption REQUIRES this field to be populated:
   // the page has verified substance and is excused from the statute-parse check
@@ -1294,15 +1305,8 @@ const CHARGE_C9: Record<string, C9Assertion> = {
     assertion:
       "No Florida offense carries this name, and the state analogue is the Florida Communications Fraud Act with its own aggregate-value tiers.",
   },
-  // OPP-01. Its differentiator rests on a limitations period that is reported
-  // rather than verified, so the statute stays a placeholder and the entry is
-  // not compared. See docs/research/briefs/OPP-01-ppp-loan-fraud.md.
-  "white-collar/ppp-loan-fraud": {
-    statute: "[NEEDS: the limitations statute governing PPP fraud prosecutions]",
-    section: "Is this still live?",
-    assertion:
-      "[NEEDS: verify the limitations period before asserting it as the differentiator]",
-  },
+  // OPP-01's placeholder was removed 2026-08-13 when the limitations period was
+  // resolved from operative text. The populated entry is above.
 };
 
 /**
