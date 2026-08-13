@@ -47,6 +47,7 @@ const FORUM_ILLUSTRATION: Partial<
  */
 export default function SiloHub({ silo }: { silo: Silo }) {
   const Illustration = FORUM_ILLUSTRATION[silo.key];
+  const facts = silo.forumFacts;
 
   return (
     <>
@@ -106,6 +107,165 @@ export default function SiloHub({ silo }: { silo: Silo }) {
           </div>
         </div>
       </section>
+
+      {/*
+        Verified court facts, rendered only where a silo has them.
+
+        This is the section that carries the W1-01 brief on the federal hub, per
+        DECISIONS.md D1. Nothing here is hardcoded per silo: a hub with no
+        `forumFacts` renders none of it, and the state and white-collar hubs
+        currently render none.
+
+        No Criminal Punishment Code artifact is linked from any of this. The CPC
+        does not apply to federal cases, so such a link would be wrong on the
+        merits independent of the calculator ship gate. That is a standing rule
+        in CASES-WE-DEFEND-PLAN.md Section 4.2.
+      */}
+      {facts && (
+        <section data-bg="linen" className="bg-linen py-20 text-navy lg:py-28">
+          <div className="mx-auto max-w-[1400px] space-y-20 px-6 lg:space-y-24 lg:px-10">
+            {facts.divisions && (
+              <div>
+                <h2 className="font-display text-4xl leading-tight sm:text-5xl">
+                  {facts.divisions.heading}
+                </h2>
+                {facts.divisions.intro && (
+                  <p className="mt-6 max-w-3xl text-lg leading-relaxed text-charcoal">
+                    {facts.divisions.intro}
+                  </p>
+                )}
+                {/* No min-width here, unlike the charge-page penalties table.
+                    That one has four short columns and needs the floor. This
+                    one has two, and the second is a wrapping county list that
+                    IS the content. Forcing a min-width would push the counties
+                    off-screen at 390px and make the substance of the table
+                    reachable only by horizontal scroll. */}
+                <div className="mt-10 overflow-x-auto">
+                  <table className="w-full border-collapse text-left">
+                    <thead>
+                      <tr className="border-b border-navy/20">
+                        <th className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
+                          Division
+                        </th>
+                        <th className="py-3 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
+                          Counties
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {facts.divisions.rows.map((row) => (
+                        <tr
+                          key={row.name}
+                          className="border-b border-navy/10 align-top"
+                        >
+                          <td className="py-4 pr-6 font-medium">
+                            <span className="whitespace-nowrap">{row.name}</span>
+                            {row.isLocal && (
+                              <span className="mt-1 block font-heading text-xs uppercase leading-snug tracking-wide text-bronze">
+                                Hillsborough
+                              </span>
+                            )}
+                          </td>
+                          <td className="py-4 leading-relaxed text-charcoal">
+                            {row.counties}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            )}
+
+            {facts.courthouse && (
+              <div>
+                <h2 className="font-display text-4xl leading-tight sm:text-5xl">
+                  {facts.courthouse.heading}
+                </h2>
+                {facts.courthouse.body?.map((paragraph) => (
+                  <p
+                    key={paragraph.slice(0, 40)}
+                    className="mt-6 max-w-3xl text-lg leading-relaxed text-charcoal"
+                  >
+                    {paragraph}
+                  </p>
+                ))}
+                <div className="mt-10 max-w-3xl border-t-2 border-navy pt-6">
+                  <p className="font-display text-2xl leading-snug">
+                    {facts.courthouse.name}
+                  </p>
+                  <p className="mt-2 leading-relaxed text-charcoal">
+                    {facts.courthouse.address}
+                  </p>
+                  {!!facts.courthouse.rows?.length && (
+                    <dl className="mt-8 space-y-4">
+                      {facts.courthouse.rows.map((row) => (
+                        <div
+                          key={row.label}
+                          className="border-t border-navy/12 pt-4 sm:flex sm:gap-8"
+                        >
+                          <dt className="font-heading text-sm uppercase tracking-wide text-navy/55 sm:w-56 sm:shrink-0">
+                            {row.label}
+                          </dt>
+                          <dd className="mt-1 leading-relaxed text-charcoal sm:mt-0">
+                            {row.value}
+                          </dd>
+                        </div>
+                      ))}
+                    </dl>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {facts.offices && (
+              <div>
+                <h2 className="font-display text-4xl leading-tight sm:text-5xl">
+                  {facts.offices.heading}
+                </h2>
+                {facts.offices.intro && (
+                  <p className="mt-6 max-w-3xl text-lg leading-relaxed text-charcoal">
+                    {facts.offices.intro}
+                  </p>
+                )}
+                <ul className="mt-10 grid gap-6 sm:grid-cols-2">
+                  {facts.offices.items.map((item) => (
+                    <li
+                      key={item.name}
+                      className="border border-navy/20 bg-white p-8"
+                    >
+                      <p className="font-heading text-sm uppercase tracking-wide text-navy/55">
+                        {item.role}
+                      </p>
+                      <p className="mt-3 font-display text-xl leading-snug">
+                        {item.name}
+                      </p>
+                      {item.note && (
+                        <p className="mt-4 leading-relaxed text-charcoal">
+                          {item.note}
+                        </p>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {facts.practice && (
+              <div className="max-w-3xl">
+                <h2 className="font-display text-4xl leading-tight sm:text-5xl">
+                  {facts.practice.heading}
+                </h2>
+                <div className="mt-6 space-y-5 text-lg leading-relaxed text-charcoal">
+                  {facts.practice.body.map((paragraph) => (
+                    <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        </section>
+      )}
 
       {/*
         Forum-level questions. These belong on the hub, not on any one charge

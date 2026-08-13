@@ -414,6 +414,51 @@ export const primaryNav: NavItem[] = [
 
 export type SiloKey = "state" | "federal" | "white-collar";
 
+/**
+ * Verified court facts a silo hub can carry, beyond the prose forum section.
+ *
+ * Every field is optional and renders nothing when absent, so a hub with no
+ * verified facts yet looks deliberate rather than broken. Nothing here is
+ * charge-specific: these describe the forum, which is what a hub is for.
+ *
+ * ONLY VERIFIED FACTS GO IN HERE. Each entry carries the allowlisted source it
+ * was fetched from, per done-criterion C12. Anything unverified stays a [NEEDS]
+ * comment beside the data rather than becoming rendered text.
+ */
+export type ForumFacts = {
+  /**
+   * The court's internal geography. Federal: the divisions and their counties.
+   * `isLocal` marks the row the reader is most likely in, which is a factual
+   * emphasis, not a claim about the firm.
+   */
+  divisions?: {
+    heading: string;
+    intro?: string;
+    rows: { name: string; counties: string; isLocal?: boolean }[];
+  };
+  /** The courthouse a local reader actually goes to. */
+  courthouse?: {
+    heading: string;
+    name: string;
+    address: string;
+    body?: string[];
+    /** Label and value rows: clerk phone, hours, counties served. */
+    rows?: { label: string; value: string }[];
+  };
+  /**
+   * Who prosecutes and who defends in this forum. Factual identification of
+   * public offices only. Never any implication of a relationship with or
+   * influence over the court or the prosecuting office (Rule 4-7.13).
+   */
+  offices?: {
+    heading: string;
+    intro?: string;
+    items: { role: string; name: string; note?: string }[];
+  };
+  /** An admission or practice requirement of this court, stated factually. */
+  practice?: { heading: string; body: string[] };
+};
+
 export type Silo = {
   key: SiloKey;
   href: string;
@@ -426,6 +471,8 @@ export type Silo = {
   /** Plan Section 3 item 4, the section that earns the page. */
   forumHeading: string;
   forumBody: string[];
+  /** Verified court facts. See ForumFacts. */
+  forumFacts?: ForumFacts;
   owner?: string;
   lastReviewed?: string;
   /**
@@ -511,6 +558,113 @@ export const silos: Silo[] = [
       "The second is release. Federal court does not work from a bond schedule. Whether a defendant is released pending trial is litigated at a hearing, on statutory factors, and that hearing happens early.",
       "Sentencing works differently too. Federal exposure is driven by an advisory guideline calculation rather than by a state scoresheet, and the inputs to that calculation are often contested long before sentencing.",
     ],
+    /**
+     * From docs/research/briefs/W1-01-middle-district-florida-hub.md. This hub
+     * carries that brief, per DECISIONS.md D1: the Layer 2 guide at
+     * /resources/guides/middle-district-florida-federal-court is not built,
+     * because two pages cannot own one query.
+     *
+     * The C9 differentiator, named in the brief: cover the words "Middle
+     * District of Florida" and the page is still identifiable, because the
+     * division list names a seven-county Tampa Division that no other court in
+     * the world has.
+     *
+     * Every fact below was fetched 2026-08-13 from flmd.uscourts.gov, which is
+     * allowlisted for this court under CASES-WE-DEFEND-PLAN.md Section 10.3.
+     *
+     * [NEEDS: Tampa Division district and magistrate judges] Not fetched. The
+     * brief records the judges directory as UNVERIFIED. Do not name a judge
+     * from recall.
+     * [NEEDS: current U.S. Attorney for the Middle District of Florida] The
+     * office is verified; the incumbent is not. justice.gov/usao-mdfl is now
+     * allowlisted for this (DECISIONS.md D2, procedure and policy scope), but
+     * it has not been fetched. The name also decays every administration,
+     * which is why the brief keeps it out of the FAQ.
+     * [NEEDS: Speedy Trial Act intervals, 18 U.S.C. 3161] Fetchable from
+     * uscode.house.gov since D2. Publish no interval until fetched.
+     * [NEEDS: detention factors, 18 U.S.C. 3142] Same.
+     * [NEEDS: federal investigating agency offices in Tampa] Verify against
+     * each agency's own site before naming a field office.
+     */
+    forumFacts: {
+      divisions: {
+        heading: "The five divisions, and which one hears a Tampa case",
+        intro:
+          "The Middle District of Florida runs from the Georgia line to the edge of the Everglades, and it is split into five divisions. Which one hears a case follows the county it comes from.",
+        rows: [
+          {
+            name: "Tampa",
+            counties:
+              "Hardee, Hillsborough, Manatee, Pasco, Pinellas, Polk, Sarasota",
+            isLocal: true,
+          },
+          {
+            name: "Orlando",
+            counties: "Brevard, Orange, Osceola, Seminole, Volusia",
+          },
+          {
+            name: "Jacksonville",
+            counties:
+              "Baker, Bradford, Clay, Columbia, Duval, Flagler, Hamilton, Nassau, Putnam, St. Johns, Suwannee, Union",
+          },
+          {
+            name: "Ocala",
+            counties: "Citrus, Hernando, Lake, Marion, Sumter",
+          },
+          {
+            name: "Fort Myers",
+            counties: "Charlotte, Collier, DeSoto, Glades, Hendry, Lee",
+          },
+        ],
+      },
+      courthouse: {
+        heading: "Where a Tampa Division case is heard",
+        name: "Sam M. Gibbons United States Courthouse",
+        address: "801 North Florida Avenue, Tampa, Florida 33602",
+        body: [
+          // A statement about court geography, not about the firm's presence.
+          // Plan Section 8.1 rule 3 forbids implying an office the firm does
+          // not have; naming the county a division covers implies nothing.
+          "Brandon sits in Hillsborough County, and Hillsborough County sits in the Tampa Division. A federal case arising here is heard downtown, at the courthouse below.",
+        ],
+        rows: [
+          { label: "Clerk's office", value: "(813) 301-5400" },
+          {
+            label: "Clerk's office hours",
+            value: "8:30 a.m. to 4:00 p.m., weekdays except holidays",
+          },
+          {
+            label: "Counties served",
+            value:
+              "Hardee, Hillsborough, Manatee, Pasco, Pinellas, Polk, Sarasota",
+          },
+        ],
+      },
+      offices: {
+        heading: "Who prosecutes, and who defends",
+        intro:
+          "Federal cases here are brought by one office and defended by private counsel or, for those who qualify, by the federal defender.",
+        items: [
+          {
+            role: "Prosecution",
+            name: "United States Attorney's Office, Middle District of Florida",
+            note: "Federal charges in this district are brought by this office rather than by a state attorney.",
+          },
+          {
+            role: "Appointed defense",
+            name: "Office of the Federal Defender for the Middle District of Florida",
+            note: "Represents defendants who qualify for appointed counsel. A defendant who does not qualify, or who retains counsel, is represented privately.",
+          },
+        ],
+      },
+      practice: {
+        heading: "Who can appear in this court",
+        body: [
+          "Appearing in the Middle District is not automatic for a Florida lawyer. The court requires membership of its own bar, or special admission in the individual case, under its Local Rule 2.01.",
+          "It is a fact worth checking about anyone being considered for a federal matter here, and it is checkable: the court publishes a directory of the members of its bar.",
+        ],
+      },
+    },
     faq: [
       {
         question: "How do I know whether my case is in state or federal court?",
