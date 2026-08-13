@@ -41,6 +41,60 @@ blocked on a plan decision, not on further research.
 
 ---
 
+## Remaining-20 brief programme, started 2026-08-13
+
+30 charges, 9 briefed in waves 1 and 2, 20 remaining.
+`/white-collar-defense/corporate-fraud` is excluded and needs no brief: D12
+reclassified it as a category overview, it is `c9Exempt`, and its page is
+written. Grouping and dependency order are in CASES-WE-DEFEND-PLAN.md Section
+7.4.
+
+**Filename convention changed for these 20.** The existing files are prefixed by
+plan wave (`W1-`, `W2-`, `OPP-`). These 20 charges have no plan wave, because
+Section 7's table only sequences the 6 that keywords.md graded. New briefs are
+prefixed by silo instead: `FED-`, `WC-`, `ST-`. Mixing a wave prefix onto an
+unwaved charge would imply a grade that does not exist.
+
+### W1, conditional pairs: DONE. Neither page collapses.
+
+Both carried binding constraints from plan Section 4.6.2, and W1 ran serially
+because either could have changed the page list. Neither did.
+
+| Brief | Status | Constraint verdict |
+|---|---|---|
+| FED-01-money-laundering.md | **DONE** | **SATISFIED.** Predicate list, threshold contrast, and federal sentencing all verified. The SERP asks for exactly the material the constraint points at: "List of specified unlawful activity money laundering" is a live related search. |
+| FED-02-computer-internet-crimes.md | **DONE** | **SATISFIED, with a stated qualification.** 1030(a)(1) has no Florida analogue at all; (a)(4) and (a)(5) are structurally distinct rather than absolutely so, because Florida turns fraud and damage into enhancements where the federal statute makes each an offense. Real, but subtler than the drug or gun pairs. |
+
+**The page list is unchanged by W1.** W2 through W4 may proceed.
+
+### The one decision W1 produced
+
+**Where does the Florida computer crime page belong?** Section 4.6.2 left this
+open, to be resolved from SERP evidence. It is resolved, and the answer is that
+it does not belong in the white-collar silo as currently labelled.
+
+Evidence: federal-shaped demand outweighs Florida-shaped demand about nine to
+one (`computer fraud and abuse act` 140/month and `18 usc 1030` 40/month, both
+Florida level, against `florida computer crimes act` at 20/month), and the
+commercial SERP for `computer crimes attorney Tampa` pulls three practice areas
+at once, of which only internet fraud is white-collar. Position 7 on that SERP
+is a child pornography defence page.
+
+Recommendation, ranked, in FED-02 Section 1. Preferred option is to move it to
+the state silo as a Florida offence page. **This changes the page list, so it
+needs a D-series decision on the D12 precedent and is not actioned here.**
+
+Two things wait on that decision: the counterpart link on FED-02 is deliberately
+unwired, and the Florida page cannot be briefed until its silo is settled.
+
+### Request budget
+
+8 of 300 DataForSEO requests used in W1. Every call logged with endpoint and
+purpose in the session log. The counter persists on disk between runs rather
+than resetting per invocation, so the cap cannot be defeated by restarting.
+
+---
+
 ## Questions only the human can answer
 
 **ALL SEVEN ANSWERED 2026-08-13. Decisions recorded in docs/build/DECISIONS.md

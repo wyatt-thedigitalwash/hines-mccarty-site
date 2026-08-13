@@ -663,6 +663,25 @@ competitor microsite.
 Build every page, per the capability principle in WEBSITE-PLAN.md Section 1.
 Reinforce in winnability order.
 
+**THIS TABLE IS PARTIAL, AND DELIBERATELY SO.** Added 2026-08-13. It sequences
+only the charges that keywords.md actually graded, which is 6 of the 20 charges
+still without a brief: conspiracy charges and target letter defense in wave 3,
+and sexual battery, sex crimes, CSAM, and homicide in wave 4. **The other 14
+have no wave here**, including every federal counterpart of a state page already
+built.
+
+It was left partial rather than completed, because completing it would mean
+assigning waves to charges that carry no winnability grade. A wave in this table
+means "keywords.md graded this and here is the grade." Inventing wave numbers
+for ungraded charges would make the column look like evidence when it is
+guesswork, which is the failure this plan spends Section 4.5 and Section 10.3
+guarding against.
+
+**Do not read this table as the full picture.** It answers "in what order do the
+graded pages get reinforced," not "what is left to build." For the second
+question, see the brief-production grouping in Section 7.4, which covers all 20
+and is ordered by dependency rather than by grade.
+
 | Wave | Pages | Grade and reasoning |
 |---|---|---|
 | 1 | Middle District of Florida federal hub | **NOW.** No Tampa private firm holds a dedicated district page (keywords.md) |
@@ -722,6 +741,39 @@ docs/research/briefs/OPP-01-ppp-loan-fraud.md stands as written and is complete.
 When the C12 allowlist work lands and capacity allows, it is ready to build.
 Nothing about it needs re-researching except the limitations period, which was
 always its blocker.
+
+### 7.4 Brief production order for the remaining 20 charges
+
+Added 2026-08-13. This is a different axis from the wave table above. The wave
+table orders **reinforcement by winnability grade**. This orders **brief
+production by dependency**, which is why the two do not match and why neither
+replaces the other.
+
+30 charges. 9 briefed. 20 still need one.
+`/white-collar-defense/corporate-fraud` is excluded and needs no brief: D12
+reclassified it as a category overview, it is `c9Exempt`, it rests on no
+statute, and its page is written.
+
+| Group | Count | Charges |
+|---|---|---|
+| **W1**, conditional pairs, serial | 2 | `federal/money-laundering`, `federal/computer-internet-crimes` |
+| **W2**, remaining federal and white-collar | 11 | federal: drug-trafficking, healthcare-fraud, wire-mail-fraud, conspiracy-charges, weapons-gun-offenses, target-letter-defense. White-collar: healthcare-fraud, bank-fraud, securities-fraud, computer-crime, tax-evasion |
+| **W3**, remaining state | 3 | drug-possession, battery, dui |
+| **W4**, wave 4 charges | 4 | sexual-battery, sex-crimes, homicide, and federal csam-defense |
+
+**W1 runs first and runs serially**, because both its briefs carry binding
+constraints from Section 4.6.2 and either can collapse its page. A collapse
+changes the page list, so nothing downstream should be researched against a list
+that might move.
+
+**W2 through W4 may fan out**, on one condition. The C9 collision check is only
+sound against a current set of assertions, so briefs drafted in parallel cannot
+each check against a snapshot taken before the others recorded: two such checks
+can both pass and both be wrong. Parallel drafting therefore ends at a
+**reconciliation barrier** that compares every new assertion **pairwise against
+the other new ones as well as against the populated set**, before any is
+recorded. A barrier that only checks new against old reproduces the defect it
+exists to prevent (docs/research/HUNT-LIST.md defect 1).
 
 ### 7.3 The white-collar supply gap, and why it does not reorder wave 2
 
