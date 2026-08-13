@@ -378,6 +378,15 @@ property worth having and it is not the property it felt like having.
 - **Counting pairs said nothing about magnitude.** Two legacy pages made 99%
   verbatim identical passed, because the pair count did not change.
 
+**THE RECURRENCE, PRESENT TENSE.** This instance is not historical. The
+banned-term rail is live, prints `ok` on every run, and missed **16 of 16**
+realistic violations under independent testing. It is a word-list check whose
+PASS means "none of these specific strings appear", and it produces exactly the
+feeling of coverage this instance names as the hazard. It now prints its own
+limits alongside its green line for that reason. **Fla. Bar R. 4-7 compliance on
+this site rests on the attorney read.** No gate in this repository is a
+compliance control, and none should be described as one.
+
 **The rules that follow.**
 
 1. **A gate tested only by its author is untested.** Every gate here had a
@@ -395,8 +404,54 @@ property worth having and it is not the property it felt like having.
    pages would make it noisy. There were two pages, their overlap was already
    100%, and the demotion was hiding the only true positive on the site.
 
+### Instance 9: a metric that degrades when the work improves
+
+**Added 2026-08-13. Recorded as a rule rather than as a one-off, because it is a
+test you can apply to any measurement in this project.**
+
+> **If a metric gets worse when the work gets better, it is not measuring what it
+> claims to measure.**
+
+**The instance.** The structural check compared two pages by kind-multiset
+containment, and reported the embezzlement and grand theft pages as 100%
+interchangeable. Attempting to satisfy it, the embezzlement penalties table was
+folded into prose. That change was **independently correct**: it brought the page
+into compliance with CASES-WE-DEFEND-PLAN.md Section 4.5, which requires the
+value-to-offense-level table to live in one place with both charge pages linking
+to it rather than reproducing it. The page got better.
+
+**The metric got worse.** Removing a block type made the shorter page's multiset
+a cleaner subset of the longer one's, so containment stayed at 100% and order
+similarity rose from 0.50 to 0.60.
+
+That is the diagnostic. The measurement was not tracking "are these the same
+document"; it was tracking "does the shorter page use fewer block kinds", which
+is a property every good page has.
+
+**Why this is worth a rule.** The failure is invisible from inside the loop. Each
+individual step looks like progress: the metric is red, a change is made, the
+metric is consulted again. Nothing signals that the target is wrong, and the
+natural response to a stubborn number is another change aimed at the number.
+**Three edits had already been made in service of it before anyone asked whether
+it measured anything.**
+
+**How to apply it.** When a metric resists, make one change you can justify
+**without reference to the metric at all**, on the merits of the work. Then look
+at the number. If it moved the wrong way, stop editing and examine the metric.
+
+**The related discipline, since this arose from rejecting a reviewer's finding.**
+An independent pass had called the multiset overlap "the only true positive on
+the site". Rejecting that took more justification than accepting it would have,
+so the reasoning went into
+docs/build/CASES-WE-DEFEND-PLAN.md Section 4.3a where a later reader will meet
+it, rather than into a commit message where they will not. **A finding you
+overrule should be easier to find afterwards than one you act on.**
+
 ### Where this already applies
 
+- **scripts/check-pages.mts**: the structural check now measures order rather
+  than multiset, and its banned-term section prints its own limits on every run
+  because a green line there is instance 8 in the present tense.
 - **scripts/check-pages.mts**: the structural check now fires on any single
   signal, and its self-test includes the paraphrased-headings case that the real
   pipeline produces, with an explicit comment saying that is the state the

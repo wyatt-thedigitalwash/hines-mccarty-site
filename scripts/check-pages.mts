@@ -109,6 +109,34 @@ const fail = (msg: string) => {
 const copyOf = pageCopy;
 
 // --------------------------------------------------------- banned terms
+/**
+ * A WORD-LIST CHECK. NOT A COMPLIANCE CONTROL.
+ *
+ * Independent testing planted 16 realistic violations and this rail missed all
+ * 16. Every construction a marketing writer would actually reach for passed:
+ *
+ *   "No one in Tampa knows this statute better."
+ *   "Hines & McCarty gets grand theft charges dropped."      (firm name, not "we")
+ *   "Charges like these are routinely dismissed."            (passive)
+ *   "Ninety-two percent of cases ended without a conviction." (result as a rate)
+ *   "One client walked out with no record at all."           (result as anecdote)
+ *   "the most experienced theft defense team in the county"  ("most successful" is
+ *                                                             listed, "most
+ *                                                             experienced" is not)
+ *   an en dash, a horizontal bar, a figure dash, a minus sign, instead of an em dash
+ *
+ * The one violation it reliably catches is the one no lawyer would write.
+ *
+ * THIS IS HUNT-LIST INSTANCE 8 IN THE PRESENT TENSE. That instance names the
+ * hazard as a green rail producing the feeling of coverage, and this rail
+ * produces exactly that feeling every time it prints ok. Its PASS means "none
+ * of these specific strings appear". It does not mean the page complies with
+ * Fla. Bar R. 4-7.
+ *
+ * COMPLIANCE ON THIS SITE RESTS ON THE ATTORNEY READ. Nothing in this file
+ * substitutes for it, and a page has not been checked for compliance because
+ * this printed ok.
+ */
 /** Superiority and promise language. Fla. Bar R. 4-7.13. Hard failure. */
 const SUPERIORITY =
   /\b(best|top[-\s]?rated|expert|experts|expertise|specialist|specialists|premier|renowned|elite|unmatched|unparalleled|leading|number one|#1|most successful|highest[-\s]rated)\b/i;
@@ -569,7 +597,13 @@ console.log("\nBanned terms, over extracted copy");
       any = true;
     }
   }
-  if (!any) console.log(`  ok    no banned terms in ${pages.length} pages of copy`);
+  if (!any)
+    console.log(
+      `  ok    none of the listed strings appear in ${pages.length} pages of copy\n` +
+        `  ..    NOT A COMPLIANCE RESULT. This is a word list, and independent testing\n` +
+        `  ..    defeated it 16 times out of 16 with ordinary marketing phrasing.\n` +
+        `  ..    Fla. Bar R. 4-7 compliance rests on the attorney read, not on this line.`,
+    );
 }
 
 console.log("\nGeneric headings");

@@ -148,6 +148,25 @@ is a primer about the table; GLMFull.pdf is the table.
 
 ---
 
+## Compliance: what the automated gates are and are not
+
+**No gate in this repository is a compliance control.** The banned-term check in
+`scripts/check-pages.mts` is a word list. Independent testing planted 16
+realistic Fla. Bar R. 4-7 violations and it missed **all 16**, including
+superiority phrased without the listed words, case results stated as a
+percentage or an anecdote, outcome claims using the firm's name instead of "we",
+and four dash characters that are not the em dash it looks for.
+
+**Its PASS means "none of these specific strings appear". It does not mean the
+page complies.** A reviewer who treats a green run as a compliance result has
+been misled by it, which is why the gate now prints that caveat on every run.
+This is docs/research/HUNT-LIST.md instance 8 in the present tense.
+
+**Compliance rests on the attorney read**, which is the review this queue
+exists to schedule.
+
+---
+
 ## FAILING REVIEW, do not publish
 
 Recorded 2026-08-13. These pages are written and are **not cleared**. They stay
