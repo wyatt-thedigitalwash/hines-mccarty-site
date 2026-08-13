@@ -4,7 +4,7 @@
 // Type-only, so it is erased at runtime and this module keeps having no
 // runtime imports. That property is what lets scripts/check-c9.ts load this
 // file directly under `node --experimental-strip-types`.
-import type { C9Assertion } from "./c9.ts";
+import type { C9Assertion, C9Exemption } from "./c9.ts";
 
 /**
  * The site's absolute origin. Every canonical URL, Open Graph URL, sitemap
@@ -430,6 +430,9 @@ export type SiloKey = "state" | "federal" | "white-collar";
  * was fetched from, per done-criterion C12. Anything unverified stays a [NEEDS]
  * comment beside the data rather than becoming rendered text.
  */
+/** A pointer from one silo hub to another, for coverage that lives elsewhere. */
+export type CrossSiloRow = { href: string; label: string; note: string };
+
 export type ForumFacts = {
   /**
    * The court's internal geography. Federal: the divisions and their counties.
@@ -478,6 +481,15 @@ export type Silo = {
   forumBody: string[];
   /** Verified court facts. See ForumFacts. */
   forumFacts?: ForumFacts;
+  /**
+   * A row pointing at another silo, for coverage that genuinely lives there.
+   *
+   * Added for D12: the federal silo no longer carries a white-collar and
+   * corporate fraud card, because that card rested on no statute and
+   * duplicated the name of a whole silo. The coverage is one click away in the
+   * silo that owns it, which is the same treatment mail fraud received.
+   */
+  crossSilo?: CrossSiloRow;
   owner?: string;
   lastReviewed?: string;
   /**
@@ -670,6 +682,15 @@ export const silos: Silo[] = [
         ],
       },
     },
+    // D12. Replaces the removed white-collar-corporate-fraud card. The federal
+    // silo does prosecute white-collar matters, and the pages that cover them
+    // live in the white-collar silo, so this points there rather than holding a
+    // card that rests on no statute.
+    crossSilo: {
+      href: "/white-collar-defense",
+      label: "White-collar and fraud defense",
+      note: "Many federal prosecutions in this district are white-collar matters. The offenses themselves, including bank fraud, securities fraud, embezzlement, wire fraud, tax evasion, and Medicaid provider fraud, are covered in the white-collar section rather than duplicated here.",
+    },
     faq: [
       {
         question: "How do I know whether my case is in state or federal court?",
@@ -828,6 +849,19 @@ export type ChargePage = {
   owner?: string;
   lastReviewed?: string;
   /**
+   * Excuses this entry from the C9 check, by decision rather than by omission.
+   *
+   * Reserved for entries that are not charge pages at all. A category overview
+   * has no statute, so it has no differentiator that could be false if another
+   * charge were swapped in, and testing it against C9 asks a question it cannot
+   * answer. Marking it here means the checker skips it on the record, with a
+   * reason, rather than silently passing it because nobody noticed.
+   *
+   * This is not an escape hatch for a page that is merely hard to differentiate.
+   * If a page rests on a statute, it is checked.
+   */
+  c9Exempt?: C9Exemption;
+  /**
    * Done-criterion C9, recorded as an assertion so it can be checked ACROSS
    * pages rather than only within one.
    *
@@ -900,15 +934,16 @@ const federalCharges: ChargeSeed[] = [
     "Drug charges brought by federal prosecutors",
   ],
   // DRAFTED, not client-supplied. See the note above the seed arrays.
-  [
-    "white-collar-corporate-fraud",
-    "White-Collar and Corporate Fraud",
-    "Fraud charges against a company or its officers",
-  ],
+  // white-collar-corporate-fraud REMOVED 2026-08-13 (DECISIONS.md D12). It
+  // rested on no statute: there is no corporate fraud offence in the United
+  // States Code. Its name also duplicated an entire silo, and every chargeable
+  // offence it would have covered already has its own page. The federal silo
+  // hub carries one cross-silo row to /white-collar-defense instead, which is
+  // the treatment mail fraud received under D4.
   [
     "healthcare-fraud",
     "Healthcare Fraud",
-    "Billing charges involving Medicare, Medicaid, or insurers",
+    "Fraud against any health care benefit program",
   ],
   // DRAFTED
   [
@@ -959,8 +994,8 @@ const whiteCollarCharges: ChargeSeed[] = [
   ],
   [
     "healthcare-fraud",
-    "Healthcare Fraud",
-    "Billing charges involving Medicare, Medicaid, or insurers",
+    "Medicaid Provider Fraud",
+    "Florida charges over claims submitted to AHCA",
   ],
   // mail-fraud REMOVED 2026-08-13 (DECISIONS.md D4). It failed the C9
   // cover-the-name test against wire fraud: 18 U.S.C. 1341 and 1343 share an
@@ -1119,6 +1154,25 @@ const CHARGE_C9: Record<string, C9Assertion> = {
  */
 export const CHARGE_C9_KEYS = Object.keys(CHARGE_C9);
 
+/**
+ * Entries that are not charge pages, excused from C9 on the record.
+ *
+ * DECISIONS.md D12. `/white-collar-defense/corporate-fraud` is kept, but it is
+ * reclassified: it is a category overview that links down to the pages that do
+ * rest on statutes. It is not a charge page and must not be written as one.
+ *
+ * There is no corporate fraud offence in the Florida Statutes or in the United
+ * States Code, so this entry has no elements, no degrees, and no offense level,
+ * and the level 3 template's statute, penalties, and elements sections stay
+ * empty on it by design rather than by omission.
+ */
+const CHARGE_C9_EXEMPT: Record<string, C9Exemption> = {
+  "white-collar/corporate-fraud": {
+    reason:
+      "Category overview, not a charge page. No corporate fraud offence exists in Florida or federal law, so there is no statute for a differentiator to rest on. Kept because the term carries client-side search value, and it links down to securities fraud, bank fraud, embezzlement, and wire fraud, which do rest on statutes. DECISIONS.md D12.",
+  },
+};
+
 const stub =
   (silo: SiloKey) =>
   ([slug, label, description]: ChargeSeed): ChargePage => ({
@@ -1131,6 +1185,7 @@ const stub =
       section: "[NEEDS: which template section carries it]",
       assertion: "[NEEDS: brief not written; see CASES-WE-DEFEND-PLAN.md Section 7]",
     },
+    c9Exempt: CHARGE_C9_EXEMPT[`${silo}/${slug}`],
     published: false,
   });
 
@@ -1316,6 +1371,38 @@ const CHARGE_FAQ: Record<string, FaqItem[]> = {
  * or record, and the defense sections describe process only.
  */
 const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
+  // ---------------------------------------------------------------------
+  // CORPORATE FRAUD. NOT A CHARGE PAGE. Category overview, per D12.
+  //
+  // C9-exempt, so ChargeTemplate omits the statute, penalties, and elements
+  // sections rather than rendering [NEEDS] markers for fields that will never
+  // apply. No statute is cited here because none exists to cite: there is no
+  // corporate fraud offence in Florida law or in the United States Code.
+  //
+  // Its whole job is to route. Do not write charge content on it, and do not
+  // give it a statute section later without reopening D12.
+  // ---------------------------------------------------------------------
+  "white-collar/corporate-fraud": {
+    title: "Corporate fraud",
+    metaTitle: "Corporate Fraud Defense | Hines & McCarty",
+    metaDescription:
+      "Corporate fraud is a description rather than a charge. The offenses actually filed, and where each one is explained.",
+    lead: "Corporate fraud is a description of a situation rather than the name of an offense. Neither Florida law nor federal law contains a crime called corporate fraud, so a case described that way is always filed under something more specific.",
+    defenseApproach: [
+      "What arrives instead is one or more of a familiar set: a theft or organized fraud charge where money or property moved, a bank fraud charge where a lender was involved, a securities charge where investors or reporting obligations were, or a wire fraud charge where the transmissions themselves are the hook. Which one it is changes the elements, the thresholds, and often the court.",
+      "That is why this page is a signpost rather than an explanation. Each of the pages below covers an offense that exists, with the statute it rests on and what it requires.",
+    ],
+    relatedGuides: [
+      {
+        label: "Securities fraud",
+        href: "/white-collar-defense/securities-fraud",
+      },
+      { label: "Bank fraud", href: "/white-collar-defense/bank-fraud" },
+      { label: "Embezzlement", href: "/white-collar-defense/embezzlement" },
+      { label: "Wire fraud", href: "/white-collar-defense/wire-fraud" },
+    ],
+  },
+
   // ---------------------------------------------------------------------
   // GRAND THEFT. From docs/research/briefs/W1-03-grand-theft.md.
   //

@@ -98,8 +98,7 @@ date), C12 (allowlisted verification), and C13.
 | Page | Owner | Last reviewed | Cadence | Next due | Status |
 |---|---|---|---|---|---|
 | `/federal-criminal-defense/drug-trafficking` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
-| `/federal-criminal-defense/white-collar-corporate-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
-| `/federal-criminal-defense/healthcare-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/federal-criminal-defense/healthcare-fraud` (any health care benefit program, 18 U.S.C. 1347) | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/federal-criminal-defense/wire-mail-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/federal-criminal-defense/conspiracy-charges` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/federal-criminal-defense/weapons-gun-offenses` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
@@ -112,8 +111,8 @@ date), C12 (allowlisted verification), and C13.
 
 | Page | Owner | Last reviewed | Cadence | Next due | Status |
 |---|---|---|---|---|---|
-| `/white-collar-defense/corporate-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
-| `/white-collar-defense/healthcare-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/corporate-fraud` (category overview, not a charge page) | [NEEDS: assign] | not reviewed | 12mo | on publish | **draft** |
+| `/white-collar-defense/healthcare-fraud` (Medicaid Provider Fraud, F.S. 409.920) | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/bank-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/embezzlement` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
 | `/white-collar-defense/securities-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
@@ -123,6 +122,33 @@ date), C12 (allowlisted verification), and C13.
 | `/white-collar-defense/ppp-loan-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/identity-theft` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
 | `/white-collar-defense/money-laundering` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
+
+**Charge list changed 2026-08-13 by the overlap audit** (DECISIONS.md D12 and
+D13, docs/build/OVERLAP-AUDIT.md).
+
+- **Removed `/federal-criminal-defense/white-collar-corporate-fraud`.** It
+  rested on no statute, its name duplicated a silo, and its coverage already
+  existed elsewhere. The federal silo hub carries one cross-silo row to
+  `/white-collar-defense` instead. The federal silo is 9 rows and the charge set
+  is 30.
+- **`/white-collar-defense/corporate-fraud` reclassified** as a category
+  overview rather than a charge page. It is `c9Exempt` in the data, the template
+  omits its statute, penalties and elements sections, and its cadence is 12
+  months rather than 6 because it cites no figures. It is not gated on C9 and
+  must not be written as a charge page.
+- **Healthcare fraud relabelled on both sides.** The two entries were
+  byte-identical in label and description, and the shared description was wrong
+  on the Florida side. The white-collar entry is now Medicaid Provider Fraud
+  under F.S. 409.920; the federal entry covers any health care benefit program
+  under 18 U.S.C. 1347.
+
+**Two binding constraints were recorded for briefs not yet written**, in
+CASES-WE-DEFEND-PLAN.md Section 4.6.2. The federal money laundering page must be
+built on the predicate list, the absence of thresholds, and federal sentencing,
+and may not restate conduct language that is near-identical to Florida's. The
+federal computer crimes page must be built on 18 U.S.C. 1030(a)(1), (a)(4) and
+(a)(5), not on (a)(2) or (a)(3). Both are conditions of those pairs surviving,
+not suggestions.
 
 **Two more pages moved to draft 2026-08-13**, in a third pass.
 

@@ -110,19 +110,33 @@ Under `/criminal-defense/`:
 `domestic-violence-defense`, `grand-theft-defense`, `homicide-defense`,
 `dui-defense`
 
-### Tier 2 -- Federal Practice Sub-Pages (all 10 from SEO.pdf)
+### Tier 2 -- Federal Practice Sub-Pages (from SEO.pdf)
 Under `/federal-criminal-defense/`:
-`drug-trafficking`, `white-collar-corporate-fraud`, `healthcare-fraud`,
-`wire-mail-fraud`, `conspiracy-charges`, `weapons-gun-offenses`,
-`csam-defense`, `money-laundering`, `computer-internet-crimes`,
-`target-letter-defense`
+`drug-trafficking`, `healthcare-fraud`, `wire-mail-fraud`,
+`conspiracy-charges`, `weapons-gun-offenses`, `csam-defense`,
+`money-laundering`, `computer-internet-crimes`, `target-letter-defense`
+
+**Removed 2026-08-13: `white-collar-corporate-fraud`** (DECISIONS.md D12,
+docs/build/OVERLAP-AUDIT.md). It rested on no statute, since no corporate fraud
+offence exists in the United States Code; its name duplicated the white-collar
+silo; and every chargeable offence it would have covered already has its own
+page. The federal silo hub now carries a single cross-silo row to
+`/white-collar-defense`, which is the treatment mail fraud received under D4.
+The federal silo is 9 rows.
 
 ### Tier 2 -- White-Collar / Fraud Sub-Pages (from SEO.pdf checklist)
 Under `/white-collar-defense/` (some overlap with federal; cross-link, do not
 duplicate content):
 `corporate-fraud`, `healthcare-fraud`, `bank-fraud`, `embezzlement`,
 `securities-fraud`, `computer-crime`, `wire-fraud`, `tax-evasion`,
-`ppp-loan-fraud`, `identity-theft`
+`ppp-loan-fraud`, `identity-theft`, `money-laundering`
+
+**`corporate-fraud` is not a charge page** (DECISIONS.md D12). It is a category
+overview that links down to securities fraud, bank fraud, embezzlement, and wire
+fraud. It rests on no statute, is marked `c9Exempt` in the data so the C9
+checker skips it by decision rather than by omission, and the level 3 template
+omits its statute, penalties, and elements sections. It is kept because the term
+carries client-side search value, not because it names an offence.
 
 **Changes 2026-08-13** (DECISIONS.md D3 and D4), all from the wave 1 and wave 2
 brief evidence:

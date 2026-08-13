@@ -374,6 +374,61 @@ only in a jurisdictional element, they are one page. Where they differ in an
 element of the offence, they are two. That is the same distinction Section 4.5
 draws between substance and filler, applied at the page-list level.
 
+### 4.6.2 The full audit, and two binding constraints it produced
+
+All seven overlap pairs were audited against 4.6.1 on 2026-08-13. The evidence,
+statute by statute, is in **docs/build/OVERLAP-AUDIT.md**. Five pairs survive,
+one collapsed (corporate fraud, DECISIONS.md D12), and healthcare fraud survived
+on statute but needed a naming fix first (D13).
+
+**Two of the surviving pairs survive conditionally. The conditions below are
+binding constraints on their briefs, not notes.** A brief that does not carry
+its constraint has not been written to spec, and the page it produces collapses
+the pair in practice whatever the audit concluded on paper.
+
+#### Constraint 1: the federal money laundering page
+
+18 U.S.C. 1956(a)(1) and F.S. 896.101(3)(a) are near word for word identical,
+purpose limbs included. Florida's statute was plainly modelled on the federal
+one.
+
+**The federal page must be built on the predicate list, the absence of
+thresholds, and federal sentencing. It may not restate the conduct language.**
+
+What that means concretely: 1956(c)(7) defines specified unlawful activity by a
+list of federal offences, where Florida defines it as racketeering activity
+under F.S. 895.02, so the same money can be laundering under one and not the
+other. Florida's offence begins at transactions exceeding $300 and sets degrees
+at $20,000 and $100,000 across any 12-month period; the federal statute has no
+floor and no tiers at all. Those are the differences the page exists to explain.
+
+#### Constraint 2: the federal computer crimes page
+
+The shared core with F.S. 815.06 is unauthorized access or exceeding
+authorization, and 18 U.S.C. 1030's protected-computer requirement is largely an
+interstate commerce hook. Read only that far, this pair is the collapse case.
+
+**The federal page must be built on 1030(a)(1), (a)(4), and (a)(5), which add
+elements rather than a hook: national defence information, intent to defraud
+plus obtaining anything of value, and causing damage. If it is built on (a)(2)
+or (a)(3), it is the Florida page with a commerce clause attached and it
+collapses into it.**
+
+This is the pair most likely to fail in practice, so it carries the strictest
+constraint.
+
+#### Open, deliberately: the computer crime silo placement
+
+Unauthorized access is not inherently financial, and the genuinely white-collar
+limb of 1030 is the fraud limb at (a)(4). Whether
+`/white-collar-defense/computer-crime` belongs in the white-collar silo at all
+is a real question and it is **not resolved here**.
+
+**Resolve it from the SERP evidence when its brief is written, not now.** The
+brief will show who is searching and what Google is serving, which is better
+evidence for a placement question than reasoning from the statute. Recorded so
+the question is asked rather than rediscovered.
+
 ---
 
 ## 4.7 Being named in the commercial AI Overview

@@ -7,7 +7,16 @@ pairs that appear in two silos.
 > element, they are one page. Where they differ in an element of the offence,
 > they are two.
 
-Audit date 2026-08-13. **Recommendations only. Nothing was removed.**
+Audit date 2026-08-13. **ACCEPTED 2026-08-13 with one modification**, recorded
+as DECISIONS.md D12 and D13 and applied the same day. The recommendations below
+are preserved as written, including the one that was modified, so the reasoning
+stays auditable against what was actually done.
+
+**What changed on acceptance:** the audit recommended removing
+`/white-collar-defense/corporate-fraud` as well as the federal card. It was kept
+instead and reclassified as a category overview, marked `c9Exempt` in the data,
+because the term carries client-side search value. Everything else was applied
+as recommended, and the checker gap the audit identified was closed.
 
 **Method.** Every statute below was fetched from an allowlisted source and read
 in its operative text, not from a summary or from recall. Florida statutes from

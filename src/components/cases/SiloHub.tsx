@@ -304,6 +304,31 @@ export default function SiloHub({ silo }: { silo: Silo }) {
         </section>
       )}
 
+      {/* A pointer to coverage that genuinely lives in another silo (D12).
+          Renders nothing where a silo has none. */}
+      {silo.crossSilo && (
+        <section data-bg="white" className="bg-white pb-20 text-navy lg:pb-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <div className="flex flex-col gap-6 border border-navy/20 p-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-10">
+              <div className="max-w-2xl">
+                <h2 className="font-display text-2xl leading-tight lg:text-3xl">
+                  {silo.crossSilo.label}
+                </h2>
+                <p className="mt-4 leading-relaxed text-charcoal">
+                  {silo.crossSilo.note}
+                </p>
+              </div>
+              <Link
+                href={silo.crossSilo.href}
+                className="link-arrow shrink-0 text-base underline decoration-1 underline-offset-4 transition-colors hover:text-bronze"
+              >
+                View those charges
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Wired and currently empty. Renders once an attorney is mapped to this
           practice area (WEBSITE-PLAN.md Open Question 2). */}
       <HandledBy href={silo.href} />

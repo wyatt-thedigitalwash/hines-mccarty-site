@@ -31,9 +31,20 @@
   --foreground: #f6f0e8;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/*
+ * NO GLOBAL scroll-behavior: smooth.
+ *
+ * It used to be set on html, and it applied to route changes as well as to
+ * anchors: the App Router scrolls to the top on navigation, and with smooth
+ * behaviour the browser animated that, so every new page visibly scrolled up
+ * from wherever the previous page had been left. Measured at 2500px still
+ * unwound twelve frames after the new route had rendered.
+ *
+ * It was also buying nothing. There is exactly one hash link in the codebase
+ * and it points at another page, where the browser jumps to the anchor on load
+ * regardless. If an in-page anchor is ever added, give smoothness to that
+ * scroll specifically rather than to every navigation on the site.
+ */
 
 body {
   background: var(--background);

@@ -20,6 +20,13 @@ import CallToAction from "@/components/CallToAction";
  * defense-approach section, which describes process only.
  */
 export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
+  // A C9-exempt entry is a category overview rather than a charge page
+  // (DECISIONS.md D12). It rests on no statute, so it has no statute section,
+  // no degrees, and no elements, and rendering [NEEDS] markers for them would
+  // be wrong: those fields are not missing, they are inapplicable. A marker
+  // says "someone still has to write this", which would never become true.
+  const isOverview = Boolean(charge.c9Exempt);
+
   return (
     <>
       {/* 1. H1 and the direct answer */}
@@ -62,6 +69,8 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="max-w-3xl space-y-16">
+            {!isOverview && (
+              <>
             {/* 3. What the statute says */}
             <Block heading="What the statute says">
               {charge.statute ? (
@@ -151,9 +160,17 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                 <Needs>the elements the government has to prove</Needs>
               )}
             </Block>
+              </>
+            )}
 
             {/* 6. How the defense is approached. Process only, never outcome. */}
-            <Block heading="How the defense is approached">
+            <Block
+              heading={
+                isOverview
+                  ? "What is actually charged"
+                  : "How the defense is approached"
+              }
+            >
               {charge.defenseApproach?.length ? (
                 <div className="space-y-5">
                   {charge.defenseApproach.map((paragraph) => (
@@ -169,17 +186,19 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
             </Block>
 
             {/* 7. Where the case is heard */}
-            <Block heading="Where the case is heard">
-              {charge.forum?.length ? (
-                <div className="space-y-5">
-                  {charge.forum.map((paragraph) => (
-                    <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-                  ))}
-                </div>
-              ) : (
-                <Needs>which court hears this charge, and what to expect</Needs>
-              )}
-            </Block>
+            {(charge.forum?.length || !isOverview) && (
+              <Block heading="Where the case is heard">
+                {charge.forum?.length ? (
+                  <div className="space-y-5">
+                    {charge.forum.map((paragraph) => (
+                      <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+                    ))}
+                  </div>
+                ) : (
+                  <Needs>which court hears this charge, and what to expect</Needs>
+                )}
+              </Block>
+            )}
           </div>
         </div>
       </section>
@@ -193,12 +212,16 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
           answered, so this returns null until charge-level mappings exist. */}
       <HandledBy href={chargeHref(charge)} />
 
-      {/* 9. FAQ, emitted with FAQPage schema by the route */}
+      {/* 9. FAQ, emitted with FAQPage schema by the route.
+          An overview with no FAQ renders no marker: the questions are not
+          missing there, they are not required. */}
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <h2 className="font-display text-4xl leading-tight sm:text-5xl">
-            Common questions
-          </h2>
+          {(charge.faq?.length || !isOverview) && (
+            <h2 className="font-display text-4xl leading-tight sm:text-5xl">
+              Common questions
+            </h2>
+          )}
           <div className="mt-10 max-w-3xl">
             {charge.faq?.length ? (
               <dl className="space-y-8">
@@ -220,7 +243,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                   </div>
                 ))}
               </dl>
-            ) : (
+            ) : isOverview ? null : (
               <Needs>
                 FAQ items answerable only about this charge, not about criminal
                 defense generally
@@ -253,7 +276,14 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
         </div>
       </section>
 
-      <CallToAction heading="Talk to an attorney about this charge." tone="white" />
+      <CallToAction
+        heading={
+          isOverview
+            ? "Talk to an attorney about your case."
+            : "Talk to an attorney about this charge."
+        }
+        tone="white"
+      />
     </>
   );
 }

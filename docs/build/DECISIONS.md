@@ -264,6 +264,96 @@ adopt the phrasing of the firms that currently are.
 
 ---
 
+### D13. Healthcare fraud relabelled on both sides
+
+**Decided 2026-08-13**, from docs/build/OVERLAP-AUDIT.md pair 4.
+
+**The pair survives as two pages.** 18 U.S.C. 1347 reaches a scheme to defraud
+**any health care benefit program**, which includes private insurers. F.S.
+409.920 is **Medicaid specific** and is built around a false statement in a
+claim submitted to the Agency for Health Care Administration, its fiscal agent,
+or a managed care plan. Different objects, different conduct, so an element
+difference rather than a jurisdictional one.
+
+**The defect fixed.** Both entries were byte-identical in slug, label, and
+description: `healthcare-fraud`, "Healthcare Fraud", "Billing charges involving
+Medicare, Medicaid, or insurers". Two pages starting from an identical name and
+an identical one-line description get written toward each other. The shared
+description was also wrong on the Florida side, since 409.920 is not about
+insurers generally.
+
+**Applied.**
+
+| Entry | Label | Description |
+|---|---|---|
+| `/federal-criminal-defense/healthcare-fraud` | Healthcare Fraud | Fraud against any health care benefit program |
+| `/white-collar-defense/healthcare-fraud` | Medicaid Provider Fraud | Florida charges over claims submitted to AHCA |
+
+The slugs stay identical, which is fine and is what the plan already
+contemplates for genuine overlap pairs, as with money laundering.
+
+**Still open.** Both C9 assertions are unpopulated, so the collision checker
+cannot yet hold this line. Populate them when the briefs are written, and the
+check enforces the separation instead of a reviewer having to notice it.
+
+---
+
+### D12. Corporate fraud collapses. The federal card goes, the white-collar one is reclassified.
+
+**Decided 2026-08-13**, from docs/build/OVERLAP-AUDIT.md pair 7 and its
+follow-up section.
+
+**Neither side rested on a statute.** There is no corporate fraud offence in the
+Florida Statutes or in the United States Code. The nearest federal statute is 18
+U.S.C. 1348, securities and commodities fraud, and
+`/white-collar-defense/securities-fraud` already covers that ground. A page with
+no statute fails C9 by construction: there is no element that could be false if
+another charge were swapped in, because there is no charge.
+
+**Removed: `/federal-criminal-defense/white-collar-corporate-fraud`.** Three
+problems compounded. It rested on no statute. Its name duplicated an entire
+silo, so it read as a silo nested inside a silo. And every chargeable offence it
+would have covered already had its own page, so there was no residue for it to
+hold. The federal silo hub now carries **one cross-silo row** to
+`/white-collar-defense`, which is the treatment mail fraud received under D4:
+the query is served, no page rests on nothing, and coverage is one click away in
+the silo that owns it.
+
+A rename was considered and rejected. The only rename with a statute behind it
+is 1348, which would have created a new overlap pair to solve an existing one.
+
+**Kept and reclassified: `/white-collar-defense/corporate-fraud`.** This is the
+modification to the audit's recommendation. It is **not a charge page**. It is a
+category overview that links down to securities fraud, bank fraud, embezzlement,
+and wire fraud.
+
+**Recorded as an explicit C9 exception**, with the reason: no statute, kept
+because the term carries client-side search value.
+
+**Marked in the data, so the checker skips it by design rather than by
+omission.** `ChargePage` gains `c9Exempt: { reason }`. The checker reports
+exempt entries separately from entries carrying `[NEEDS]`, because
+excused-by-decision and not-yet-written are different states and collapsing them
+into one skipped count is precisely how a page with no statute went unnoticed in
+the first place. The level 3 template also reads the flag and omits the statute,
+penalties, and elements sections on an exempt entry, since those fields are not
+missing there, they are inapplicable, and a `[NEEDS]` marker would promise work
+that will never be done.
+
+**Consequences.** The charge set goes from 31 to 30. The federal silo goes from
+10 rows to 9. Applied to src/lib/site.ts, WEBSITE-PLAN.md Tier 2, and
+REVIEW-QUEUE.md.
+
+**The checker gap this exposed, now closed.** The collision checker compares
+pages resting on the same statute, so a page resting on **no** statute was
+invisible to it. `statuteKey` already fell back to the raw string and discarded
+the signal. `findUnparseableStatutes` now fails the build when a compared C9's
+statute field does not name a statute, and a self-test feeds it the corporate
+fraud card as it actually stood and fails the build if the detector does not
+fire on it.
+
+---
+
 ### D11. Money laundering gets a white-collar slug
 
 **Decided 2026-08-13.** Add `/white-collar-defense/money-laundering`. The

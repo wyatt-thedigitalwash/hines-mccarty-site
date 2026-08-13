@@ -51,6 +51,24 @@ export function statuteKey(citation: string): string {
   return citation.trim().toLowerCase();
 }
 
+/**
+ * True when the citation actually names a statute.
+ *
+ * `statuteKey` falls back to the raw string when it matches neither pattern,
+ * which means a C9 resting on no statute at all still produces a key and still
+ * compares cleanly against everything else. The overlap audit found exactly
+ * that: the corporate fraud pair rested on no statute in either silo, so the
+ * collision checker could never have seen it, and a card with no chargeable
+ * offence sat in the list unremarked while pages were written around it.
+ *
+ * The signal was already there and was being discarded. This exposes it.
+ */
+export function isStatuteCitation(citation: string): boolean {
+  return /(\d+\s*U\.?\s*S\.?\s*C\.?\s*(?:§\s*)?\d+[A-Za-z]?)|(\d{3}\.\d+)/i.test(
+    citation,
+  );
+}
+
 // Words that carry no distinguishing substance. Kept deliberately small: an
 // aggressive stopword list would strip the very terms that separate two
 // assertions and would make everything look similar, which fails toward a
@@ -107,7 +125,22 @@ export function similarity(a: Set<string>, b: Set<string>): number {
  */
 export const SIMILARITY_THRESHOLD = 0.34;
 
-export type C9Entry = { id: string; c9: C9Assertion };
+/**
+ * An entry excused from C9, by decision rather than by omission.
+ *
+ * The distinction matters. A page carrying a [NEEDS] placeholder is unfinished
+ * and will be checked once it is written. A page carrying an exemption has been
+ * looked at and ruled out of scope on the record, with a reason, and will never
+ * be checked. Reporting the two as one number would hide finished-and-excused
+ * inside not-yet-done, which is how a page with no statute goes unnoticed.
+ */
+export type C9Exemption = { reason: string };
+
+export type C9Entry = {
+  id: string;
+  c9: C9Assertion;
+  c9Exempt?: C9Exemption;
+};
 
 export type C9Collision = {
   a: string;
@@ -126,8 +159,25 @@ export type C9Collision = {
  * describe one shared table in different words and still be built on it, which
  * is precisely how the 812.014 collision would have reached publication.
  */
+/** Entries the checker compares: populated, and not exempted by decision. */
+export function comparable(entries: C9Entry[]): C9Entry[] {
+  return entries.filter((e) => !e.c9Exempt && isPopulated(e.c9));
+}
+
+/**
+ * Populated, non-exempt entries whose statute field does not name a statute.
+ *
+ * This is the check that would have caught the corporate fraud pair. A C9 that
+ * rests on no statute cannot be false if another charge were swapped in,
+ * because there is no element to be false, so it fails C9 by construction
+ * rather than by comparison.
+ */
+export function findUnparseableStatutes(entries: C9Entry[]): C9Entry[] {
+  return comparable(entries).filter((e) => !isStatuteCitation(e.c9.statute));
+}
+
 export function detectC9Collisions(entries: C9Entry[]): C9Collision[] {
-  const live = entries.filter((e) => isPopulated(e.c9));
+  const live = comparable(entries);
   const out: C9Collision[] = [];
 
   for (let i = 0; i < live.length; i += 1) {

@@ -22,7 +22,9 @@
  */
 import { charges, chargeHref, CHARGE_C9_KEYS } from "../src/lib/site.ts";
 import {
+  comparable,
   detectC9Collisions,
+  findUnparseableStatutes,
   isPopulated,
   similarity,
   substanceTokens,
@@ -118,6 +120,47 @@ if (postHits.length > 0) {
   );
 }
 
+// A C9 resting on no statute at all. This is the corporate fraud card as it
+// stood before the overlap audit: a label, a plausible-sounding assertion, and
+// nothing chargeable underneath. The collision checker could never see it,
+// because it only compares pages sharing a statute. If this fixture stops
+// firing, that blind spot is back.
+const NO_STATUTE: C9Entry[] = [
+  {
+    id: "fixture/corporate-fraud (pre-audit)",
+    c9: {
+      statute: "Corporate fraud",
+      section: "What the statute says",
+      assertion:
+        "Fraud committed by a company or by its officers against investors, lenders, or the public.",
+    },
+  },
+];
+
+const unparseableHits = findUnparseableStatutes(NO_STATUTE);
+if (unparseableHits.length === 0) {
+  fail(
+    "the detector did NOT flag a C9 resting on no statute. That is the blind " +
+      "spot the overlap audit found, so the build stops rather than reporting " +
+      "a clean result from a check that cannot see it.",
+  );
+} else {
+  console.log(
+    `  ok    flags a C9 resting on no statute: "${NO_STATUTE[0].c9.statute}"`,
+  );
+}
+
+// The converse: a real citation must not be flagged. Both notations count.
+const realCitations = [
+  { id: "fixture/fs", c9: { statute: "F.S. 812.014", section: "x", assertion: "y" } },
+  { id: "fixture/usc", c9: { statute: "18 U.S.C. 1343", section: "x", assertion: "y" } },
+];
+if (findUnparseableStatutes(realCitations).length > 0) {
+  fail("the detector flagged a real statute citation as unparseable");
+} else {
+  console.log("  ok    accepts both F.S. and U.S.C. citation forms");
+}
+
 // ---------------------------------------------------------------- part 1a
 // Every key in CHARGE_C9 must match a real charge. A key that matches nothing
 // looks recorded and governs nothing: the collision checker never sees it, and
@@ -145,13 +188,37 @@ console.log("\nC9 collisions across charge pages");
 const entries: C9Entry[] = charges.map((c) => ({
   id: chargeHref(c),
   c9: c.c9,
+  c9Exempt: c.c9Exempt,
 }));
 const populated = entries.filter((e) => isPopulated(e.c9));
+const exempt = entries.filter((e) => e.c9Exempt);
 
+// Reported separately on purpose. Excused-by-decision and not-yet-written are
+// different states, and collapsing them into one skipped count is how a page
+// with no statute hides inside a pile of placeholders.
 console.log(
-  `  ${populated.length} of ${entries.length} charge entries have a populated C9. ` +
-    `The rest carry [NEEDS] and are not compared, because a placeholder cannot collide with anything.`,
+  `  ${comparable(entries).length} compared, ${
+    entries.length - populated.length
+  } carrying [NEEDS] and not yet written, ${exempt.length} exempt by decision.`,
 );
+for (const e of exempt) {
+  console.log(`  exempt  ${e.id}: ${e.c9Exempt!.reason}`);
+}
+
+// Statute-parse check on the real data.
+const unparseable = findUnparseableStatutes(entries);
+if (unparseable.length) {
+  for (const e of unparseable) {
+    fail(
+      `${e.id} has a populated C9 whose statute field does not name a statute: ` +
+        `"${e.c9.statute}". A differentiator resting on no statute cannot be false ` +
+        `if another charge were swapped in, so it fails C9 by construction. Either ` +
+        `give it the statute it rests on, or mark it c9Exempt with a reason.`,
+    );
+  }
+} else {
+  console.log("  ok    every compared C9 names a statute");
+}
 
 const collisions = detectC9Collisions(entries);
 if (collisions.length) {
