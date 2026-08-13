@@ -1635,114 +1635,151 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     title: "Grand theft charges in Hillsborough County",
     metaTitle: "Grand Theft Charges in Hillsborough County | Hines & McCarty",
     metaDescription:
-      "What Florida Statute 812.014 says about grand theft, the value thresholds that set the degree, the offense levels they carry, and where these cases are heard.",
-    lead: "Grand theft is a felony under Florida Statute 812.014. A theft becomes grand theft when the property is worth $750 or more. Below that figure the same conduct is petit theft, which is a misdemeanor.",
-    statute: {
-      citation: "Florida Statute 812.014, the 2025 Florida Statutes",
-      body: "The statute defines theft in one sentence and then sets the degree by value. A person commits theft if he or she knowingly obtains or uses, or endeavors to obtain or to use, the property of another with intent to either temporarily or permanently deprive the other person of a right to the property or a benefit from the property, or to appropriate the property to his or her own use or to the use of any person not entitled to the use of the property. Everything else in the statute is about how much the property was worth, and in a few places about what the property was or where it was taken from. Theft of property not covered by the grand theft subsection is petit theft of the second degree under 812.014(3)(a), which is a misdemeanor. A prior theft conviction raises a later petit theft to a misdemeanor of the first degree under 812.014(3)(b), and two or more prior theft convictions raise it to a felony of the third degree under 812.014(3)(c). That last provision is worth reading twice, because it means a low-value theft can be a felony on the strength of history rather than of value.",
-    },
-    penalties: [
+      "Value sets the degree of a Florida theft, but a list of specific items is grand theft at any value. The thresholds, the sentencing arithmetic, and whether the record can be sealed.",
+    lead: "Grand theft is a felony under Florida Statute 812.014. Value usually decides it, at $750, and a separate list of specific items makes a theft a felony no matter what the property was worth.",
+    sections: [
       {
-        degree: "First degree felony",
-        maximum: "Up to 30 years",
-        offenseLevel: "Level 7",
-        note: "Property valued at $100,000 or more, under 812.014(2)(a)1.",
+        id: "threshold",
+        heading: "The $750 line, and the list of items that ignores it",
+        kind: "prose",
+        answers: ["facing"],
+        prose: [
+          "The general threshold is $750. At or above it the offense is grand theft. Below it the same conduct is petit theft of the second degree under Statute 812.014(3)(a), a misdemeanor. For most cases that settles it.",
+          "It does not settle it where the property is one of the items named in Statute 812.014(2)(c). That paragraph opens with three value tiers at subparagraphs 1. to 3., and then at subparagraphs 4. to 13. names property that is grand theft of the third degree by what it is: a will, codicil, or other testamentary instrument; a firearm, except as provided in paragraph (g); a motor vehicle, except as provided in paragraph (a); a commercially farmed animal; a fire extinguisher installed in a building at the time of the taking; citrus fruit consisting of 2,000 or more individual pieces; property taken from a designated construction site identified by a posted sign; any stop sign; anhydrous ammonia; and any amount of a controlled substance as defined in Statute 893.02. Most of those carry no value floor at all.",
+          "A firearm is the item where the difference is sharpest, and where degree understates it twice over. A stolen firearm is grand theft of the third degree under 812.014(2)(c)5. whatever it was worth, and the F.S. 921.0022 ranking chart puts that subparagraph at offense level 6, which is where a theft of $20,000 to $100,000 sits. And under Statute 812.014(2)(g), if the property stolen is a firearm and the offender has previously been convicted of grand theft of a firearm under subparagraph (c)5., it is grand theft of the second degree and a felony of the second degree, which carries fifteen years rather than five.",
+          "Location supplies a further route. Under Statute 812.014(2)(d)1., property valued at $40 or more but less than $750 taken from a dwelling or its unenclosed curtilage is grand theft of the third degree, ranked at offense level 2. Where the same property is worth $750 or more, Statute 812.014(2)(d)2. applies instead, and the ranking chart puts that at level 4. The degree is identical on both and the scoresheet is not.",
+          "History supplies a fourth. Under Statute 812.014(3)(c), a petit theft by a person with two or more prior theft convictions is a felony of the third degree, whatever the property was worth.",
+        ],
       },
       {
-        degree: "Second degree felony",
-        maximum: "Up to 15 years",
-        offenseLevel: "Level 6",
-        note: "Property valued at $20,000 or more but less than $100,000, under 812.014(2)(b)1.",
+        id: "ladder",
+        heading: "How value moves the offense level, even inside a single degree",
+        kind: "penalties",
+        answers: ["facing"],
+        penalties: [
+          { degree: "First degree felony", maximum: "Up to 30 years", offenseLevel: "Level 7", note: "Property valued at $100,000 or more, under 812.014(2)(a)1." },
+          { degree: "Second degree felony", maximum: "Up to 15 years", offenseLevel: "Level 6", note: "Property valued at $20,000 or more but less than $100,000, under 812.014(2)(b)1." },
+          { degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 4", note: "Property valued at $10,000 or more but less than $20,000, under 812.014(2)(c)3." },
+          { degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 3", note: "Property valued at $5,000 or more but less than $10,000, under 812.014(2)(c)2." },
+          { degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 2", note: "Property valued at $750 or more but less than $5,000, under 812.014(2)(c)1. Also the level for property valued at $40 or more but less than $750 taken from a dwelling or its unenclosed curtilage, under 812.014(2)(d)1." },
+        ],
       },
       {
-        degree: "Third degree felony",
-        maximum: "Up to 5 years",
-        offenseLevel: "Level 4",
-        note: "Property valued at $10,000 or more but less than $20,000, under 812.014(2)(c)3.",
+        id: "arithmetic",
+        heading: "Three theft charges, one five-year maximum, three different scoresheets",
+        kind: "prose",
+        answers: ["facing"],
+        prose: [
+          "Three rows above are the same degree, third degree felony, with the same five year maximum, at three different offense levels. The degree on the paperwork does not tell you where a case sits. The value does, and the value is something the State has to establish rather than something the accusation settles.",
+          "That figure comes from somewhere. A receipt, a replacement quote, an insurance schedule, and a complainant's recollection are four kinds of evidence and they do not always agree. Where a number sits near a threshold, one valuation can be the difference between two degrees.",
+          "The offense level then feeds an arithmetic that has discretion built into it, which is easy to lose when the numbers are quoted on their own. Statute 921.0024(2) provides that the lowest permissible sentence is any nonstate prison sanction where the total sentence points equal or are less than 44 points, unless the court determines within its discretion that a prison sentence, which may be up to the statutory maximum, is appropriate. Above 44 points the statute produces a minimum by subtracting 28 and reducing the remainder by 25 percent.",
+          "Statute 775.082(10) is narrower than it is often quoted as being. It applies to a third degree felony that is not a forcible felony as defined in Statute 776.08, and it excludes third degree felony violations under chapter 810. Where it applies and the total is 22 points or fewer the court must impose a nonstate prison sanction. It then adds that if the court makes written findings that a nonstate prison sanction could present a danger to the public, the court may sentence the offender to a state correctional facility. It is a floor with an express exception, not a guarantee.",
+        ],
       },
       {
-        degree: "Third degree felony",
-        maximum: "Up to 5 years",
-        offenseLevel: "Level 3",
-        note: "Property valued at $5,000 or more but less than $10,000, under 812.014(2)(c)2.",
+        id: "timeline",
+        heading: "Sixty days or thirty, and why bonding out is what decides it",
+        kind: "timeline",
+        answers: ["next"],
+        steps: [
+          { when: "Within 24 hours of arrest", what: "First appearance. Rule 3.130(a) provides that except when previously released in a lawful manner, every arrested person must be taken before a judge, in person or by audio-video communication technology, within 24 hours. The judge determines pretrial detention or conditions of release under rule 3.132 or rule 3.131." },
+          { when: "60 days, if you bonded out", what: "Rule 3.134(b) governs defendants not in custody and gives the State 60 days from arrest to file formal charges, with automatic release on recognisance on the 63rd day if it has not. Under (b)(1)(B) the court may, on a showing of good cause, continue the defendant on pretrial release for up to an additional 30 days. This is the track most people are on, because most people are released before this stage." },
+          { when: "30 days, if you are still in custody", what: "Rule 3.134(a) gives the State 30 days for defendants in custody. If still uncharged the court must order automatic release on recognisance on the 33rd day, or on the 40th if the State shows good cause, and provides that in no event may a defendant remain in custody beyond 40 days uncharged. Release under this rule is not a dismissal and the State can file afterwards." },
+          { when: "175 days from the formal charge", what: "The felony speedy trial period under Rule 3.191(a), which runs from formal charge by information or indictment as subdivision (d) defines it, not from the arrest. A misdemeanor carries 90 days. Missing it does not end a case by itself: the rule directs the reader to the remedy in subdivision (o), which is a recapture procedure rather than automatic discharge. Rule 3.191(b) allows a defendant to demand trial within 60 days instead." },
+        ],
       },
       {
-        degree: "Third degree felony",
-        maximum: "Up to 5 years",
-        offenseLevel: "Level 2",
-        note: "Property valued at $750 or more but less than $5,000, under 812.014(2)(c)1. Also the level for property worth $40 or more taken from a dwelling or its unenclosed curtilage, under 812.014(2)(d)1.",
+        id: "now",
+        heading: "The property, the valuation, and the conversation about both",
+        kind: "guidance",
+        answers: ["now"],
+        guidance: [
+          {
+            heading: "Rights that are in place from the arrest onward",
+            items: [
+              "You have the right to decline to answer questions. It is available at every stage and it does not have to be justified.",
+              "You have the right to counsel, and the rule separates being told from being given. Rule 3.130(b)(1)(B) requires the judge at first appearance to advise an unrepresented defendant of the right to counsel and that counsel will be appointed if the defendant cannot afford one. Rule 3.130(c)(1) is the appointment itself: when the judge determines that the defendant is entitled to court-appointed counsel and desires counsel, the judge must immediately appoint counsel. Rule 3.130(c)(2) allows a reasonable time to send for a retained lawyer, with the hearing postponed if necessary.",
+              "You are entitled to see what the State relies on, through discovery, in the ordinary course. A theft case is assembled from documents about value, and those documents are examinable rather than something to reconstruct from memory.",
+            ],
+          },
+          {
+            heading: "Where these cases are commonly complicated",
+            items: [
+              "Returning or moving property without advice. It does not resolve the elements of the offense, and how it is described afterwards becomes part of the record.",
+              "Describing the transaction to a complainant, an employer, or an investigator without counsel. Value and intent are the two live issues in most theft cases, and both are things people describe loosely in conversation.",
+              "Treating the civil demand letter and the criminal case as one matter. They are separate proceedings with separate decision-makers.",
+            ],
+          },
+        ],
       },
-    ],
-    elements: [
-      "That the property belonged to someone else.",
-      "That the defendant knowingly obtained or used it, or endeavored to obtain or use it. The statute reaches an attempt in the same breath as a completed taking.",
-      "That the defendant intended to deprive the owner of a right to the property or a benefit from it, or to appropriate it to someone not entitled to it. The statute covers a temporary intent as well as a permanent one.",
-      "What the property was worth. Value is a separate question from whether anything was taken, and it is the question that decides the degree of the charge and the offense level that follows from it.",
-    ],
-    defenseApproach: [
-      "The first questions are usually about value rather than about the taking. A charge sits on one side or the other of the $750 line, or the $20,000 line, because someone assigned a figure to the property. Where that figure came from is a fair question: a receipt, a replacement quote, an insurance schedule, and a complainant's recollection are not the same kind of evidence, and they do not always agree with each other.",
-      "The second set of questions is about intent. The statute asks what the defendant meant to do at the time, and that is rarely something a report records directly. It is usually inferred from surrounding facts, which means the surrounding facts are open to examination.",
-      "Where the value sits near a threshold, the difference between two degrees can rest on a single valuation. That is worth identifying early, because it shapes what the case is about.",
-      "The offense level matters for a reason that is easy to miss. Florida sentences felonies through the Criminal Punishment Code, and Statute 921.0024(2) provides that the lowest permissible sentence is any nonstate prison sanction where the total sentence points equal or are less than 44 points. Above that figure the statute produces a minimum by subtracting 28 points from the total and reducing the remainder by 25 percent. Statute 775.082(10) adds that where the total sentence points are 22 or fewer, the court must impose a nonstate prison sanction. The primary offense level is only one input into that total, alongside prior record, additional offenses, victim injury, and multipliers, but it is the input the charge itself sets.",
-      "None of that predicts an outcome in a particular case, and it is not meant to. It explains why two charges that carry the same words on the paperwork can sit in very different places once the arithmetic is done.",
-    ],
-    forum: [
-      "Felony charges in Hillsborough County are heard in circuit court. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, in downtown Tampa.",
-      "The Clerk also lists criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071, which serves the eastern side of the county.",
-      // [NEEDS: which courthouse actually hears a felony arising in Brandon]
-      // The Clerk's site establishes that both locations offer Circuit Criminal
-      // services. It does not establish how a given Brandon case is assigned,
-      // and that is exactly the sort of fact plan Section 8.3 warns is easy to
-      // guess wrong. Not asserted here.
-      //
-      // [NEEDS: attorney confirmation on the Brandon Regional Service Center]
-      // Blocked by DECISIONS.md D7. It is a Clerk location in the firm's own
-      // town, which is why it is tempting, and a service centre is not
-      // necessarily where a felony is heard. Stays out of copy until confirmed.
+      {
+        id: "elements",
+        heading: "The four things a theft charge rests on, and the one that is usually contested",
+        kind: "bullets",
+        answers: ["facing"],
+        bullets: [
+          "That the property belonged to someone else.",
+          "That the defendant knowingly obtained or used it, or endeavored to obtain or use it. The statute reaches an attempt in the same breath as a completed taking.",
+          "That the defendant intended to deprive the owner of a right to the property or a benefit from it, or to appropriate it to someone not entitled to it. A temporary intent is enough.",
+          "What the property was worth, where the charge rests on value rather than on the item taken or the place it was taken from.",
+        ],
+      },
+      {
+        id: "statute",
+        heading: "Statute 812.014, and the point where petit theft stops",
+        kind: "statute",
+        answers: ["facing"],
+        statute: {
+          citation: "Florida Statute 812.014, the 2025 Florida Statutes",
+          body: "The statute defines theft in one sentence and then spends its length on grading. A person commits theft if he or she knowingly obtains or uses, or endeavors to obtain or to use, the property of another with intent to either temporarily or permanently deprive the other person of a right to the property or a benefit from the property, or to appropriate the property to his or her own use or to the use of any person not entitled to the use of the property. What follows is about how much the property was worth, what it was, and where it was taken from. Theft of property not covered by the grand theft subsections is petit theft of the second degree under 812.014(3)(a). A prior theft conviction raises a later petit theft to a misdemeanor of the first degree under 812.014(3)(b), and two or more prior theft convictions raise it to a felony of the third degree under 812.014(3)(c).",
+        },
+      },
+      {
+        id: "civil",
+        heading: "The demand letter that arrives separately from the prosecution",
+        kind: "prose",
+        answers: ["consequences"],
+        prose: [
+          "A theft accusation can produce a second case that has nothing to do with the State. Statute 772.11(1) gives a person who proves by clear and convincing evidence that they were injured by a theft a cause of action for threefold the actual damages, with minimum damages of $200 and reasonable attorney's fees and court costs. That standard of proof is higher than the ordinary civil one and lower than the criminal one.",
+          "The statute requires a written demand for $200 or the treble damage amount before an action is filed, and provides that a person who complies with the demand within 30 days is given a written release from further civil liability. That release addresses the civil claim only. It does not end, settle, or bind the criminal case, and the two are decided by different people on different records.",
+        ],
+      },
+      {
+        id: "record",
+        heading: "Statute 812.014 is not on the permanent bar list, and what follows from that",
+        kind: "prose",
+        answers: ["consequences", "sealing"],
+        prose: [
+          "An arrest generates a criminal history record, and in Florida those records are public unless a court seals or expunges them. That is the practical answer to what this does to work: an ordinary background check can surface the arrest whether or not the case ends in a conviction, and it stays visible for as long as the record is unsealed. A theft allegation carries particular weight with employers who handle money or inventory, which is why the sealing question below is usually the one that outlasts the sentence. Theft under Statute 812.014 is not on the list of offenses that are permanently barred. Statute 943.0584(2) makes a record ineligible where it is a conviction for one of the offenses it enumerates, and that list includes robbery under 812.13, drug trafficking under 893.135, and the Florida Communications Fraud Act at 817.034. Statute 812.014 appears nowhere in it.",
+          "The word conviction there does not mean what most readers expect. Statute 943.0584(1) defines it as a determination of guilt which is the result of a trial or the entry of a plea of guilty or nolo contendere, regardless of whether adjudication is withheld, and continues that where the defendant was a minor it means a finding that the defendant committed or pled guilty or nolo contendere to a delinquent act, regardless of whether adjudication of delinquency is withheld. A withhold is still a conviction for the purposes of that bar.",
+          "Where the record is not barred, Statute 943.059(1) sets the conditions, and they are cumulative: the record must not be ineligible under 943.0584; the person must never have been adjudicated guilty in Florida of a criminal offense, or adjudicated delinquent for a felony or one of thirteen listed misdemeanors, of which petit theft is one; the person must not have been adjudicated guilty of any of the acts stemming from this arrest; the person must no longer be under court supervision for it; and the person must never have secured a prior sealing or expunction. Subsection (2) then requires a certificate of eligibility from the department before a petition is filed, which is the step most people meet first.",
+          "Two things this page does not decide. A specific professional licence is governed by the rules of the board that issues it, and none of those are addressed here. Immigration consequences turn on federal law and belong with an immigration attorney rather than being inferred from a Florida statute.",
+        ],
+      },
+      {
+        id: "who",
+        heading: "Who is already involved in a theft case, and who to contact",
+        kind: "prose",
+        answers: ["who"],
+        prose: [
+          "Three offices are involved before you choose anyone. The arresting agency produced the report. The Office of the State Attorney for the Thirteenth Judicial Circuit decides whether to file charges and what to file. The Hillsborough County Clerk holds the file, with circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
+          "For counsel there are two routes and the first hearing addresses both. Rule 3.130(b)(1)(B) requires the judge to advise an unrepresented defendant of the right to counsel and that counsel will be appointed if they cannot afford one, and Rule 3.130(c)(1) requires the judge to appoint counsel immediately once entitlement and desire for it are determined. A defendant who intends to retain a lawyer can say so, and Rule 3.130(c)(2) requires a reasonable time to send for one, with the hearing postponed if necessary. If you are reading this before a first appearance, contacting a defense lawyer is the step that does not wait for a court date, and the public defender route is raised at that hearing if you cannot pay.",
+        ],
+      },
     ],
     faq: [
-      {
-        question:
-          "How much does the property have to be worth for a theft to be grand theft?",
-        source: "keywords.md",
-        grade: "6-12mo",
-        answer:
-          "The general threshold is $750. At or above that figure the offense is grand theft, which is a felony; below it the same conduct is petit theft, which is a misdemeanor under Florida Statute 812.014(3)(a). The statute then sets higher degrees at $20,000 and at $100,000.",
-      },
-      {
-        question: "Is stealing $500 a felony in Florida?",
-        source: "drafted",
-        answer:
-          "Usually not, because $500 is below the $750 grand theft threshold, so it is ordinarily petit theft. There is an exception that catches people by surprise: under Florida Statute 812.014(2)(d)1., property worth $40 or more taken from a dwelling or its unenclosed curtilage is grand theft of the third degree, which is a felony.",
-      },
-      {
-        question: "What is third degree grand theft in Florida?",
-        source: "drafted",
-        answer:
-          "It is the lowest felony tier of theft, covering property valued at $750 or more but less than $20,000, and it carries a statutory maximum of five years under Florida Statute 775.082(3)(e). One degree is not one exposure: within that tier the offense level rises from level 2 to level 4 as the value climbs, and the level is what the sentencing scoresheet uses.",
-      },
-      {
-        question: "Who decides what the property was worth?",
-        source: "drafted",
-        answer:
-          "Value is something the state has to prove, not something the accusation settles. Florida Statute 812.014 sets the degree by the value of the property, so the figure has to be established like any other part of the case, and the source of that figure is open to examination.",
-      },
-      {
-        question: "Can the same conduct also be a civil case?",
-        source: "drafted",
-        answer:
-          "Yes, and it is a separate track from the criminal one. Florida Statute 772.11 gives a person injured by a theft a civil cause of action for threefold the actual damages, with minimum damages of $200 plus attorney's fees and court costs. The statute requires a written demand first, and it provides that someone who complies with that demand within 30 days is given a written release from further civil liability for that specific act of theft.",
-      },
-      {
-        question: "Can a low-value theft still be a felony?",
-        source: "drafted",
-        answer:
-          "It can, on two separate routes. Property worth $40 or more taken from a dwelling or its unenclosed curtilage is grand theft of the third degree under Florida Statute 812.014(2)(d)1. Separately, a petit theft by someone with two or more prior theft convictions is a felony of the third degree under 812.014(3)(c), which turns on history rather than on value.",
-      },
+      { question: "How much does the property have to be worth for a theft to be grand theft?", source: "keywords.md", grade: "6-12mo", answer: "The general threshold is $750. At or above that figure the offense is grand theft, a felony; below it the same conduct is ordinarily petit theft under Statute 812.014(3)(a). The degree then rises at $20,000 and at $100,000. Value is not the only route: Statute 812.014(2)(c) makes a theft grand theft by what was taken, whatever it was worth." },
+      { question: "Is stealing $500 a felony in Florida?", source: "drafted", answer: "It depends on what and where, not only on the amount. $500 is below the $750 threshold, so it is ordinarily petit theft. But Statute 812.014(2)(c) makes certain items grand theft at any value, including a firearm, a motor vehicle, a will, a stop sign, and any amount of a controlled substance. And under 812.014(2)(d)1., property worth $40 or more but less than $750 taken from a dwelling or its unenclosed curtilage is a third degree felony." },
+      { question: "What is third degree grand theft in Florida?", source: "drafted", answer: "It is the lowest felony tier of theft, with a five year statutory maximum. One degree is not one exposure: within that tier the offense level rises from level 2 to level 4 as the value climbs, and the level is what the sentencing scoresheet uses." },
+      { question: "Who decides what the property was worth?", source: "drafted", answer: "Value is something the State has to prove, not something the accusation settles. Statute 812.014 sets the degree by the value of the property where the charge rests on value, so the figure has to be established like any other part of the case, and its source is open to examination." },
+      { question: "Can a grand theft charge be sealed later?", source: "drafted", answer: "Theft under Statute 812.014 is not among the offenses Statute 943.0584(2) bars permanently. Whether a particular record qualifies then turns on the cumulative conditions in Statute 943.059(1), and on a certificate of eligibility from the department under 943.059(2). Note that 943.0584(1) defines conviction to include a plea regardless of whether adjudication is withheld." },
+      { question: "How long does a theft case take?", source: "drafted", answer: "The rules set outer limits rather than a schedule. First appearance is within 24 hours of arrest under Rule 3.130(a). The State then has 60 days to file charges for someone on pretrial release under Rule 3.134(b), or 30 days for someone in custody under Rule 3.134(a). Once formally charged, the felony speedy trial period is 175 days under Rule 3.191(a), or 60 days on a demand under Rule 3.191(b)." },
     ],
-    relatedGuides: [
-      { label: "Tools and guides", href: "/resources/tools-and-guides" },
-    ],
+    // [NEEDS: Layer 2 targets from the brief] The 33-day correction guide, the
+    // third degree felony sentencing page, and the offense-level comparison
+    // instrument are all named in W1-03 but none has a route yet. Linking to
+    // them now would ship broken links, so the generic hub stands until they do.
+    relatedGuides: [{ label: "Tools and guides", href: "/resources/tools-and-guides" }],
   },
 
   // ---------------------------------------------------------------------
@@ -1763,97 +1800,136 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     title: "Embezzlement charges in Florida",
     metaTitle: "Embezzlement Charges in Florida | Hines & McCarty",
     metaDescription:
-      "Embezzlement accusations start from lawful possession. What Florida charges instead, which statute applies, and why the charging choice changes the offense level.",
-    lead: "Embezzlement accusations start from a position of trust. The money or property was handed over lawfully, usually as part of a job, and the accusation is about what happened next. Florida prosecutes this as theft, under Statute 812.014.",
-    statute: {
-      citation:
-        "Florida Statute 812.014, and Florida Statute 817.034, the 2025 Florida Statutes",
-      body: "There is no Florida offense called embezzlement. The conduct is charged as theft under Florida Statute 812.014, which reaches a person who knowingly obtains or uses, or endeavors to obtain or to use, the property of another with intent to deprive the owner of a right to it or to appropriate it to someone not entitled to it. Where the accusation is not a single transaction but a series of them, the state may instead charge organized fraud under the Florida Communications Fraud Act, Florida Statute 817.034, which defines a scheme to defraud as a systematic, ongoing course of conduct with intent to defraud one or more persons, or with intent to obtain property from one or more persons by false or fraudulent pretenses, representations, endorsements of nonconsenting parties, or promises or willful misrepresentations of a future act.",
-    },
-    penalties: [
+      "Florida charges embezzlement as theft, or as organized fraud. Which statute is used changes the offense level, and a conviction under one of them can never be sealed.",
+    lead: "Embezzlement accusations start from lawful access. The money or property was handed over legitimately, usually through a job, and the accusation is about what happened afterwards. Florida charges this as theft under Statute 812.014.",
+    sections: [
       {
-        degree: "Third degree felony",
-        maximum: "Up to 5 years",
-        offenseLevel: "Level 2 to 4 as theft, level 3 as organized fraud",
-        note: "Theft of $750 or more but less than $20,000 under 812.014(2)(c). Organized fraud of less than $20,000 under 817.034(4)(a)3.",
+        id: "trust",
+        heading: "Authorised access changes which part of the case is contested",
+        kind: "prose",
+        answers: ["facing"],
+        prose: [
+          "In most theft cases the argument is whether the defendant took something. Here that is rarely the question, because access was granted at the outset. What is contested is use, and what was intended at the time.",
+          "That moves the dispute into the parts of a business that are least well documented. Permission in a small organisation is often informal, inconsistent, or spoken rather than absent, and the difference between an approved transaction and an unapproved one can exist only in somebody's memory of a conversation.",
+          "It also explains a case that looks odd from outside. Statute 812.014 reaches an intent to deprive the owner of a right or benefit either temporarily or permanently. Money that moved and came back is not outside the statute by virtue of having come back, which is why a case can exist where the account balances at the end.",
+        ],
       },
       {
-        degree: "Second degree felony",
-        maximum: "Up to 15 years",
-        offenseLevel: "Level 6 as theft, level 5 as organized fraud",
-        note: "Theft of $20,000 or more but less than $100,000 under 812.014(2)(b)1. Organized fraud of $20,000 or more but less than $50,000 under 817.034(4)(a)2.",
+        id: "charge-choice",
+        heading: "Chapter 812 names embezzlement in its definitions, and a second statute can also apply",
+        kind: "statute",
+        answers: ["facing"],
+        statute: {
+          citation: "Florida Statute 812.014 and Florida Statute 817.034, the 2025 Florida Statutes",
+          body: "Chapter 812 absorbs this conduct by name. Statute 812.012(3) defines obtains or uses, and paragraph (d)1. of that definition covers conduct previously known as stealing, larceny, purloining, abstracting, embezzlement, misapplication, misappropriation, conversion, or obtaining money or property by false pretenses, fraud, or deception. That is how Statute 812.014, titled Theft, reaches a case that begins with lawful access: it does not need a separate offense because its definitional section already names one. Statute 812.014 itself reaches a person who knowingly obtains or uses, or endeavors to obtain or to use, the property of another with intent to deprive the owner of a right to it or to appropriate it to someone not entitled to it. A second statute can also apply. Statute 817.034(3)(d) defines a scheme to defraud as a systematic, ongoing course of conduct with intent to defraud one or more persons, or with intent to obtain property from one or more persons by false or fraudulent pretenses, representations, endorsements of nonconsenting parties, or promises or willful misrepresentations of a future act, and 817.034(4)(a) makes engaging in such a scheme and obtaining property organized fraud. That definition does not describe an isolated act, so where organized fraud is charged the pattern is an element rather than a way of describing the total. The two statutes are separately chargeable rather than alternatives, and a case can involve counts under both.",
+        },
       },
       {
-        degree: "First degree felony",
-        maximum: "Up to 30 years",
-        offenseLevel: "Level 7",
-        note: "Theft of $100,000 or more under 812.014(2)(a)1. Organized fraud of $50,000 or more under 817.034(4)(a)1.",
+        id: "levels",
+        heading: "Where the organized fraud tiers fall, and why they are not the theft tiers",
+        kind: "penalties",
+        answers: ["facing"],
+        penalties: [
+          { degree: "Third degree felony", maximum: "Up to 5 years", note: "Organized fraud where the aggregate value of the property obtained is less than $20,000, under 817.034(4)(a)3." },
+          { degree: "Second degree felony", maximum: "Up to 15 years", note: "Organized fraud where the aggregate value is $20,000 or more but less than $50,000, under 817.034(4)(a)2." },
+          { degree: "First degree felony", maximum: "Up to 30 years", note: "Organized fraud where the aggregate value is $50,000 or more, under 817.034(4)(a)1." },
+        ],
       },
-    ],
-    elements: [
-      "That the property belonged to someone else, which in these cases is rarely in dispute.",
-      "That the defendant knowingly obtained or used it. This is where the trust pattern matters: possession was authorised at the outset, so the argument is usually about use rather than about obtaining.",
-      "That the defendant intended to deprive the owner of a right or benefit, or to appropriate the property to someone not entitled to it. In a case that began with lawful access, intent is ordinarily the contested element.",
-      "If the charge is organized fraud instead, that the conduct was a systematic, ongoing course of conduct, which is a different thing from a single transaction and has to be shown as such.",
-    ],
-    defenseApproach: [
-      "These cases are built from records, and the records usually exist before anyone is accused. Ledgers, approvals, expense systems, and email are gathered first and the accusation is assembled from them, which means the first work is understanding what those records actually show rather than what they are said to show.",
-      "Authorisation is the question underneath most of them. Access was granted, so the issue is whether a given transaction fell inside what was permitted, and permission in a small business is often informal, inconsistent, or undocumented rather than absent.",
-      "Aggregation is the second question. A charge that covers months or years is a collection of individual transactions added together, and both the total and the decision to treat them as one course of conduct are things that have to be supported. Statute 817.034 does not describe an isolated act: it defines a scheme to defraud as a systematic, ongoing course of conduct, so where that charge is brought, the pattern is part of what has to be shown rather than a description of the total.",
-      "The definition of obtaining is broader than it first sounds. Under 817.034(3)(b), to obtain means temporarily or permanently to deprive a person of a right to property or a benefit from it, or to appropriate the property to one's own use or to the use of another person not entitled to it. That language covers money that was moved and returned, which is why a case can exist even where nothing is missing at the end.",
-      "The offense level is worth understanding early, because it is set by the charging decision rather than by the conduct. Florida sentences felonies through the Criminal Punishment Code, and Statute 921.0024(2) provides that the lowest permissible sentence is any nonstate prison sanction where the total sentence points equal or are less than 44 points, with a formula above that figure. Statute 775.082(10) requires a nonstate prison sanction where the total is 22 points or fewer. The primary offense level feeds that total, and as the table above shows, the same dollar figure does not always produce the same level.",
-      "Restitution comes up early, and it is a decision made with counsel rather than a step to take alone. Repaying money does not answer the elements of the offense, and how a repayment is characterised can matter as much as whether it happens.",
-    ],
-    forum: [
-      "Felony charges in Hillsborough County are heard in circuit court. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
-      // [NEEDS: federal embezzlement exposure] The brief records 18 U.S.C. 656,
-      // 664 and 666 as UNVERIFIED. uscode.house.gov is allowlisted as of
-      // DECISIONS.md D2 but they were not fetched, so no federal maximum,
-      // element, or statute number is stated on this page.
-      // [NEEDS: whether a Thirteenth Circuit economic crime unit exists]
-      // Not verified against the State Attorney's own site.
+      {
+        id: "authorised",
+        heading: "Four elements, and the one that authorised access moves the fight to",
+        kind: "bullets",
+        answers: ["facing"],
+        bullets: [
+          "That the property belonged to someone else, which in these cases is rarely in dispute.",
+          "That the defendant knowingly obtained or used it. Because possession was authorised at the outset, the argument is usually about use rather than about obtaining.",
+          "That the defendant intended to deprive the owner of a right or benefit, or to appropriate the property to someone not entitled to it. Where access began lawfully, intent is ordinarily the contested element.",
+          "If the charge is organized fraud, that the conduct was a systematic, ongoing course of conduct, which is a different thing from a single transaction and has to be shown as such.",
+        ],
+      },
+      {
+        id: "records",
+        heading: "The ledgers were read before the meeting was scheduled",
+        kind: "guidance",
+        answers: ["now"],
+        guidance: [
+          {
+            heading: "What the documents are doing while this is happening",
+            items: [
+              "Ledgers, approvals, expense systems, and email predate the accusation. These cases are built from records that already existed, which means the record is fixed and the account of it is not.",
+              "A total in an accusation is a sum of individual transactions. Both the arithmetic and the decision to treat the transactions as one course of conduct have to be supported, and under Statute 817.034 the pattern is an element rather than a description.",
+              "Access logs and approval trails frequently show authorisation that nobody remembers granting. That is a documentary question, not a credibility contest.",
+            ],
+          },
+          {
+            heading: "Rights, which apply the same way inside a company as outside it",
+            items: [
+              "You have the right to decline to answer questions. An internal interview is not a court, and what is said there does not stay inside the company.",
+              "You have the right to a lawyer, and to have one appointed if you cannot afford one. Neither depends on being charged first.",
+              "Repayment is a decision to take with advice. It does not answer the elements of the offense, and how a repayment is characterised afterwards can carry consequences of its own.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "arrival",
+        heading: "Why the long quiet period before charges is not part of any clock",
+        kind: "timeline",
+        answers: ["next"],
+        steps: [
+          { when: "The investigative period, which no rule limits", what: "An employer, auditor, or insurer reviews records and reaches a conclusion. Nothing in the Rules of Criminal Procedure governs this stage and no deadline runs during it. The clocks in this table all begin at an arrest or a formal charge, so a case can be examined for a long time before any of them start." },
+          { when: "24 hours from an arrest", what: "First appearance under Rule 3.130(a). Release conditions are set at that hearing." },
+          { when: "60 days on pretrial release, 30 in custody", what: "Rule 3.134 runs two tracks and custody decides which. Someone released before this point falls under subdivision (b) at 60 days; someone held falls under subdivision (a) at 30. Each carries its own automatic release date if no charge is filed, and neither is a dismissal." },
+          { when: "175 days after the charge, not after the conduct", what: "The felony speedy trial period under Rule 3.191(a) runs from formal charge by information or indictment as subdivision (d) defines it. In a case whose transactions are years old, that is the distinction that matters: the age of the conduct does not start it. Missing the period does not end the case by itself, because the rule directs the reader to the recapture remedy in subdivision (o)." },
+        ],
+      },
+      {
+        id: "work",
+        heading: "An accusation from the employer, and a background check that shows the arrest",
+        kind: "prose",
+        answers: ["consequences"],
+        prose: [
+          "This is the charge where the collateral question usually arrives before the legal one, because the accusation and the employment almost always come from the same place. Florida criminal history records are public unless a court seals or expunges them, so an arrest record is visible to an ordinary background check whether or not the case ends in a conviction.",
+          "The employer may also sue, and that claim is decided separately from the prosecution. Statute 772.11(1) sets a clear and convincing standard and allows treble damages with fees, and it requires a written demand first. The statute provides that complying with the demand within 30 days earns a written release from further civil liability, and that is the whole of what the text gives: it says nothing about a prosecution, which is decided by a different office on a different record.",
+          "What this page does not resolve is what a specific licensing board will do. Those consequences are governed by each board's own rules rather than by the criminal statutes, and they are not addressed here. Immigration consequences are a matter of federal law and belong with an immigration attorney.",
+        ],
+      },
+      {
+        id: "sealing",
+        heading: "The count that can never be sealed, and the one that can",
+        kind: "prose",
+        answers: ["sealing"],
+        prose: [
+          "The choice between theft and organized fraud is usually discussed in terms of offense level. It carries a second consequence that outlasts the sentence, and it runs in the opposite direction.",
+          "Statute 943.0584(2) lists offenses whose records are permanently ineligible for sealing or expunction where the record is a conviction for one of them. The Florida Communications Fraud Act at Statute 817.034 is on that list at paragraph (v). Theft under Statute 812.014 is not on it at all.",
+          "The trigger is the record being a conviction for a listed offense, which is not the same thing as the charge that was filed. A count under 817.034 that does not end in a conviction on that count does not produce such a record, and a count that does, does. Nothing here says how any case will end, and this is not a reason to expect one ending over another. Note also that Statute 943.0584(1) defines conviction to include a determination of guilt from a trial or a plea of guilty or nolo contendere, regardless of whether adjudication is withheld, so a withhold on an 817.034 count still engages the bar.",
+          "Where no bar applies the general eligibility conditions in Statute 943.059 still have to be met, and a certificate of eligibility from the department is required before any petition is filed. Those conditions are cumulative and one of them, having never previously sealed or expunged a record, makes this a remedy available once.",
+        ],
+      },
+      {
+        id: "who",
+        heading: "Who to call while an internal review is running, and who decides what afterwards",
+        kind: "prose",
+        answers: ["who"],
+        prose: [
+          "Early on the decisions are being made inside a company, by people who are not neutral and are not bound by criminal procedure. An internal investigator, an outside accountant, and an insurer each answer to the organisation rather than to a court.",
+          "Once a report is made, the Office of the State Attorney for the Thirteenth Judicial Circuit decides whether to charge and under which statute, and that decision reaches further than the sentence does. Felony charges are heard in circuit court, and the county Clerk holds the file.",
+          "Who to call, and when. If a charge exists and you cannot afford a lawyer, counsel is addressed at the first appearance: Rule 3.130(b)(1)(B) requires the judge to advise you of the right and that counsel will be appointed, and Rule 3.130(c)(1) requires immediate appointment once the judge determines you are entitled to it and want it. If no charge exists yet, which is the ordinary position while an internal review is running, there is no hearing to raise it at and no appointment will happen on its own. That is the gap specific to these cases: the stage where the record is being assembled is the stage with no court in it, so a defense lawyer is the only route available during it.",
+        ],
+      },
     ],
     faq: [
-      {
-        question: "Is there an embezzlement law in Florida?",
-        source: "drafted",
-        answer:
-          "No, not by that name. Florida prosecutes the conduct as theft under Statute 812.014, and where the accusation covers a series of transactions it may instead be charged as organized fraud under Statute 817.034. The word embezzlement describes the fact pattern rather than the charge.",
-      },
-      {
-        question: "How much do you have to take for it to be a felony in Florida?",
-        source: "drafted",
-        answer:
-          "Charged as theft, the felony threshold is $750, and the degree rises at $20,000 and again at $100,000. Charged as organized fraud under Statute 817.034, the tiers sit at less than $20,000, at $20,000 or more, and at $50,000 or more, so the same money can produce a different degree depending on which statute is charged.",
-      },
-      {
-        question: "Does the charging choice change the exposure?",
-        source: "drafted",
-        answer:
-          "It can, and not always in the direction people expect. A $25,000 accusation charged as theft is a second degree felony at offense level 6, while the same figure charged as organized fraud is a second degree felony at offense level 5. The degree is identical and the offense level is not, and the offense level is what the sentencing scoresheet uses.",
-      },
-      {
-        question: "If I pay the money back, does the case go away?",
-        source: "drafted",
-        answer:
-          "Repayment does not answer the elements of the offense, so it does not by itself end a criminal case. It is relevant at other stages, including in negotiation and at sentencing, and it can also matter to a separate civil claim. Because how a repayment is characterised can carry its own consequences, it is a decision to make with a lawyer rather than on your own.",
-      },
-      {
-        question: "Does it matter that I was allowed to handle the money?",
-        source: "drafted",
-        answer:
-          "It changes which part of the case is actually in dispute. Because access was authorised at the outset, the argument is rarely about whether the property was obtained, and is usually about use and about intent. Florida Statute 812.014 requires an intent to deprive the owner of a right or benefit, or to appropriate the property to someone not entitled to it, and that is a separate question from whether a transaction happened.",
-      },
-      {
-        question: "Can my employer bring a civil claim as well?",
-        source: "drafted",
-        answer:
-          "Yes, and it runs separately from any criminal case. Florida Statute 772.11 gives a person injured by a theft a cause of action for threefold the actual damages, with minimum damages of $200 plus attorney's fees and court costs, after a written demand. The statute provides that someone who complies with the demand within 30 days receives a written release from further civil liability for that specific act.",
-      },
+      { question: "Is there an embezzlement law in Florida?", source: "drafted", answer: "Not under that name. The conduct is prosecuted as theft under Statute 812.014, and where the accusation covers a series of transactions it may instead be charged as organized fraud under Statute 817.034. Embezzlement describes the fact pattern rather than the charge on the paperwork." },
+      { question: "How much do you have to take for it to be a felony in Florida?", source: "drafted", answer: "Charged as theft, the felony threshold is $750, rising in degree at $20,000 and at $100,000. Charged as organized fraud under Statute 817.034, the tiers sit at less than $20,000, at $20,000 or more, and at $50,000 or more, so the same money can produce a different degree depending on the count." },
+      { question: "Does the charging choice change the exposure?", source: "drafted", answer: "It can, and not always as expected. A $25,000 accusation charged as theft is a second degree felony at offense level 6; the same figure as organized fraud is a second degree felony at offense level 5. The degree is identical and the offense level is not, and the offense level is what the scoresheet uses." },
+      { question: "Can an embezzlement record be sealed afterwards?", source: "drafted", answer: "It depends on how the case ends. Statute 943.0584(2) bars sealing where the record is a conviction for a listed offense, and the Florida Communications Fraud Act at Statute 817.034 is listed at paragraph (v). Theft under Statute 812.014 is not listed. Because the trigger is the conviction rather than the charge, a case charged under 817.034 that does not end in a conviction on that count is not barred by it." },
+      { question: "If I pay the money back, does the case go away?", source: "drafted", answer: "Repayment does not answer the elements of the offense, so it does not by itself end a criminal case. It can be relevant at other stages, including in negotiation and at sentencing, and it may matter to a separate civil claim. Because how a repayment is characterised carries its own consequences, it is a decision to make with a lawyer." },
+      { question: "Does it matter that I was allowed to handle the money?", source: "drafted", answer: "It changes which part of the case is in dispute. Because access was authorised at the outset, the argument is rarely about whether property was obtained and is usually about use and intent. Statute 812.014 requires an intent to deprive the owner of a right or benefit, or to appropriate the property to someone not entitled to it, and that is a separate question from whether a transaction happened." },
     ],
-    relatedGuides: [
-      { label: "Tools and guides", href: "/resources/tools-and-guides" },
-    ],
+    // [NEEDS: Layer 2 targets from the brief] W1-02 names a professional
+    // licence guide and the 33-day correction guide. Neither has a route yet,
+    // so the generic hub stands rather than shipping a broken link.
+    relatedGuides: [{ label: "Tools and guides", href: "/resources/tools-and-guides" }],
   },
 
   // ---------------------------------------------------------------------

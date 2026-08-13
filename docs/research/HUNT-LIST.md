@@ -273,8 +273,68 @@ the template was closer to the mission than it was.
    broken version false-flagged. A gate that cannot be shown firing is not
    evidence the pages are clean.
 
+### Instance 7: a check whose failing branch an upstream check makes unreachable
+
+**Added 2026-08-13. Found by the adversarial pass, in the file written the same
+day to fix instance 6, whose header comment cites defect 1.**
+
+The structural variation check asked whether two pages were interchangeable:
+
+```
+yes = idsSame && headingOverlap >= 0.7
+```
+
+It had a self-test. The self-test passed. It fed the function two pages with
+identical section ids **and identical headings**, and the function fired. That
+was recorded as proof the check could fail honestly, and reported as such.
+
+**It was not proof, because the tested state cannot occur.** Immediately above
+this check, the heading-reuse gate fails the build on **any** normalised heading
+shared by two migrated pages. So on every input that reaches the structural
+check in a passing build, the heading sets are disjoint, `headingOverlap` is
+0.00, and the second conjunct is false. **The `yes` branch was unreachable.**
+Two pages with an identical section sequence and merely paraphrased headings
+scored `idsSame: true, headingOverlap: 0.00, fires: false`.
+
+**Why the self-test did not catch it.** The self-test exercised the function in
+isolation, on an input the pipeline can never deliver. It proved the function
+*could* return true for some input, which is a weaker claim than the one being
+made. **The claim being made was about the pipeline, and the evidence was about
+the function.**
+
+**The general defect.** Instance 1 is a check that cannot distinguish the states
+it exists to distinguish. This is narrower and harder to see: the check
+discriminates perfectly, and an **earlier** stage removes the discriminating
+input before it arrives. Every stage passes its own test. The composition is
+dead. **A green suite of independently-correct checks is not evidence that the
+pipeline catches anything.**
+
+**The rules that follow.**
+
+1. **A self-test must feed the check an input the pipeline can actually
+   produce.** If an upstream gate would have rejected that input, the test is
+   about a function rather than about the system, and it must not be reported as
+   evidence about the system.
+2. **When two checks share a signal, ask what the first one guarantees about the
+   input to the second.** Here the heading-reuse gate guaranteed the exact
+   condition that disabled the structural gate. Conjunctions across signals that
+   an earlier gate constrains are the shape to look for.
+3. **Prefer disjunction to conjunction in a detector.** Sameness of shape and
+   sameness of wording are different failures, and requiring both meant neither
+   was caught. The rebuilt check fires on identical id sequence, identical kind
+   sequence, identical kind multiset at equal length, or high heading overlap,
+   any one alone.
+4. **Report what was verified, not what was intended.** The W0 report told the
+   user the gate "fails honestly, with proof". The proof did not cover the
+   pipeline, and the claim should have been scoped to what the self-test
+   actually showed.
+
 ### Where this already applies
 
+- **scripts/check-pages.mts**: the structural check now fires on any single
+  signal, and its self-test includes the paraphrased-headings case that the real
+  pipeline produces, with an explicit comment saying that is the state the
+  heading-reuse gate guarantees.
 - **scripts/check-pages.mts**: every gate carries a fires-on-planted-violation
   self-test and a stays-silent-on-legitimate-copy control, and the build fails
   if either stops holding.
