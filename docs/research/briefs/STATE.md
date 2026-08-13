@@ -216,6 +216,114 @@ reassuring result is available in the failure state is not a cap.
 
 ---
 
+## W3: remaining state briefs. DONE, 3 of 3.
+
+| Brief | Status | Notes |
+|---|---|---|
+| ST-02-drug-possession.md | **DONE** | Weakest volume in the set, roughly 120/month total measurable Florida. Reported as such rather than talked up. 8 UNMET recorded. |
+| ST-03-battery.md | **DONE** | Rejected half the structural fact it was handed and rebuilt the C9 on what the text supports. |
+| ST-04-dui.md | **DONE** | Carries the strongest single finding in the project and the D6 contradiction. |
+
+Barrier ran over 23 assertions, 3 new and 20 populated. Statute-parse: no flags.
+Same-statute: only the ruled grand theft and embezzlement pair, at 0.000
+substance similarity. Pairwise with statute ignored: 253 pairs, max 0.196
+against the 0.34 threshold. New-versus-new: 3 pairs, max 0.063. All three
+recorded.
+
+### A gap this workstream found in its own prior work
+
+**FED-01 and FED-02 were briefed in W1 and committed, but their C9 assertions
+were never written into src/lib/site.ts.** They therefore sat outside the W2
+barrier rather than inside it, and the W2 barrier's "8 already populated" was 8
+because of that omission rather than by design. Both were folded in on
+2026-08-13 and the full pairwise barrier was re-run over all 20 populated
+assertions before W3's three were added. No collision either time.
+
+The lesson is structural, not clerical: **the barrier's input set is only as
+complete as the recording step that feeds it**, and a brief that is written and
+committed without its assertion being recorded is invisible to every later
+check. Recording must happen in the same workstream as the brief.
+
+### The strongest finding in the project
+
+**ST-04. A first refusal of a lawful breath or urine test became a crime in
+Florida on 1 October 2025**, a second degree misdemeanor under F.S.
+316.1939(1)(e), rising to first degree on a second or subsequent refusal.
+Verified three ways: the 2025 operative text, the 2023 and 2024 editions of the
+same subparagraph, which reach only a second-or-subsequent refusal, and the
+effective date from the Legislature's own chapter report for ch. 2025-121
+(CS/HB 687). **Independently re-fetched and confirmed by the orchestrator before
+being recorded**, because a claim this strong that contradicts a state agency is
+exactly the claim that should not rest on one path.
+
+Five sources still state the superseded rule, **including flhsmv.gov**, which
+holds organic position 1 on `florida DUI penalties` and is the AI Overview's
+first cited source. It still says verbatim "Second or subsequent refusal is a
+misdemeanor of the first degree."
+
+`refusing breathalyzer florida` carries 210/month Florida and 50/month DMA at
+LOW competition and $2.30 CPC. It is the one term on the DUI page graded **NOW**.
+
+**Publish gate:** the amendment is verified, its *application* is not. Nothing
+may be written about how first refusals are actually being charged in the
+Thirteenth Circuit without attorney confirmation.
+
+### DECISIONS.md D6 is contradicted, and how the contradiction must be argued
+
+D6 committed waves 1 and 2 to statewide informational capture and **never** local
+charge-term position, on the evidence that Tampa DMA volume for charge terms was
+not measurable. That evidence was correct for the charges then examined and is
+**false for DUI**: `dui lawyer tampa` returns **320/month at Tampa DMA** with CPC
+**$110.74**, the highest in the corpus, previous high $97.54. `dui attorney
+tampa` and `tampa dui attorney` both return 260/month DMA.
+
+**The argument has to be made on the absolute number, not on a ratio.** The
+orchestrator's first framing of this was that Florida volume equalling DMA
+volume showed all state demand was Tampa demand. **That is a tautology and it
+was rejected in the brief.** Every city-named term in the same pull shows 100%,
+including `battery lawyer tampa` at 10/10 and `drug possession attorney tampa`
+at 10/10. Real geographic share shows in the Florida-level informational terms
+and runs 24 to 36 percent, roughly the DMA's population share. The finding is
+320/month DMA against **no data at all** for seven wave 1 and 2 charge terms,
+plus the CPC. Stated as a ratio it does not survive review.
+
+**Proposed amendment, drafted in ST-04 Section 0.4, not applied:** waves 1
+through 3 are measured on statewide informational capture **except** where a
+charge term carries measurable DMA volume, in which case local position is a
+legitimate secondary measure reported alongside. Exactly two charges qualify
+today, DUI and domestic violence, and the qualifying list is re-derived from a
+volume pull each reporting cycle. D6's requirement that this be told to the
+client before reporting begins carries over.
+
+**This needs a decision.** Leaving D6 unamended while reporting DUI on local
+position is the one option that is not defensible.
+
+### A second contradiction, by silence
+
+**`docs/research/keywords.md` does not mention DUI.** A case-insensitive grep for
+`\bdui\b` returns zero hits. The file that graded winnability for this project
+omits the charge carrying the highest measurable local volume in it. Every DUI
+grade is therefore marked **inferred** rather than checked against a prior grade.
+
+### Measurability and winnability separated deliberately
+
+ST-04 grades the DUI commercial term **YEARS despite it now being measurable**,
+and the load-bearing reason is compliance rather than competition. Nine of
+nineteen organic results carry "best", "top", "top-rated", "expert" or "highly
+rated"; the first and seventh related searches contain "Best"; PAA asks who the
+best DUI attorney in Tampa is. **Google's signals on this query are shaped by a
+question a Rule 4-7.13(b)(3)-compliant page cannot answer**, and at $110.74 the
+firm cannot buy parity either. The informational and procedural case for the
+page is strong and entirely independent of the commercial one, and ST-04 asks
+that the two be decided separately.
+
+### Request budget
+
+**40 of 300** through W1, W2, W3, and the W4 data pull. W4's SERP and volume
+data was collected before W4 was launched, for the same counter reason.
+
+---
+
 ## Questions only the human can answer
 
 **ALL SEVEN ANSWERED 2026-08-13. Decisions recorded in docs/build/DECISIONS.md

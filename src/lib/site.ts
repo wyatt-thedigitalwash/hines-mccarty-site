@@ -1118,6 +1118,46 @@ const CHARGE_C9: Record<string, C9Assertion> = {
     assertion:
       "Every state attorney is directed by statute to adopt a pro-prosecution policy for this category of case, so the complainant does not control whether it proceeds.",
   },
+  // W3, recorded 2026-08-13. Barrier ran over 23 assertions, 253 pairs
+  // pairwise with statute ignored, max similarity 0.196 against the 0.34
+  // threshold. The only same-statute pair is the ruled grand theft and
+  // embezzlement pair on F.S. 812.014, at 0.000 substance similarity.
+  "state/drug-possession-defense": {
+    statute: "F.S. 893.13(6)",
+    section: "Degrees, penalties and offense levels",
+    assertion:
+      "One paragraph of the possession statute is ranked twice in the F.S. 921.0022 chart at two different severity levels, level 1 for felony possession of cannabis and level 3 for possession of any other controlled substance, so two third degree felonies carrying the identical five-year maximum score 4 primary offense points and 16, while 893.13(6)(c) possession of more than 10 grams of a substance named in s. 893.03(1)(a), (1)(b) or (2)(b) is a first degree felony at level 8 and 74 points, above the 44-point threshold on the primary offense alone.",
+  },
+  "state/battery-defense": {
+    statute: "F.S. 784.03",
+    section: "What raises a battery without changing what happened",
+    assertion:
+      "The same first degree misdemeanor battery becomes a third degree felony on facts outside the act itself, and the three routes do not work alike: 784.03(2) needs only one prior battery conviction and counts a withheld adjudication or a nolo plea as that conviction, 784.07(2)(b) applies only where the defendant knowingly battered a law enforcement officer or other listed person, and 784.08(2)(c) reaches a person 65 years of age or older regardless of whether the defendant knows or has reason to know the age of the victim.",
+  },
+  "state/dui-defense": {
+    statute: "F.S. 322.2615",
+    section: "The other case: the 10 days that run from the notice, not from a court date",
+    assertion:
+      "A Florida DUI arrest opens a second case against the driver license that runs on its own clock, and F.S. 322.2615(1)(b)3 gives 10 days from the date the notice of suspension is issued, not from the arrest and not from any court date, to do one of three mutually exclusive things: request a formal review, request an informal review, or take the restricted business-purposes privilege under F.S. 322.271(7), which by that statute's own terms is a waiver of both reviews.",
+  },
+
+  // Recorded 2026-08-13. These two were briefed in W1 and the briefs were
+  // committed, but the assertions were never written here, which meant they sat
+  // outside the W2 barrier rather than inside it. Folded in and the full barrier
+  // re-run over all 21 populated assertions, not just the 19 it saw the first time.
+  "federal/money-laundering": {
+    statute: "18 U.S.C. 1956 and 1957",
+    section: "What counts as specified unlawful activity",
+    assertion:
+      "The offense turns on a finite statutory predicate list rather than on an amount: 1956 sets no dollar threshold at all, while its companion at 1957 turns on a single $10,000 figure.",
+  },
+  "federal/computer-internet-crimes": {
+    statute: "18 U.S.C. 1030",
+    section: "The three offenses this page is built on",
+    assertion:
+      "Three separate offenses rather than one: (a)(1) reaches national defense information with no Florida counterpart, (a)(4) requires intent to defraud plus obtaining something of value, and (a)(5) makes damage itself the offense with no dollar floor.",
+  },
+
   // Recorded 2026-08-13 after the W2 reconciliation barrier. 171 pairs compared
   // pairwise, statute ignored, plus the same-statute rule across the union of new
   // and populated assertions. No collision; highest similarity 0.148 against a

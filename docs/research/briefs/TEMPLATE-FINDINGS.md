@@ -183,6 +183,30 @@ local range is higher than recorded. Buda Law is near 3,000 words. Length alone
 is therefore not the differentiator, and a 1,200-to-1,800-word page that is
 cited, tabled, dated, and localized still clears this field.
 
+### AMENDED 2026-08-13 by W3. Currency is not the open dimension. Tables and offense levels still are.
+
+The paragraph above is true of the three wave 1 and wave 2 pages it graded and
+**does not generalise**. Two W3 briefs reached this independently, working on
+different charges from different SERPs, which is why it is recorded as an
+amendment rather than as one brief's outlier.
+
+| Brief | Page | What it carries |
+|---|---|---|
+| ST-02 drug possession | longwelllawyers.com, the AI Overview's top firm source | Author byline, a 2025-11 date, a six-question FAQ block, nine statute citations |
+| ST-03 battery | brancatolawfirm.com, informational position 4 and an AI Overview citation | Table, byline, date, roughly 2,767 words |
+
+**The corrected finding:** currency, bylines, and FAQ blocks are contested in
+the higher-volume state charge niches and open only in the thinner ones. Do not
+plan a page around beating the field on freshness without checking that field
+first. **What remains open across every niche observed so far is the penalties
+table, the offense-level column, and named local specificity.** No page in any
+niche this project has graded carries an F.S. 921.0022 offense level.
+
+The original three-page finding stands as written for the pages it graded. It is
+the generalisation that failed, and the failure is instructive: three pages in
+two niches were not enough to support a market-wide claim about a dimension that
+varies by niche.
+
 ---
 
 ## 3. Where the template should change
