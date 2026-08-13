@@ -1,6 +1,11 @@
 // Central site data. Copy here is first-draft and compliance-aware:
 // no "best/expert/specialist" claims, no outcome promises (Fla. Bar R. 4-7).
 
+// Type-only, so it is erased at runtime and this module keeps having no
+// runtime imports. That property is what lets scripts/check-c9.ts load this
+// file directly under `node --experimental-strip-types`.
+import type { C9Assertion } from "./c9.ts";
+
 /**
  * The site's absolute origin. Every canonical URL, Open Graph URL, sitemap
  * entry, and JSON-LD @id derives from this.
@@ -822,6 +827,20 @@ export type ChargePage = {
   /** Template item 10, C11. */
   owner?: string;
   lastReviewed?: string;
+  /**
+   * Done-criterion C9, recorded as an assertion so it can be checked ACROSS
+   * pages rather than only within one.
+   *
+   * This never renders. It exists so scripts/check-c9.ts can fail the build
+   * when two pages rest on the same statute and claim the same substance,
+   * which is what happened when the embezzlement and grand theft briefs each
+   * claimed the F.S. 812.014 value table. See src/lib/c9.ts for why this is a
+   * collision check and deliberately not a presence check.
+   *
+   * [NEEDS] in `statute` or `assertion` marks an entry as not yet briefed. Those
+   * are skipped by the checker, because a placeholder cannot collide.
+   */
+  c9: C9Assertion;
   published: boolean;
 };
 
@@ -998,6 +1017,101 @@ const whiteCollarCharges: ChargeSeed[] = [
 /** [slug, label, one-line description capped at 8 words] */
 type ChargeSeed = [string, string, string];
 
+/**
+ * C9 assertions, keyed `silo/slug`, from the named differentiator in each
+ * page's brief in docs/research/briefs/.
+ *
+ * Only charges with a written brief appear here. Everything else gets the
+ * [NEEDS] placeholder from `stub` below, which the collision checker skips: a
+ * placeholder cannot collide with anything, and pretending otherwise would make
+ * the check noisy rather than useful.
+ *
+ * Note that grand theft and embezzlement both rest on F.S. 812.014 and do NOT
+ * collide, which is the whole point of the ruling in CASES-WE-DEFEND-PLAN.md
+ * Section 4.5: the shared value table moved to the Layer 2 offense-level asset,
+ * grand theft kept the value ladder as its subject matter, and embezzlement
+ * took the position-of-trust pattern.
+ */
+const CHARGE_C9: Record<string, C9Assertion> = {
+  "state/grand-theft-defense": {
+    statute: "F.S. 812.014",
+    section: "Degrees and penalties",
+    assertion:
+      "The value ladder that sets the degree of a theft, from the $750 felony threshold up to the $100,000 first degree tier, plus the $40 floor for property taken from a dwelling.",
+  },
+  "white-collar/embezzlement": {
+    statute: "F.S. 812.014",
+    section: "What the state has to prove",
+    assertion:
+      "Possession was lawful and authorised when it began, so the contested element is intent to deprive rather than the taking.",
+  },
+  "state/drug-trafficking-defense": {
+    statute: "F.S. 893.135",
+    section: "Weight, mandatory minimum, fine and offense level",
+    assertion:
+      "Substance-specific weight tiers, each tied to a mandatory minimum term and a fixed fine, with no tier ranked below offense level 7.",
+  },
+  "state/gun-crimes-defense": {
+    statute: "F.S. 775.087",
+    section: "If a firearm was involved",
+    assertion:
+      "Possession of a firearm by a felon and burglary of a conveyance carry a three-year minimum under 10-20-Life, not the ten years every other enumerated felony draws.",
+  },
+  "state/domestic-violence-defense": {
+    statute: "F.S. 741.2901",
+    section: "Why the case continues if the complainant recants",
+    assertion:
+      "Every state attorney is directed by statute to adopt a pro-prosecution policy for this category of case, so the complainant does not control whether it proceeds.",
+  },
+  // [NEEDS: decision on the money laundering slug] W2-05 is written for
+  // `/white-collar-defense/money-laundering`, built on F.S. 896.101, with
+  // `/federal-criminal-defense/money-laundering` as its overlap sibling built
+  // on the federal statutes. Only the federal slug exists. The C9 assertion
+  // below is the white-collar one and is parked here rather than attached to
+  // the federal entry, because the federal page rests on different statutes and
+  // would need its own differentiator.
+  //
+  // This is the same class of gap as DECISIONS.md D3 and needs the same kind of
+  // decision, so it is not resolved here by inventing a slug.
+  //
+  //   statute:   F.S. 896.101
+  //   section:   Thresholds, degrees and offense levels
+  //   assertion: A three-tier ladder starting at $300 and measured across any
+  //              rolling 12-month period, where even the third degree tier is
+  //              ranked at offense level 7.
+  "white-collar/identity-theft": {
+    statute: "F.S. 817.568",
+    section: "The minor and the guardian tiers",
+    assertion:
+      "Using the identifying information of a minor in the defendant's own custody is a second degree felony ranked at level 9, above a first degree grand theft.",
+  },
+  "white-collar/wire-fraud": {
+    statute: "F.S. 817.034",
+    section: "Forum section: state charge or federal charge?",
+    assertion:
+      "No Florida offense carries this name, and the state analogue is the Florida Communications Fraud Act with its own aggregate-value tiers.",
+  },
+  // OPP-01. Its differentiator rests on a limitations period that is reported
+  // rather than verified, so the statute stays a placeholder and the entry is
+  // not compared. See docs/research/briefs/OPP-01-ppp-loan-fraud.md.
+  "white-collar/ppp-loan-fraud": {
+    statute: "[NEEDS: the limitations statute governing PPP fraud prosecutions]",
+    section: "Is this still live?",
+    assertion:
+      "[NEEDS: verify the limitations period before asserting it as the differentiator]",
+  },
+};
+
+/**
+ * Exported so scripts/check-c9.mts can verify every key here matches a real
+ * charge. A key that matches nothing is a silent failure: the assertion looks
+ * recorded, the collision checker never sees it, and the page it was meant to
+ * govern quietly carries a [NEEDS] placeholder instead. That is exactly the
+ * shape of defect 1 in docs/research/HUNT-LIST.md, so it gets its own check
+ * rather than trust.
+ */
+export const CHARGE_C9_KEYS = Object.keys(CHARGE_C9);
+
 const stub =
   (silo: SiloKey) =>
   ([slug, label, description]: ChargeSeed): ChargePage => ({
@@ -1005,6 +1119,11 @@ const stub =
     silo,
     label,
     description,
+    c9: CHARGE_C9[`${silo}/${slug}`] ?? {
+      statute: "[NEEDS: the statute the differentiator rests on]",
+      section: "[NEEDS: which template section carries it]",
+      assertion: "[NEEDS: brief not written; see CASES-WE-DEFEND-PLAN.md Section 7]",
+    },
     published: false,
   });
 
@@ -1176,16 +1295,280 @@ const CHARGE_FAQ: Record<string, FaqItem[]> = {
   ],
 };
 
+/**
+ * Written charge pages, keyed `silo/slug`.
+ *
+ * EVERY statutory figure below was fetched from an allowlisted official source
+ * and is quoted in the page's brief in docs/research/briefs/ with its URL.
+ * Nothing here comes from recall (done-criterion C12). Where a brief records a
+ * claim as UNVERIFIED it is absent from the copy and carries a [NEEDS] comment
+ * instead, rather than being written around.
+ *
+ * Compliance rails on both entries (Fla. Bar R. 4-7, avoid.md Section 2): no
+ * case results, no outcome prediction, nothing characterising the firm's skill
+ * or record, and the defense sections describe process only.
+ */
+const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
+  // ---------------------------------------------------------------------
+  // GRAND THEFT. From docs/research/briefs/W1-03-grand-theft.md.
+  //
+  // C9: the value ladder. Under the collision ruling in
+  // CASES-WE-DEFEND-PLAN.md Section 4.5 this page KEEPS the ladder, because
+  // the ladder is what the charge is, and embezzlement took the
+  // position-of-trust pattern instead.
+  //
+  // What this page does NOT reproduce is the cross-statute offense-level
+  // comparison. That is the Layer 2 comparison instrument's job (TOOLS.md
+  // item 1).
+  // [NEEDS: link to the offense-level comparison instrument once it ships]
+  // It is not linked today because it does not exist, and shipping a pointer
+  // to a page that is not there is the dead-link problem the 33-day guide
+  // entry in REVIEW-QUEUE.md also guards against.
+  // ---------------------------------------------------------------------
+  "state/grand-theft-defense": {
+    title: "Grand theft charges in Hillsborough County",
+    metaTitle: "Grand Theft Charges in Hillsborough County | Hines & McCarty",
+    metaDescription:
+      "What Florida Statute 812.014 says about grand theft, the value thresholds that set the degree, the offense levels they carry, and where these cases are heard.",
+    lead: "Grand theft is a felony under Florida Statute 812.014. A theft becomes grand theft when the property is worth $750 or more. Below that figure the same conduct is petit theft, which is a misdemeanor.",
+    statute: {
+      citation: "Florida Statute 812.014, the 2025 Florida Statutes",
+      body: "The statute defines theft in one sentence and then sets the degree by value. A person commits theft if he or she knowingly obtains or uses, or endeavors to obtain or to use, the property of another with intent to either temporarily or permanently deprive the other person of a right to the property or a benefit from the property, or to appropriate the property to his or her own use or to the use of any person not entitled to the use of the property. Everything else in the statute is about how much the property was worth, and in a few places about what the property was or where it was taken from. Theft of property not covered by the grand theft subsection is petit theft of the second degree under 812.014(3)(a), which is a misdemeanor. A prior theft conviction raises a later petit theft to a misdemeanor of the first degree under 812.014(3)(b), and two or more prior theft convictions raise it to a felony of the third degree under 812.014(3)(c). That last provision is worth reading twice, because it means a low-value theft can be a felony on the strength of history rather than of value.",
+    },
+    penalties: [
+      {
+        degree: "First degree felony",
+        maximum: "Up to 30 years",
+        offenseLevel: "Level 7",
+        note: "Property valued at $100,000 or more, under 812.014(2)(a)1.",
+      },
+      {
+        degree: "Second degree felony",
+        maximum: "Up to 15 years",
+        offenseLevel: "Level 6",
+        note: "Property valued at $20,000 or more but less than $100,000, under 812.014(2)(b)1.",
+      },
+      {
+        degree: "Third degree felony",
+        maximum: "Up to 5 years",
+        offenseLevel: "Level 4",
+        note: "Property valued at $10,000 or more but less than $20,000, under 812.014(2)(c)3.",
+      },
+      {
+        degree: "Third degree felony",
+        maximum: "Up to 5 years",
+        offenseLevel: "Level 3",
+        note: "Property valued at $5,000 or more but less than $10,000, under 812.014(2)(c)2.",
+      },
+      {
+        degree: "Third degree felony",
+        maximum: "Up to 5 years",
+        offenseLevel: "Level 2",
+        note: "Property valued at $750 or more but less than $5,000, under 812.014(2)(c)1. Also the level for property worth $40 or more taken from a dwelling or its unenclosed curtilage, under 812.014(2)(d)1.",
+      },
+    ],
+    elements: [
+      "That the property belonged to someone else.",
+      "That the defendant knowingly obtained or used it, or endeavored to obtain or use it. The statute reaches an attempt in the same breath as a completed taking.",
+      "That the defendant intended to deprive the owner of a right to the property or a benefit from it, or to appropriate it to someone not entitled to it. The statute covers a temporary intent as well as a permanent one.",
+      "What the property was worth. Value is a separate question from whether anything was taken, and it is the question that decides the degree of the charge and the offense level that follows from it.",
+    ],
+    defenseApproach: [
+      "The first questions are usually about value rather than about the taking. A charge sits on one side or the other of the $750 line, or the $20,000 line, because someone assigned a figure to the property. Where that figure came from is a fair question: a receipt, a replacement quote, an insurance schedule, and a complainant's recollection are not the same kind of evidence, and they do not always agree with each other.",
+      "The second set of questions is about intent. The statute asks what the defendant meant to do at the time, and that is rarely something a report records directly. It is usually inferred from surrounding facts, which means the surrounding facts are open to examination.",
+      "Where the value sits near a threshold, the difference between two degrees can rest on a single valuation. That is worth identifying early, because it shapes what the case is about.",
+      "The offense level matters for a reason that is easy to miss. Florida sentences felonies through the Criminal Punishment Code, and Statute 921.0024(2) provides that the lowest permissible sentence is any nonstate prison sanction where the total sentence points equal or are less than 44 points. Above that figure the statute produces a minimum by subtracting 28 points from the total and reducing the remainder by 25 percent. Statute 775.082(10) adds that where the total sentence points are 22 or fewer, the court must impose a nonstate prison sanction. The primary offense level is only one input into that total, alongside prior record, additional offenses, victim injury, and multipliers, but it is the input the charge itself sets.",
+      "None of that predicts an outcome in a particular case, and it is not meant to. It explains why two charges that carry the same words on the paperwork can sit in very different places once the arithmetic is done.",
+    ],
+    forum: [
+      "Felony charges in Hillsborough County are heard in circuit court. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, in downtown Tampa.",
+      "The Clerk also lists criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071, which serves the eastern side of the county.",
+      // [NEEDS: which courthouse actually hears a felony arising in Brandon]
+      // The Clerk's site establishes that both locations offer Circuit Criminal
+      // services. It does not establish how a given Brandon case is assigned,
+      // and that is exactly the sort of fact plan Section 8.3 warns is easy to
+      // guess wrong. Not asserted here.
+      //
+      // [NEEDS: attorney confirmation on the Brandon Regional Service Center]
+      // Blocked by DECISIONS.md D7. It is a Clerk location in the firm's own
+      // town, which is why it is tempting, and a service centre is not
+      // necessarily where a felony is heard. Stays out of copy until confirmed.
+    ],
+    faq: [
+      {
+        question:
+          "How much does the property have to be worth for a theft to be grand theft?",
+        source: "keywords.md",
+        grade: "6-12mo",
+        answer:
+          "The general threshold is $750. At or above that figure the offense is grand theft, which is a felony; below it the same conduct is petit theft, which is a misdemeanor under Florida Statute 812.014(3)(a). The statute then sets higher degrees at $20,000 and at $100,000.",
+      },
+      {
+        question: "Is stealing $500 a felony in Florida?",
+        source: "drafted",
+        answer:
+          "Usually not, because $500 is below the $750 grand theft threshold, so it is ordinarily petit theft. There is an exception that catches people by surprise: under Florida Statute 812.014(2)(d)1., property worth $40 or more taken from a dwelling or its unenclosed curtilage is grand theft of the third degree, which is a felony.",
+      },
+      {
+        question: "What is third degree grand theft in Florida?",
+        source: "drafted",
+        answer:
+          "It is the lowest felony tier of theft, covering property valued at $750 or more but less than $20,000, and it carries a statutory maximum of five years under Florida Statute 775.082(3)(e). One degree is not one exposure: within that tier the offense level rises from level 2 to level 4 as the value climbs, and the level is what the sentencing scoresheet uses.",
+      },
+      {
+        question: "Who decides what the property was worth?",
+        source: "drafted",
+        answer:
+          "Value is something the state has to prove, not something the accusation settles. Florida Statute 812.014 sets the degree by the value of the property, so the figure has to be established like any other part of the case, and the source of that figure is open to examination.",
+      },
+      {
+        question: "Can the same conduct also be a civil case?",
+        source: "drafted",
+        answer:
+          "Yes, and it is a separate track from the criminal one. Florida Statute 772.11 gives a person injured by a theft a civil cause of action for threefold the actual damages, with minimum damages of $200 plus attorney's fees and court costs. The statute requires a written demand first, and it provides that someone who complies with that demand within 30 days is given a written release from further civil liability for that specific act of theft.",
+      },
+      {
+        question: "Can a low-value theft still be a felony?",
+        source: "drafted",
+        answer:
+          "It can, on two separate routes. Property worth $40 or more taken from a dwelling or its unenclosed curtilage is grand theft of the third degree under Florida Statute 812.014(2)(d)1. Separately, a petit theft by someone with two or more prior theft convictions is a felony of the third degree under 812.014(3)(c), which turns on history rather than on value.",
+      },
+    ],
+    relatedGuides: [
+      { label: "Tools and guides", href: "/resources/tools-and-guides" },
+    ],
+  },
+
+  // ---------------------------------------------------------------------
+  // EMBEZZLEMENT. From docs/research/briefs/W1-02-embezzlement.md.
+  //
+  // C9: the position-of-trust pattern, NOT the value ladder. Section 4.5.
+  //
+  // COPY-LEVEL VARIATION (plan Section 4.3). Three pages will have a
+  // differentiator resting on the charge not existing under that name in
+  // Florida: this one, wire fraud, and identity theft. They must not all open
+  // with that move. This page opens on the trust relationship instead, and the
+  // naming point arrives later, in the statute section. That ordering is also
+  // the more accurate one here, since the trust pattern is what makes the page
+  // different from grand theft rather than what makes it different from its
+  // own name.
+  // ---------------------------------------------------------------------
+  "white-collar/embezzlement": {
+    title: "Embezzlement charges in Florida",
+    metaTitle: "Embezzlement Charges in Florida | Hines & McCarty",
+    metaDescription:
+      "Embezzlement accusations start from lawful possession. What Florida charges instead, which statute applies, and why the charging choice changes the offense level.",
+    lead: "Embezzlement accusations start from a position of trust. The money or property was handed over lawfully, usually as part of a job, and the accusation is about what happened next. Florida prosecutes this as theft, under Statute 812.014.",
+    statute: {
+      citation:
+        "Florida Statute 812.014, and Florida Statute 817.034, the 2025 Florida Statutes",
+      body: "There is no Florida offense called embezzlement. The conduct is charged as theft under Florida Statute 812.014, which reaches a person who knowingly obtains or uses, or endeavors to obtain or to use, the property of another with intent to deprive the owner of a right to it or to appropriate it to someone not entitled to it. Where the accusation is not a single transaction but a series of them, the state may instead charge organized fraud under the Florida Communications Fraud Act, Florida Statute 817.034, which defines a scheme to defraud as a systematic, ongoing course of conduct with intent to defraud one or more persons, or with intent to obtain property from one or more persons by false or fraudulent pretenses, representations, endorsements of nonconsenting parties, or promises or willful misrepresentations of a future act.",
+    },
+    penalties: [
+      {
+        degree: "Third degree felony",
+        maximum: "Up to 5 years",
+        offenseLevel: "Level 2 to 4 as theft, level 3 as organized fraud",
+        note: "Theft of $750 or more but less than $20,000 under 812.014(2)(c). Organized fraud of less than $20,000 under 817.034(4)(a)3.",
+      },
+      {
+        degree: "Second degree felony",
+        maximum: "Up to 15 years",
+        offenseLevel: "Level 6 as theft, level 5 as organized fraud",
+        note: "Theft of $20,000 or more but less than $100,000 under 812.014(2)(b)1. Organized fraud of $20,000 or more but less than $50,000 under 817.034(4)(a)2.",
+      },
+      {
+        degree: "First degree felony",
+        maximum: "Up to 30 years",
+        offenseLevel: "Level 7",
+        note: "Theft of $100,000 or more under 812.014(2)(a)1. Organized fraud of $50,000 or more under 817.034(4)(a)1.",
+      },
+    ],
+    elements: [
+      "That the property belonged to someone else, which in these cases is rarely in dispute.",
+      "That the defendant knowingly obtained or used it. This is where the trust pattern matters: possession was authorised at the outset, so the argument is usually about use rather than about obtaining.",
+      "That the defendant intended to deprive the owner of a right or benefit, or to appropriate the property to someone not entitled to it. In a case that began with lawful access, intent is ordinarily the contested element.",
+      "If the charge is organized fraud instead, that the conduct was a systematic, ongoing course of conduct, which is a different thing from a single transaction and has to be shown as such.",
+    ],
+    defenseApproach: [
+      "These cases are built from records, and the records usually exist before anyone is accused. Ledgers, approvals, expense systems, and email are gathered first and the accusation is assembled from them, which means the first work is understanding what those records actually show rather than what they are said to show.",
+      "Authorisation is the question underneath most of them. Access was granted, so the issue is whether a given transaction fell inside what was permitted, and permission in a small business is often informal, inconsistent, or undocumented rather than absent.",
+      "Aggregation is the second question. A charge that covers months or years is a collection of individual transactions added together, and both the total and the decision to treat them as one course of conduct are things that have to be supported. Statute 817.034 does not describe an isolated act: it defines a scheme to defraud as a systematic, ongoing course of conduct, so where that charge is brought, the pattern is part of what has to be shown rather than a description of the total.",
+      "The definition of obtaining is broader than it first sounds. Under 817.034(3)(b), to obtain means temporarily or permanently to deprive a person of a right to property or a benefit from it, or to appropriate the property to one's own use or to the use of another person not entitled to it. That language covers money that was moved and returned, which is why a case can exist even where nothing is missing at the end.",
+      "The offense level is worth understanding early, because it is set by the charging decision rather than by the conduct. Florida sentences felonies through the Criminal Punishment Code, and Statute 921.0024(2) provides that the lowest permissible sentence is any nonstate prison sanction where the total sentence points equal or are less than 44 points, with a formula above that figure. Statute 775.082(10) requires a nonstate prison sanction where the total is 22 points or fewer. The primary offense level feeds that total, and as the table above shows, the same dollar figure does not always produce the same level.",
+      "Restitution comes up early, and it is a decision made with counsel rather than a step to take alone. Repaying money does not answer the elements of the offense, and how a repayment is characterised can matter as much as whether it happens.",
+    ],
+    forum: [
+      "Felony charges in Hillsborough County are heard in circuit court. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
+      // [NEEDS: federal embezzlement exposure] The brief records 18 U.S.C. 656,
+      // 664 and 666 as UNVERIFIED. uscode.house.gov is allowlisted as of
+      // DECISIONS.md D2 but they were not fetched, so no federal maximum,
+      // element, or statute number is stated on this page.
+      // [NEEDS: whether a Thirteenth Circuit economic crime unit exists]
+      // Not verified against the State Attorney's own site.
+    ],
+    faq: [
+      {
+        question: "Is there an embezzlement law in Florida?",
+        source: "drafted",
+        answer:
+          "No, not by that name. Florida prosecutes the conduct as theft under Statute 812.014, and where the accusation covers a series of transactions it may instead be charged as organized fraud under Statute 817.034. The word embezzlement describes the fact pattern rather than the charge.",
+      },
+      {
+        question: "How much do you have to take for it to be a felony in Florida?",
+        source: "drafted",
+        answer:
+          "Charged as theft, the felony threshold is $750, and the degree rises at $20,000 and again at $100,000. Charged as organized fraud under Statute 817.034, the tiers sit at less than $20,000, at $20,000 or more, and at $50,000 or more, so the same money can produce a different degree depending on which statute is charged.",
+      },
+      {
+        question: "Does the charging choice change the exposure?",
+        source: "drafted",
+        answer:
+          "It can, and not always in the direction people expect. A $25,000 accusation charged as theft is a second degree felony at offense level 6, while the same figure charged as organized fraud is a second degree felony at offense level 5. The degree is identical and the offense level is not, and the offense level is what the sentencing scoresheet uses.",
+      },
+      {
+        question: "If I pay the money back, does the case go away?",
+        source: "drafted",
+        answer:
+          "Repayment does not answer the elements of the offense, so it does not by itself end a criminal case. It is relevant at other stages, including in negotiation and at sentencing, and it can also matter to a separate civil claim. Because how a repayment is characterised can carry its own consequences, it is a decision to make with a lawyer rather than on your own.",
+      },
+      {
+        question: "Does it matter that I was allowed to handle the money?",
+        source: "drafted",
+        answer:
+          "It changes which part of the case is actually in dispute. Because access was authorised at the outset, the argument is rarely about whether the property was obtained, and is usually about use and about intent. Florida Statute 812.014 requires an intent to deprive the owner of a right or benefit, or to appropriate the property to someone not entitled to it, and that is a separate question from whether a transaction happened.",
+      },
+      {
+        question: "Can my employer bring a civil claim as well?",
+        source: "drafted",
+        answer:
+          "Yes, and it runs separately from any criminal case. Florida Statute 772.11 gives a person injured by a theft a cause of action for threefold the actual damages, with minimum damages of $200 plus attorney's fees and court costs, after a written demand. The statute provides that someone who complies with the demand within 30 days receives a written release from further civil liability for that specific act.",
+      },
+    ],
+    relatedGuides: [
+      { label: "Tools and guides", href: "/resources/tools-and-guides" },
+    ],
+  },
+};
+
 export const charges: ChargePage[] = [
   ...stateCharges.map(stub("state")),
   ...federalCharges.map(stub("federal")),
   ...whiteCollarCharges.map(stub("white-collar")),
 ].map((charge) => {
+  const key = `${charge.silo}/${charge.slug}`;
   const withPreview =
     charge.silo === "state" && charge.slug === "drug-trafficking-defense"
       ? { ...charge, ...templatePreview }
       : charge;
-  const faq = CHARGE_FAQ[`${charge.silo}/${charge.slug}`];
+
+  // Written content wins over both the template preview and the seeded FAQ
+  // questions, since a written page carries answered questions rather than
+  // placed ones.
+  const content = CHARGE_CONTENT[key];
+  if (content) return { ...withPreview, ...content };
+
+  const faq = CHARGE_FAQ[key];
   return faq ? { ...withPreview, faq } : withPreview;
 });
 

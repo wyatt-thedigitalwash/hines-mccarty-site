@@ -1,5 +1,5 @@
 import { MetadataRoute } from "next";
-import { attorneys, siteUrl } from "@/lib/site";
+import { attorneys, charges, chargeHref, silos, siteUrl } from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
@@ -16,6 +16,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .filter((a) => a.confirmed)
       .map((a) => ({
         url: `${siteUrl}/attorneys/${a.slug}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      })),
+
+    // Charge pages and silo hubs, wired here and gated on `published` for the
+    // same reason the bios are gated on `confirmed`.
+    //
+    // The gate is the point. Both routes set `noindex: !published`, so an
+    // unpublished page listed here would ask Google to crawl it and then tell
+    // it not to index what it found. Listing them only once `published` flips
+    // keeps the two signals saying the same thing, and flipping that one flag
+    // after the attorney read puts them in without another code change.
+    ...silos
+      .filter((s) => s.published)
+      .map((s) => ({
+        url: `${siteUrl}${s.href}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.8,
+      })),
+    ...charges
+      .filter((c) => c.published)
+      .map((c) => ({
+        url: `${siteUrl}${chargeHref(c)}`,
         changeFrequency: "monthly" as const,
         priority: 0.7,
       })),

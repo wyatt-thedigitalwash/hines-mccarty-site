@@ -89,7 +89,7 @@ date), C12 (allowlisted verification), and C13.
 | `/criminal-defense/sex-crimes-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/battery-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/domestic-violence-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
-| `/criminal-defense/grand-theft-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/grand-theft-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
 | `/criminal-defense/homicide-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/dui-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 
@@ -115,13 +115,42 @@ date), C12 (allowlisted verification), and C13.
 | `/white-collar-defense/corporate-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/healthcare-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/bank-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
-| `/white-collar-defense/embezzlement` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/embezzlement` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
 | `/white-collar-defense/securities-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/computer-crime` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/wire-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/tax-evasion` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/ppp-loan-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/identity-theft` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+
+**Two pages moved from stub to draft 2026-08-13.**
+
+`/criminal-defense/grand-theft-defense` (brief W1-03) and
+`/white-collar-defense/embezzlement` (brief W1-02) now carry written content.
+Both are `published: false`, so both are noindex and both are held out of the
+sitemap by the gate in src/app/sitemap.ts. Neither has an owner and neither has
+been reviewed.
+
+**Their `owner` and `lastReviewed` are deliberately still `[NEEDS]`, and the
+pages render visible markers for both.** No attorney has been assigned
+(WEBSITE-PLAN.md Open Question 2), so naming one would be an invention, and no
+attorney has checked the pages against their cited sources, so recording a
+review date would break this file's own rule that a date is never written
+without the review behind it. Populating either field would make the byline
+assert something untrue, which is worse than an obvious gap.
+
+**Statutory sources cleared for these two pages on 2026-08-13**, all from
+flsenate.gov, the 2025 Florida Statutes:
+
+| Statute | What it cleared |
+|---|---|
+| 812.014(3)(a) to (c) | Petit theft degrees, including that two or more prior theft convictions make a later petit theft a third degree felony |
+| 772.11(1) | Civil theft: threefold damages, $200 minimum, the written demand, and the 30-day compliance release |
+| 817.034(3)(b), (3)(d), (4)(a) | The definitions of obtain and of a scheme to defraud, and the three organized fraud value tiers |
+
+Previously recorded as publish blockers for these pages and now closed. The
+remaining [NEEDS] items on both pages are listed in the page data as code
+comments beside the field they affect.
 
 **Changed 2026-08-13 (DECISIONS.md D3 and D4).** `mail-fraud` removed after
 failing the C9 cover-the-name test against wire fraud; its query is targeted by

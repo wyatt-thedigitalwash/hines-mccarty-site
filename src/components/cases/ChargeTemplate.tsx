@@ -81,11 +81,20 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                 absent: the sentencing calculator has not cleared done-criteria
                 C1 through C8 (CASES-WE-DEFEND-PLAN.md Section 5.6), and no page
                 links to it until it does. Add the link here, on the offense
-                level row, once the ship gate is met. */}
+                level row, once the ship gate is met.
+
+                The table carries no min-width. It had one, which was harmless
+                while the only entry was a template preview with two-word notes.
+                Real content broke it: the note carries the value threshold that
+                decides the row, and at 390px a min-width pushed that sentence
+                outside the scroll container, putting the substance of the table
+                behind a horizontal scrollbar. Same fix and same reason as the
+                divisions table on the silo hub. overflow-x-auto stays as a
+                floor for very narrow screens. */}
             <Block heading="Degrees and penalties">
               {charge.penalties?.length ? (
                 <div className="overflow-x-auto">
-                  <table className="w-full min-w-[32rem] border-collapse text-left">
+                  <table className="w-full border-collapse text-left">
                     <thead>
                       <tr className="border-b border-navy/20">
                         <th className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">

@@ -1,0 +1,167 @@
+/**
+ * Done-criterion C9, as a check rather than a field that merely exists.
+ *
+ * CASES-WE-DEFEND-PLAN.md Section 4.5 requires every charge page to carry a
+ * differentiator that would be false or nonsensical if another charge were
+ * swapped in, and to check that differentiator ACROSS pages rather than only
+ * within one. The cross-page rule exists because a real collision happened: the
+ * embezzlement and grand theft briefs each independently claimed the F.S.
+ * 812.014 value-to-offense-level table as their C9 substance. Each passed the
+ * single-page test. Together they would have produced two pages built on one
+ * table, which is the interchangeability C9 exists to prevent.
+ *
+ * WHAT THIS DELIBERATELY IS NOT. It is not a presence check. A check that
+ * asserts `c9` is non-empty returns the same reassuring answer whether or not
+ * two pages are claiming the same substance, so its passing result is available
+ * in the failure state. That is defect 1 in docs/research/HUNT-LIST.md, and
+ * building one here would disable the rail it belongs to.
+ *
+ * The self-test in scripts/check-c9.ts is the other half of the same idea: it
+ * feeds the detector the real pre-ruling assertions and fails the build if they
+ * do NOT collide. A detector that cannot be shown to fire is not evidence.
+ */
+
+export type C9Assertion = {
+  /** The statute citation the differentiator rests on. */
+  statute: string;
+  /** Which template section carries it. */
+  section: string;
+  /** One line stating the differentiator. */
+  assertion: string;
+};
+
+const NEEDS = /\[NEEDS/i;
+
+/** An entry whose C9 is still a placeholder is not compared. */
+export function isPopulated(c9: C9Assertion): boolean {
+  return !NEEDS.test(c9.statute) && !NEEDS.test(c9.assertion);
+}
+
+/**
+ * Reduce a citation to the statute it identifies, so that subsection-level
+ * differences cannot hide a collision. "F.S. 812.014(2)(c)1." and "F.S.
+ * 812.014" are the same statute for this purpose, and two pages resting on the
+ * same statute is the precondition the real collision had.
+ */
+export function statuteKey(citation: string): string {
+  const usc = citation.match(/(\d+)\s*U\.?\s*S\.?\s*C\.?\s*(?:§\s*)?(\d+[A-Za-z]?)/i);
+  if (usc) return `${usc[1]} USC ${usc[2]}`.toLowerCase();
+  const fs = citation.match(/(\d{3}\.\d+)/);
+  if (fs) return `fs ${fs[1]}`;
+  return citation.trim().toLowerCase();
+}
+
+// Words that carry no distinguishing substance. Kept deliberately small: an
+// aggressive stopword list would strip the very terms that separate two
+// assertions and would make everything look similar, which fails toward a
+// collision report rather than toward silence.
+const STOPWORDS = new Set([
+  "a", "an", "and", "the", "of", "in", "on", "to", "that", "is", "it", "its",
+  "for", "from", "by", "with", "as", "at", "or", "this", "which", "under",
+  "page", "charge", "section", "florida", "statute", "f.s", "fs", "usc",
+  "no", "not", "any", "other", "only", "because", "than", "then", "these",
+  "there", "their", "they", "are", "be", "been", "was", "were", "has", "have",
+]);
+
+/**
+ * Substance tokens for an assertion.
+ *
+ * The statute's own digits are removed before tokenising. Leaving them in would
+ * hand every same-statute pair a free token match and inflate the similarity of
+ * exactly the pairs the detector is meant to judge on their substance.
+ */
+export function substanceTokens(assertion: string, statute: string): Set<string> {
+  // Every distinct number in the citation, longest first so that removing
+  // "812.014" happens before a bare "812" could partially match it.
+  const numbers = (statuteKey(statute).match(/\d+(?:\.\d+)?/g) ?? []).sort(
+    (x, y) => y.length - x.length,
+  );
+  let cleaned = assertion.toLowerCase();
+  for (const n of numbers) {
+    cleaned = cleaned.split(n).join(" ");
+  }
+  cleaned = cleaned.replace(/[^a-z0-9$\s]/g, " ");
+  return new Set(
+    cleaned
+      .split(/\s+/)
+      .map((w) => w.trim())
+      .filter((w) => w.length > 2 && !STOPWORDS.has(w)),
+  );
+}
+
+/** Jaccard overlap of two token sets. */
+export function similarity(a: Set<string>, b: Set<string>): number {
+  if (!a.size || !b.size) return 0;
+  let shared = 0;
+  for (const t of a) if (b.has(t)) shared += 1;
+  return shared / (a.size + b.size - shared);
+}
+
+/**
+ * Calibrated against the real collision, not chosen by feel.
+ *
+ * The pre-ruling embezzlement and grand theft assertions score well above this;
+ * the post-ruling pair, which rest on the same statute but genuinely different
+ * substance, score well below. scripts/check-c9.ts asserts both, so a change
+ * that made this threshold meaningless would fail the build.
+ */
+export const SIMILARITY_THRESHOLD = 0.34;
+
+export type C9Entry = { id: string; c9: C9Assertion };
+
+export type C9Collision = {
+  a: string;
+  b: string;
+  statute: string;
+  similarity: number;
+  reason: string;
+};
+
+/**
+ * Two pages collide when they rest on the same statute AND either say
+ * substantially the same thing, or name the same template section as the one
+ * carrying the differentiator.
+ *
+ * The section rule is not redundant with the similarity rule. Two pages can
+ * describe one shared table in different words and still be built on it, which
+ * is precisely how the 812.014 collision would have reached publication.
+ */
+export function detectC9Collisions(entries: C9Entry[]): C9Collision[] {
+  const live = entries.filter((e) => isPopulated(e.c9));
+  const out: C9Collision[] = [];
+
+  for (let i = 0; i < live.length; i += 1) {
+    for (let j = i + 1; j < live.length; j += 1) {
+      const a = live[i];
+      const b = live[j];
+      const key = statuteKey(a.c9.statute);
+      if (key !== statuteKey(b.c9.statute)) continue;
+
+      const score = similarity(
+        substanceTokens(a.c9.assertion, a.c9.statute),
+        substanceTokens(b.c9.assertion, b.c9.statute),
+      );
+      const sameSection =
+        a.c9.section.trim().toLowerCase() === b.c9.section.trim().toLowerCase();
+
+      if (score >= SIMILARITY_THRESHOLD) {
+        out.push({
+          a: a.id,
+          b: b.id,
+          statute: key,
+          similarity: score,
+          reason: `same statute and substantially the same substance (similarity ${score.toFixed(2)} >= ${SIMILARITY_THRESHOLD})`,
+        });
+      } else if (sameSection) {
+        out.push({
+          a: a.id,
+          b: b.id,
+          statute: key,
+          similarity: score,
+          reason: `same statute and both name "${a.c9.section}" as the section carrying the differentiator`,
+        });
+      }
+    }
+  }
+  return out;
+}

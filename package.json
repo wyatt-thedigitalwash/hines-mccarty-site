@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "check:c9": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-c9.mts",
+    "prebuild": "npm run check:c9"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",
