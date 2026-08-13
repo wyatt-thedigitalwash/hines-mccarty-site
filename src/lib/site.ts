@@ -914,6 +914,17 @@ const stateCharges: ChargeSeed[] = [
     "Domestic Violence",
     "Charges involving a partner or family member",
   ],
+  // Moved from the white-collar silo 2026-08-13 (DECISIONS.md D14). Labelled to
+  // the conduct F.S. 815.06 actually reaches, which is unauthorized access, and
+  // deliberately not to fraud: the fraud limb is an enhancement in Florida and
+  // an offense of its own federally, and it is the federal page that carries it.
+  // The label also steers away from "internet crimes", which in this market
+  // pulls child pornography defence into the same SERP.
+  [
+    "computer-crimes-defense",
+    "Unauthorized Computer Access",
+    "Florida charges for accessing computers without authorization",
+  ],
   [
     "grand-theft-defense",
     "Grand Theft",
@@ -1018,12 +1029,11 @@ const whiteCollarCharges: ChargeSeed[] = [
     "Securities Fraud",
     "Charges involving investments, stocks, or investor money",
   ],
-  // DRAFTED
-  [
-    "computer-crime",
-    "Computer Crime",
-    "Charges involving unauthorized computer or network access",
-  ],
+  // computer-crime MOVED to the state silo 2026-08-13 (DECISIONS.md D14) as
+  // computer-crimes-defense. Unauthorized access is not inherently financial,
+  // federal-shaped demand beats Florida-shaped roughly nine to one, and the
+  // genuinely white-collar limb is federal 1030(a)(4), which the federal page
+  // carries. The white-collar silo keeps no computer page.
   // DRAFTED
   [
     "wire-fraud",
@@ -1108,6 +1118,71 @@ const CHARGE_C9: Record<string, C9Assertion> = {
     assertion:
       "Every state attorney is directed by statute to adopt a pro-prosecution policy for this category of case, so the complainant does not control whether it proceeds.",
   },
+  // Recorded 2026-08-13 after the W2 reconciliation barrier. 171 pairs compared
+  // pairwise, statute ignored, plus the same-statute rule across the union of new
+  // and populated assertions. No collision; highest similarity 0.148 against a
+  // 0.34 threshold. See docs/research/briefs/STATE.md for how the barrier ran.
+  "federal/weapons-gun-offenses": {
+    statute: "18 U.S.C. 924",
+    section: "The Armed Career Criminal Act",
+    assertion:
+      "Fifteen years is the ceiling and the floor for the same conviction: 924(a)(8) caps a 922(g) violation at fifteen years, and 924(e)(1) makes fifteen years the minimum once three violent felony or serious drug convictions were committed on occasions different from one another.",
+  },
+  "white-collar/healthcare-fraud": {
+    statute: "F.S. 409.920",
+    section: "The claim, the ladder, and where the two ladders come apart",
+    assertion:
+      "The offense is complete when a false statement of material fact reaches a claim submitted to the Agency for Health Care Administration, its fiscal agent, or a Medicaid managed care plan, and its degree ladder at $10,000 and $50,000 comes apart from the F.S. 921.0022 ladder: the third degree tier and the second degree tier are both ranked at level 7, so the statutory maximum triples from 5 years to 15 while the primary offense points stay at 56.",
+  },
+  "federal/conspiracy-charges": {
+    statute: "18 U.S.C. 371, against 21 U.S.C. 846 and 18 U.S.C. 1349",
+    section: "Which conspiracy statute you are charged under",
+    assertion:
+      "Section 371 names an act to effect the object of the conspiracy on the face of its text and caps the sentence at five years whatever the object offense was, while the conspiracy provisions at 21 U.S.C. 846 and 18 U.S.C. 1349 name only the agreement and carry the same penalties as the completed offense.",
+  },
+  "state/computer-crimes-defense": {
+    statute: "F.S. 815.06",
+    section: "What turns a third degree charge into a second or first degree charge",
+    assertion:
+      "Florida escalates unauthorized computer access by the kind of harm rather than by an amount: the base offense is a third degree felony on the access itself, the second degree attaches on $5,000 in damage or loss, a fraud purpose, disruption of a government or public service, or a transit system, and the first degree is reached only by endangering human life or disrupting medical equipment used in the direct administration of care.",
+  },
+  "federal/wire-mail-fraud": {
+    statute: "18 U.S.C. 1341 and 1343",
+    section: "Mail fraud and wire fraud are one offence with two delivery methods",
+    assertion:
+      "1341 reaches any private or commercial interstate carrier and not only the Postal Service, and carries a counterfeit-article limb 1343 has no counterpart to, while both rise from 20 years to 30 where the scheme affects a financial institution or a presidentially declared disaster.",
+  },
+  "federal/drug-trafficking": {
+    statute: "21 U.S.C. 841",
+    section: "Intent to distribute, and what quantity actually does",
+    assertion:
+      "Quantity sets the mandatory minimum but never the offense: 841(a)(1) turns on intent to distribute, and 841(b)(1)(C) reaches a schedule I or II controlled substance in any amount at all, with a 20 year maximum and no minimum.",
+  },
+  "federal/healthcare-fraud": {
+    statute: "18 U.S.C. 1347",
+    section: "Any health care benefit program, and why a private insurer counts",
+    assertion:
+      "The offense is defined by the object rather than by an amount: 1347 reaches a scheme against any health care benefit program, which 18 U.S.C. 24(b) defines as any public or private plan or contract affecting commerce, so a commercial insurer is a federal victim, the statute states no dollar figure at all, and the same billing count runs from a 10-year maximum to life where the violation results in serious bodily injury or death.",
+  },
+  "white-collar/securities-fraud": {
+    statute: "F.S. 517.302 and 18 U.S.C. 1348",
+    section: "Degrees, penalties and offense levels",
+    assertion:
+      "Florida ranks its general securities fraud offense at level 1, the floor of the F.S. 921.0022 chart, and lifts it to a first degree felony only on a count of persons, more than $50,000 obtained from five or more, while the federal analogue at 18 U.S.C. 1348 reaches only the securities of a registered or reporting issuer.",
+  },
+  "white-collar/tax-evasion": {
+    statute: "26 U.S.C. 7201 and F.S. 212.15(2)",
+    section: "Forum section: is there a Florida tax evasion charge?",
+    assertion:
+      "Florida's only criminal tax offense punishes failing to remit sales tax already collected from a customer, a theft of state funds rather than an evasion, and the one Florida statute that uses the words attempt to evade or defeat tax, F.S. 213.29, imposes a civil penalty of twice the tax instead of a crime.",
+  },
+  "white-collar/bank-fraud": {
+    statute: "18 U.S.C. 1344",
+    section: "What the government has to prove: the institution is the element",
+    assertion:
+      "There is no mailing and no wire in this statute; the financial institution defined at 18 U.S.C. 20 is itself the element, and it carries a $1,000,000 fine and a 30-year maximum as the baseline rather than as an enhancement to a lower one.",
+  },
+
   // RESOLVED 2026-08-13 (DECISIONS.md D11). The white-collar slug now exists,
   // so this assertion attaches to a real page. The federal sibling rests on
   // different statutes and will need its own differentiator when it is briefed.

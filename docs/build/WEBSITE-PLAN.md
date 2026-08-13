@@ -107,8 +107,13 @@ and the winnability-ordered build sequence: docs/build/CASES-WE-DEFEND-PLAN.md
 Under `/criminal-defense/`:
 `sexual-battery-defense`, `drug-trafficking-defense`, `drug-possession-defense`,
 `gun-crimes-defense`, `sex-crimes-defense`, `battery-defense`,
-`domestic-violence-defense`, `grand-theft-defense`, `homicide-defense`,
-`dui-defense`
+`domestic-violence-defense`, `computer-crimes-defense`, `grand-theft-defense`,
+`homicide-defense`, `dui-defense`
+
+**`computer-crimes-defense` moved here from the white-collar silo 2026-08-13**
+(DECISIONS.md D14). Unauthorized access under F.S. 815.06 is not inherently
+financial; the white-collar limb is federal 1030(a)(4), carried by
+`/federal-criminal-defense/computer-internet-crimes`. State silo is 11 rows.
 
 ### Tier 2 -- Federal Practice Sub-Pages (from SEO.pdf)
 Under `/federal-criminal-defense/`:
@@ -128,8 +133,11 @@ The federal silo is 9 rows.
 Under `/white-collar-defense/` (some overlap with federal; cross-link, do not
 duplicate content):
 `corporate-fraud`, `healthcare-fraud`, `bank-fraud`, `embezzlement`,
-`securities-fraud`, `computer-crime`, `wire-fraud`, `tax-evasion`,
-`ppp-loan-fraud`, `identity-theft`, `money-laundering`
+`securities-fraud`, `wire-fraud`, `tax-evasion`, `ppp-loan-fraud`,
+`identity-theft`, `money-laundering`
+
+**`computer-crime` removed 2026-08-13** (DECISIONS.md D14), moved to the state
+silo. White-collar silo is 10 rows. The charge set stays at 30.
 
 **`corporate-fraud` is not a charge page** (DECISIONS.md D12). It is a category
 overview that links down to securities fraud, bank fraud, embezzlement, and wire

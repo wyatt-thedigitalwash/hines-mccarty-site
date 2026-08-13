@@ -81,17 +81,138 @@ at once, of which only internet fraud is white-collar. Position 7 on that SERP
 is a child pornography defence page.
 
 Recommendation, ranked, in FED-02 Section 1. Preferred option is to move it to
-the state silo as a Florida offence page. **This changes the page list, so it
-needs a D-series decision on the D12 precedent and is not actioned here.**
+the state silo as a Florida offence page.
 
-Two things wait on that decision: the counterpart link on FED-02 is deliberately
-unwired, and the Florida page cannot be briefed until its silo is settled.
+**DECIDED 2026-08-13 as D14: moved to the state silo** at
+`/criminal-defense/computer-crimes-defense`, labelled "Unauthorized Computer
+Access". Applied to src/lib/site.ts, WEBSITE-PLAN.md Tier 2, REVIEW-QUEUE.md and
+both silo hub charge indexes. FED-02's counterpart link is now wired, and the
+Florida page was briefed in W2 as ST-01.
 
 ### Request budget
 
 8 of 300 DataForSEO requests used in W1. Every call logged with endpoint and
 purpose in the session log. The counter persists on disk between runs rather
 than resetting per invocation, so the cap cannot be defeated by restarting.
+
+---
+
+## W2: remaining federal and white-collar briefs. DONE, 11 of 11.
+
+Fanned out, one agent per brief, with the reconciliation barrier run before any
+C9 was recorded. 370 to 504 lines each, zero em dashes, all 11 carrying
+DONE-CRITERIA.
+
+| Brief | Status | Notes |
+|---|---|---|
+| FED-03-drug-trafficking.md | **DONE** | Federal counterpart to W2-02. |
+| FED-04-healthcare-fraud.md | **DONE** | Half of the C9 pair below, with WC-01. |
+| FED-05-wire-mail-fraud.md | **DONE** | Escalated the USSG 2B1.1 failure out of per-brief retries. |
+| FED-06-conspiracy-charges.md | **DONE** | C9 rests on 371 against 846 and 1349, the overt-act contrast. |
+| FED-07-weapons-gun-offenses.md | **DONE** | Federal counterpart to W2-03. |
+| FED-08-target-letter-defense.md | **DONE, one item ESCALATED** | Not a charge page. Its C9 rests on DOJ policy, not a statute. See below. |
+| WC-01-healthcare-fraud.md | **DONE** | Other half of the C9 pair, on F.S. 409.920. |
+| WC-02-bank-fraud.md | **DONE** | Kept distinct per D4. |
+| WC-03-securities-fraud.md | **DONE** | Two subsections returned as summary, flagged reported not verified, re-fetch before quoting. |
+| WC-04-tax-evasion.md | **DONE** | C9 spans 26 U.S.C. 7201 and F.S. 212.15(2). |
+| ST-01-computer-crimes.md | **DONE** | Unblocked by D14. C9 anchor is **not** the 921.0022 offense-level table, which does not list 815.06. See below. |
+
+### The C9 pair the plan required checking against each other
+
+Federal and state healthcare fraud were the one pair the workstream spec singled
+out: both had to populate a C9 and the two had to be compared before either was
+recorded. They were, and they do not collide. FED-04 rests on 18 U.S.C. 1347 and
+WC-01 on F.S. 409.920. Different statutes, so the same-statute rule never fires,
+and their substance similarity is 0.148, well under the 0.34 threshold.
+
+### The 815.06 anchor question, answered
+
+REVIEW-QUEUE.md carried a standing instruction into this brief: F.S. 815.06 has
+no row in the F.S. 921.0022 ranking chart, 815.04's rows must not be borrowed
+for it, and the C9 anchor therefore had to come from somewhere other than the
+offense-level table that anchors most pages in this set. **The anchor is the
+non-monetary escalation ladder in 815.06 itself.** Every other Florida ladder
+verified in this project counts something: dollars for theft, dollars over a
+rolling window for money laundering, weight for trafficking. This one asks what
+the access put at risk, reaching a first degree felony only through danger to
+human life or disruption of medical equipment used in the direct administration
+of care. That structure belongs to one statute in the set.
+
+ST-01 and FED-02 were also compared by hand, because `statuteKey` resolves them
+to `fs 815.06` and `18 usc 1030` and the automated checker will therefore never
+put them side by side. FED-02 anticipated this and left a standing instruction
+for the check. Seven structural dimensions compared; no collision. The one point
+they touch, damage at $5,000, they touch in opposite directions.
+
+### How the reconciliation barrier was run, and what it compared
+
+Parallel briefs each checking a new assertion against a snapshot of the
+populated set can both pass and both be wrong, because neither sees the other.
+The barrier exists to close that. It ran in three parts over the union of 11 new
+and 8 already-populated assertions, 19 total, **after all 11 briefs returned and
+before any assertion was written to src/lib/site.ts**.
+
+| Part | What it compared | Result |
+|---|---|---|
+| 0 | Statute-parse check on the 11 new entries | **1 flag.** FED-08's `"JM 9-11.151"` does not parse as a statute citation. The flag is correct; see below. |
+| A | Same-statute collisions across new plus populated | **None.** |
+| B | Pairwise substance across **all** 171 pairs, statute ignored | **None.** Highest similarity 0.148 against a 0.34 threshold. |
+| C | New-versus-new pairs specifically, 55 of them | **None.** Max 0.148. |
+
+Part B is the half the barrier requirement added. `detectC9Collisions` only
+compares assertions that share a statute key, so cross-statute duplication is
+invisible to it by construction: two pages could make the same claim about
+different statutes and the automated rule would never look. Part B ignores
+statute entirely and compares every pair. Part C is a subset of B, reported
+separately because new-versus-new is the specific case a stale snapshot misses,
+and burying it inside an aggregate would let a clean overall number hide it.
+
+**10 of 11 assertions recorded** into `CHARGE_C9`. `npm run check:c9` passes:
+19 keys resolve, 18 compared, every compared C9 names a statute, no collision.
+
+### The one item escalated rather than decided: FED-08's C9
+
+`/federal-criminal-defense/target-letter-defense` is a procedure page in a
+charge silo. No statute creates a target letter, no statute defines "target" or
+"subject", and the phrase "target letter" appears nowhere in the Justice
+Manual's grand jury chapter. Its differentiator is precisely that absence, so
+its C9 cites JM 9-11.151, which is DOJ policy and not law.
+
+`isStatuteCitation` flags it, and **the flag is right.** The check exists
+because a C9 resting on no statute has no element that could be false if another
+charge were swapped in. On this page there genuinely is no element, because
+there is no offense.
+
+Three options were weighed in FED-08 Section 5. Substituting a statute such as
+18 U.S.C. 3282 or 1519 into the field was rejected, because the differentiator
+does not rest on either and a field that says otherwise makes the checker pass
+by lying to it, which is HUNT-LIST.md defect 1 exactly. Widening
+`isStatuteCitation` to accept Justice Manual citations was rejected as a first
+move, because it would let any future page rest on policy without anyone
+deciding that it should. **Recommended: a `c9Exempt` entry with a reason
+distinct from corporate-fraud's** -- corporate-fraud is exempt because it is a
+category overview with no offense behind it, whereas this is a procedure page
+with verified substance whose governing source is policy rather than an offense.
+
+This changes what the checker treats as in scope, so it is a DECISIONS.md item.
+**Not recorded in `CHARGE_C9` pending that decision.** The assertion is written
+and verified in the brief either way.
+
+### Escalated out of per-brief retries: USSG 2B1.1
+
+The loss table has now failed **six fetch attempts across three briefs**
+(404s and a redirect loop). That is past the point where it is a per-brief
+retry. FED-05 stands on USSC statistics without it and says so. A search
+engine's synthesis of the table is not a fetched source and was not used.
+Logged in REVIEW-QUEUE.md as a single outstanding item rather than repeated
+per brief.
+
+### Request budget
+
+**22 of 300** DataForSEO requests used through W1 and W2. Calls were batched per
+brief and collected centrally rather than by the 11 agents, because a counter
+incremented by parallel writers reads **lower** than reality, and a cap whose
+reassuring result is available in the failure state is not a cap.
 
 ---
 

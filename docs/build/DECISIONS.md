@@ -264,6 +264,49 @@ adopt the phrasing of the firms that currently are.
 
 ---
 
+### D14. Florida computer crime moves to the state silo
+
+**Decided 2026-08-13**, resolving the question plan Section 4.6.2 left open, on
+the SERP evidence it required rather than on reasoning from the statute.
+Evidence in docs/research/briefs/FED-02-computer-internet-crimes.md Section 1.
+
+**Moved.** `/white-collar-defense/computer-crime` becomes
+`/criminal-defense/computer-crimes-defense`, relabelled **"Unauthorized Computer
+Access"** with the description "Florida charges for accessing computers without
+authorization". State silo 11 rows, white-collar 10, charge set still 30.
+
+**The demand reasoning.** Federal-shaped demand outweighs Florida-shaped by
+roughly nine to one at Florida level: `computer fraud and abuse act` 140/month
+and `18 usc 1030` 40/month, against `florida computer crimes act` at 20/month.
+Tampa DMA returns no data for any term in the cluster. Whatever the silo, the
+federal page carries the searches.
+
+**The substance reasoning.** Unauthorized access is not inherently financial.
+The genuinely white-collar limb is fraud, and Florida treats fraud as an
+**enhancement** to the base access offence at 815.06(3)(b)2, where 18 U.S.C.
+1030(a)(4) makes it an offence in its own right. The federal page carries that
+limb. What remains on the Florida side is access and damage, neither of which is
+a financial crime, and neither of which belongs under a white-collar heading.
+
+**The label was chosen against two failure modes, not just for accuracy.** It is
+oriented to access rather than to fraud, because the fraud framing is the
+federal page's. And it avoids "internet crimes", because in this market that
+phrasing pulls child pornography defence into the same SERP: position 7 on
+`computer crimes attorney Tampa` is a CSAM defence page. A page labelled to
+invite that traffic would be the wrong page in the wrong silo.
+
+**Applied to.** src/lib/site.ts, WEBSITE-PLAN.md Tier 2 both lists,
+REVIEW-QUEUE.md, and FED-02's counterpart link, which was deliberately left
+unwired until this decision and is now pointed at the new slug.
+
+**Carried forward into the new page's brief, as a constraint.** F.S. 815.06 has
+**no row in the F.S. 921.0022 ranking chart**; only 815.04 does. So this page
+**cannot carry an offense-level column**, and 815.04's rows must not be borrowed
+for it. Most pages in this set anchor their C9 on the offense-level table. This
+one has to anchor somewhere else, and its brief must name where.
+
+---
+
 ### D13. Healthcare fraud relabelled on both sides
 
 **Decided 2026-08-13**, from docs/build/OVERLAP-AUDIT.md pair 4.

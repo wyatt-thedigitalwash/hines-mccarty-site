@@ -82,8 +82,9 @@ enhancement rather than as the offense, and which the federal page already
 carries at 1030(a)(4). What is left in the Florida page after the fraud limb is
 unauthorized access and damage, neither of which is a financial crime.
 
-**Recommendation, requiring a D-series decision rather than unilateral action**,
-on the D12 precedent:
+**RESOLVED 2026-08-13 as DECISIONS.md D14: option 1 was taken.** The page moved
+to `/criminal-defense/computer-crimes-defense`, relabelled "Unauthorized
+Computer Access". The options as put:
 
 1. **Preferred: move it to the state silo** as `/criminal-defense/computer-crimes-defense`, built on F.S. 815.06 and 815.04, as a Florida offence page alongside the other state charges. The white-collar silo keeps no computer page, and the federal page carries the fraud limb.
 2. **Alternative: keep it in white-collar but narrow the label** to the fraud limb, something like "Computer Fraud", built on 815.06(3)(b)2 and 815.04(4)(b). This is defensible but leaves the Florida access and damage offences with no page at all.
@@ -288,7 +289,7 @@ chapter 815:
 | Direction | Target |
 |---|---|
 | Up, silo hub | `/federal-criminal-defense` |
-| **Counterpart** | The Florida computer crime page, **target pending the Section 1 decision**. Do not wire this link until the placement is decided; a cross-link to a page that is about to move is a link that will break. |
+| **Counterpart** | `/criminal-defense/computer-crimes-defense`. **Wired 2026-08-13** after DECISIONS.md D14 resolved the placement by moving the Florida page to the state silo. One link, from the forum section only. C10. |
 | Sideways | Attorney bio via `HandledBy`, blocked on Open Question 2 |
 | Layer 2 | The 33-day-rule correction guide; `/resources` |
 | **Not linked** | Any CPC artifact. Plan Section 4.2 standing rule. |

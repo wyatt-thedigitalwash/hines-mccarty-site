@@ -62,6 +62,23 @@ never by recall (done-criterion C12).
 - **Not acceptable:** other firms' pages, aggregators, secondary summaries,
   mapping services, or model recall.
 
+#### Standing unverified source, escalated 2026-08-13
+
+**USSG 2B1.1, the federal loss table.** Six fetch attempts across three briefs
+have failed, returning 404s and one redirect loop. This is past the point where
+it is a per-brief retry, so it is recorded here once rather than repeated in
+every brief that wants it.
+
+Four briefs would use it: FED-05 wire and mail fraud, WC-02 bank fraud, WC-03
+securities fraud, and OPP-01 PPP loan fraud. All four currently stand on USSC
+published statistics instead, and say so. **A search engine's synthesis of the
+loss table is not a fetched source and must not be substituted for one.** The
+loss-calculation primer at ussc.gov/guidelines/primers/loss-calculation did
+return live and is the recommended retry target.
+
+Until it is fetched, no page may state a loss-table offense-level figure. A
+reviewer who sees one should treat it as an unverified claim.
+
 ---
 
 ## Queue
@@ -89,6 +106,7 @@ date), C12 (allowlisted verification), and C13.
 | `/criminal-defense/sex-crimes-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/battery-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/domestic-violence-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/computer-crimes-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/grand-theft-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
 | `/criminal-defense/homicide-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/dui-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
@@ -116,12 +134,31 @@ date), C12 (allowlisted verification), and C13.
 | `/white-collar-defense/bank-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/embezzlement` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
 | `/white-collar-defense/securities-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
-| `/white-collar-defense/computer-crime` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/wire-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/tax-evasion` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/ppp-loan-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/identity-theft` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
 | `/white-collar-defense/money-laundering` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
+
+**Computer crime moved silos 2026-08-13** (DECISIONS.md D14).
+`/white-collar-defense/computer-crime` became
+`/criminal-defense/computer-crimes-defense`, relabelled "Unauthorized Computer
+Access" and oriented to F.S. 815.06 rather than to fraud. State silo 11 rows,
+white-collar 10, charge set still 30.
+
+**Carried into its brief:** this page **cannot use an offense-level column**.
+F.S. 815.06 has no row in the F.S. 921.0022 ranking chart, and 815.04's rows
+must not be borrowed for it. Its C9 anchor has to come from somewhere other than
+the offense-level table that anchors most pages in this set.
+
+**ANSWERED 2026-08-13 in docs/research/briefs/ST-01-computer-crimes.md.** The
+anchor is the non-monetary escalation ladder inside 815.06 itself. Every other
+Florida ladder verified in this project counts something, dollars or weight;
+this one escalates on the kind of harm, reaching a first degree felony only
+through danger to human life or disruption of medical equipment used in the
+direct administration of care. The no-offense-level-column instruction stands
+and must survive into the written page: reviewers should treat any offense-level
+figure appearing on this page as an error, not as a detail to check.
 
 **Charge list changed 2026-08-13 by the overlap audit** (DECISIONS.md D12 and
 D13, docs/build/OVERLAP-AUDIT.md).
