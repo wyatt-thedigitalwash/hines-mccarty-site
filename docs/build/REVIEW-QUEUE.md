@@ -9,8 +9,14 @@ each page's data entry; this file is the human-readable view, the place off-cycl
 triggers get logged, and the place verification sources get recorded. It lives in
 the repo so that a review date versions alongside the page it describes.
 
-**Nothing in this file is filled in yet. No pages have been built.** Rows are
-added when a page is built, not when it is planned.
+Rows are added when a page is built, not when it is planned.
+
+**On empty owner and lastReviewed.** Every row below carries
+`[NEEDS: assign]` and `not reviewed` rather than a name and a date. No
+attorney has been assigned and no review has happened, and this file's own
+rule is that a date is never recorded without the review behind it. A false
+review date is worse than a missing one, because it removes the signal that
+the page needs looking at. Populate these as pages are assigned and read.
 
 ---
 
@@ -63,18 +69,81 @@ Status values: `draft`, `in-review`, `published`, `overdue`, `off-cycle`.
 
 ### Charge pages
 
-| Page | Owner | Last reviewed | Cadence | Next due | Status | Open [VERIFY] |
-|---|---|---|---|---|---|---|
-| _none built_ | | | | | | |
+29 routes built, all stubs. The template renders a visible [NEEDS] marker for
+every unwritten field, and each page is noindex and excluded from the sitemap
+until `published` flips. Cadence is 6mo because every one of these will cite
+penalties or thresholds (Section 9.2).
+
+Gated on C9 (cover-the-name test), C10 (overlap pages), C11 (owner and review
+date), C12 (allowlisted verification), and C13.
+
+**State Criminal Defense** (`/criminal-defense`)
+
+| Page | Owner | Last reviewed | Cadence | Next due | Status |
+|---|---|---|---|---|---|
+| `/criminal-defense/sexual-battery-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/drug-trafficking-defense` (template preview) | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/drug-possession-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/gun-crimes-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/sex-crimes-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/battery-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/domestic-violence-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/grand-theft-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/homicide-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/dui-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+
+**Federal Criminal Defense** (`/federal-criminal-defense`)
+
+| Page | Owner | Last reviewed | Cadence | Next due | Status |
+|---|---|---|---|---|---|
+| `/federal-criminal-defense/drug-trafficking` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/federal-criminal-defense/white-collar-corporate-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/federal-criminal-defense/healthcare-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/federal-criminal-defense/wire-mail-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/federal-criminal-defense/conspiracy-charges` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/federal-criminal-defense/weapons-gun-offenses` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/federal-criminal-defense/csam-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/federal-criminal-defense/money-laundering` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/federal-criminal-defense/computer-internet-crimes` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/federal-criminal-defense/target-letter-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+
+**White-Collar Defense** (`/white-collar-defense`)
+
+| Page | Owner | Last reviewed | Cadence | Next due | Status |
+|---|---|---|---|---|---|
+| `/white-collar-defense/corporate-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/healthcare-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/mail-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/bank-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/embezzlement` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/securities-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/computer-crime` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/wire-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/tax-evasion` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 
 ### Silo hubs
 
+Built with draft copy. All four are noindex and out of the sitemap pending
+the C12 verification pass and an attorney read.
+
 | Page | Owner | Last reviewed | Cadence | Next due | Status | Open [VERIFY] |
 |---|---|---|---|---|---|---|
-| `/cases-we-defend` | | | 12mo | | | |
-| `/criminal-defense` | | | 12mo | | | |
-| `/federal-criminal-defense` | | | 12mo | | | |
-| `/white-collar-defense` | | | 12mo | | | |
+| `/cases-we-defend` | [NEEDS: assign] | not reviewed | 12mo | on publish | draft | Charge count and silo overlaps, see below |
+| `/criminal-defense` | [NEEDS: assign] | not reviewed | 12mo | on publish | draft | Forum section: first appearance timing, bond schedule reference |
+| `/federal-criminal-defense` | [NEEDS: assign] | not reviewed | 12mo | on publish | draft | Forum section: detention hearing procedure, guideline sentencing description |
+| `/white-collar-defense` | [NEEDS: assign] | not reviewed | 12mo | on publish | draft | Forum section: pre-charge investigative description |
+
+**Open question on the charge set.** The index carries 29 entries from
+WEBSITE-PLAN.md Tier 2. CASES-WE-DEFEND-PLAN.md says "~26" and the home
+practice grid carries 23. The overlaps that account for the gap, each needing
+a cross-link-or-merge decision before content is written:
+
+| Federal entry | White-collar entry | Question |
+|---|---|---|
+| `healthcare-fraud` | `healthcare-fraud` | Same slug and label in both silos. Merge, or two pages with a `counterpart` cross-link? |
+| `white-collar-corporate-fraud` | `corporate-fraud` | Near-duplicate scope |
+| `wire-mail-fraud` | `wire-fraud` + `mail-fraud` | One combined federal page versus two white-collar pages |
+| `computer-internet-crimes` | `computer-crime` | Near-duplicate scope |
 
 ### Office and market pages
 

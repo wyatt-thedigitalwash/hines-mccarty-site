@@ -15,7 +15,9 @@ Draft copy is first-pass and needs an attorney read before publication. Every
 statutory figure carries a [VERIFY] marker until checked against the operative
 statute.
 
-Revision note: Sections 5, 8, 9, 10, and 4.5 were added in the second pass. The
+Revision note: Sections 5, 8, 9, 10, and 4.5 were added in the second pass.
+Section 11 (Layer 2 hub) was added in a later pass; Compliance Rails,
+Done-Criteria, and Open Questions renumbered to 12, 13, and 14. The
 build sequence (Section 7), the level 3 template structure (Section 4.3), and
 the scoresheet linking strategy (Section 4.2) are approved and unchanged.
 
@@ -171,7 +173,7 @@ Extends the money-page template in WEBSITE-PLAN.md Section 4.
 3. **Degrees and penalties table**, with the scoresheet link (Section 4.2).
 4. **What the state has to prove.** The elements, listed. Converts well because
    it reframes the reader's situation from hopeless to contested.
-5. **How the defense is approached.** Process only. See Section 11.
+5. **How the defense is approached.** Process only. See Section 12.
 6. **Where the case is heard.** Courthouse-level specificity. Local detail is
    Sammis's entire edge and it is copyable.
 7. **Handled by.** Reciprocal attorney block.
@@ -280,8 +282,6 @@ federal court, see [the federal page]."
 
 **Done-criterion.** No charge page ships until it passes the cover-the-name
 test, and no overlap page ships without its forum section and its cross-link.
-
----
 
 ## 5. The Sentencing Calculator: Compliance Rails and Ship Gate
 
@@ -407,8 +407,6 @@ Open Question 6 (voluntary Bar pre-clearance under Rule 4-7.19(d) or an Ethics
 Hotline call) remains open and is a belt-and-suspenders addition to this gate,
 not a substitute for it.
 
----
-
 ## 6. Flow and Internal Linking
 
 ```
@@ -459,8 +457,6 @@ Reinforce in winnability order.
 Wave 4 pages still get built. They convert the referral traffic the firm already
 earns, which DOSSIER.md Section 1 identifies as most of the firm's work. They
 should simply not be measured on rankings.
-
----
 
 ## 8. Office Pages, Market Pages, and the Two-Office Reality
 
@@ -823,12 +819,6 @@ official sources only:
   orders, division information, and judge assignments.
 - **Federal statutes and guidelines:** uscourts.gov and ussc.gov.
 
-Not allowlisted, and not acceptable as a citation source: other law firms'
-pages, secondary summaries, aggregators, or any figure the drafting model
-produces from memory. content-gaps.md records two competitors publishing legally
-inaccurate content, one of which overstates what expungement does; both would
-have been caught by fetching the statute.
-
 The allowlist is also what makes Section 9.3's off-cycle trigger work in
 practice, since a fetch against the operative statute during a refresh is the
 most likely way an amendment gets noticed between sessions.
@@ -853,7 +843,156 @@ decision at wave 2 is a choice rather than a scramble.
 
 ---
 
-## 11. Compliance Rails
+## 11. Layer 2 Lives at Its Own Hub
+
+**Decision: tools and guides live under a single hub at `/guides`. They are not
+listed per section.**
+
+The alternative was a tools-and-guides block on each silo hub and on the section
+hub, which is how most firm sites do it. Rejected for three reasons:
+
+1. **The same asset serves several silos.** The After an Arrest guide is
+   relevant to nearly every state charge, and the federal timeline to every
+   federal one. Listing per section means either repeating an asset across
+   pages or arbitrarily assigning it to one.
+2. **Section hubs already have a job.** The section hub's payload is the full
+   charge index (Section 2). A second index of guides underneath it competes
+   with the first and pushes the charge links further down the page.
+3. **Layer 2 grows on its own schedule.** WEBSITE-PLAN.md Section 6 puts guides
+   on a separate cadence from money pages. A single hub absorbs new assets
+   without touching any section page.
+
+### 11.1 Who links to what
+
+| Surface | Links to |
+|---|---|
+| Section hub (`/cases-we-defend`) | The Layer 2 hub only, one row, after the charge index |
+| Silo hubs | The Layer 2 hub only |
+| **Charge pages** | The **specific** tool or guide that answers the reader's next question, per the level 3 template item 9 |
+
+That split is the point. The section hub is for someone still working out what
+they are facing, so a general pointer is the right depth. A charge page reader
+has a specific next question, so a specific link is. Charge pages keep their
+direct per-asset links exactly as Section 4.3 specifies.
+
+**The sentencing calculator is linked from nowhere,** including the hub, until
+it clears done-criteria C1 through C8 (Section 5.6).
+
+### 11.2 Open question: does /guides earn a primary nav item?
+
+**Recommendation: yes, once more than two assets exist. Not before.**
+
+A top-level nav item pointing at a hub with one guide on it advertises a library
+that is not there. Below three assets the hub is reachable from the section hub,
+the silo hubs, and the charge pages, which is enough traffic for its actual
+audience. At three or more it becomes a destination someone would navigate to
+directly, and it should be promoted.
+
+### 11.3 RESOLVED: Layer 2 lives at /resources
+
+Recorded as a conflict in an earlier pass and now settled.
+
+Three places disagreed about where Layer 2 lives: this plan and a `/guides`
+stub said `/guides`, the client-confirmed nav in SITE.md said
+**Resources -> Tools & Guides** at `/resources/tools-and-guides`, and the
+`tools` entries in src/lib/site.ts already pointed at `/resources/tools/*` and
+`/resources/guides/*`.
+
+**`/resources` wins.** It is the structure that came out of the client meeting,
+it is already rendered in the header and the side menu, and two of the three
+sources already agreed with it. `/guides` was a stub built before the question
+was settled, so it was the cheapest thing to move.
+
+What changed:
+
+- `/resources` built as the Layer 2 hub, with `/resources/tools-and-guides` and
+  `/resources/articles` as children, so the nav no longer points at 404s.
+- `/guides` deleted and 308-redirected to `/resources` in next.config.ts, so
+  anything that linked there still resolves.
+- The guides row on `/cases-we-defend` repointed at `/resources`.
+
+Section 11.2 still stands: `/resources` already has its primary nav item, so
+the open question there is now moot.
+
+
+---
+
+## 11A. The FAQ Standard
+
+FAQs are first-class content on this section, not filler at the bottom of a
+page. They are also the single best-positioned asset for how people now ask
+questions, so they get a standard rather than a slot.
+
+### 11A.1 What the value actually is
+
+**Not rich results.** Google deprecated FAQ rich results for most sites in 2023.
+Anyone promising stars in the SERP from FAQPage markup is working from stale
+information, and content-gaps.md already records that the schema's remaining
+value is entity signaling.
+
+**Passage extraction.** AI Overviews, ChatGPT search, and Perplexity answer by
+lifting self-contained passages. A question phrased the way someone types it,
+followed by a complete answer in two or three sentences, is close to the ideal
+extractable unit. It is also how people talk to an assistant, which is the same
+long-tail keywords.md grades as winnable now while the head terms are not.
+
+**One correction worth carrying:** the visible Q&A copy does most of that work,
+not the markup. Models read rendered text. The schema helps entity
+understanding and is an under-used local differentiator, since content-gaps.md
+found only Oberheiden using it, but markup wrapped around thin answers buys
+nothing.
+
+### 11A.2 The four rules
+
+1. **Three to six per charge page. C9 applied at the question level.** Each
+   question must be askable about this charge and nonsensical about any other.
+   "What are the elements of the offence" is filler and appears nowhere. "How
+   much does the property have to be worth" belongs to grand theft and to
+   nothing else.
+2. **Questions come from keywords.md, not from imagination.** The research
+   already recorded what people type and graded how winnable each one is. Every
+   FAQ entry carries `source` and, where research-derived, its `grade`. A
+   question invented at the desk is labeled `drafted` so it is never mistaken
+   for a measured one.
+3. **Silo hubs carry forum-level questions.** "How do I know whether my case is
+   state or federal" is about the court, not the offence, so it belongs on the
+   hub. It is also the question C10 requires on every overlap page.
+4. **Answer completely in the first two sentences.** An answer that needs the
+   preceding paragraph for context does not survive extraction. Write the
+   answer to stand alone, then add detail after it if detail is needed.
+### 11A.3 Questions ship before answers
+
+A question is research. An answer is legal content: it carries statutory
+figures, so it clears the C12 verification pass and an attorney read before it
+publishes.
+
+So the two land separately. `FaqItem.answer` is optional, unanswered questions
+render a visible marker, and **`faqJsonLd` filters to answered items only**. A
+`Question` with no `acceptedAnswer` is invalid markup, and emitting one to look
+complete is the kind of hollow structured data that earns a manual action
+rather than a rich result.
+
+Charges with no research-graded question yet have no FAQ at all rather than a
+padded one. A thin FAQ beats a filler FAQ.
+
+### 11A.4 Current state
+
+Questions are placed and unanswered. Answers are wave 1 content work.
+
+| Page | Questions | Source |
+|---|---|---|
+| State hub | 6 | 5 from keywords.md, 1 drafted |
+| Federal hub | 6 | 5 from keywords.md, 1 drafted |
+| White-collar hub | 4 | 1 from keywords.md, 3 drafted |
+| Charge pages | 9 across 9 pages | all keywords.md |
+
+**Done-criterion C15.** Every FAQ question passes C9 at the question level,
+carries a `source`, answers completely within its first two sentences, and no
+`FAQPage` markup is emitted for an unanswered question.
+
+---
+
+## 12. Compliance Rails
 
 Beyond the standing Rule 4-7 rails in WEBSITE-PLAN.md Section 4, and the
 calculator-specific gate in Section 5, three items specific to this section.
@@ -877,7 +1016,7 @@ Results live on /results, gated, disclaimered, and only when real and consented.
 
 ---
 
-## 12. Done-Criteria Added in This Revision
+## 13. Done-Criteria Added in This Revision
 
 | # | Done-criterion | Applies to | Section |
 |---|---|---|---|
@@ -895,14 +1034,15 @@ Results live on /results, gated, disclaimered, and only when real and consented.
 | C12 | Every statutory claim verified by fetching an allowlisted official source, never by recall | All content | 10.3 |
 | C13 | No charge page duplicated per city; no practice-by-location matrix; no page implies an office the firm does not have | Section architecture | 8.1 |
 | C14 | Market page names a verified different arresting agency, courthouse or annex, or judicial circuit than every sibling market page, with the allowlisted source recorded | Every market page | 8.3 |
+| C15 | FAQ question passes C9 at the question level, carries a `source`, answers completely in its first two sentences, and emits no FAQPage markup while unanswered | Every FAQ entry | 11A |
 
-Charge pages are gated on C9 through C13. Market pages are gated on C13 and C14.
+Charge pages are gated on C9 through C13, and on C15 for their FAQ block. Market pages are gated on C13 and C14.
 The calculator is gated on C1 through C8 and C11 through C12, and no charge page
 links to it until it clears them.
 
 ---
 
-## 13. Open Questions
+## 14. Open Questions
 
 1. **Does `/cases-we-defend` need to exist?** The alternative is pointing the
    nav item at `/criminal-defense` and letting that silo carry the section. That

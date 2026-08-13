@@ -48,6 +48,28 @@ in user-facing copy (use commas, periods, or double hyphens).
 - Sizing: hero display up to text-7xl; section headers text-4xl to text-5xl;
   body text-lg
 
+### Type scale, explicit
+
+Written out because it drifted once: inner pages were built a full step below
+this, at text-3xl to text-4xl for section headers, while the home page followed
+the scale. The result was a home page that looked correct next to inner pages
+that looked undersized. Use these exact ladders.
+
+| Role | Classes |
+|---|---|
+| Home hero H1 | `text-5xl sm:text-6xl lg:text-7xl` |
+| Page H1 (inner heroes) | `text-4xl sm:text-5xl lg:text-6xl` |
+| **Section H2** | `text-4xl sm:text-5xl` |
+| CTA H2 | `text-4xl sm:text-5xl lg:text-6xl`, font-extrabold |
+| Card title (large, 3-up grid) | `text-3xl lg:text-4xl` |
+| Card title (small, 4-up grid) | `text-2xl lg:text-3xl` |
+| Sub-heading inside a section | `text-xl` to `text-2xl` |
+| Body | `text-lg` |
+
+A section header is any H2 that titles a band of the page. Card titles and
+in-section sub-headings are not section headers and sit below the ladder on
+purpose.
+
 ## Logo
 No logo yet (text wordmark "Hines & McCarty" in EB Garamond for now). Real logo
 files will live in /public before launch and replace the wordmark in Header and

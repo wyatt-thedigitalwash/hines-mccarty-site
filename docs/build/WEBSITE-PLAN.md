@@ -424,7 +424,18 @@ otherwise wait years to touch.
    (Florida Justice Association) is primarily a plaintiff-side trial org. FACDL
    (Florida Association of Criminal Defense Lawyers) is the on-point credential
    for this firm and is missing from the list. Are they members?
-9. **White background throughout?** The meeting notes say "white background
+9. **"Aggressive Representation" as the home h1.** Client-supplied copy, shipped
+   2026-08-10. Rule 4-7.13(b)(3) requires that words or phrases characterizing a
+   lawyer's or firm's skills, experience, reputation, or record be objectively
+   verifiable. "Aggressive" characterizes the firm's approach, so it sits inside
+   the category that rule polices, even though it is common in Florida criminal
+   defense marketing and is not on any per-se prohibited list. This is a client
+   sign-off item, not a build blocker: confirm the firm is comfortable with it,
+   and if there is any doubt, The Florida Bar's advertising evaluation service
+   will give an advisory opinion on the exact wording. The second line,
+   "Defending Your Future," is aspirational rather than an outcome claim and
+   reads clean under 4-7.13(b)(1).
+10. **White background throughout?** The meeting notes say "white background
    throughout, dark blue header." SITE.md's committed visual direction is the
    opposite: a Prussian Blue canvas with linen panels, referencing sheppard.com.
    Both are viable, but they are different sites and Home is already built the
