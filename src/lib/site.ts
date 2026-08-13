@@ -1012,6 +1012,16 @@ const whiteCollarCharges: ChargeSeed[] = [
     "Identity Theft",
     "Charges for using another person's identifying information",
   ],
+  // Added 2026-08-13 (DECISIONS.md D11). The federal silo already had a
+  // money-laundering slug, but the Florida offence is a different statute with
+  // its own thresholds and its own aggregation window, so the two are an
+  // overlap pair rather than one page. Same shape as healthcare-fraud, which
+  // also appears in both silos.
+  [
+    "money-laundering",
+    "Money Laundering",
+    "Charges for moving money tied to unlawful activity",
+  ],
 ];
 
 /** [slug, label, one-line description capped at 8 words] */
@@ -1063,22 +1073,15 @@ const CHARGE_C9: Record<string, C9Assertion> = {
     assertion:
       "Every state attorney is directed by statute to adopt a pro-prosecution policy for this category of case, so the complainant does not control whether it proceeds.",
   },
-  // [NEEDS: decision on the money laundering slug] W2-05 is written for
-  // `/white-collar-defense/money-laundering`, built on F.S. 896.101, with
-  // `/federal-criminal-defense/money-laundering` as its overlap sibling built
-  // on the federal statutes. Only the federal slug exists. The C9 assertion
-  // below is the white-collar one and is parked here rather than attached to
-  // the federal entry, because the federal page rests on different statutes and
-  // would need its own differentiator.
-  //
-  // This is the same class of gap as DECISIONS.md D3 and needs the same kind of
-  // decision, so it is not resolved here by inventing a slug.
-  //
-  //   statute:   F.S. 896.101
-  //   section:   Thresholds, degrees and offense levels
-  //   assertion: A three-tier ladder starting at $300 and measured across any
-  //              rolling 12-month period, where even the third degree tier is
-  //              ranked at offense level 7.
+  // RESOLVED 2026-08-13 (DECISIONS.md D11). The white-collar slug now exists,
+  // so this assertion attaches to a real page. The federal sibling rests on
+  // different statutes and will need its own differentiator when it is briefed.
+  "white-collar/money-laundering": {
+    statute: "F.S. 896.101",
+    section: "Thresholds, degrees and offense levels",
+    assertion:
+      "A three-tier ladder starting at $300 and measured across any rolling 12-month period, where even the third degree tier is ranked at offense level 7.",
+  },
   "white-collar/identity-theft": {
     statute: "F.S. 817.568",
     section: "The minor and the guardian tiers",
@@ -1543,6 +1546,224 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         source: "drafted",
         answer:
           "Yes, and it runs separately from any criminal case. Florida Statute 772.11 gives a person injured by a theft a cause of action for threefold the actual damages, with minimum damages of $200 plus attorney's fees and court costs, after a written demand. The statute provides that someone who complies with the demand within 30 days receives a written release from further civil liability for that specific act.",
+      },
+    ],
+    relatedGuides: [
+      { label: "Tools and guides", href: "/resources/tools-and-guides" },
+    ],
+  },
+
+  // ---------------------------------------------------------------------
+  // MONEY LAUNDERING, state. From docs/research/briefs/W2-05-money-laundering.md.
+  //
+  // Overlap page under plan Section 4.6 and done-criterion C10: the forum
+  // section opens the body, there is exactly one cross-link to the federal
+  // sibling, and no body copy is shared with it. The federal page rests on
+  // different statutes and is not written yet.
+  //
+  // C9: the $300 floor and the 12-month aggregation window. Leads on both.
+  //
+  // [NEEDS: federal money laundering exposure] 18 U.S.C. 1956 and 1957 were not
+  // fetched. uscode.house.gov is allowlisted as of DECISIONS.md D2. No federal
+  // statute number, element, or maximum appears on this page.
+  // [NEEDS: USSG 2S1.1 guideline treatment] Belongs to the federal sibling.
+  // [NEEDS: forfeiture and seizure procedure] The statute's title names seizure
+  // warrants, so the hook is real, but nothing was fetched. Not described.
+  // ---------------------------------------------------------------------
+  "white-collar/money-laundering": {
+    title: "Money laundering charges under Florida law",
+    metaTitle: "Florida Money Laundering Charges | Hines & McCarty",
+    metaDescription:
+      "The Florida Money Laundering Act starts at $300 and measures transactions across any 12-month period. What the statute requires, and how a state charge differs from a federal one.",
+    lead: "Florida has its own money laundering statute, and its threshold is lower than most people expect. Under the Florida Money Laundering Act, the offense starts at financial transactions exceeding $300, measured across any 12-month period.",
+    counterpart: {
+      href: "/federal-criminal-defense/money-laundering",
+      label: "Federal money laundering charges",
+      note: "Money laundering is charged in both systems, and they are not versions of the same case. A Florida charge is brought under the Florida Money Laundering Act, Statute 896.101, and is scored on a state sentencing scoresheet. A federal charge is brought under federal statutes, carries no Florida offense level, and is calculated under the federal guidelines instead. Which one you are facing is usually clear from the charging document, and it changes the thresholds, the court, and the prosecutor.",
+    },
+    statute: {
+      citation: "Florida Statute 896.101, the 2025 Florida Statutes",
+      body: "The statute is titled the Florida Money Laundering Act. Its subsection (3) makes it unlawful for a person, knowing that the property involved in a financial transaction represents the proceeds of some form of unlawful activity, to conduct or attempt to conduct such a financial transaction which in fact involves the proceeds of specified unlawful activity, either with the intent to promote the carrying on of specified unlawful activity, or knowing that the transaction is designed in whole or in part to conceal or disguise the nature, the location, the source, the ownership, or the control of those proceeds, or to avoid a transaction reporting requirement or money transmitters' registration requirement under state law. The same subsection separately reaches transporting or attempting to transport a monetary instrument or funds with those purposes. Two defined terms do a great deal of work. Specified unlawful activity means any racketeering activity as defined in Statute 895.02, so the state has to identify what the money is said to have come from. Conducts includes initiating, concluding, or participating in initiating or concluding a transaction, which is broader than carrying out a transfer yourself.",
+    },
+    penalties: [
+      {
+        degree: "Third degree felony",
+        maximum: "Up to 5 years",
+        offenseLevel: "Level 7",
+        note: "Financial transactions exceeding $300 but less than $20,000 in any 12-month period, under 896.101(5)(a).",
+      },
+      {
+        degree: "Second degree felony",
+        maximum: "Up to 15 years",
+        offenseLevel: "Level 8",
+        note: "Financial transactions totaling or exceeding $20,000 but less than $100,000 in any 12-month period, under 896.101(5)(b).",
+      },
+      {
+        degree: "First degree felony",
+        maximum: "Up to 30 years",
+        offenseLevel: "Level 9",
+        note: "Financial transactions totaling or exceeding $100,000 in any 12-month period, under 896.101(5)(c).",
+      },
+    ],
+    elements: [
+      "A financial transaction, or an attempt at one, or the transport of a monetary instrument or funds.",
+      "Knowledge that the property represents the proceeds of some form of unlawful activity.",
+      "That the transaction in fact involved the proceeds of specified unlawful activity, which the statute defines as any racketeering activity under Statute 895.02. This is a separate question from whether the defendant knew which activity it was.",
+      "One of the statutory purposes: an intent to promote the carrying on of specified unlawful activity, or knowledge that the transaction was designed to conceal or disguise the nature, location, source, ownership, or control of the proceeds, or to avoid a reporting or registration requirement under state law.",
+      "The total value of the transactions across the relevant 12-month period, which is what sets the degree.",
+    ],
+    defenseApproach: [
+      "The first question is what the money is said to have come from. The statute does not reach proceeds in general: it reaches the proceeds of specified unlawful activity, which is defined by reference to the racketeering activity list in Statute 895.02. If the underlying activity is not established, the transaction does not become laundering because the money is unexplained.",
+      "The second is the aggregation window. The degree turns on transactions across any 12-month period, so what gets counted and where the window is placed can move a charge between tiers. That is a question about the arithmetic and about which transactions belong in it, and it is answerable from records.",
+      "The third is the statutory purpose. Moving money is not the offense by itself. The statute requires either an intent to promote the underlying activity or knowledge that the transaction was designed to conceal something or to evade a reporting requirement, and that is a different thing from an unusual or poorly documented transfer.",
+      "It is worth understanding why this count is added to others. Money laundering is a separate offense with its own points, so it changes the sentencing scoresheet independently of the charge it accompanies. Statute 921.0024(2) provides that the lowest permissible sentence is any nonstate prison sanction where the total sentence points equal or are less than 44 points, with a formula above that figure, and Statute 775.082(10) requires a nonstate prison sanction at 22 points or fewer. A count ranked at level 7 enters that arithmetic well above the level a comparable theft would.",
+      "Where a structuring count is charged alongside, it is a separate statute rather than a variation on the same one. Statute 896.104 prohibits structuring, which it defines as conducting or attempting to conduct one or more transactions in currency, in any amount, at one or more financial institutions, on one or more days, in any manner, for the purpose of evading currency transaction reporting requirements provided by state or federal law. The statute says in any manner includes breaking down a single sum of currency exceeding $10,000 into smaller sums. Its penalty tiers track the laundering tiers at $300, $20,000, and $100,000 across any 12-month period, and Statute 896.104(4)(b) adds that a person found guilty may be sentenced to pay a fine not exceeding $250,000 or twice the value of the financial transactions, whichever is greater.",
+    ],
+    forum: [
+      "Felony charges in Hillsborough County are heard in circuit court. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
+      "A federal money laundering case is heard instead in the Middle District of Florida. Hillsborough County sits in its Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue.",
+      // [NEEDS: whether the State Attorney has a dedicated financial crimes unit]
+      // Not verified against the office's own site.
+    ],
+    faq: [
+      {
+        question:
+          "What is money laundering under Florida law, as opposed to federal law?",
+        source: "drafted",
+        answer:
+          "Florida prosecutes it under the Florida Money Laundering Act, Statute 896.101, which sets its own thresholds and its own offense levels. A federal case is brought under different statutes in a different court, and the Florida offense levels do not apply to it. The conduct can look similar while the two charges are built quite differently.",
+      },
+      {
+        question: "How much money makes it money laundering in Florida?",
+        source: "drafted",
+        answer:
+          "Less than most people assume. The lowest tier under Statute 896.101(5)(a) covers financial transactions exceeding $300 in any 12-month period, and it is a third degree felony. The degree rises at $20,000 and again at $100,000.",
+      },
+      {
+        question:
+          "What is the difference between money laundering and structuring?",
+        source: "drafted",
+        answer:
+          "They are separate offenses under separate statutes. Structuring is charged under Statute 896.104, which defines it as conducting or attempting to conduct one or more currency transactions, in any amount, at one or more financial institutions, on one or more days, in any manner, for the purpose of evading currency transaction reporting requirements. Its penalty tiers mirror the laundering tiers at $300, $20,000, and $100,000 across any 12-month period.",
+      },
+      {
+        question:
+          "Do they have to prove where the money came from?",
+        source: "drafted",
+        answer:
+          "The statute requires that the transaction in fact involved the proceeds of specified unlawful activity, which Statute 896.101 defines as any racketeering activity under Statute 895.02. So the source is not an incidental detail; it is part of what the state has to establish, alongside the defendant's knowledge that the property represented proceeds of some form of unlawful activity.",
+      },
+      {
+        question: "Why is this charged on top of another count?",
+        source: "drafted",
+        answer:
+          "Because it is a separate offense rather than an aggravating feature of the first one. That matters at sentencing: it carries its own offense level and its own points, so it changes the scoresheet arithmetic independently of the underlying charge.",
+      },
+    ],
+    relatedGuides: [
+      { label: "Tools and guides", href: "/resources/tools-and-guides" },
+    ],
+  },
+
+  // ---------------------------------------------------------------------
+  // DRUG TRAFFICKING, state. From docs/research/briefs/W2-02-drug-trafficking.md.
+  //
+  // Overlap page under Section 4.6 and C10. Forum section opens the body, one
+  // cross-link, no shared copy.
+  //
+  // C9: weight rather than intent to sell, with mandatory minimums attached to
+  // the tiers, plus 10-20-Life naming trafficking by name.
+  //
+  // Substantial assistance is quoted as the statutory mechanism it is and is
+  // never described as an outcome (Rule 4-7.13).
+  //
+  // [NEEDS: federal 21 U.S.C. 841 and 846 exposure] Not fetched. No federal
+  // statute number, quantity, or maximum appears on this page.
+  // [NEEDS: multi-agency task force names] Not verified against agency sites.
+  // ---------------------------------------------------------------------
+  "state/drug-trafficking-defense": {
+    title: "Drug trafficking charges in Hillsborough County",
+    metaTitle: "Drug Trafficking Charges in Hillsborough County | Hines & McCarty",
+    metaDescription:
+      "Florida trafficking is defined by weight, not by selling, and each tier carries a mandatory minimum. What Statute 893.135 says, and how a state case differs from a federal one.",
+    lead: "Florida drug trafficking is defined by weight. Selling is not required, and neither is an intent to sell. Statute 893.135 attaches trafficking to a quantity, and each tier carries a mandatory minimum term of imprisonment and a fixed fine.",
+    counterpart: {
+      href: "/federal-criminal-defense/drug-trafficking",
+      label: "Federal drug trafficking charges",
+      note: "The same conduct can be charged by the state or by the federal government, and the two are not interchangeable. A Florida case runs on the weight tiers in Statute 893.135, is heard in circuit court, and is scored on a state sentencing scoresheet. A federal case is brought under federal statutes in the Middle District of Florida, where the Florida offense levels do not apply and sentencing is calculated a different way. Which sovereign files is not the defendant's choice.",
+    },
+    statute: {
+      citation: "Florida Statute 893.135, the 2025 Florida Statutes",
+      body: "The trafficking statute opens by setting itself apart from the ordinary drug offenses: it applies except as authorized in the chapter and notwithstanding the provisions of Statute 893.13. What follows is a series of substances, each with quantity bands, and each band carries its own mandatory minimum and fine. Trafficking in cannabis begins in excess of 25 pounds, with a mandatory minimum term of imprisonment of 3 years and a fine of $25,000, rising to 7 years and $50,000 at 2,000 pounds and to 15 calendar years and $200,000 at 10,000 pounds. Trafficking in cocaine begins at 28 grams or more, with a mandatory minimum of 3 years and a fine of $50,000, rising to 7 years and $100,000 at 200 grams and to 15 calendar years and $250,000 at 400 grams. The opioid provisions escalate faster: trafficking in illegal drugs at 4 grams or more but less than 14 grams carries a mandatory minimum of 3 years and a $50,000 fine, at 14 grams or more but less than 28 grams it is 15 years and $100,000, and at 28 grams or more it is 25 years and $500,000. Every one of these is a felony of the first degree.",
+    },
+    penalties: [
+      {
+        degree: "First degree felony",
+        maximum: "Up to 30 years, subject to the mandatory minimum for the tier",
+        offenseLevel: "Level 7",
+        note: "The lowest tier of each substance. Cannabis in excess of 25 pounds, cocaine at 28 grams or more, illegal drugs at 4 grams or more, each under 893.135(1).",
+      },
+      {
+        degree: "First degree felony",
+        maximum: "Up to 30 years, subject to the mandatory minimum for the tier",
+        offenseLevel: "Level 8",
+        note: "The middle tiers. Cannabis at 2,000 pounds or more, cocaine at 200 grams or more, and the corresponding bands for other substances.",
+      },
+      {
+        degree: "First degree felony",
+        maximum: "Up to 30 years, subject to the mandatory minimum for the tier",
+        offenseLevel: "Level 9",
+        note: "The highest tiers. Cannabis at 10,000 pounds or more, cocaine at 400 grams or more, and the corresponding bands for other substances.",
+      },
+    ],
+    elements: [
+      "Knowing sale, purchase, manufacture, delivery, or bringing into the state, or knowing actual or constructive possession. Possession alone is enough; the statute does not require a sale.",
+      "That the substance is one the statute names.",
+      "That the quantity reaches a tier in the statute. This is the element that separates trafficking from other drug charges, and it is where most of these cases are actually decided.",
+      "On weight, the statute answers a question people often get wrong. Statute 893.135(6) provides that where a mixture contains a controlled substance, the weight of the controlled substance is the total weight of the mixture, including the controlled substance and any other substance in the mixture, and that where there is more than one mixture containing the same substance the weight is calculated by aggregating the total weight.",
+    ],
+    defenseApproach: [
+      "Because the charge turns on quantity, the first work is on how the quantity was established: what was seized, how it was weighed, what was included in the weight, and whether the laboratory result supports the tier that was charged. A case sitting near a boundary is a different case from one sitting in the middle of a band.",
+      "Possession is the second question, and it is frequently constructive rather than actual. Whose vehicle, whose residence, who had access, and what the state can actually attribute to this defendant are the questions underneath a constructive possession theory.",
+      "The statute provides one mechanism that is specific to trafficking and is worth understanding precisely. Under Statute 893.135(4), the state attorney may move the sentencing court to reduce or suspend the sentence of a person convicted under the section who provides substantial assistance in the identification, arrest, or conviction of that person's accomplices, accessories, coconspirators, or principals, or of any other person engaged in trafficking in controlled substances. The arresting agency is given an opportunity to be heard, and the judge hearing the motion may reduce or suspend the sentence if the judge finds that the defendant rendered such substantial assistance. Every step there belongs to someone else: the motion is the state attorney's to file and the finding is the judge's to make. It is a decision to weigh with counsel, and nothing about it is automatic.",
+      "The scoresheet arithmetic also works differently here. Statute 921.0024(1)(b) provides that where the primary offense is drug trafficking under Statute 893.135, the subtotal sentence points are multiplied, at the discretion of the court, for a level 7 or level 8 offense, by 1.5. Since no trafficking tier is ranked below level 7, that multiplier is available in every one of these cases.",
+    ],
+    forum: [
+      "Felony charges in Hillsborough County are heard in circuit court. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
+      "A federal case arising from the same conduct is heard in the Middle District of Florida. Hillsborough County sits in its Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue.",
+    ],
+    faq: [
+      {
+        question: "Can a drug trafficking charge be reduced in Florida?",
+        source: "keywords.md",
+        grade: "6-12mo",
+        answer:
+          "There is a statutory route, and it is not something a defendant controls. Statute 893.135(4) allows the state attorney to move the sentencing court to reduce or suspend a trafficking sentence where the person has provided substantial assistance, and the judge may do so if the judge finds that such assistance was rendered. Both steps belong to other people, which is why it is a decision to take with a lawyer rather than an expectation to plan around.",
+      },
+      {
+        question: "How many grams is trafficking in Florida?",
+        source: "drafted",
+        answer:
+          "It depends entirely on the substance. Cocaine trafficking begins at 28 grams, while the illegal drugs provision covering opioids begins at 4 grams, and cannabis is measured in pounds rather than grams and begins in excess of 25 pounds. There is no single trafficking weight, which is why the substance named in the charge matters as much as the quantity.",
+      },
+      {
+        question: "Is there a minimum sentence for drug trafficking in Florida?",
+        source: "drafted",
+        answer:
+          "Yes. Each tier in Statute 893.135 carries a mandatory minimum term of imprisonment and a fixed fine, beginning at 3 years for the lowest cannabis and cocaine bands and rising with quantity. That is a feature of the trafficking statute specifically, and it is why these charges are treated differently from other drug offenses.",
+      },
+      {
+        question:
+          "I only had it for personal use. Why am I charged with trafficking?",
+        source: "drafted",
+        answer:
+          "Because Florida trafficking turns on weight rather than on what the substance was for. Statute 893.135 reaches knowing possession at a threshold quantity, without requiring a sale or an intent to sell, so a quantity above a tier can support the charge even where nothing was sold.",
+      },
+      {
+        question: "Does the weight include the pills themselves?",
+        source: "drafted",
+        answer:
+          "It includes the whole mixture. Statute 893.135(6) provides that the weight of the controlled substance is the total weight of the mixture, including the controlled substance and any other substance in it, and that multiple mixtures containing the same substance are aggregated. This is why a quantity can reach a tier that the amount of the drug itself would not.",
       },
     ],
     relatedGuides: [

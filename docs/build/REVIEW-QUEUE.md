@@ -83,7 +83,7 @@ date), C12 (allowlisted verification), and C13.
 | Page | Owner | Last reviewed | Cadence | Next due | Status |
 |---|---|---|---|---|---|
 | `/criminal-defense/sexual-battery-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
-| `/criminal-defense/drug-trafficking-defense` (template preview) | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/drug-trafficking-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
 | `/criminal-defense/drug-possession-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/gun-crimes-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/sex-crimes-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
@@ -122,6 +122,39 @@ date), C12 (allowlisted verification), and C13.
 | `/white-collar-defense/tax-evasion` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/ppp-loan-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/identity-theft` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/money-laundering` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
+
+**Two further pages moved to draft 2026-08-13**, in a later pass.
+
+`/white-collar-defense/money-laundering` (brief W2-05) and
+`/criminal-defense/drug-trafficking-defense` (brief W2-02). Both are overlap
+pages under plan Section 4.6: each opens its body with a forum section and
+carries exactly one cross-link to its federal sibling, with no shared body copy
+(done-criterion C10). The drug trafficking entry replaces the template preview
+that previously occupied it.
+
+**`/white-collar-defense/money-laundering` is a new slug**, added by
+DECISIONS.md D11. The white-collar silo now carries 11 rows and the charge set
+totals 31.
+
+Same posture as the first two written pages: `published: false`, noindex, held
+out of the sitemap by the gate in src/app/sitemap.ts, and `owner` and
+`lastReviewed` still `[NEEDS]` because no attorney has been assigned or has
+reviewed them.
+
+**Statutory sources cleared for these two pages on 2026-08-13**, all from
+flsenate.gov, the 2025 Florida Statutes:
+
+| Statute | What it cleared |
+|---|---|
+| 896.101(2) and (3) | The prohibited conduct, and the definitions of conducts, financial transaction, and specified unlawful activity, which is defined by reference to racketeering activity under 895.02 |
+| 896.104(1) and (4) | The definition of structuring, its three penalty tiers, and the additional fine of up to $250,000 or twice the value of the transactions |
+| 893.135(1)(c) | The illegal drugs and hydrocodone quantity bands with their mandatory minimums and fines |
+| 893.135(4) | Substantial assistance, quoted rather than paraphrased. Described on the page as a statutory mechanism belonging to the state attorney and the court, never as an outcome |
+| 893.135(6) | That the weight of a controlled substance is the total weight of the mixture, and that multiple mixtures are aggregated. This closed an item the brief had recorded as UNVERIFIED |
+| 921.0024(1)(b) | The drug trafficking multiplier: subtotal sentence points multiplied at the court's discretion by 1.5 for a level 7 or level 8 offense |
+
+All five publish blockers recorded against these two briefs are now closed.
 
 **Two pages moved from stub to draft 2026-08-13.**
 

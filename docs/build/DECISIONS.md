@@ -264,6 +264,37 @@ adopt the phrasing of the firms that currently are.
 
 ---
 
+### D11. Money laundering gets a white-collar slug
+
+**Decided 2026-08-13.** Add `/white-collar-defense/money-laundering`. The
+federal slug `/federal-criminal-defense/money-laundering` already existed and
+stays. The two are an overlap pair under plan Section 4.6, not one page.
+
+**Why.** W2-05 is written for the white-collar page and its substance is
+entirely Florida law: the Florida Money Laundering Act at F.S. 896.101, a
+threshold ladder that starts at **$300**, a **12-month aggregation window**, and
+a third degree tier that is nonetheless ranked at **offense level 7**. None of
+that belongs on a federal page, which rests on different statutes with different
+elements and no Florida offense levels at all. Folding the brief into the
+federal page would have discarded the substance that makes it pass C9, which is
+the same reasoning as D3.
+
+**How it surfaced.** Not by review. The C9 key check added in the same session
+found it: the assertion was keyed to a slug that did not exist, so it governed
+nothing while looking recorded. That is the failure shape in
+docs/research/HUNT-LIST.md defect 1, caught by a check rather than by reading.
+
+**Applied to.** src/lib/site.ts `whiteCollarCharges` and `CHARGE_C9`. The white
+collar silo now carries 11 rows and the charge set totals 31. The C9 key check
+reports 9 of 9 keys resolving.
+
+**Precedent this sets, consistent with D4.** Two silos may carry the same slug
+where the underlying statutes genuinely differ, as healthcare-fraud already
+does. What is not permitted is two pages resting on statutes that differ only in
+a jurisdictional element, which is why mail fraud was removed.
+
+---
+
 ### D10. Wave 2 build order accepted. Not reordered for the white-collar pages.
 
 **Decided 2026-08-13**, after the brief-review recommendation in
