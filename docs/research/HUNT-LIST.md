@@ -4,9 +4,14 @@ Named defect categories to actively look for during review, in this project's
 own work rather than in the market.
 
 **This file did not exist before 2026-08-13.** It was created when the first
-entry was named. It is deliberately separate from docs/research/avoid.md, which
-is a dated research artifact about competitor tactics not to copy. This file is
-about how we get things wrong, and it is a living document.
+entry was named, and moved here from docs/build/ shortly after, because it
+governs research method rather than the build.
+
+**It sits beside avoid.md and is not the same kind of list.** avoid.md is a
+dated artifact recording competitor tactics not to copy; it is finished and it
+describes the market. This file describes how *we* get things wrong, it is a
+living document, and entries are added as defects are named rather than
+compiled in one pass.
 
 **How to use it.** These are not checklist items to tick. They are shapes of
 failure that have already occurred at least once here, written down so that the
@@ -95,16 +100,17 @@ that dissolves on inspection.
    means the promulgating opinion alongside the compilation, which is a
    different document with a different failure mode.
 3. Where no second path exists, escalate to a human eyeball rather than another
-   automated pass. This is why the 33-day guide's entry in REVIEW-QUEUE.md
-   requires a person to open the Bar URL in a browser before publish, instead of
-   requiring another agent to fetch it.
+   automated pass. This is why the 33-day guide's entry in
+   docs/build/REVIEW-QUEUE.md requires a person to open the Bar URL in a browser
+   before publish, instead of requiring another agent to fetch it.
 
 ### Where this already applies
 
-- **REVIEW-QUEUE.md**, the 33-day rule correction guide: open verification
-  requires a human, explicitly because a second automated pass against the same
-  compilation would not be a second path.
-- **CASES-WE-DEFEND-PLAN.md Section 10.3 (C12)**: the allowlist governs whether
-  a source is authoritative. It says nothing about how many independent paths a
-  claim rests on. These are different questions and both need answering.
+- **docs/build/REVIEW-QUEUE.md**, the 33-day rule correction guide: open
+  verification requires a human, explicitly because a second automated pass
+  against the same compilation would not be a second path.
+- **docs/build/CASES-WE-DEFEND-PLAN.md Section 10.3 (C12)**: the allowlist
+  governs whether a source is authoritative. It says nothing about how many
+  independent paths a claim rests on. These are different questions and both
+  need answering.
 - Any future adversarial verification: report paths, not agents.

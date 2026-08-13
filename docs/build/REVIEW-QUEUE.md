@@ -232,8 +232,8 @@ flcourts.gov carries a January 1, 2017 footer and does not contain the amended
 (a)/(b) structure, so it is stale for this rule and must not be cited as
 current. The controlling text is The Florida Bar's compilation updated
 2026-07-13. A person opens that URL in a browser and eyeballs Rule 3.134 before
-publish. See HUNT-LIST.md defect 1 for why a second automated pass against the
-same document does not satisfy this.
+publish. See docs/research/HUNT-LIST.md defect 1 for why a second automated
+pass against the same document does not satisfy this.
 
 | Field | Value |
 |---|---|

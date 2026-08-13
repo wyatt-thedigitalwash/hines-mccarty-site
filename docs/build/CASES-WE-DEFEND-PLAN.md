@@ -1240,7 +1240,7 @@ both need answering.** Added 2026-08-13. C12 governs whether a source is
 authoritative. It says nothing about how many independent paths a claim rests
 on. Two checks against one authoritative document is one path reported as two,
 and it cannot detect the failure it was run to detect. That defect category is
-recorded in docs/build/HUNT-LIST.md defect 1, with the rule that follows:
+recorded in docs/research/HUNT-LIST.md defect 1, with the rule that follows:
 **verifier independence means an independent path to the fact, not an
 independent agent.** Where only one authoritative source exists, say so, rather
 than running a second pass against it and recording two.
