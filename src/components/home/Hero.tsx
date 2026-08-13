@@ -1,41 +1,84 @@
-import Link from "next/link";
+import CredentialStrip from "@/components/CredentialStrip";
 
-const blocks = [
-  {
-    label: "Our Team",
-    title: "Four attorneys, four areas of focus.",
-    href: "/attorneys",
-  },
-  {
-    label: "Our Capabilities",
-    title: "Serious state and federal defense.",
-    href: "/cases-we-defend",
-  },
-  {
-    label: "Our Insights",
-    title: "Plain answers to hard questions.",
-    href: "/insights",
-  },
-];
-
+/**
+ * Home hero.
+ *
+ * The video runs full bleed behind the headline rather than being silhouetted
+ * into the two overlapping arches the mask used to cut. The arch treatment is
+ * gone; nothing else on the site used it.
+ *
+ * The bottom edge is an ellipse clip rather than a straight line, so the
+ * footage sweeps into solid navy instead of stopping dead. It is a clip on the
+ * media layer only, which keeps the headline and the three blocks out of it:
+ * clipping the whole section would cut the text at the same curve.
+ *
+ * Legibility comes from two stacked scrims, not from one flat overlay. A single
+ * uniform wash either washes out the footage or leaves the headline sitting on
+ * whatever happens to be behind it that second.
+ */
 export default function Hero() {
   return (
-    <section
-      data-bg="dark"
-      className="relative overflow-x-clip bg-navy pt-20 pb-20 lg:pt-24 lg:pb-24"
-    >
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="flex flex-col-reverse lg:flex-row-reverse lg:items-stretch">
-          {/* Text column: narrow, now on the right */}
-          <div className="relative z-10 flex w-full flex-col justify-center pb-10 lg:ml-[156px] lg:w-1/2 lg:max-w-[31.8125rem] lg:pb-0">
-            <h1 className="font-display text-5xl font-extrabold leading-[1.05] tracking-tight text-linen sm:text-6xl lg:text-7xl">
-              When the charge is serious,{" "}
-              <span className="text-bronze">the next call matters.</span>
+    <section data-bg="white" className="relative bg-white">
+      <div className="relative">
+        {/* Media layer. Clipped, so the section's own white shows below the
+            sweep: the wedges the ellipse leaves at the bottom corners are the
+            page background, not a band of navy. The video's bottom scrim stays
+            partly navy on purpose, because the curve is only visible where dark
+            footage meets that white.
+
+            The radius is per breakpoint because the depth of the dip is set by
+            the ratio of the ellipse's x-radius to the element width, and the
+            hero is roughly twice as tall on a phone as it is wide. One radius
+            cannot serve both: at 95% the drop is 15% of the height, which is a
+            restrained sweep on a wide desktop hero and an enormous bowl on a
+            tall narrow one. Widening the radius to 150% on small screens
+            flattens it to about 6% while keeping the same curve family. */}
+        <div className="absolute inset-0 overflow-hidden [clip-path:ellipse(150%_100%_at_50%_0%)] lg:[clip-path:ellipse(95%_100%_at_50%_0%)]">
+          {/* Shows while the video loads, and stays put for anyone who has
+              asked for reduced motion. */}
+          <div className="absolute inset-0 bg-gradient-to-br from-navy-700 via-charcoal to-navy" />
+
+          <video
+            className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+            tabIndex={-1}
+          >
+            <source
+              src="https://res.cloudinary.com/dgbiatexy/video/upload/v1784816947/HinesLaw_Hero2_kqhs7w.mp4"
+              type="video/mp4"
+            />
+          </video>
+
+          {/* Horizontal scrim: heaviest under the copy, clearing toward the
+              right so the footage is still readable as footage. */}
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/35" />
+          {/* Vertical scrim. Deliberately does NOT reach full navy at the
+              bottom: fading the footage out before the cut made the curve
+              invisible, which defeated the point of curving it. */}
+          <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-navy/15 to-navy/55" />
+        </div>
+
+        <div className="relative mx-auto max-w-[1400px] px-6 pt-36 pb-32 lg:px-10 lg:pt-48 lg:pb-48">
+          <div className="max-w-5xl">
+            {/* Two stacked lines, both left aligned. Uppercased in CSS rather
+                than in the source so the text stays readable to anything
+                reading the markup, and tracked slightly open because Cormorant
+                set in all caps at this size closes up without it.
+
+                The wrapper is max-w-5xl rather than the 3xl it was: at 3xl the
+                first line broke after "AGGRESSIVE" and the heading rendered as
+                three lines instead of two. The paragraph keeps its own narrower
+                measure, so only the heading got wider. */}
+            <h1 className="font-display text-4xl font-extrabold uppercase leading-[1.08] tracking-[0.01em] text-linen sm:text-5xl lg:text-6xl">
+              <span className="block">Aggressive Representation</span>
+              <span className="block text-bronze">Defending Your Future</span>
             </h1>
-            {/* Middle District of Florida claim is already established in
-                SITE.md and src/lib/site.ts (federal capability summary), so
-                no [NEEDS] comment is required for it here. */}
-            <p className="mt-8 text-lg leading-relaxed text-linen/70">
+            <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/80">
               If you or someone you love has been arrested or is under
               investigation, you need straight answers before anything else.
               Hines &amp; McCarty defends state charges in Hillsborough County
@@ -43,62 +86,30 @@ export default function Hero() {
               prepare every case as if it will be tried, because prosecutors
               treat a firm differently when they know it will.
             </p>
-            {/* [NEEDS: confirm this number receives SMS]
-                Number below (813-333-8886) is per this task's spec and does
-                NOT match the confirmed real firm number ((813) 738-8650) in
-                SITE.md / src/lib/site.ts firm.phone. Flagged to the human. */}
+            {/* [NEEDS: confirm this number receives SMS, and whether it is a
+                tracking number] 813-333-8886 came from the original brief and
+                does NOT match firm.phone, the confirmed (813) 738-8650 in
+                SITE.md that the header and every other CTA now use. Left as-is
+                through this rewrite because changing it is the client's call,
+                but the site currently shows two different numbers. */}
             <a
               href="tel:8133338886"
-              className="mt-8 inline-flex items-center self-start bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
+              className="mt-10 inline-flex items-center self-start bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
             >
               Call or Text 813-333-8886
             </a>
           </div>
-
-          {/* Hero visual: a rectangular video that bleeds to the right edge with
-              a bottom fade, silhouetted into two overlapping arches via the CSS
-              mask. Drop tampa-skyline.mp4 into /public/videos and a still at
-              /public/images/tampa-skyline-poster.jpg to activate. */}
-          <div className="relative w-full lg:flex lg:w-1/2 lg:justify-end">
-            <div className="arch-mask arch-mask-flip video-fade relative -ml-6 aspect-[7/6] w-screen overflow-hidden lg:ml-0 lg:mr-[-2vw] lg:aspect-[100/59] lg:w-[56vw] lg:shrink-0">
-              <div className="absolute inset-0 z-0 bg-gradient-to-t from-navy via-charcoal to-bronze-soft/50" />
-              <video
-                className="absolute inset-0 z-0 h-full w-full object-cover"
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-              >
-                <source
-                  src="https://res.cloudinary.com/dgbiatexy/video/upload/v1784816947/HinesLaw_Hero2_kqhs7w.mp4"
-                  type="video/mp4"
-                />
-              </video>
-            </div>
-          </div>
-        </div>
-
-        <div className="mt-16 grid gap-6 sm:grid-cols-3">
-          {blocks.map((block) => (
-            <Link
-              key={block.label}
-              href={block.href}
-              className="group flex min-h-[280px] flex-col border border-bronze/50 p-8 transition-colors hover:border-bronze lg:min-h-[320px] lg:p-10"
-            >
-              <span className="font-heading text-[0.8125rem] font-semibold uppercase tracking-normal text-linen transition-colors group-hover:text-bronze">
-                {block.label}
-              </span>
-              <p className="mt-auto font-heading text-2xl font-medium leading-snug text-linen transition-colors group-hover:text-bronze lg:text-3xl">
-                {block.title}
-              </p>
-              <span className="mt-8 inline-block text-sm text-linen/80 underline decoration-1 underline-offset-4 transition-colors group-hover:text-bronze">
-                Learn More
-              </span>
-            </Link>
-          ))}
         </div>
       </div>
+
+      {/*
+        Credential strip sitting flush on the hero's bottom edge, replacing the
+        three navigation blocks that used to sit here. Those links all exist in
+        the header and the footer, so nothing became unreachable, but the home
+        page did lose three internal links to /attorneys, /cases-we-defend, and
+        /resources.
+      */}
+      <CredentialStrip />
     </section>
   );
 }

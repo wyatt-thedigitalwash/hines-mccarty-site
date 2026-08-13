@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { attorneyBySlug, attorneys } from "@/lib/site";
-import { attorneyJsonLd } from "@/lib/schema";
+import { attorneyBySlug, attorneyTrail, attorneys } from "@/lib/site";
+import { attorneyJsonLd, breadcrumbJsonLd } from "@/lib/schema";
+import { pageMetadata } from "@/lib/metadata";
 import {
   BioHeader,
   BioOverview,
@@ -21,18 +22,17 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const attorney = attorneyBySlug(slug);
   if (!attorney) return {};
 
-  return {
-    title: {
-      absolute: `${attorney.name}, Criminal Defense Attorney | Hines & McCarty`,
-    },
+  return pageMetadata({
+    title: `${attorney.name}, Criminal Defense Attorney | Hines & McCarty`,
     description: attorney.concentration
       ? `${attorney.name} is a criminal defense attorney at Hines & McCarty. ${attorney.concentration}.`
       : `${attorney.name} is an attorney at Hines & McCarty, a criminal defense firm in Brandon, Florida.`,
+    path: `/attorneys/${attorney.slug}`,
     // A half-written bio costs more E-E-A-T than it earns, so placeholder pages
     // stay out of the index until the client fills them in. They stay
     // crawlable (follow) so the internal links still pass.
-    ...(attorney.confirmed ? {} : { robots: { index: false, follow: true } }),
-  };
+    noindex: !attorney.confirmed,
+  });
 }
 
 export default async function AttorneyPage({ params }: Params) {
@@ -45,7 +45,10 @@ export default async function AttorneyPage({ params }: Params) {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
-          __html: JSON.stringify(attorneyJsonLd(attorney)),
+          __html: JSON.stringify([
+            breadcrumbJsonLd(attorneyTrail(attorney)),
+            attorneyJsonLd(attorney),
+          ]),
         }}
       />
 

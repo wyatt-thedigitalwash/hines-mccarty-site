@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { firm } from "@/lib/site";
-import OfficeBlock from "@/components/attorneys/OfficeBlock";
+import OfficeBlock from "@/components/OfficeBlock";
 
 export default function CTA() {
   return (
@@ -45,8 +45,7 @@ export default function CTA() {
 
           <div className="relative grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
-              <span className="eyebrow text-bronze">Speak With Us</span>
-              <h2 className="mt-6 font-display text-4xl font-extrabold leading-[1.02] tracking-tight text-linen sm:text-5xl lg:text-6xl">
+              <h2 className="font-display text-4xl font-extrabold leading-[1.02] tracking-tight text-linen sm:text-5xl lg:text-6xl">
                 Talk to a defense attorney today.
               </h2>
               <p className="mt-6 max-w-lg text-lg leading-relaxed text-linen/70">

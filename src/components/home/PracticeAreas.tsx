@@ -2,7 +2,13 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { capabilities } from "@/lib/site";
+import {
+  type ChargePage,
+  capabilities,
+  chargeHref,
+  chargesInSilo,
+  type SiloKey,
+} from "@/lib/site";
 
 function ArrowUpRight({ className = "" }: { className?: string }) {
   return (
@@ -38,15 +44,18 @@ function ChevronIcon({ className = "" }: { className?: string }) {
   );
 }
 
-function ItemRow({
-  label,
-  description,
-  href,
-}: {
-  label: string;
-  description: string;
-  href: string;
-}) {
+/**
+ * One charge. Reads from `charges`, the same list the Cases We Defend index
+ * uses, so the two can never show different sets again.
+ *
+ * Links to the charge page once it is published, and to its silo hub until
+ * then. The stubs are noindex and full of [NEEDS] markers; the home page is
+ * the last place that scaffolding should be reachable from.
+ */
+function ItemRow({ charge, siloHref }: { charge: ChargePage; siloHref: string }) {
+  const { label, description } = charge;
+  const href = charge.published ? chargeHref(charge) : siloHref;
+
   return (
     <Link
       href={href}
@@ -127,12 +136,11 @@ export default function PracticeAreas() {
                 hidden={cap.key !== active}
               >
                 <div className="grid grid-cols-2 gap-4">
-                  {cap.items.map((item) => (
+                  {chargesInSilo(cap.key as SiloKey).map((charge) => (
                     <ItemRow
-                      key={item.label}
-                      label={item.label}
-                      description={item.description}
-                      href={cap.href}
+                      key={charge.slug}
+                      charge={charge}
+                      siloHref={cap.href}
                     />
                   ))}
                 </div>
@@ -169,12 +177,11 @@ export default function PracticeAreas() {
                 {/* Kept mounted and hidden when collapsed, same reason as above */}
                 <div id={`practice-accordion-${cap.key}`} hidden={!isOpen}>
                   <div className="mt-6 flex flex-col gap-3">
-                    {cap.items.map((item) => (
+                    {chargesInSilo(cap.key as SiloKey).map((charge) => (
                       <ItemRow
-                        key={item.label}
-                        label={item.label}
-                        description={item.description}
-                        href={cap.href}
+                        key={charge.slug}
+                        charge={charge}
+                        siloHref={cap.href}
                       />
                     ))}
                   </div>

@@ -1,0 +1,162 @@
+import Link from "next/link";
+import { firm } from "@/lib/site";
+import { florida } from "@/components/cases/generated/map-paths";
+import OfficeBlock from "@/components/OfficeBlock";
+
+/**
+ * The closing call to action, in two tones.
+ *
+ * `navy` is the framed card from the home page: gradient panel, Florida
+ * watermark bleeding off the right edge, bronze primary button. Used on the
+ * hub pages, where the CTA is the loudest thing on a short page.
+ *
+ * `white` is for the deep pages, charge pages and attorney bios. Those end a
+ * long read on a white surface, and dropping a navy slab at the bottom of them
+ * fights the page rather than closing it. Same structure and the same two
+ * actions, drawn in outline instead of fill.
+ *
+ * The watermark is the generated Census geometry (scripts/build-maps.mjs), not
+ * the 80 KB /shapes/florida-outline.svg mask the home CTA still uses. Inline,
+ * no extra request, and no unresolved licence question on that asset.
+ */
+const DEFAULT_BODY =
+  "Consultations are confidential. If you or someone you care about has been arrested, charged, or contacted by investigators, reach out now.";
+
+function Watermark({ tone }: { tone: "navy" | "white" }) {
+  const shape = (
+    <svg
+      viewBox={florida.viewBox}
+      className="h-full w-full"
+      fill="currentColor"
+      aria-hidden="true"
+      focusable="false"
+    >
+      {florida.paths.map((d) => (
+        <path key={d.slice(0, 24)} d={d} />
+      ))}
+    </svg>
+  );
+
+  // Bronze reads on navy; on the gray card it turns muddy, so the light tone
+  // tints the watermark with navy instead. Nudged up from the white-card
+  // version, since it now has to separate from a tinted ground rather than
+  // from pure white.
+  const tint = tone === "navy" ? "text-bronze/20" : "text-navy/[0.06]";
+  const tintLg = tone === "navy" ? "lg:text-bronze/10" : "lg:text-navy/[0.065]";
+
+  return (
+    <>
+      <div
+        aria-hidden
+        className={`pointer-events-none absolute -right-8 -top-10 block w-[300px] sm:w-[360px] lg:hidden ${tint}`}
+      >
+        {shape}
+      </div>
+      <div
+        aria-hidden
+        className={`pointer-events-none absolute -right-28 top-1/2 hidden w-[620px] -translate-y-1/2 lg:block lg:w-[700px] ${tintLg}`}
+      >
+        {shape}
+      </div>
+    </>
+  );
+}
+
+export default function CallToAction({
+  heading,
+  body = DEFAULT_BODY,
+  tone = "navy",
+}: {
+  heading: string;
+  body?: string;
+  tone?: "navy" | "white";
+}) {
+  const isNavy = tone === "navy";
+
+  return (
+    <section
+      data-bg={isNavy ? "navy" : "white"}
+      className={`py-20 lg:py-28 ${isNavy ? "bg-navy" : "bg-white"}`}
+    >
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        {/*
+          Both tones are the same idea: the card sits one step off its own
+          background so it reads as an object rather than as a bordered region
+          of the page. Navy uses a lighter navy gradient on navy. White uses a
+          cool gray gradient on white, mixed from the navy token rather than
+          from linen, because service pages are white-only and cream would
+          reintroduce the tint that was deliberately removed from them.
+
+          navy at 5.5% over white lands near #f2f2f4, which is the gray in the
+          reference, and it stays in the palette instead of adding a color.
+        */}
+        <div
+          className={`relative overflow-hidden p-10 sm:p-14 lg:p-16 ${
+            isNavy
+              ? "border border-white/10 bg-gradient-to-br from-navy-700 to-navy"
+              : "border border-navy/10 bg-gradient-to-br from-navy/[0.055] to-navy/[0.02]"
+          }`}
+        >
+          <Watermark tone={tone} />
+
+          <div className="relative grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
+            <div>
+              <h2
+                className={`font-display text-4xl leading-[1.02] tracking-tight sm:text-5xl lg:text-6xl ${
+                  isNavy ? "font-extrabold text-linen" : "font-extrabold text-navy"
+                }`}
+              >
+                {heading}
+              </h2>
+              <p
+                className={`mt-6 max-w-lg text-lg leading-relaxed ${
+                  isNavy ? "text-linen/70" : "text-charcoal"
+                }`}
+              >
+                {body}
+              </p>
+
+              <div className="mt-10 flex flex-wrap items-center gap-4">
+                {/* Bronze fill with navy text measures 7.07:1, so the primary
+                    action is identical in both tones. */}
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
+                >
+                  Request a consultation
+                </Link>
+                <a
+                  href={firm.phoneHref}
+                  className={`inline-flex items-center border px-7 py-4 font-display text-lg font-bold transition-colors ${
+                    isNavy
+                      ? "border-linen/25 text-linen hover:border-bronze hover:text-bronze"
+                      : "border-navy/30 text-navy hover:border-bronze hover:text-bronze"
+                  }`}
+                >
+                  Call {firm.phone}
+                </a>
+              </div>
+            </div>
+
+            {/* Renders every published office, so Tampa appears here the moment
+                its address is confirmed. The number is already above, hence
+                showPhone={false}. */}
+            <div
+              className={`pt-8 lg:border-t-0 lg:pl-12 lg:pt-0 ${
+                isNavy
+                  ? "border-t border-white/10 lg:border-l"
+                  : "border-t border-navy/15 lg:border-l"
+              }`}
+            >
+              <OfficeBlock
+                tone={isNavy ? "dark" : "light"}
+                showPhone={false}
+                className="grid gap-8"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { attorneysForPractice } from "@/lib/site";
+import { attorneysLeadingPractice } from "@/lib/site";
 import Portrait from "./Portrait";
 
 /**
@@ -15,13 +15,13 @@ import Portrait from "./Portrait";
  * Usage: <HandledBy href="/criminal-defense" />
  */
 export default function HandledBy({ href }: { href: string }) {
-  const matched = attorneysForPractice(href);
+  const matched = attorneysLeadingPractice(href);
   if (matched.length === 0) return null;
 
   return (
     <section data-bg="white" className="bg-white py-20 text-navy lg:py-24">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <h2 className="font-display text-3xl leading-tight sm:text-4xl">
+        <h2 className="font-display text-4xl leading-tight sm:text-5xl">
           Handled by
         </h2>
         <ul className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">

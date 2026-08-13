@@ -1,8 +1,10 @@
 import Link from "next/link";
-import { type Attorney, capabilities, firm } from "@/lib/site";
-import Needs from "./Needs";
+import { type Attorney, attorneyTrail, capabilities, firm } from "@/lib/site";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import Needs from "@/components/Needs";
 import Portrait from "./Portrait";
-import OfficeBlock from "./OfficeBlock";
+import CallToAction from "@/components/CallToAction";
+import CredentialStrip from "@/components/CredentialStrip";
 
 /**
  * The five sections of an attorney bio. One template drives all four bios; a
@@ -16,14 +18,9 @@ import OfficeBlock from "./OfficeBlock";
 /* Section 1. Name, role, portrait, concentration, call CTA. */
 export function BioHeader({ attorney }: { attorney: Attorney }) {
   return (
-    <section data-bg="navy" className="bg-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <Link
-          href="/attorneys"
-          className="font-heading text-sm uppercase tracking-wide text-linen/60 transition-colors hover:text-bronze"
-        >
-          Our Attorneys
-        </Link>
+    <section data-bg="navy" className="bg-navy pt-36 lg:pt-44">
+      <div className="mx-auto max-w-[1400px] px-6 pb-20 lg:px-10 lg:pb-24">
+        <Breadcrumbs trail={attorneyTrail(attorney)} />
 
         <div className="mt-10 grid gap-12 lg:grid-cols-[22rem_1fr] lg:gap-16">
           <Portrait
@@ -63,6 +60,11 @@ export function BioHeader({ attorney }: { attorney: Attorney }) {
           </div>
         </div>
       </div>
+
+      {/* Credential strip on the hero's bottom edge. Full bleed, so the bottom
+          padding lives on the content wrapper above rather than on the section,
+          which would inset the strip. */}
+      <CredentialStrip />
     </section>
   );
 }
@@ -72,7 +74,7 @@ export function BioOverview({ attorney }: { attorney: Attorney }) {
   return (
     <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <h2 className="font-display text-3xl leading-tight sm:text-4xl">
+        <h2 className="font-display text-4xl leading-tight sm:text-5xl">
           Overview
         </h2>
         <div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-charcoal">
@@ -101,9 +103,9 @@ export function BioPracticeAreas({ attorney }: { attorney: Attorney }) {
     .filter((c): c is (typeof capabilities)[number] => Boolean(c));
 
   return (
-    <section data-bg="linen" className="bg-linen py-20 text-navy lg:py-28">
+    <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <h2 className="font-display text-3xl leading-tight sm:text-4xl">
+        <h2 className="font-display text-4xl leading-tight sm:text-5xl">
           Practice areas
         </h2>
 
@@ -157,7 +159,7 @@ export function BioCredentials({ attorney }: { attorney: Attorney }) {
   return (
     <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <h2 className="font-display text-3xl leading-tight sm:text-4xl">
+        <h2 className="font-display text-4xl leading-tight sm:text-5xl">
           Credentials
         </h2>
 
@@ -247,31 +249,6 @@ export function BioCredentials({ attorney }: { attorney: Attorney }) {
 /* Section 5. Consultation CTA and the NAP block (Rule 4-7.12). */
 export function BioClose() {
   return (
-    <section data-bg="navy" className="bg-navy py-20 lg:py-28">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="grid gap-12 lg:grid-cols-2">
-          <div>
-            <h2 className="font-display text-3xl leading-tight text-linen sm:text-4xl">
-              Talk to an attorney about your case.
-            </h2>
-            <div className="mt-8 flex flex-wrap items-center gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex items-center border border-bronze px-8 py-4 font-heading text-sm font-semibold uppercase text-bronze transition-colors hover:bg-bronze hover:text-navy"
-              >
-                Request a consultation
-              </Link>
-              <a
-                href={firm.phoneHref}
-                className="font-display text-2xl font-extrabold text-linen transition-colors hover:text-bronze"
-              >
-                {firm.phone}
-              </a>
-            </div>
-          </div>
-          <OfficeBlock tone="dark" />
-        </div>
-      </div>
-    </section>
+    <CallToAction heading="Talk to an attorney about your case." tone="white" />
   );
 }
