@@ -1027,7 +1027,7 @@ omission at build time**, following ST-04 Section 8.1.
 | 1 | Primary and secondary query set with winnability grades at both geographic levels | **MET** | Section 1. Both primaries YEARS. Two of six terms return no data at either level |
 | 2 | Contradictions with `docs/research/keywords.md` stated | **MET, with a nuance recorded** | **No direct contradiction: keywords.md grades no homicide term.** It grades the umbrella `violent crimes attorney Tampa` at **6-12mo** and names brancatolawfirm.com at position 1 there, the same firm holding the one real homicide page here. **The umbrella grade should be re-examined**, because the page at its top is stronger than the 6-12mo grade assumed. Recorded, not resolved |
 | 3 | `stand your ground florida` resolved with a recommendation | **MET** | Section 0.2. Option (c): unconditional page treatment justified by F.S. 782.07(1)'s own cross-reference, plus a conditional Layer 2 guide gated on one SERP pull |
-| 4 | Audience check run on the high-volume term | **PARTIALLY MET, and the gap is the recommendation's gate** | Section 0.2. CPC and term-shape signals both point away from a defendant audience. **The SERP composition test W4-SPEC actually specifies could not be run: no SERP for `stand your ground florida` is in the wave 4 dataset and new calls are forbidden.** Recorded as the single highest-value follow-up query |
+| 4 | Audience check run on the high-volume term | **NOW MET. Gate cleared 2026-08-13, see 30A** | Section 0.2. CPC and term-shape signals both point away from a defendant audience. The SERP composition test was run by the orchestrator after this brief was filed and **confirmed the term is largely non-addressable**: three national advocacy organisations in the top ten, comparative and gun-owner PAA and related searches, with a narrow defendant-relevant slice at `stand your ground hearing`. See 30A |
 | 5 | F.S. 776.032 pretrial immunity mechanism verified, burden and standard identified | **MET** | Section 0.3. Fetched and quoted |
 | 6 | Whether the burden allocation is statutory or case law, resolved | **MET, and it came out the opposite of the way the task anticipated** | **Statutory.** F.S. 776.032(4), added by ch. 2017-72. Inside the C12 allowlist, quotable, no byline needed. **The case-law half is what the defendant's prima facie showing requires, which the statute does not state and the page therefore does not either** |
 | 7 | F.S. 776.012 and 776.013 fetched | **MET** | Section 7.5 |
@@ -1053,7 +1053,47 @@ omission at build time**, following ST-04 Section 8.1.
 | 27 | Local specificity: Hillsborough, Tampa, 13th Circuit. Brandon excluded per D7 | **MET** | Section 8. **Local specificity recorded as a closed dimension in this niche, which no prior brief has had to record** |
 | 28 | Internal links: hub, siblings, bio slot, Layer 2 | **MET** | Section 9 |
 | 29 | Expected search performance reported honestly | **MET** | Sections 1 and 2. **Two of six terms return no data. The commercial SERP is a general criminal-defense SERP. The leading competitor page is stronger on presentation than this site plans to ship.** None of that is talked up |
-| 30 | **SERP for `stand your ground florida`** | **UNMET** | Not in the wave 4 dataset; new DataForSEO calls forbidden by W4-SPEC. **This is the gate on the Layer 2 recommendation in Section 0.2 and the highest-value single query the project could run next** |
+| 30 | **SERP for `stand your ground florida`** | **NOW MET, run by the orchestrator 2026-08-13** | Pulled after this brief was filed, as request 41 of 300. See section 30A below. **The recommendation's gate is cleared and the answer narrows it.** |
+
+### 30A. The audience check, now run
+
+Pulled 2026-08-13, Tampa-geolocated, DataForSEO request 41. **The composition
+test confirms what CPC and term shape suggested: the 3,600/month is largely not
+addressable demand.**
+
+Evidence that the head term belongs to a civic and gun-owner audience:
+
+- **Three national policy and advocacy organisations rank in the top ten**:
+  ncsl.org at 5, giffords.org at 9, bradyunited.org at 10. None is a defence
+  firm and none is competing for a client. Advocacy organisations rank where the
+  intent is to understand a law as policy.
+- **The related searches are comparative and civic**: `Stand your Ground law
+  Texas`, `Stand Your Ground law which states`, `Castle Doctrine vs stand your
+  ground`, `Stand your ground law case`. A person facing a charge in Hillsborough
+  County does not need the Texas statute.
+- **The PAA is a gun-owner set, not a defendant set**: "What can you carry for
+  self-defense in Florida?" and "Can I shoot my gun in my backyard in FL?"
+
+Evidence of a real defendant-relevant slice, which is narrower and specific:
+
+- **`Stand your ground hearing` is a related search.** That is the F.S. 776.032
+  pretrial immunity procedure, which is exactly this page's verified asset and
+  the thing the top-ranked Tampa homicide page currently gets wrong.
+- Statutes hold organic 1 and 2 (leg.state.fl.us, flsenate.gov), so the query
+  does reward primary-source structure.
+
+**Revised recommendation, narrowing Section 0.2.** Chapter 776 still gets its
+short unconditional treatment on this page, justified by F.S. 782.07(1)'s own
+cross-reference and independent of volume. **But a Layer 2 guide should target
+the procedure, not the head term.** Building for `stand your ground florida`
+means competing with NCSL and Brady for readers who will never retain counsel.
+Building for the hearing, the burden allocation, and what F.S. 776.032(4)
+actually requires serves the slice that converts, and it is the one place this
+firm has a verified accuracy advantage over the market leader.
+
+The head term's 3,600/month should be recorded in any forecast as **largely
+non-addressable**, with the addressable portion unmeasured. Do not let the raw
+figure enter a traffic projection.
 | 31 | **The procedural vehicle for a 776.032 immunity motion** | **UNMET** | Fla. R. Crim. P. not fetched. **Publish blocker for any sentence describing how the motion is filed, noticed, or heard.** The Bar's published rules compilation is allowlisted and cached in the scratchpad; one pass would close it |
 | 32 | **What the defendant's prima facie showing under 776.032(4) requires** | **UNMET by design, and it stays UNMET** | Not in the statute. Case law. **Under a byline or out.** Section 0.3 |
 | 33 | **F.S. 782.09, killing of an unborn child** | **VERIFIED, GATED OFF THE PAGE** | Fetched and quoted in Section 7.1. **Not carried into the outline.** It mirrors the degree that would have applied to the mother, so it adds a column of rows that restate the main table, and (4) carries a chapter 390 carve-out this brief will not summarise. Routed to the attorney read |
