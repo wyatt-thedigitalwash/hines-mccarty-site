@@ -1082,11 +1082,15 @@ const CHARGE_C9: Record<string, C9Assertion> = {
     assertion:
       "A three-tier ladder starting at $300 and measured across any rolling 12-month period, where even the third degree tier is ranked at offense level 7.",
   },
+  // Corrected 2026-08-13 against the fetched text of 817.568(6) and (7). The
+  // brief inferred these tiers from the truncated ranking-chart description and
+  // recorded them as covering minors. The statute covers a person younger than
+  // 18 OR aged 60 or older, in both subsections.
   "white-collar/identity-theft": {
     statute: "F.S. 817.568",
-    section: "The minor and the guardian tiers",
+    section: "The protected-person and custodial tiers",
     assertion:
-      "Using the identifying information of a minor in the defendant's own custody is a second degree felony ranked at level 9, above a first degree grand theft.",
+      "Using the identifying information of someone under 18 or aged 60 or over is a second degree felony at level 8, and rises to level 9 where the defendant is that person's parent, guardian, or custodian.",
   },
   "white-collar/wire-fraud": {
     statute: "F.S. 817.034",
@@ -1764,6 +1768,260 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         source: "drafted",
         answer:
           "It includes the whole mixture. Statute 893.135(6) provides that the weight of the controlled substance is the total weight of the mixture, including the controlled substance and any other substance in it, and that multiple mixtures containing the same substance are aggregated. This is why a quantity can reach a tier that the amount of the drug itself would not.",
+      },
+    ],
+    relatedGuides: [
+      { label: "Tools and guides", href: "/resources/tools-and-guides" },
+    ],
+  },
+
+  // ---------------------------------------------------------------------
+  // GUN CRIMES, state. From docs/research/briefs/W2-03-gun-crimes.md.
+  //
+  // Overlap page under Section 4.6 and C10.
+  //
+  // C9: the three-year exception in 775.087(2)(a)1., which applies to
+  // possession of a firearm by a felon and to burglary of a conveyance and to
+  // nothing else. The page leads on it.
+  //
+  // FIREARM RIGHTS RESTORATION IS DELIBERATELY UNWRITTEN. 790.23(2)(a) is
+  // quoted because it is statutory text, but how restoration is obtained is a
+  // clemency question governed by the Rules of Executive Clemency, which sit
+  // outside the C12 allowlist. The page says the exception exists and stops.
+  // [NEEDS: an allowlisted source for the restoration process] Do not answer
+  // that question from a competitor page or from recall.
+  //
+  // [NEEDS: federal 18 U.S.C. 922(g) predicates and ACCA] Not fetched. No
+  // federal statute number, predicate, or maximum appears on this page.
+  // [NEEDS: ATF Tampa field division] Not verified against the agency's site.
+  // ---------------------------------------------------------------------
+  "state/gun-crimes-defense": {
+    title: "Gun and firearm charges in Hillsborough County",
+    metaTitle: "Gun and Firearm Charges in Hillsborough County | Hines & McCarty",
+    metaDescription:
+      "Florida has no single gun charge. What the 790 series covers, how Statute 775.087 adds mandatory minimums and reclassifies felonies, and the three-year exception most summaries miss.",
+    lead: "Florida has no single gun charge. Statute 775.087 adds mandatory minimums on top of other felonies, and the figure most people have heard is ten years. For possession of a firearm by a felon, the minimum it sets is three.",
+    counterpart: {
+      href: "/federal-criminal-defense/weapons-gun-offenses",
+      label: "Federal gun and weapons charges",
+      note: "A firearm case can be brought by the state or by the federal government, and the same prior conviction that makes this a Florida offense can also make it a federal one. A state case runs on the Florida 790 series and Statute 775.087, is heard in circuit court, and is scored on a state sentencing scoresheet. A federal case is brought under federal statutes in the Middle District of Florida, where the Florida offense levels do not apply. Which sovereign charges the case is not the defendant's decision.",
+    },
+    statute: {
+      citation:
+        "Florida Statutes 790.23, 790.01 and 775.087, the 2025 Florida Statutes",
+      body: "Three statutes do most of the work. Statute 790.23 makes it unlawful for a person to own or to have in his or her care, custody, possession, or control any firearm, ammunition, or electric weapon or device, or to carry a concealed weapon, if that person has been convicted of a felony in this state, found to have committed a delinquent act that would be a felony if committed by an adult while under 24 years of age, convicted of a federal felony, found to have committed such a delinquent act in another state, territory or country while under 24, or found guilty of an offense that is a felony in another state, territory or country punishable by imprisonment exceeding one year. A violation is a felony of the second degree. Statute 790.01 governs carrying concealed, and since the change to permitless carry it authorises a person to carry a concealed weapon or firearm if licensed under Statute 790.06 or, though unlicensed, otherwise satisfying the criteria for receiving and maintaining such a license. A person who does not meet those criteria and carries a concealed firearm commits a felony of the third degree, while a concealed weapon or electric weapon is a misdemeanor of the first degree. Statute 775.087 is not a charge at all. It reclassifies other felonies and imposes minimum terms.",
+    },
+    penalties: [
+      {
+        degree: "Second degree felony",
+        maximum: "Up to 15 years",
+        offenseLevel: "Level 5",
+        note: "Possession of a firearm, ammunition, or an electric weapon by a person covered by 790.23(1).",
+      },
+      {
+        degree: "Third degree felony",
+        maximum: "Up to 5 years",
+        offenseLevel: "Level 5",
+        note: "Carrying a concealed firearm without meeting the criteria in 790.01(1), under 790.01(3).",
+      },
+      // The 790.01(2) misdemeanor is described in the statute section rather
+      // than given a row here. Two reasons: its maximum comes from 775.082(4),
+      // which has not been fetched, so the row could only have said "not
+      // stated"; and misdemeanors are scored as M rather than by offense
+      // level, so it has nothing to put in the column this table exists for.
+      {
+        degree: "First degree felony, PBL",
+        maximum: "Up to 30 years",
+        offenseLevel: "Level 7",
+        note: "Possession of a firearm by a person who qualifies for the penalty enhancements in Statute 874.04, under 790.23(4).",
+      },
+      {
+        degree: "Third degree felony",
+        maximum: "Up to 5 years",
+        offenseLevel: "Level 6",
+        note: "Grand theft of a firearm, under 812.014(2)(c)5. Rises to level 7 as a second degree felony with a prior conviction of that provision, under 812.014(2)(g).",
+      },
+    ],
+    elements: [
+      "For possession by a person covered by 790.23, that the person falls within one of the five categories in subsection (1), and that they owned or had in their care, custody, possession, or control a firearm, ammunition, or an electric weapon or device. Possession can be constructive rather than actual, which is where many of these cases are decided.",
+      "The statute carries its own exceptions. Under 790.23(2) it does not apply to a person convicted of a felony whose civil rights and firearm authority have been restored, or whose criminal history record has been expunged under Statute 943.0515(1)(b).",
+      "For carrying concealed under 790.01, something unusual: subsection (4) provides that in any prosecution the state bears the burden of proving, as an element of the offense, both that the person is not licensed under Statute 790.06 and that they are ineligible to receive and maintain such a license. Ineligibility is part of the offense rather than a matter for the defendant to raise.",
+      "For a Statute 775.087 enhancement, that the underlying felony is one the statute reaches, and that the defendant carried, displayed, used, threatened to use, or attempted to use a weapon or firearm during its commission.",
+    ],
+    defenseApproach: [
+      "Where possession is constructive, the questions are about access and attribution rather than about the firearm itself. Whose vehicle, whose residence, who else had access, and what the state can actually tie to this defendant are the things that decide these cases.",
+      "On a concealed carry charge the burden provision in 790.01(4) shapes the case from the start. The state has to prove ineligibility as an element, so what it can establish about licensing status and about the 790.06 criteria is part of its case in chief rather than something raised in answer to it.",
+      "The reclassification statute is worth separating from the minimum-term statute, because they are different mechanisms in the same section. Statute 775.087(1) reclassifies a felony upward where the defendant carried, displayed, used, threatened to use, or attempted to use a weapon or firearm during its commission, unless the use of a weapon is an essential element of the felony charged. A third degree felony becomes a second degree felony, a second becomes a first, and a first becomes a life felony. The statute then adds that a reclassified offense is ranked one level above its ranking under Statute 921.0022 for sentencing purposes, so reclassification moves both the degree and the offense level.",
+      "The minimum terms are separate. Statute 775.087(2)(a)1. lists the felonies that trigger them, including murder, sexual battery, robbery, burglary, arson, aggravated battery, kidnapping, carjacking, home-invasion robbery, aggravated stalking, and drug trafficking offenses. A person convicted of one of those while possessing a firearm faces a minimum term of ten years, except that a person convicted of possession of a firearm by a felon or of burglary of a conveyance faces three years. Discharging the firearm raises the minimum to twenty years, and discharging it so as to cause death or great bodily harm raises it to not less than twenty-five years and up to life. The statute also provides that none of this prevents a court from imposing a longer sentence where the law otherwise allows it.",
+    ],
+    forum: [
+      "Felony charges in Hillsborough County are heard in circuit court. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
+      "A federal firearm case arising from the same conduct is heard in the Middle District of Florida. Hillsborough County sits in its Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue.",
+    ],
+    faq: [
+      {
+        question: "What is 10-20-Life in Florida?",
+        source: "drafted",
+        answer:
+          "It is the set of minimum terms in Statute 775.087(2). For an enumerated felony committed while possessing a firearm the minimum is ten years, discharging the firearm raises it to twenty, and discharging it so as to cause death or great bodily harm raises it to not less than twenty-five years and up to life. The name describes the pattern rather than the whole statute.",
+      },
+      {
+        question:
+          "If I had a gun but never used it, does a minimum still apply?",
+        source: "drafted",
+        answer:
+          "It can, because the ten-year minimum attaches to possessing a firearm during an enumerated felony rather than to firing it. There is an exception worth knowing: under Statute 775.087(2)(a)1., a person convicted of possession of a firearm by a felon, or of burglary of a conveyance, faces a minimum of three years rather than ten.",
+      },
+      {
+        question:
+          "Is it a felony to carry a concealed firearm without a permit in Florida?",
+        source: "drafted",
+        answer:
+          "Not by itself. Statute 790.01(1) authorises carrying concealed either with a license under Statute 790.06 or, without one, where the person still satisfies the criteria for receiving and maintaining that license. It becomes a third degree felony under 790.01(3) only where the person does not meet those criteria, and the state has to prove that ineligibility as an element.",
+      },
+      {
+        question: "What if the gun belonged to someone else in the house?",
+        source: "drafted",
+        answer:
+          "Statute 790.23(1) reaches ownership and also care, custody, possession, or control, so a case can be built on constructive possession rather than on the firearm being yours. That makes access, control, and what the state can attribute to you specifically the questions that matter.",
+      },
+      {
+        question: "Does a weapon change the level of another charge?",
+        source: "drafted",
+        answer:
+          "It can do both of the things that drive a sentence. Statute 775.087(1) reclassifies the felony upward a degree where a weapon or firearm was carried, displayed, used, threatened, or attempted during its commission, unless weapon use is an essential element of the offense charged. The same subsection provides that a reclassified offense is ranked one level above its ranking under Statute 921.0022.",
+      },
+    ],
+    relatedGuides: [
+      { label: "Tools and guides", href: "/resources/tools-and-guides" },
+    ],
+  },
+
+  // ---------------------------------------------------------------------
+  // IDENTITY THEFT, state. From docs/research/briefs/W2-06-identity-theft.md.
+  //
+  // NO FEDERAL SIBLING, per DECISIONS.md D5: 18 U.S.C. 1028A attaches to an
+  // enumerated felony rather than standing alone, so it is a companion count
+  // and not a demand centre.
+  //
+  // The reader still needs the forum question answered, so `counterpart` is
+  // used here to point UP at the federal silo hub rather than sideways at a
+  // sibling page that does not exist. That is a deliberate reuse of the field:
+  // it renders the same "state charge or federal charge?" section the overlap
+  // pages get, which is what the reader needs, without implying a counterpart
+  // page. C10 does not apply, because this is not an overlap page.
+  //
+  // C9: the protected-person and custodial tiers, verified from the operative
+  // text rather than from the ranking chart. The page leads on them.
+  //
+  // COPY-LEVEL VARIATION (plan Section 4.3). This is the third page whose
+  // differentiator involves the charge not existing under its popular name.
+  // Embezzlement opens on the trust relationship; wire fraud will open on the
+  // state-federal question. This one opens on who the protected person is,
+  // and the naming point arrives in the statute section.
+  //
+  // [NEEDS: 18 U.S.C. 1028A] Not fetched. No federal statute number, term, or
+  // consecutive-sentencing rule appears on this page.
+  // [NEEDS: which agency investigates identity theft in Hillsborough County]
+  // Not verified against any agency's own site.
+  // ---------------------------------------------------------------------
+  "white-collar/identity-theft": {
+    title: "Identity theft charges in Florida",
+    metaTitle: "Florida Identity Theft Charges | Hines & McCarty",
+    metaDescription:
+      "Florida's identity theft statute turns on who the information belonged to. What Statute 817.568 covers, its mandatory minimums, and the tiers for children and older adults.",
+    lead: "Florida's identity theft statute reserves its heaviest treatment for cases involving a child or an older adult, and its heaviest of all for someone who had custody of them. Statute 817.568 calls the offense fraudulent use of personal identification information.",
+    counterpart: {
+      href: "/federal-criminal-defense",
+      label: "Federal criminal defense in the Middle District of Florida",
+      note: "Identity theft counts appear in both systems, but they behave differently. Florida charges the offense on its own under Statute 817.568, with the tiers and offense levels set out below. Federally, an identity theft count is normally attached to another offense rather than standing alone, which is why there is no separate federal page for it here. A federal case is heard in the Middle District of Florida rather than in circuit court, and the Florida offense levels do not apply to it.",
+    },
+    statute: {
+      citation: "Florida Statute 817.568, the 2025 Florida Statutes",
+      body: "There is no Florida offense named identity theft. The charge is fraudulent use of personal identification information under Statute 817.568, which reaches any person who willfully and without authorization fraudulently uses, or possesses with intent to fraudulently use, personal identification information concerning another person without first obtaining that person's consent. The phrase possesses with intent matters, because the statute does not require that anything was obtained. The definition of the information itself is broad. It means any name or number that may be used, alone or in conjunction with any other information, to identify a specific person, and the statute lists names, postal or electronic mail addresses, telephone numbers, social security numbers, dates of birth, mother's maiden names, driver license or identification numbers, passport numbers, employer or taxpayer identification numbers, Medicaid or food assistance account numbers, bank account numbers, credit or debit card numbers and their PINs, unique biometric data such as fingerprints, voice prints or retina images, unique electronic identification numbers or routing codes, medical records, telecommunication identifying information, and any other number or information that can be used to access a person's financial resources.",
+    },
+    penalties: [
+      {
+        degree: "Third degree felony",
+        maximum: "Up to 5 years",
+        offenseLevel: "Level 4",
+        note: "The base offense under 817.568(2)(a): fraudulent use, or possession with intent to fraudulently use, without consent.",
+      },
+      {
+        degree: "Second degree felony",
+        maximum: "Up to 15 years, with a mandatory minimum of 3 years",
+        offenseLevel: "Level 5",
+        note: "Under 817.568(2)(b), where the benefit, services received, payment avoided, or injury is $5,000 or more, or where the information of 10 or more but fewer than 20 people is used.",
+      },
+      {
+        degree: "First degree felony",
+        maximum: "Up to 30 years, with a mandatory minimum of 5 years",
+        offenseLevel: "Not ranked separately in the chart rows verified",
+        note: "Under 817.568(2)(c), at $50,000 or more, or the information of 20 or more but fewer than 30 people. The mandatory minimum rises to 10 years at $100,000 or more, or 30 or more people.",
+      },
+      {
+        degree: "Second degree felony",
+        maximum: "Up to 15 years",
+        offenseLevel: "Level 8",
+        note: "Under 817.568(6), where the person whose information was used is younger than 18 or is 60 years of age or older.",
+      },
+      {
+        degree: "Second degree felony, PBL",
+        maximum: "Up to 15 years",
+        offenseLevel: "Level 9",
+        note: "Under 817.568(7), where the defendant is the parent or legal guardian of that person, or otherwise exercises custodial authority over them.",
+      },
+    ],
+    elements: [
+      "That the information was personal identification information concerning another person, as the statute defines that term.",
+      "That the defendant used it, or possessed it with intent to fraudulently use it. A completed transaction is not required for the base offense.",
+      "That the use was willful, fraudulent, and without authorization.",
+      "That the person did not first give consent.",
+      "For the higher tiers, either a dollar figure or a count of people. The statute measures the benefit obtained, the value of services received, the payment sought to be avoided, or the amount of injury or fraud, and it separately counts how many people's information was used.",
+    ],
+    defenseApproach: [
+      "The first question is usually authorization rather than identity. These cases often arise between people who know each other, and the statute requires that the use was without authorization and without consent. Where an account was shared, or a family member had handled someone's paperwork for years, what was permitted becomes the contested question rather than what was done.",
+      "The second is the counting. Two separate measures raise the degree: a dollar figure and a number of people. Both are things the state has to establish, and a charge that sits at $5,000 or at ten people sits at a threshold where the count itself decides the tier.",
+      "The mandatory minimums make that counting consequential in a way it is not on most charges. Statute 817.568(2)(b) directs that a person convicted under it be sentenced to a mandatory minimum of three years, and 817.568(2)(c) directs five years, rising to ten years where the figure reaches $100,000 or the information of thirty or more people is involved. The statute states each of these notwithstanding any other provision of law.",
+      "The protected-person tiers turn on a fact that is rarely in dispute once it is identified, which is why identifying it early matters. Subsections (6) and (7) do not ask what was taken or how much. They ask how old the person was and what the defendant's relationship to them was.",
+      "One definitional point catches people who assume the statute only reaches real identities. It separately defines counterfeit or fictitious personal identification information as counterfeit, fictitious, or fabricated information in the similitude of the listed data which, although not truthful or accurate, would in context lead a reasonably prudent person to credit its truthfulness and accuracy. Invented details are not automatically outside the statute, so what was fabricated and how it would have read to an ordinary person become part of the analysis rather than an answer to it.",
+    ],
+    forum: [
+      "Felony charges in Hillsborough County are heard in circuit court. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
+      "Identity theft counts also appear in federal prosecutions, usually alongside another charge rather than on their own. Where that happens the case is heard in the Middle District of Florida rather than in circuit court, and the Florida offense levels do not apply to it.",
+    ],
+    faq: [
+      {
+        question: "Is identity theft a felony in Florida?",
+        source: "drafted",
+        answer:
+          "Yes, at every tier. The base offense under Statute 817.568(2)(a) is a felony of the third degree, and the statute rises to second and first degree felonies as the amount involved or the number of people affected increases. There is no misdemeanor version of this offense.",
+      },
+      {
+        question:
+          "How much has to be involved before it becomes a second degree felony?",
+        source: "drafted",
+        answer:
+          "Under Statute 817.568(2)(b) it is $5,000 or more, measured as the benefit obtained, the value of services received, the payment avoided, or the amount of injury or fraud. The same subsection reaches the same degree where the information of ten or more but fewer than twenty people was used, so the count of people is an independent route to that tier.",
+      },
+      {
+        question:
+          "Does it matter how old the person whose information was used was?",
+        source: "drafted",
+        answer:
+          "It changes the charge substantially. Statute 817.568(6) makes it a second degree felony where the person is younger than 18 or is 60 years of age or older, without regard to any dollar figure. That subsection is ranked at offense level 8, above the level assigned to the ordinary tiers.",
+      },
+      {
+        question: "What if it was my own child or a relative in my care?",
+        source: "drafted",
+        answer:
+          "Florida treats that as the most serious version of the offense rather than the least. Statute 817.568(7) covers a parent, a legal guardian, or a person who otherwise exercises custodial authority over someone younger than 18 or 60 or older, and it is ranked at offense level 9, which is higher than a first degree grand theft.",
+      },
+      {
+        question: "What if I never actually got any money?",
+        source: "drafted",
+        answer:
+          "The base offense does not require it. Statute 817.568(2)(a) reaches a person who fraudulently uses, or possesses with intent to fraudulently use, personal identification information without consent, so possession coupled with the required intent is enough. The dollar figures matter for the higher tiers rather than for whether an offense exists.",
       },
     ],
     relatedGuides: [

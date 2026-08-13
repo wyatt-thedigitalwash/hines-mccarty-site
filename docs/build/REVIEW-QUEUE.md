@@ -85,7 +85,7 @@ date), C12 (allowlisted verification), and C13.
 | `/criminal-defense/sexual-battery-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/drug-trafficking-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
 | `/criminal-defense/drug-possession-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
-| `/criminal-defense/gun-crimes-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/criminal-defense/gun-crimes-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
 | `/criminal-defense/sex-crimes-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/battery-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/criminal-defense/domestic-violence-defense` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
@@ -121,8 +121,45 @@ date), C12 (allowlisted verification), and C13.
 | `/white-collar-defense/wire-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/tax-evasion` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/ppp-loan-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
-| `/white-collar-defense/identity-theft` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/identity-theft` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
 | `/white-collar-defense/money-laundering` | [NEEDS: assign] | not reviewed | 6mo | on publish | **draft** |
+
+**Two more pages moved to draft 2026-08-13**, in a third pass.
+
+`/criminal-defense/gun-crimes-defense` (brief W2-03) and
+`/white-collar-defense/identity-theft` (brief W2-06). Six charge pages are now
+written. Gun crimes is an overlap page and carries a forum section plus exactly
+one cross-link to `/federal-criminal-defense/weapons-gun-offenses` (C10).
+Identity theft has no federal sibling by DECISIONS.md D5, so its forum material
+links up to the federal silo rather than sideways, and no cross-link block
+renders.
+
+Same posture as the four before them: `published: false`, noindex, held out of
+the sitemap by the published gate, `owner` and `lastReviewed` still `[NEEDS]`.
+
+**Statutory sources cleared 2026-08-13**, all flsenate.gov, 2025 Florida
+Statutes:
+
+| Statute | What it cleared |
+|---|---|
+| 790.23(1)(a) to (e) | The five categories of person the possession ban reaches, plus the (2) exceptions and the (3) second degree felony |
+| 790.01 | The current permitless-carry scheme, and subsection (4), under which the state bears the burden of proving ineligibility for a license as an element of the offense |
+| 775.087(1) | Reclassification as distinct from the (2) minimums, including that a reclassified offense is ranked one level above its 921.0022 ranking |
+| 817.568(2)(b) and (2)(c) | The $5,000 and $50,000 thresholds, the person-count routes, and mandatory minimums of 3, 5, and 10 years |
+| 817.568 definitions | Personal identification information in full, and counterfeit or fictitious personal identification information |
+| 817.568(6) and (7) | The protected-person and custodial tiers |
+
+**Two corrections to W2-06 came out of those fetches.** The brief inferred
+subsections (6) and (7) from a truncated ranking-chart description and recorded
+them as covering minors. The operative text covers a person younger than 18 **or
+aged 60 or older** in both. The brief also recorded any mandatory minimum in
+817.568 as UNVERIFIED; (2)(b) and (2)(c) carry them. The C9 assertion for that
+page was corrected accordingly.
+
+**Deliberately not written: firearm rights restoration.** 790.23(2)(a) is quoted
+because it is statutory text, but how restoration is obtained is a clemency
+question governed by the Rules of Executive Clemency, which are outside the C12
+allowlist. The page states that the exception exists and stops there.
 
 **Two further pages moved to draft 2026-08-13**, in a later pass.
 
