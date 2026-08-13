@@ -148,6 +148,30 @@ is a primer about the table; GLMFull.pdf is the table.
 
 ---
 
+## FAILING REVIEW, do not publish
+
+Recorded 2026-08-13. These pages are written and are **not cleared**. They stay
+`published: false`, which keeps them noindex and out of the sitemap, until an
+adversarial pass returns PASS.
+
+| Page | Rounds failed | Why it is here |
+|---|---|---|
+| `/criminal-defense/grand-theft-defense` | 4 | Its value ladder was wrong three times in a row, each time in the band beneath the one just corrected. Now rebuilt from the complete text of F.S. 812.014 subsection (2) rather than patched paragraph by paragraph. |
+| `/white-collar-defense/embezzlement` | 3 | Reviewed as a pair with grand theft. Its own substantive findings are cleared; it is held because the pair has not passed together. |
+
+**The pattern worth recording, because it is the reason for the pre-write gate.**
+Every one of the three ladder errors was a claim the project had already
+verified somewhere. (2)(f) and (2)(e) were both sitting in W1-03's ranking-chart
+table, verified, while the page asserted the opposite. The failure was never a
+missing source. It was writing before reading what had already been fetched.
+
+**Not to be published on any of these:** a flat statement that theft under $750
+is petit theft of the second degree; any statement that F.S. 812.014(3)(a)
+applies below a particular dollar figure without excluding a dwelling; any petit
+theft claim that does not account for F.S. 812.014(2)(d) and (2)(e).
+
+---
+
 ## Queue
 
 Status values: `draft`, `in-review`, `published`, `overdue`, `off-cycle`.

@@ -195,6 +195,78 @@ falls under **(2)(d)2.** The first draft attached an unbounded "$40 or more" to 
 level 2 row, which asserted a level the statute does not give for the upper part
 of that range.
 
+**F.S. 812.014 subsection (2) IN FULL, and subsection (3)**, fetched
+**2026-08-13** as a completeness request rather than paragraph by paragraph.
+
+**Why the whole subsection.** This page's ladder was corrected twice and was
+wrong both times, each time in the same way: a band was patched, and the patch
+asserted a clean floor beneath it that another paragraph of the same subsection
+contradicted. First (2)(f) was missing, so $100 to $749 was called second
+degree. Then (2)(e)1. was missing, so "only below $100 does (3)(a) apply" was
+asserted, which is false for a dwelling. **Patching one band at a time is what
+produced both errors**, because subsection (2) grades on four different axes at
+once and any partial reading leaves a false remainder.
+
+The complete grading structure, verified:
+
+| Paragraph | Trigger | Offense |
+|---|---|---|
+| F.S. 812.014(2)(a) | $100,000 or more | Grand theft 1st degree, first degree felony |
+| F.S. 812.014(2)(b) | $20,000 to $99,999 | Grand theft 2nd degree, second degree felony |
+| F.S. 812.014(2)(c)1.-3. | $750 to $19,999, in three tiers | Grand theft 3rd degree |
+| F.S. 812.014(2)(c)4.-13. | The item list, no value floor | Grand theft 3rd degree |
+| F.S. 812.014(2)(d)1. | $40 to $749 **from a dwelling** | Grand theft 3rd degree, a FELONY |
+| F.S. 812.014(2)(d)2. | $750 or more from a dwelling | Grand theft 3rd degree |
+| F.S. 812.014(2)(d)3. | From more than 20 dwellings | Grand theft 2nd degree |
+| F.S. 812.014(2)(e)1. | **Less than $40 from a dwelling** | **Petit theft 1st degree** |
+| F.S. 812.014(2)(e)2. | (e)1. with one prior theft conviction | **Third degree FELONY** |
+| F.S. 812.014(2)(e)3. | (e)1. with two or more priors | Third degree felony |
+| F.S. 812.014(2)(f) | $100 to $749, "except as provided in paragraph (d)" | Petit theft 1st degree |
+| F.S. 812.014(2)(g) | Firearm, with a prior grand theft of a firearm | Grand theft 2nd degree |
+| F.S. 812.014(3)(a) | "Theft of any property **not specified in subsection (2)**" | Petit theft 2nd degree |
+| F.S. 812.014(3)(b) | Petit theft, one prior theft conviction | First degree misdemeanor |
+| F.S. 812.014(3)(c) | Petit theft, two or more priors | Third degree felony |
+
+Verbatim on the two that were missed:
+
+> F.S. 812.014(2)(e)1.: "It is petit theft of the first degree and a misdemeanor of the first
+> degree ... if the property stolen is valued at less than $40 and is taken from
+> a dwelling as defined in s. 810.011(2) or from the unenclosed curtilage of a
+> dwelling pursuant to s. 810.09(1)."
+>
+> F.S. 812.014(2)(f): "**Except as provided in paragraph (d)**, if the property stolen is
+> valued at $100 or more, but less than $750, the offender commits petit theft of
+> the first degree, punishable as a misdemeanor of the first degree, as provided
+> in s. 775.082 or s. 775.083."
+
+**Two consequences the page now carries.** The opening words of (2)(f) are part
+of the rule: from a dwelling, $100 to $749 is a felony under (d)1., not a
+misdemeanor. And (3)(a) never applies to a dwelling at any value, because (d)
+and (e) between them cover the whole range.
+
+> F.S. 812.014(3)(a): "Theft of any property not specified in subsection (2) is petit theft
+> of the second degree and a misdemeanor of the second degree"
+>
+> F.S. 812.014(3)(b): "A person who commits petit theft and who has previously been convicted
+> of any theft commits a misdemeanor of the first degree"
+>
+> F.S. 812.014(3)(c): "A person who commits petit theft and who has previously been convicted
+> two or more times of any theft commits a felony of the third degree"
+
+**F.S. 775.082(4)**, fetched 2026-08-13, so the misdemeanor rows state numbers
+rather than pointing elsewhere:
+> "(a) For a misdemeanor of the first degree, by a definite term of imprisonment
+> not exceeding 1 year; (b) For a misdemeanor of the second degree, by a definite
+> term of imprisonment not exceeding 60 days."
+
+**A negative that was withdrawn.** An earlier entry here recorded that a fetch
+"asserted that paragraph (2)(e) does not exist" and concluded that nothing would
+be claimed about it. That was the wrong response to a bad fetch. The page went
+on to make two claims that were only true if (2)(e) had no content below $100,
+which is an implicit claim about the paragraph. **Declining to mention a
+provision is not the same as declining to rely on it**, and W1-03 had carried a
+verified (2)(e)2. ranking-chart row the whole time.
+
 **F.S. 772.11(1)**, `https://www.flsenate.gov/Laws/Statutes/2025/772.11`, fetched
 2026-08-13. The claimant must prove injury **"by clear and convincing
 evidence"**, and then recovers "threefold the actual damages sustained ...
@@ -271,3 +343,75 @@ A page may not state a statutory claim whose fetch is not recorded here or in
 the brief it comes from. **"It turned out to be correct" is not verification**,
 and the reason to write this down is that the first pair was in fact correct and
 still failed the rail.
+
+---
+
+## Cleared retroactively by the unverified-claim gate, 2026-08-13
+
+`scripts/check-unverified.mts` was added after W1 pair 1 hit the run's cap. On
+its first run it flagged **six more citations across four pages written in
+earlier sessions**: the same defect class, previously invisible, on pages nobody
+had questioned. Each is now fetched and recorded. This is the gate paying for
+itself on the day it was written.
+
+**F.S. 893.135(4)**, substantial assistance, fetched 2026-08-13. Cited by
+`/criminal-defense/drug-trafficking-defense`, flagged UNVERIFIED by W2-02.
+> "The state attorney may move the sentencing court to reduce or suspend the
+> sentence of any person who is convicted of a violation of this section and who
+> provides substantial assistance in the identification, arrest, or conviction of
+> any of that person's accomplices, accessories, coconspirators, or principals or
+> of any other person engaged in trafficking in controlled substances. The
+> arresting agency shall be given an opportunity to be heard in aggravation or
+> mitigation in reference to any such motion. Upon good cause shown, the motion
+> may be filed and heard in camera. The judge hearing the motion may reduce or
+> suspend the sentence if the judge finds that the defendant rendered such
+> substantial assistance."
+
+**Note the mechanism, because the page must not overstate it.** The motion is the
+state attorney's to file, and the reduction is the judge's to grant. Nothing in
+the text gives a defendant a right to either.
+
+**F.S. 775.087(1)**, weapon reclassification, fetched 2026-08-13. Cited by
+`/criminal-defense/gun-crimes-defense`, flagged UNVERIFIED by W2-03.
+> "Unless otherwise provided by law, whenever a person is charged with a felony,
+> except a felony in which the use of a weapon or firearm is an essential
+> element, and during the commission of such felony the defendant carries,
+> displays, uses, threatens to use, or attempts to use any weapon or firearm, or
+> during the commission of such felony the defendant commits an aggravated
+> battery, the felony for which the person is charged shall be reclassified as
+> follows:"
+
+Reclassification: first degree to a life felony, second degree to first degree,
+third degree to second degree. **The essential-element exception is part of the
+rule and must travel with it.**
+
+**F.S. 817.568(2)(a) and (2)(b)**, fetched 2026-08-13. Cited by
+`/white-collar-defense/identity-theft`, flagged UNVERIFIED by W2-06.
+> F.S. 817.568(2)(a): "Any person who willfully and without authorization fraudulently uses,
+> or possesses with intent to fraudulently use, personal identification
+> information concerning another person without first obtaining that person's
+> consent, commits the offense of fraudulent use of personal identification
+> information, which is a felony of the third degree"
+>
+> F.S. 817.568(2)(b): second degree felony where "the pecuniary benefit, the value of the
+> services received, the payment sought to be avoided, or the amount of the
+> injury or fraud perpetrated is $5,000 or more or if the person fraudulently
+> uses the personal identification information of 10 or more persons, but fewer
+> than 20 persons, without their consent."
+
+**18 U.S.C. 1961(1)**, fetched 2026-08-13 from uscode.house.gov. Cited by
+`/federal-criminal-defense/money-laundering`, flagged UNVERIFIED by FED-01 and
+WC-03. The federal money laundering page describes 1956(c)(7)(A) as
+incorporating this list, which is verified, and **does not enumerate its
+contents**, which the brief said not to do. The seven categories open:
+
+| | Opening words |
+|---|---|
+| (A) | "any act or threat involving murder, kidnapping, gambling..." |
+| (B) | "any act which is indictable under any of the following provisions of title 18..." |
+| (C) | "any act which is indictable under title 29, United States Code..." |
+| (D) | "any offense involving fraud connected with a case under title 11..." |
+| (E) | "any act which is indictable under the Currency and Foreign Transactions Reporting Act..." |
+| (F) | "any act which is indictable under the Immigration and Nationality Act..." |
+| (G) | "any act that is indictable under any provision listed in section 2332b(g)(5)(B)" |
+

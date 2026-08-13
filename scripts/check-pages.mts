@@ -25,6 +25,7 @@
  *   2. Match on word boundaries, and separate hard violations from things that
  *      merely need a human to look.
  */
+import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { charges, chargeHref } from "../src/lib/site.ts";
 import {
   isGenericHeading,
@@ -34,6 +35,24 @@ import {
 } from "../src/lib/charge-page.ts";
 import type { ChargePage } from "../src/lib/site.ts";
 
+/**
+ * The legacy baseline, ratcheted.
+ *
+ * Legacy pages are structurally identical by construction and there is no point
+ * failing the build on a backlog this workstream exists to clear. But
+ * "EXPECTED, and the count must reach zero" was enforced by nothing: a ninth
+ * legacy page would have raised the count and still printed green.
+ *
+ * So the counts are recorded and may only go DOWN. Adding legacy debt fails the
+ * build; removing it updates the baseline automatically.
+ */
+const BASELINE_PATH = "docs/build/legacy-baseline.json";
+type Baseline = { structuralPairs: number; duplicationPairs: number };
+const baseline: Baseline = existsSync(BASELINE_PATH)
+  ? JSON.parse(readFileSync(BASELINE_PATH, "utf8"))
+  : { structuralPairs: Number.MAX_SAFE_INTEGER, duplicationPairs: Number.MAX_SAFE_INTEGER };
+
+const ratchet: Partial<Baseline> = {};
 let failed = false;
 const fail = (msg: string) => {
   console.error(`  FAIL  ${msg}`);
@@ -218,7 +237,6 @@ function interchangeable(x: ChargePage, y: ChargePage): Interchange {
   // a single section defeated the branch entirely. The real pair it was built
   // to catch was 10 sections against 9, where the 9 were the 10 minus one
   // prose block, reordered. An off-by-one is not a different document.
-  const bag = (k: string[]) => [...k].sort().join(">");
   const multisetOverlap = (() => {
     const small = a.kinds.length <= b.kinds.length ? [...a.kinds] : [...b.kinds];
     const large = a.kinds.length <= b.kinds.length ? [...b.kinds] : [...a.kinds];
@@ -559,9 +577,16 @@ console.log("\nStructural variation, migrated pages against ALL written pages");
   }
   if (legacyPairs)
     console.log(
-      `  EXPECTED  ${legacyPairs} legacy-vs-legacy pair(s) are interchangeable. ` +
-        `These are the ${legacy.length} unmigrated pages listed above and the count must reach zero.`,
+      `  EXPECTED  ${legacyPairs} legacy-vs-legacy pair(s) are interchangeable ` +
+        `(baseline ${baseline.structuralPairs}). These are the ${legacy.length} ` +
+        `unmigrated pages listed above and the count must reach zero.`,
     );
+  if (legacyPairs > baseline.structuralPairs)
+    fail(
+      `legacy structural debt INCREASED, ${baseline.structuralPairs} to ${legacyPairs}. ` +
+        `The baseline may only go down. A new page must not be written on the legacy template.`,
+    );
+  ratchet.structuralPairs = Math.min(legacyPairs, baseline.structuralPairs);
   if (!any)
     console.log(
       migrated.length
@@ -614,13 +639,20 @@ console.log("\nVerbatim duplication between pages");
   let worstMigrated = 0;
   let anyDup = false;
   let legacyOver = 0;
+  const legacyOverNames: string[] = [];
   for (let i = 0; i < pages.length; i++) {
     for (let j = i + 1; j < pages.length; j++) {
       const a = pages[i], b = pages[j];
       const { shared, rate } = duplication(a, b);
       const bothLegacy = !a.sections?.length && !b.sections?.length;
       if (rate < DUPLICATION_LIMIT) continue;
-      if (bothLegacy) { legacyOver++; continue; }
+      if (bothLegacy) {
+        legacyOver++;
+        legacyOverNames.push(
+          `${chargeHref(a)}<>${chargeHref(b)} at ${(rate * 100).toFixed(1)}%`,
+        );
+        continue;
+      }
       anyDup = true;
       fail(
         `${chargeHref(a)} and ${chargeHref(b)} share ${shared} eight-word runs, ` +
@@ -633,7 +665,16 @@ console.log("\nVerbatim duplication between pages");
     for (const b of pages)
       if (a !== b) worstMigrated = Math.max(worstMigrated, duplication(a, b).rate);
   if (legacyOver)
-    console.log(`  EXPECTED  ${legacyOver} legacy-vs-legacy pair(s) over the limit.`);
+    console.log(
+      `  EXPECTED  ${legacyOver} legacy-vs-legacy pair(s) over the limit ` +
+        `(baseline ${baseline.duplicationPairs}): ${legacyOverNames.join("; ")}`,
+    );
+  if (legacyOver > baseline.duplicationPairs)
+    fail(
+      `legacy duplication debt INCREASED, ${baseline.duplicationPairs} to ${legacyOver}. ` +
+        `The baseline may only go down.`,
+    );
+  ratchet.duplicationPairs = Math.min(legacyOver, baseline.duplicationPairs);
   if (!anyDup)
     console.log(
       migrated.length
@@ -665,6 +706,22 @@ console.log("\nReader-question coverage");
     }
   }
   if (!migrated.length) console.log("  ..    no migrated pages yet");
+}
+
+const ratchetOut: Baseline = {
+  structuralPairs: ratchet.structuralPairs ?? baseline.structuralPairs,
+  duplicationPairs: ratchet.duplicationPairs ?? baseline.duplicationPairs,
+};
+if (!failed) {
+  const changed =
+    ratchetOut.structuralPairs !== baseline.structuralPairs ||
+    ratchetOut.duplicationPairs !== baseline.duplicationPairs;
+  writeFileSync(BASELINE_PATH, JSON.stringify(ratchetOut, null, 2) + "\n");
+  if (changed)
+    console.log(
+      `\nBaseline ratcheted down to ${ratchetOut.structuralPairs} structural, ` +
+        `${ratchetOut.duplicationPairs} duplication.`,
+    );
 }
 
 console.log(
