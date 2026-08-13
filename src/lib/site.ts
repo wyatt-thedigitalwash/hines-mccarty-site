@@ -1829,14 +1829,14 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         },
       },
       {
-        id: "levels",
-        heading: "Where the organized fraud tiers fall, and why they are not the theft tiers",
-        kind: "penalties",
+        id: "tiers",
+        heading: "Why this page has no value ladder",
+        kind: "prose",
         answers: ["facing"],
-        penalties: [
-          { degree: "Third degree felony", maximum: "Up to 5 years", note: "Organized fraud where the aggregate value of the property obtained is less than $20,000, under 817.034(4)(a)3." },
-          { degree: "Second degree felony", maximum: "Up to 15 years", note: "Organized fraud where the aggregate value is $20,000 or more but less than $50,000, under 817.034(4)(a)2." },
-          { degree: "First degree felony", maximum: "Up to 30 years", note: "Organized fraud where the aggregate value is $50,000 or more, under 817.034(4)(a)1." },
+        prose: [
+          "Most theft pages are organised around a table of dollar thresholds. This one is not, and the reason is the fork above rather than an omission. The amount matters, but it does not decide the case on its own, because the same money produces a different offense level depending on which statute the count is brought under.",
+          "Charged as theft, the tiers are the ordinary ones in Statute 812.014. Charged as organized fraud under Statute 817.034(4)(a), there are three: an aggregate value of less than $20,000 is a felony of the third degree, $20,000 or more but less than $50,000 is a felony of the second degree, and $50,000 or more is a felony of the first degree. Those cut lines are not the theft cut lines, and $50,000 is the clearest example: a first degree felony as organized fraud, a second degree felony as theft.",
+          "The offense levels diverge too, and not always in the direction people expect. A $25,000 accusation is a second degree felony either way, at offense level 6 as theft and level 5 as organized fraud. The degree is identical, the scoresheet input is not, and the scoresheet is what the sentence is calculated from. The full value-to-offense-level comparison belongs in one place rather than on each page that touches it, and this page links to it rather than reproducing it.",
         ],
       },
       {

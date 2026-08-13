@@ -30,7 +30,6 @@
  * stronger than it was.
  */
 import { charges, chargeHref } from "../src/lib/site.ts";
-import type { ChargePage } from "../src/lib/site.ts";
 import { pageCopy } from "../src/lib/page-copy.ts";
 import { STATUTES, degreesAt, type Degree, type GradingRow } from "../src/lib/statutes.ts";
 

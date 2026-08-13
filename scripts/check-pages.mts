@@ -227,6 +227,7 @@ type Interchange = {
   yes: boolean;
   reasons: string[];
   kindsNote: string;
+  orderSimilarity: number;
   idsSame: boolean;
   kindsSame: boolean;
   headingOverlap: number;
@@ -251,29 +252,42 @@ function interchangeable(x: ChargePage, y: ChargePage): Interchange {
   // blocks had swapped places. An ordered comparison misses that entirely, so
   // the multiset is compared separately: reordering a form does not make it a
   // different document.
-  // Multiset comparison WITHOUT requiring equal length. The previous version
-  // required a.kinds.length === b.kinds.length, which meant adding or removing
-  // a single section defeated the branch entirely. The real pair it was built
-  // to catch was 10 sections against 9, where the 9 were the 10 minus one
-  // prose block, reordered. An off-by-one is not a different document.
-  const multisetOverlap = (() => {
-    const small = a.kinds.length <= b.kinds.length ? [...a.kinds] : [...b.kinds];
-    const large = a.kinds.length <= b.kinds.length ? [...b.kinds] : [...a.kinds];
-    if (small.length < 4) return 0;
-    let matched = 0;
-    const pool = [...large];
-    for (const k of small) {
-      const i = pool.indexOf(k);
-      if (i >= 0) { pool.splice(i, 1); matched++; }
-    }
-    return matched / small.length;
-  })();
-  const kindsBagNear = multisetOverlap >= 0.85;
+  // ORDERED similarity, not multiset containment.
+  //
+  // Containment was wrong and firing on the real pair for the wrong reason.
+  // With six section kinds, a shorter page's multiset is almost always a subset
+  // of a longer page's, so containment scores 100% for any page that simply
+  // uses fewer block types. That is not "the same document"; it is "fewer
+  // kinds". At thirty pages it would fire on nearly every pair, which is the
+  // noise problem that got it demoted the first time.
+  //
+  // What actually distinguishes a copy is the ORDER: the same blocks doing the
+  // same jobs in the same succession. Edit distance over the kind sequence
+  // measures that and is insensitive to a page merely being shorter.
+  const editDistance = (x: string[], y: string[]) => {
+    const d: number[][] = Array.from({ length: x.length + 1 }, (_, i) =>
+      Array.from({ length: y.length + 1 }, (_, j) => (i === 0 ? j : j === 0 ? i : 0)),
+    );
+    for (let i = 1; i <= x.length; i++)
+      for (let j = 1; j <= y.length; j++)
+        d[i][j] = Math.min(
+          d[i - 1][j] + 1,
+          d[i][j - 1] + 1,
+          d[i - 1][j - 1] + (x[i - 1] === y[j - 1] ? 0 : 1),
+        );
+    return d[x.length][y.length];
+  };
+  const longest = Math.max(a.kinds.length, b.kinds.length) || 1;
+  const orderSimilarity =
+    a.kinds.length >= 3 && b.kinds.length >= 3
+      ? 1 - editDistance(a.kinds, b.kinds) / longest
+      : 0;
+  const ORDER_LIMIT = 0.8;
   const headingOverlap = jaccard(a.headings, b.headings);
   const reasons: string[] = [];
-  if (kindsBagNear && !kindsSame)
+  if (orderSimilarity >= ORDER_LIMIT && !kindsSame)
     reasons.push(
-      `${(multisetOverlap * 100).toFixed(0)}% the same section blocks in a different order`,
+      `section kinds run in ${(orderSimilarity * 100).toFixed(0)}% the same order (limit ${(ORDER_LIMIT * 100).toFixed(0)}%)`,
     );
   if (idsSame) reasons.push(`section id sequence contained (${a.ids.join(">")})`);
   if (kindsSame)
@@ -302,6 +316,7 @@ function interchangeable(x: ChargePage, y: ChargePage): Interchange {
     yes: reasons.length > 0,
     reasons,
     kindsNote,
+    orderSimilarity,
     idsSame,
     kindsSame,
     headingOverlap,
@@ -425,15 +440,20 @@ console.log("Page-gate self-tests");
     .map((k, i) => ({ id: `a${i}`, heading: `Alpha heading number ${i}`, kind: k as never }));
   bagB.sections = ["prose","statute","penalties","bullets","guidance","timeline","prose","prose","prose"]
     .map((k, i) => ({ id: `b${i}`, heading: `Beta heading number ${i}`, kind: k as never }));
-  const bagR = interchangeable(bagA, bagB);
-  if (!bagR.yes) {
+  // A page that is the same succession of blocks with one dropped must fire.
+  const seqA = mk("seqA");
+  const seqB = mk("seqB");
+  const order = ["prose","penalties","prose","timeline","guidance","bullets","statute","prose","prose","prose"];
+  seqA.sections = order.map((k, i) => ({ id: `x${i}`, heading: `Alpha ${i}`, kind: k as never }));
+  seqB.sections = order.filter((_, i) => i !== 4).map((k, i) => ({ id: `y${i}`, heading: `Beta ${i}`, kind: k as never }));
+  const seqR = interchangeable(seqA, seqB);
+  if (!seqR.yes) {
     fail(
-      "structural check does NOT fire on 10 sections against 9 that are the " +
-        "same blocks reordered. That is the real pair on this site, and the " +
-        "previous version routed it to a diagnostic instead of failing.",
+      `structural check does NOT fire on the same block succession with one ` +
+        `section dropped (order similarity ${(seqR.orderSimilarity * 100).toFixed(0)}%).`,
     );
   } else {
-    console.log(`  ok    FAILS on same-blocks-reordered at unequal length (${bagR.reasons[0]})`);
+    console.log(`  ok    FAILS on the same succession minus one block (${seqR.reasons[0]})`);
   }
 
   // The cheapest evasion found by the gate testing: clone a page, append one

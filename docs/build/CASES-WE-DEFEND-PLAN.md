@@ -237,7 +237,44 @@ reader questions they answer. A page either answers all six or records an
 explicit `readerNeeds` entry naming what it cannot answer and why. Silence fails
 the build.
 
-#### The structural variation check: it fails honestly, and here is the proof
+#### CORRECTED 2026-08-13. What the structural check measures, and what it does not
+
+The version described below was tested independently and **could not fail in the
+pipeline**, then was rebuilt twice more. The current position, stated so the next
+person does not repeat the loop:
+
+**It measures ORDER.** Edit distance over the section-kind sequence, failing at
+80% similarity, plus containment so that cloning a page and appending one
+section does not defeat it. Both are self-tested against those exact evasions.
+
+**It deliberately does NOT measure kind multiset.** That was tried and removed
+twice. With six section kinds, a shorter page's multiset is almost always a
+subset of a longer one's, so containment scores 100% for any page that simply
+uses fewer block types. It fired on the two real pages for that reason, not
+because they were copies.
+
+**A finding this project examined and rejected, with the reasoning recorded
+because rejecting a reviewer's finding needs more justification than accepting
+one.** An independent pass reported that 8 of embezzlement's 9 sections have a
+one-to-one counterpart on grand theft, and called it the only true positive on
+the site. That overlap is **structurally forced**: every charge page must answer
+the same six reader questions using the same six available block kinds, so a
+high role overlap is what the schema produces by construction. The signal that
+would actually indicate copying is the same succession, and that measures 0.60
+against a 0.80 limit.
+
+The test that settled it: folding embezzlement's penalties table into prose made
+the page editorially better and Plan 4.5 compliant, and made the multiset metric
+**worse**. A metric that moves the wrong way when the work improves is not
+measuring the thing.
+
+**What remains a review requirement, not a gate.** Whether two pages read as the
+same document is a judgment about meaning. Order similarity, heading language,
+and verbatim overlap each catch a piece of it and none catches the whole.
+
+---
+
+#### The original claim, retained because it was wrong and the error is instructive
 
 The requirement was to build one that can fail, or say plainly that it cannot.
 **It can.** `interchangeable()` in scripts/check-pages.mts compares two pages by
