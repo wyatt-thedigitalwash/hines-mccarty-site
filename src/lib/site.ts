@@ -1118,6 +1118,39 @@ const CHARGE_C9: Record<string, C9Assertion> = {
     assertion:
       "Every state attorney is directed by statute to adopt a pro-prosecution policy for this category of case, so the complainant does not control whether it proceeds.",
   },
+  // W4, recorded 2026-08-13. Barrier ran over 27 assertions: 351 pairwise
+  // comparisons with statute ignored, max similarity 0.196 against the 0.34
+  // threshold, and no same-statute pair beyond the ruled 812.014 one.
+  // /criminal-defense/sex-crimes-defense is recorded with a populated C9
+  // deliberately. W4-02 recommends classifying it a category overview that is
+  // still checked, which is a third state this file does not yet model. It is
+  // NOT c9Exempt: D12's condition for exemption is that no statute exists, and
+  // this page rests on five. Pending decision.
+  "state/sexual-battery-defense": {
+    statute: "F.S. 794.011(5) and (6), read with F.S. 794.005",
+    section: "The basic charge, and what force adds to it",
+    assertion:
+      "Florida's basic sexual battery charge is the one with no force in it: each paragraph of F.S. 794.011(5) is committed where the person does not use physical force and violence likely to cause serious personal injury, F.S. 794.011(6) makes those paragraphs necessarily included offences of the charges under (3) and (4), and F.S. 794.005 records the Legislature's finding that (5) was never intended to require any force or violence beyond the force and violence inherent in the accomplishment of penetration or union.",
+  },
+  "state/sex-crimes-defense": {
+    statute: "F.S. 943.0435",
+    section: "Registration: what the statute requires, and when",
+    assertion:
+      "Registration runs on a 48-hour clock rather than a calendar and the offence it creates is an offence of omission: F.S. 943.0435(9)(a) makes any failure to report a third degree felony, ranked at level 7 on the F.S. 921.0022 chart, and makes each separate instance a separate offence, and F.S. 943.0435(9)(b) requires a mandatory minimum term of community control with electronic monitoring of 6 months, 1 year, or 2 years by offence count wherever the court imposes no prison sentence, while two narrower failures are graded a full degree higher to a second degree felony, reporting an intent to vacate a residence and then remaining under F.S. 943.0435(4)(c), and reporting an intent to leave the state and then remaining in Florida under F.S. 943.0435(8).",
+  },
+  "state/homicide-defense": {
+    statute: "F.S. 782.04",
+    section: "The same felony, two degrees: who caused the death",
+    assertion:
+      "Florida's felony murder provisions send the same underlying felony to two different degrees depending on who caused the death: under F.S. 782.04(1)(a)2 a death caused by a participant during one of nineteen enumerated felonies is first degree murder and a capital felony, while under F.S. 782.04(3) a death caused during those same felonies by a person other than a participant makes the participant guilty of second degree murder, a first degree felony ranked at level 9 rather than the level 10 that ordinary second degree murder carries, and the two enumerated lists are not identical, because human trafficking appears in the first degree list and in neither the second nor the third degree list.",
+  },
+  "federal/csam-defense": {
+    statute: "18 U.S.C. 2252",
+    section: "Which paragraph of 18 U.S.C. 2252(a) you are charged under",
+    assertion:
+      "The paragraph named in the charging document, and not the quantity of material, sets three separate things at once: 2252(a)(1), (a)(2) and (a)(3) carry a five year minimum under 2252(b)(1), appear in the rebuttable detention presumption at 18 U.S.C. 3142(e)(3)(E), and take a base offense level of 22 under USSG 2G2.2(a)(2), while 2252(a)(4) carries no minimum at all under 2252(b)(2), is absent from that presumption list, and takes a base offense level of 18.",
+  },
+
   // W3, recorded 2026-08-13. Barrier ran over 23 assertions, 253 pairs
   // pairwise with statute ignored, max similarity 0.196 against the 0.34
   // threshold. The only same-statute pair is the ruled grand theft and

@@ -324,6 +324,106 @@ data was collected before W4 was launched, for the same counter reason.
 
 ---
 
+## W4: the sensitive charges. DONE, 4 of 4.
+
+Graded YEARS by the plan and built for capability and referral conversion.
+**The measured volume confirms that grading rather than challenging it**, and
+every brief reports its search prospects as they are rather than talking them up.
+
+| Brief | Status | Notes |
+|---|---|---|
+| W4-01-sexual-battery.md | **DONE** | Nil volume on all four terms, reported as nil in the first substantive paragraph. |
+| W4-02-sex-crimes.md | **DONE** | Carries the one real commercial term in wave 4. Classification question open. |
+| W4-03-homicide.md | **DONE** | The stand your ground question resolved in the page's favour. |
+| W4-04-csam.md | **DONE** | Broke the USSG fetch problem open for the whole project. |
+
+Barrier over 27 assertions, 4 new and 23 populated. No statute-parse flags. No
+same-statute pair beyond the ruled 812.014 one at 0.000. Pairwise with statute
+ignored: **351 pairs, max 0.196** against the 0.34 threshold. New-versus-new: 6
+pairs, max 0.115. All four recorded.
+
+**The wave 4 hand-checks worked as designed and self-corrected.** W4-01 finished
+before any sibling existed and could not run its check, so it listed the six
+claims a later reader must re-check, in priority order. W4-02 finished last,
+found all three siblings present, ran the check against their actual assertions,
+and answered W4-01's two standing requests and W4-04's two questions. W4-01 and
+W4-02 independently stated the same territory division in their own words.
+
+### The USSG blockage is broken, and it was never the site
+
+W4-04 was told to expect its guideline fetch to fail and to record it UNMET. It
+reproduced the failure exactly, six more URL forms, and then found the door:
+
+> `https://www.ussc.gov/sites/default/files/pdf/guidelines-manual/2025/GLMFull.pdf`
+
+**Independently re-verified by the orchestrator: HTTP 200 for both the 2025 and
+2024 editions, while the per-chapter form still returns 404.** One file carries
+the complete Guidelines Manual, including **2G2.2 and 2B1.1 with the full loss
+table**, which is the source FED-05, WC-02, WC-03 and OPP-01 have been standing
+without across twelve failed attempts.
+
+The rule recorded in REVIEW-QUEUE.md is the correct one rather than the
+convenient one: **each of those four briefs fetches GLMFull.pdf itself and
+quotes the rows it uses.** A figure relayed through REVIEW-QUEUE is still a
+figure the citing brief did not fetch.
+
+### Verified errors found in the ranking field
+
+Every one of these was fetched and quoted, and the three federal ones were
+re-verified independently by the orchestrator against uscode.house.gov.
+
+| Page | Claim in the field | What the source says |
+|---|---|---|
+| Featured snippet, ringstromlaw.com | A 5-year mandatory minimum applies to possession | **18 U.S.C. 2252(b)(2) imposes none on a first offence**, up to 10 years |
+| A Tampa firm, position 7 | "five to fifteen years" and "twenty to forty years" | **5 to 20 and 15 to 40.** Both wrong, in opposite directions |
+| brancatolawfirm.com, homicide position 3 | Stand your ground immunity is decided on "preponderance of evidence at hearing" | **F.S. 776.032(4)** since ch. 2017-72: clear and convincing, on the party seeking to overcome immunity |
+| flhsmv.gov, DUI position 1 | "Second or subsequent refusal is a misdemeanor of the first degree" | **A first refusal has been a second degree misdemeanor since 1 Oct 2025** |
+| Most-cited firm page, drug possession | Judges "may revoke licenses for up to 1 year" | **F.S. 322.055(1)**: the court "shall direct" suspension, 6 months |
+
+### Two corrections the agents made to the orchestrator's framing
+
+Recorded because the same error class produced both, and it is worth naming.
+
+1. **The Florida-equals-DMA ratio is a tautology.** Offered as evidence for the
+   DUI finding, correctly rejected: every city-named term in the pull shows 100%,
+   including terms at 10/month. The finding is the absolute number.
+2. **A Florida-level CPC was attached to a DMA claim.** `sex crimes attorney
+   tampa` is **$23.10 at DMA** and $48.87 at Florida level. The brief caught it
+   and used the right one.
+
+Both are the same mistake: **taking a state-level figure and asserting it of the
+metro.** Any later brief quoting a CPC or a volume must name the geography the
+figure came from in the same sentence.
+
+W4-02 made a third correction, to competitor structure rather than to a number:
+`tampasexcrimesattorney.com` is not an independent single-practice competitor
+but **Hanlon Law's exact-match satellite**. Counted properly, Hanlon holds four
+of nine AI Overview citations across two domains, two of the top five organic
+slots, and the knowledge panel. Concentration in this SERP was understated.
+
+### The open classification question
+
+**W4-02 recommends `/criminal-defense/sex-crimes-defense` be classified a
+category overview that is still C9-checked, and explicitly NOT `c9Exempt`.**
+D12's stated condition for exemption is that no statute exists; corporate fraud
+had none, and this page rests on five, with Florida law enumerating the category
+twice at F.S. 943.0435(1)(h)1.a and F.S. 775.21(4)(a)1. Exempting it would
+delete a 23-row penalties table that is both its strongest asset and its
+referral asset.
+
+**This needs a third state in src/lib/site.ts**, which today offers only
+charge-page-with-C9 or c9Exempt. D12's own bookkeeping rationale, that
+excused-by-decision and not-yet-written must not be collapsed, applies with
+equal force to checked-but-a-category. The C9 is recorded and the classification
+is pending a decision.
+
+### Request budget
+
+**40 of 300.** No further DataForSEO calls were made during W4 itself; the wave
+ran entirely on the pre-collected pull.
+
+---
+
 ## Questions only the human can answer
 
 **ALL SEVEN ANSWERED 2026-08-13. Decisions recorded in docs/build/DECISIONS.md

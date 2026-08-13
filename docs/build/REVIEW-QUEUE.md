@@ -79,6 +79,50 @@ return live and is the recommended retry target.
 Until it is fetched, no page may state a loss-table offense-level figure. A
 reviewer who sees one should treat it as an unverified claim.
 
+#### RESOLVED 2026-08-13 by W4-04. The door was the wrong one, not the site.
+
+W4-04 (federal CSAM) was told to expect the same failure on its own guideline,
+**USSG 2G2.2**, and to record it UNMET if two passes failed. It attempted 2G2.2
+first and reproduced the failure exactly, which is the seventh, eighth, and
+ninth data points on this entry:
+
+| Attempt | URL | Result |
+|---|---|---|
+| 7 | ussc.gov/guidelines/2024-guidelines-manual/2024-chapter-2-g | **404** |
+| 8 | ussc.gov/guidelines/2023-guidelines-manual/2023-chapter-2-g | **404** |
+| 9 | guidelines.ussc.gov/gl/%C2%A72G2.2 | **404** |
+| 10 | ussc.gov/guidelines/primers/sexual-offenses | **404** |
+| 11 | ussc.gov/guidelines/guidelines-manual/2024-chapter-2-g | **404** |
+| 12 | ussc.gov/sites/default/files/pdf/guidelines-manual/2024/CHAPTER_2_G.pdf | **404** |
+
+**The pattern is now characterised. Every per-chapter and per-guideline URL form
+on ussc.gov returns 404, and has done so across four briefs.** Do not spend
+another pass on one.
+
+**What works, verified 2026-08-13:**
+
+> `https://www.ussc.gov/sites/default/files/pdf/guidelines-manual/2025/GLMFull.pdf`
+> HTTP 200, 3,845,451 bytes, PDF. The 2024 equivalent also returns 200.
+
+That single file is the complete Guidelines Manual (November 1, 2025). It
+contains **§2G2.2 in full** and it contains **§2B1.1 including the loss table in
+full**, both extracted and quoted this session. W4-04 Section 7 carries the
+2G2.2 quotations; the 2B1.1 loss table as it appears in that file reads
+`$6,500 or less` no increase, `More than $6,500` add 2, rising in the published
+steps to `More than $550,000,000` add 30, with base offense level 7 where the
+offense of conviction carries a statutory maximum of 20 years or more and 6
+otherwise.
+
+**Consequence for the four blocked briefs.** FED-05, WC-02, WC-03, and OPP-01
+are no longer blocked by an unfetchable source. They are blocked only by not
+having fetched it yet, which is a scheduled task rather than a standing gap.
+The instruction that no page may state a loss-table figure **stands until each
+brief fetches GLMFull.pdf itself and quotes the rows it uses**, because a figure
+relayed through this file is still a figure the citing brief did not fetch.
+
+The retry target recorded above, the loss-calculation primer, is superseded. It
+is a primer about the table; GLMFull.pdf is the table.
+
 ---
 
 ## Queue
