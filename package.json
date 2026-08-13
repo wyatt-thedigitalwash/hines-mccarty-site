@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint",
     "check:c9": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-c9.mts",
-    "prebuild": "npm run check:c9"
+    "prebuild": "npm run check:c9 && npm run check:pages",
+    "check:pages": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-pages.mts"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",

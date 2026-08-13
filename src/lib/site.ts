@@ -5,6 +5,20 @@
 // runtime imports. That property is what lets scripts/check-c9.ts load this
 // file directly under `node --experimental-strip-types`.
 import type { C9Assertion, C9Category, C9Exemption } from "./c9.ts";
+import type {
+  ChargeSection,
+  PenaltyRow,
+  ReaderQuestion,
+} from "./charge-page.ts";
+
+export type {
+  ChargeSection,
+  ChargeSectionKind,
+  Guidance,
+  PenaltyRow,
+  ReaderQuestion,
+  TimelineStep,
+} from "./charge-page.ts";
 
 /**
  * The site's absolute origin. Every canonical URL, Open Graph URL, sitemap
@@ -772,12 +786,7 @@ export const silos: Silo[] = [
 export const siloByKey = (key: string) => silos.find((s) => s.key === key);
 export const siloByHref = (href: string) => silos.find((s) => s.href === href);
 
-export type PenaltyRow = {
-  degree: string;
-  maximum: string;
-  offenseLevel?: string;
-  note?: string;
-};
+// PenaltyRow moved to ./charge-page.ts and re-exported above.
 
 /**
  * One FAQ entry.
@@ -843,6 +852,24 @@ export type ChargePage = {
   counterpart?: { href: string; label: string; note: string };
   /** Template item 8, rendered with FAQPage schema. */
   faq?: FaqItem[];
+  /**
+   * The body, ordered by significance rather than by a fixed sequence.
+   *
+   * When present this REPLACES the legacy statute/penalties/elements/
+   * defenseApproach/forum fields in the rendered page. Those fields stay on the
+   * type while the eight pre-existing pages are migrated two at a time, and
+   * scripts/check-pages.mts counts what is left so the migration cannot quietly
+   * stall. A page carrying both is rendered from `sections`.
+   */
+  sections?: ChargeSection[];
+  /**
+   * Reader questions this page cannot answer, each with the reason.
+   *
+   * The coverage check passes when every one of the six is either answered by a
+   * section or recorded here. It is deliberately not possible to satisfy it by
+   * saying nothing: an unanswered, unrecorded question fails the build.
+   */
+  readerNeeds?: Partial<Record<ReaderQuestion, string>>;
   /** Template item 9. */
   relatedGuides?: RelatedLink[];
   /** Template item 10, C11. */
@@ -1934,6 +1961,346 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         source: "drafted",
         answer:
           "Because it is a separate offense rather than an aggravating feature of the first one. That matters at sentencing: it carries its own offense level and its own points, so it changes the scoresheet arithmetic independently of the underlying charge.",
+      },
+    ],
+    relatedGuides: [
+      { label: "Tools and guides", href: "/resources/tools-and-guides" },
+    ],
+  },
+
+  // ---------------------------------------------------------------------
+  // MONEY LAUNDERING, federal. From docs/research/briefs/FED-01-money-laundering.md.
+  //
+  // Overlap page under Section 4.6 and C10. Forum section opens the body, one
+  // cross-link, no shared copy. Its sibling at /white-collar-defense/
+  // money-laundering is WRITTEN, so the duplication risk here is live rather
+  // than theoretical, and this page was checked against that entry directly and
+  // not only against the brief.
+  //
+  // Plan Section 4.6.2 made this page conditional: it survives only if built on
+  // the predicate list, the absence of thresholds, and federal sentencing. The
+  // condition was verified SATISFIED in W1 and this page honours it.
+  //
+  // THE CONDUCT LANGUAGE IS DELIBERATELY ABSENT. 18 U.S.C. 1956(a)(1) and F.S.
+  // 896.101(3) describe near-identical conduct: knowledge that property is the
+  // proceeds of unlawful activity, transactions designed to conceal nature,
+  // location, source, ownership or control, and avoidance of reporting
+  // requirements. The state page quotes that material. Repeating it here would
+  // make two pages that read as one, which is exactly what C9 exists to
+  // prevent. What differs is the DEFINITION of the predicate and the presence
+  // or absence of a threshold, and that is what this page is built on.
+  //
+  // C9: the offense turns on a finite statutory predicate list rather than on
+  // an amount. 1956 sets no dollar threshold at all; 1957 turns on a single
+  // $10,000 figure. The state page's entire ladder is dollar thresholds at
+  // $300, $20,000 and $100,000 across a 12 month window, so the two pages make
+  // opposite structural claims and neither restates the other.
+  //
+  // No Florida offense level appears anywhere on this page, because a federal
+  // charge does not carry one. The penalties table has no offenseLevel column
+  // for that reason, which is itself a differentiator from the sibling.
+  //
+  // [NEEDS: USSG 2S1.1 base offense level mechanics] UNMET, and left UNMET by
+  // instruction. The sentencing section stands on USSC published statistics
+  // without it. A search engine's synthesis of 2S1.1 is not a fetched source.
+  // [NEEDS: the RICO predicate list at 18 U.S.C. 1961(1)] Not fetched. This
+  // page describes 1956(c)(7)(A) as incorporating that list, which is verified,
+  // and does NOT enumerate its contents, which is not.
+  // [NEEDS: limitations period for federal money laundering] Not fetched.
+  // [NEEDS: investigating agency in this district] Not verified. No field
+  // office or agency is named.
+  // [NEEDS: whether self-laundering is chargeable] C12-B byline class. Case
+  // law. Not answered here in any form.
+  // ---------------------------------------------------------------------
+  "federal/money-laundering": {
+    title: "Federal money laundering charges",
+    metaTitle: "Federal Money Laundering Charges | Hines & McCarty",
+    metaDescription:
+      "Federal money laundering turns on a list of predicate offenses rather than on an amount. Statute 1956 sets no dollar threshold at all. What the government has to identify, and how these cases are sentenced.",
+    lead: "Federal money laundering does not start at a dollar figure. Under 18 U.S.C. 1956 the offense turns on whether the money came from something on a specific statutory list, and the section sets no minimum amount at all.",
+    counterpart: {
+      href: "/white-collar-defense/money-laundering",
+      label: "Money laundering charges under Florida law",
+      note: "Florida prosecutes money laundering under its own statute, and the two charges are built on different foundations rather than being versions of one another. The Florida offense is graded by amount, starting at transactions exceeding $300 measured across any 12 month period, and it carries a Florida offense level that feeds a state sentencing scoresheet. A federal charge under 18 U.S.C. 1956 has no dollar threshold and no Florida offense level, and it is calculated under the federal sentencing guidelines instead. The charging document will say which one you are facing.",
+    },
+    statute: {
+      citation:
+        "18 U.S.C. 1956 and 18 U.S.C. 1957, Current 2024 Main Edition, Office of the Law Revision Counsel",
+      body: "The federal scheme is built around a defined term rather than around an amount. Section 1956 reaches transactions involving the proceeds of specified unlawful activity, and 1956(c)(7) defines that term by enumeration. It incorporates the racketeering activity listed in the RICO statute at 18 U.S.C. 1961(1), excluding certain currency reporting violations. It adds specified foreign offenses, including drug manufacturing and distribution, violent crimes, fraud against foreign banks, public corruption, munitions smuggling, extraditable offenses and human trafficking. It adds continuing criminal enterprises under the Controlled Substances Act. It adds a long list of federal crimes spanning aircraft destruction, espionage, counterfeiting, smuggling, bank fraud, terrorism related offenses and environmental violations. It adds felony violations of the water pollution, ocean dumping, ship pollution, safe drinking water and waste disposal statutes. It adds federal health care fraud offenses. And it adds endangered species trafficking where the value exceeds $10,000. The practical consequence is that a federal charge has to name its predicate offense and locate it inside that enumeration, rather than resting on proceeds described in general terms. Section 1957 is a separate offense with a different shape. It reaches monetary transactions in criminally derived property of a value greater than $10,000, and 1957(f)(1) defines a monetary transaction as the deposit, withdrawal, transfer or exchange, in or affecting interstate or foreign commerce, of funds or a monetary instrument by, through or to a financial institution. That $10,000 figure is the only dollar threshold in either section.",
+    },
+    penalties: [
+      {
+        degree: "18 U.S.C. 1956(a)(1)",
+        maximum: "Up to 20 years",
+        note: "The section provides a fine of not more than $500,000 or twice the value of the property involved in the transaction, whichever is greater, or imprisonment for not more than twenty years, or both. No Florida offense level applies to a federal charge.",
+      },
+      {
+        degree: "18 U.S.C. 1957",
+        maximum: "Up to 10 years",
+        note: "Under 1957(b)(1), a fine under title 18 or imprisonment for not more than ten years or both. This is the section carrying the $10,000 threshold.",
+      },
+    ],
+    elements: [
+      "A financial transaction, or an attempt at one, in the case of Statute 1956; or a monetary transaction as Statute 1957(f)(1) defines it, meaning a deposit, withdrawal, transfer or exchange of funds or a monetary instrument by, through or to a financial institution.",
+      "That the property involved was the proceeds of specified unlawful activity, which Statute 1956(c)(7) defines by enumeration rather than in general terms. Identifying the predicate is part of the government's case, not background to it.",
+      "The defendant's knowledge, which the statute treats separately from whether the predicate is established as a fact.",
+      "For Statute 1957 only, that the value of the criminally derived property was greater than $10,000. Statute 1956 states no amount.",
+      "The interstate or foreign commerce element, which is what places the conduct in federal court in the first place.",
+    ],
+    defenseApproach: [
+      "The first question on a federal charge is which section is charged, because the two are built differently. Statute 1956 has no dollar threshold, so the amount is not an element and cannot be attacked as one. Statute 1957 has a single threshold at more than $10,000 in criminally derived property, and there the value is an element. A case can involve both sections and the analysis is not the same for each count.",
+      "The second is the predicate. Statute 1956(c)(7) does not reach proceeds of unlawful activity in general terms. It reaches proceeds of the offenses it enumerates, so the government has to identify a specific predicate and place it inside the list. Where the underlying activity is not established, unexplained money does not become laundering by default. This is the point at which federal and Florida law diverge most clearly: Florida defines the predicate by a single cross reference to its racketeering statute, while the federal definition runs to seven separate categories.",
+      "The third is what Statute 1957 actually requires. Its transaction has to run by, through or to a financial institution, which is narrower than the general transaction concept in Statute 1956. That is a question answerable from records rather than from characterisation.",
+      "It is worth understanding how the sentence is calculated, because it is not calculated the way a Florida sentence is. There is no Florida offense level and no state scoresheet. A federal sentence is calculated under the federal sentencing guidelines, and the guideline provision for these offenses is separate from the statutory maximum. The published outcome data below describes what has actually happened in these cases nationally, which is a different and more useful thing than the maximum.",
+      "On the numbers that do exist: the United States Sentencing Commission reported that of 66,662 cases reported to it in fiscal year 2025, 1,170 involved money laundering. Of those individuals, 90 percent were sentenced to prison, and the average sentence length was 69 months. Those are national figures describing past cases and they are not a prediction about any particular one.",
+    ],
+    forum: [
+      "A federal money laundering case is heard in the United States District Court rather than in a Florida circuit court, and for Hillsborough County that means the Middle District of Florida.",
+      "Hillsborough County sits in the Tampa Division of the Middle District, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue. The Tampa Division covers Hardee, Hillsborough, Manatee, Pasco, Pinellas, Polk and Sarasota counties.",
+      "The prosecuting office is the United States Attorney's Office for the Middle District of Florida. A federal case follows federal procedure throughout, which differs from state practice in ways that begin well before any court appearance.",
+      // [NEEDS: investigating agency practice in this district] Not verified
+      // against any agency's own site. No field office is named.
+      // [NEEDS: whether the US Attorney's Office has a dedicated unit]
+    ],
+    faq: [
+      {
+        question:
+          "What is the difference between 18 U.S.C. 1956 and 18 U.S.C. 1957?",
+        source: "drafted",
+        answer:
+          "They are separate offenses with different structures and different maximums. Statute 1956 reaches transactions involving the proceeds of specified unlawful activity and states no dollar threshold at all, carrying up to 20 years. Statute 1957 reaches monetary transactions in criminally derived property of a value greater than $10,000, and it defines a monetary transaction as one made by, through or to a financial institution. It carries up to 10 years.",
+      },
+      {
+        question: "Does federal money laundering have a dollar minimum?",
+        source: "drafted",
+        answer:
+          "Statute 1956 does not. There is no minimum amount in that section. Statute 1957 is the one with a figure in it, and that figure is a value greater than $10,000 in criminally derived property. This is a genuine difference from Florida law, where the offense begins at transactions exceeding $300 and the amount sets the degree.",
+      },
+      {
+        question: "What counts as specified unlawful activity?",
+        source: "drafted",
+        answer:
+          "It is a defined term, and Statute 1956(c)(7) defines it by listing rather than by description. The list incorporates the racketeering activity named in the RICO statute at 18 U.S.C. 1961(1), and then adds six further categories: certain foreign offenses, continuing criminal enterprises under the Controlled Substances Act, a long list of federal crimes, felony violations of several environmental statutes, federal health care fraud offenses, and endangered species trafficking above $10,000 in value.",
+      },
+      {
+        question: "Do they have to prove what crime the money came from?",
+        source: "drafted",
+        answer:
+          "The statute requires that the property was the proceeds of specified unlawful activity, and that term is defined by the enumerated list in Statute 1956(c)(7). So the source is part of what has to be established rather than an incidental detail, and it has to be a source that falls inside the list.",
+      },
+      {
+        question:
+          "How is a federal money laundering sentence calculated, and how does it differ from a Florida one?",
+        source: "drafted",
+        answer:
+          "A Florida sentence runs through an offense level on a state sentencing scoresheet. A federal sentence does not use either. It is calculated under the federal sentencing guidelines, which are a separate scheme, and the statutory maximum in the section is a ceiling rather than the calculation. This is why a Florida offense level appears nowhere on this page.",
+      },
+      {
+        question: "How much time do people actually get for money laundering?",
+        source: "drafted",
+        answer:
+          "The United States Sentencing Commission publishes the figures. Of 66,662 cases reported to the Commission in fiscal year 2025, 1,170 involved money laundering. Of those individuals, 90 percent were sentenced to prison and the average sentence length was 69 months. Those are national figures about cases that have already been decided, and they describe a range of very different situations rather than predicting any one of them.",
+      },
+      {
+        question: "Is my case state or federal?",
+        source: "drafted",
+        answer:
+          "The charging document says so, and the two are not alternative labels for one case. A Florida charge is brought by the State Attorney under the Florida statute in circuit court. A federal charge is brought by the United States Attorney's Office under Statute 1956 or 1957 in the United States District Court, which for Hillsborough County is the Middle District of Florida, Tampa Division.",
+      },
+    ],
+    relatedGuides: [
+      { label: "Tools and guides", href: "/resources/tools-and-guides" },
+    ],
+  },
+
+  // ---------------------------------------------------------------------
+  // DUI, state. From docs/research/briefs/ST-04-dui.md.
+  //
+  // Built first in the page-writing order (CASES-WE-DEFEND-PLAN.md Section 7),
+  // because `refusing breathalyzer florida` is the only NOW-graded term in the
+  // remaining set and the position closes as the field updates.
+  //
+  // C9: the 10 days run from the notice of suspension, not from the arrest and
+  // not from any court date, and the choice among the three options is
+  // exclusive. F.S. 322.2615(1)(b)3 with 322.271(7).
+  //
+  // THE 1 OCTOBER 2025 AMENDMENT IS THE PAGE. ch. 2025-121 (CS/HB 687) made a
+  // FIRST refusal a second degree misdemeanor. Established by comparing the
+  // 2023, 2024 and 2025 editions of F.S. 316.1939 plus the Legislature's own
+  // chapter report, which is three editions of one authoritative publisher
+  // rather than two reads of one document (HUNT-LIST defect 1, instance 2).
+  //
+  // The date is an element of accuracy, not decoration: a refusal before that
+  // date is governed by the old text. The page states the date every time it
+  // states the rule.
+  //
+  // F.S. 316.193(2)(a) assigns NO misdemeanor degree. Verified by absence in
+  // the fetched text: it prescribes a term directly and does not carry the
+  // "punishable as provided in s. 775.082 or s. 775.083" formula that (2)(b)1
+  // and (3)(c)1 both carry. Do not write "second degree misdemeanor" here.
+  //
+  // flhsmv.gov is NOT allowlisted (DECISIONS.md D18) and nothing here rests on
+  // it. Where the statute and that agency page disagree, the statute governs.
+  //
+  // [NEEDS: how first refusals are charged in the Thirteenth Circuit] The
+  // amendment is verified, its application is not. No sentence on this page
+  // says how the change is being applied in practice.
+  // [NEEDS: the DHSMV Bureau of Administrative Reviews office serving
+  // Hillsborough County] Not verified. No address for the hearing is given.
+  // [NEEDS: whether a diversion track exists for a first DUI in Hillsborough]
+  // Not verified against the State Attorney's own site.
+  // [NEEDS: county versus circuit forum split within F.S. 316.193] Inferred
+  // from verified degrees, not directly verified. The forum section states the
+  // felony rule only.
+  // [NEEDS: Florida sobriety checkpoint law] Case law, C12-B byline class.
+  // ---------------------------------------------------------------------
+  "state/dui-defense": {
+    title: "DUI charges in Florida",
+    metaTitle: "Florida DUI Charges and the 10 Day Rule | Hines & McCarty",
+    metaDescription:
+      "A Florida DUI arrest starts two separate cases, and the one against your license runs on a 10 day clock. What changed for test refusals on 1 October 2025, and what the statute now says.",
+    lead: "A Florida DUI arrest starts two cases, not one. Alongside the criminal charge, a separate proceeding against your driver license begins immediately, and Statute 322.2615 gives 10 days from the date the notice of suspension is issued to respond to it.",
+    counterpart: {
+      href: "/criminal-defense/homicide-defense",
+      label: "Homicide charges in Florida",
+      note: "Where a DUI is alleged to have caused a death, it is charged as DUI manslaughter under Statute 316.193(3)(c)3 rather than under the homicide statutes in chapter 782. It is a second degree felony at the base tier, rising to a first degree felony in the two circumstances the subsection sets out, and any DUI manslaughter conviction carries a mandatory minimum term of 4 years. The charge stays inside the DUI statute, which is why it is covered here rather than there.",
+    },
+    statute: {
+      citation:
+        "Florida Statutes 316.193, 316.1932, 316.1939 and 322.2615, the 2025 Florida Statutes",
+      body: "Statute 316.193(1) sets out three limbs, and only two of them involve a number. A person commits the offense while driving or in actual physical control of a vehicle when under the influence of alcoholic beverages, a chemical substance named in Statute 877.111, or a controlled substance under chapter 893, when affected to the extent that the person's normal faculties are impaired; or when the person has a blood-alcohol level of 0.08 or more grams per 100 milliliters of blood; or a breath-alcohol level of 0.08 or more grams per 210 liters of breath. The first limb has no threshold in it, so a case can proceed without a test result. Refusal is governed separately. Statute 316.1932(1)(a) sets out the implied consent warning that must be given, and Statute 316.1939 makes refusal itself an offense. That section was amended by chapter 2025-121, effective 1 October 2025. Under the text now in force at 316.1939(1)(e), a person who, after having been so informed, refused to submit to any such test when requested to do so by a law enforcement officer or correctional officer commits a misdemeanor of the second degree for a first refusal, or a misdemeanor of the first degree for a second or subsequent refusal. Before 1 October 2025 the same subparagraph reached only a second or subsequent refusal, and a first refusal was not an offense under this section at all. The date matters: a refusal that occurred before it is governed by the earlier text.",
+    },
+    penalties: [
+      {
+        degree: "First conviction, no degree assigned by the statute",
+        maximum: "Up to 6 months, fine $500 to $1,000",
+        note: "Statute 316.193(2)(a). The subsection prescribes the term and fine directly and does not assign a misdemeanor degree.",
+      },
+      {
+        degree: "Second conviction, no degree assigned by the statute",
+        maximum: "Up to 9 months, fine $1,000 to $2,000",
+        note: "Statute 316.193(2)(a).",
+      },
+      {
+        degree: "Third degree felony",
+        maximum: "Up to 5 years",
+        offenseLevel: "Level 3",
+        note: "Statute 316.193(2)(b)1, a third violation for an offense occurring within 10 years after a prior conviction. The statute measures from a prior conviction, not from the second one.",
+      },
+      {
+        degree: "Not a felony",
+        maximum: "Up to 12 months, fine $2,000 to $5,000",
+        note: "Statute 316.193(2)(b)2, a third violation more than 10 years after a prior conviction.",
+      },
+      {
+        degree: "Third degree felony",
+        maximum: "Up to 5 years",
+        offenseLevel: "Level 6",
+        note: "Statute 316.193(2)(b)3, a fourth or subsequent violation, regardless of when the prior convictions occurred. Same subsection and same degree as the level 3 row above, and the same 5 year maximum, at double the offense level.",
+      },
+      {
+        degree: "First degree misdemeanor",
+        maximum: "Set by Statute 775.082",
+        note: "Statute 316.193(3)(c)1, where the offense caused or contributed to causing damage to the property or person of another.",
+      },
+      {
+        degree: "Third degree felony",
+        maximum: "Up to 5 years",
+        offenseLevel: "Level 7",
+        note: "Statute 316.193(3)(c)2, serious bodily injury as defined in Statute 316.1933.",
+      },
+      {
+        degree: "Second degree felony",
+        maximum: "Up to 15 years",
+        offenseLevel: "Level 8",
+        note: "Statute 316.193(3)(c)3.a, DUI manslaughter. A mandatory minimum term of 4 years applies to any DUI manslaughter conviction.",
+      },
+      {
+        degree: "First degree felony",
+        maximum: "Up to 30 years",
+        offenseLevel: "Level 9",
+        note: "Statute 316.193(3)(c)3.b, DUI manslaughter where the person knew or should have known the crash occurred and failed to give information and render aid as required by Statute 316.062.",
+      },
+      {
+        degree: "First degree felony",
+        maximum: "Up to 30 years",
+        offenseLevel: "Level 9",
+        note: "Statute 316.193(3)(c)3.c, DUI manslaughter with a prior conviction under that sub-subparagraph or under Statute 327.35(3)(a)3.c, 782.071 or 782.072.",
+      },
+      {
+        degree: "Second degree misdemeanor, first refusal",
+        maximum: "Set by Statute 775.082 or 775.083",
+        note: "Statute 316.1939(1)(e) as amended by chapter 2025-121, effective 1 October 2025. This is a separate offense from the DUI itself.",
+      },
+      {
+        degree: "First degree misdemeanor, second or subsequent refusal",
+        maximum: "Set by Statute 775.082 or 775.083",
+        note: "Statute 316.1939(1)(e).",
+      },
+    ],
+    elements: [
+      "Driving, or being in actual physical control of, a vehicle within this state.",
+      "Either impairment of normal faculties by alcohol, a Statute 877.111 chemical substance, or a chapter 893 controlled substance; or a blood-alcohol level of 0.08 or more grams per 100 milliliters of blood; or a breath-alcohol level of 0.08 or more grams per 210 liters of breath. These are alternatives, and the first requires no test result.",
+      "For the enhanced range under Statute 316.193(4), either a level of 0.15 or higher or the presence in the vehicle of a person under the age of 18. The subsection provides that only the instant offense is required to be a violation at 0.15 or higher, so prior convictions need not have been at that level.",
+      "For a refusal charge under Statute 316.1939, that the person was first informed as Statute 316.1932 requires, and then refused a lawful test.",
+      "For the felony tiers, the number and timing of prior convictions, which is what separates Statute 316.193(2)(b)1 from (2)(b)2 and (2)(b)3.",
+    ],
+    defenseApproach: [
+      "The first thing to understand is that there are two proceedings and they run on different clocks. The criminal case proceeds in court. The license suspension is administrative, handled by the Department of Highway Safety and Motor Vehicles, and Statute 322.2615(1)(b)2 provides that the suspension period commences on the date the notice of suspension is issued. Statute 322.2615(1)(b)3 gives 10 days from that date to request a formal review, request an informal review, or request review of eligibility for a restricted driving privilege under Statute 322.271(7). The temporary permit issued at the time expires at midnight of the 10th day.",
+      "Those three options are alternatives rather than steps. Statute 322.271(7) sets out the restricted business purposes route, and taking it operates as a waiver of the review the other two options provide. The choice is therefore made once, inside a short window, and it is worth understanding what each one forecloses before the window closes.",
+      "The two cases are formally insulated from each other in both directions. Statute 322.2615(14)(a) provides that the department's decision may not be considered in any trial for a violation of Statute 316.193, and that a written statement submitted in a request for departmental review may not be admitted into evidence at such a trial. Statute 322.2615(14)(b) provides that the disposition of any related criminal proceeding does not affect a suspension imposed for refusing a test. Statute 316.1939(2) and (3) say the same thing about the criminal refusal charge and the administrative proceeding. There is one exception running one way: under Statute 322.2615(16), a finding of not guilty at trial on the underlying Statute 316.193 violation invalidates a suspension imposed for an unlawful alcohol level.",
+      "The statute sets out its own procedural failure points. Under Statute 322.2615(9), a request for a hearing does not stay the suspension, and if the department fails to schedule a formal review hearing within 30 days after receiving the request, the department shall invalidate the suspension. Under Statute 322.2615(11), if the arresting officer or the breath technician fails to appear pursuant to a subpoena, the department shall invalidate the suspension. Both are written as commands to the department rather than as matters of discretion.",
+      "On the criminal side, the charging paragraph is worth reading closely, because two rows of the penalty table are the same subsection and the same degree and sit three offense levels apart. A third violation under Statute 316.193(2)(b)1 is ranked at level 3 and a fourth or subsequent violation under (2)(b)2 and (2)(b)3 is ranked at level 6, and both are third degree felonies carrying the same 5 year maximum. The statutory maximum does not move and the scoresheet arithmetic does.",
+      "Where a refusal is charged, the timing question is now a live one. The amendment at chapter 2025-121 took effect on 1 October 2025 and the version of Statute 316.1939 that applies is the version in force when the refusal occurred, so the date of the stop is a threshold fact rather than a background detail.",
+      "What the court must order on a conviction is set by statute rather than left open. Statute 316.193(5) requires monthly reporting probation and a substance abuse course by a licensed DUI program including a psychosocial evaluation. Statute 316.193(6)(a) sets, on a first conviction, probation not to exceed 1 year, a minimum of 50 hours of public service or community work, and impoundment or immobilization of the vehicle for 10 days, with the total of probation and incarceration not to exceed 1 year.",
+    ],
+    forum: [
+      "A DUI case in Hillsborough County can sit in two places at once, and only one of them is a courthouse.",
+      "Felony DUI charges are heard in circuit court. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
+      "The license suspension is not heard in either. It is an administrative proceeding of the Department of Highway Safety and Motor Vehicles, and Statute 322.2615(4) provides that an informal review consists solely of the department's examination of the materials submitted by the officer and by the person whose license was suspended, with no requirement that an officer or witness be present. A formal review is the option that allows subpoenas, which is what makes Statute 322.2615(11) available.",
+      // [NEEDS: the DHSMV Bureau of Administrative Reviews office serving
+      // Hillsborough County] Not verified against an allowlisted source. No
+      // address for the administrative hearing appears on this page.
+      // [NEEDS: county versus circuit split for the misdemeanor tiers]
+      // Inferred from the verified degrees rather than directly verified.
+    ],
+    faq: [
+      {
+        question: "What is the 10 day rule for a DUI in Florida?",
+        source: "drafted",
+        answer:
+          "It is the window to respond to the license suspension, and it runs from the date the notice of suspension is issued rather than from any court date. Statute 322.2615(1)(b)3 gives 10 days to request a formal review, request an informal review, or request review of eligibility for a restricted driving privilege under Statute 322.271(7). The temporary permit issued at the time of the stop expires at midnight of the 10th day. The three options are alternatives, and the restricted privilege route under Statute 322.271(7) operates as a waiver of the other two.",
+      },
+      {
+        question: "Is refusing a breath test a crime in Florida?",
+        source: "drafted",
+        answer:
+          "Yes, and this changed recently. Under Statute 316.1939(1)(e), as amended by chapter 2025-121 effective 1 October 2025, a first refusal is a misdemeanor of the second degree and a second or subsequent refusal is a misdemeanor of the first degree. Before that date the same subparagraph reached only a second or subsequent refusal, so a first refusal was not an offense under this section. Which version applies depends on when the refusal occurred.",
+      },
+      {
+        question: "What happens to my license if I refuse a test?",
+        source: "drafted",
+        answer:
+          "The suspension is separate from the criminal case and longer than the one for an unlawful alcohol level. Statute 322.2615(1)(b)1.a provides for a 1 year suspension for a first refusal, or 18 months if the driving privilege has previously been suspended for a refusal. Where the suspension is for a level of 0.08 or higher, Statute 322.2615(1)(b)1.b provides 6 months for a first offense or 1 year if previously suspended under that section. If a refusal suspension is sustained, Statute 322.2615(10)(a) provides that the person is not eligible for a business or employment purposes license until 90 days have elapsed after the last temporary permit expires, against 30 days under (10)(b) for an unlawful level.",
+      },
+      {
+        question: "Does a DUI charge require a breath or blood test result?",
+        source: "drafted",
+        answer:
+          "No. Statute 316.193(1) sets out three alternatives, and the first is impairment of normal faculties by alcohol, a Statute 877.111 chemical substance, or a chapter 893 controlled substance. Only the second and third limbs involve the 0.08 figure. A case can be built on the first limb with no test result at all.",
+      },
+      {
+        question: "When does a Florida DUI become a felony?",
+        source: "drafted",
+        answer:
+          "Statute 316.193(2)(b)1 makes a third violation a third degree felony where the offense occurs within 10 years after a prior conviction. Note that the statute measures from a prior conviction, not specifically from the second one. Under (2)(b)2, a third violation more than 10 years after a prior conviction is not a felony. Under (2)(b)3, a fourth or subsequent violation is a third degree felony regardless of when the priors occurred.",
+      },
+      {
+        question:
+          "If the criminal case is dropped, does the license suspension go away?",
+        source: "drafted",
+        answer:
+          "Not automatically, and it depends on which suspension it is. Statute 322.2615(14)(b) provides that the disposition of a related criminal proceeding does not affect a suspension imposed for refusing a test. There is one exception running the other way: under Statute 322.2615(16), the department shall invalidate a suspension imposed for an unlawful alcohol level if the person is found not guilty at trial of the underlying Statute 316.193 violation.",
       },
     ],
     relatedGuides: [

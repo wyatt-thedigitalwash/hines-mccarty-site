@@ -170,8 +170,117 @@ A page-level differentiator check is not complete without a cross-statute pass,
 and the cross-statute pass is currently a human step. Do not let "the C9 check
 passed" stand for more than it covers.
 
+### Instance 5: an absence discovered by fetching a long document
+
+**Added 2026-08-13, from the PPP limitations work.**
+
+15 U.S.C. 636 was searched for a limitations provision covering economic injury
+disaster loans. The fetch returned no such provision, and reported affirmatively
+that subsection (b)(2) contained none. **Recording that as "EIDL has no
+limitations provision" would have been wrong**, not because the answer is known
+to be otherwise, but because the method could not support it.
+
+**Why it cannot detect the failure.** Section 636 is one of the longest sections
+in the United States Code. The fetch converts the page to text and truncates it.
+**A document truncated before the relevant provision returns exactly what a
+document genuinely lacking that provision returns: nothing.** The negative result
+is identical in both states, so it carries no information about which one holds.
+This is defect 1 in its purest form, because here the check is not even
+badly built: fetching is the right method, and it simply cannot distinguish
+these two cases without a completeness signal.
+
+**How it was caught, which is the transferable part.** Not by suspecting
+truncation in the abstract. The returned answer **described subsection (b)(2) as
+covering pollution control financing**, and (b)(2) is the economic injury
+disaster loan provision. A description that does not match what the subsection
+actually covers means the reader never reached the subsection and produced its
+content from somewhere else. **A wrong detail inside a negative answer is
+evidence about the fetch, not just about the detail.** The mismatch was
+recoverable only because the question named a specific subsection whose subject
+matter was independently known; a bare "is there a provision about X" would have
+returned a clean-looking no with nothing to check it against.
+
+**The rule that follows.** **A negative finding from a long document states the
+fetch's completeness, or it is recorded UNMET. It is never recorded as an
+absence.** Concretely:
+
+1. Ask for something whose presence is **known**, alongside the thing being
+   looked for. If the known item does not come back, the fetch is incomplete and
+   the negative is worthless.
+2. Prefer a **targeted** retrieval, a subsection-level URL or an anchored
+   fragment, over a whole-section fetch whenever the question is negative.
+   Positive findings survive truncation; negative ones do not.
+3. Where neither is available, **record UNMET with the method's limitation
+   stated**, which is what OPP-01 Section 6A does for EIDL.
+
+**Asymmetry worth stating plainly, because it governs how much care each needs.**
+A **positive** finding from a truncated fetch is still good: the text was found
+and quoted, and truncation elsewhere cannot unfind it. A **negative** finding
+from the same fetch is worthless. The same tool is reliable in one direction and
+silent in the other, so the standard of care differs by the shape of the answer,
+not by the source.
+
+### Instance 6: a check whose output cannot distinguish signal from noise
+
+**Added 2026-08-13, from the page-gate work. Two checks, one defect.**
+
+**The banned-term check.** It grepped the **rendered HTML** for compliance
+violations and reported 67 hits for "leading", 5 for "dropped", and 2 for
+"guarantee". Every "leading" was a Tailwind `leading-*` line-height class.
+"dropped" was a legitimate FAQ question asking whether charges can be dropped.
+The pages were, in fact, entirely clean.
+
+**The reader-question coverage check.** It regex-matched page copy for terms like
+`licens`, `job`, `expung`, `do not`. It reported 4 of 8 pages covering "what to
+do right now" and 4 of 8 covering collateral consequences. **Inspection of the
+matches showed almost none were real**: `licens` matched "licensed under Statute
+790" inside statutory text, `job` matched a description of embezzlement's fact
+pattern, `expung` matched a cross-reference inside 790.23(2), `do not` matched
+ordinary statutory prose. True coverage was **0 of 8** on three of the questions.
+
+**Why neither can detect the failure.** The stated defect in instance 1 is a
+check whose **reassuring** result is available in the failure state. These are
+its mirror: a check whose **alarming** result is available in the clean state,
+and a check whose alarming result is available in the *absent* state. Both fail
+for one reason, and it is the general one: **the output does not discriminate
+between the states the check was built to distinguish.** Direction does not
+matter. A false negative closes a real question; a false positive buries a real
+answer in noise and trains the reader to ignore the check. Neither output is
+evidence.
+
+The second one is the more dangerous of the two, because its noise pointed the
+*flattering* way. It reported the pages as half-covering the reader questions
+when they covered almost none, and a reader who trusted it would have concluded
+the template was closer to the mission than it was.
+
+**The rules that follow.**
+
+1. **Extract the thing being checked, do not scrape a rendering of it.** Markup
+   carries class names, attributes, and framework tokens that collide with
+   English. Copy checks read the data.
+2. **Match on word boundaries, and separate a hard violation from a thing a
+   human should look at.** Bare outcome words are legitimate in process
+   description. "Whether charges can be dropped is decided by the State" is
+   accurate; "we get charges dropped" is a violation. A check that cannot tell
+   those apart should not be the gate.
+3. **Presence of a word is not coverage of a topic.** Answering a reader
+   question is a structural property, not a lexical one, so it is now modelled
+   as one: sections declare which questions they answer, and the check reads the
+   declaration rather than guessing from vocabulary.
+4. **Plant the violation and watch the check fire, every time, in the check
+   itself.** `scripts/check-pages.mts` self-tests each gate against the exact
+   violation it exists to catch **and** against the exact legitimate copy the
+   broken version false-flagged. A gate that cannot be shown firing is not
+   evidence the pages are clean.
+
 ### Where this already applies
 
+- **scripts/check-pages.mts**: every gate carries a fires-on-planted-violation
+  self-test and a stays-silent-on-legitimate-copy control, and the build fails
+  if either stops holding.
+- **docs/research/briefs/OPP-01-ppp-loan-fraud.md** Section 6A: the EIDL search
+  is recorded as inconclusive rather than negative, with the truncation signature
+  stated.
 - **docs/research/briefs/STATE.md**: every barrier run in the remaining-20
   programme states its input set, its derivation, and its three parts
   separately, rather than reporting one aggregate.

@@ -1,5 +1,11 @@
 import Link from "next/link";
-import { type ChargePage, chargeHref, chargeTrail } from "@/lib/site";
+import {
+  type ChargePage,
+  type ChargeSection,
+  type PenaltyRow,
+  chargeHref,
+  chargeTrail,
+} from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Needs from "@/components/Needs";
 import HandledBy from "@/components/attorneys/HandledBy";
@@ -26,6 +32,15 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
   // be wrong: those fields are not missing, they are inapplicable. A marker
   // says "someone still has to write this", which would never become true.
   const isOverview = Boolean(charge.c9Exempt);
+
+  // Section order and heading text are DATA, not JSX. The old template put both
+  // in this file, which made the mission's requirement (open on what matters
+  // most for that charge, headings true of that charge and false of the others)
+  // unexpressible rather than merely unmet. A page with `sections` renders them
+  // in the order the writer chose. Legacy pages fall through to the fixed
+  // sequence below until they are migrated.
+  const sections = charge.sections ?? [];
+  const useSections = sections.length > 0;
 
   return (
     <>
@@ -69,7 +84,13 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="max-w-3xl space-y-16">
-            {!isOverview && (
+            {useSections &&
+              sections.map((section) => (
+                <Block key={section.id} heading={section.heading}>
+                  <SectionBody section={section} />
+                </Block>
+              ))}
+            {!useSections && !isOverview && (
               <>
             {/* 3. What the statute says */}
             <Block heading="What the statute says">
@@ -164,6 +185,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
             )}
 
             {/* 6. How the defense is approached. Process only, never outcome. */}
+            {!useSections && (
             <Block
               heading={
                 isOverview
@@ -184,9 +206,10 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                 </Needs>
               )}
             </Block>
+            )}
 
             {/* 7. Where the case is heard */}
-            {(charge.forum?.length || !isOverview) && (
+            {!useSections && (charge.forum?.length || !isOverview) && (
               <Block heading="Where the case is heard">
                 {charge.forum?.length ? (
                   <div className="space-y-5">
@@ -303,6 +326,150 @@ function Block({
       <div className="mt-6 text-lg leading-relaxed text-charcoal">
         {children}
       </div>
+    </div>
+  );
+}
+
+/**
+ * Renders one section by kind.
+ *
+ * No heading is emitted here. The heading is the section's own, rendered by
+ * Block above, which is the whole point of the redesign: this file no longer
+ * knows what any section is called.
+ */
+function SectionBody({ section }: { section: ChargeSection }) {
+  switch (section.kind) {
+    case "statute":
+      return section.statute ? (
+        <>
+          <p className="font-heading text-sm uppercase tracking-wide text-navy/50">
+            {section.statute.citation}
+          </p>
+          <p className="mt-3">{section.statute.body}</p>
+        </>
+      ) : (
+        <Needs>statute citation and what it says</Needs>
+      );
+
+    case "penalties":
+      return section.penalties?.length ? (
+        <PenaltyTable rows={section.penalties} />
+      ) : (
+        <Needs>degrees, statutory maximums, and offense levels</Needs>
+      );
+
+    case "bullets":
+      return section.bullets?.length ? (
+        <ul className="space-y-3">
+          {section.bullets.map((item) => (
+            <li key={item.slice(0, 40)} className="flex gap-3">
+              <span aria-hidden="true" className="text-bronze">
+                &bull;
+              </span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <Needs>the points this section makes</Needs>
+      );
+
+    case "timeline":
+      // Deliberately a list of intervals, not a numbered stepper. A stepper
+      // implies each stage follows the last on a schedule, and a criminal case
+      // does not work that way. Each row states when, so the page never says
+      // "soon" and never implies a duration it has not verified.
+      return section.steps?.length ? (
+        <ol className="space-y-6">
+          {section.steps.map((step) => (
+            <li key={step.when} className="border-l-2 border-bronze/40 pl-5">
+              <p className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
+                {step.when}
+              </p>
+              <p className="mt-2">{step.what}</p>
+            </li>
+          ))}
+        </ol>
+      ) : (
+        <Needs>the sequence, with a real interval on each step</Needs>
+      );
+
+    case "guidance":
+      return section.guidance?.length ? (
+        <div className="space-y-8">
+          {section.guidance.map((group) => (
+            <div key={group.heading}>
+              <h3 className="font-display text-xl leading-snug">
+                {group.heading}
+              </h3>
+              <ul className="mt-4 space-y-3">
+                {group.items.map((item) => (
+                  <li key={item.slice(0, 40)} className="flex gap-3">
+                    <span aria-hidden="true" className="text-bronze">
+                      &bull;
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      ) : (
+        <Needs>process and rights, never case-specific advice</Needs>
+      );
+
+    case "prose":
+    default:
+      return section.prose?.length ? (
+        <div className="space-y-5">
+          {section.prose.map((paragraph) => (
+            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+          ))}
+        </div>
+      ) : (
+        <Needs>this section</Needs>
+      );
+  }
+}
+
+/* The table carries no min-width. Real content broke the one it had: the note
+   carries the threshold that decides the row, and at 390px a min-width pushed
+   that sentence outside the scroll container. overflow-x-auto stays as a floor
+   for very narrow screens. */
+function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
+  return (
+    <div className="overflow-x-auto">
+      <table className="w-full border-collapse text-left">
+        <thead>
+          <tr className="border-b border-navy/20">
+            {["Degree", "Statutory maximum", "Offense level"].map((h) => (
+              <th
+                key={h}
+                className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60"
+              >
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {rows.map((row) => (
+            <tr key={row.degree + row.maximum} className="border-b border-navy/10">
+              <td className="py-4 pr-6 align-top">{row.degree}</td>
+              <td className="py-4 pr-6 align-top">{row.maximum}</td>
+              <td className="py-4 align-top">
+                {row.offenseLevel ?? "Not applicable"}
+                {row.note && (
+                  <span className="mt-1 block text-sm text-navy/60">
+                    {row.note}
+                  </span>
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }

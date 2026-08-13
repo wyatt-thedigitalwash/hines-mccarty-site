@@ -180,6 +180,90 @@ The wave 1 and wave 2 briefs are written to this rule already: every federal
 brief records the calculator as "not linked" and gives the CPC-does-not-apply
 reason rather than the gate reason.
 
+### 4.3a REDESIGNED 2026-08-13. The human layer sits above the legal layer.
+
+**Read this before 4.3, which it supersedes as the page's organising principle.**
+4.3's section list is retained below because its statutory depth is correct and
+stays; what changed is that it is no longer the page's spine.
+
+#### The audit that forced it
+
+Eight written charge pages, measured rather than eyeballed:
+
+| Finding | Measurement |
+|---|---|
+| Identical section order | **8 of 8.** The only variation is whether the counterpart and forum blocks exist at all |
+| Identical headings | **8 of 8, necessarily.** Every heading was a string literal inside ChargeTemplate.tsx, so a charge-specific heading was not expressible |
+| First screen interchangeable | **Entirely**, below the H1 and the lead. Every page's next heading is "State charge or federal charge?" or "What the statute says" |
+| "What am I facing" | Answered thoroughly, 8 of 8 |
+| "What happens next, and when" | **0 of 8** |
+| "What do I do right now" | **0 of 8** |
+| "What this does to my job, licence, or record" | **1 of 8**, and only because a DUI licence suspension is the charge |
+| "Can it ever be sealed" | **0 of 8** |
+| "Who do I call" | **0 of 8** beyond the fixed closing call to action |
+
+**The cause was architectural, not editorial.** Headings and order lived in JSX.
+No amount of rewriting copy could have produced a charge-specific heading.
+
+#### What the page is now
+
+**Three fixed points, and nothing else fixed.** The direct-answer paragraph in
+the hero, the FAQ block, and the close. Everything between them is an ordered
+list of sections in `src/lib/charge-page.ts`, each carrying its own heading.
+
+**Order follows significance.** The page opens on whatever that charge's reader
+most needs, which is not the same section twice. For a DUI that is the ten-day
+licence clock, because it expires before most people call anyone. For a charge
+whose reader is already indicted it is something else.
+
+**Headings are charge-specific.** A heading equally true of another charge is
+the tell. Checked, including the case where a generic stem wears a charge name.
+
+**The human layer, above the statutory material:**
+
+- **What happens next**, as a real timeline through resolution, with an interval
+  on every step. Never "soon".
+- **Bond and release**, where applicable to the charge.
+- **What to do and not do now.** Process and rights only. Never case-specific
+  advice, and never anything shaped as a prediction.
+- **Collateral consequences**: employment, licensing, immigration, the record.
+- **Sealing and expungement**: eligibility, or plainly that it is unavailable.
+
+**The statutory depth stays**, below that layer. It is the rarest thing on these
+pages and the audit found nothing wrong with it.
+
+**Coverage is enforced, not encouraged.** Sections declare which of the six
+reader questions they answer. A page either answers all six or records an
+explicit `readerNeeds` entry naming what it cannot answer and why. Silence fails
+the build.
+
+#### The structural variation check: it fails honestly, and here is the proof
+
+The requirement was to build one that can fail, or say plainly that it cannot.
+**It can.** `interchangeable()` in scripts/check-pages.mts compares two pages by
+section-order signature and heading overlap, and its self-test feeds it two
+pages differing only in their facts and asserts that it fires. It does, at
+heading overlap 1.00. A second self-test feeds it two genuinely distinct pages
+and asserts silence.
+
+**It is run against every written page, not only against the pair being built.**
+
+**One honest limitation, stated rather than hidden.** The check compares shape
+and heading language. It cannot detect a page that varies its headings while
+saying the same thing underneath, because that is a judgment about meaning. That
+half stays a review requirement and belongs to the adversarial pass, which reads
+the pages rather than their signatures.
+
+#### Migration
+
+The eight pre-existing pages render through the legacy sequence until reworked.
+The checker counts them by name under NOT MIGRATED so the number is visible and
+has to reach zero. Legacy pages are excluded from the heading and coverage
+gates, and that exclusion is the reason the count is printed: an exemption
+nobody can see is an exemption that becomes permanent.
+
+---
+
 ### 4.3 Section-by-section template
 
 Extends the money-page template in WEBSITE-PLAN.md Section 4.
@@ -1406,6 +1490,73 @@ the statutes half named no source capable of satisfying it. C12 was therefore
 unsatisfiable for every federal statutory claim, which blocked seven of the ten
 wave 1 and wave 2 content briefs. The rule was not too strict; it pointed at the
 wrong door.
+
+### C12-B: the byline class. Claims no allowlist can settle.
+
+**Added 2026-08-13**, after the same situation arose four separate times and was
+handled ad hoc each time.
+
+The allowlist above sorts **sources** into acceptable and unacceptable. It
+assumes that for any claim, some acceptable source could settle it. **For a
+whole class of claims that assumption is false.** These are not blocked by a gap
+in the allowlist, and widening the allowlist would not reach them. They are
+outside it **by nature**:
+
+- **Statutory construction.** What operative text *means* where the text does not
+  say. Whether an incorporation clause carries a criminal provision across.
+  Whether a defined term reaches a person the definition does not name.
+- **Case law.** Any proposition whose authority is a holding. **No source on the
+  allowlist publishes holdings**, and none ever will, because the allowlist is
+  built from statute publishers, court administrative sites, and agency policy.
+- **Executive discretion.** Clemency, restoration of rights, and charging
+  practice. Governed by boards and offices exercising judgment, not by a statute
+  that can be quoted against them.
+
+**The fixed rule.**
+
+> A byline-class claim either **appears under an attorney's byline as that
+> attorney's own judgment, with their own citation**, or it **does not appear**.
+> It is never resolved by research, and it is never left implied.
+
+**Both halves are load-bearing.** "Never resolved by research" stops the endless
+second pass: more fetching cannot close these, so a brief that keeps trying is
+burning passes on a question its method cannot answer. **"Never left implied" is
+the half that is easy to miss**: a page can commit to a construction without
+stating it, by writing as though the answer were settled, and that is worse than
+stating it, because the reader cannot see that a judgment was made.
+
+**The safe move is almost always to state the verified text and stop.** W4-03
+does this well: it quotes Rule 6(e)(2)(B)'s list and **does not draw the
+conclusion** about what the omission of witnesses from that list means. The
+reader gets the operative material and the page makes no claim it cannot support.
+
+**A byline-class item is never a research UNMET that a later pass clears.** It is
+a standing routing decision. Mark it, route it to the attorney read, and move on.
+
+#### Current instances, recorded against the category
+
+| Claim | Kind | Brief |
+|---|---|---|
+| Whether 15 U.S.C. 636(a)(36)(W) carries across to paragraph (37) second draw loans via (37)(B) | Construction | OPP-01 |
+| Whether "a borrower" in 636(a)(36)(W) reaches facilitators and organisers | Construction | OPP-01 |
+| Whether each wire is a separate count under 18 U.S.C. 1343 | Case law | W2-07 |
+| Whether and how a Florida felon regains firearm rights | Clemency | W2-03 |
+| What a defendant's prima facie showing under F.S. 776.032(4) requires | Case law | W4-03 |
+| The constructive possession test under F.S. 893.13 | Case law | ST-02 |
+| Whether "exceeds authorized access" reaches misuse of legitimate access | Case law | FED-02 |
+| Whether courts have held no overt act need be proved under 846, 1349, 1956(h) | Case law | FED-06 |
+| Scope of the agreement in a federal conspiracy, and limitations accrual for a continuing offense | Case law | FED-06 |
+| Whether a completed loss to the institution is required under 18 U.S.C. 1344 | Case law | WC-02 |
+| Whether 18 U.S.C. 1348 requires an actual purchase or sale | Case law | WC-03 |
+| Whether self-laundering is chargeable and on what terms | Case law | FED-01 |
+| Whether 922(g)(3) reaches state-authorised medical marijuana use | Case law | FED-07 |
+| The legal effect of Rule 6(e)(2)(B) omitting witnesses from its list | Case law | FED-08 |
+| Whether a death sentence under F.S. 794.011(2)(a) is presently available | Constitutional | W4-01 |
+| Florida sobriety checkpoint law | Case law | ST-04 |
+
+**Sixteen instances across eleven briefs.** The pattern is stable enough to plan
+around: **every charge page in this project should expect at least one**, and the
+attorney read is where they are answered or dropped, not the research pass.
 
 **Scope limit on justice.gov.** justice.gov is allowlisted for **procedure and
 DOJ policy only, and is explicitly not a source for what a statute says.** The
