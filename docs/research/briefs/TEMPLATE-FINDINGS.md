@@ -9,7 +9,7 @@ inside the wave 1 / wave 2 scope:
 
 | Silo | Charge | Wave | Primary query tested |
 |---|---|---|---|
-| State | Grand theft | 2 | grand theft attorney Tampa |
+| State | Grand theft | 1 (promoted from 2 on 2026-08-13) | grand theft attorney Tampa |
 | White-collar | Embezzlement | 1 | embezzlement lawyer Tampa |
 | Federal | Drug trafficking (federal counterpart) | 2 overlap | federal drug trafficking lawyer Tampa |
 
@@ -117,7 +117,7 @@ All verified 2026-08-13. Two patterns, and they point in different directions:
 
 PAA rendered on every primary query. The single most common PAA question in
 the entire set is **"What is the 33 day rule in Florida?"**, which appeared on
-**six** of the ten primary queries (grand theft, embezzlement, drug
+**seven** of the ten primary queries (grand theft, embezzlement, drug
 trafficking, gun charge, domestic violence, money laundering, identity theft).
 It is not a question about any of those charges. Full verbatim PAA sets are
 recorded per page in the Phase B briefs.
@@ -251,7 +251,7 @@ until the gate is cleared, which is strictly better than shipping neither.
 ### CHANGE 3. Add a rule for cross-charge PAA questions. Section 11A does not have one.
 
 **Evidence:** "What is the 33 day rule in Florida?" surfaced as a PAA question
-on six of ten primary charge queries. verified. Under the current FAQ standard,
+on seven of ten primary charge queries. verified. Under the current FAQ standard,
 each of those six pages would face the same tempting question, and Rule 2 of
 Section 11A.2 says questions come from research rather than imagination, which
 this one does. But Rule 1 says each question must be "askable about this charge
@@ -310,6 +310,83 @@ Verified against this pass, no revision needed:
 rule (4.6), the calculator ship gate (5), or the currency policy (9).** Nothing
 in this pass bears on them, and inventing revisions to look productive is
 explicitly out of scope.
+
+---
+
+## 4A. Observed PAA yield across wave 1 and wave 2
+
+Added 2026-08-13 from the brief review. **This is an observed yield, not a rule.**
+It describes what ten briefs produced, in one market, on one day. It is recorded
+so that waves 3 and 4 can weight research effort against evidence rather than
+against the assumption that People Also Ask is the primary source of FAQ content.
+
+### The counts
+
+"Usable" means dispositioned to body copy or to the FAQ block. "FAQ-eligible"
+means it survived C9 at the question level and could be answered completely in
+two sentences.
+
+| Brief | PAA observed | Usable | FAQ-eligible |
+|---|---|---|---|
+| W1-01 Middle District of Florida | 4 | 1 | 0 |
+| W1-02 Embezzlement | 4 | 3 | 1 |
+| W1-03 Grand theft | 4 | 2 | 2 |
+| W2-02 Drug trafficking | 2 | 1 | 1 |
+| W2-03 Gun crimes | 4 | 2 | 2 |
+| W2-04 Domestic violence | 4 | **0** | **0** |
+| W2-05 Money laundering | 4 | 1 | 0 |
+| W2-06 Identity theft | 4 | 2 | 1 |
+| W2-07 Wire fraud | 4 | 3 | 1 |
+| OPP-01 PPP loan fraud | 4 | 3 | 2 |
+| **Total** | **38** | **18** | **10** |
+
+**Roughly one PAA question in four was FAQ-eligible.** Two briefs, the Middle
+District hub and domestic violence, produced no FAQ-eligible question at all from
+their entire PAA set.
+
+### Why the other twenty were refused
+
+| Reason | Count |
+|---|---|
+| The 33-day rule, which belongs to no charge | 7 |
+| Superiority-shaped, unanswerable under Rule 4-7.13(b)(3) | 2 |
+| Fee questions ("how much does a lawyer cost for fraud") | 2 |
+| Victim-side or otherwise wrong audience for a defence page | 2 |
+| Outcome-shaped ("how to beat", "can you beat") | 2 |
+| False premise ("why do most domestic violence cases get dismissed") | 1 |
+| Off-topic noise | 4 |
+
+Three of those categories are now standing rules rather than per-brief judgment
+calls: the 33-day pattern became Section 11A.2 rule 5, the superiority pattern
+became rule 6, and the outcome-shaped pattern was already covered by the
+standing Rule 4-7.13 rail.
+
+### What actually carried the FAQ blocks
+
+**The assistant-question sets.** Across the ten briefs, roughly 34 FAQ slots were
+specified and about 24 of them came from the assistant-question sets rather than
+from PAA. Those sets were drafted by asking how a person would phrase the
+question to an assistant, then checked against C9 and against the two-sentence
+answerability test.
+
+That is the practical finding. **PAA told us what Google surfaces. It did not
+tell us what to write.** The questions that passed C9, answered completely in two
+sentences, and were genuinely askable only about the charge in question came
+predominantly from the assistant framing.
+
+### What this suggests for waves 3 and 4, stated as a suggestion
+
+Pull PAA for every primary query, because it is cheap, because it is the only
+direct evidence of what Google surfaces, and because the refusals are worth
+recording. But **do not budget research time as though PAA will fill the FAQ
+block.** On this evidence it fills about a quarter of it. Budget the larger share
+for the assistant-question work, which is where the usable questions came from.
+
+**Two caveats that keep this honest.** PAA sets rotate: two different sets were
+observed on the same query on the same day for embezzlement and for grand theft.
+And this is one practice area in one market. A different silo, particularly the
+federal pre-indictment cluster in wave 3, may well yield differently, because its
+searchers ask procedural questions rather than superiority questions.
 
 ---
 

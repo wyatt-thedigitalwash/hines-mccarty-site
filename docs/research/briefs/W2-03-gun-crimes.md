@@ -194,7 +194,7 @@ quoted in W1-02 Section 6: 30 years first degree, 15 second, 5 third.
 | **Overlap sibling** | `/federal-criminal-defense/weapons-gun-offenses`, one link, from the forum section only. C10. |
 | Sideways | Attorney bio via `HandledBy`, blocked on Open Question 2 |
 | Sideways, same silo | `/criminal-defense/grand-theft-defense`, from the stolen-firearm rows. A genuine statutory connection, not a filler link. |
-| Layer 2, specific | The 33-day-rule guide proposed in TOOLS.md |
+| Layer 2, specific | The 33-day-rule **correction** guide (TOOLS.md item 2). Verified 2026-08-13: the popular understanding is wrong, the deadline is 30 days not 33, and release is not dismissal |
 | Layer 2, specific | A 10-20-Life explainer, proposed in TOOLS.md on the strength of the only measurable volume in this cluster |
 | Layer 2, hub | `/resources` |
 | **Not linked yet** | The calculator, pending C1 through C8. |

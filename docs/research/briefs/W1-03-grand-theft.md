@@ -1,10 +1,13 @@
 # BRIEF: Grand theft
 
-Wave 2. `/criminal-defense/grand-theft-defense`. Research date 2026-08-13.
-Outline and source material only, no drafted page copy.
+**Wave 1**, promoted from wave 2 on 2026-08-13.
+`/criminal-defense/grand-theft-defense`. Research date 2026-08-13. Outline and
+source material only, no drafted page copy.
 
-**This is the strongest single opportunity in the wave 1 and wave 2 set.** The
-reasoning is in Section 1.3.
+**This is the strongest single opportunity in the wave 1 and wave 2 set**, which
+is why it was promoted. The reasoning is in Section 1.3 and the sequencing
+decision is recorded in CASES-WE-DEFEND-PLAN.md Section 7.2. It took the wave 1
+slot vacated by PPP loan fraud, now at OPP-01-ppp-loan-fraud.md.
 
 ---
 
@@ -66,7 +69,7 @@ Observed 2026-08-13, Tampa-geolocated, for the primary query.
 | # | Question, verbatim | Body copy or FAQ | Reasoning |
 |---|---|---|---|
 | 1 | "What qualifies as grand theft in Florida?" | **Direct-answer paragraph, then FAQ** | This is the page's whole thesis question. It belongs in item 1 as the extractable passage, and it can be repeated as the lead FAQ only if the FAQ answer adds the $40-from-a-dwelling trap that the opening paragraph will not have room for. If it cannot add that, it stays out of the FAQ. |
-| 2 | "What is the 33 day rule in Florida?" | **Neither. Link out.** | Per TEMPLATE-FINDINGS Change 3. Surfaced on six of ten charge SERPs, belongs to none of them. |
+| 2 | "What is the 33 day rule in Florida?" | **Neither. Link out.** | Per TEMPLATE-FINDINGS Change 3. Surfaced on seven of ten charge SERPs, belongs to none of them. |
 | 3 | "How to beat a grand theft charge in Florida?" | **Neither, as phrased** | Answering a "how to beat" question invites outcome copy, which is the exact line plan Section 4.4 and Rule 4-7.13 draw. The underlying demand is legitimate and is served by template item 4 (what the state has to prove) and item 5 (how the defense is approached), described as process. Recorded so a later writer does not import the phrasing. |
 | 4 | "How much is a grand theft charge in Florida?" | **FAQ** | Ambiguous between value threshold and penalty, and that ambiguity is itself the answer: the amount taken sets the degree, which sets the penalty. Two sentences, then the table. Passes C9. |
 
@@ -137,14 +140,33 @@ what the code permits, never as a prediction.
 
 ## 5. The C9 differentiator, named
 
-**Cover the words "grand theft" and the page is still identifiable, because
-Section 3 carries a value-to-degree-to-offense-level ladder that runs from $750
-to $100,000 and exists in F.S. 812.014 alone, and Section 6 explains a $40
+**Cover the words "grand theft" and the page is still identifiable, because the
+page's subject matter is a value-to-degree ladder that runs from $750 to
+$100,000 and exists in F.S. 812.014 alone, and because Section 6 explains a $40
 threshold that applies only to property taken from a dwelling or its unenclosed
 curtilage.**
 
-Both sections become false under any substituted charge. The page passes on two
+Both become false under any substituted charge. The page passes on two
 independent sections, which is stronger than the C9 minimum of one.
+
+**Cross-brief collision, resolved 2026-08-13. This page keeps the ladder.** The
+embezzlement brief also named the 812.014 value-to-offense-level table as its
+C9 substance, which would have produced two pages built on one table. The ruling
+is in CASES-WE-DEFEND-PLAN.md Section 4.5: **the full table lives once, in the
+Layer 2 offense-level comparison instrument (TOOLS.md item 1), and both charge
+pages link to it rather than reproducing it.**
+
+**Grand theft keeps the value ladder as its subject matter and its C9**, because
+the ladder is what this charge *is*. The dollar figure is the element that
+decides the degree, so a grand theft page that sent the reader elsewhere for it
+would have nothing left. Embezzlement does have something left, and took it: the
+position-of-trust fact pattern in which possession was lawful when it began.
+
+**What this changes in the outline.** Section 3 keeps the value-to-degree
+mapping, which is this page's substance. What it does not reproduce is the full
+level-by-level comparison across other statutes, which is the comparison
+instrument's job. The verified rows stay in Section 6 of this brief as source
+material either way.
 
 ---
 
@@ -228,7 +250,7 @@ the chart and both are exactly the kind of substance plan Section 4.5 asks for.
 | Sideways | Attorney bio via `HandledBy`, blocked on Open Question 2 |
 | Layer 2, specific | `/resources/guides/pretrial-intervention-13th-circuit` (the diversion question drives this page's audience) |
 | Layer 2, specific | `/sentencing/third-degree-felony`, which carries the 1,000/month statewide term |
-| Layer 2, specific | The 33-day-rule guide proposed in TOOLS.md |
+| Layer 2, specific | The 33-day-rule **correction** guide (TOOLS.md item 2). Verified 2026-08-13: the popular understanding is wrong, the deadline is 30 days not 33, and release is not dismissal |
 | Layer 2, hub | `/resources` |
 | **Not linked yet** | Sentencing calculator at `/sentencing/florida-criminal-punishment-code`. The offense-level column ships with its numbers; the link waits for C1 through C8. This page is the single largest beneficiary of that gate clearing. |
 

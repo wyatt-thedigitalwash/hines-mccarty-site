@@ -211,7 +211,7 @@ Both addresses are verified.
 | Up, silo hub | `/criminal-defense` |
 | **Overlap sibling** | `/federal-criminal-defense/drug-trafficking`, one link, from the forum section only. Required by C10. Already modelled in the `counterpart` field in src/lib/site.ts. |
 | Sideways | Attorney bio via `HandledBy`, blocked on Open Question 2 |
-| Layer 2, specific | The 33-day-rule guide proposed in TOOLS.md |
+| Layer 2, specific | The 33-day-rule **correction** guide (TOOLS.md item 2). Verified 2026-08-13: the popular understanding is wrong, the deadline is 30 days not 33, and release is not dismissal |
 | Layer 2, specific | `/sentencing/florida-criminal-punishment-code` hub page, for the multiplier explanation, as a text link to the hub rather than the calculator |
 | Layer 2, hub | `/resources` |
 | **Not linked yet** | The calculator itself, pending C1 through C8. |

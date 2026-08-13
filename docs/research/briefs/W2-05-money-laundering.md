@@ -196,7 +196,7 @@ W1-02 Section 6.
 | Sideways | Attorney bio via `HandledBy`, blocked on Open Question 2 |
 | Sideways, same silo | `/white-collar-defense/embezzlement`, because the level-7-versus-level-4 comparison in Section 6 is a genuine cross-page fact |
 | Sideways, other silo | `/criminal-defense/drug-trafficking-defense`, since money laundering counts most often attach to drug cases |
-| Layer 2, specific | The 33-day-rule guide proposed in TOOLS.md |
+| Layer 2, specific | The 33-day-rule **correction** guide (TOOLS.md item 2). Verified 2026-08-13: the popular understanding is wrong, the deadline is 30 days not 33, and release is not dismissal |
 | Layer 2, hub | `/resources` |
 | **Not linked yet** | The calculator, pending C1 through C8. This page has the strongest argument for it of any in the set. |
 

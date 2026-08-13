@@ -207,7 +207,7 @@ maxima quoted in W1-02 Section 6.
 | Sideways, same silo | `/criminal-defense/battery-defense`, since the relationship element is what separates the two pages. A genuine statutory connection. |
 | Sideways, same silo | `/criminal-defense/gun-crimes-defense`, for assistant-question 8, once the federal firearms question is verifiable |
 | Layer 2, specific | `/resources/guides/after-an-arrest`, which is the first-appearance guide and answers assistant-question 7 |
-| Layer 2, specific | The 33-day-rule guide proposed in TOOLS.md |
+| Layer 2, specific | The 33-day-rule **correction** guide (TOOLS.md item 2). Verified 2026-08-13: the popular understanding is wrong, the deadline is 30 days not 33, and release is not dismissal |
 | Layer 2, hub | `/resources` |
 | **Not linked** | The sentencing calculator. Most charges on this page are misdemeanours with no offense level, so the calculator is not the relevant next step even after C1-C8 clear. |
 

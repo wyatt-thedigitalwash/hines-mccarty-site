@@ -13,6 +13,17 @@ first, then how many of the ten briefs the asset serves, then build effort.
 An asset that serves one page ranks below an asset that serves six, at equal
 demand.
 
+**Re-ranked 2026-08-13, and the criterion needs one addition to explain it.**
+The offense-level asset was raised from rank 2 to rank 1 and re-scoped from a
+lookup to a comparison instrument. It does not have the strongest demand
+evidence in the file, and it now ranks above the asset that does. The reason is a
+fourth criterion the first draft did not have: **an asset that other decisions
+now depend on outranks one that is merely wanted.** The comparison instrument is
+where the F.S. 812.014 table lives under the C9 collision ruling in
+CASES-WE-DEFEND-PLAN.md Section 4.5, so two charge pages cannot be drafted as
+specified until it exists. The 33-day guide has more demand behind it and nothing
+waiting on it.
+
 **The gate.** CASES-WE-DEFEND-PLAN.md Section 5.6 sets done-criteria C1 through
 C8 for the sentencing calculator. Section 5.4 is the load-bearing one:
 computation runs entirely in the browser and no user-entered charge data is
@@ -24,17 +35,134 @@ server-side, and nothing that would is recommended.
 
 ---
 
-## 1. The Florida 33-day rule guide
+## 1. The offense-level comparison instrument
 
-**Rank 1. Guide, not a tool. Effort S.**
+**Rank 1, raised from rank 2 on 2026-08-13. Re-scoped from a lookup table to a
+comparison instrument at the same time. Effort S to M.**
+
+### What it is, and why the re-scope matters
+
+The first draft of this recommendation described a lookup: type a charge, see its
+offense level. That is useful and it is not the point.
+
+**The purpose is to make one verified thesis visible: degree does not predict
+offense level.** Everyone in this market publishes degrees. Degrees are what a
+reader can already find, and they are what every competitor page leads with. The
+offense level is what actually drives the scoresheet, it is published by nobody,
+and the relationship between the two is not what a reader would guess. A lookup
+hides that. A comparison shows it.
+
+### What it must show, at minimum
+
+Three comparisons, all verified this session from F.S. 921.0022 and recorded in
+the briefs:
+
+1. **The same dollar figure across three statutes.** Take $19,000. Charged as
+   grand theft under 812.014(2)(c)3. it is a third degree felony at **level 4**.
+   Charged as scheme to defraud under 817.034(4)(a)3. it is a third degree felony
+   at **level 3**. Charged as money laundering under 896.101(5)(a) it is a third
+   degree felony at **level 7**. Same money, same degree, three different levels.
+2. **A second degree felony outranking a first degree felony.** Identity theft
+   under 817.568(7), fraudulent use of the personal identification information of
+   a minor by their own parent or guardian, is a **second degree** felony ranked
+   at **level 9**. First degree grand theft of $100,000 or more, under
+   812.014(2)(a)1., is ranked at **level 7**. The lower degree carries the higher
+   level.
+3. **The trafficking floor.** Every drug trafficking tier in 893.135 starts at
+   **level 7** and runs to level 9. There is no low-level trafficking charge.
+   That single fact explains more about why trafficking is different from every
+   other drug charge than any prose paragraph on any competitor page.
+
+It should also carry the grand theft spread, third degree grand theft running
+from level 2 to level 6 depending on value and on what was taken, because it is
+the cleanest demonstration that one degree is not one exposure.
+
+### Evidence of demand
+
+1. **The data is already in hand and it is the C9 engine for the whole section.**
+   F.S. 921.0022 was fetched and parsed this session; every wave 1 and wave 2
+   state charge has its complete level mapping recorded in its brief.
+2. **No competitor publishes any of it.** content-gaps.md Topic 4 established
+   that "no competitor breaks Criminal Punishment Code content out by offense
+   level," and this session's page grading confirms it holds: zero of three
+   graded competitor pages mentions an offense level, and the longest of them,
+   at roughly 2,900 words, cites no statute at all.
+3. **Statute-shaped search behaviour.** `Florida criminal punishment code
+   scoresheet` returns 70/month at Florida state level, and the related-search
+   block on the grand theft informational query is entirely statute-number
+   queries. keywords.md already grades the level pages "closest to NOW."
+4. **It now resolves a C9 collision.** Per CASES-WE-DEFEND-PLAN.md Section 4.5,
+   the F.S. 812.014 value-to-offense-level table lives here rather than on both
+   the embezzlement and grand theft pages. This asset is what makes that ruling
+   possible, which raises it from useful to structural.
+
+### Does any competitor have one?
+
+**No.** Barklaw and Delgado run calculators, which is a different artefact, and
+neither is Tampa-framed. **This is not the calculator and must not wait for it.**
+A comparison of statutory classifications is separable from a computation of a
+sentence, it is the half that is not gated, and it is the half every charge page
+needs on day one.
+
+### Build effort
+
+**S to M.** The chart is long but structured, and the parse already exists. The
+work is verification and presentation. The re-scope adds design effort, not
+engineering effort: the comparisons have to be laid out so the thesis is legible
+without a paragraph explaining it.
+
+### Rule 4-7 considerations
+
+The output is a statutory classification, not a prediction, which is why it
+clears where the calculator does not. Label it as what F.S. 921.0022 assigns,
+never as "your level." Carry the same no-legal-advice and
+no-attorney-client-relationship notice the calculator would, because a reader can
+form an expectation from any tool on a firm's site regardless of how simple it is
+(Op. 24-1 and Bartholomew, per plan Section 5.3).
+
+**One trap the re-scope introduces.** A comparison inviting a reader to conclude
+their charge is "better" or "worse" than another edges toward outcome framing.
+Present the comparison as what the code assigns and stop. Do not rank the
+comparisons by severity or annotate them with commentary about what a defendant
+should prefer.
+
+### Calculator gate
+
+| Criterion | Assessment |
+|---|---|
+| C1, no predictive framing | **Passes by construction.** The output is a statutory classification. It says what the chart assigns, not what will happen. |
+| C2, states what it cannot know | **Required and easy.** The level is only the primary-offense component; prior record, additional offenses, victim injury, and multipliers are not in it. Say so adjacent to the output. |
+| C3, Rule 4-7.12(d) presentation | **Required.** Equal prominence, close proximity, not fine print, not footer-only. |
+| C4, no-attorney-client notice adjacent | **Required.** |
+| C5, client-side only | **Passes trivially.** A static comparison has no inputs to send. If a filter is added it filters a shipped dataset in the browser and no query string carries a charge. |
+| C6, revision stated by date | **Required.** State the F.S. 921.0022 version, currently the 2025 Florida Statutes. |
+| C7, attorney-reviewed accuracy note | **Required**, and it is a real review: the mapping is checked against the chart, not against this file. |
+| C8, no results, testimonials, "confidential" labels, or implied Bar approval | **Required.** |
+
+All eight are satisfiable without a computation, which is why this ships ahead of
+the calculator rather than behind it. See CASES-WE-DEFEND-PLAN.md Section 5.7 on
+why the mounting pressure to link the calculator is a reason to hold its gate
+rather than relax it.
+
+**No federal page links to this asset**, per the standing rule added to plan
+Section 4.2 on 2026-08-13. The Criminal Punishment Code does not apply to federal
+cases, so the link would be wrong on the merits and stays wrong after C1-C8
+clear.
+
+---
+
+## 2. The Florida 33-day rule guide
+
+**Rank 2, moved down from rank 1 on 2026-08-13 when the comparison instrument was
+raised. The demand evidence below is unchanged and is still the strongest in the
+file. Guide, not a tool. Effort S.**
 
 ### Evidence of demand
 
 **"What is the 33 day rule in Florida?" surfaced as a People Also Ask question
-on six of the ten primary queries in this brief set**: grand theft,
-embezzlement, drug trafficking, gun charge, domestic violence, and money
-laundering. Also observed on identity theft. verified 2026-08-13,
-Tampa-geolocated.
+on seven of the ten primary queries in this brief set**: grand theft,
+embezzlement, drug trafficking, gun charge, domestic violence, money
+laundering, and identity theft. verified 2026-08-13, Tampa-geolocated.
 
 That is the single most repeated question anywhere in the Phase B research, and
 it is more repeated than any charge-specific question by a factor of six. It is
@@ -68,84 +196,93 @@ No computation, no inputs, no output about a reader's liberty, no data of any
 kind leaves the browser because there is nothing to send. C6 still applies in
 spirit: the guide states the rule it implements and the date it was reviewed.
 
-### The one thing that must happen first
+### RESOLVED 2026-08-13. Outcome: common misconception. Build the correction page.
 
-**UNVERIFIED: what the 33-day rule actually is.** It is not defined anywhere in
-the existing research corpus, and this brief set did not verify it. It is
-commonly associated with Fla. R. Crim. P. 3.134 and the filing decision for a
-defendant held in custody, but **that association is inferred and must not be
-published**. Verify against flcourts.gov or the Florida Bar's published rules,
-both of which are already on the CASES-WE-DEFEND-PLAN.md Section 10.3 allowlist.
-This is a single fetch and it unblocks the highest-demand asset found in the
-whole session.
+The first draft recorded this as UNVERIFIED and set three possible outcomes:
+genuine rule, common misconception, or unverifiable. **The second obtains**, and
+it is the most valuable of the three, because a correction page has something to
+say that no competitor page is saying.
 
----
+Verified from The Florida Bar's published compilation of the Florida Rules of
+Criminal Procedure, updated July 13, 2026, Rule 3.134 at pp. 76-77:
+https://www-media.floridabar.org/uploads/2026/07/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-1.pdf
 
-## 2. The offense-level lookup table
+> "RULE 3.134. TIME FOR FILING FORMAL CHARGES
+> (a) Defendants in Custody.
+> (1) The state must file formal charges on defendants in custody by information, or indictment, or in the case of alleged misdemeanors by whatever documents constitute a formal charge, within 30 days from the date on which defendants are arrested or from the date of the service of capiases on them.
+> (2) If the defendants remain uncharged, the court on the 30th day and with notice to the state must:
+> (A) Order that the defendants automatically be released on their own recognizance on the 33rd day unless the state files formal charges by that date; or
+> (B) If good cause is shown by the state, order that the defendants automatically be released on their own recognizance on the 40th day unless the state files formal charges by that date.
+> (3) In no event may any defendants remain in custody beyond 40 days unless they have been formally charged with a crime.
+> (b) Defendants Not in Custody.
+> (1) The state must file formal charges on defendants on pretrial release by information or indictment ... within 60 days ... the court on the 60th day and with notice to the state must:
+> (A) Order that the defendants automatically be released on their own recognizance on the 63rd day unless the state files formal charges by that date; or
+> (B) If good cause is shown by the state, the Court may continue the defendant on pretrial release for up to an additional 30 days unless the state files formal charges.
+> (2) On the expiration of the time period prescribed in subsection (1), and on motion with notice to the state, the court shall order that the defendant be released from all requirements of bail and all conditions of pretrial release unless the defendant has been formally charged with a crime."
 
-**Rank 2. Static reference table, arguably a tool. Effort S to M.**
+Subdivision (b) is **new as of July 1, 2025**, added by In re: Amendments to
+Florida Rule of Criminal Procedure 3.191, No. SC2022-1123 (Fla. Mar. 13, 2025),
+411 So. 3d 385.
 
-### Evidence of demand
+**Method note.** Three independent research angles, then two adversarial
+verifiers instructed to refute and to default to refuted if uncertain. **Neither
+could refute it**, and both independently re-derived the rule text from the Bar
+compilation. One verifier confirmed mechanically that a case-insensitive search
+of the full compilation returns **zero** hits for "33 day" or "33-day" and
+**exactly one** hit for "33rd," in 3.134(a)(2)(A).
 
-Three strands, all verified this session:
+### What is actually wrong with the popular understanding
 
-1. **The data is already in hand and it is the C9 engine for the whole
-   section.** F.S. 921.0022 was fetched and parsed this session, and every wave
-   1 and wave 2 state charge now has its complete level mapping recorded in the
-   briefs: theft levels 1 to 8, trafficking 7 to 9, money laundering 7 to 9,
-   identity theft 4 to 9, felon in possession 5 and 7, communications fraud 3,
-   5 and 7, battery offences 2, 6 and 7.
-2. **No competitor publishes it.** content-gaps.md Topic 4 established that "no
-   competitor breaks Criminal Punishment Code content out by offense level."
-   This session's page-level grading confirms it holds: zero of three graded
-   competitor pages mentions an offense level, and the longest of them, at
-   roughly 2,900 words, cites no statute at all.
-3. **Statute-shaped search behaviour.** `Florida criminal punishment code
-   scoresheet` returns 70/month at Florida state level; the related-search block
-   on the grand theft informational query is entirely statute-number queries
-   (`Fss 812.014 grand theft`, `Petit theft statute`, `Fss grand theft`).
-   verified 2026-08-13. keywords.md already grades the level pages "closest to
-   NOW."
+Four things, and they are the page's content:
 
-### Does any competitor have one?
+1. **The deadline is 30 days, not 33.** Day 33 is the earliest automatic release
+   date the court sets on day 30. The state can still file on days 31, 32 or 33
+   and moot the release entirely.
+2. **The good-cause escape hatch is always omitted.** On the state's showing of
+   good cause the release date moves to the 40th day, so 33 is not a ceiling on
+   uncharged custody at all. Forty is.
+3. **Release is not dismissal.** This is the damaging one. The words "dismiss,"
+   "dismissal," "drop," "discharge" and "bar" appear nowhere in Rule 3.134. Every
+   operative verb is "released." The state may file afterward and prosecute
+   normally; the real outer limit is the statute of limitations at F.S. 775.15,
+   which runs in years, not days.
+4. **Almost the entire competing corpus is now stale.** It describes only the
+   in-custody track and predates subdivision (b). **For most arrestees, meaning
+   anyone who bonded out, the operative numbers are now 60 and 63, not 30 and
+   33.**
 
-**No.** Barklaw and Delgado run calculators, which is a different artefact, and
-neither is Tampa-framed. **This is not the same as the calculator and should not
-wait for it.** That is the central recommendation here: a lookup that answers
-"what level is this charge" is separable from a computation that answers "what
-does that score," it is the half that is not gated, and it is the half every
-charge page needs on day one.
+### Why this is now a better asset than when it was ranked on demand alone
 
-### Build effort
+The demand evidence was already the strongest in the file: the question surfaced
+on seven of the ten primary queries. What the verification adds is that **the
+answer everyone else is giving is wrong, and the freshest fact in it is thirteen
+months old and unrepresented.** A correction page with a current-as-of date beats
+a corpus that is both inaccurate and stale, which is a stronger position than
+merely being first to a question nobody answered.
 
-**S to M.** The chart is long but it is structured data, and the parse already
-exists from this session. The work is verification and presentation, not
-engineering.
+### Revised Rule 4-7 considerations
 
-### Rule 4-7 considerations
+The first draft called this low risk. **It is not.** Publishing the number
+without the consequence reproduces exactly the harm identified above, and a page
+that leaves a reader believing release means the case is over could lead someone
+to stop preserving evidence or to talk to a detective. Requirements:
 
-The output is a statutory classification, not a prediction. That is the whole
-reason it clears where the calculator does not. It must be labelled as what F.S.
-921.0022 assigns, never as "your level," and it must carry the same
-no-legal-advice and no-attorney-client-relationship notice the calculator
-carries, because a reader can form an expectation from any tool on a firm's site
-regardless of how simple it is (Op. 24-1 and Bartholomew, per plan Section 5.3).
+- The release-is-not-dismissal correction goes **above the fold**, not in a
+  footnote.
+- A current-as-of date and an explicit note of the July 1, 2025 amendment.
+- Describe what the rule provides. Do not characterise what it will do in any
+  particular case.
 
-### Calculator gate
+### One open verification before publish
 
-| Criterion | Assessment |
-|---|---|
-| C1, no predictive framing | **Passes by construction.** The output is a statutory classification. It says what the chart assigns, not what will happen. |
-| C2, states what it cannot know | **Required and easy.** The level is only the primary-offense component; prior record, additional offenses, victim injury, and multipliers are not in it. Say so adjacent to the output. |
-| C3, Rule 4-7.12(d) presentation | **Required.** Equal prominence, close proximity, not fine print, not footer-only. |
-| C4, no-attorney-client notice adjacent | **Required.** |
-| C5, client-side only | **Passes trivially.** A static table has no inputs to send. If a search box is added it filters a shipped dataset in the browser and no query string carries a charge. |
-| C6, revision stated by date | **Required.** State the F.S. 921.0022 version, currently the 2025 Florida Statutes. |
-| C7, attorney-reviewed accuracy note | **Required**, and it is a real review: the mapping must be checked against the chart, not against this brief. |
-| C8, no results, testimonials, "confidential" labels, or implied Bar approval | **Required.** |
-
-All eight are satisfiable without a computation, which is why this ships ahead
-of the calculator rather than behind it.
+One research angle flagged that the consolidated Rules PDF hosted on
+flcourts.gov carries a January 1, 2017 footer and **does not contain the amended
+(a)/(b) structure**, so it is stale for this rule and must not be cited as
+current. The controlling text is the Bar's July 13, 2026 compilation quoted
+above, which both verifiers retrieved successfully. **Have a person open that
+Bar URL in a browser and eyeball Rule 3.134 before publish**, since one agent hit
+a Cloudflare 403 on it and the two that succeeded were reading the same document
+independently rather than a second source.
 
 ---
 

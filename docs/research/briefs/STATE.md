@@ -10,18 +10,27 @@ Last updated 2026-08-13. Nothing committed. No push, no deploy.
 
 ## Deliverable status
 
+**Re-sequenced 2026-08-13 (CASES-WE-DEFEND-PLAN.md Section 7.2).** Grand theft
+moved into wave 1 and PPP loan fraud moved out to opportunistic. Two files were
+renamed with `git mv` so the filenames match the sequence:
+`W2-01-grand-theft.md` became `W1-03-grand-theft.md`, and
+`W1-03-ppp-loan-fraud.md` became `OPP-01-ppp-loan-fraud.md`. **The wave 2
+numbering therefore starts at W2-02 with no W2-01**, which is deliberate: the
+remaining files kept their numbers so that references to them elsewhere still
+resolve.
+
 | File | Status | Passes used | Notes |
 |---|---|---|---|
 | TEMPLATE-FINDINGS.md | **DONE** | 1 of 2 | 3 template changes recommended, 8 items confirmed unchanged. Two corrections to the standing research caveats recorded. |
-| W1-01-middle-district-florida-hub.md | **DONE, with an open scope question** | 1 of 2 | Not a level 3 charge page. See Q1. |
-| W1-02-embezzlement.md | **DONE** | 1 of 2 | Strongest source position in wave 1. |
-| W1-03-ppp-loan-fraud.md | **DONE, grade downgraded** | 1 of 2 | Revised from NOW to 6-12mo on new SERP evidence. Publish-blocked on the limitations period. |
-| W2-01-grand-theft.md | **DONE** | 1 of 2 | Strongest single opportunity in the set. |
+| W1-01-middle-district-florida-hub.md | **DONE** | 1 of 2 | Not a level 3 charge page. Scope resolved by D1. |
+| W1-02-embezzlement.md | **DONE, C9 revised** | 1 of 2 | Strongest source position in wave 1. C9 moved off the shared 812.014 table onto the position-of-trust fact pattern. |
+| OPP-01-ppp-loan-fraud.md | **DONE, demoted out of wave 1** | 1 of 2 | Revised from NOW to 6-12mo. Publish-blocked on the limitations period. Deferred, not cancelled: Section 7.2. |
+| W1-03-grand-theft.md | **DONE, promoted into wave 1** | 1 of 2 | Strongest single opportunity in the set. Keeps the 812.014 value ladder under the C9 collision ruling. |
 | W2-02-drug-trafficking.md | **DONE** | 1 of 2 | Two publish blockers, both single fetches. |
 | W2-03-gun-crimes.md | **DONE** | 1 of 2 | Carries the best verified C9 fact in the set. |
 | W2-04-domestic-violence.md | **DONE** | 1 of 2 | Highest measurable local volume. Three publish blockers. |
 | W2-05-money-laundering.md | **DONE** | 1 of 2 | Publish-blocked on 896.101(3). |
-| W2-06-identity-theft.md | **DONE, slug does not exist** | 1 of 2 | See Q3. Two publish blockers. |
+| W2-06-identity-theft.md | **DONE** | 1 of 2 | Slug added by D3. Two publish blockers. |
 | W2-07-wire-fraud.md | **DONE** | 1 of 2 | Second-weakest source position. Publish-blocked on 817.034. |
 | TOOLS.md | **DONE** | 1 of 1 | 6 recommendations ranked, 5 exclusions stated. |
 
@@ -185,7 +194,7 @@ blocked, only not yet fetched.
 | W2-06 identity theft | F.S. 817.568(2)(b) and the definition of "personal identification information" |
 | W2-07 wire fraud | F.S. 817.034 operative text |
 | W2-01 grand theft | F.S. 772.11 civil theft; F.S. 812.014(3) petit theft |
-| TOOLS.md item 1 | Whatever rule the "33 day rule" actually is, from flcourts.gov or the Bar's published rules |
+| ~~TOOLS.md item 2, the 33-day rule~~ | **RESOLVED 2026-08-13. Outcome: common misconception.** Fla. R. Crim. P. 3.134, verified from The Florida Bar's compilation updated 2026-07-13. The deadline is 30 days, not 33; day 33 is the automatic ROR release date; good cause moves it to day 40; release is not dismissal; and subdivision (b), new as of 2025-07-01, makes the number 60 and 63 for anyone out on pretrial release. Two adversarial verifiers failed to refute it. The guide becomes a **correction page**. The outbound links in the seven briefs that point at it **stay**. Full record in TOOLS.md item 2. |
 | All briefs, one fetch serving four | USSG 2B1.1 loss table from ussc.gov. Two attempts failed this session, one 404 and one redirect loop; the loss-calculation primer at ussc.gov/guidelines/primers/loss-calculation was returned live and is the recommended retry target. |
 
 Two items remain blocked on something other than a fetch:
@@ -220,3 +229,18 @@ different PAA sets were observed on the same query on the same day for
 embezzlement and for grand theft, and both are recorded in their briefs. No PAA
 set should be treated as canonical, and none was used as the sole justification
 for a content decision.
+
+**Observed PAA yield, recorded in the method notes so later waves can budget
+against it.** Across the ten briefs, **38 PAA questions were observed, 18 were
+usable, and 10 were FAQ-eligible.** Two briefs produced no FAQ-eligible question
+at all. The FAQ blocks were carried predominantly by the assistant-question
+sets, roughly 24 of about 34 specified slots. The twenty refusals break down as:
+the 33-day rule 7, superiority-shaped 2, fee questions 2, wrong-audience 2,
+outcome-shaped 2, false premise 1, off-topic 4. Full table and the per-brief
+counts are in TEMPLATE-FINDINGS.md Section 4A.
+
+**This is an observed yield, not a rule.** It describes one practice area in one
+market on one day. The practical consequence for waves 3 and 4: pull PAA for
+every primary query because it is cheap and the refusals are worth recording,
+but do not budget research time as though PAA will fill the FAQ block, because on
+this evidence it fills about a quarter of it.

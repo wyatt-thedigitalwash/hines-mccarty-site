@@ -66,7 +66,7 @@ Observed 2026-08-13, Tampa-geolocated, DataForSEO, for the primary query.
 | 1 | "How hard is it to prove embezzlement?" | **Body copy**, in the elements section | This is the elements question wearing plain clothes. Answering it in the FAQ would duplicate template item 4. In body copy it does the conversion work plan Section 4.3 item 4 describes: it reframes the reader's situation from hopeless to contested. Rule 4-7.13 rail: describe what the state must prove, never suggest the state will fail. |
 | 2 | "How much embezzlement is a felony in Florida?" | **FAQ, and it is the page's lead FAQ** | Passes C9 outright. The answer is a dollar threshold that exists only in the theft statute, and it is the question the searcher most wants answered in one line. Answer completely in two sentences per Section 11A.2 rule 4, then let the table carry the detail. |
 | 3 | "Can you avoid jail time for embezzlement?" | **Body copy only, in the penalties section, and carefully** | Real demand, but it is an outcome question and the FAQ block is the worst place to answer one. Answer it structurally, not predictively: F.S. 775.082(10) and the 22-point nonstate-prison provision, and the fact that the scoresheet governs. Never "you can avoid jail." Rule 4-7.13(b)(1) permits may, could, designed to; it does not permit will. |
-| 4 | "What is the 33 day rule in Florida?" | **Neither. Link out.** | Per TEMPLATE-FINDINGS Change 3, this question surfaced on six of ten charge SERPs and belongs to no charge. It goes to a Layer 2 guide and this page links there. Recorded in TOOLS.md. |
+| 4 | "What is the 33 day rule in Florida?" | **Neither. Link out.** | Per TEMPLATE-FINDINGS Change 3, this question surfaced on seven of ten charge SERPs and belongs to no charge. It goes to a Layer 2 guide and this page links there. Recorded in TOOLS.md. |
 
 **A second PAA set was observed on the same query in the live browser session
 the same day:** "How much embezzlement is a felony in Florida?", "How hard is
@@ -128,15 +128,37 @@ process copy, not advice, and it is the most useful paragraph on the page.
 
 ## 5. The C9 differentiator, named
 
-**Cover the word "embezzlement" and the page is still identifiable, because
-Section 2 explains that the charge does not exist under that name in Florida
-and is prosecuted as theft under F.S. 812.014, and Section 3 carries a
-dollar-threshold-to-offense-level table that exists in no other statute.**
+**REVISED 2026-08-13 after a cross-brief C9 collision.** The first draft named
+the F.S. 812.014 value-to-offense-level table as this page's C9 substance. So
+did the grand theft brief. Both passed the cover-the-name test individually and
+would have produced two pages built on one table. The collision and its ruling
+are recorded in CASES-WE-DEFEND-PLAN.md Section 4.5.
 
-Swap in any other charge and Section 2 becomes false: no other page in the
-white-collar silo turns on the absence of its own statute. Section 3 is
-likewise false for every non-theft charge, since the value tiers and the
-$40-from-a-dwelling row belong to 812.014 alone.
+**The ruling.** The table lives once, in the Layer 2 offense-level comparison
+instrument (TOOLS.md item 1), and this page links to it rather than reproducing
+it. Grand theft keeps the value ladder, because the ladder is what that charge
+is. This page keeps the better half of its original claim.
+
+**The C9, as revised. Cover the word "embezzlement" and the page is still
+identifiable, because Section 2 explains that no Florida offense exists under
+that name and the conduct is prosecuted as theft under F.S. 812.014, and because
+the page turns throughout on a fact pattern in which possession was lawful and
+authorised at the moment it began.**
+
+That second half is the stronger differentiator and it was underweighted in the
+first draft. Every other theft-family page on this site describes a taking. This
+page describes a person who was **given** the property, lawfully, and is accused
+of what happened next. That is why the contested element here is intent to
+deprive rather than the taking, why the restitution question arrives on day one,
+why the reader is usually still employed or newly fired rather than arrested,
+and why the aggregation-over-time problem exists at all. None of that is true of
+grand theft, and none of it survives swapping in another charge.
+
+**What this changes in the outline.** Section 3's table becomes a short
+degree-and-maximum table with a link out to the Layer 2 comparison instrument
+for the offense levels, rather than the full ladder. Sections 4, 5 and the
+restitution section carry more weight. The page gets shorter and more distinct
+at the same time, which is the right trade.
 
 ---
 
@@ -229,7 +251,7 @@ page in this market mentions it.
 | Overlap sibling | **None as built.** site.ts has no federal embezzlement page. If federal exposure is added later it belongs under `/federal-criminal-defense/white-collar-corporate-fraud`, and this page would then need the plan Section 4.6 forum section and cross-link. Recorded in STATE.md. |
 | Sideways | Attorney bio via `HandledBy`, blocked on Open Question 2 |
 | Layer 2, specific | `/resources/guides/professional-license-consequences` |
-| Layer 2, specific | The 33-day-rule guide proposed in TOOLS.md |
+| Layer 2, specific | The 33-day-rule **correction** guide (TOOLS.md item 2). Verified 2026-08-13: the popular understanding is wrong, the deadline is 30 days not 33, and release is not dismissal |
 | Layer 2, hub | `/resources` |
 | **Not linked yet** | Sentencing calculator. The offense-level number ships; the link waits for C1-C8. |
 

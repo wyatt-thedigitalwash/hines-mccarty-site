@@ -1,7 +1,19 @@
 # BRIEF: PPP loan fraud
 
-Wave 1, page 3 of 3. Research date 2026-08-13. Outline and source material only,
-no drafted page copy.
+**Opportunistic. Demoted out of wave 1 on 2026-08-13.** Research date
+2026-08-13. Outline and source material only, no drafted page copy.
+
+**Status: deferred, not cancelled.** This brief stands as written and is
+complete. Build it only after the C12 allowlist work lands and only if capacity
+allows. The decision and its four reasons are recorded in
+CASES-WE-DEFEND-PLAN.md Section 7.2: the page downgraded itself from NOW to
+6-12mo on new SERP evidence, it has the weakest source position of the ten
+briefs, it is publish-blocked on the limitations period that is its entire
+reason to exist, and its shelf life is decaying. Grand theft took its wave 1
+slot and is now at W1-03-grand-theft.md.
+
+**Nothing here needs re-researching except the limitations period**, which was
+always the blocker rather than something this pass failed to reach.
 
 **Slug RESOLVED 2026-08-13 (DECISIONS.md D3): `/white-collar-defense/ppp-loan-fraud`.**
 Added to src/lib/site.ts. Not folded into bank fraud, because the whole value of
