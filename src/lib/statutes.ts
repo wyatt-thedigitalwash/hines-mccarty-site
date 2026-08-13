@@ -115,7 +115,20 @@ export const STATUTES: Record<string, StatuteTable> = {
     title: "Theft",
     url: "https://www.flsenate.gov/Laws/Statutes/2025/812.014",
     fetched: "2026-08-13",
-    completeness: "whole-section",
+    // WAS "whole-section". That was FALSE, and recording it turned OFF the
+    // exhaustive-claim guard in check-claims.mts for this statute, because that
+    // rule is gated on `completeness !== "whole-section"`. A field describing a
+    // FETCH was standing in for the fact of having READ the section, and the
+    // effect was to disable the one check that guards "only" and "never"
+    // sentences about the very statute that has been wrong four times.
+    //
+    // The reading covered the value axis of (2)(c), (2)(d), (2)(e), (2)(f) and
+    // (3) thoroughly and read past paragraphs (a) and (b) as if "value tier"
+    // were all they contained. It is not: both grade by ITEM as well, and one of
+    // those items has no lower dollar bound at all.
+    completeness: "partial",
+    unread:
+      "812.014(2)(a)3 in full, the riot and emergency reclassification clauses in (2)(b) and (2)(c), and 812.014(6) coordinating the activities of others",
     rows: [
       {
         cite: "812.014(2)(a)",
@@ -208,6 +221,75 @@ export const STATUTES: Record<string, StatuteTable> = {
         quote:
           "It is petit theft of the first degree and a misdemeanor of the first degree ... if the property stolen is valued at less than $40 and is taken from a dwelling",
       },
+      // ---- ITEM-GRADED rows inside paragraphs (a) and (b).
+      // These are the rows whose absence made the bottom of the ladder wrong.
+      // (2)(b)2 in particular has NO lower bound, so the page's "under $100 is
+      // sixty days" row was false for any cargo theft, by fifteen years.
+      {
+        cite: "812.014(2)(b)2.",
+        scope: "item",
+        min: null,
+        max: 50000,
+        degree: "second degree felony",
+        level: 7,
+        trigger:
+          "cargo that has entered the stream of interstate or intrastate commerce, at ANY value below $50,000",
+        quote:
+          "If the property stolen is cargo valued at less than $50,000 that has entered the stream of interstate or intrastate commerce from the shipper's loading platform to the consignee's receiving dock",
+      },
+      {
+        cite: "812.014(2)(a)2.",
+        scope: "item",
+        min: 50000,
+        max: null,
+        degree: "first degree felony",
+        level: 8,
+        trigger: "cargo in the stream of commerce valued at $50,000 or more",
+        quote:
+          "If the property stolen is cargo valued at $50,000 or more that has entered the stream of interstate or intrastate commerce from the shipper's loading platform to the consignee's receiving dock",
+      },
+      {
+        cite: "812.014(2)(a)1.",
+        scope: "item",
+        min: null,
+        max: null,
+        degree: "first degree felony",
+        level: 7,
+        trigger: "a semitrailer deployed by a law enforcement officer, at any value",
+        quote:
+          "If the property stolen is valued at $100,000 or more or is a semitrailer that was deployed by a law enforcement officer",
+      },
+      {
+        cite: "812.014(2)(b)3.",
+        scope: "item",
+        min: 300,
+        max: null,
+        degree: "second degree felony",
+        level: 7,
+        trigger: "emergency medical equipment",
+        quote: "emergency medical equipment, valued at $300 or more",
+      },
+      {
+        cite: "812.014(2)(b)4.",
+        scope: "item",
+        min: 300,
+        max: null,
+        degree: "second degree felony",
+        level: 7,
+        trigger: "law enforcement equipment",
+        quote: "law enforcement equipment, valued at $300 or more",
+      },
+      {
+        cite: "812.014(2)(e)3.",
+        scope: "prior",
+        min: null,
+        max: null,
+        degree: "third degree felony",
+        level: 4,
+        trigger: "under $40 from a dwelling, with two or more prior theft convictions",
+        quote:
+          "A person who commits a violation of subparagraph 1. and who has previously been convicted two or more times of any theft commits a felony of the third degree.",
+      },
       // ---- non-value triggers
       {
         cite: "812.014(2)(d)3.",
@@ -215,6 +297,7 @@ export const STATUTES: Record<string, StatuteTable> = {
         min: null,
         max: null,
         degree: "second degree felony",
+        level: 5,
         trigger: "taken from more than 20 dwellings",
         quote: "Property taken from more than 20 dwellings",
       },
@@ -244,6 +327,7 @@ export const STATUTES: Record<string, StatuteTable> = {
         min: null,
         max: null,
         degree: "second degree felony",
+        level: 7,
         trigger: "a firearm, where the offender has a prior conviction for grand theft of a firearm",
         quote:
           "It is grand theft of the second degree and a felony of the second degree ... if the property stolen is a firearm and the offender has previously been convicted of grand theft of a firearm under subparagraph (c)5.",

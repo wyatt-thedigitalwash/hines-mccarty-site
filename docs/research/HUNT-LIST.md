@@ -447,8 +447,82 @@ docs/build/CASES-WE-DEFEND-PLAN.md Section 4.3a where a later reader will meet
 it, rather than into a commit message where they will not. **A finding you
 overrule should be easier to find afterwards than one you act on.**
 
+### Instance 10: a field describing the WORK standing in for the FACT
+
+**Added 2026-08-13. The most expensive instance in this file, because the
+mistake was inside the fix for instance 8.**
+
+Instance 8 concluded that six gates all checked **form** and none checked
+**fact**, and the response was to build a fact table: `src/lib/statutes.ts`,
+holding F.S. 812.014 as verified rows, each with its quoted source. That was the
+right move. Then the table was given a field:
+
+```ts
+completeness: "whole-section" | "partial"
+```
+
+and F.S. 812.014 was recorded `"whole-section"`.
+
+**It was not.** The reading had covered the value axis thoroughly and had read
+paragraphs (a) and (b) as though "value tier" were all they contained. They also
+grade by ITEM, and one of those items has **no lower dollar bound at all**:
+
+> **812.014(2)(b)2.** "If the property stolen is cargo valued at less than
+> $50,000 that has entered the stream of interstate or intrastate commerce ...
+> the offender commits grand theft in the second degree"
+
+The page's bottom row told a reader with a sub-$100 theft that they faced **60
+days**. For cargo, the statute says **fifteen years**. Nine provisions were
+missing from a table described in the sourcing record as "the complete grading
+structure, verified".
+
+**The mechanism, and why it is worse than an ordinary omission.** The
+exhaustive-claim rule in `check-claims.mts` is gated on that field:
+
+```ts
+if (EXHAUSTIVE.test(s) && degrees.size && t.completeness !== "whole-section")
+```
+
+Recording `"whole-section"` **turned the rule off** for the one statute this
+project has been wrong about four times. The guard against "only" and "never"
+sentences was disabled by a declaration that the reading was complete, which is
+exactly the claim such sentences make. **The field asserting completeness
+switched off the check that polices claims of completeness.**
+
+**The general defect.** `completeness` is not a fact about the statute. It is a
+claim about the WORK: how thoroughly someone read. Recording a property of the
+work in the same structure as properties of the world, and then letting checks
+depend on it, means a check can be disabled by an optimistic self-assessment.
+Instance 8 said the gates checked form and not fact; the correction built a fact
+table and then admitted one form field into it, and that field was the one that
+mattered.
+
+**The rules that follow.**
+
+1. **Never gate a check on a self-reported measure of the work.** If a rule
+   should run, run it. `completeness` now defaults to the safe value, and the
+   guard runs unless someone can name what was read.
+2. **A completeness claim needs the complement, not the content.** "I read the
+   whole section" is unfalsifiable from inside. `unread` now carries the list of
+   what is NOT covered, which is checkable against the source and embarrassing to
+   leave empty falsely.
+3. **When you read a paragraph for one thing, read the paragraph.** Both
+   omissions came from opening (2)(a) and (2)(b) to confirm a dollar tier and
+   stopping at the subparagraph that answered the question. The value tier was
+   subparagraph 1 in each; the item grading was subparagraphs 2 to 4.
+4. **The pattern across instances 6 through 10 is one pattern.** Every fix for a
+   verification defect introduced a new verification defect, each subtler than
+   the last: a check that could not fail, a check an upstream gate made
+   unreachable, six form checks mistaken for a fact check, and now a fact table
+   with a form field in its guard. **Infrastructure built to produce confidence
+   produces confidence whether or not it is warranted**, and that is the thing to
+   watch for, not any of the individual bugs.
+
 ### Where this already applies
 
+- **src/lib/statutes.ts**: F.S. 812.014 is recorded `partial` with `unread`
+  naming (2)(a)3, the riot and emergency reclassification clauses, and 812.014(6).
+  23 rows, including the cargo, semitrailer and equipment rows that were missing.
 - **scripts/check-pages.mts**: the structural check now measures order rather
   than multiset, and its banned-term section prints its own limits on every run
   because a green line there is instance 8 in the present tense.

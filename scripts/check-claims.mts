@@ -114,7 +114,16 @@ function auditSentence(s: string, statute: string): Problem[] {
   const scope = scopeOf(s);
 
   // 2. Exhaustive claim over a partial reading.
-  if (EXHAUSTIVE.test(s) && degrees.size && t.completeness !== "whole-section") {
+  // The SENTENCE must be about this statute, not merely sit on a page that
+  // mentions it once. Otherwise a page citing 812.014 in passing inherits every
+  // exhaustive-claim finding belonging to the theft ladder.
+  const sentenceCitesStatute = s.includes(statute);
+  if (
+    sentenceCitesStatute &&
+    EXHAUSTIVE.test(s) &&
+    degrees.size &&
+    t.completeness !== "whole-section"
+  ) {
     out.push({
       kind: "exhaustive-over-partial",
       sentence: s,
