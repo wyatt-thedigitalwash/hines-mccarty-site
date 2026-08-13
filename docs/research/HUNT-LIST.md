@@ -329,6 +329,72 @@ pipeline catches anything.**
    pipeline, and the claim should have been scoped to what the self-test
    actually showed.
 
+### Instance 8: seven gates, tested by their author, three of them theatre
+
+**Added 2026-08-13, from the first independent gate test in this project.**
+
+Six rails were built, each self-tested against a planted violation, each
+reported as working. An adversarial pass was then asked to attack them rather
+than to attack the pages. It found **49 evasions** and returned a verdict of
+theatre on three of the six.
+
+**The headline is the question it was asked to answer plainly.** It planted, in
+the live page, both of the defects that had actually stopped this project:
+
+> "Below it the offense is petit theft of the second degree under Statute
+> 812.014(3)(a)."
+> "Only below $100 does Statute 812.014(3)(a) apply."
+
+**All six gates passed.** Not one of them would have caught either.
+
+**Why, and this is the transferable part.** Every one of the six checks
+**form**: word lists, heading strings, section sequences, shingle counts, fetch
+bookkeeping. The defect was a matter of **fact**. There was no gate of that kind,
+and building six form checks had produced a strong feeling that the fact was
+covered.
+
+The unverified-claim gate is the sharpest illustration. It passed because
+812.014(3)(a) **was** flagged and **was** recorded as fetched, so the citation
+was waved through. **The gate verifies that somebody fetched the paragraph. It
+has no opinion on whether the sentence attached to it is true.** That is a real
+property worth having and it is not the property it felt like having.
+
+**The specific evasions worth remembering.**
+
+- **A recorded failure counted as a clearance.** A PAGE-SOURCES line reading
+  "We could not fetch 784.03(1)(a). Two attempts, both HTTP 403. DO NOT CITE IT."
+  parsed as a recorded reference and cleared the flag. The sentence said do not
+  cite it; the gate read it as permission.
+- **A third of the statute book was invisible.** The citation pattern required
+  exactly three digits before the decimal, so chapters 1 to 99 never parsed at
+  all, including the entire Florida Evidence Code.
+- **One appended section defeated the structural rail.** Both its triggers
+  compared joined sequences for equality, so an eleven-element sequence never
+  equalled a ten-element one.
+- **A field that renders but is not extracted is a hole in every gate at once.**
+  `label` is rendered by the template and the index and was read by no
+  extractor. Two gates carried separately maintained copies of the extraction
+  function and had already drifted.
+- **Counting pairs said nothing about magnitude.** Two legacy pages made 99%
+  verbatim identical passed, because the pair count did not change.
+
+**The rules that follow.**
+
+1. **A gate tested only by its author is untested.** Every gate here had a
+   passing self-test written by the person who wrote the gate, and three were
+   theatre. Self-tests prove a function can fire on an input; they say nothing
+   about whether the inputs a real writer produces reach it.
+2. **Count form gates and fact gates separately.** Six form gates do not add up
+   to one fact gate, and the feeling that they do is the danger.
+3. **Fail closed.** A missing baseline, an unreadable one, or a partial one is a
+   failure, not a fresh start. The first version treated all three as
+   permission, and one of them silently re-baselined at whatever the current
+   debt happened to be.
+4. **An escape hatch opened for a hypothetical problem will swallow a real one.**
+   The multiset check was demoted to a diagnostic on the reasoning that thirty
+   pages would make it noisy. There were two pages, their overlap was already
+   100%, and the demotion was hiding the only true positive on the site.
+
 ### Where this already applies
 
 - **scripts/check-pages.mts**: the structural check now fires on any single

@@ -27,6 +27,7 @@
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { charges, chargeHref } from "../src/lib/site.ts";
+import { pageCopy } from "../src/lib/page-copy.ts";
 import {
   isGenericHeading,
   normalizeHeading,
@@ -48,9 +49,47 @@ import type { ChargePage } from "../src/lib/site.ts";
  */
 const BASELINE_PATH = "docs/build/legacy-baseline.json";
 type Baseline = { structuralPairs: number; duplicationPairs: number };
-const baseline: Baseline = existsSync(BASELINE_PATH)
-  ? JSON.parse(readFileSync(BASELINE_PATH, "utf8"))
-  : { structuralPairs: Number.MAX_SAFE_INTEGER, duplicationPairs: Number.MAX_SAFE_INTEGER };
+/**
+ * FAIL CLOSED. The gate testing defeated the first version three ways and all
+ * three came from treating a missing or broken baseline as permission:
+ *   - deleting the file re-baselined silently at whatever the current debt was,
+ *     and git showed the file as MODIFIED rather than deleted, so review saw
+ *     nothing;
+ *   - a `{}` baseline produced `Math.min(n, undefined) === NaN`, written back as
+ *     null, which then wedged every later build permanently;
+ *   - a hand-edited large number passed once and was then overwritten by the
+ *     write-back, erasing the evidence that the gate had been bypassed.
+ * A missing or unreadable baseline is now a failure, not a fresh start.
+ */
+function loadBaseline(): Baseline {
+  if (!existsSync(BASELINE_PATH)) {
+    fail(
+      `${BASELINE_PATH} is missing. It is the only record of how much legacy ` +
+        `debt is tolerated, so its absence is a failure rather than a clean slate. ` +
+        `Restore it from git.`,
+    );
+    return { structuralPairs: 0, duplicationPairs: 0 };
+  }
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(readFileSync(BASELINE_PATH, "utf8"));
+  } catch {
+    fail(`${BASELINE_PATH} is not valid JSON.`);
+    return { structuralPairs: 0, duplicationPairs: 0 };
+  }
+  const b = parsed as Partial<Baseline>;
+  const ok = (n: unknown): n is number =>
+    typeof n === "number" && Number.isInteger(n) && n >= 0;
+  if (!ok(b.structuralPairs) || !ok(b.duplicationPairs)) {
+    fail(
+      `${BASELINE_PATH} is missing a non-negative integer for structuralPairs ` +
+        `or duplicationPairs. A partial baseline cannot bound anything.`,
+    );
+    return { structuralPairs: 0, duplicationPairs: 0 };
+  }
+  return { structuralPairs: b.structuralPairs, duplicationPairs: b.duplicationPairs };
+}
+const baseline: Baseline = loadBaseline();
 
 const ratchet: Partial<Baseline> = {};
 let failed = false;
@@ -67,35 +106,7 @@ const fail = (msg: string) => {
  * are excluded because they are not copy, which matters: several of them quote
  * the banned words while explaining why the words are banned.
  */
-function copyOf(c: ChargePage): string[] {
-  const out: (string | undefined)[] = [
-    c.title,
-    c.metaTitle,
-    c.metaDescription,
-    c.description,
-    c.lead,
-    c.counterpart?.label,
-    c.counterpart?.note,
-    c.statute?.citation,
-    c.statute?.body,
-    ...(c.elements ?? []),
-    ...(c.defenseApproach ?? []),
-    ...(c.forum ?? []),
-    ...(c.penalties ?? []).flatMap((p) => [p.degree, p.maximum, p.offenseLevel, p.note]),
-    ...(c.faq ?? []).flatMap((f) => [f.question, f.answer]),
-    ...(c.relatedGuides ?? []).map((g) => g.label),
-    ...(c.sections ?? []).flatMap((s) => [
-      s.heading,
-      ...(s.prose ?? []),
-      ...(s.bullets ?? []),
-      ...(s.statute ? [s.statute.citation, s.statute.body] : []),
-      ...(s.penalties ?? []).flatMap((p) => [p.degree, p.maximum, p.offenseLevel, p.note]),
-      ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
-      ...(s.guidance ?? []).flatMap((g) => [g.heading, ...g.items]),
-    ]),
-  ];
-  return out.filter((x): x is string => typeof x === "string" && x.length > 0);
-}
+const copyOf = pageCopy;
 
 // --------------------------------------------------------- banned terms
 /** Superiority and promise language. Fla. Bar R. 4-7.13. Hard failure. */
@@ -224,9 +235,17 @@ type Interchange = {
 function interchangeable(x: ChargePage, y: ChargePage): Interchange {
   const a = signature(x);
   const b = signature(y);
-  const idsSame = a.ids.length > 2 && a.ids.join(">") === b.ids.join(">");
-  const kindsSame =
-    a.kinds.length > 2 && a.kinds.join(">") === b.kinds.join(">");
+  // CONTAINMENT, not equality. The gate testing cloned a page, appended one
+  // throwaway section, and both triggers died, because each compared joined
+  // strings and an 11-element sequence never equals a 10-element one. Adding a
+  // section is the cheapest possible evasion and it defeated the whole rail.
+  const seqContained = (x: string[], y: string[]) => {
+    if (x.length < 3) return false;
+    const [small, large] = x.length <= y.length ? [x, y] : [y, x];
+    return large.join(">").includes(small.join(">"));
+  };
+  const idsSame = seqContained(a.ids, b.ids);
+  const kindsSame = seqContained(a.kinds, b.kinds);
   // Same blocks, same counts, shuffled order. The adversarial pass found two
   // pages where every section had a counterpart on the other and only two
   // blocks had swapped places. An ordered comparison misses that entirely, so
@@ -252,20 +271,28 @@ function interchangeable(x: ChargePage, y: ChargePage): Interchange {
   const kindsBagNear = multisetOverlap >= 0.85;
   const headingOverlap = jaccard(a.headings, b.headings);
   const reasons: string[] = [];
-  if (idsSame) reasons.push(`identical section id sequence (${a.ids.join(">")})`);
+  if (kindsBagNear && !kindsSame)
+    reasons.push(
+      `${(multisetOverlap * 100).toFixed(0)}% the same section blocks in a different order`,
+    );
+  if (idsSame) reasons.push(`section id sequence contained (${a.ids.join(">")})`);
   if (kindsSame)
     reasons.push(`identical section kind sequence (${a.kinds.join(">")})`);
-  // DIAGNOSTIC ONLY, deliberately not a trigger. With six section kinds and
-  // thirty charge pages, near-identical kind multisets are unavoidable: every
-  // charge page has prose, a table, and a list. Firing on that would flag every
-  // future pair and the gate would be turned off within a week, which is worse
-  // than not having it. What it was reaching for, "these two are the same
-  // document", is measured directly by the duplication gate below, on content
-  // rather than on shape. Reported so a human can see it.
-  const kindsNote =
-    kindsBagNear && !kindsSame
-      ? `note: section kinds are ${(multisetOverlap * 100).toFixed(0)}% the same blocks reordered`
-      : "";
+  // PROMOTED BACK TO A TRIGGER. It was demoted on the reasoning that with six
+  // kinds and thirty pages, near-identical multisets would be unavoidable
+  // noise. The gate testing showed that reasoning does not survive its own
+  // evidence: there are TWO migrated pages, not thirty, their multiset overlap
+  // is already 100%, and the demotion was swallowing the only true positive on
+  // the site. An escape hatch was opened pre-emptively for a false-positive
+  // problem that had not occurred.
+  //
+  // The second half of the justification was also false. It claimed the
+  // duplication gate measured the same thing "on content rather than shape".
+  // It does not: duplication counts verbatim eight-word runs, and two pages can
+  // be the same document block for block with zero shared shingles. Nothing
+  // else on this site measures same-shape-different-words, which is the exact
+  // failure the schema rewrite existed to fix.
+  const kindsNote = "";
   // NOTE ON headingOverlap. It is reported but is NOT a trigger, because the
   // heading-reuse gate above fails the build on any shared normalised heading,
   // so in every passing build this value is 0.00. Treating it as a live signal
@@ -399,14 +426,33 @@ console.log("Page-gate self-tests");
   bagB.sections = ["prose","statute","penalties","bullets","guidance","timeline","prose","prose","prose"]
     .map((k, i) => ({ id: `b${i}`, heading: `Beta heading number ${i}`, kind: k as never }));
   const bagR = interchangeable(bagA, bagB);
-  if (!bagR.kindsNote) {
+  if (!bagR.yes) {
     fail(
-      "the kind-multiset diagnostic does not detect 10 sections against 9 that " +
-        "are the same blocks reordered. It is not a build failure, but it must " +
-        "still be visible to a reviewer.",
+      "structural check does NOT fire on 10 sections against 9 that are the " +
+        "same blocks reordered. That is the real pair on this site, and the " +
+        "previous version routed it to a diagnostic instead of failing.",
     );
   } else {
-    console.log(`  ok    kind-multiset diagnostic detects same-blocks-reordered at unequal length`);
+    console.log(`  ok    FAILS on same-blocks-reordered at unequal length (${bagR.reasons[0]})`);
+  }
+
+  // The cheapest evasion found by the gate testing: clone a page, append one
+  // throwaway section, and equality-based sequence checks both die.
+  const cloneA = mk("cloneA");
+  const cloneB = mk("cloneB");
+  const kinds10 = ["prose","penalties","prose","timeline","guidance","bullets","statute","prose","prose","prose"];
+  cloneA.sections = kinds10.map((k, i) => ({ id: `s${i}`, heading: `Alpha ${i}`, kind: k as never }));
+  cloneB.sections = [
+    ...kinds10.map((k, i) => ({ id: `s${i}`, heading: `Beta ${i}`, kind: k as never })),
+    { id: "afterword", heading: "Beta afterword", kind: "prose" as never },
+  ];
+  if (!interchangeable(cloneA, cloneB).yes) {
+    fail(
+      "a clone with ONE extra section appended defeats the structural check. " +
+        "Adding a section is the cheapest possible evasion.",
+    );
+  } else {
+    console.log("  ok    a clone plus one appended section still fires");
   }
 
   const varied = mk("three");
@@ -556,8 +602,6 @@ console.log("\nStructural variation, migrated pages against ALL written pages");
     for (let j = i + 1; j < pages.length; j++) {
       const a = pages[i], b = pages[j];
       const r = interchangeable(a, b);
-      if (r.kindsNote && a.sections?.length && b.sections?.length)
-        console.log(`  ..    ${chargeHref(a)} <> ${chargeHref(b)}: ${r.kindsNote}`);
       if (!r.yes) continue;
       const bothLegacy = !a.sections?.length && !b.sections?.length;
       if (bothLegacy) {
@@ -639,6 +683,7 @@ console.log("\nVerbatim duplication between pages");
   let worstMigrated = 0;
   let anyDup = false;
   let legacyOver = 0;
+  let worstLegacyRate = 0;
   const legacyOverNames: string[] = [];
   for (let i = 0; i < pages.length; i++) {
     for (let j = i + 1; j < pages.length; j++) {
@@ -648,6 +693,7 @@ console.log("\nVerbatim duplication between pages");
       if (rate < DUPLICATION_LIMIT) continue;
       if (bothLegacy) {
         legacyOver++;
+        worstLegacyRate = Math.max(worstLegacyRate, rate);
         legacyOverNames.push(
           `${chargeHref(a)}<>${chargeHref(b)} at ${(rate * 100).toFixed(1)}%`,
         );
@@ -673,6 +719,17 @@ console.log("\nVerbatim duplication between pages");
     fail(
       `legacy duplication debt INCREASED, ${baseline.duplicationPairs} to ${legacyOver}. ` +
         `The baseline may only go down.`,
+    );
+  // MAGNITUDE, not just count. The gate testing replaced one legacy page with a
+  // verbatim clone of another: two published pages 99% identical, pair count
+  // unchanged at 1, build green. Counting pairs says nothing about how bad a
+  // pair is.
+  const LEGACY_RATE_CEILING = 0.15;
+  if (worstLegacyRate > LEGACY_RATE_CEILING)
+    fail(
+      `a legacy pair is ${(worstLegacyRate * 100).toFixed(1)}% verbatim identical, over the ` +
+        `${(LEGACY_RATE_CEILING * 100).toFixed(0)}% ceiling. The legacy exemption tolerates ` +
+        `shared boilerplate, not a page that is a copy of another page.`,
     );
   ratchet.duplicationPairs = Math.min(legacyOver, baseline.duplicationPairs);
   if (!anyDup)

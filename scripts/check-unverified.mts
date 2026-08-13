@@ -32,6 +32,7 @@
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { charges, chargeHref } from "../src/lib/site.ts";
+import { pageCopy } from "../src/lib/page-copy.ts";
 import type { ChargePage } from "../src/lib/site.ts";
 
 let failed = false;
@@ -52,10 +53,17 @@ const SOURCES = "docs/research/PAGE-SOURCES.md";
  */
 function refs(text: string): Set<string> {
   const out = new Set<string>();
+  // Chapter numbers are 1 to 4 digits, not exactly 3. The old pattern made the
+  // ENTIRE Florida Evidence Code invisible, including 90.803 hearsay and
+  // 90.404(2) similar-fact evidence, which are two of the most-litigated
+  // provisions on a criminal defense site. It also truncated four-digit
+  // chapters, so 1006.13(2) keyed as "006.13(2)" and collided with 2006.13(2).
   const fs =
-    /(?:F\.?\s?S\.?\s*|Florida Statutes?\s*|Statute\s*|s\.\s*)?(\d{3}\.\d{2,4})((?:\s*\(\s*[0-9a-z]{1,3}\s*\))*)/gi;
+    /(?:F\.?\s?S\.?\s*|Florida Statutes?\s*|Statute\s*|s\.\s*)?\b(\d{1,4}\.\d{2,4})((?:\s*\**\s*\(\s*\**\s*[0-9a-z]{1,3}\s*\**\s*\)\s*\**)*)/gi;
   for (const m of text.matchAll(fs)) {
-    const subs = (m[2] ?? "").replace(/\s+/g, "");
+    // Strip markdown emphasis so 784.03(**1**)(a) does not degrade to a bare
+    // section and slip past the subsection filter.
+    const subs = (m[2] ?? "").replace(/[\s*_]+/g, "");
     out.add(`fs ${m[1]}${subs}`.toLowerCase());
   }
   const usc = /(\d{1,2})\s*U\.?\s?S\.?\s?C\.?\s*(?:§\s*)?(\d{1,4}[A-Za-z]?)((?:\s*\(\s*[0-9a-z]{1,3}\s*\))*)/gi;
@@ -95,22 +103,7 @@ function clearedBy(recorded: Set<string>, flag: string, cited: string): boolean 
   return [...recorded].some((r) => covers(flag, r) && covers(r, cited));
 }
 
-function copyOf(c: ChargePage): string {
-  return [
-    c.title, c.metaTitle, c.metaDescription, c.lead,
-    c.counterpart?.note, c.statute?.citation, c.statute?.body,
-    ...(c.elements ?? []), ...(c.defenseApproach ?? []), ...(c.forum ?? []),
-    ...(c.penalties ?? []).flatMap((p) => [p.degree, p.maximum, p.offenseLevel, p.note]),
-    ...(c.faq ?? []).flatMap((f) => [f.question, f.answer]),
-    ...(c.sections ?? []).flatMap((s) => [
-      s.heading, ...(s.prose ?? []), ...(s.bullets ?? []),
-      ...(s.statute ? [s.statute.citation, s.statute.body] : []),
-      ...(s.penalties ?? []).flatMap((p) => [p.degree, p.maximum, p.offenseLevel, p.note]),
-      ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
-      ...(s.guidance ?? []).flatMap((g) => [g.heading, ...g.items]),
-    ]),
-  ].filter(Boolean).join("\n");
-}
+const copyOf = (c: ChargePage) => pageCopy(c).join("\n");
 
 // ---------------------------------------------------------------- self-test
 console.log("Unverified-claim gate self-test");
@@ -181,7 +174,35 @@ for (const f of briefFiles) {
   }
 }
 
-const recorded = refs(readFileSync(SOURCES, "utf8"));
+/**
+ * References recorded in PAGE-SOURCES, EXCLUDING lines that record a failure.
+ *
+ * The gate testing found the worst hole in this file: a line reading
+ * "We could not fetch 784.03(1)(a). Two attempts, both HTTP 403. DO NOT CITE
+ * IT." parsed as a recorded reference and CLEARED the flag. The sentence said
+ * do not cite it and the gate read it as permission. A ledger that cannot tell
+ * a fetch from a failure to fetch is not a ledger.
+ */
+const NEGATIVE_LINE =
+  /\b(could not|couldn't|unable to|failed to|not fetched|do not cite|don't cite|never fetched|no fetch|fetch failed|UNVERIFIED|UNMET|404|403|redirect loop)\b/i;
+
+const recorded = (() => {
+  const out = new Set<string>();
+  let dropped = 0;
+  for (const line of readFileSync(SOURCES, "utf8").split("\n")) {
+    if (NEGATIVE_LINE.test(line)) {
+      if (refs(line).size) dropped++;
+      continue;
+    }
+    for (const r of refs(line)) out.add(r);
+  }
+  if (dropped)
+    console.log(
+      `  ..    ignored ${dropped} PAGE-SOURCES line(s) that record a NON-fetch; ` +
+        `a failure to fetch never clears a flag`,
+    );
+  return out;
+})();
 
 console.log(
   `\n${flaggedRefs.size} subsection-level UNVERIFIED flags across ${briefFiles.length} briefs; ` +

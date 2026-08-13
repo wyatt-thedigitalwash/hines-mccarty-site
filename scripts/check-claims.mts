@@ -31,6 +31,7 @@
  */
 import { charges, chargeHref } from "../src/lib/site.ts";
 import type { ChargePage } from "../src/lib/site.ts";
+import { pageCopy } from "../src/lib/page-copy.ts";
 import { STATUTES, degreesAt, type Degree, type GradingRow } from "../src/lib/statutes.ts";
 
 let failed = false;
@@ -225,24 +226,7 @@ function auditSentence(s: string, statute: string): Problem[] {
   return out;
 }
 
-function copyOf(c: ChargePage): string[] {
-  return [
-    c.lead,
-    c.statute?.body,
-    ...(c.elements ?? []),
-    ...(c.defenseApproach ?? []),
-    ...(c.faq ?? []).flatMap((f) => [f.question, f.answer]),
-    ...(c.penalties ?? []).map((p) => p.note),
-    ...(c.sections ?? []).flatMap((s) => [
-      ...(s.prose ?? []),
-      ...(s.bullets ?? []),
-      ...(s.statute ? [s.statute.body] : []),
-      ...(s.penalties ?? []).map((p) => p.note),
-      ...(s.steps ?? []).map((t) => t.what),
-      ...(s.guidance ?? []).flatMap((g) => g.items),
-    ]),
-  ].filter((x): x is string => typeof x === "string" && x.length > 0);
-}
+const copyOf = pageCopy;
 
 // ================================================================
 // PART 1. The three errors that actually shipped.

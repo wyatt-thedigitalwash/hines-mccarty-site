@@ -1,0 +1,94 @@
+/**
+ * Every human-visible string on a charge page. ONE definition, shared by every
+ * gate.
+ *
+ * WHY THIS FILE EXISTS. Two gates each carried their own hand-written copy of
+ * this function and they had already drifted apart: `check-pages.mts` read
+ * `description`, `check-unverified.mts` did not, so an unverified citation
+ * placed in `description` published clean. Worse, NEITHER read `label`, which
+ * the charge template and the charge index both render. The gate testing
+ * planted `label: "Grand Theft — the best defense in Tampa"` and every gate
+ * stayed silent: an em dash and a superiority claim, on a rendered field,
+ * invisible to the compliance check.
+ *
+ * A field that renders but is not extracted is a hole in every gate at once,
+ * and duplicated extractors guarantee the holes differ per gate. So there is
+ * one function, and `RENDERED_FIELDS` below is the checklist that has to be
+ * revisited whenever the page schema grows.
+ */
+import type { ChargePage } from "./site.ts";
+
+/**
+ * Fields rendered to a reader, as a checklist.
+ *
+ * `owner` and `lastReviewed` are rendered by the byline. `readerNeeds` is not
+ * rendered today, and is extracted anyway: it satisfies the reader-question
+ * coverage gate, so it is content a writer can hide a claim in, and "currently
+ * unrendered" is a property that changes without anyone thinking about it.
+ */
+export const RENDERED_FIELDS = [
+  "label",
+  "description",
+  "title",
+  "metaTitle",
+  "metaDescription",
+  "lead",
+  "counterpart.label",
+  "counterpart.note",
+  "statute.citation",
+  "statute.body",
+  "penalties[].degree|maximum|offenseLevel|note",
+  "elements[]",
+  "defenseApproach[]",
+  "forum[]",
+  "faq[].question|answer",
+  "relatedGuides[].label",
+  "sections[].heading|prose|bullets|statute|penalties|steps|guidance",
+  "readerNeeds{}",
+  "owner",
+  "lastReviewed",
+] as const;
+
+export function pageCopy(c: ChargePage): string[] {
+  const out: (string | undefined)[] = [
+    c.label,
+    c.description,
+    c.title,
+    c.metaTitle,
+    c.metaDescription,
+    c.lead,
+    c.owner,
+    c.lastReviewed,
+    c.counterpart?.label,
+    c.counterpart?.note,
+    c.statute?.citation,
+    c.statute?.body,
+    ...(c.elements ?? []),
+    ...(c.defenseApproach ?? []),
+    ...(c.forum ?? []),
+    ...(c.penalties ?? []).flatMap((p) => [
+      p.degree,
+      p.maximum,
+      p.offenseLevel,
+      p.note,
+    ]),
+    ...(c.faq ?? []).flatMap((f) => [f.question, f.answer]),
+    ...(c.relatedGuides ?? []).map((g) => g.label),
+    ...Object.values(c.readerNeeds ?? {}),
+    ...(c.sections ?? []).flatMap((s) => [
+      s.heading,
+      ...(s.prose ?? []),
+      ...(s.bullets ?? []),
+      ...(s.statute ? [s.statute.citation, s.statute.body] : []),
+      ...(s.penalties ?? []).flatMap((p) => [
+        p.degree,
+        p.maximum,
+        p.offenseLevel,
+        p.note,
+      ]),
+      ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
+      ...(s.guidance ?? []).flatMap((g) => [g.heading, ...g.items]),
+    ]),
+  ];
+  return out.filter((x): x is string => typeof x === "string" && x.length > 0);
+}
