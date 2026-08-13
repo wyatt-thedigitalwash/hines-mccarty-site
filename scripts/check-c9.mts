@@ -24,11 +24,14 @@ import { charges, chargeHref, CHARGE_C9_KEYS } from "../src/lib/site.ts";
 import {
   comparable,
   detectC9Collisions,
+  findCategoryConflicts,
+  findMisTypedExemptions,
   findUnparseableStatutes,
   isPopulated,
   similarity,
   substanceTokens,
   SIMILARITY_THRESHOLD,
+  type C9Assertion,
   type C9Entry,
 } from "../src/lib/c9.ts";
 
@@ -161,6 +164,72 @@ if (findUnparseableStatutes(realCitations).length > 0) {
   console.log("  ok    accepts both F.S. and U.S.C. citation forms");
 }
 
+// The exemption-type invariants, shown firing. Each of these three fixtures is
+// the exact shape its check exists to reject, and a check that cannot be
+// demonstrated firing is not evidence that the real data is clean.
+{
+  const REAL: C9Assertion = {
+    statute: "18 U.S.C. 1343",
+    section: "s",
+    assertion: "a",
+  };
+  const EMPTY: C9Assertion = {
+    statute: "[NEEDS: the statute the differentiator rests on]",
+    section: "[NEEDS]",
+    assertion: "[NEEDS]",
+  };
+
+  const hatch: C9Entry[] = [
+    { id: "hatch", c9: EMPTY, c9Exempt: { type: "policy-governed", reason: "r" } },
+  ];
+  if (findMisTypedExemptions(hatch).length !== 1) {
+    fail(
+      'the "policy-governed" invariant does not fire on an empty C9. Without it ' +
+        "that exemption is a general escape hatch: any page could claim policy " +
+        "governs it and then say nothing at all.",
+    );
+  } else {
+    console.log('  ok    fires when "policy-governed" is claimed with an empty C9');
+  }
+
+  const wrong: C9Entry[] = [
+    { id: "wrong", c9: REAL, c9Exempt: { type: "no-statute", reason: "r" } },
+  ];
+  if (findMisTypedExemptions(wrong).length !== 1) {
+    fail('the "no-statute" invariant does not fire on a C9 that names a statute.');
+  } else {
+    console.log('  ok    fires when "no-statute" is claimed but a statute exists');
+  }
+
+  const both: C9Entry[] = [
+    {
+      id: "both",
+      c9: REAL,
+      c9Category: { reason: "r" },
+      c9Exempt: { type: "no-statute", reason: "r" },
+    },
+  ];
+  if (findCategoryConflicts(both).length !== 1) {
+    fail("a page marked both category (C9-required) and exempt is not detected.");
+  } else {
+    console.log("  ok    fires when a page is both category-required and exempt");
+  }
+
+  // And stays quiet on the two legitimate shapes, so the checks above are not
+  // simply returning everything handed to them.
+  const ok: C9Entry[] = [
+    { id: "a", c9: { statute: "JM 9-11.151", section: "s", assertion: "a" },
+      c9Exempt: { type: "policy-governed", reason: "r" } },
+    { id: "b", c9: EMPTY, c9Exempt: { type: "no-statute", reason: "r" } },
+    { id: "c", c9: REAL, c9Category: { reason: "r" } },
+  ];
+  if (findMisTypedExemptions(ok).length || findCategoryConflicts(ok).length) {
+    fail("the exemption-type checks fire on legitimate entries.");
+  } else {
+    console.log("  ok    stays quiet on correctly typed exemptions and categories");
+  }
+}
+
 // ---------------------------------------------------------------- part 1a
 // Every key in CHARGE_C9 must match a real charge. A key that matches nothing
 // looks recorded and governs nothing: the collision checker never sees it, and
@@ -189,6 +258,7 @@ const entries: C9Entry[] = charges.map((c) => ({
   id: chargeHref(c),
   c9: c.c9,
   c9Exempt: c.c9Exempt,
+  c9Category: c.c9Category,
 }));
 const populated = entries.filter((e) => isPopulated(e.c9));
 const exempt = entries.filter((e) => e.c9Exempt);
@@ -196,13 +266,61 @@ const exempt = entries.filter((e) => e.c9Exempt);
 // Reported separately on purpose. Excused-by-decision and not-yet-written are
 // different states, and collapsing them into one skipped count is how a page
 // with no statute hides inside a pile of placeholders.
+const category = entries.filter((e) => e.c9Category);
 console.log(
-  `  ${comparable(entries).length} compared, ${
+  `  ${comparable(entries).length} compared (of which ${category.length} category overview), ${
     entries.length - populated.length
   } carrying [NEEDS] and not yet written, ${exempt.length} exempt by decision.`,
 );
+
+// Exemptions are reported BY TYPE, never as one count. Two pages excused for
+// different reasons are in different states, and a single number would let the
+// narrow exemption widen into the broad one unnoticed. D15.
+const byType = new Map<string, C9Entry[]>();
 for (const e of exempt) {
-  console.log(`  exempt  ${e.id}: ${e.c9Exempt!.reason}`);
+  const t = e.c9Exempt!.type;
+  byType.set(t, [...(byType.get(t) ?? []), e]);
+}
+for (const [type, es] of [...byType].sort()) {
+  console.log(`  exempt(${type})  ${es.length}`);
+  for (const e of es) console.log(`      ${e.id}: ${e.c9Exempt!.reason}`);
+}
+for (const e of category) {
+  console.log(`  category  ${e.id}: compared, not excused. ${e.c9Category!.reason}`);
+}
+
+// The two exemption types carry OPPOSITE obligations, so each is checked
+// against what the page actually holds rather than trusted. Without this,
+// "policy-governed" is a general escape hatch.
+const misTyped = findMisTypedExemptions(entries);
+if (misTyped.length) {
+  for (const e of misTyped) {
+    const t = e.c9Exempt!.type;
+    fail(
+      t === "policy-governed"
+        ? `${e.id} claims a "policy-governed" exemption but carries no populated C9. ` +
+            `That exemption asserts the page HAS verified substance and is excused from ` +
+            `the statute-parse check only. An empty C9 means the exemption was not earned.`
+        : `${e.id} claims a "no-statute" exemption but its C9 names a statute ` +
+            `("${e.c9.statute}"). If a statute exists, the exemption is the wrong one ` +
+            `and the page belongs in the comparison set.`,
+    );
+  }
+} else {
+  console.log("  ok    every exemption matches what its page actually carries");
+}
+
+const conflicts = findCategoryConflicts(entries);
+if (conflicts.length) {
+  for (const e of conflicts) {
+    fail(
+      `${e.id} is marked a category overview, which is C9-REQUIRED, but it is ` +
+        `${e.c9Exempt ? "also exempt" : "carrying an unpopulated C9"}. A page cannot be ` +
+        `both excused from the check and required to pass it.`,
+    );
+  }
+} else {
+  console.log("  ok    every category overview is populated and compared");
 }
 
 // Statute-parse check on the real data.

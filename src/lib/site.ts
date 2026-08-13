@@ -4,7 +4,7 @@
 // Type-only, so it is erased at runtime and this module keeps having no
 // runtime imports. That property is what lets scripts/check-c9.ts load this
 // file directly under `node --experimental-strip-types`.
-import type { C9Assertion, C9Exemption } from "./c9.ts";
+import type { C9Assertion, C9Category, C9Exemption } from "./c9.ts";
 
 /**
  * The site's absolute origin. Every canonical URL, Open Graph URL, sitemap
@@ -861,6 +861,7 @@ export type ChargePage = {
    * If a page rests on a statute, it is checked.
    */
   c9Exempt?: C9Exemption;
+  c9Category?: C9Category;
   /**
    * Done-criterion C9, recorded as an assertion so it can be checked ACROSS
    * pages rather than only within one.
@@ -1118,6 +1119,18 @@ const CHARGE_C9: Record<string, C9Assertion> = {
     assertion:
       "Every state attorney is directed by statute to adopt a pro-prosecution policy for this category of case, so the complainant does not control whether it proceeds.",
   },
+  // Recorded 2026-08-13 under D15. This page is c9Exempt with type
+  // "policy-governed", and the exemption REQUIRES this field to be populated:
+  // the page has verified substance and is excused from the statute-parse check
+  // only. An empty C9 here would mean the page is claiming an exemption it has
+  // not earned, and scripts/check-c9.mts fails the build on exactly that.
+  "federal/target-letter-defense": {
+    statute: "JM 9-11.151",
+    section: "Witness, subject, target: the three statuses and the Advice of Rights text",
+    assertion:
+      "No statute creates this letter or defines its terms: 'target' and 'subject' exist only in DOJ charging policy at JM 9-11.151, which also publishes verbatim the Advice of Rights text the letter carries, and the phrase 'target letter' appears nowhere in the Justice Manual's grand jury chapter.",
+  },
+
   // W4, recorded 2026-08-13. Barrier ran over 27 assertions: 351 pairwise
   // comparisons with statute ignored, max similarity 0.196 against the 0.34
   // threshold, and no same-statute pair beyond the ruled 812.014 one.
@@ -1316,8 +1329,27 @@ export const CHARGE_C9_KEYS = Object.keys(CHARGE_C9);
  */
 const CHARGE_C9_EXEMPT: Record<string, C9Exemption> = {
   "white-collar/corporate-fraud": {
+    type: "no-statute",
     reason:
       "Category overview, not a charge page. No corporate fraud offence exists in Florida or federal law, so there is no statute for a differentiator to rest on. Kept because the term carries client-side search value, and it links down to securities fraud, bank fraud, embezzlement, and wire fraud, which do rest on statutes. DECISIONS.md D12.",
+  },
+  "federal/target-letter-defense": {
+    type: "policy-governed",
+    reason:
+      "A procedure page with verified substance, not an empty category. No statute creates a target letter or defines \"target\" and \"subject\": those terms exist only in DOJ charging policy at JM 9-11.151, which also publishes the Advice of Rights text verbatim, and the phrase \"target letter\" appears nowhere in the Justice Manual's grand jury chapter. The differentiator IS that absence, so the statute-parse flag is correct and is excused rather than engineered away. Substituting 18 U.S.C. 3282 or 1519 into the statute field was rejected: the differentiator does not rest on either, and a field that says otherwise makes the checker pass by lying to it. Widening isStatuteCitation to accept Justice Manual citations was rejected because it would let any later page rest on policy without anyone deciding that it should. DECISIONS.md D15.",
+  },
+};
+
+/**
+ * Category overviews that are still C9-checked. See C9Category in c9.ts.
+ *
+ * Distinct from CHARGE_C9_EXEMPT on purpose. These pages are compared; the
+ * field records what they are, not permission to skip anything.
+ */
+const CHARGE_C9_CATEGORY: Record<string, C9Category> = {
+  "state/sex-crimes-defense": {
+    reason:
+      "Category overview spanning F.S. 800.04, 847.0135, 800.03, 943.0435 and 775.21, sitting in a charge silo under a category name. It fails D12's condition for exemption, which is that no statute exists: this page rests on five, and Florida law enumerates the category itself twice, at F.S. 943.0435(1)(h)1.a and F.S. 775.21(4)(a)1. Its C9 rests on the registration scheme at 943.0435. Exempting it would delete a 23-row penalties table that is both its strongest asset and its referral asset. DECISIONS.md D16.",
   },
 };
 
@@ -1334,6 +1366,7 @@ const stub =
       assertion: "[NEEDS: brief not written; see CASES-WE-DEFEND-PLAN.md Section 7]",
     },
     c9Exempt: CHARGE_C9_EXEMPT[`${silo}/${slug}`],
+    c9Category: CHARGE_C9_CATEGORY[`${silo}/${slug}`],
     published: false,
   });
 

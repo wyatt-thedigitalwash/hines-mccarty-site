@@ -134,12 +134,57 @@ export const SIMILARITY_THRESHOLD = 0.34;
  * be checked. Reporting the two as one number would hide finished-and-excused
  * inside not-yet-done, which is how a page with no statute goes unnoticed.
  */
-export type C9Exemption = { reason: string };
+export type C9Exemption = { type: C9ExemptionType; reason: string };
+
+/**
+ * Why a page is excused, as a type rather than as prose in the reason.
+ *
+ * Two pages are exempt for reasons that are not the same reason, and a single
+ * `c9Exempt` boolean reports them as one state. That is the same collapse this
+ * file already refuses between excused-by-decision and not-yet-written: two
+ * states that mean different things must not share a label, because the moment
+ * they do, the narrower one silently widens to admit anything the broader one
+ * would.
+ *
+ * - `no-statute`: no offence exists, so there is no element a differentiator
+ *   could be false about. /white-collar-defense/corporate-fraud. D12.
+ * - `policy-governed`: a real page with verified substance whose governing
+ *   source is agency policy rather than a statute, and whose differentiator is
+ *   precisely that absence. /federal-criminal-defense/target-letter-defense,
+ *   which rests on JM 9-11.151. D15.
+ *
+ * The two carry OPPOSITE invariants, enforced in scripts/check-c9.mts. A
+ * `no-statute` page has nothing to say and its C9 stays a placeholder. A
+ * `policy-governed` page has substance and MUST carry a populated C9; it is
+ * excused from the statute-parse check only, not from having a differentiator.
+ * Without that invariant `policy-governed` would be a general escape hatch, and
+ * a page could reach publication by claiming policy governs it and then saying
+ * nothing at all.
+ */
+export type C9ExemptionType = "no-statute" | "policy-governed";
+
+/**
+ * A page that is a category overview rather than a single charge, and is
+ * checked anyway.
+ *
+ * D12 exempted corporate fraud on the ground that no statute existed. That
+ * condition does not travel to every category page.
+ * /criminal-defense/sex-crimes-defense is a category resting on five statutes,
+ * so it fails D12's condition and stays in the comparison set. Modelling it as
+ * either a plain charge page or as exempt would state something untrue: it is
+ * not one charge, and it is not excused.
+ *
+ * A category entry is compared exactly like a charge page. The field records
+ * what the page is, so that "category" never becomes an argument for skipping
+ * the check. D16.
+ */
+export type C9Category = { reason: string };
 
 export type C9Entry = {
   id: string;
   c9: C9Assertion;
   c9Exempt?: C9Exemption;
+  c9Category?: C9Category;
 };
 
 export type C9Collision = {
@@ -159,9 +204,47 @@ export type C9Collision = {
  * describe one shared table in different words and still be built on it, which
  * is precisely how the 812.014 collision would have reached publication.
  */
-/** Entries the checker compares: populated, and not exempted by decision. */
+/**
+ * Entries the checker compares: populated, and not exempted by decision.
+ *
+ * Note what is deliberately absent: `c9Category` is not filtered out. A
+ * category overview is compared exactly like a charge page, because being a
+ * category is a fact about the page and not a reason to skip the check.
+ */
 export function comparable(entries: C9Entry[]): C9Entry[] {
   return entries.filter((e) => !e.c9Exempt && isPopulated(e.c9));
+}
+
+/**
+ * Entries whose exemption type contradicts what they actually carry.
+ *
+ * This is what stops `policy-governed` widening into a general escape hatch.
+ * The two exemption types have opposite obligations, so each can be checked
+ * against the page's real content rather than trusted:
+ *
+ * - `policy-governed` claims verified substance, so an unpopulated C9 means the
+ *   page is claiming an exemption it has not earned.
+ * - `no-statute` claims there is no statute, so a populated C9 naming one means
+ *   the exemption is the wrong one and the page should be compared.
+ *
+ * Each check fires in the state its own exemption is supposed to prevent, which
+ * is the property docs/research/HUNT-LIST.md defect 1 asks for.
+ */
+export function findMisTypedExemptions(entries: C9Entry[]): C9Entry[] {
+  return entries.filter((e) => {
+    if (!e.c9Exempt) return false;
+    const populated = isPopulated(e.c9);
+    if (e.c9Exempt.type === "policy-governed") return !populated;
+    if (e.c9Exempt.type === "no-statute") {
+      return populated && isStatuteCitation(e.c9.statute);
+    }
+    return false;
+  });
+}
+
+/** A page cannot be both excused from the check and required to pass it. */
+export function findCategoryConflicts(entries: C9Entry[]): C9Entry[] {
+  return entries.filter((e) => e.c9Category && (e.c9Exempt || !isPopulated(e.c9)));
 }
 
 /**

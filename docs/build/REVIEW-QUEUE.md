@@ -61,6 +61,11 @@ never by recall (done-criterion C12).
   agency's official site.
 - **Not acceptable:** other firms' pages, aggregators, secondary summaries,
   mapping services, or model recall.
+- **Considered and refused:** **flhsmv.gov** (DECISIONS.md D18). It administers
+  the DUI administrative suspension and ranks first on the head informational
+  term, and it is still publishing the pre-1-October-2025 refusal rule. The
+  allowlist prefers the source that publishes the law over the agency that
+  applies it.
 
 #### Standing unverified source, escalated 2026-08-13
 

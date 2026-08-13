@@ -104,8 +104,77 @@ that dissolves on inspection.
    docs/build/REVIEW-QUEUE.md requires a person to open the Bar URL in a browser
    before publish, instead of requiring another agent to fetch it.
 
+### Instance 3: a check whose input set was incomplete
+
+**Added 2026-08-13, from the remaining-20 brief programme.**
+
+The C9 reconciliation barrier ran before wave 2's assertions were recorded,
+compared 11 new assertions against 8 already populated, reported 171 pairs and
+no collision, and was recorded as a pass. **The 8 was wrong.** FED-01 and FED-02
+had been briefed and committed in wave 1, but their assertions were never
+written into src/lib/site.ts, so they were not in the set. The barrier's input
+was 19 assertions when it should have been 21.
+
+**Why it cannot detect the failure.** The barrier derives its input set from the
+recorded data and then reports a comparison count. **A missing entry reduces the
+comparison count**, and a lower count reads exactly like a smaller wave, not
+like a gap. There is no value of "171 pairs, no collision" that would have
+looked wrong. The reassuring result is available in the failure state, and the
+failure is invisible from inside the check, because the check has no independent
+notion of how many assertions ought to exist.
+
+This is the same shape as instance 1 with the arithmetic reversed: there, a
+count was too coarse to distinguish success from failure; here, the count is
+precise and the **population it was computed over** is the thing nobody checked.
+
+**The generalisation.** A check whose input set is assembled rather than given
+reports a result that is **true of what it saw and false of the whole**, and it
+states the first while appearing to state the second.
+
+**The rule that follows.** **Any barrier states its input set and how that set
+was derived, not just its comparison count.** "171 pairs compared" is not a
+finding. "171 pairs over 19 assertions, being every charge whose C9 field is
+populated in src/lib/site.ts, of 30 charge pages total" is a finding, and it is
+one a reader can falsify by counting. Where the expected size of the set is
+knowable, state it and reconcile the difference.
+
+### Instance 4: a barrier that structurally cannot see the collision it exists to prevent
+
+**Added 2026-08-13, same programme, and recorded because it was caught by a
+person rather than by the rail.**
+
+The automated detector, `detectC9Collisions`, compares only assertions that
+**share a statute key**. Two pages resting on different statutes are never
+compared, whatever they say. While writing ST-03 battery, the agent found a
+strong differentiator (seven third degree felony batteries sharing one five-year
+maximum but landing at four scoresheet outcomes) and **discarded it because it
+mirrored the already-populated F.S. 409.920 assertion**. Different statutes.
+**The barrier would never have looked at that pair.**
+
+**Why it cannot detect the failure.** The same-statute precondition is not a
+performance optimisation; it is the definition of a collision the detector was
+built around, taken from the one real collision that had occurred (grand theft
+and embezzlement, both on F.S. 812.014). Cross-statute duplication is a
+different failure with the same consequence, two pages built on one idea, and
+the detector is silent on it by construction. Its clean result is available in
+that failure state.
+
+**What was done.** Every barrier run in this programme carries a **manual
+pairwise pass with the statute ignored**, over all pairs, reported separately
+from the automated same-statute result. That pass is what produced the 351-pair,
+max-0.196 figure for wave 4.
+
+**The rule that follows.** **The automated detector catches same-statute
+collisions only, and must be described that way whenever its result is cited.**
+A page-level differentiator check is not complete without a cross-statute pass,
+and the cross-statute pass is currently a human step. Do not let "the C9 check
+passed" stand for more than it covers.
+
 ### Where this already applies
 
+- **docs/research/briefs/STATE.md**: every barrier run in the remaining-20
+  programme states its input set, its derivation, and its three parts
+  separately, rather than reporting one aggregate.
 - **docs/build/REVIEW-QUEUE.md**, the 33-day rule correction guide: open
   verification requires a human, explicitly because a second automated pass
   against the same compilation would not be a second path.

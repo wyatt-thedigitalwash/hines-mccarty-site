@@ -264,6 +264,154 @@ adopt the phrasing of the firms that currently are.
 
 ---
 
+### D15. The target letter page is c9Exempt, under a second exemption type
+
+**Decided 2026-08-13.** Raised by
+docs/research/briefs/FED-08-target-letter-defense.md, which escalated it rather
+than resolving it, and correctly.
+
+**Decided.** `/federal-criminal-defense/target-letter-defense` is `c9Exempt`
+with a reason **distinct from corporate fraud's**, and the exemption model gains
+a `type` field so the two cannot be reported as one state.
+
+- `no-statute`: no offence exists, so no differentiator could be false about
+  anything. Corporate fraud, D12.
+- `policy-governed`: a real page with verified substance whose governing source
+  is agency policy rather than statute, and whose differentiator is precisely
+  that absence. The target letter page, resting on JM 9-11.151.
+
+**Why not one exemption.** The same principle that already separates
+excused-by-decision from not-yet-written: two states that mean different things
+must not share a label. The moment they do, the narrow exemption widens to admit
+whatever the broad one would, and nobody decides that it should.
+
+**Why not the alternatives.** Substituting 18 U.S.C. 3282 or 1519 into the
+statute field so it parses was rejected: the differentiator rests on neither,
+and a field that says otherwise makes the checker pass by lying to it, which is
+docs/research/HUNT-LIST.md defect 1. Widening `isStatuteCitation` to accept
+Justice Manual citations was rejected because it would let any later page rest
+on policy without a decision being made, which is the silence the check exists
+to break. **The statute-parse flag on this page is correct and is excused, not
+engineered away.**
+
+**The exemption is checked, not trusted.** The two types carry opposite
+obligations, and `findMisTypedExemptions` in src/lib/c9.ts enforces both:
+`policy-governed` requires a **populated** C9, because the page claims verified
+substance and is excused from the statute-parse check only; `no-statute`
+requires the opposite. Without that invariant, `policy-governed` would be a
+general escape hatch admitting any page that claimed policy governed it and then
+said nothing. Both invariants have self-tests that show them firing.
+
+**Applied to.** src/lib/c9.ts (`C9ExemptionType`, `findMisTypedExemptions`),
+src/lib/site.ts (`CHARGE_C9_EXEMPT` typed, target letter C9 recorded and
+populated), scripts/check-c9.mts (exemptions reported by type, invariants
+enforced, four new self-tests).
+
+---
+
+### D16. Sex crimes is a category overview that is still C9-checked
+
+**Decided 2026-08-13.** Raised by docs/research/briefs/W4-02-sex-crimes.md
+Section 0.
+
+**Decided.** `/criminal-defense/sex-crimes-defense` is modelled as a **third
+state**: category overview, **C9-required**, distinct from both
+charge-page-with-C9 and `c9Exempt`.
+
+**Why not exempt.** D12's stated condition for exemption is that **no statute
+exists**. Corporate fraud met it. This page does not: it rests on five statutes,
+and Florida law enumerates the category itself twice, at F.S. 943.0435(1)(h)1.a
+and F.S. 775.21(4)(a)1. Exempting it would also delete a 23-row penalties table
+that is both the page's strongest asset and its referral asset.
+
+**Why not a plain charge page.** It is not one charge. Recording it as one would
+state something untrue about a page spanning three chapters.
+
+**The field records what the page is, never permission to skip the check.**
+`comparable()` deliberately does not filter on `c9Category`, and
+`findCategoryConflicts` fails the build if a page is ever marked both category
+and exempt, because a page cannot be both excused from the check and required to
+pass it.
+
+**Applied to.** src/lib/c9.ts (`C9Category`, `findCategoryConflicts`),
+src/lib/site.ts (`CHARGE_C9_CATEGORY`), scripts/check-c9.mts.
+
+---
+
+### D17. D6 is amended, not carved out. Measurability is checked per charge.
+
+**Decided 2026-08-13**, on the evidence in
+docs/research/briefs/ST-04-dui.md Section 0.4.
+
+**Amended.** D6 committed waves 1 and 2 to statewide informational capture and
+**never** local charge-term position. Its replacement:
+
+> Reporting defaults to **statewide informational capture**, except where **DMA
+> volume is verified measurable for that charge**, in which case local position
+> is a legitimate secondary measure reported alongside it. Measurability is
+> **checked per charge, never assumed** in either direction, and re-derived from
+> a volume pull each reporting cycle.
+
+**Why amend rather than carve DUI out.** A case-by-case exception would
+reproduce this error the next time a charge has volume. The defect in D6 was not
+that it named the wrong charges; it was that it generalised a measurement from
+the charges it happened to examine. An exception list inherits that defect. A
+per-charge check does not.
+
+**The evidence, stated the way it survives review.** `dui lawyer tampa` returns
+**320/month at Tampa DMA** with CPC **$110.74**, the highest in the corpus,
+against **no measurable DMA volume** for seven wave 1 and 2 charge terms. It is
+**not** argued from Florida volume equalling DMA volume: that ratio is a
+tautology satisfied by every city-named term in the same pull, including terms
+at 10/month, and the brief rejected that framing when it was offered.
+
+**Two charges qualify today**, DUI and domestic violence. The list is data, not
+doctrine, and is re-derived each cycle.
+
+**The foundational research has a hole, not a wrong grade.** docs/research/
+keywords.md **never graded DUI at all**: zero word-boundary matches, the single
+substring hit being a domain name in a rankers list. The file that graded
+winnability for this project omits the charge carrying the highest measurable
+local volume in it. That is an absence in the source material and it is recorded
+as one, because a gap and an error need different remedies.
+
+**D6's client-communication requirement carries over unchanged**: this is told
+to the client **before** reporting begins.
+
+**Applied to.** CASES-WE-DEFEND-PLAN.md Section 7.1, docs/research/briefs/
+STATE.md.
+
+---
+
+### D18. flhsmv.gov is not added to the verification allowlist
+
+**Decided 2026-08-13.** Raised by docs/research/briefs/ST-04-dui.md, which asked
+the question and built the page without the source.
+
+**Decided: no.** Two reasons, both recorded because either alone is weaker than
+the pair.
+
+1. **The page was built entirely without it and lost nothing.** The DUI brief's
+   C9, its penalties material, and its administrative-suspension section all
+   rest on F.S. 322.2615, 322.271 and 316.193 fetched from flsenate.gov and
+   leg.state.fl.us. An allowlist addition that buys nothing is a widening with
+   no return.
+2. **It is currently publishing the superseded rule on the exact point the page
+   corrects.** flhsmv.gov holds organic position 1 on `florida DUI penalties`
+   and is the AI Overview's first cited source, and it still states "Second or
+   subsequent refusal is a misdemeanor of the first degree" after ch. 2025-121
+   made a **first** refusal a second degree misdemeanor effective 1 October
+   2025. An agency page can lag the statute it administers.
+
+The second reason is the general one and outlasts this instance: **the allowlist
+prefers the source that publishes the law over the agency that applies it.**
+That is the same line D2 already draws for justice.gov, which is allowlisted for
+procedure and policy and never for what a statute says.
+
+**Applied to.** CASES-WE-DEFEND-PLAN.md Section 10.3, docs/build/REVIEW-QUEUE.md.
+
+---
+
 ### D14. Florida computer crime moves to the state silo
 
 **Decided 2026-08-13**, resolving the question plan Section 4.6.2 left open, on

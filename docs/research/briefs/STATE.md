@@ -1,10 +1,19 @@
-# STATE: Content briefs, wave 1 and wave 2
+# STATE: Content briefs, all 30 charge pages
 
-Mission: content briefs for the wave 1 and wave 2 charge pages in
+Mission: content briefs for every charge page in
 docs/build/CASES-WE-DEFEND-PLAN.md Section 7, plus one validated page template
-they all inherit. Wave 3 and wave 4 are out of scope for this session.
+they all inherit.
 
-Last updated 2026-08-13. Nothing committed. No push, no deploy.
+**Complete as of 2026-08-13. All 30 charges are briefed**, across two sessions:
+waves 1 and 2 first (9 briefs plus the template and TOOLS.md), then the
+remaining-20 programme in four workstreams (W1 conditional pairs, W2 federal and
+white-collar, W3 state, W4 the sensitive charges).
+
+The section headings below preserve that history rather than flattening it. The
+original wave 1 and 2 deliverable table comes first; the remaining-20 programme
+follows.
+
+Last updated 2026-08-13. Committed locally. No push, no deploy.
 
 ---
 
@@ -321,6 +330,56 @@ that the two be decided separately.
 
 **40 of 300** through W1, W2, W3, and the W4 data pull. W4's SERP and volume
 data was collected before W4 was launched, for the same counter reason.
+
+---
+
+## All seven decisions applied, 2026-08-13
+
+Answers to the four blocking decisions in the final report, plus three
+additions. Recorded here as an index; the reasoning lives in DECISIONS.md.
+
+| # | Decision | Where it landed |
+|---|---|---|
+| 1 | **D6 amended, not carved out.** Reporting defaults to statewide informational capture except where DMA volume is verified measurable **per charge**. keywords.md's DUI omission recorded as a **hole in the foundational research**, not a wrong grade | **D17.** Plan Section 7.1, rewritten with the original text kept below the amendment |
+| 2 | **Target letter `c9Exempt`, second exemption type** `policy-governed`, not collapsed into `no-statute` | **D15.** c9.ts, site.ts, check-c9.mts |
+| 3 | **Sex crimes gets the third state**: category overview, C9-required, distinct from both | **D16.** c9.ts, site.ts, check-c9.mts |
+| 4 | **flhsmv.gov refused**, on both reasons | **D18.** Plan Section 10.3, REVIEW-QUEUE.md |
+| 5 | **HUNT-LIST instances 3 and 4** | HUNT-LIST.md |
+| 6 | **DUI first, first-refusal substance leads.** Page is built; commercial term stays YEARS | Plan Section 7 |
+| 7 | **Charging-document decoder ranked** in TOOLS.md, same storage gate | TOOLS.md item 3 |
+
+**Drug possession left where it is.** Volume alone does not settle it and nothing
+depends on it yet.
+
+### What the two new states cost, and why it is worth it
+
+The exemption model was one boolean. It is now a type plus a category flag, and
+**both new states are enforced rather than trusted**, because a state that is
+merely declared is a state that drifts.
+
+`policy-governed` and `no-statute` carry **opposite** obligations, so each is
+checkable against what the page actually holds. `policy-governed` **requires** a
+populated C9: the page claims verified substance and is excused from the
+statute-parse check only. Without that invariant the new type would be a general
+escape hatch, admitting any page that claimed policy governed it and then said
+nothing. `no-statute` requires the reverse. A category page cannot also be
+exempt, because a page cannot be both excused from the check and required to
+pass it.
+
+Four self-tests show all three checks firing on the exact shapes they reject,
+plus one showing they stay quiet on legitimate entries. Per this project's own
+rule: a detector that cannot be shown to fire is not evidence.
+
+**The checker now reports exemptions BY TYPE**, never as one count, for the same
+reason it already refuses to collapse excused-by-decision into not-yet-written.
+
+### Current C9 state
+
+**29 of 30 charge pages resolved.** 27 compared (of which 1 category overview),
+2 exempt by decision under 2 distinct types, and **1 genuinely outstanding**:
+`/white-collar-defense/ppp-loan-fraud`, still blocked on identifying which
+limitations statute governs PPP fraud prosecutions. That is a research gap with a
+known shape, not an open question.
 
 ---
 

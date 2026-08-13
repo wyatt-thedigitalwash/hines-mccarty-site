@@ -693,6 +693,34 @@ and is ordered by dependency rather than by grade.
 | 4 | Sexual battery, sex crimes, CSAM, homicide | YEARS. Build for capability and referral conversion, expect nothing from search |
 | **Opportunistic** | **PPP loan fraud** | **Demoted 2026-08-13.** Built only after the C12 allowlist decision lands, and only if capacity allows. See 7.2 |
 
+#### Page-writing order for the briefed set, decided 2026-08-13
+
+The table above sequences **reinforcement** of the graded pages. All 30 charges
+now carry briefs, so the separate question of **which page gets written first**
+has an answer, and it is not the top of that table.
+
+**DUI first, and within it the first-refusal substance leads.**
+
+| | |
+|---|---|
+| **Why first** | `refusing breathalyzer florida` is the **only NOW-graded term** in the entire remaining-20 set: 210/month Florida, 50/month DMA, LOW competition, $2.30 CPC |
+| **Why the refusal substance leads the page** | Effective 1 October 2025, ch. 2025-121 made a **first** refusal a second degree misdemeanor under F.S. 316.1939(1)(e). **Five sources still publish the superseded rule, including flhsmv.gov at organic position 1**, which is also the AI Overview's first cited source |
+| **Why it is urgent rather than merely good** | **This position closes as competitors update.** It is the only opportunity in the set with an expiry date attached to someone else's editing schedule. Every other finding here keeps |
+
+**The DUI page is built.** Its commercial term stays graded **YEARS** and that is
+not in tension with building it: the informational and procedural case stands
+**independently** of the commercial one. The page is justified by the refusal
+substance, the F.S. 322.2615 administrative-suspension material, and the
+10-day-notice C9, none of which depend on ever ranking for `dui lawyer tampa`.
+Measurability and winnability are different questions, and so are winnability and
+worth building. See docs/research/briefs/ST-04-dui.md.
+
+**Drug possession keeps its place for now.** Its volume is the weakest in the set
+at roughly 120/month measurable Florida, and its own brief asks whether it should
+be resequenced. It is not resequenced: volume alone does not settle it, and
+nothing currently depends on the answer. Revisit when something does.
+
+
 Wave 4 pages still get built. They convert the referral traffic the firm already
 earns, which DOSSIER.md Section 1 identifies as most of the firm's work. They
 should simply not be measured on rankings.
@@ -863,9 +891,47 @@ the argument.
   taken it must be agreed up front as scaffolding, so the pages are not judged on
   sessions at 90 days.
 
-### 7.1 Reporting standard for waves 1 and 2
+### 7.1 Reporting standard for waves 1 through 3
 
-Added 2026-08-13 (DECISIONS.md D6).
+Added 2026-08-13 (DECISIONS.md D6). **AMENDED the same day by D17**, on evidence
+D6 did not have. Read the amendment first; the original text follows it because
+a decision is easier to audit when what it replaced is still visible.
+
+#### The standard, as amended (D17)
+
+> Reporting defaults to **statewide informational capture and conversion**,
+> except where **DMA volume is verified measurable for that charge**, in which
+> case local position is a legitimate secondary measure reported alongside it.
+> Measurability is **checked per charge, never assumed** in either direction,
+> and re-derived from a volume pull each reporting cycle.
+
+**Two charges qualify today: DUI and domestic violence.** That list is data, not
+doctrine.
+
+**What changed and why.** D6 generalised a measurement from the charges it
+happened to examine. That generalisation is false for DUI: `dui lawyer tampa`
+returns **320 per month at Tampa DMA** at **$110.74** CPC, the highest in this
+project's corpus, against no measurable DMA volume for seven of the terms D6
+looked at. The amendment replaces the generalisation with a per-charge check,
+rather than adding DUI as an exception, because an exception list would
+reproduce the same error the next time a charge has volume.
+
+**How the evidence must be stated.** On the **absolute** DMA figure and the CPC.
+**Not** on Florida volume equalling DMA volume: that ratio is a tautology
+satisfied by every city-named term in the same pull, including terms at 10 per
+month, and it does not survive review.
+
+**A hole in the foundational research, recorded as a hole.** docs/research/
+keywords.md **never graded DUI at all** (zero word-boundary matches; the one
+substring hit is a domain name in a rankers list). The file that graded
+winnability for this project omits the charge carrying the highest measurable
+local volume in it. That is an absence in the source material, not a wrong
+grade, and the two need different remedies.
+
+**Unchanged by the amendment:** this is told to the client **before** reporting
+begins.
+
+#### The original standard, as decided under D6
 
 **Wave 1 and wave 2 pages are measured on statewide informational capture and on
 conversion. Never on local charge-term position.**
@@ -1315,6 +1381,22 @@ official sources only:
 - **Federal procedure and DOJ policy:** justice.gov, **for procedure and policy
   only**. See the scope limit below.
 - **Federal courts, general:** uscourts.gov.
+
+**Considered and refused, 2026-08-13 (DECISIONS.md D18): flhsmv.gov.** It
+administers the DUI administrative-suspension proceeding and holds organic
+position 1 on `florida DUI penalties`, and it is still **not** allowlisted, for
+two reasons. The DUI page was built entirely without it and lost nothing, every
+claim resting on F.S. 322.2615, 322.271 and 316.193 from allowlisted sources. And
+it is currently publishing the **superseded** rule on the exact point that page
+corrects, stating "Second or subsequent refusal is a misdemeanor of the first
+degree" after ch. 2025-121 made a **first** refusal a second degree misdemeanor
+effective 1 October 2025.
+
+The general rule the refusal stands on: **the allowlist prefers the source that
+publishes the law over the agency that applies it.** An agency page can lag the
+statute it administers, and this one demonstrably does. This is the same line
+already drawn for justice.gov below.
+
 
 **Amendment, 2026-08-13 (DECISIONS.md D2). Why the original list was
 defective.** This list previously read "Federal statutes and guidelines:

@@ -286,9 +286,116 @@ independently rather than a second source.
 
 ---
 
-## 3. The third degree felony sentencing page
+## 3. The charging-document decoder
 
-**Rank 3. Guide. Effort S.**
+**Rank 3, added 2026-08-13. Reference tool. Effort S to M.**
+
+**Why rank 3 and not higher.** It serves **more briefs than any other asset in
+this file**, and its demand pattern is the most replicated finding in the
+programme. It ranks below the two above it because their demand is measured
+directly on the terms they serve, while a meaningful part of this asset's
+evidence is a **shape** observed in related searches that carry no volume
+figures. Ranked on breadth and replication, not on a single volume number, and
+the distinction is stated so the order stays checkable.
+
+### Evidence of demand
+
+**The pattern surfaced independently in three briefs, on three different silos,
+without any of them being told to look for it.** That is what moves it from an
+observation to a finding.
+
+| Brief | What was observed |
+|---|---|
+| ST-02 drug possession | **All eight** related searches on the informational query are statute strings or booking descriptions: `Fss possession of controlled substance`, `FL 893.13 6a`, `893.13 6b`, `Fss possession of drug paraphernalia`, `Drug equip possess and or use` |
+| W4-01 sexual battery | `794.011 8b` among the related searches, pointing at the familial or custodial authority subsection |
+| W4-04 federal CSAM | **`18 usc 2252` at 70/month Florida, 20/month Tampa DMA**, the second-largest statute-number term in the corpus behind `21 usc 841` at 140/month |
+
+Related searches on the battery and sexual battery queries repeat it in the
+Florida form: `Fss battery`, `Fss Simple battery`, `Fss felony battery`, `Fss
+sexual battery Jury Instructions`, `Aggravated battery fss`, `784.03 1A1
+domestic battery`.
+
+**What the pattern actually is.** People are typing the citation off a piece of
+paper. A charging document, a booking sheet, or an indictment names a statute
+and a paragraph, not an offence in plain English, and the first thing a person
+does with it is search the string. **The audience is unambiguous**: nobody
+searches `893.13 6b` out of curiosity.
+
+**It serves every charge page in the project**, state and federal, which no other
+asset in this file does.
+
+### Does any competitor have one?
+
+**No, and no competitor page answers a statute-string query at all.** Verified
+across the graded competitor sets in six briefs. The pages that rank on these
+queries rank despite not answering them: they are charge-name pages that Google
+matches to a citation string because nothing better exists.
+
+### What it must do, at minimum
+
+- Map a **Florida statute string in the forms people actually type** (`893.13
+  6a`, `Fss 784.03`, `784.03 1A1`, `F.S. 812.014(2)(c)`) to the offence name,
+  the degree, and the plain-English description of what the paragraph covers.
+- Do the same for the **federal citation forms** (`18 usc 2252`, `18 U.S.C. §
+  1343`), which is where the measured volume is.
+- Resolve to the **paragraph**, not the section. An indictment names a paragraph,
+  and section-level granularity would fail the exact query it exists to serve.
+- **Link through to the charge page** that covers the offence. This is the asset's
+  strategic value: it is the natural top of funnel for every charge page, from an
+  audience that already knows it has been charged.
+- Carry the **operative statutory text**, quoted, with its source, per C12.
+
+### Build effort
+
+**S to M.** Static data plus string normalisation. No computation, no
+persistence, no external calls. The mapping table is the work, and much of it is
+already fetched and quoted across the 33 briefs.
+
+### The gate, per your instruction: the same standard as the offense-level instrument
+
+**CASES-WE-DEFEND-PLAN.md Section 5.4 applies in full: nothing a user enters is
+stored or logged server-side, ever.**
+
+This tool takes a text input, which the offense-level instrument does not, so the
+standard is stated concretely rather than by reference:
+
+- **Lookup runs entirely in the browser** against a shipped static dataset. No
+  request leaves the page carrying user input.
+- **No server-side logging of the query string**, including analytics events
+  carrying the raw input, and including error and exception reporting.
+- **No statute string in a URL parameter.** A citation a person typed off their
+  own charging document is case data, and putting it in a query string puts it in
+  referrer headers, server logs, and browser history.
+- **No autocomplete endpoint**, which would send every keystroke server-side and
+  would defeat the whole gate for a convenience nobody asked for.
+
+**Why this is not over-cautious for a lookup tool.** A statute string entered by
+a person facing that charge is as sensitive as anything the sentencing calculator
+would take, and arguably more identifying in aggregate: a small number of queries
+against a Brandon-area IP describes a specific person's specific case. The gate
+exists for what the asset does with a reader's case facts, not for whether it
+computes.
+
+### Rule 4-7 considerations
+
+Low risk, with one live edge. Stating what a statute covers is factual and
+citable. **The tool must not characterise exposure, suggest a likely outcome, or
+imply that a particular paragraph is better or worse to be charged under.** It
+resolves a citation and links onward. Degree and statutory maximum are facts and
+belong; anything that reads as "this is the good one" does not.
+
+**One thing it must get right or not ship.** A decoder that resolves a string to
+the wrong paragraph is worse than no decoder, because the reader has no way to
+tell. The 921.0022 chart must not be used as the mapping source: this project has
+found **six** chart-versus-statute scope errors, three of them in ST-02 on the
+possession statute this tool would be most used for. **The mapping is built from
+operative statutory text or it is not built.**
+
+---
+
+## 4. The third degree felony sentencing page
+
+**Rank 4. Guide. Effort S.**
 
 ### Evidence of demand
 
@@ -336,9 +443,9 @@ in exactly the way Rule 4-7.13(a)(2) describes.
 
 ---
 
-## 4. "Is my case state or federal?" forum guide
+## 5. "Is my case state or federal?" forum guide
 
-**Rank 4. Guide. Effort S to M.**
+**Rank 5. Guide. Effort S to M.**
 
 ### Evidence of demand
 
@@ -394,9 +501,9 @@ four briefs, and carries none of the exposure.
 
 ---
 
-## 5. The 10-20-Life explainer
+## 6. The 10-20-Life explainer
 
-**Rank 5. Guide. Effort S.**
+**Rank 6. Guide. Effort S.**
 
 ### Evidence of demand
 
@@ -438,9 +545,9 @@ C1 through C8: not applicable in substance. **Explicitly do not build a
 
 ---
 
-## 6. The restitution guide
+## 7. The restitution guide
 
-**Rank 6. Guide. Effort S.**
+**Rank 7. Guide. Effort S.**
 
 ### Evidence of demand
 
