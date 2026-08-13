@@ -789,8 +789,12 @@ const whiteCollarCharges: ChargeSeed[] = [
     "Healthcare Fraud",
     "Billing charges involving Medicare, Medicaid, or insurers",
   ],
-  // DRAFTED
-  ["mail-fraud", "Mail Fraud", "Fraud charges based on something sent by mail"],
+  // mail-fraud REMOVED 2026-08-13 (DECISIONS.md D4). It failed the C9
+  // cover-the-name test against wire fraud: 18 U.S.C. 1341 and 1343 share an
+  // opening clause, a 20-year maximum, and a word-for-word identical
+  // enhancement sentence, differing only in the jurisdictional means. The
+  // `mail fraud attorney Tampa` query is targeted by an H2 within
+  // /federal-criminal-defense/wire-mail-fraud, whose slug already names both.
   [
     "bank-fraud",
     "Bank Fraud",
@@ -819,6 +823,22 @@ const whiteCollarCharges: ChargeSeed[] = [
     "Fraud charges based on calls, email, or transfers",
   ],
   ["tax-evasion", "Tax Evasion", "Charges for not paying or reporting taxes"],
+  // Both added 2026-08-13 (DECISIONS.md D3). Each is a wave 1 or wave 2 page in
+  // CASES-WE-DEFEND-PLAN.md Section 7 that had no slug, and each passes C9 on
+  // its own substance rather than being folded into a sibling: PPP on a
+  // programme-specific limitations period and an audit-before-indictment
+  // posture, identity theft on a four-tier offense-level ladder under
+  // F.S. 817.568 running from level 4 to level 9.
+  [
+    "ppp-loan-fraud",
+    "PPP Loan Fraud",
+    "Charges over pandemic relief loan applications",
+  ],
+  [
+    "identity-theft",
+    "Identity Theft",
+    "Charges for using another person's identifying information",
+  ],
 ];
 
 /** [slug, label, one-line description capped at 8 words] */
@@ -836,16 +856,23 @@ const stub =
 
 /**
  * All charge pages, from WEBSITE-PLAN.md Section 3 Tier 2 (the client's
- * SEO.pdf list). 29 entries: 10 state, 10 federal, 9 white-collar.
+ * SEO.pdf list). 30 entries: 10 state, 10 federal, 10 white-collar.
  *
  * NOTE ON THE COUNT. CASES-WE-DEFEND-PLAN.md says "~26" and the home practice
- * grid carries 23. The authoritative list is Tier 2 and it totals 29, because
+ * grid carries 23. The authoritative list is Tier 2. It totals 30, because
  * several federal and white-collar entries overlap: healthcare-fraud appears
- * in both silos with the same slug, and corporate-fraud, wire-fraud,
- * mail-fraud, and computer-crime each shadow a broader federal sibling.
- * WEBSITE-PLAN.md says to cross-link those, not duplicate them, which is what
- * `counterpart` is for. Whether some should be merged rather than cross-linked
- * is a content decision that has not been made; see the report for the list.
+ * in both silos with the same slug, and corporate-fraud, wire-fraud, and
+ * computer-crime each shadow a broader federal sibling. WEBSITE-PLAN.md says to
+ * cross-link those, not duplicate them, which is what `counterpart` is for.
+ *
+ * RESOLVED 2026-08-13 (DECISIONS.md D3 and D4). "Whether some should be merged
+ * rather than cross-linked" was recorded here as an unmade content decision.
+ * It was made, by running the C9 cover-the-name test rather than by judgment:
+ * mail-fraud failed against wire fraud and was removed, bank-fraud passed and
+ * was kept, and ppp-loan-fraud and identity-theft were added. The generalisable
+ * rule, now in CASES-WE-DEFEND-PLAN.md Section 4.6.1: where two pages would rest
+ * on statutes differing only in a jurisdictional element, they are one page;
+ * where they differ in an element of the offence, they are two.
  */
 /**
  * The one populated entry, so the template's filled branches can be verified

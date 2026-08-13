@@ -264,6 +264,59 @@ adopt the phrasing of the firms that currently are.
 
 ---
 
+### D10. Wave 2 build order accepted. Not reordered for the white-collar pages.
+
+**Decided 2026-08-13**, after the brief-review recommendation in
+CASES-WE-DEFEND-PLAN.md Section 7.3.
+
+**Accepted.** Wave 2 is not reordered to build the white-collar pages first,
+despite the supply-gap evidence. The accepted build order is domestic violence,
+drug trafficking, gun crimes, identity theft, wire fraud, money laundering.
+Grand theft is absent because D-series decision 7.2 moved it to wave 1.
+
+**Why, in one line:** ease of ranking is the cheap input, demand is the scarce
+one, and you sequence against the scarce one.
+
+**The distinction that carried it, and it is the part worth remembering.** The
+briefs had treated all SERP padding as one signal. It is two, and they point
+opposite ways:
+
+- **Generic-hub and near-miss-offence padding** (a white-collar hub ranking on a
+  money laundering query, a bank fraud page ranking on a wire fraud query) is a
+  genuine relevance vacuum. Google is substituting the topical parent or the
+  nearest sibling because no better document exists. A dedicated page can
+  plausibly displace it. This is the real, exploitable half.
+- **Out-of-market padding** (a St. Petersburg page at #5 on a Tampa query, a
+  `/naples/` URL at #11) is worse news, not better. It means the "Tampa" token
+  is doing almost no ranking work, so Google is falling back on domain
+  authority. **That removes the exact advantage the page was going to be built
+  on.** You wanted to win by being the Tampa-specific document; the SERP is
+  saying Tampa-specific is not the axis of competition on that query.
+
+Treating the second as evidence of opportunity was the error in the
+build-white-collar-first case.
+
+A third signal inverts the intuition: an AI Overview citing twelve dedicated firm
+pages, as on drug trafficking, indicates a **harder** field than homepage
+padding, and a better one. Google does not synthesise an overview for a query
+nobody asks.
+
+**Supersedes** the ordering implied by the wave 2 rows in the Section 7 table,
+which grouped pages without ranking them.
+
+**What reopens it:** the firm's own case-mix and fee data, which is the strongest
+counterargument and is not a SERP question; Search Console impressions once wave
+1 is indexed; non-geo volume checks; and domain-authority reality. All four are
+recorded in Section 7.3.
+
+**One part of the underlying analysis expressly not adopted:** it suggested
+folding embezzlement into grand theft, since Florida charges embezzlement as
+theft. Legally correct, structurally wrong here. Embezzlement passes C9 on the
+position-of-trust fact pattern, which is a different page in everything except
+the charging statute, and it is already a wave 1 page. It stays.
+
+---
+
 ### D9. Review velocity revised again, and the pattern named
 
 **Decided.** The Google Business Profile review-velocity section is revised

@@ -37,6 +37,7 @@ the page needs looking at. Populate these as pages are assigned and read.
 | Sentencing calculator | 6 months, plus every Rule 3.992 revision |
 | Pages citing penalties, thresholds, or dollar figures | 6 months |
 | Other charge pages, silo hubs, market pages | 12 months |
+| **Pages whose cited rule has demonstrably moved** | **3 months**, plus the off-cycle trigger. Currently: the 33-day rule correction guide. See the Guides section for the reasoning. |
 
 **Annual sweep runs in July**, after Florida's regular session laws take effect
 on July 1, so the year's statutory changes are caught in one pass.
@@ -113,13 +114,20 @@ date), C12 (allowlisted verification), and C13.
 |---|---|---|---|---|---|
 | `/white-collar-defense/corporate-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/healthcare-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
-| `/white-collar-defense/mail-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/bank-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/embezzlement` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/securities-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/computer-crime` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/wire-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
 | `/white-collar-defense/tax-evasion` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/ppp-loan-fraud` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+| `/white-collar-defense/identity-theft` | [NEEDS: assign] | not reviewed | 6mo | on publish | stub |
+
+**Changed 2026-08-13 (DECISIONS.md D3 and D4).** `mail-fraud` removed after
+failing the C9 cover-the-name test against wire fraud; its query is targeted by
+an H2 within `/federal-criminal-defense/wire-mail-fraud`. `ppp-loan-fraud` and
+`identity-theft` added, each passing C9 on its own substance. The white-collar
+silo now carries 10 rows, and the charge set totals 30.
 
 ### Silo hubs
 
@@ -142,7 +150,7 @@ a cross-link-or-merge decision before content is written:
 |---|---|---|
 | `healthcare-fraud` | `healthcare-fraud` | Same slug and label in both silos. Merge, or two pages with a `counterpart` cross-link? |
 | `white-collar-corporate-fraud` | `corporate-fraud` | Near-duplicate scope |
-| `wire-mail-fraud` | `wire-fraud` + `mail-fraud` | One combined federal page versus two white-collar pages |
+| `wire-mail-fraud` | `wire-fraud` | **RESOLVED 2026-08-13 (DECISIONS.md D4).** `mail-fraud` failed C9 against wire fraud and was removed; the federal page absorbs its query via an H2. `wire-fraud` survives because it is built on the Florida Communications Fraud Act, F.S. 817.034, which the federal page never mentions. |
 | `computer-internet-crimes` | `computer-crime` | Near-duplicate scope |
 
 ### Office and market pages
@@ -172,6 +180,60 @@ ship; it becomes a Layer 2 courthouse guide instead.
 date, including the January 2026 correction) and the attorney-reviewed accuracy
 note: reviewing attorney, review date, and what was reviewed. That note attests
 the math, separately from the prose byline.
+
+### Guides
+
+| Page | Owner | Last reviewed | Cadence | Next due | Status | Notes |
+|---|---|---|---|---|---|---|
+| The Florida "33 day rule" correction guide | [NEEDS: assign] | not reviewed | **3mo** | on publish | not built | Non-standard cadence, see below |
+
+**Why this page is on a quarterly cadence rather than the standard six months.**
+Added 2026-08-13.
+
+The rule it explains **demonstrably moves**. Fla. R. Crim. P. 3.134 was amended
+effective 2025-07-01 by In re: Amendments to Florida Rule of Criminal Procedure
+3.191, No. SC2022-1123 (Fla. Mar. 13, 2025), 411 So. 3d 385. That amendment
+added an entirely new subdivision (b) and **changed which numbers are operative
+for most readers**: anyone out on pretrial release is now on a 60-day and
+63rd-day track, not the 30-day and 33rd-day track the page's own title refers
+to. Almost the entire competing corpus is stale on exactly that point, which is
+half of why the page is worth building.
+
+A page whose competitive advantage is currency, on a rule that changed thirteen
+months ago in a way nobody else has caught up with, cannot sit on the same
+cadence as a page about elements that have not moved in decades. Six months
+would have meant publishing into a window where a further amendment could sit
+undetected for most of it.
+
+**The Section 9.3 off-cycle trigger applies in addition, not instead.** If Rule
+3.134 or Rule 3.191 is amended, the page enters review within 30 days of the
+firm learning of it, regardless of where it sits in the quarterly cycle. The
+quarterly cadence is the floor, not the ceiling.
+
+**Presentation requirement, on the calculator-gate reasoning.** This page
+carries a **no-attorney-client-relationship notice adjacent to the content, not
+footer-only**. The reasoning is the same as done-criteria C3 and C4 in
+CASES-WE-DEFEND-PLAN.md Section 5.6, and it applies here for a page-specific
+reason rather than by analogy: a reader arrives believing a deadline has passed
+that ends their case, and the page tells them it does not. That is precisely the
+moment someone forms a belief about what the firm has told them. Under Op. 24-1
+and Bartholomew, 611 So. 2d 85, a relationship can arise from a user's
+subjective reasonable belief regardless of the firm's intent, and a footer
+notice does not reach a reader who stopped at the correction.
+
+**Two further requirements carried from the research** (docs/research/briefs/TOOLS.md
+item 2): the release-is-not-dismissal correction sits **above the fold**, not in
+a footnote, because publishing the number without the consequence reproduces the
+exact harm the page exists to fix; and the page states the rule version it
+describes with a current-as-of date.
+
+**One open verification before publish.** The consolidated Rules PDF hosted on
+flcourts.gov carries a January 1, 2017 footer and does not contain the amended
+(a)/(b) structure, so it is stale for this rule and must not be cited as
+current. The controlling text is The Florida Bar's compilation updated
+2026-07-13. A person opens that URL in a browser and eyeballs Rule 3.134 before
+publish. See HUNT-LIST.md defect 1 for why a second automated pass against the
+same document does not satisfy this.
 
 | Field | Value |
 |---|---|

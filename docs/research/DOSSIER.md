@@ -386,6 +386,59 @@ paid-reality.md (W6), avoid.md (W7), STATE.md (status and open questions).
 
 ---
 
+## 10. Addendum, 2026-08-13: the white-collar supply gap
+
+Added after this dossier was finalized. Recorded as an addendum rather than
+edited into the body above, because this file is a dated research artifact and
+Sections 1 through 9 remain accurate for the evidence available on 2026-07-22.
+Source: the wave 1 and wave 2 content briefs in docs/research/briefs/, all SERPs
+Tampa-geolocated and verified 2026-08-13.
+
+**The finding.** Across three of three white-collar charge queries, Google is
+filling the SERP with documents that are not about the charge:
+
+| Query | What is padding the SERP |
+|---|---|
+| embezzlement lawyer Tampa | Four of the top ten are competitor **homepages** (Hanlon, Sammis, Scriven, Greater Tampa Law). Only four of twelve results are about embezzlement at all. |
+| money laundering defense attorney Tampa | Two of the top five are generic **white-collar hubs** rather than money laundering pages. Goldman Wetzel's **St. Petersburg** page holds #5 on a Tampa query. |
+| identity theft defense lawyer Tampa | Hanlon's **St. Petersburg** page holds #5; Joffe ranks at #11 from a **/naples/** URL path. |
+| wire fraud attorney Tampa | Mayberry and Trombley & Hanes rank at #7 and #8 with **bank fraud** pages. Only two of the top eight are dedicated wire fraud pages. |
+
+**Why it matters to the market read in Section 1.** This dossier identified two
+open doors, Brandon geography and informational content. This is a third and it
+is narrower than it first appears: there is a relevance vacuum in the Tampa
+white-collar SERPs that a dedicated, genuinely local page could fill.
+
+**Why it is not a third pillar.** Two of the four patterns above are
+out-of-market pages ranking on a Tampa query, and that signal cuts the other
+way. It means the "Tampa" token is doing little ranking work on those queries and
+Google is falling back on domain authority, which is precisely the advantage a
+new Brandon domain does not have. Meanwhile the volume data says these SERPs are
+close to unloaded: Google Ads reports no measurable Tampa DMA volume for money
+laundering, wire fraud, or identity theft attorney terms, on a tool that proved
+willing to report 10 per month for embezzlement.
+
+**The recommendation, which lives in the section plan rather than here:** do not
+reorder wave 2 to build the white-collar pages first. Ease of ranking is cheap;
+demand is scarce; sequence against the scarce input. Full reasoning, the
+recommended order, and the four things that would change it are in
+docs/build/CASES-WE-DEFEND-PLAN.md Section 7.3.
+
+**Two other corrections from the same brief work**, recorded here because they
+bear directly on Sections 3 and 6 above and are set out in full in
+docs/build/DECISIONS.md D6, D8 and D9:
+
+- **The review ladder in Section 3 is understated by roughly three times.** It
+  topped at Smith & Eulo 193, all aggregator-reported. The Tampa local pack was
+  directly observed on 2026-08-13 and its leader, Daniel J. Fernandez, carries
+  574 reviews. Local pack entry is a multi-year objective.
+- **The first observed Tampa CPC datum.** `criminal defense attorney Tampa`,
+  2,400 searches per month, top-of-page bids $31.11 to $97.54. Every CPC figure
+  in Section 6 is ESTIMATE. This one is not, and it sits above the national
+  keyword-level band W6 called defensible.
+
+---
+
 ## DONE-CRITERIA
 
 | Criterion | Status | Note |

@@ -40,6 +40,12 @@ exists. It decides three things only:
   (that is a multi-year head-term fight behind a directory wall, per
   competitors.md). The page still earns branded, long-tail, and local traffic
   from day one.
+  **Reporting standard, added 2026-08-13 (DECISIONS.md D6):** waves 1 and 2 are
+  measured on statewide informational capture and on conversion, **never on local
+  charge-term position**, because Google reports no measurable Tampa DMA volume
+  for most of those terms. Full evidence and the volume table are in
+  CASES-WE-DEFEND-PLAN.md Section 7.1. This revises the goal as originally
+  stated and must be communicated to the client **before** any reporting begins.
 - Reinforcement order: the NOW and 6-12mo pages get blog and guide support and
   internal links FIRST, so the SEO engine shows results where it can fastest.
 - Paid (parked): where paid would carry vs where organic must. Not in scope now.
@@ -114,9 +120,28 @@ Under `/federal-criminal-defense/`:
 ### Tier 2 -- White-Collar / Fraud Sub-Pages (from SEO.pdf checklist)
 Under `/white-collar-defense/` (some overlap with federal; cross-link, do not
 duplicate content):
-`corporate-fraud`, `healthcare-fraud`, `mail-fraud`, `bank-fraud`,
-`embezzlement`, `securities-fraud`, `computer-crime`, `wire-fraud`,
-`tax-evasion`
+`corporate-fraud`, `healthcare-fraud`, `bank-fraud`, `embezzlement`,
+`securities-fraud`, `computer-crime`, `wire-fraud`, `tax-evasion`,
+`ppp-loan-fraud`, `identity-theft`
+
+**Changes 2026-08-13** (DECISIONS.md D3 and D4), all from the wave 1 and wave 2
+brief evidence:
+
+- **Added `ppp-loan-fraud`.** It was a wave 1 page in CASES-WE-DEFEND-PLAN.md
+  Section 7 with no slug. Passes C9 on a programme-specific limitations period
+  and an audit-before-indictment posture.
+- **Added `identity-theft`.** Wave 2 page with no slug. Passes C9 on a four-tier
+  offense-level ladder under F.S. 817.568 running from level 4 to level 9.
+- **Removed `mail-fraud`.** Failed the C9 cover-the-name test against wire
+  fraud: 18 U.S.C. 1341 and 1343 differ only in the jurisdictional means and
+  carry a word-for-word identical enhancement sentence. The query is targeted by
+  an H2 within `/federal-criminal-defense/wire-mail-fraud`, whose slug already
+  names both. Full evidence in CASES-WE-DEFEND-PLAN.md Section 4.6.1.
+- **Kept `bank-fraud`.** Passed the same test: 18 U.S.C. 1344 has no mailing and
+  no wire element, and its own SERP, PAA set, and directory taxonomy.
+- **No federal identity theft page** (D5). 18 U.S.C. 1028A attaches to an
+  enumerated felony rather than standing alone, so it is a companion count and
+  not a demand centre. Recorded as a decision, not an oversight.
 
 ### Tier 2 -- Sentencing (client's "add sentencing pages by felony level" + research)
 Under `/sentencing/`:
@@ -128,7 +153,12 @@ Under `/sentencing/`:
 ### Tier 3 -- Guides / Legal Resources (research winnable informational content)
 Under `/resources/guides/` (nested so the Resources nav item has a real hub
 behind it; tools live beside them at `/resources/tools/`):
-- `middle-district-florida-federal-court` (federal district hub)
+- ~~`middle-district-florida-federal-court`~~ **REMOVED 2026-08-13
+  (DECISIONS.md D1).** Duplicated the federal silo hub, and two pages cannot own
+  one query. The Middle District of Florida content lives at
+  `/federal-criminal-defense`, whose silo-hub template already reserves a "what
+  is different about this forum" section for exactly this material. Brief:
+  docs/research/briefs/W1-01-middle-district-florida-hub.md
 - `federal-criminal-process-timeline` (+ TIMELINE, tool #3)
 - `federal-target-letter`
 - `federal-grand-jury-subpoena`
@@ -435,7 +465,17 @@ otherwise wait years to touch.
    will give an advisory opinion on the exact wording. The second line,
    "Defending Your Future," is aspirational rather than an outcome claim and
    reads clean under 4-7.13(b)(1).
-10. **White background throughout?** The meeting notes say "white background
+10. **Is the Brandon Regional Service Center a place these cases are heard?**
+   Added 2026-08-13 (DECISIONS.md D7). The Hillsborough Clerk lists a Brandon
+   Regional Service Center at 311 Pauls Drive, Suite 110, Brandon FL 33511,
+   among the locations offering Criminal Courts services (verified on
+   hillsclerk.com). It is a clerk facility in the firm's own town and no
+   competitor page mentions it, which is exactly why it is tempting. **A clerk
+   service centre is not necessarily where a felony is heard.** The attorneys
+   need to confirm what it actually handles for the case types on the wave 1 and
+   wave 2 pages. **BLOCKS** any reference to it in copy; the seven state-side
+   briefs are written to leave it out until this closes.
+11. **White background throughout?** The meeting notes say "white background
    throughout, dark blue header." SITE.md's committed visual direction is the
    opposite: a Prussian Blue canvas with linen panels, referencing sheppard.com.
    Both are viable, but they are different sites and Home is already built the

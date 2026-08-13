@@ -162,6 +162,24 @@ Because it is the strategic core, the calculator carries its own ship gate. See
 Section 5. The charge pages must not link to a calculator that has not cleared
 it.
 
+**Standing rule, added 2026-08-13: no Florida Criminal Punishment Code artifact
+links from any federal page.** This covers the sentencing calculator, the
+offense-level comparison instrument, the level pages, the degree pages, and the
+CPC hub. It applies to all ten pages under `/federal-criminal-defense/` and to
+the federal silo hub.
+
+**The reason is substantive, not procedural.** The Criminal Punishment Code does
+not apply to federal cases. A federal defendant is sentenced under the United
+States Sentencing Guidelines, and F.S. 921.0022 has nothing to say about their
+exposure. A link from a federal page to a CPC artifact would therefore be
+**wrong on the merits, independent of the C1 through C8 gate**, and it would stay
+wrong after that gate clears. Nobody should read the clearing of C1-C8 as
+unlocking these links.
+
+The wave 1 and wave 2 briefs are written to this rule already: every federal
+brief records the calculator as "not linked" and gives the CPC-does-not-apply
+reason rather than the gate reason.
+
 ### 4.3 Section-by-section template
 
 Extends the money-page template in WEBSITE-PLAN.md Section 4.
@@ -184,6 +202,33 @@ Extends the money-page template in WEBSITE-PLAN.md Section 4.
 9. **Related guides**, linking up to Layer 2.
 10. **Attorney byline and last-reviewed date.** Currency is the single most
     beatable dimension in this market. Governed by Section 9.
+
+**Copy-level variation requirement.** Added 2026-08-13 from the wave 2 brief
+review.
+
+**Where more than one page's differentiator rests on the charge not existing
+under that name in Florida, each page must open differently.** Three pages
+currently do: embezzlement (prosecuted as theft under F.S. 812.014), wire fraud
+(a federal offence with no Florida statute of that name, the Florida analogue
+being the Communications Fraud Act at F.S. 817.034), and identity theft (charged
+as fraudulent use of personal identification information under F.S. 817.568).
+
+**This is distinct from C9, which all three already pass.** C9 asks whether the
+page's substance is charge-specific, and it is: three different statutes, three
+different threshold structures, three different offense-level ladders. What C9
+does not catch is that all three would open with the same rhetorical move, in
+roughly the same sentence shape, in the first forty words. A reader who lands on
+two of them in one session sees a template. So does a model reading the site.
+
+**The substance stays. The opening move varies.** One page can lead with the
+statute it is actually charged under, one with what the reader was told versus
+what the charging document will say, one with the element that surprises people.
+Which page takes which is a drafting decision, not a plan decision; the
+requirement is only that they are not all the same.
+
+**Check this at draft time across the set, not page by page.** The failure is
+invisible when a page is read alone, which is exactly the property it shares
+with the cross-brief C9 collision in Section 4.5.
 
 ### 4.4 Worked example: Grand Theft
 
@@ -256,6 +301,32 @@ reliability:
 Generic defense narrative is the filler that makes pages interchangeable. It
 belongs in one shared section at most, never as the page's substance.
 
+**C9 collisions are checked across pages, not only within one.** Added
+2026-08-13 after the wave 1 brief review found one.
+
+The cover-the-name test as written is a single-page test, and a page can pass it
+while quietly claiming substance that another page is also claiming. The wave 1
+briefs surfaced exactly that: **both the embezzlement brief and the grand theft
+brief named the F.S. 812.014 value-to-offense-level table as their C9
+substance.** Each passed the test on its own. Together they would have produced
+two pages built on the same table, which is the interchangeability the test
+exists to prevent, arriving through a door the test did not watch.
+
+**The check.** Before a page is drafted, its named C9 differentiator is compared
+against every sibling brief's. If two pages claim the same substance, the
+substance belongs to one of them, and the other finds its own or does not get
+built. Where the shared substance is genuinely reference material rather than
+argument, the third option is better than both: **it moves to a Layer 2 asset
+and both pages link to it.**
+
+That is how the 812.014 collision was resolved. The value-to-offense-level table
+lives once, in the Layer 2 offense-level comparison instrument, and both charge
+pages link to it rather than reproducing it. Grand theft keeps the value ladder
+as its subject matter and its C9, because the ladder is what the charge *is*.
+Embezzlement's C9 became the position-of-trust fact pattern plus the absence of
+any Florida offense by that name, which was always the stronger half of its
+claim. Recorded in the two briefs.
+
 ### 4.6 State and federal overlap pages
 
 Drug trafficking, gun crimes, and several fraud offenses exist in both the state
@@ -282,6 +353,67 @@ federal court, see [the federal page]."
 
 **Done-criterion.** No charge page ships until it passes the cover-the-name
 test, and no overlap page ships without its forum section and its cross-link.
+
+### 4.6.1 The test applied to the fraud cluster (2026-08-13)
+
+Four slugs covered two federal statutes: `/white-collar-defense/wire-fraud`,
+`/white-collar-defense/mail-fraud`, `/white-collar-defense/bank-fraud`, and
+`/federal-criminal-defense/wire-mail-fraud`. Whether that was three pages too
+many was an open content decision. It was resolved by running the test rather
+than by judgment. Full evidence in DECISIONS.md D4.
+
+| Page | Result | Why |
+|---|---|---|
+| `/white-collar-defense/mail-fraud` | **FAILS. Removed.** | 18 U.S.C. 1341 and 1343 share an opening clause, a 20-year maximum, and a word-for-word identical enhancement sentence. Only the jurisdictional means differs. Cover "mail" and every section is true of wire fraud. The market has already merged them: the #1 result on the query is a combined mail-and-wire page, and LawInfo serves its wire fraud directory page for a mail fraud query. |
+| `/white-collar-defense/bank-fraud` | **PASSES. Kept.** | 18 U.S.C. 1344 has no mailing and no wire element. Its hook is the financial institution itself, as the object of the scheme or as the custodian of the property. Cover "bank" and the elements section is false. Separate SERP, separate PAA set, separate directory taxonomy, and mortgage fraud clusters under it. |
+| `/white-collar-defense/wire-fraud` | **PASSES. Kept.** | Survives against its own federal sibling because it is built on the Florida Communications Fraud Act, F.S. 817.034, which the federal page never mentions. |
+| `/federal-criminal-defense/wire-mail-fraud` | **Kept, and absorbs mail fraud.** | The slug already names both. The `mail fraud attorney Tampa` query is targeted by an H2 here rather than by a URL. |
+
+**The generalisable rule.** Where two pages would rest on statutes that differ
+only in a jurisdictional element, they are one page. Where they differ in an
+element of the offence, they are two. That is the same distinction Section 4.5
+draws between substance and filler, applied at the page-list level.
+
+---
+
+## 4.7 Being named in the commercial AI Overview
+
+Added 2026-08-13 (DECISIONS.md D8).
+
+Four of the ten wave 1 and wave 2 primary queries carry an AI Overview. On
+commercial queries it does not summarise law. **It names firms and then asks the
+searcher a qualifying question**, such as "Whether the charges are in state court
+or federal court" or "Are you or someone else currently under federal
+investigation or already arrested?"
+
+That is a referral surface sitting above the organic results. It is not the
+featured snippet the level 3 template was originally written for, and the
+research recorded in docs/research/briefs/TEMPLATE-FINDINGS.md found that
+featured snippets are effectively absent from these SERPs while AI Overviews
+are not.
+
+**The objective.** Be named in the citation set and in the named-firms text.
+
+**How it is measured.** Presence or absence, per query, on the same cadence as
+the rest of reporting. **It is not a rank and is never reported as one.** It is
+volatile, so a single absence is not a regression and a single appearance is not
+a win. The baseline, per query and with the firms currently named, is recorded
+in DECISIONS.md D8.
+
+**What earns it, on the evidence.** The pages cited are tightly matched to the
+charge, at charge-level granularity rather than hub level. On `gun charge lawyer
+Tampa`, four of the eight citations are separate Hanlon pages, one per
+sub-offence. That is the hub-and-spoke structure this section already builds,
+which is the useful finding: no new tactic is required, and the objective is
+served by doing the existing plan well.
+
+**The compliance rail that travels with it.** On the wire fraud query the second
+citation is a competitor slug already recorded in avoid.md item 14 as an
+unverifiable superiority claim. **Google amplifying a pattern does not make it
+lawful to copy.** The objective is to be named, never to adopt the phrasing of
+the firms that currently are.
+
+---
 
 ## 5. The Sentencing Calculator: Compliance Rails and Ship Gate
 
@@ -407,6 +539,38 @@ Open Question 6 (voluntary Bar pre-clearance under Rule 4-7.19(d) or an Ethics
 Hotline call) remains open and is a belt-and-suspenders addition to this gate,
 not a substitute for it.
 
+### 5.7 The pressure to link it is now measurable, and that is a reason to hold
+
+Added 2026-08-13.
+
+**Do not build the calculator.** Nothing in the wave 1 or wave 2 brief work
+changes the gate, and the briefs were written to it: not one of the ten links
+the calculator.
+
+What the briefs did produce is evidence of **pressure**. Six of the seven
+state-side pages carry an offense-level column that wants a link to it. The
+money laundering brief says outright that it has "the strongest argument for it
+of any in the set," having verified that a third degree money laundering charge
+scores at level 7 while a third degree grand theft can score as low as level 2.
+The grand theft brief calls itself "the single largest beneficiary of that gate
+clearing." That pressure will keep building as pages ship.
+
+**This is a reason to hold C1 through C8, not to relax them.** A gate that is
+never tested costs nothing to maintain and proves nothing. A gate that six pages
+are pushing against is doing its job, and the moment to weaken it is exactly the
+moment it is finally worth something. The criteria were written against a tool
+that outputs a number about a person's liberty, and that has not changed because
+more pages would like to link to it.
+
+**The relief valve is already built and it is not a compromise.** TOOLS.md
+recommends shipping the offense-level comparison instrument ahead of the
+calculator. It answers "what level is this charge and how does that compare,"
+which is the half of the value the charge pages actually want, it is a statutory
+classification rather than a prediction, and it clears C1 through C8 without
+computing anything. Ship that. Let the calculator wait for its gate.
+
+---
+
 ## 6. Flow and Internal Linking
 
 ```
@@ -444,19 +608,192 @@ competitor microsite.
 Build every page, per the capability principle in WEBSITE-PLAN.md Section 1.
 Reinforce in winnability order.
 
-| Wave | Pages | Grade and reasoning (keywords.md) |
+| Wave | Pages | Grade and reasoning |
 |---|---|---|
-| 1 | Middle District of Florida federal hub | **NOW.** No Tampa private firm holds a dedicated district page |
-| 1 | Embezzlement | **NOW.** Weakest SERP in the white-collar cluster, routine template pages ranking |
-| 1 | PPP loan fraud | **NOW.** Thin field, but modest and decaying shelf life |
-| 2 | Grand theft, drug trafficking, gun crimes, domestic violence | 6-12mo. Content quality is the barrier, not domain age |
-| 2 | Money laundering, identity theft, wire fraud (Tampa-scoped) | 6-12mo. Statewide wire fraud is YEARS; city-scoped is winnable |
-| 3 | Federal drug conspiracy, federal indictment, target letter defense | 6-12mo. Highest case value per visit |
+| 1 | Middle District of Florida federal hub | **NOW.** No Tampa private firm holds a dedicated district page (keywords.md) |
+| 1 | Embezzlement | **NOW.** Weakest SERP in the white-collar cluster, routine template pages ranking (keywords.md) |
+| 1 | **Grand theft** | **6-12mo, promoted 2026-08-13.** Strongest single opportunity in the wave 1 and 2 brief set. See 7.2 |
+| 2 | Drug trafficking, gun crimes, domestic violence | 6-12mo. Content quality is the barrier, not domain age (keywords.md) |
+| 2 | Money laundering, identity theft, wire fraud (Tampa-scoped) | 6-12mo. Statewide wire fraud is YEARS; city-scoped is winnable (keywords.md) |
+| 3 | Federal drug conspiracy, federal indictment, target letter defense | 6-12mo. Highest case value per visit (keywords.md) |
 | 4 | Sexual battery, sex crimes, CSAM, homicide | YEARS. Build for capability and referral conversion, expect nothing from search |
+| **Opportunistic** | **PPP loan fraud** | **Demoted 2026-08-13.** Built only after the C12 allowlist decision lands, and only if capacity allows. See 7.2 |
 
 Wave 4 pages still get built. They convert the referral traffic the firm already
 earns, which DOSSIER.md Section 1 identifies as most of the firm's work. They
 should simply not be measured on rankings.
+
+### 7.2 Wave 1 re-sequenced, 2026-08-13
+
+**Grand theft moves into wave 1. PPP loan fraud moves out to opportunistic
+status.** Both changes come from the wave 1 brief review, on evidence gathered
+after the original sequence was set.
+
+**Why PPP loan fraud came out.** Four reasons, and they compound:
+
+1. **It downgraded itself.** The brief revised the grade from NOW to 6-12mo on
+   new SERP evidence. When W2 ran, this was "a thin competitive field; one firm
+   holding two slots with individual pages." Today the top nine are all
+   dedicated PPP or SBA pages: Hoyer, Scriven, Kirlew, Sammis, Trombley & Hanes,
+   OA Law Firm on a Hillsborough County URL, Petro, StechLaw, Jonathan Rose.
+   verified 2026-08-13. The field filled in during the year the plan sat.
+2. **It has the weakest source position of the ten briefs.** Almost every
+   statutory claim on the page was unverifiable at brief time.
+3. **It is publish-blocked on its central fact.** The limitations period is what
+   makes a 2020 borrower search in 2026, and the ten-year figure in the corpus
+   is reported rather than verified. Without it the page has no reason to exist.
+4. **Its shelf life decays.** keywords.md already flagged this, and nothing has
+   improved it.
+
+Any one of those would be survivable. Together they describe a page that is
+harder than believed, thinner than believed, blocked on the one thing that makes
+it worth building, and shrinking. That is not a wave 1 page.
+
+**Why grand theft went in.** It is the strongest single opportunity in the set,
+and three conditions hold at once that hold nowhere else:
+
+1. The #1 organic result on the money informational query is the **statute
+   itself**, leg.state.fl.us, above every law firm in Florida. Google has no firm
+   page it prefers to the raw statute.
+2. The AI Overview on that query **builds a table by hand**, with columns
+   Property Value, Maximum Prison, Maximum fine, because no page supplies one.
+   That is the artefact Section 4.3 item 3 already specifies.
+3. The statewide informational volume is real where the local commercial volume
+   is not: `grand theft Florida` 320/month, `grand theft third degree Florida`
+   140, and the adjacent `third degree felony Florida` at 1,000.
+
+**PPP is deferred, not cancelled.** The brief at
+docs/research/briefs/OPP-01-ppp-loan-fraud.md stands as written and is complete.
+When the C12 allowlist work lands and capacity allows, it is ready to build.
+Nothing about it needs re-researching except the limitations period, which was
+always its blocker.
+
+### 7.3 The white-collar supply gap, and why it does not reorder wave 2
+
+Added 2026-08-13. **ACCEPTED 2026-08-13. Wave 2 is not reordered for the
+white-collar pages.** This supersedes the ordering implied by the wave 2 rows in
+the Section 7 table, which grouped the pages without ranking them and would have
+been read as build order. The order below governs.
+
+**The finding.** Three of three white-collar briefs showed Google filling the
+SERP with generic hubs or out-of-market pages rather than dedicated Tampa pages.
+On `embezzlement lawyer Tampa`, four of the top ten slots are competitor
+homepages and only four of twelve results are actually about embezzlement. On
+`money laundering defense attorney Tampa`, two of the top five are generic
+white-collar hubs and an out-of-county St. Petersburg page holds #5. On
+`identity theft defense lawyer Tampa`, a St. Petersburg page holds #5 and a
+`/naples/` URL holds #11. On `wire fraud attorney Tampa`, bank fraud pages hold
+#7 and #8. All verified 2026-08-13. Recorded as a market finding in DOSSIER.md
+Section 10.
+
+**The tempting conclusion is that the white-collar pages should be built first.
+The recommendation is not to.** Three reasons:
+
+1. **A supply gap predicts ease of entry and nothing else.** When Google pads a
+   SERP with competitor homepages, that is Google reporting it has no
+   well-matched document *and* the market reporting that several firms with real
+   Tampa budgets independently declined to make one. Those two facts arrive
+   together and point the same way.
+2. **The two kinds of padding are different signals and the briefs conflated
+   them.** Generic-hub and near-miss-offence padding is a genuine relevance
+   vacuum a dedicated page can fill. **Out-of-market padding is worse news**: a
+   St. Petersburg page ranking on a Tampa query means the "Tampa" token is doing
+   almost no ranking work, so Google is falling back to domain authority. That
+   removes the exact advantage the page was going to be built on. Treating it as
+   opportunity is the error in the build-white-collar-first case.
+3. **An AI Overview over dense dedicated supply is the harder field and the
+   better one.** Drug trafficking has no directory in the top twelve, all
+   dedicated pages, and an AI Overview citing twelve firm sources. Google does
+   not synthesise an overview for a query nobody asks. So the signals invert:
+   homepage padding is easy to rank and hard to justify, while dense supply plus
+   an overview is hard to rank and easy to justify. **Ease of ranking is the
+   cheap input. Demand is the scarce one. Sequence against the scarce one.**
+
+Every measurable volume number sits on the state side. The lone white-collar
+adjacent number, `identity theft Florida statute` at 70/month, is itself a
+Florida state offence under F.S. 817.568, which is the tell.
+
+**Accepted order within wave 2.** This is the build order:
+
+1. Domestic violence, the only term with real Tampa DMA volume at 90/month plus
+   170/month statewide, with confirmed commercial bids of $50 to $65.
+2. Drug trafficking, hardest field but strongest validated demand.
+3. Gun crimes, clean field, and a competitor is already demonstrating the
+   sub-offence architecture that earns AI Overview citations.
+4. Identity theft, first of the white-collar three, because it has the only
+   white-collar informational volume and is functionally a state offence.
+5. Wire fraud, genuine relevance vacuum and high federal case value.
+6. Money laundering, last: weakest evidence, and overwhelmingly a companion
+   charge people do not search for standalone.
+
+Grand theft is absent because it moved to wave 1 under Section 7.2.
+
+**One part of the underlying analysis is expressly not adopted.** It suggested
+folding embezzlement into grand theft, on the ground that Florida charges
+embezzlement as theft. That is legally right and structurally wrong here:
+embezzlement passes C9 on the position-of-trust fact pattern, which is a
+different page from grand theft in everything except the charging statute, and
+it is already a wave 1 page. It stays.
+
+**What would reopen the decision**, in priority order. Accepting it does not
+mean it is permanent; it means the burden is now on new evidence rather than on
+the argument.
+
+- **The firm's own case-mix and fee data.** This is the strongest counterargument
+  and it is not a SERP question. If one wire fraud retainer is worth fifteen
+  domestic violence retainers, low volume and high value can beat the ordering
+  above. Twelve months of matters by type with average fee would settle it.
+- **Search Console impressions once wave 1 is indexed.** If white-collar queries
+  show impressions materially above the Ads-reported zeros, the volume data is a
+  measurement artifact and the gap becomes exploitable.
+- **Non-geo volume checks.** If money laundering and wire fraud carry real
+  statewide or national volume once the Tampa modifier is dropped, those pages
+  should be built for that intent, which is a different page than the one now
+  scoped.
+- **Domain authority.** On a new domain with no link profile, competing in the
+  drug and gun fields is a multi-quarter project, and building the easy
+  white-collar SERPs first is defensible as topical scaffolding. If that route is
+  taken it must be agreed up front as scaffolding, so the pages are not judged on
+  sessions at 90 days.
+
+### 7.1 Reporting standard for waves 1 and 2
+
+Added 2026-08-13 (DECISIONS.md D6).
+
+**Wave 1 and wave 2 pages are measured on statewide informational capture and on
+conversion. Never on local charge-term position.**
+
+The reason is not that the terms are unwinnable. It is that they are
+**unmeasurable**. Google Ads reports no measurable Tampa DMA search volume for
+the grand theft, drug trafficking, gun charge, money laundering, identity theft,
+wire fraud, or PPP loan fraud attorney terms. Only domestic violence at 90 per
+month and embezzlement at 10 per month register at all. Reporting a position on
+a term with no measurable volume produces a number that means nothing.
+
+The volume that does exist is statewide and informational, verified 2026-08-13:
+
+| Term | Monthly, Florida |
+|---|---|
+| third degree felony Florida | 1,000 |
+| grand theft Florida | 320 |
+| domestic violence Florida charges | 170 |
+| 10-20-life Florida | 170 |
+| grand theft third degree Florida | 140 |
+| identity theft Florida statute | 70 |
+| Florida criminal punishment code scoresheet | 70 |
+
+This extends what Section 7 already says about wave 4, for a different reason.
+Wave 4 is not measured on rankings because the terms are years away. Waves 1 and
+2 are not measured on local charge-term position because there is nothing there
+to measure.
+
+**Client communication requirement.** This revises the goal as originally
+stated, so **it is communicated to the client before any reporting begins, not
+alongside the first report.** A measurement standard introduced with the first
+set of numbers reads as an excuse for them. Introduced beforehand it reads as
+what it is.
+
+---
 
 ## 8. Office Pages, Market Pages, and the Two-Office Reality
 
@@ -691,6 +1028,54 @@ regardless of what the gap costs.
 Tampa would have none. The two profiles will not track together and the Tampa
 ramp is the longer one, which is a further argument for 8.5.3.
 
+#### 8.5.6 Third revision, against a directly observed pack
+
+Added 2026-08-13 (DECISIONS.md D9). Placed after 8.5.4 in substance; numbered
+after 8.5.5 so nothing above is renumbered and the revision history stays
+readable in order.
+
+**The ladder in DOSSIER.md Section 3 was wrong, and every number derived from it
+is understated.**
+
+Every previous count in this corpus was aggregator-reported and carried a
+5-to-25-percent staleness band, because no local pack had ever been directly
+observed. On 2026-08-13 the pack was observed directly, Tampa-geolocated, on ten
+of ten wave 1 and wave 2 primary queries.
+
+**Observed counts:** Daniel J. Fernandez 574, Hersem Law 236, Sammis 167,
+StechLaw 136, Brett Metcalf 125, Greater Tampa Law 123, Musca Law 109. Also
+appearing: Mike G Law 76, Scriven 76, OA Law Firm 75, Michael J. Petro 17.
+
+DOSSIER Section 3 sized its target against a ladder topping at Smith & Eulo 193.
+The firm holding pack position 1 across most of these queries has **roughly three
+times that**.
+
+**Conclusion: local pack entry is a multi-year objective under honest,
+unincentivized asks.** That is stated plainly rather than converted into a fourth
+monthly number.
+
+**This is the third upward revision. Naming the pattern is the point.**
+
+| # | Where | What changed |
+|---|---|---|
+| 1 | DOSSIER.md Section 3 | 50 to 100 reviews at 4.9-plus in 12 months, via 4 to 8 per month. Single profile, aggregator-reported ladder topping at 193. |
+| 2 | Section 8.5.4 above | Two profiles, nothing pools, so holding position needs 4 to 8 per month **per profile**. That section already said plainly this was a position-holding requirement rather than an achievable target. |
+| 3 | This subsection | The ladder itself was wrong. The observed leader is at 574. |
+
+Each revision moved the number up, and each was triggered by better information
+rather than by a change in ambition. Three revisions in one direction is the
+signal. **Review count is the wrong lever to plan the local strategy around on a
+twelve-month horizon**, for the structural reason 8.5.4 already gave: criminal
+defense has a low review rate, many clients rationally decline to be publicly
+associated with the firm that defended them, and no ask script overcomes that.
+
+**What does not change.** The programme still starts week one, still asks every
+genuinely eligible party per 8.5.2, still offers no incentive of any kind, and
+still never drafts or suggests wording (Rules 4-7.13(b)(9), 4-7.17(b), 4-7.18;
+avoid.md items 34 through 37). A slow-compounding asset with a distant payoff is
+still worth starting first. What changes is what anyone is told to expect from
+it, and by when.
+
 #### 8.5.5 Open verification
 
 **[VERIFY: how the Local Services Ads review gate applies across two
@@ -817,11 +1202,48 @@ official sources only:
   3.992.
 - **Middle District of Florida:** flmd.uscourts.gov for local rules, general
   orders, division information, and judge assignments.
-- **Federal statutes and guidelines:** uscourts.gov and ussc.gov.
+- **Federal statutes:** **uscode.house.gov**, published by the Office of the Law
+  Revision Counsel, which is the official publisher of the United States Code.
+- **Federal sentencing guidelines:** ussc.gov.
+- **Federal procedure and DOJ policy:** justice.gov, **for procedure and policy
+  only**. See the scope limit below.
+- **Federal courts, general:** uscourts.gov.
+
+**Amendment, 2026-08-13 (DECISIONS.md D2). Why the original list was
+defective.** This list previously read "Federal statutes and guidelines:
+uscourts.gov and ussc.gov." ussc.gov publishes the Guidelines Manual, so the
+guidelines half was sound. **Neither site publishes the United States Code**, so
+the statutes half named no source capable of satisfying it. C12 was therefore
+unsatisfiable for every federal statutory claim, which blocked seven of the ten
+wave 1 and wave 2 content briefs. The rule was not too strict; it pointed at the
+wrong door.
+
+**Scope limit on justice.gov.** justice.gov is allowlisted for **procedure and
+DOJ policy only, and is explicitly not a source for what a statute says.** The
+Justice Manual states internal charging policy, not law, and it does not bind a
+court. Citing JM 9-11.151 for what a target letter is, is correct use. Citing it
+for what a statute requires is not, and a page that does so is making a legal
+claim from a policy document.
+
+Not allowlisted, and not acceptable as a citation source: other law firms'
+pages, secondary summaries, aggregators, or any figure the drafting model
+produces from memory. content-gaps.md records two competitors publishing legally
+inaccurate content, one of which overstates what expungement does; both would
+have been caught by fetching the statute.
 
 The allowlist is also what makes Section 9.3's off-cycle trigger work in
 practice, since a fetch against the operative statute during a refresh is the
 most likely way an amendment gets noticed between sessions.
+
+**The allowlist answers a different question from verifier independence, and
+both need answering.** Added 2026-08-13. C12 governs whether a source is
+authoritative. It says nothing about how many independent paths a claim rests
+on. Two checks against one authoritative document is one path reported as two,
+and it cannot detect the failure it was run to detect. That defect category is
+recorded in docs/build/HUNT-LIST.md defect 1, with the rule that follows:
+**verifier independence means an independent path to the fact, not an
+independent agent.** Where only one authoritative source exists, say so, rather
+than running a second pass against it and recording two.
 
 ### 10.4 The dependency, stated plainly
 
@@ -960,6 +1382,33 @@ nothing.
 4. **Answer completely in the first two sentences.** An answer that needs the
    preceding paragraph for context does not survive extraction. Write the
    answer to stand alone, then add detail after it if detail is needed.
+5. **A question that surfaces on more than one charge SERP is not a charge
+   FAQ.** Added 2026-08-13. It is answered once, in the Layer 2 guide that owns
+   it, and every charge page whose SERP surfaced it links there from item 9.
+   Repeating it across pages is the mechanism by which twenty-six pages become
+   interchangeable, which is what C9 exists to prevent. Record the question and
+   the pages it surfaced on, so the Layer 2 backlog is driven by measured demand
+   rather than by what is convenient to write.
+6. **Superiority-shaped questions are never answered on the firm's own pages.**
+   Added 2026-08-13. "Who is the best criminal defense lawyer in Florida," "who
+   is the best federal criminal defense attorney," and every variant of them
+   surface in People Also Ask constantly. **Answering one on the firm's own site
+   is an unverifiable superiority claim under Rule 4-7.13(b)(3)**, which requires
+   that words characterising a lawyer's or firm's skills, experience, reputation,
+   or record be objectively verifiable. avoid.md items 14 through 17 already
+   catalogue six competitors who cross this line; PAA presence is not a licence
+   to join them.
+
+   **Record them in the brief as observed and refused**, with the reason. The
+   point of recording rather than silently omitting is that a later writer
+   looking at the same SERP will see the same question and needs to know it was
+   considered and rejected, not missed. On the Middle District of Florida query,
+   **three of four PAA questions were of this shape** ("Who is the best criminal
+   defense lawyer in Florida?", "Who is the best federal criminal defense
+   attorney?", plus an off-topic third), leaving exactly one usable question on
+   the whole SERP. A brief that recorded only the usable one would look like
+   thin research instead of what it was, which is a hostile PAA set.
+
 ### 11A.3 Questions ship before answers
 
 A question is research. An answer is legal content: it carries statutory
@@ -1031,7 +1480,7 @@ Results live on /results, gated, disclaimered, and only when real and consented.
 | C9 | Page passes the cover-the-name test: at least one section false or nonsensical if the charge were swapped | Every charge page | 4.5 |
 | C10 | Overlap pages carry a forum section and a single cross-link to their counterpart; no shared body copy | Overlap pages | 4.6 |
 | C11 | Populated `owner` and `lastReviewed`, plus an entry in docs/build/REVIEW-QUEUE.md | Every charge page, silo hub, and tool | 9.4 |
-| C12 | Every statutory claim verified by fetching an allowlisted official source, never by recall | All content | 10.3 |
+| C12 | Every statutory claim verified by fetching an allowlisted official source, never by recall. Federal statutory text comes from uscode.house.gov; justice.gov is procedure and policy only and is never a source for what a statute says (DECISIONS.md D2) | All content | 10.3 |
 | C13 | No charge page duplicated per city; no practice-by-location matrix; no page implies an office the firm does not have | Section architecture | 8.1 |
 | C14 | Market page names a verified different arresting agency, courthouse or annex, or judicial circuit than every sibling market page, with the allowlisted source recorded | Every market page | 8.3 |
 | C15 | FAQ question passes C9 at the question level, carries a `source`, answers completely in its first two sentences, and emits no FAQPage markup while unanswered | Every FAQ entry | 11A |
