@@ -5,6 +5,7 @@
  */
 import type { StatuteTable } from "../statutes.ts";
 import { TABLE_1028A } from "./usc-1028A.ts";
+import { TABLE_1030 } from "./usc-1030.ts";
 import { TABLE_1341 } from "./usc-1341.ts";
 import { TABLE_1343 } from "./usc-1343.ts";
 import { TABLE_1344 } from "./usc-1344.ts";
@@ -15,6 +16,7 @@ import { TABLE_1956 } from "./usc-1956.ts";
 import { TABLE_20 } from "./usc-20.ts";
 import { TABLE_212_15 } from "./fs-212-15.ts";
 import { TABLE_213_29 } from "./fs-213-29.ts";
+import { TABLE_2251 } from "./usc-2251.ts";
 import { TABLE_2252 } from "./usc-2252.ts";
 import { TABLE_2252A } from "./usc-2252A.ts";
 import { TABLE_24 } from "./usc-24.ts";
@@ -79,6 +81,7 @@ import { TABLE_943_059 } from "./fs-943-059.ts";
 
 export const VERIFIED_TABLES: Record<string, StatuteTable> = {
   "1028A": TABLE_1028A,
+  "1030": TABLE_1030,
   "1341": TABLE_1341,
   "1343": TABLE_1343,
   "1344": TABLE_1344,
@@ -89,6 +92,7 @@ export const VERIFIED_TABLES: Record<string, StatuteTable> = {
   "20": TABLE_20,
   "212.15": TABLE_212_15,
   "213.29": TABLE_213_29,
+  "2251": TABLE_2251,
   "2252": TABLE_2252,
   "2252A": TABLE_2252A,
   "24": TABLE_24,
