@@ -803,8 +803,21 @@ export type FaqItem = {
   question: string;
   /** Undefined until written and verified. */
   answer?: string;
-  /** Where the question came from. Never invent one and label it research. */
-  source: "keywords.md" | "drafted";
+  /**
+   * Where the question came from. Never invent one and label it research.
+   *
+   * WAS the two-value union "keywords.md" | "drafted", which forced writers to
+   * throw away the useful half of the answer. A question lifted verbatim from
+   * a Tampa-geolocated People Also Ask box and a question invented at the desk
+   * are both "drafted" under that union, and those are not the same claim.
+   *
+   * So this is a string, and the honesty is enforced by a gate rather than by
+   * the type: scripts/check-pages.mts requires every value to begin with one
+   * of the recognised provenances, so "research" cannot be asserted by
+   * writing it here. The prefix says WHAT KIND of source; the remainder says
+   * which one, and is free text.
+   */
+  source: string;
   /** keywords.md winnability grade, for build ordering. */
   grade?: "NOW" | "6-12mo" | "YEARS";
 };
@@ -2395,233 +2408,366 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       { label: "Tools and guides", href: "/resources/tools-and-guides" },
     ],
   },
-
   // ---------------------------------------------------------------------
   // DRUG TRAFFICKING, state. From docs/research/briefs/W2-02-drug-trafficking.md.
+  // Written 2026-08-14 by assembly from the audited tables, not from recall.
   //
-  // Overlap page under Section 4.6 and C10. Forum section opens the body, one
-  // cross-link, no shared copy.
+  // C9: the weight-to-mandatory-minimum-to-fine structure in the tiers
+  // section. The brief's form of the C9 claim, "no tier ranked below offense
+  // level 7", was CHECKED against the whole-section chart rather than
+  // assumed, and it needed narrowing: 48 chart entries cite 893.135, none
+  // below level 7, but several tiers (flunitrazepam (1)(g)1.c., all three
+  // (1)(i) GBL tiers, all three (1)(l) LSD tiers) appear in no chart entry at
+  // all. The page therefore does not say the chart ranks them. It rests the
+  // floor on F.S. 921.0023(3), which places an unlisted first degree felony
+  // in level 7, a verified row in fs-921-0023.ts.
   //
-  // C9: weight rather than intent to sell, with mandatory minimums attached to
-  // the tiers, plus 10-20-Life naming trafficking by name.
+  // Overlap page under Section 4.6 and C10: forum section opens the body,
+  // exactly one cross-link to the federal sibling, no shared body copy.
   //
-  // Substantial assistance is quoted as the statutory mechanism it is and is
-  // never described as an outcome (Rule 4-7.13).
-  //
-  // [NEEDS: federal 21 U.S.C. 841 and 846 exposure] Not fetched. No federal
-  // statute number, quantity, or maximum appears on this page.
-  // [NEEDS: multi-agency task force names] Not verified against agency sites.
+  // D7: the Brandon Regional Service Center is NOT named. The writer included
+  // it from the brief; it was removed on merge. It stays out of copy pending
+  // attorney confirmation.
   // ---------------------------------------------------------------------
   "state/drug-trafficking-defense": {
     title: "Drug trafficking charges in Hillsborough County",
     metaTitle: "Drug Trafficking Charges in Hillsborough County | Hines & McCarty",
-    metaDescription:
-      "Florida trafficking is defined by weight, not by selling, and each tier carries a mandatory minimum. What Statute 893.135 says, and how a state case differs from a federal one.",
-    lead: "Florida drug trafficking is defined by weight. Selling is not required, and neither is an intent to sell. Statute 893.135 attaches trafficking to a quantity, and each tier carries a mandatory minimum term of imprisonment and a fixed fine.",
+    metaDescription: "Florida trafficking turns on weight, not on selling. Each substance has its own threshold, mandatory minimum, and fixed fine, and a conviction cannot be sealed.",
+    lead: "Florida drug trafficking is defined by weight. Selling is not required and neither is an intent to sell: possession of the threshold amount is enough. Statute 893.135 sets a mandatory minimum prison term and a fixed fine for each tier.",
     counterpart: {
       href: "/federal-criminal-defense/drug-trafficking",
       label: "Federal drug trafficking charges",
-      note: "The same conduct can be charged by the state or by the federal government, and the two are not interchangeable. A Florida case runs on the weight tiers in Statute 893.135, is heard in circuit court, and is scored on a state sentencing scoresheet. A federal case is brought under federal statutes in the Middle District of Florida, where the Florida offense levels do not apply and sentencing is calculated a different way. Which sovereign files is not the defendant's choice.",
+      note: "Trafficking is prosecuted in both systems and the two are not versions of one case. Everything on this page, the Statute 893.135 weight tiers, the mandatory minimums attached to them, the Florida offense levels and the state scoresheet, belongs to the Florida track. A federal prosecution is calculated a different way, and that page covers it.",
     },
-    statute: {
-      citation: "Florida Statute 893.135, the 2025 Florida Statutes",
-      body: "The trafficking statute opens by setting itself apart from the ordinary drug offenses: it applies except as authorized in the chapter and notwithstanding the provisions of Statute 893.13. What follows is a series of substances, each with quantity bands, and each band carries its own mandatory minimum and fine. Trafficking in cannabis begins in excess of 25 pounds, with a mandatory minimum term of imprisonment of 3 years and a fine of $25,000, rising to 7 years and $50,000 at 2,000 pounds and to 15 calendar years and $200,000 at 10,000 pounds. Trafficking in cocaine begins at 28 grams or more, with a mandatory minimum of 3 years and a fine of $50,000, rising to 7 years and $100,000 at 200 grams and to 15 calendar years and $250,000 at 400 grams. The opioid provisions escalate faster: trafficking in illegal drugs at 4 grams or more but less than 14 grams carries a mandatory minimum of 3 years and a $50,000 fine, at 14 grams or more but less than 28 grams it is 15 years and $100,000, and at 28 grams or more it is 25 years and $500,000. Every one of these is a felony of the first degree.",
-    },
-    penalties: [
+    sections: [
       {
-        degree: "First degree felony",
-        maximum: "Up to 30 years, subject to the mandatory minimum for the tier",
-        offenseLevel: "Level 7",
-        note: "The lowest tier of each substance. Cannabis in excess of 25 pounds, cocaine at 28 grams or more, illegal drugs at 4 grams or more, each under 893.135(1).",
+        id: "forum",
+        heading: "Which sovereign files, and why the weight tiers only exist on one side",
+        kind: "prose",
+        answers: ["facing", "who"],
+        prose: [
+          "The first thing to read is not the drug name on the paperwork. It is who signed it. The same seizure in the same Brandon parking lot can be filed by the State of Florida or by the federal government, and that choice is not the defendant's.",
+          "A Florida case is filed by the Office of the State Attorney for the Thirteenth Judicial Circuit and heard in circuit court in Hillsborough County. The Clerk holds the file, with circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071. A federal case is brought by a United States Attorney in the Middle District of Florida, Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue. Both addresses are in Tampa.",
+          "For this charge the fork matters more than it does on most, because the substance of this page does not cross it. The weight tiers in Statute 893.135, the mandatory minimum term and fixed fine attached to each of them, the offense levels in Statute 921.0022, and the Criminal Punishment Code scoresheet in Statute 921.0024 are all features of the Florida track. A federal prosecution is not scored on any of them. What it is calculated on instead is not described here, because it is a different body of law and it belongs on the federal page.",
+          "So the practical instruction is narrow and checkable: look at the charging document, find the name of the prosecuting office, and read the rest of this page only if it says Thirteenth Judicial Circuit.",
+        ],
       },
       {
-        degree: "First degree felony",
-        maximum: "Up to 30 years, subject to the mandatory minimum for the tier",
-        offenseLevel: "Level 8",
-        note: "The middle tiers. Cannabis at 2,000 pounds or more, cocaine at 200 grams or more, and the corresponding bands for other substances.",
+        id: "weight-and-mixture",
+        heading: "Possession is enough, and the mixture is what gets weighed",
+        kind: "statute",
+        answers: ["facing"],
+        statute: {
+          citation: "Florida Statute 893.135, with Florida Statute 893.03(3)(c), the 2025 Florida Statutes",
+          body: "Subsection (1) opens by setting itself apart from the ordinary drug offenses. It applies except as authorized in this chapter or in chapter 499 and notwithstanding the provisions of Statute 893.13, which is the possession, sale and delivery statute. Trafficking is therefore not a heavier version of a possession charge. It is a separate scheme, and its trigger is quantity. Each paragraph of subsection (1) reaches a person who knowingly sells, purchases, manufactures, delivers, or brings into this state, or who is knowingly in actual or constructive possession of, a stated amount. Possession stands on its own in that list, and constructive possession is inside it, so the possession route does not name a sale, a buyer, a price, or an intent to sell among the things it requires. That is the single most common misunderstanding a person arrives with, and it is the reason a quantity someone describes as personal use can still be charged as trafficking. Subsection (2) then defines the mental element in a way that surprises people: a person acts knowingly under subsection (1) if that person intends to sell, purchase, manufacture, deliver, or bring into this state, or to actually or constructively possess, any of the controlled substances listed in subsection (1), regardless of which controlled substance listed in subsection (1) is in fact sold, purchased, manufactured, delivered, brought into this state, or possessed. What gets weighed is the second thing people get wrong, and it is answered in the statute rather than left to argument. Subsection (6) provides that a mixture, as defined in Statute 893.02, containing any controlled substance described in the section includes a solution or a dosage unit, including a gelatin capsule, pill, or tablet, containing a controlled substance; that for the purpose of clarifying legislative intent regarding the weighing of a mixture, the weight of the controlled substance is the total weight of the mixture, including the controlled substance and any other substance in the mixture; and that if there is more than one mixture containing the same controlled substance, the weight is calculated by aggregating the total weight of each mixture. Statute 893.03(3)(c) says the same thing from the other direction for certain hydrocodone preparations: for the purpose of charging a violation of Statute 893.135, the controlled substance remains a Schedule III substance but the weight per milliliter or per dosage unit is not relevant to the charging, and the weight is determined under Statute 893.135(6). In a pill case that is the whole ballgame, because the tablet is weighed rather than the milligrams of the controlled substance inside it. The units are not uniform across the statute and are worth reading twice. Cannabis is measured in pounds, or in cannabis plants counted individually. Cocaine, the opioids, the amphetamines and most of the rest are measured in grams and kilograms. The fines are dollars, and a dollar figure in this statute is never a threshold: no provision of Statute 893.135 is triggered by the value of anything. Finally, the six substances in the table below are a selection and not the whole section. Subsection (1) also sets tiers for hydrocodone and codeine at (1)(c)2., phencyclidine at (1)(d), methaqualone at (1)(e), flunitrazepam at (1)(g), gamma-hydroxybutyric acid at (1)(h), gamma-butyrolactone at (1)(i), 1,4-Butanediol at (1)(j), phenethylamines at (1)(k), lysergic acid diethylamide at (1)(l), synthetic cannabinoids at (1)(m), and n-benzyl phenethylamines at (1)(n). Above the ladders sit separate provisions: 150 kilograms or more of cocaine under (1)(b)2., and 30 kilograms or more of the (1)(c) opioids under (1)(c)5., are each punished by life imprisonment with ineligibility for any form of discretionary early release except pardon or executive clemency or conditional medical release under Statute 947.149.",
+        },
       },
       {
-        degree: "First degree felony",
-        maximum: "Up to 30 years, subject to the mandatory minimum for the tier",
-        offenseLevel: "Level 9",
-        note: "The highest tiers. Cannabis at 10,000 pounds or more, cocaine at 400 grams or more, and the corresponding bands for other substances.",
+        id: "tiers",
+        heading: "Every tier names a weight, a mandatory minimum, and a dollar fine",
+        kind: "penalties",
+        answers: ["facing"],
+        penalties: [
+          { degree: "First degree felony, trafficking in cannabis, in excess of 25 pounds but less than 2,000 pounds, or 300 or more cannabis plants but not more than 2,000", maximum: "Up to 30 years, with a 3 year mandatory minimum", offenseLevel: "Level 7", note: "Fine of $25,000. Statute 893.135(1)(a)1. Cannabis is the one substance here measured in pounds and in plant counts rather than in grams." },
+          { degree: "First degree felony, trafficking in cannabis, 2,000 pounds or more but less than 10,000 pounds, or 2,000 or more cannabis plants but not more than 10,000", maximum: "Up to 30 years, with a 7 year mandatory minimum", offenseLevel: "Level 8", note: "Fine of $50,000. Statute 893.135(1)(a)2." },
+          { degree: "First degree felony, trafficking in cannabis, 10,000 pounds or more, or 10,000 or more cannabis plants", maximum: "Up to 30 years, with a mandatory minimum of 15 calendar years", offenseLevel: "Level 9", note: "Fine of $200,000. Statute 893.135(1)(a)3." },
+          { degree: "First degree felony, trafficking in cocaine, 28 grams or more but less than 200 grams", maximum: "Up to 30 years, with a 3 year mandatory minimum", offenseLevel: "Level 7", note: "Fine of $50,000. Statute 893.135(1)(b)1.a. Twenty-eight grams is the figure most searches are looking for, and it is specific to cocaine." },
+          { degree: "First degree felony, trafficking in cocaine, 200 grams or more but less than 400 grams", maximum: "Up to 30 years, with a 7 year mandatory minimum", offenseLevel: "Level 8", note: "Fine of $100,000. Statute 893.135(1)(b)1.b." },
+          { degree: "First degree felony, trafficking in cocaine, 400 grams or more but less than 150 kilograms", maximum: "Up to 30 years, with a mandatory minimum of 15 calendar years", offenseLevel: "Level 9", note: "Fine of $250,000. Statute 893.135(1)(b)1.c. At 150 kilograms or more, Statute 893.135(1)(b)2. moves out of this ladder entirely." },
+          { degree: "First degree felony, trafficking in illegal drugs (morphine, opium, hydromorphone, or any salt, derivative, isomer, or salt of an isomer, including heroin), 4 grams or more but less than 14 grams", maximum: "Up to 30 years, with a 3 year mandatory minimum", offenseLevel: "Level 7", note: "Fine of $50,000. Statute 893.135(1)(c)1.a. Four grams is roughly one seventh of the cocaine threshold." },
+          { degree: "First degree felony, trafficking in illegal drugs, 14 grams or more but less than 28 grams", maximum: "Up to 30 years, with a 15 year mandatory minimum", offenseLevel: "Level 8", note: "Fine of $100,000. Statute 893.135(1)(c)1.b. The minimum goes from 3 years to 15 at 14 grams, the sharpest single step in the statute." },
+          { degree: "First degree felony, trafficking in illegal drugs, 28 grams or more but less than 30 kilograms", maximum: "Up to 30 years, with a 25 year mandatory minimum", offenseLevel: "Level 9", note: "Fine of $500,000. Statute 893.135(1)(c)1.c." },
+          { degree: "First degree felony, trafficking in oxycodone, 7 grams or more but less than 14 grams", maximum: "Up to 30 years, with a 3 year mandatory minimum", offenseLevel: "Level 7", note: "Fine of $50,000. Statute 893.135(1)(c)3.a. Under Statute 893.135(6) the figure is the weight of the whole tablet, not the oxycodone in it." },
+          { degree: "First degree felony, trafficking in oxycodone, 14 grams or more but less than 25 grams", maximum: "Up to 30 years, with a 7 year mandatory minimum", offenseLevel: "Level 7", note: "Fine of $100,000. Statute 893.135(1)(c)3.b. The offense level does not move at this step even though the mandatory minimum more than doubles, which is why the level and the minimum have to be read separately." },
+          { degree: "First degree felony, trafficking in oxycodone, 25 grams or more but less than 100 grams", maximum: "Up to 30 years, with a 15 year mandatory minimum", offenseLevel: "Level 8", note: "Fine of $500,000. Statute 893.135(1)(c)3.c." },
+          { degree: "First degree felony, trafficking in oxycodone, 100 grams or more but less than 30 kilograms", maximum: "Up to 30 years, with a 25 year mandatory minimum", offenseLevel: "Level 9", note: "Fine of $750,000. Statute 893.135(1)(c)3.d." },
+          { degree: "First degree felony, trafficking in dangerous fentanyl or fentanyl analogues, 4 grams or more but less than 14 grams", maximum: "Up to 30 years, with a 7 year mandatory minimum", offenseLevel: "Level 7", note: "Fine of $50,000. Statute 893.135(1)(c)4.b.(I). The 4 gram threshold at 893.135(1)(c)4.a. covers alfentanil, carfentanil, fentanyl, sufentanil, a fentanyl derivative, a controlled substance analog of any of them, or a mixture containing any of them. The lowest tier here opens at 7 years rather than 3." },
+          { degree: "First degree felony, trafficking in dangerous fentanyl or fentanyl analogues, 14 grams or more but less than 28 grams", maximum: "Up to 30 years, with a 20 year mandatory minimum", offenseLevel: "Level 8", note: "Fine of $100,000. Statute 893.135(1)(c)4.b.(II)." },
+          { degree: "First degree felony, trafficking in dangerous fentanyl or fentanyl analogues, 28 grams or more", maximum: "Up to 30 years, with a 25 year mandatory minimum", offenseLevel: "Level 9", note: "Fine of $500,000. Statute 893.135(1)(c)4.b.(III). This tier has no upper bound." },
+          { degree: "First degree felony, trafficking in amphetamine, 14 grams or more but less than 28 grams of amphetamine or methamphetamine", maximum: "Up to 30 years, with a 3 year mandatory minimum", offenseLevel: "Level 7", note: "Fine of $50,000. Statute 893.135(1)(f)1.a. The same paragraph also reaches phenylacetone, phenylacetic acid, pseudoephedrine, or ephedrine held in conjunction with other chemicals and equipment used in manufacture." },
+          { degree: "First degree felony, trafficking in amphetamine, 28 grams or more but less than 200 grams", maximum: "Up to 30 years, with a 7 year mandatory minimum", offenseLevel: "Level 8", note: "Fine of $100,000. Statute 893.135(1)(f)1.b." },
+          { degree: "First degree felony, trafficking in amphetamine, 200 grams or more", maximum: "Up to 30 years, with a mandatory minimum of 15 calendar years", offenseLevel: "Level 9", note: "Fine of $250,000. Statute 893.135(1)(f)1.c." },
+        ],
       },
-    ],
-    elements: [
-      "Knowing sale, purchase, manufacture, delivery, or bringing into the state, or knowing actual or constructive possession. Possession alone is enough; the statute does not require a sale.",
-      "That the substance is one the statute names.",
-      "That the quantity reaches a tier in the statute. This is the element that separates trafficking from other drug charges, and it is where most of these cases are actually decided.",
-      "On weight, the statute answers a question people often get wrong. Statute 893.135(6) provides that where a mixture contains a controlled substance, the weight of the controlled substance is the total weight of the mixture, including the controlled substance and any other substance in the mixture, and that where there is more than one mixture containing the same substance the weight is calculated by aggregating the total weight.",
-    ],
-    defenseApproach: [
-      "Because the charge turns on quantity, the first work is on how the quantity was established: what was seized, how it was weighed, what was included in the weight, and whether the laboratory result supports the tier that was charged. A case sitting near a boundary is a different case from one sitting in the middle of a band.",
-      "Possession is the second question, and it is frequently constructive rather than actual. Whose vehicle, whose residence, who had access, and what the state can actually attribute to this defendant are the questions underneath a constructive possession theory.",
-      "The statute provides one mechanism that is specific to trafficking and is worth understanding precisely. Under Statute 893.135(4), the state attorney may move the sentencing court to reduce or suspend the sentence of a person convicted under the section who provides substantial assistance in the identification, arrest, or conviction of that person's accomplices, accessories, coconspirators, or principals, or of any other person engaged in trafficking in controlled substances. The arresting agency is given an opportunity to be heard, and the judge hearing the motion may reduce or suspend the sentence if the judge finds that the defendant rendered such substantial assistance. Every step there belongs to someone else: the motion is the state attorney's to file and the finding is the judge's to make. It is a decision to weigh with counsel, and nothing about it is automatic.",
-      "The scoresheet arithmetic also works differently here. Statute 921.0024(1)(b) provides that where the primary offense is drug trafficking under Statute 893.135, the subtotal sentence points are multiplied, at the discretion of the court, for a level 7 or level 8 offense, by 1.5. Since no trafficking tier is ranked below level 7, that multiplier is available in every one of these cases.",
-    ],
-    forum: [
-      "Felony charges in Hillsborough County are heard in circuit court. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
-      "A federal case arising from the same conduct is heard in the Middle District of Florida. Hillsborough County sits in its Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue.",
+      {
+        id: "arithmetic",
+        heading: "Level 7 is the floor of this statute, and 56 points is where the scoresheet starts",
+        kind: "prose",
+        answers: ["facing", "next"],
+        prose: [
+          "Statute 921.0022 is the offense severity ranking chart, and it is where every Florida felony gets the number the sentencing scoresheet actually uses. It carries 48 entries under Statute 893.135: 18 at level 7, 15 at level 8, and 15 at level 9. Not one of them is ranked below level 7. A few tiers in the statute do not appear in the chart at all, and they do not fall lower either, because Statute 921.0023(3) places an unlisted felony of the first degree within offense level 7 until the Legislature assigns it a level, and the trafficking tiers are felonies of the first degree. Level 7 is the floor of this statute in both directions, which is not true of theft, fraud, or ordinary drug possession.",
+          "That floor has a number attached to it. The Primary Offense table in Statute 921.0024(1)(a) scores a level 7 primary offense at 56 sentence points, a level 8 at 74, and a level 9 at 92. Statute 921.0024(2) then provides that the lowest permissible sentence is any nonstate prison sanction where the total sentence points equal or are less than 44 points, unless the court determines within its discretion that a prison sentence, which may be up to the statutory maximums for the offenses committed, is appropriate. A trafficking charge is above that 44 point line on the primary offense alone, before a single prior conviction, additional count, or multiplier is added to the sheet.",
+          "Above 44 points the same subsection gives a formula: subtract 28 from the total sentence points, then decrease the remainder by 25 percent, and the result is the lowest permissible sentence in prison months. Run on the primary offense alone with nothing else on the sheet, that is 21 months at level 7, 34.5 months at level 8, and 48 months at level 9. Set those against the mandatory minimums in the table above, which begin at 3 years and run to 25. In every tier listed above, the mandatory minimum is the longer of the two figures. That is the structural point about this charge: on most Florida felonies the scoresheet sets the floor, and here the statute usually does. Prior record points, additional offenses, and the multiplier below all move the scoresheet figure, and they can move it past the minimum.",
+          "There is a multiplier written for this charge and for no other drug offense. The Criminal Punishment Code worksheet in Statute 921.0024(1)(a) carries a checkbox reading DRUG TRAFFICKER, and the key at Statute 921.0024(1)(b) supplies the value: if the primary offense is drug trafficking under Statute 893.135, the subtotal sentence points are multiplied, at the discretion of the court, for a level 7 or level 8 offense, by 1.5. Two limits sit inside that one sentence and both get skipped. It reaches level 7 and level 8 offenses only, not level 9. And it is discretionary, which the other multipliers in that key are not.",
+          "The mandatory minimum is also walled off from the usual ways a Florida sentence is softened. Statute 893.135(3) provides that notwithstanding Statute 948.01, with respect to any person found to have violated the section, adjudication of guilt or imposition of sentence shall not be suspended, deferred, or withheld, nor shall such person be eligible for parole prior to serving the mandatory minimum term prescribed by the section; and that a person sentenced to a mandatory minimum term under the section is not eligible for any form of discretionary early release, except pardon or executive clemency or conditional medical release under Statute 947.149, prior to serving that term. A withheld adjudication, which exists on many Florida felonies, is not available on this one.",
+          "One statutory route runs the other way, and its mechanics matter more than its name. Statute 893.135(4) provides that the state attorney may move the sentencing court to reduce or suspend the sentence of a person convicted of a violation of the section who provides substantial assistance in the identification, arrest, or conviction of that person's accomplices, accessories, coconspirators, or principals, or of any other person engaged in trafficking in controlled substances. The arresting agency is to be given an opportunity to be heard in aggravation or mitigation on any such motion, and upon good cause shown the motion may be filed and heard in camera. The judge hearing the motion may reduce or suspend the sentence if the judge finds that the defendant rendered such substantial assistance. Read the actors in that text rather than the label on it: the motion belongs to the state attorney and the decision belongs to the judge. Nothing in the subsection gives a defendant a right to either one, and whether to raise it at all is a decision to take with a lawyer before anything is said to anybody.",
+          "Two further provisions extend the arithmetic past the person holding the substance. Statute 893.135(5) provides that a person who agrees, conspires, combines, or confederates with another person to commit any act prohibited by subsection (1) commits a felony of the first degree and is punishable as if he or she had actually committed the prohibited act, and that nothing in the subsection prohibits separate convictions and sentences for the conspiracy and for the underlying violation. The mandatory minimum travels with the agreement. And Statute 921.0024(2) provides that if the lowest permissible sentence under the code exceeds the statutory maximum in Statute 775.082, the sentence required by the code must be imposed.",
+        ],
+      },
+      {
+        id: "firearm",
+        heading: "Sub-subparagraph p., where 10-20-Life names trafficking by name",
+        kind: "bullets",
+        answers: ["facing"],
+        bullets: [
+          "Statute 775.087(2)(a)1. lists the felonies that carry the 10-20-Life minimums at sub-subparagraphs a. through r. Sub-subparagraph p. is a drug list: trafficking in cannabis, trafficking in cocaine, capital importation of cocaine, trafficking in illegal drugs, capital importation of illegal drugs, trafficking in phencyclidine, capital importation of phencyclidine, trafficking in methaqualone, capital importation of methaqualone, trafficking in amphetamine, capital importation of amphetamine, trafficking in flunitrazepam, trafficking in gamma-hydroxybutyric acid, trafficking in 1,4-Butanediol, trafficking in Phenethylamines, and it closes with the words or other violation of s. 893.135(1). The provision applies regardless of whether the use of a weapon is an element of the felony.",
+          "A minimum term of 10 years where, during the commission of the offense, the person actually possessed a firearm or destructive device as those terms are defined in Statute 790.001. The statute says actually possessed, which is a narrower phrase than the constructive possession that can support the trafficking count itself.",
+          "A minimum term of 20 years under Statute 775.087(2)(a)2. where, during the course of the commission of the felony, the person discharged a firearm or destructive device. That provision reaches the felonies listed at sub-subparagraphs 1.a. through p. or 1.r.",
+          "A minimum term of not less than 25 years and not more than a term of imprisonment of life in prison under Statute 775.087(2)(a)3. where the discharge inflicted death or great bodily harm upon any person.",
+          "Statute 775.087(2)(c) resolves the collision between the two schemes. If the minimum mandatory terms under that section exceed the maximum sentences authorized by Statute 775.082, Statute 775.084, or the Criminal Punishment Code, the mandatory minimum must be imposed; if they are less than what those laws would allow, the sentence imposed must still include the mandatory minimum term.",
+          "Statute 775.087(2)(d) provides that the court shall impose the minimum term for each qualifying felony offense of conviction, and that where a person is convicted of multiple qualifying felony offenses the court shall impose those terms consecutively.",
+          "Separately from all of that, the Criminal Punishment Code worksheet in Statute 921.0024(1)(a) carries a FIREARM OR SEMIAUTOMATIC WEAPON line feeding the subtotal, so a weapon can register on the scoresheet as well as under Statute 775.087.",
+        ],
+      },
+      {
+        id: "clocks",
+        heading: "Four intervals the rules actually set, none of which is the mandatory minimum",
+        kind: "timeline",
+        answers: ["next"],
+        steps: [
+          { when: "Within 24 hours of the arrest", what: "First appearance. Rule 3.130(a) requires that, except when previously released in a lawful manner, every arrested person be taken before a judge, in person or by audio-video communication technology at the court's discretion, within 24 hours. Rule 3.130(d) then directs the judge to determine pretrial detention or conditions of release under rule 3.132 or rule 3.131. Both counsel routes described further down are raised at this hearing." },
+          { when: "30 days from arrest, if you are still in custody", what: "Rule 3.134(a) requires the state to file formal charges by information or indictment within 30 days on defendants in custody. If they remain uncharged, the court on the 30th day and with notice to the state must order automatic release on recognizance on the 33rd day, or on the 40th day if the state shows good cause, and the rule adds that in no event may a defendant remain in custody beyond 40 days without a formal charge. Release under this rule is not a dismissal and the state may file afterwards." },
+          { when: "60 days from arrest, if you were released", what: "Rule 3.134(b) is the track for defendants on pretrial release: 60 days for the state to file, with automatic release on recognizance on the 63rd day if it has not, and, on a showing of good cause, continuation on pretrial release for up to an additional 30 days. Both tracks carry a good cause extension. Custody decides which of the two applies, not the charge." },
+          { when: "175 days after the formal charge, not after the arrest", what: "Rule 3.191(a) sets the felony speedy trial period at 175 days, and Rule 3.191(d) fixes where it starts: a person is formally charged by information or by indictment. The gap between arrest and charge is therefore outside it. Missing the period does not end a case on its own, because the rule points to the remedy in subdivision (o), which is a recapture procedure. Under Rule 3.191(b) a defendant may instead file a demand and require trial within 60 days." },
+        ],
+      },
+      {
+        id: "now",
+        heading: "Consent, questions, and the arresting agency's seat at a later hearing",
+        kind: "guidance",
+        answers: ["now"],
+        guidance: [
+          {
+            heading: "Rights that are in place from the first contact onward",
+            items: [
+              "You have the right to decline to answer questions. It is available at the roadside, at the station, and at every stage after that, and it does not have to be explained or justified.",
+              "You do not have to consent to a search. Whether a search would have been lawful without consent is a question a court can be asked to decide, and consent is what removes that question from the case.",
+              "You are entitled to see what the State relies on, through discovery, in the ordinary course. On this charge that includes how the substance was weighed and what was weighed along with it, because Statute 893.135(6) makes the total weight of the mixture the operative figure.",
+              "Counsel is a right, and appointment is a step a judge takes at first appearance rather than something that happens automatically beforehand. The two rules that carry it are set out in the last section of this page.",
+            ],
+          },
+          {
+            heading: "What is different about this charge before a lawyer is involved",
+            items: [
+              "The number on the charging document is an element, not a description. The tier turns on it, and under Statute 893.135(6) it is the whole mixture and it aggregates across more than one mixture of the same substance. It is something the State has to establish, and where it came from is examinable.",
+              "Conversations about helping are not informal, and they are not off the record. Statute 893.135(4) gives the arresting agency an opportunity to be heard in aggravation or mitigation on any substantial assistance motion, and the motion itself is the state attorney's to file. What is said to officers before there is a lawyer in the room can sit inside that later process.",
+              "Explaining whose it was is never a small statement. Subsection (1) reaches actual and constructive possession, and subsection (2) defines the mental element by reference to the substances listed in subsection (1) rather than to the particular one found. Accounts of who owned what, who knew what was in the bag, and what somebody thought it was all touch elements of the offense.",
+              "Advice that works on other Florida felonies does not transfer here. Statute 893.135(3) provides that adjudication of guilt or imposition of sentence shall not be suspended, deferred, or withheld for a violation of that section, so any plan built around a withheld adjudication is a plan for a different charge.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "record",
+        heading: "Paragraph (gg), and the sealing door that closes on a trafficking conviction",
+        kind: "prose",
+        answers: ["consequences", "sealing"],
+        prose: [
+          "Florida criminal history records are public. Unless a court seals or expunges one, an arrest is visible to an ordinary background check and stays visible for as long as it is unsealed. That is the practical answer to the employment question, and it operates whether or not a case produces a conviction.",
+          "On this charge the sealing question has a definite answer at one end, and it is worth knowing early rather than three years later. Statute 943.0584(2) makes a criminal history record ineligible for a certificate of eligibility for expunction or a court-ordered expunction under Statute 943.0585, and ineligible for a certificate of eligibility for sealing or a court-ordered sealing under Statute 943.059, if the record is a conviction for one of the offenses it lists. Paragraph (gg) of that list reads, in full, drug trafficking, as defined in s. 893.135. There is no weight qualifier and no substance qualifier in that paragraph, so every tier in the table above sits inside it. Paragraph (ff) separately covers manufacturing a controlled substance in violation of chapter 893.",
+          "The word conviction in that section is broader than most readers expect, and on this charge two statutes lock together around it. Statute 943.0584(1) defines conviction as a determination of guilt which is the result of a trial or the entry of a plea of guilty or nolo contendere, regardless of whether adjudication is withheld. Statute 893.135(3) provides that adjudication of guilt shall not be withheld for a violation of the trafficking statute in the first place. The usual route around a permanent record bar is a withhold, and these two provisions close it from opposite directions.",
+          "What the bar attaches to is the record being a conviction for a listed offense, which is not the same thing as the charge that was filed. A record that is not a conviction for a listed offense is not barred by paragraph (gg). Where no bar applies, the conditions in Statute 943.059(1) still have to be met and they are cumulative, including never having been adjudicated guilty in Florida of a criminal offense, no longer being under court supervision for this one, and never having secured a prior sealing or expunction; and Statute 943.059(2) requires a certificate of eligibility from the department before any petition is filed. Nothing in this paragraph says how any case will end, and it is not a reason to expect one ending over another.",
+          "Two consequences are outside what a Florida criminal statute can answer. A professional license is governed by the rules of the board that issued it. Immigration consequences turn on federal law, and a controlled substance charge is an area where that question belongs with an immigration attorney rather than being read off a Florida statute.",
+        ],
+      },
+      {
+        id: "who",
+        heading: "Whose decisions are already running, and how counsel actually gets appointed",
+        kind: "prose",
+        answers: ["who"],
+        prose: [
+          "Three offices are working on this before anybody chooses a lawyer, and they answer to different people. The arresting agency wrote the report, and under Statute 893.135(4) it keeps a role well past that: it is entitled to be heard in aggravation or mitigation on any substantial assistance motion. The Office of the State Attorney for the Thirteenth Judicial Circuit decides whether to file, what to file, and which weight tier a count alleges, which is the decision that fixes the mandatory minimum before a judge sees the case. The Hillsborough County Clerk holds the file, with circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
+          "Counsel arrives on two different tracks and the first hearing is where both are raised. If you cannot pay, the appointment happens there: Rule 3.130(b)(1)(B) requires the judge to advise an unrepresented defendant of the right to counsel and that counsel will be appointed if the defendant is financially unable to afford one, and Rule 3.130(c)(1) requires that when the judge determines the defendant is entitled to court-appointed counsel and desires counsel, the judge must immediately appoint counsel. If you intend to hire someone, Rule 3.130(c)(2) requires the judge to allow a reasonable time to send for counsel and, if necessary, to postpone the first appearance hearing for that purpose.",
+          "The reason to make the call before that hearing rather than after it is specific to this statute. The one provision in Statute 893.135 that runs downward is triggered by a motion the state attorney files, not by anything a defendant can file, and the arresting agency has a statutory seat at the hearing on it. Decisions about what is said, and to whom, are being made in the hours after an arrest, and those are decisions to make with a lawyer rather than alone.",
+        ],
+      },
     ],
     faq: [
-      {
-        question: "Can a drug trafficking charge be reduced in Florida?",
-        source: "keywords.md",
-        grade: "6-12mo",
-        answer:
-          "There is a statutory route, and it is not something a defendant controls. Statute 893.135(4) allows the state attorney to move the sentencing court to reduce or suspend a trafficking sentence where the person has provided substantial assistance, and the judge may do so if the judge finds that such assistance was rendered. Both steps belong to other people, which is why it is a decision to take with a lawyer rather than an expectation to plan around.",
-      },
-      {
-        question: "How many grams is trafficking in Florida?",
-        source: "drafted",
-        answer:
-          "It depends entirely on the substance. Cocaine trafficking begins at 28 grams, while the illegal drugs provision covering opioids begins at 4 grams, and cannabis is measured in pounds rather than grams and begins in excess of 25 pounds. There is no single trafficking weight, which is why the substance named in the charge matters as much as the quantity.",
-      },
-      {
-        question: "Is there a minimum sentence for drug trafficking in Florida?",
-        source: "drafted",
-        answer:
-          "Yes. Each tier in Statute 893.135 carries a mandatory minimum term of imprisonment and a fixed fine, beginning at 3 years for the lowest cannabis and cocaine bands and rising with quantity. That is a feature of the trafficking statute specifically, and it is why these charges are treated differently from other drug offenses.",
-      },
-      {
-        question:
-          "I only had it for personal use. Why am I charged with trafficking?",
-        source: "drafted",
-        answer:
-          "Because Florida trafficking turns on weight rather than on what the substance was for. Statute 893.135 reaches knowing possession at a threshold quantity, without requiring a sale or an intent to sell, so a quantity above a tier can support the charge even where nothing was sold.",
-      },
-      {
-        question: "Does the weight include the pills themselves?",
-        source: "drafted",
-        answer:
-          "It includes the whole mixture. Statute 893.135(6) provides that the weight of the controlled substance is the total weight of the mixture, including the controlled substance and any other substance in it, and that multiple mixtures containing the same substance are aggregated. This is why a quantity can reach a tier that the amount of the drug itself would not.",
-      },
+      { question: "How many grams is a felony in Florida?", source: "PAA, verbatim, Tampa-geolocated 2026-08-13", answer: "Possession and trafficking are two different questions and the gram figure depends on which one you mean. For simple possession there is no gram threshold at all: under Florida Statute 893.13(6)(a), possessing any controlled substance not lawfully obtained from a practitioner or by valid prescription is a third degree felony at any amount, with two carve-outs, 20 grams or less of cannabis being a first degree misdemeanor under 893.13(6)(b) and a Schedule V substance a second degree misdemeanor under 893.13(6)(d). Possessing more than 10 grams of certain Schedule I and II substances is a first degree felony under 893.13(6)(c). For trafficking under Florida Statute 893.135 the threshold differs by substance: 4 grams for morphine, opium, hydromorphone or heroin and for fentanyl, 7 grams for oxycodone, 14 grams for amphetamine or methamphetamine, 28 grams for cocaine and for hydrocodone or codeine, and, for cannabis, more than 25 pounds or 300 or more plants." },
+      { question: "Is there a minimum sentence for drug trafficking in Florida?", source: "W2-02 Section 3, question 2", answer: "Yes. Florida Statute 893.135 attaches a mandatory minimum term of imprisonment and a fixed fine to each weight tier of each substance. The lowest tiers carry a 3 year mandatory minimum for most substances and 7 years for dangerous fentanyl or fentanyl analogues, and the highest tiers reach 25 years. Statute 893.135(3) adds that adjudication of guilt or imposition of sentence shall not be suspended, deferred, or withheld, that the person is not eligible for parole before serving the mandatory minimum, and that no form of discretionary early release is available before it is served, except pardon or executive clemency or conditional medical release under Statute 947.149. Every trafficking offense in subsection (1) is a felony of the first degree, which carries a statutory maximum of up to 30 years." },
+      { question: "Can a judge go below the mandatory minimum in a Florida trafficking case?", source: "W2-02 Section 3, question 3", answer: "There is one mechanism in the statute and it does not start with the judge or the defendant. Florida Statute 893.135(4) provides that the state attorney may move the sentencing court to reduce or suspend the sentence of a person convicted under that section who provides substantial assistance in the identification, arrest, or conviction of that person's accomplices, accessories, coconspirators, or principals, or of any other person engaged in trafficking in controlled substances. The arresting agency must be given an opportunity to be heard in aggravation or mitigation on the motion, and the judge hearing it may reduce or suspend the sentence if the judge finds the defendant rendered such substantial assistance. Nothing in the text gives a defendant a right to have the motion filed or granted. Separately, Statute 893.135(3) forbids suspending, deferring, or withholding adjudication or sentence, so that route is closed." },
+      { question: "Can a drug trafficking charge be reduced in Florida?", source: "keywords.md, retained seeded question, graded 6-12mo", answer: "What a person is convicted of is decided by the charging and plea process rather than by any statute promising a reduction, and no page can say how a particular case will end. Two things in Florida Statute 893.135 shape the question. Weight is an element the State has to establish, and under 893.135(6) that weight is the total weight of the mixture, aggregated across more than one mixture of the same substance, so how the figure was reached is examinable like any other part of the case. And 893.135(4) contains the only downward mechanism in the section: the state attorney may move to reduce or suspend a sentence for substantial assistance, with the arresting agency entitled to be heard, and the judge may grant it on a finding that such assistance was rendered. Whether either matters in a given case is a question for a lawyer looking at that case." },
+      { question: "I only had it for personal use. Why am I charged with trafficking?", source: "W2-02 Section 3, question 4", answer: "Because Florida trafficking is defined by quantity rather than by commercial conduct. Florida Statute 893.135(1) reaches a person who knowingly sells, purchases, manufactures, delivers, or brings into this state, or who is knowingly in actual or constructive possession of, the threshold amount. Possession stands on its own in that list, so the statute does not require a sale, a buyer, a price, or an intent to sell. The statute also opens by saying it applies notwithstanding the provisions of Statute 893.13, which is the ordinary possession, sale, and delivery statute, so trafficking is a separate scheme rather than an aggravated version of a possession charge." },
+      { question: "Does the weight include the pills themselves or just the drug?", source: "W2-02 Section 3, question 7", answer: "The whole thing is weighed. Florida Statute 893.135(6) provides that a mixture containing a controlled substance described in the section includes a solution or a dosage unit, including a gelatin capsule, pill, or tablet, and that the weight of the controlled substance is the total weight of the mixture, including the controlled substance and any other substance in the mixture. It adds that where there is more than one mixture containing the same controlled substance, the weight is calculated by aggregating the total weight of each mixture. Florida Statute 893.03(3)(c) confirms the point for certain hydrocodone preparations, providing that for the purpose of charging a violation of 893.135 the weight per milliliter or per dosage unit is not relevant and the weight is determined under 893.135(6)." },
+      { question: "What happens if there was a gun in the car?", source: "W2-02 Section 3, question 8", answer: "Florida's 10-20-Life statute reaches trafficking by name. Statute 775.087(2)(a)1.p. lists trafficking in cannabis, cocaine, illegal drugs, phencyclidine, methaqualone, amphetamine, flunitrazepam, gamma-hydroxybutyric acid, 1,4-Butanediol and Phenethylamines, and closes with the words or other violation of s. 893.135(1). Where a person is convicted of one of those and actually possessed a firearm or destructive device as defined in Statute 790.001 during the commission of the offense, the minimum term is 10 years; it is 20 years where the firearm was discharged under 775.087(2)(a)2., and not less than 25 years and up to life where the discharge inflicted death or great bodily harm under 775.087(2)(a)3. Under 775.087(2)(d) the court imposes that minimum for each qualifying felony of conviction, consecutively where there is more than one." },
+      { question: "Can a Florida drug trafficking conviction ever be sealed?", source: "drafted from F.S. 943.0584 and F.S. 893.135(3)", answer: "No. Florida Statute 943.0584(2) makes a criminal history record permanently ineligible for sealing under Statute 943.059 and for expunction under Statute 943.0585 where the record is a conviction for a listed offense, and paragraph (gg) of that list is drug trafficking, as defined in s. 893.135, with no weight or substance qualifier. Two further points matter. Statute 943.0584(1) defines conviction to include a plea of guilty or nolo contendere regardless of whether adjudication is withheld, and Statute 893.135(3) forbids withholding adjudication on a trafficking violation in any event. Because the bar attaches to a record that is a conviction for a listed offense rather than to the charge that was filed, a record that is not such a conviction is not barred by paragraph (gg), and eligibility is then governed by the cumulative conditions in Statute 943.059(1) and the certificate of eligibility required by 943.059(2)." },
+      { question: "Is my drug case a state case or a federal case?", source: "W2-02 Section 3, question 5", answer: "The charging document says so, and it is the first thing to look at. A Florida case is filed by the Office of the State Attorney for the Thirteenth Judicial Circuit and heard in circuit court in Hillsborough County, with the file at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101. A federal case is brought by a United States Attorney in the Middle District of Florida, Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue. The distinction is not cosmetic: the weight tiers of Florida Statute 893.135, the mandatory minimums attached to them, the offense levels in Statute 921.0022, and the Criminal Punishment Code scoresheet all belong to the Florida track and are not how a federal sentence is calculated. This answer describes the Florida track only." },
     ],
-    relatedGuides: [
-      { label: "Tools and guides", href: "/resources/tools-and-guides" },
-    ],
+    relatedGuides: [{ label: "Tools and guides", href: "/resources/tools-and-guides" }],
   },
-
   // ---------------------------------------------------------------------
   // GUN CRIMES, state. From docs/research/briefs/W2-03-gun-crimes.md.
+  // Written 2026-08-14 by assembly from the audited tables.
   //
-  // Overlap page under Section 4.6 and C10.
+  // C9: the 775.087(2)(a)1. exception. A person convicted of possession of a
+  // firearm by a felon, or of burglary of a conveyance, faces a three year
+  // minimum rather than the ten years every other enumerated felony carries.
+  // Verified in fs-775-087.ts.
   //
-  // C9: the three-year exception in 775.087(2)(a)1., which applies to
-  // possession of a firearm by a felon and to burglary of a conveyance and to
-  // nothing else. The page leads on it.
+  // Overlap page under Section 4.6 and C10: forum section opens the body,
+  // exactly one cross-link to /federal-criminal-defense/weapons-gun-offenses.
   //
-  // FIREARM RIGHTS RESTORATION IS DELIBERATELY UNWRITTEN. 790.23(2)(a) is
-  // quoted because it is statutory text, but how restoration is obtained is a
-  // clemency question governed by the Rules of Executive Clemency, which sit
-  // outside the C12 allowlist. The page says the exception exists and stops.
-  // [NEEDS: an allowlisted source for the restoration process] Do not answer
-  // that question from a competitor page or from recall.
+  // F.S. 790.01 is not in the statute-table set and the brief recorded it
+  // UNVERIFIED, yet the legacy page asserted the permitless-carry scheme from
+  // no recorded fetch. The writer fetched it in full; the record is in
+  // PAGE-SOURCES.md under Pair 2.
   //
-  // [NEEDS: federal 18 U.S.C. 922(g) predicates and ACCA] Not fetched. No
-  // federal statute number, predicate, or maximum appears on this page.
-  // [NEEDS: ATF Tampa field division] Not verified against the agency's site.
+  // D7: the Brandon Regional Service Center is NOT named, removed on merge.
+  // Rights restoration PROCESS stays unwritten by design; only the statutory
+  // exceptions in 790.23(2) are stated.
   // ---------------------------------------------------------------------
   "state/gun-crimes-defense": {
     title: "Gun and firearm charges in Hillsborough County",
     metaTitle: "Gun and Firearm Charges in Hillsborough County | Hines & McCarty",
-    metaDescription:
-      "Florida has no single gun charge. What the 790 series covers, how Statute 775.087 adds mandatory minimums and reclassifies felonies, and the three-year exception most summaries miss.",
-    lead: "Florida has no single gun charge. Statute 775.087 adds mandatory minimums on top of other felonies, and the figure most people have heard is ten years. For possession of a firearm by a felon, the minimum it sets is three.",
+    metaDescription: "Florida has no single gun charge. What Statute 790.23 reaches, where each 790 offense ranks, and why 10-20-Life sets three years for a felon in possession.",
+    lead: "Florida has no offense called a gun charge. The 790 series holds several, from carrying concealed to possession by a felon, and a separate statute, 775.087, adds minimum terms to felonies that are not gun charges at all.",
     counterpart: {
       href: "/federal-criminal-defense/weapons-gun-offenses",
       label: "Federal gun and weapons charges",
-      note: "A firearm case can be brought by the state or by the federal government, and the same prior conviction that makes this a Florida offense can also make it a federal one. A state case runs on the Florida 790 series and Statute 775.087, is heard in circuit court, and is scored on a state sentencing scoresheet. A federal case is brought under federal statutes in the Middle District of Florida, where the Florida offense levels do not apply. Which sovereign charges the case is not the defendant's decision.",
+      note: "If the case is being prosecuted in federal court, see the federal page. A federal firearm case is brought under the United States Code in the Middle District of Florida rather than under the Florida 790 series in circuit court, the federal prohibition at 18 U.S.C. 922(g) rests on a conviction punishable by imprisonment for a term exceeding one year rather than on Florida's five predicate categories, and the Florida offense levels and the Criminal Punishment Code scoresheet have no application there. Which sovereign files is not the defendant's choice.",
     },
-    statute: {
-      citation:
-        "Florida Statutes 790.23, 790.01 and 775.087, the 2025 Florida Statutes",
-      body: "Three statutes do most of the work. Statute 790.23 makes it unlawful for a person to own or to have in his or her care, custody, possession, or control any firearm, ammunition, or electric weapon or device, or to carry a concealed weapon, if that person has been convicted of a felony in this state, found to have committed a delinquent act that would be a felony if committed by an adult while under 24 years of age, convicted of a federal felony, found to have committed such a delinquent act in another state, territory or country while under 24, or found guilty of an offense that is a felony in another state, territory or country punishable by imprisonment exceeding one year. A violation is a felony of the second degree. Statute 790.01 governs carrying concealed, and since the change to permitless carry it authorises a person to carry a concealed weapon or firearm if licensed under Statute 790.06 or, though unlicensed, otherwise satisfying the criteria for receiving and maintaining such a license. A person who does not meet those criteria and carries a concealed firearm commits a felony of the third degree, while a concealed weapon or electric weapon is a misdemeanor of the first degree. Statute 775.087 is not a charge at all. It reclassifies other felonies and imposes minimum terms.",
-    },
-    penalties: [
+    sections: [
       {
-        degree: "Second degree felony",
-        maximum: "Up to 15 years",
-        offenseLevel: "Level 5",
-        note: "Possession of a firearm, ammunition, or an electric weapon by a person covered by 790.23(1), graded by 790.23(3), which reaches any violation of the section.",
+        id: "forum",
+        heading: "Two prohibitions, two courthouses, and a predicate test that is not written the same way in both",
+        kind: "prose",
+        answers: ["facing"],
+        prose: [
+          "A firearm case arising in Hillsborough County can be filed by the State of Florida or by the federal government, and that is not the defendant's decision. A state case is filed by the Office of the State Attorney for the Thirteenth Judicial Circuit and heard in circuit court. A federal case is filed in the Middle District of Florida, whose Tampa Division sits at 801 North Florida Avenue. Everything on this page describes the state route.",
+          "The two prohibitions are not copies of each other, and the difference sits in the first line of each. Florida Statute 790.23(1) applies to a person convicted of a felony in the courts of this state, convicted of or found to have committed a crime against the United States designated as a felony, found guilty of an offense that is a felony in another state, territory, or country punishable by imprisonment for a term exceeding 1 year, or found to have committed a qualifying delinquent act while under 24 years of age. The federal prohibition at 18 U.S.C. 922(g) opens on a different phrase: a conviction for a crime punishable by imprisonment for a term exceeding one year. Punishable by more than a year and convicted of a Florida felony are two tests, not one wording of the same test, and they do not cover identical groups of people. An answer about one is not an answer about the other, and this page does not attempt to translate between them.",
+          "Section 922(g) also reaches eight categories of person that Florida Statute 790.23 does not list at all: a fugitive from justice, an unlawful user of or person addicted to a controlled substance, a person adjudicated as a mental defective or committed to a mental institution, certain aliens, a person discharged from the armed forces under dishonorable conditions, a person who has renounced United States citizenship, a person subject to a qualifying domestic violence restraining order, and a person convicted of a misdemeanor crime of domestic violence. Florida's section lists five predicate categories and no others.",
+          "One practical consequence for anyone reading numbers on this page. Florida sentencing runs through the Criminal Punishment Code, and the offense levels in Statute 921.0022 and the point tables in Statute 921.0024 are inputs to that code. They have nothing to say about exposure in federal court.",
+        ],
       },
       {
-        degree: "Third degree felony",
-        maximum: "Up to 5 years",
-        offenseLevel: "Level 5",
-        note: "Carrying a concealed firearm without meeting the criteria in 790.01(1), under 790.01(3).",
-      },
-      // The 790.01(2) misdemeanor is described in the statute section rather
-      // than given a row here. Two reasons: its maximum comes from 775.082(4),
-      // which has not been fetched, so the row could only have said "not
-      // stated"; and misdemeanors are scored as M rather than by offense
-      // level, so it has nothing to put in the column this table exists for.
-      {
-        degree: "First degree felony, PBL",
-        maximum: "Up to 30 years",
-        offenseLevel: "Level 7",
-        note: "Possession of a firearm by a person who qualifies for the penalty enhancements in Statute 874.04, under 790.23(4).",
+        id: "reach",
+        heading: "A single round of ammunition is inside the words, and a juvenile finding stops counting at 24",
+        kind: "statute",
+        answers: ["facing"],
+        statute: {
+          citation: "Florida Statutes 790.23 and 790.01, the 2025 Florida Statutes",
+          body: "Statute 790.23(1) is broader than its nickname. It makes it unlawful for a person to own or to have in his or her care, custody, possession, or control any firearm, ammunition, or electric weapon or device, or to carry a concealed weapon, including a tear gas gun or chemical weapon or device. Ammunition is named in the same breath as a firearm, ownership counts alongside possession, and there is no quantity threshold anywhere in the section, so a single round is within the words. Who it applies to is the second half of the same sentence, and it is a closed list of five: a person convicted of a felony in the courts of this state; a person found in the courts of this state to have committed a delinquent act that would be a felony if committed by an adult and such person is under 24 years of age; a person convicted of or found to have committed a crime against the United States which is designated as a felony; a person found to have committed a delinquent act in another state, territory, or country that would be a felony if committed by an adult and which was punishable by imprisonment for a term exceeding 1 year and such person is under 24 years of age; and a person found guilty of an offense that is a felony in another state, territory, or country punishable by imprisonment for a term exceeding 1 year. The under-24 condition is written into paragraphs (b) and (d) as part of the predicate, so a juvenile adjudication is not a disqualification that runs on forever. The felony paragraphs, (a), (c) and (e), carry no age limit and state no waiting period. Grading is in the last two subsections. Statute 790.23(3) provides that except as otherwise provided in subsection (4), a person who violates this section commits a felony of the second degree. Statute 790.23(4) provides that where the offense described in subsection (1) has been committed by a person who has previously qualified or currently qualifies for the penalty enhancements provided for in Statute 874.04, the offense is a felony of the first degree, punishable by a term of years not exceeding life. Note that subsection (4) has two prongs, previously qualified and currently qualifies, so it is not only a criminal history provision. Statute 790.23(2) states the exceptions, and it states them as status rather than as procedure: the section does not apply to a person convicted of a felony whose civil rights and firearm authority have been restored, both of them, or to a person whose criminal history record has been expunged pursuant to Statute 943.0515(1)(b). How restoration is obtained is a clemency question that this page does not describe. Carrying concealed is a different statute with no prior conviction in it. Statute 790.01(1) authorizes a person to carry a concealed weapon or concealed firearm if he or she is licensed under Statute 790.06, or is not licensed but otherwise satisfies the criteria for receiving and maintaining such a license under Statute 790.06(2)(a)-(f) and (i)-(n), (3), and (10). A person who does not meet those criteria and carries a concealed firearm commits a felony of the third degree under 790.01(3), while a person who does not meet them and carries a concealed weapon or electric weapon or device commits a misdemeanor of the first degree under 790.01(2). Statute 790.01(4) then does something unusual: in any prosecution under subsection (2) or (3), the state bears the burden of proving, as an element of the offense, both that the person is not licensed under 790.06 and that he or she is ineligible to receive and maintain such a license under those listed criteria. Statute 790.01(5) carves out two situations: carrying a lawfully possessed concealed weapon or firearm while in the act of evacuating during a mandatory evacuation order, which the subsection defines as immediate and urgent movement away from the evacuation zone within 48 hours of the order unless the Governor extends it, and carrying for lawful self-defense a self-defense chemical spray or a nonlethal stun gun, dart-firing stun gun, or other nonlethal electric weapon or device designed solely for defensive purposes. Statute 790.01(6) adds that none of this precludes prosecution for the use of such a device during an offense under Statute 790.07, 790.10, 790.23, or 790.235.",
+        },
       },
       {
-        degree: "Third degree felony",
-        maximum: "Up to 5 years",
-        offenseLevel: "Level 6",
-        note: "Grand theft of a firearm, under 812.014(2)(c)5. Rises to level 7 as a second degree felony with a prior conviction of that provision, under 812.014(2)(g).",
+        id: "minimums",
+        heading: "Statute 775.087 does two separate jobs, and for a felon in possession the number is three years, not ten",
+        kind: "prose",
+        answers: ["facing"],
+        prose: [
+          "Statute 775.087 is not a charge and nobody is arrested for it. It operates on other felonies, and it contains two different mechanisms that are easy to read as one. Subsection (1) reclassifies a felony upward. Subsection (2) imposes minimum terms, and it is subsection (2) that people know by the name 10-20-Life.",
+          "Reclassification first. Statute 775.087(1) provides that unless otherwise provided by law, whenever a person is charged with a felony, except a felony in which the use of a weapon or firearm is an essential element, and during the commission of that felony the defendant carries, displays, uses, threatens to use, or attempts to use any weapon or firearm, or commits an aggravated battery, the felony is reclassified: a third degree felony to a second degree felony, a second to a first, and a first degree felony to a life felony. The essential-element exception is part of the rule and travels with it, which is why reclassification is a question on a robbery or a battery rather than on a charge that already has a firearm in its elements.",
+          "Reclassification also moves the sentencing arithmetic, not only the label. The undesignated text following 775.087(1)(c) provides that for purposes of sentencing under chapter 921 and determining incentive gain-time eligibility under chapter 944, a felony offense reclassified under this section is ranked one level above its ranking under Statute 921.0022 or 921.0023. Both the degree and the offense level move, and the level is the scoresheet input.",
+          "The minimum terms are separate. Statute 775.087(2)(a)1. applies to a person convicted of, or of an attempt to commit, one of a list of named felonies, regardless of whether the use of a weapon is an element, where during the commission of the offense the person actually possessed a firearm or destructive device as those terms are defined in Statute 790.001. The list runs a. through r.: murder, sexual battery, robbery, burglary, arson, aggravated battery, kidnapping, escape, aircraft piracy, aggravated child abuse, aggravated abuse of an elderly person or disabled adult, unlawful throwing, placing, or discharging of a destructive device or bomb, carjacking, home-invasion robbery, aggravated stalking, the trafficking offenses and other violations of Statute 893.135(1), possession of a firearm by a felon, and human trafficking. The minimum is 10 years.",
+          "Here is the part most summaries leave out. Possession of a firearm by a felon is on that list, at sub-subparagraph q., but the same subparagraph carries an exception in its own sentence: a person who is convicted for possession of a firearm by a felon or burglary of a conveyance shall be sentenced to a minimum term of imprisonment of 3 years if such person possessed a firearm or destructive device during the commission of the offense. Three things about that clause are worth reading closely. Burglary of a conveyance is reached by the clause even though it is not separately named in the a. through r. list. The clause says possessed rather than actually possessed, which is the wording used for the 10 year minimum. And its condition is a firearm or destructive device, which is narrower than what Statute 790.23(1) reaches, since that subsection also covers ammunition and an electric weapon or device.",
+          "The exception has its own exception, in the final sentence of the same subparagraph. If an offender convicted of possession of a firearm by a felon has a previous conviction of committing or attempting to commit a felony listed in Statute 775.084(1)(b)1. and actually possessed a firearm or destructive device during the commission of that prior felony, the minimum term is 10 years. So the three year figure is the starting point for this offense, and one prior conviction of the right kind moves it back to ten.",
+          "Discharge raises the numbers, and the carve-out is visible there too. Statute 775.087(2)(a)2. sets a 20 year minimum for discharging a firearm or destructive device during the commission of a felony listed in sub-subparagraphs 1.a. through p. or 1.r., and Statute 775.087(2)(a)3. sets a minimum of not less than 25 years and not more than life where the discharge inflicted death or great bodily harm on any person. Both provisions list the same range of sub-subparagraphs and both leave out 1.q., which is possession of a firearm by a felon.",
+          "Subsection (3) is a third ladder in the same section and it is not the same list. Statute 775.087(3)(a)1. sets a 15 year minimum where the person possessed a semiautomatic firearm and its high-capacity detachable box magazine or a machine gun as defined in Statute 790.001, and 775.087(3)(f)1. defines a high-capacity detachable box magazine as one capable of being loaded with more than 20 centerfire cartridges. That capacity element gates only the semiautomatic route; the machine gun route carries no magazine or capacity requirement at all. The subsection (3) list of felonies includes sale, manufacture, delivery, or intent to sell, manufacture, or deliver any controlled substance, which subsection (2) does not, and it does not include possession of a firearm by a felon, which subsection (2) does.",
+          "Where a minimum applies, it displaces the arithmetic rather than sitting alongside it. A level 5 primary offense scores 28 sentence points under the table in Statute 921.0024(1)(a), and Statute 921.0024(2) provides that the lowest permissible sentence is any nonstate prison sanction where total sentence points equal or are less than 44, unless the court determines within its discretion that a prison sentence, which may be up to the statutory maximums, is appropriate. Statute 775.087(2)(c) then provides that where the minimum mandatory term exceeds the maximum authorized by Statute 775.082, Statute 775.084, or the Criminal Punishment Code, the mandatory minimum must be imposed, and where it is lower, the sentence imposed must still include it. Statute 775.087(2)(d) requires the minimum to be imposed for each qualifying felony offense and, where there are several, consecutively, and 775.087(2)(e) allows the court to run the term consecutively to a sentence for a felony that is not on the list. One exclusion is worth naming: under Statute 775.087(5) the section does not apply to law enforcement officers or United States military personnel performing their lawful duties or traveling to or from their places of employment or assignment to perform them.",
+        ],
       },
-    ],
-    elements: [
-      "For possession by a person covered by 790.23, that the person falls within one of the five categories in subsection (1), and that they owned or had in their care, custody, possession, or control a firearm, ammunition, or an electric weapon or device. Possession can be constructive rather than actual, which is where many of these cases are decided.",
-      "The statute carries its own exceptions. Under 790.23(2) it does not apply to a person convicted of a felony whose civil rights and firearm authority have been restored, or whose criminal history record has been expunged under Statute 943.0515(1)(b).",
-      "For carrying concealed under 790.01, something unusual: subsection (4) provides that in any prosecution the state bears the burden of proving, as an element of the offense, both that the person is not licensed under Statute 790.06 and that they are ineligible to receive and maintain such a license. Ineligibility is part of the offense rather than a matter for the defendant to raise.",
-      "For a Statute 775.087 enhancement, that the underlying felony is one the statute reaches, and that the defendant carried, displayed, used, threatened to use, or attempted to use a weapon or firearm during its commission.",
-    ],
-    defenseApproach: [
-      "Where possession is constructive, the questions are about access and attribution rather than about the firearm itself. Whose vehicle, whose residence, who else had access, and what the state can actually tie to this defendant are the things that decide these cases.",
-      "On a concealed carry charge the burden provision in 790.01(4) shapes the case from the start. The state has to prove ineligibility as an element, so what it can establish about licensing status and about the 790.06 criteria is part of its case in chief rather than something raised in answer to it.",
-      "The reclassification statute is worth separating from the minimum-term statute, because they are different mechanisms in the same section. Statute 775.087(1) reclassifies a felony upward where the defendant carried, displayed, used, threatened to use, or attempted to use a weapon or firearm during its commission, unless the use of a weapon is an essential element of the felony charged. A third degree felony becomes a second degree felony, a second becomes a first, and a first becomes a life felony. The statute then adds that a reclassified offense is ranked one level above its ranking under Statute 921.0022 for sentencing purposes, so reclassification moves both the degree and the offense level.",
-      "The minimum terms are separate. Statute 775.087(2)(a)1. lists the felonies that trigger them, including murder, sexual battery, robbery, burglary, arson, aggravated battery, kidnapping, carjacking, home-invasion robbery, aggravated stalking, and drug trafficking offenses. A person convicted of one of those while possessing a firearm faces a minimum term of ten years, except that a person convicted of possession of a firearm by a felon or of burglary of a conveyance faces three years. Discharging the firearm raises the minimum to twenty years, and discharging it so as to cause death or great bodily harm raises it to not less than twenty-five years and up to life. The statute also provides that none of this prevents a court from imposing a longer sentence where the law otherwise allows it.",
-    ],
-    forum: [
-      "Felony charges in Hillsborough County are heard in circuit court. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
-      "A federal firearm case arising from the same conduct is heard in the Middle District of Florida. Hillsborough County sits in its Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue.",
+      {
+        id: "ladder",
+        heading: "Same firearm, five statutes, and an offense level that does not follow the degree",
+        kind: "penalties",
+        answers: ["facing"],
+        penalties: [
+          { degree: "Second degree felony", maximum: "Up to 15 years", offenseLevel: "Level 5", note: "Owning or having in care, custody, possession, or control a firearm, ammunition, or an electric weapon or device by a person within Statute 790.23(1), graded by 790.23(3). The Statute 921.0022 chart entry reads: felons in possession of firearms, ammunition, or electronic weapons or devices." },
+          { degree: "First degree felony punishable by life", maximum: "Up to life (a term of years not exceeding life)", offenseLevel: "Level 7", note: "Statute 790.23(4), where the person has previously qualified or currently qualifies for the criminal gang penalty enhancements in Statute 874.04. The chart designates this one 1st, PBL, which is a separate sentencing category with a life ceiling rather than the ordinary first degree cap." },
+          { degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 5", note: "Carrying a concealed firearm without meeting the Statute 790.01(1) criteria, under 790.01(3). The chart entry reads: unlawful carrying of a concealed firearm." },
+          { degree: "First degree misdemeanor", maximum: "Up to 1 year", note: "Carrying a concealed weapon or an electric weapon or device without meeting the 790.01(1) criteria, under 790.01(2). The maximum is from Statute 775.082(4)(a), a definite term not exceeding 1 year. No offense level: the primary offense table in Statute 921.0024(1)(a) has no misdemeanor row." },
+          { degree: "Second degree felony", maximum: "Up to 15 years", offenseLevel: "Level 5", note: "Possession of a short-barreled shotgun or machine gun, Statute 790.221(1)." },
+          { degree: "First degree felony", maximum: "Up to 30 years", offenseLevel: "Level 7", note: "A specified weapons violation subsequent to a previous conviction under Statute 790.07(1) or (2), under 790.07(4). Discharge of a machine gun under specified circumstances, Statute 790.16(1), is also a first degree felony at level 7." },
+          { degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 6", note: "Grand theft of a firearm, Statute 812.014(2)(c)5. A stolen firearm is charged as theft rather than under the 790 series, and it is a felony whatever the firearm was worth." },
+          { degree: "Second degree felony", maximum: "Up to 15 years", offenseLevel: "Level 7", note: "Grand theft of a firearm where the offender has previously been convicted of grand theft of a firearm under subparagraph (c)5., under Statute 812.014(2)(g)." },
+          { degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 3", note: "Directing another person to discharge a firearm from a vehicle, Statute 790.15(3). Three of the rows above are third degree felonies with the same five year maximum and they rank at levels 3, 5 and 6, which score 16, 28 and 36 primary offense points respectively under Statute 921.0024(1)(a)." },
+        ],
+      },
+      {
+        id: "proof",
+        heading: "Three different ways of having a gun, and each one is attached to something different",
+        kind: "bullets",
+        answers: ["facing"],
+        bullets: [
+          "The words in Statute 790.23(1) are own, or have in his or her care, custody, possession, or control. That reaches beyond carrying, which is why cases about a firearm found in a shared vehicle or a shared residence turn on what the State can attribute to one person rather than on the firearm itself.",
+          "The item in 790.23(1) can be a firearm, ammunition, or an electric weapon or device, and the same sentence separately covers carrying a concealed weapon, including a tear gas gun or chemical weapon or device. Nothing in the section sets a quantity, and nothing in it distinguishes a loaded firearm from an unloaded one.",
+          "The predicate status is part of the offense, not background. It has to be one of the five categories in 790.23(1)(a) through (e), and two of those, (b) and (d), are available only while the person is under 24 years of age.",
+          "For the minimum terms, Statute 775.087(2)(a)1. requires that the person actually possessed a firearm or destructive device, and Statute 775.087(4) defines possession for the minimum mandatory provisions of that section as carrying it on the person, or having it within immediate physical reach with ready access with the intent to use it during the commission of the offense, proven beyond a reasonable doubt. That definition is written for those provisions. It is not the language Statute 790.23(1) uses, so the test for the charge and the test for the minimum are not the same test.",
+          "For reclassification under Statute 775.087(1), the conduct is carrying, displaying, using, threatening to use, or attempting to use a weapon or firearm during the commission of the felony, or committing an aggravated battery during it, and it does not apply where the use of a weapon or firearm is an essential element of the felony charged.",
+          "On a concealed carry charge, Statute 790.01(4) puts the licensing question inside the State's case. It bears the burden of proving, as an element of the offense, both that the person is not licensed under Statute 790.06 and that he or she is ineligible to receive and maintain such a license under the criteria the subsection lists.",
+        ],
+      },
+      {
+        id: "now",
+        heading: "The firearm is already logged into evidence, and what is still open is what gets said about it",
+        kind: "guidance",
+        answers: ["now"],
+        guidance: [
+          {
+            heading: "Rights that are in place from the arrest onward",
+            items: [
+              "You have the right to decline to answer questions. It is available at every stage, and it does not have to be explained or justified to anyone.",
+              "You have the right to counsel, and the rules separate being told about it from being given it. Rule 3.130(b)(1)(B) requires the judge at first appearance to advise an unrepresented defendant of the right to counsel and that counsel will be appointed if the defendant cannot afford one. Rule 3.130(c)(1) is the appointment itself: once the judge determines that the defendant is entitled to court-appointed counsel and desires counsel, the judge must immediately appoint counsel. Rule 3.130(c)(2) requires the judge to allow a reasonable time to send for a retained lawyer and to postpone the hearing for that purpose if necessary.",
+              "In the ordinary course you are entitled to see the material the state relies on, through discovery. In a firearm case that material includes how the item was located and what was recorded about who had access to it.",
+            ],
+          },
+          {
+            heading: "Where firearm cases are commonly complicated before a lawyer is involved",
+            items: [
+              "Explaining whose gun it is, at the scene or on a recorded call from the jail. Statute 790.23(1) reaches care, custody, and control as well as ownership, so statements about who kept it, who knew about it, and who could reach it are the material an attribution theory is built from.",
+              "Arranging for a firearm, ammunition, or an electric weapon to be moved, sold, or held by someone else. The section reaches ownership as well as physical possession, and how the arrangement is described afterwards becomes part of the record.",
+              "Treating a restoration question as something to settle informally. Statute 790.23(2) exempts a person whose civil rights and firearm authority have both been restored, and a person whose record was expunged under Statute 943.0515(1)(b). Whether either status applies is a question to put to a lawyer, and it is separate from the federal prohibition, which has its own test.",
+              "Treating a concealed carry charge as an administrative dispute about paperwork. Under Statute 790.01(4) non-licensure and ineligibility are elements the state has to prove, so they sit inside the criminal case rather than beside it.",
+            ],
+          },
+        ],
+      },
+      {
+        id: "clock",
+        heading: "Twenty-four hours, sixty days, and the sentencing step where a withhold is not available",
+        kind: "timeline",
+        answers: ["next"],
+        steps: [
+          { when: "Within 24 hours of the arrest", what: "First appearance. Rule 3.130(a) requires that, except when previously released in a lawful manner, an arrested person be brought before a judge within 24 hours, in person or by audio-video communication technology at the court's discretion. Under Rule 3.130(d) the judge proceeds to determine pretrial detention or conditions of release under Rule 3.132 or Rule 3.131." },
+          { when: "Day 60, for anyone released on bond", what: "Rule 3.134(b)(1) gives the state 60 days from arrest to file formal charges against a defendant on pretrial release. If it has not, the court orders automatic release on recognizance on the 63rd day, or, on a showing of good cause, may continue the defendant on pretrial release for up to an additional 30 days. Under Rule 3.134(b)(2) the court on motion with notice to the state then orders release from bail and all conditions of pretrial release unless a charge has been filed. Release from conditions is not a dismissal, and this is the track most people are on, because most people are released before this point." },
+          { when: "Day 30, for anyone still in custody", what: "Rule 3.134(a)(1) gives the state 30 days for a defendant in custody. On the 30th day, with notice to the state, the court must order automatic release on recognizance on the 33rd day, or on the 40th where the state shows good cause, and the rule provides that in no event may a defendant remain in custody beyond 40 days without being formally charged." },
+          { when: "175 days after the formal charge, on a felony", what: "Rule 3.191(a) sets 175 days for a felony and 90 days for a misdemeanor, which is the track a Statute 790.01(2) charge sits on while a 790.01(3) or 790.23 charge sits on the felony track. Under Rule 3.191(d) the period starts when the person is formally charged by information or indictment, not at the arrest. Rule 3.191(b) allows a defendant to file a demand for speedy trial and require trial within 60 days. Expiry does not end a case by itself: the rule directs the reader to the recapture procedure in subdivision (o)." },
+          { when: "At sentencing, where a minimum term applies", what: "Statute 775.087(2)(b) provides that adjudication of guilt or imposition of sentence may not be suspended, deferred, or withheld, and that the defendant is not eligible for statutory gain-time under Statute 944.275 or any form of discretionary early release other than pardon, executive clemency, or conditional medical release under Statute 947.149, before the minimum sentence is served. Under Statute 775.087(2)(d) the court imposes the required minimum for each qualifying felony offense and imposes multiple such terms consecutively." },
+        ],
+      },
+      {
+        id: "record",
+        heading: "No chapter 790 offense sits on the permanent bar list, and the prior conviction usually decides sealing anyway",
+        kind: "prose",
+        answers: ["consequences", "sealing"],
+        prose: [
+          "An arrest produces a criminal history record, and in Florida those records are public unless a court seals or expunges them. That is the practical answer to what this does to work: an ordinary background check can show the arrest whether or not the case ends in a conviction. On this charge the entry rarely travels alone, because a Statute 790.23 charge rests on a prior conviction or delinquency finding that is already on the same record, and the two are read together by anyone looking. Future firearm possession is a separate question again, and not one Florida law answers on its own, since 18 U.S.C. 922(g) is a distinct prohibition with the distinct predicate test described at the top of this page.",
+          "On sealing, the first question is whether the offense is barred outright, and for chapter 790 the answer is no. Statute 943.0584(2) makes a record ineligible for sealing or expunction where the record is a conviction for one of the offenses it enumerates at paragraphs (a) through (hh). Those paragraphs name offenses from other chapters: murder, manslaughter, aggravated assault, aggravated battery, kidnapping, arson, burglary of a dwelling, robbery, carjacking, home-invasion robbery, human trafficking, terrorism, any offense defined in chapter 794, manufacturing a controlled substance, drug trafficking under Statute 893.135, the Florida Communications Fraud Act, and a catch-all for any violation specified as a predicate for sexual predator or sexual offender registration. No chapter 790 offense appears anywhere in that list.",
+          "Not barred is not the same as eligible, and on this charge the difference matters more than usual. Statute 943.059(1) sets cumulative conditions, and the first ones ask about the person's whole record rather than about this case: the record must not be ineligible under Statute 943.0584; the person must never have been adjudicated guilty in Florida of a criminal offense, or adjudicated delinquent for a felony or for one of thirteen listed misdemeanors; the person must not have been adjudicated guilty of any of the acts stemming from this arrest; the person must no longer be under court supervision for it; and the person must never have obtained a prior sealing or expunction. Statute 943.059(2) then requires a certificate of eligibility from the department before a petition is filed. Because Statute 790.23 is built on a prior felony conviction or a delinquency finding, the sealing statute and the charging statute are looking at the same history from opposite ends, which is why this question is usually about the earlier case at least as much as about this one.",
+          "Two definitions catch people out. Statute 943.0584(1) defines conviction to mean a determination of guilt resulting from a trial or the entry of a plea of guilty or nolo contendere, regardless of whether adjudication is withheld, and for a minor a finding of a delinquent act regardless of whether adjudication of delinquency is withheld. And where a minimum term under Statute 775.087 applies, a withhold is not available at all, because 775.087(2)(b) provides that adjudication of guilt may not be suspended, deferred, or withheld.",
+          "Two questions this page does not reach. How civil rights and firearm authority are restored is a clemency matter rather than a criminal statute, and it is not described here. Whether a particular professional license survives is governed by the board that issues it.",
+        ],
+      },
+      {
+        id: "who",
+        heading: "Who already holds a file on a firearm case, and who to contact before the first hearing",
+        kind: "prose",
+        answers: ["who"],
+        prose: [
+          "Three offices are involved before anyone is chosen. The arresting agency wrote the report and holds the property receipt for the item seized. The Office of the State Attorney for the Thirteenth Judicial Circuit decides whether a charge is filed and which one. The Hillsborough County Clerk keeps the court file: circuit criminal services sit in Room 101 of the Edgecomb Courthouse at 800 E. Twiggs Street, criminal court services in Room 1071 of the Plant City Courthouse at 301 North Michigan Avenue. If the case is federal instead, the Middle District of Florida hears it in its Tampa Division at 801 North Florida Avenue.",
+          "There are two routes to a lawyer and the first hearing addresses both. A defendant who cannot afford counsel is advised of the right under Rule 3.130(b)(1)(B) and counsel is appointed under Rule 3.130(c)(1) once the judge determines entitlement and a desire for it. A defendant who intends to retain counsel can say so, and Rule 3.130(c)(2) requires the judge to allow a reasonable time to send for that lawyer and to postpone the hearing if necessary. The reason not to leave this until later on a firearm case is structural rather than promotional: where Statute 775.087 applies, the sentencing consequences are set by statute rather than by the scoresheet, and Statute 775.087(2)(b) removes the withhold, the gain-time, and the discretionary early release that shape most other cases.",
+        ],
+      },
     ],
     faq: [
-      {
-        question: "What is 10-20-Life in Florida?",
-        source: "drafted",
-        answer:
-          "It is the set of minimum terms in Statute 775.087(2). For an enumerated felony committed while possessing a firearm the minimum is ten years, discharging the firearm raises it to twenty, and discharging it so as to cause death or great bodily harm raises it to not less than twenty-five years and up to life. The name describes the pattern rather than the whole statute.",
-      },
-      {
-        question:
-          "If I had a gun but never used it, does a minimum still apply?",
-        source: "drafted",
-        answer:
-          "It can, because the ten-year minimum attaches to possessing a firearm during an enumerated felony rather than to firing it. There is an exception worth knowing: under Statute 775.087(2)(a)1., a person convicted of possession of a firearm by a felon, or of burglary of a conveyance, faces a minimum of three years rather than ten.",
-      },
-      {
-        question:
-          "Is it a felony to carry a concealed firearm without a permit in Florida?",
-        source: "drafted",
-        answer:
-          "Not by itself. Statute 790.01(1) authorises carrying concealed either with a license under Statute 790.06 or, without one, where the person still satisfies the criteria for receiving and maintaining that license. It becomes a third degree felony under 790.01(3) only where the person does not meet those criteria, and the state has to prove that ineligibility as an element.",
-      },
-      {
-        question: "What if the gun belonged to someone else in the house?",
-        source: "drafted",
-        answer:
-          "Statute 790.23(1) reaches ownership and also care, custody, possession, or control, so a case can be built on constructive possession rather than on the firearm being yours. That makes access, control, and what the state can attribute to you specifically the questions that matter.",
-      },
-      {
-        question: "Does a weapon change the level of another charge?",
-        source: "drafted",
-        answer:
-          "It can do both of the things that drive a sentence. Statute 775.087(1) reclassifies the felony upward a degree where a weapon or firearm was carried, displayed, used, threatened, or attempted during its commission, unless weapon use is an essential element of the offense charged. The same subsection provides that a reclassified offense is ranked one level above its ranking under Statute 921.0022.",
-      },
+      { question: "How much is a gun charge in Florida?", source: "People Also Ask, Tampa-geolocated, observed 2026-08-13", answer: "There is no single gun charge in Florida, so there is no single figure. Carrying a concealed weapon or electric weapon without meeting the criteria in Statute 790.01(1) is a first degree misdemeanor under 790.01(2), carrying a concealed firearm in the same circumstances is a third degree felony under 790.01(3) with a five year maximum, and possession of a firearm, ammunition, or an electric weapon by a person covered by Statute 790.23(1) is a second degree felony under 790.23(3) with a fifteen year maximum. Where the person previously qualified or currently qualifies for the gang penalty enhancements in Statute 874.04, 790.23(4) makes it a first degree felony punishable by a term of years not exceeding life. Separately, Statute 775.087 can add a minimum term to a felony that is not a gun charge at all, and the Florida Criminal Punishment Code sets the sentencing arithmetic on top of the maximum." },
+      { question: "What is 10-20-Life in Florida?", source: "drafted", answer: "It is the popular name for the minimum terms in Statute 775.087(2). For a person convicted of one of the felonies listed at 775.087(2)(a)1., where the person actually possessed a firearm or destructive device during the offense, the minimum is 10 years. Discharging a firearm or destructive device during one of the listed felonies raises the minimum to 20 years under (2)(a)2., and a discharge that inflicts death or great bodily harm raises it to not less than 25 years and up to life under (2)(a)3. The name does not describe the whole statute. The same subparagraph sets a three year minimum for possession of a firearm by a felon or burglary of a conveyance, and Statute 775.087(3) carries a separate 15 year ladder for a semiautomatic firearm with a high-capacity detachable box magazine or a machine gun." },
+      { question: "If I had a gun but never fired it, does a mandatory minimum still apply?", source: "drafted", answer: "It can, because the ten year minimum in Statute 775.087(2)(a)1. attaches to actually possessing a firearm or destructive device during one of the felonies that subparagraph lists, not to firing it. Statute 775.087(4) defines possession for those provisions as carrying the firearm on the person, or having it within immediate physical reach with ready access and with the intent to use it during the offense, proven beyond a reasonable doubt. There is an exception in the same subparagraph that most summaries omit: a person convicted for possession of a firearm by a felon, or of burglary of a conveyance, is sentenced to a minimum of 3 years where the person possessed a firearm or destructive device during the offense. That exception has its own limit, since the final sentence of the subparagraph returns the minimum to 10 years for an offender convicted of possession of a firearm by a felon who has a previous conviction for a felony listed in Statute 775.084(1)(b)1. and actually possessed a firearm during that prior felony." },
+      { question: "Is it a felony to carry a concealed firearm without a permit in Florida?", source: "drafted", answer: "Not automatically, because Statute 790.01(1) authorizes carrying a concealed weapon or concealed firearm by a person who is either licensed under Statute 790.06 or, though unlicensed, otherwise satisfies the criteria for receiving and maintaining such a license under Statute 790.06(2)(a)-(f) and (i)-(n), (3), and (10). A person who does not meet those criteria and carries a concealed firearm commits a felony of the third degree under 790.01(3); the same person carrying a concealed weapon or an electric weapon or device commits a first degree misdemeanor under 790.01(2). Statute 790.01(4) makes both non-licensure and ineligibility elements the state must prove, and 790.01(5) excepts carrying while in the act of evacuating under a mandatory evacuation order and carrying a self-defense chemical spray or a nonlethal stun gun for lawful self-defense." },
+      { question: "How long before a convicted felon can own a gun in Florida?", source: "People Also Ask, Tampa-geolocated, observed 2026-08-13", answer: "Statute 790.23 states no waiting period. It is written as a status rather than a term of years: paragraphs (1)(a), (c) and (e) apply to a person convicted of a felony in this state, of a federal felony, or of an offense that is a felony elsewhere punishable by more than one year, with no time limit attached. Two of the five predicates, (1)(b) and (1)(d), apply to juvenile delinquency findings and reach only a person under 24 years of age. The section's own exceptions are in Statute 790.23(2): it does not apply to a person convicted of a felony whose civil rights and firearm authority have both been restored, or to a person whose criminal history record has been expunged under Statute 943.0515(1)(b). How restoration is obtained is a clemency question governed outside the criminal statutes, and it is not described here. The separate federal prohibition at 18 U.S.C. 922(g) uses its own predicate, a crime punishable by imprisonment for a term exceeding one year, so a Florida answer does not settle the federal question." },
+      { question: "Does it matter that the gun was unloaded, or that it belonged to someone else in the house?", source: "drafted", answer: "Statute 790.23(1) draws no distinction between a loaded and an unloaded firearm, and it separately reaches ammunition and an electric weapon or device, so the item does not have to be a working loaded gun for the subsection to apply. Ownership by someone else does not settle it either, because the subsection reaches a person who owns or has in his or her care, custody, possession, or control the item, which is broader than carrying it. What another person's ownership does affect is what the state can attribute to a particular defendant, and attribution is something it has to prove like any other part of the case. None of that reaches the mandatory minimum question, which uses the narrower definition of possession in Statute 775.087(4)." },
     ],
-    relatedGuides: [
-      { label: "Tools and guides", href: "/resources/tools-and-guides" },
-    ],
+    relatedGuides: [{ label: "Tools and guides", href: "/resources/tools-and-guides" }],
   },
 
   // ---------------------------------------------------------------------

@@ -667,3 +667,48 @@ Source: `https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Criminal-P
 
 - A WHOLE MECHANISM SITS BEFORE ANY JUDGE, WHICH THE PAGE APPARENTLY OMITS. 3.111(c)(1)-(2) puts a duty on the booking officer at the jail: 'immediately advise the defendant ... of the right to counsel' and that 'one will be provided immediately at no charge,' and on request 'immediately and effectively place the defendant in communication with the (office of) public defender.' This is the practically important early touchpoint after arrest and it independently refutes the page's first-appearance framing.
 
+
+### Pair 2 writing, fetches performed by the writers, 2026-08-14
+
+Both pair-2 pages were written by assembly from the audited statute tables.
+Two gaps in the fact layer surfaced during writing and were fetched by the
+writers rather than worked around. Recorded here so the pages rest on the
+record instead of on an agent's note.
+
+**F.S. 790.01**, `https://www.flsenate.gov/Laws/Statutes/2025/790.01`, fetched 2026-08-14.
+
+Not in the statute-table set, and W2-03 Section 6 recorded it UNVERIFIED,
+yet the legacy gun crimes page already asserted the permitless-carry scheme
+and the 790.01(4) burden provision from no recorded fetch. Fetched in full.
+Every 790.01 claim on the rewritten page comes from that text: (1)(a) and
+(1)(b) authorization including the 790.06 criteria, (2) first degree
+misdemeanor for a concealed weapon or electric weapon or device, (3) third
+degree felony for a concealed firearm, (4) the state's burden to prove
+non-licensure and ineligibility as elements of the offense, (5)(a) the
+mandatory-evacuation exception with its 48 hour definition, (5)(b) the
+self-defense chemical spray and nonlethal stun gun exception, and (6).
+
+**F.S. 893.135(2), (3) and (6)**, `https://www.flsenate.gov/Laws/Statutes/2025/893.135`, fetched 2026-08-14.
+
+The audited table records these subsections as read but produced no rows for
+them, because they assign no degree. They carry three things the trafficking
+page needs: (2), the knowingly definition, which reaches a person who intends
+to possess any listed substance regardless of which one is in fact possessed;
+(3), no suspension, deferral or withholding of adjudication or sentence, no
+parole and no discretionary early release before the mandatory minimum is
+served except pardon, executive clemency, or conditional medical release under
+s. 947.149; and (6), the mixture rule, under which the weight of the
+controlled substance is the total weight of the mixture and multiple mixtures
+of the same substance are aggregated. The brief had flagged (6) UNVERIFIED and
+an assistant question depended on it.
+
+**A research claim was narrowed by the fetch, and this is the part worth
+keeping.** W2-02 recorded the C9 as "no tier is ranked below offense level 7",
+taken from a representative sample. Checked against the whole-section
+921.0022 table, 48 chart entries cite 893.135, distributed 18 at level 7, 15
+at level 8 and 15 at level 9, none lower. But several tiers appear in NO chart
+entry at all: flunitrazepam at (1)(g)1.c., all three GBL tiers at (1)(i), and
+all three LSD tiers at (1)(l). The page therefore does not claim the chart
+ranks them. It rests the floor on F.S. 921.0023(3), which places an unlisted
+first degree felony in level 7, a verified row in fs-921-0023.ts. The brief's
+claim was true and its stated basis was incomplete.

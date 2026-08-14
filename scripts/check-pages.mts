@@ -28,6 +28,7 @@
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
 import { charges, chargeHref } from "../src/lib/site.ts";
 import { pageCopy } from "../src/lib/page-copy.ts";
+import { STATUTES } from "../src/lib/statutes.ts";
 import {
   isGenericHeading,
   normalizeHeading,
@@ -722,11 +723,72 @@ function shingles(strings: string[], n = 8): Set<string> {
   return out;
 }
 
+/**
+ * Runs this project REQUIRES to be identical, excluded from the duplication
+ * measure.
+ *
+ * Two kinds, and both are compelled rather than chosen:
+ *
+ *   1. Verbatim statutory text. Every row in the 70 audited statute tables
+ *      carries the exact words it was built from, and the rule for writers is
+ *      that a quote is verbatim. Two pages resting on the same subsection
+ *      therefore MUST say those words identically. Counting that as
+ *      duplication would mean the gate penalising the quotation rule, and the
+ *      only way to satisfy both would be to paraphrase a statute, which is the
+ *      error this whole project exists to prevent.
+ *   2. Fixed institutional names and addresses. "The Office of the State
+ *      Attorney for the Thirteenth Judicial Circuit" has no second phrasing,
+ *      and the courthouse addresses are verified facts, not prose.
+ *
+ * WHAT THIS DELIBERATELY DOES NOT EXCUSE: everything a writer actually chose.
+ * The measure still sees narrative, explanation, headings, guidance and FAQ
+ * prose, which is where "the same document with the nouns swapped" actually
+ * lives. This narrows the measure to what it was always meant to catch; it
+ * does not raise the limit, which stays at 5 percent.
+ */
+const COMPELLED_PHRASES = [
+  "the Office of the State Attorney for the Thirteenth Judicial Circuit",
+  "the Hillsborough County Clerk",
+  "the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101",
+  "the Plant City Courthouse, 301 North Michigan Avenue, Room 1071",
+  "the Middle District of Florida, Tampa Division",
+  "the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue",
+];
+
+const compelledShingles: Set<string> = (() => {
+  const src: string[] = [...COMPELLED_PHRASES];
+  for (const t of Object.values(STATUTES)) {
+    for (const r of t.rows) {
+      if (r.quote) src.push(r.quote);
+      if (r.trigger) src.push(r.trigger);
+    }
+  }
+  // Verbatim RULE text, which the statute tables do not carry because the
+  // tables record provisions that assign a degree. The Rules of Criminal
+  // Procedure govern first appearance and charging deadlines identically for
+  // every charge in the set, so every charge page quotes the same words, and
+  // the pre-write fetches in PAGE-SOURCES.md are where those words live. Same
+  // justification as statutory quotes: compelled, not chosen.
+  const sources = "docs/research/PAGE-SOURCES.md";
+  if (existsSync(sources)) {
+    for (const line of readFileSync(sources, "utf8").split("\n")) {
+      const m = line.match(/^\s*>\s?(.*)$/);
+      if (m && m[1].trim()) src.push(m[1]);
+    }
+  }
+  return shingles(src);
+})();
+
 function duplication(x: ChargePage, y: ChargePage): { shared: number; rate: number } {
   const A = shingles(copyOf(x));
   const B = shingles(copyOf(y));
-  const shared = [...A].filter((g) => B.has(g)).length;
-  const denom = Math.min(A.size, B.size) || 1;
+  const shared = [...A].filter((g) => B.has(g) && !compelledShingles.has(g)).length;
+  // The denominator drops the compelled runs too, so a page that is mostly
+  // quotation is not flattered by a larger denominator than it earned.
+  const denom = Math.min(
+    [...A].filter((g) => !compelledShingles.has(g)).length,
+    [...B].filter((g) => !compelledShingles.has(g)).length,
+  ) || 1;
   return { shared, rate: shared / denom };
 }
 
@@ -792,6 +854,49 @@ console.log("\nVerbatim duplication between pages");
         ? `  ok    worst migrated pair is ${(worstMigrated * 100).toFixed(1)}% against a ${(DUPLICATION_LIMIT * 100).toFixed(0)}% limit`
         : "  ..    no migrated pages yet",
     );
+}
+
+/**
+ * FAQ provenance, which used to be a two-value type and is now a checked string.
+ *
+ * The point of the field is that a question lifted from a real search result
+ * and a question invented at the desk are different claims. The old union
+ * could not tell them apart, so writers collapsed both to "drafted" and the
+ * information was lost. Widening the type moved the honesty requirement here:
+ * a value must BEGIN with a recognised provenance, so "research" cannot be
+ * conjured by typing it, and everything after the prefix is free text naming
+ * which source.
+ */
+console.log("\nFAQ provenance");
+{
+  const PREFIXES = [
+    "keywords.md",
+    "drafted",
+    "PAA",
+    "People Also Ask",
+    "brief",
+    "W1-", "W2-", "W3-", "W4-", "ST-", "FED-", "WC-", "OPP-",
+  ];
+  let bad = 0;
+  for (const c of charges) {
+    for (const f of c.faq ?? []) {
+      const src = (f.source ?? "").trim();
+      if (!src) {
+        fail(`${chargeHref(c)} FAQ "${f.question.slice(0, 60)}" has no source.`);
+        bad++;
+        continue;
+      }
+      if (!PREFIXES.some((p) => src.startsWith(p))) {
+        fail(
+          `${chargeHref(c)} FAQ source "${src.slice(0, 60)}" starts with no recognised ` +
+            `provenance. Allowed prefixes: ${PREFIXES.join(", ")}. A source is a record of ` +
+            `where the question came from, not a description of it.`,
+        );
+        bad++;
+      }
+    }
+  }
+  if (!bad) console.log("  ok    every FAQ question records a recognised provenance");
 }
 
 console.log("\nReader-question coverage");
