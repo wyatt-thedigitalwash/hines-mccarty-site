@@ -226,6 +226,64 @@ second reviewer finding this project has examined and rejected with reasons,
 and the pattern in both is the same: a finding correct against one document
 and wrong against the decision that supersedes it.
 
+## PUBLISHED FIGURES THAT GO STALE ON SOMEONE ELSE'S SCHEDULE, added 2026-08-14
+
+Four batch A pages publish United States Sentencing Commission statistics for
+fiscal year 2025: federal healthcare fraud, wire and mail fraud, weapons, and
+drug trafficking. The figures were re-fetched from ussc.gov during writing
+rather than carried from the briefs, and the URLs are recorded in each page's
+source notes.
+
+**These are the only numbers on the site whose accuracy expires without anyone
+touching the page.** A statute is amended by an act anyone can look up. The
+Commission republishes Quick Facts annually, and the moment it does, a page
+saying "of the 66,662 cases reported to the Commission in fiscal year 2025"
+is describing a year nobody is asking about. One of the writers said so
+plainly in its own notes: the USSC figures are annual and will move.
+
+**Cadence: 6 months, per Section 9.2, since these pages cite figures.**
+**Off-cycle trigger: publication of a new fiscal year's Quick Facts.** That is
+a trigger no other page on this site has, because no other page depends on a
+third party's publication calendar.
+
+**The alternative was considered and rejected.** Dropping the statistics would
+remove the only material on these pages that answers what a reader actually
+asks, which is not what the maximum is but what happens to people like them.
+The pages are careful to frame the figures as what courts have already done
+rather than as a forecast, which is both the honest framing and the one Rule
+4-7.13 requires. Keeping them and dating them is better than dropping them.
+
+**The federal computer crimes page carries none**, deliberately: its writer
+recorded that no statistics were verified for that offense and declined to
+borrow its siblings' framing. That page therefore has no expiry attached to
+it, which is worth noticing as the cost of the choice rather than as a gap.
+
+---
+
+## BATCH A, seven federal pages written 2026-08-14, NOT YET CLEARED
+
+Written by assembly from the audited fact layer, merged, and passing all five
+gates. **None has passed an adversarial review**, so all seven stay
+`published: false`.
+
+| Page | Rests on | The claim the review must test hardest |
+|---|---|---|
+| `/federal-criminal-defense/computer-internet-crimes` | 18 U.S.C. 1030 | That (c)(4)(E) and (F) reach conduct in violation of (a)(5)(A) ONLY. Three audit rounds established it; a page that attaches them to (a)(5)(B) or (C) overstates exposure on the two branches most often charged. |
+| `/federal-criminal-defense/conspiracy-charges` | 371, 1349, 846 | That nothing on the page asserts what courts have HELD about overt acts. No case law is in this project's record. |
+| `/federal-criminal-defense/drug-trafficking` | 21 U.S.C. 841, 846 | That the (b)(1)(B) tiers are not drawn with ceilings, and that the safety valve criteria read as cumulative. |
+| `/federal-criminal-defense/healthcare-fraud` | 18 U.S.C. 1347 | That 1347 carries no dollar threshold anywhere, which is the page's differentiator. |
+| `/federal-criminal-defense/wire-mail-fraud` | 1341, 1343 | That both enhancements are stated as conditions rather than as general rules about fraud. |
+| `/federal-criminal-defense/weapons-gun-offenses` | 18 U.S.C. 924 | That 924(a)(8)'s fifteen year CAP and 924(e)'s fifteen year MANDATORY MINIMUM are not conflated, since the page's whole point is that one number is both. |
+| `/federal-criminal-defense/target-letter-defense` | JM 9-11.151 | That the page keeps DOJ policy visibly distinct from law in its own copy, not only in its sources. |
+
+**Three carry no counterpart link on purpose.** Computer crimes, healthcare
+fraud and wire and mail fraud each have a Florida sibling that is not written
+yet, and this project does not ship a link to an unwritten page. The
+cross-links are owed and are recorded in each page's source notes; they go in
+when batch B and batch C land.
+
+---
+
 ## STOPPED AT THREE FAILURES, 2026-08-14. Human decision needed.
 
 **Grand theft and embezzlement have now failed rounds 5, 6 and 7.** The
