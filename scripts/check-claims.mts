@@ -280,14 +280,36 @@ function auditSentence(
   if (degrees.size === 1) {
     const cited: GradingRow[] = [];
     for (const m of s.matchAll(/\b(\d{3}\.\d{2,4}(?:\([0-9a-z]{1,3}\))+)/gi)) {
-      const row = t.rows.find((r) => r.cite.replace(/\.$/, "") === `${m[1]}`);
+      // The citation must belong to THIS statute's own section.
+      //
+      // F.S. 921.0022 is the offense severity ranking chart, and its rows are
+      // keyed by the cites of OTHER statutes: it carries a row for
+      // 316.193(2)(b) describing "Felony DUI, 3rd conviction". Without this
+      // guard, any sentence citing a subsection anywhere on a page that also
+      // mentions 921.0022 was checked against the CHART's entry for it, so a
+      // true sentence about the first degree misdemeanor at 316.193(3)(c)1.
+      // was reported as attributing that degree to 316.193(2)(b). The chart
+      // ranks a provision; it does not grade it, and comparing the two is a
+      // category error. Grading claims belong to the section's own table.
+      if (m[1].split("(")[0] !== statute) continue;
+      // EVERY row for the cite, not the first. A subsection routinely carries
+      // more than one tier: F.S. 316.1939(1) makes a first refusal a second
+      // degree misdemeanor and a second or subsequent refusal a first degree
+      // misdemeanor, and the audited table holds both under the same cite.
+      // `.find` returned only the first, so a correct sentence about the
+      // recidivist tier was reported as attributing the wrong degree, and the
+      // failure message listed one degree as though it were the only one the
+      // subsection produces. Recidivist tiers are common, so this would have
+      // fired on any page that described one.
+      for (const row of t.rows.filter((r) => r.cite.replace(/\.$/, "") === `${m[1]}`)) {
       // A row that assigns NO degree cannot contradict a degree claim. Pages
       // cite definitional subsections for definitional reasons: the identity
       // theft page cites 817.568(1)(e) to say that a corporation counts as a
       // person for the count prong, in a sentence whose degree comes from a
       // paragraph it describes rather than numbers. Counting that citation as
       // a failed match reported an error against correct copy.
-      if (row && row.degree !== "no degree assigned") cited.push(row);
+        if (row.degree !== "no degree assigned") cited.push(row);
+      }
     }
     const claimed = [...degrees][0];
     // A "punishable by life" row satisfies a claim of its base degree. The
