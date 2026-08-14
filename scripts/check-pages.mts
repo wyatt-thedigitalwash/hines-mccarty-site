@@ -139,8 +139,48 @@ const copyOf = pageCopy;
  * this printed ok.
  */
 /** Superiority and promise language. Fla. Bar R. 4-7.13. Hard failure. */
-const SUPERIORITY =
+/**
+ * Superiority, shaped as a claim about THE FIRM rather than as bare words.
+ *
+ * Fla. Bar R. 4-7.13 reaches a comparison of the lawyer's services. It does
+ * not reach the word "specialist" appearing in a statutory job title, and it
+ * cannot, because the project's other rule is that quotes are verbatim: a
+ * gate that fires on quoted statutory text asks the writer to choose which
+ * rule to break.
+ *
+ * Both false positives were exactly that. F.S. 784.07(1) lists a "parking
+ * enforcement specialist" among the protected persons whose status raises a
+ * battery, and F.S. 409.913(16)(c) makes "each false or erroneous Medicaid
+ * claim leading to an overpayment" a separate violation. Neither page was
+ * claiming anything about the firm.
+ *
+ * The rule beneath this one already got this right and said so: outcome
+ * claims are shaped as first-person "because the bare words are legitimate in
+ * process description" and "a check that cannot tell those apart is the check
+ * this file exists to replace". Superiority never got the same treatment, and
+ * the symptom was patched instead: the noise self-test carried a filter
+ * excluding /leading/ from its own results, which hid the defect at one call
+ * site while leaving it live everywhere else.
+ *
+ * So the word must now sit with a claim about us: a first-person or firm
+ * reference in the same sentence, or the word directly modifying what a firm
+ * sells. "Our attorneys are the best DUI experts in Tampa" still fires. So
+ * does "the leading criminal defense firm in Tampa".
+ */
+const SUPERIORITY_WORD =
   /\b(best|top[-\s]?rated|expert|experts|expertise|specialist|specialists|premier|renowned|elite|unmatched|unparalleled|leading|number one|#1|most successful|highest[-\s]rated)\b/i;
+const FIRM_REFERENCE =
+  /\b(we|we're|us|our|ours|the firm|this firm|our firm|this office|Hines|McCarty)\b/i;
+const SUPERIORITY_OF_SERVICES =
+  /\b(best|top[-\s]?rated|expert|experts|premier|renowned|elite|unmatched|unparalleled|leading|number one|#1|most successful|highest[-\s]rated)\s+(criminal\s+)?(defen[cs]e\s+)?(attorney|attorneys|lawyer|lawyers|firm|counsel|representation|practice|team|defen[cs]e)\b/i;
+const SUPERIORITY = {
+  test: (s: string) =>
+    (SUPERIORITY_WORD.test(s) && FIRM_REFERENCE.test(s)) ||
+    SUPERIORITY_OF_SERVICES.test(s),
+  exec: (s: string) =>
+    SUPERIORITY_OF_SERVICES.exec(s) ??
+    (FIRM_REFERENCE.test(s) ? SUPERIORITY_WORD.exec(s) : null),
+};
 
 /**
  * Outcome claims. Hard failure.
@@ -174,7 +214,9 @@ function bannedHits(strings: string[]): Hit[] {
       ["case-result", CASE_RESULT],
       ["em-dash", EM_DASH],
     ] as const) {
-      const m = s.match(re);
+      // `re` is a RegExp for most rules and an object with the same exec
+      // shape for superiority, which needs two conditions rather than one.
+      const m = re.exec(s);
       if (m) hits.push({ rule, text: `${m[0]}  ...  "${s.slice(0, 110)}"` });
     }
   }
@@ -393,8 +435,13 @@ console.log("Page-gate self-tests");
     "A person who is convicted shall be sentenced to a mandatory minimum term.",
     "The court may withhold adjudication.",
   ];
-  const noise = bannedHits(control);
-  const real = noise.filter((h) => h.rule !== "superiority" || !/leading/i.test(h.text));
+  // The control set previously needed a filter excluding /leading/ from the
+  // superiority results, because the rule matched the bare word and "the
+  // leading edge of the vehicle" is statutory text. The rule now requires a
+  // claim about the firm, so the filter is gone and the control set is
+  // checked as written. If superiority ever fires on one of these again, that
+  // is a real regression rather than known noise.
+  const real = bannedHits(control);
   if (real.length) {
     fail(
       `banned-term gate fired on legitimate copy: ${real.map((h) => h.rule + " -> " + h.text).join(" | ")}`,

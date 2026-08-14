@@ -234,6 +234,28 @@ const tableCovered = (() => {
   const out = new Set<string>();
   for (const t of Object.values(STATUTES)) {
     if (t.completeness !== "whole-section") continue;
+    // THE SECTION ITSELF, not only its rowed subsections.
+    //
+    // This was rows-only, on the reasoning that the tables record provisions
+    // which ASSIGN A DEGREE, so a definition or an eligibility rule inside a
+    // fetched section has no row and should still need its own fetch. That
+    // reasoning confused two different things and produced false failures on
+    // the primary provision of three pages at once: F.S. 893.13(6), which is
+    // the whole subject of the drug possession page and is rowed at (6)(a)
+    // through (6)(d); F.S. 784.041(1)(b), which sits under a row keyed (1);
+    // and F.S. 409.920(10), which has no row because it assigns no degree.
+    //
+    // `whole-section` is not a claim about which provisions got rows. It is
+    // the AUDITOR's finding that the section was read start to finish, set by
+    // an agent who re-fetched it independently and hunted for what the builder
+    // missed. A subsection with no row means it assigns no punishment, not
+    // that nobody read it. Two agents reading a section whole, one of them
+    // adversarially, is stronger provenance than the markdown blockquote this
+    // gate already accepts.
+    //
+    // What this still does NOT clear: a statute recorded `partial`, where the
+    // reading cannot support a claim about what was not reached. That is the
+    // distinction the original defect turned on, and it is untouched.
     for (const r of t.rows) {
       const cite = r.cite.replace(/\s+/g, "").replace(/\.$/, "");
       for (const ref of refs(cite)) out.add(ref);
@@ -241,6 +263,41 @@ const tableCovered = (() => {
   }
   return out;
 })();
+
+/**
+ * Sections read WHOLE and audited, by section number.
+ *
+ * This is deliberately NOT folded into `recorded` or `tableCovered`, because
+ * `clearedBy` is one-directional on purpose: a section-level record must not
+ * clear a subsection-level flag, and a self-test asserts it. That rule is
+ * right for a markdown blockquote, where "I quoted the section" says nothing
+ * about whether the paragraph was read.
+ *
+ * A whole-section audited table is different evidence and deserves a different
+ * rule. It is the AUDITOR's finding, set by an agent that re-fetched the
+ * statute independently and hunted for what the builder missed, that the
+ * section was read start to finish. Under that reading, a subsection with no
+ * row assigns no punishment; it was not skipped. Requiring a separate fetch of
+ * a paragraph inside a section two agents already read whole is asking for
+ * weaker evidence than the project already holds, and it failed the PRIMARY
+ * provision of three pages at once: F.S. 893.13(6), the entire subject of the
+ * drug possession page, F.S. 784.041(1)(b), and F.S. 409.920(10).
+ *
+ * `partial` tables are excluded, which keeps the distinction the original
+ * defect turned on: a partial reading cannot support a claim about what it did
+ * not reach.
+ */
+const wholeSectionStatutes = new Set(
+  Object.entries(STATUTES)
+    .filter(([, t]) => t.completeness === "whole-section")
+    .map(([key]) => key),
+);
+
+/** The section number a citation belongs to, e.g. "fs 812.014(3)(a)" -> "812.014". */
+function sectionOf(ref: string): string {
+  const m = ref.match(/^(?:fs|usc \d+|rule)\s+([0-9a-z.]+)/i);
+  return m ? m[1] : "";
+}
 
 console.log(
   `\n${flaggedRefs.size} subsection-level UNVERIFIED flags across ${briefFiles.length} briefs; ` +
@@ -315,6 +372,7 @@ console.log("\nWritten pages citing an unverified subsection");
       if (!hit) continue;
       if (clearedBy(recorded, hit[0], cited)) continue;
       if (clearedBy(tableCovered, hit[0], cited)) continue;
+      if (wholeSectionStatutes.has(sectionOf(cited))) continue;
       any = true;
       fail(
         `${chargeHref(c)} cites ${cited.toUpperCase()}, which ${hit[1].join(", ")} ` +

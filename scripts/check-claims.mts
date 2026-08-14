@@ -113,8 +113,15 @@ function pointAmounts(sentence: string): number[] {
 }
 
 function sentences(text: string): string[] {
+  // A sentence may end inside a closing quote or bracket. The lookbehind used
+  // to require [.!?] immediately before the whitespace, so a note ending
+  // `... but less than $50,000."` did not split there: the character before
+  // the space is the quote mark. The row's degree then ran on into the next
+  // sentence, which discussed $10,000 and $50,000 as figures rather than as
+  // range bounds, and the checker reported that the row called $50,000 a
+  // second degree felony. The row was right and the split was wrong.
   return text
-    .split(/(?<=[.!?])\s+/)
+    .split(/(?<=[.!?]["'”’)\]]?)\s+/)
     .map((s) => s.trim())
     .filter(Boolean);
 }

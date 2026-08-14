@@ -74,6 +74,16 @@
     "amountUnit": "mixed-usd-and-computer-count",
     "note": "AMOUNT RULES OFF. Two of the three bounded rows are dollars, (c)(2)(B)(iii) at 5000 and (c)(4)(A)(i)(I) at 5000, but (c)(4)(A)(i)(VI) is a count of PROTECTED COMPUTERS at 10, not money. A dollar claim at $10 would meet the computer-count row. The two dollar figures also differ in kind: (c)(2)(B)(iii) reads 'exceeds $5,000' and carries minExclusive, while (c)(4)(A)(i)(I) reads 'aggregating at least $5,000' and is inclusive. And the $5,000 inside (a)(4) is a CARVE-OUT that removes conduct from the offense rather than a floor, so it is recorded nowhere in min at all."
   },
+  "409.920": {
+    "amountUnit": "usd",
+    "minExclusive": ["409.920(2)(b)1.b."],
+    "note": "Value received or endeavored to be received, in dollars. The (2)(b)1.b. tier reads \"More than $10,000, but less than $50,000\", so BOTH bounds are strict and $10,000 itself belongs to the tier below. The audited row recorded min inclusive; the page written from it had already worked out that each bound is written strictly and says so, which is the copy being right where the table was short. Third instance of this shape after 812.014(6) and 896.101(5)(a)."
+  },
+  "517.302": {
+    "amountUnit": "usd",
+    "minExclusive": ["517.302(2)"],
+    "note": "Aggregate value obtained, in dollars. 517.302(2) reads \"an aggregate value exceeding $50,000 from five or more persons\", a strict threshold, so $50,000 exactly is outside it. Note the row carries a person count in its trigger text rather than in min or max, per the settled convention: min and max hold the dollar element, and the five-person element is a separate condition rather than a second numeric bound."
+  },
   "896.104": {
     "amountUnit": "usd",
     "note": "Financial transaction values in dollars, in the same three-tier shape as 896.101(5). Note the builder encoded the two strict thresholds as 300.01 and 10000.01 rather than as a round bound with minExclusive; the arithmetic comes out right at $300 and $10,000 either way, but a future re-audit should normalize it so the convention matches 896.101(5)(a)."

@@ -1349,3 +1349,38 @@ load-bearing for the sentences that remain, so they are recorded.
 **21 U.S.C. 802(58), serious drug felony (uscode.house.gov, prelim, fetched 2026-08-14; paragraph (57) on the current page is "suspicious order")**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section802&num=0&edition=prelim`
 
 > The term "serious drug felony" means an offense described in section 924(e)(2) of title 18 for which- (A) the offender served a term of imprisonment of more than 12 months; and (B) the offender's release from any term of imprisonment was within 15 years of the commencement of the instant offense.
+
+## Batch B, provisions the tables cannot hold, fetched 2026-08-14
+
+These are federal provisions the bank fraud page rests on that no audited
+table covers, for two different reasons. 18 U.S.C. 20 HAS a whole-section
+audited table with ZERO rows, correctly, because the section is purely
+definitional and assigns no punishment; the tables record provisions that
+assign one. 18 U.S.C. 3293, 18 U.S.C. 3282, 18 U.S.C. 1014 and 12 U.S.C. 1829
+have no table at all, for the same reason.
+
+**Recording them here is not only provenance, it repairs a measure.**
+scripts/check-pages.mts builds its compelled-text exclusion set from three
+places: the fixed institutional phrases, the `quote` and `trigger` fields of
+audited table ROWS, and the blockquotes in this file. A zero-row table
+contributes nothing to it. So verbatim quotation of a definitional statute,
+which this project REQUIRES to be verbatim, was being counted against the
+pages as chosen prose: 58 of the shared runs between bank fraud and federal
+wire and mail fraud were the two pages quoting 18 U.S.C. 20, which is the
+ELEMENT on one page and the ENHANCEMENT trigger on the other. The agent that
+found this said the fix plainly: recording the provisions here removes those
+runs without a word of either page changing.
+
+### What the fetches established
+
+FETCHED AND READ WHOLE THIS SESSION (uscode.house.gov, prelim, 2026-08-14; each page carries the note that the text contains those laws in effect on August 13, 2026), with what the page did not already know.
+
+1. 18 U.S.C. 3293, read whole. The section is a chapeau, three numbered paragraphs, and a flush closing clause. Chapeau: "No person shall be prosecuted, tried, or punished for a violation of, or a conspiracy to violate-". Paragraph (1): "section 215, 656, 657, 1005, 1006, 1007, 1014, 1033, or 1344". Paragraph (2): "section 1341 or 1343, if the offense affects a financial institution". Paragraph (3): "section 1963, to the extent that the racketeering activity involves a violation of section 1344". Flush: "unless the indictment is returned or the information is filed within 10 years after the commission of the offense." Source credit added by Pub. L. 101-73 in 1989, amended 1990 and 1994; the 1994 note reads that Pub. L. 103-322 struck out "1008," after "1007," and inserted "1033," after "1014,". NEW TO THE PAGE: paragraph (3) exists and is keyed to section 1344 conduct inside a section 1963 racketeering charge; the page had never mentioned it. Also confirmed: the section carries no "except as provided in" clause, and the ten years is written to a conspiracy to violate as well as to a violation.
+
+2. 18 U.S.C. 3282, read whole. NEW TO THE PAGE: the section is not one sentence. Subsection (a) is the general five year rule, opening "Except as otherwise expressly provided by law, no person shall be prosecuted, tried, or punished" and closing "unless the indictment is found or the information is instituted within five years next after such offense". Subsection (b) exists and has paragraphs (1) to (3), on DNA profile indictments for chapter 109A offenses, none of which touches this charge. The page's old FAQ quoted (a) as though it were the section.
+
+3. 12 U.S.C. 1829, structure read whole. NEW TO THE PAGE: the section runs (a) through (g), and the page knew only (a), (c), (d) and (e). Subsection (b) sets a penalty for violating the prohibition. Paragraph (c)(3) deals with de minimis offenses on conditions the Corporation sets by rule, with confinement limits and a check fraud threshold. Subsection (f) creates a written consent application procedure, with regional and national office review and a rehabilitation consideration requirement, which means the "prior written consent of the Corporation" in (a)(1) is a process rather than a theoretical opening. Subsection (g) defines the terms subsection (a) uses, among them consent application, criminal offense involving dishonesty, and pretrial diversion or similar program, so the phrase the page leans on in (a)(1) has a definition elsewhere in the same section.
+
+4. 18 U.S.C. 1014, operative sentence read and its roster verified. This closes brief WC-02 DONE-CRITERIA item 14, which the brief recorded as UNMET and which carried an express instruction that the page must not enumerate 1014's covered institutions until the text was in hand. The page was already enumerating them. The enumeration it carried checks out, and the roster is wider than the page showed: it also names the Farm Credit Administration, the Federal Crop Insurance Corporation or a company the Corporation reinsures, the Secretary of Agriculture acting through the Farmers Home Administration, the Rural Development Administration or successor agency, any Farm Credit Bank, production credit association, agricultural credit association, bank for cooperatives, any regional agricultural credit corporation established pursuant to law, a Federal land bank and a Federal land bank association, the Small Business Administration, any Federal home loan bank, the Federal Housing Finance Agency, the Federal Deposit Insurance Corporation, the Farm Credit System Insurance Corporation, and the National Credit Union Administration Board. The operative text carries no "except" clause and no proviso; a definitional statement about State chartered credit unions sits at the end. The agricultural limbs are what make the point worth stating: 1014's roster is written in its own words and is not the roster at 18 U.S.C. 20.
+
+5. A MECHANICAL FINDING ABOUT THE GATE ITSELF, and it explains the largest block of "shared" runs on the page. scripts/check-pages.mts builds its compelled-shingle exclusion set from three places only: COMPELLED_PHRASES, the `quote` and `trigger` fields of rows in the audited statute tables, and every blockquote line in docs/research/PAGE-SOURCES.md. src/lib/statute-tables/usc-20.ts is a whole-section audited table with ZERO rows, by design, because section 20 is purely definitional and assigns no degree. Zero rows means no `quote` field, which means the text of 18 U.S.C. 20 is not in the exclusion set at all. The same is true of 18 U.S.C. 27, 18 U.S.C. 3293, 18 U.S.C. 3282 and 12 U.S.C. 1829, none of which has a table and none of which appears as a blockquote in PAGE-SOURCES.md. So the 58 runs the gate attributes to the "text" section, and a large share of what it attributes to "mortgage" and to the FAQ, are the project's own compelled quotation rule being counted as chosen prose. Recording those provisions as blockquotes in PAGE-SOURCES.md is the mechanism the file documents for exactly this case, and it removes those runs without a word of the pages changing.
