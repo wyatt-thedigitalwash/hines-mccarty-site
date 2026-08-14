@@ -16,10 +16,50 @@
     "this project already hit once with the completeness flag.",
     "",
     "A cite listed here that matches no row is a hard error, not a warning, so",
-    "a renumbered subsection cannot silently disarm the rule."
+    "a renumbered subsection cannot silently disarm the rule.",
+    "",
+    "`amountUnit` says what min and max COUNT. The schema stores dollars, drug",
+    "weights, pill counts, and victim counts in the same two numeric fields, so",
+    "the amount rules in check-claims.mts will happily compare a $1,000 fine to",
+    "a 1,000 GRAM trafficking threshold and report a wrong degree. Probed and",
+    "confirmed: degreesAt(\"893.13\", 1000) returns two felony degrees off a",
+    "weight ladder.",
+    "",
+    "There is deliberately NO DEFAULT. A statute with bounded rows that is a",
+    "page's primary statute must declare its unit or the gate fails, because a",
+    "default of usd would let the next quantity-graded statute through in",
+    "silence, and silence is the failure mode this whole file exists to stop.",
+    "Values: \"usd\" runs the amount rules; anything else disables them for that",
+    "statute and says so out loud on every run."
   ],
   "812.014": {
+    "amountUnit": "usd",
     "residual": ["812.014(3)(a)"],
-    "note": "Theft of any property not specified in subsection (2). Its floor is wherever the other paragraphs stop, so it has none of its own."
+    "note": "All 17 bounded rows are property values in dollars. Theft of any property not specified in subsection (2) is the residual: its floor is wherever the other paragraphs stop, so it has none of its own."
+  },
+  "817.034": {
+    "amountUnit": "usd",
+    "note": "Aggregate value of the scheme, and per-act value for communications fraud. Dollars throughout."
+  },
+  "896.101": {
+    "amountUnit": "usd",
+    "minExclusive": ["896.101(5)(a)"],
+    "note": "Financial transaction totals in dollars. (5)(a) reads 'exceeding $300', which the row's own trigger text records as exclusive while the typed min could not express it: the table was audited before minExclusive existed. Transcribed here rather than left in prose, because $300 exactly is a real boundary a page could state wrongly."
+  },
+  "817.568": {
+    "amountUnit": "mixed-usd-and-person-count",
+    "note": "AMOUNT RULES OFF, and this is the clearest case for the whole mechanism. Paragraphs (2)(b) and (2)(c) each carry TWO independent prongs sharing one pair of numeric fields: a dollar prong ($5,000 or more, $50,000 or more, $100,000 or more) and a person-count prong (10 to 20 persons, 20 to 30, 30 or more). The ranges overlap in the small numbers, so a sentence about $15 would be compared against the 10-to-20 PERSON row and answered with a felony degree. No page may have its dollar claims about this statute machine-checked."
+  },
+  "1956": {
+    "amountUnit": "usd-not-a-penalty-ladder",
+    "note": "AMOUNT RULES OFF. The three bounded rows are dollars, but none of them grades an offense: (c)(7)(D) and (c)(7)(G) are predicate-qualifying thresholds inside the definition of specified unlawful activity, and (f)(2) is the extraterritorial jurisdiction threshold. Comparing a sentence's dollar figure against them would answer a grading question with a jurisdiction rule."
+  },
+  "893.13": {
+    "amountUnit": "grams-with-one-usd-row",
+    "note": "AMOUNT RULES OFF. Bounds are grams throughout, except 893.13(8)(d)'s $1,000 payment prong. This is the collision that prompted the mechanism: degreesAt('893.13', 1000) returns two felony degrees off the weight ladder, so a $1,000 fine mentioned on a drug page would have been checked against 'more than 10 grams'."
+  },
+  "322.2615": {
+    "amountUnit": "blood-alcohol-level",
+    "note": "AMOUNT RULES OFF. Every bound is 0.08, a blood or breath alcohol level, and the provisions are administrative suspension rules rather than criminal grading."
   }
 }

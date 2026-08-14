@@ -675,14 +675,20 @@ starting first. What changes is what anyone is told to expect from it.
 **Applied to.** CASES-WE-DEFEND-PLAN.md Section 8.5.4, which gains a subsection
 8.5.6 rather than being rewritten, so the revision history stays visible.
 
-## 2026-08-14, D10 through D12: the statute-table apply step
+## 2026-08-14, D19 through D22: the statute-table apply step
+
+**On the numbering.** These were first written as D10 through D12, which
+collided with the existing D10, D11 and D12. Renumbered to follow D18. The
+collision is worth a line rather than a silent fix: the decision log is
+referenced by number from four other documents, so a duplicate number is a
+broken reference, not a cosmetic problem.
 
 Context: the 2026-08-13 session died mid-run (its batch-2 workflow was killed
 with 4 of 68 agents unfinished). The journals survived; a new session finished
 the 4 audits from cached builds, and these decisions govern how verified
 tables now land in the codebase.
 
-**D10. Verified tables live in `src/lib/statute-tables/`, one file per
+**D19. Verified tables live in `src/lib/statute-tables/`, one file per
 statute, merged into `STATUTES` by `src/lib/statutes.ts`.** The DoD says
 "an AUDITED table in src/lib/statutes.ts"; with ~72 tables coming, one file
 would pass 15,000 lines and become unreviewable, so statutes.ts stays the
@@ -692,14 +698,14 @@ verdict from the independent audit; FAILed tables never land, so presence in
 the directory IS the verification claim. Generated files carry a do-not-hand-
 edit header because the claim checker treats rows as ground truth.
 
-**D11. Statute keys are the bare section number as prose cites it.** FS
+**D20. Statute keys are the bare section number as prose cites it.** FS
 "893.135", USC "1956". check-claims.mts matches keys literally against
 sentences (`s.includes(statute)`), and "18 U.S.C. § 1956" contains "1956", so
 bare sections keep the exhaustive-claim gate live for both jurisdictions.
 Full citation stays in `cite`. The GradingRow scope union gained "victim" and
 "place", the two values batch-2 builders were already instructed to use.
 
-**D12. A materiality rule was added to the re-audit prompt.** Batch 2 re-
+**D21. A materiality rule was added to the re-audit prompt.** Batch 2 re-
 failed 6 of 7 repaired tables, several rounds on progressively smaller
 findings (an unmarked ellipsis, a spliced heading). Unbounded re-audit does
 not converge: every fresh auditor finds a fresh nit, and a gate that can
@@ -710,3 +716,34 @@ bound, missing penalty provision, wrong level, misused scope, meaning-
 changing quote). A cosmetic formatting nit alone is PASS with the nit in
 notes. What this does NOT relax: completeness is still set by the auditor,
 still on coverage alone, and any typed-field error still fails.
+
+
+**D22. min and max must declare what they count, and there is no default.**
+The schema stores dollars, drug weights, pill counts, person counts, and blood
+alcohol levels in the same two numeric fields. `check-claims.mts` compares a
+sentence's dollar figures against those fields, so it was one written page away
+from answering a question about money with a row about grams. Probed and
+confirmed before it shipped: `degreesAt("893.13", 1000)` returns two felony
+degrees off a weight ladder, and F.S. 817.568 carries dollar prongs and
+person-count prongs in the SAME paragraph with overlapping ranges, so a $15
+claim would meet the 10-to-20-persons row.
+
+`amountUnit` in `scripts/statute-table-annotations.json` declares the unit per
+statute. Only `"usd"` enables the amount rules. Everything else disables them
+and the gate prints which statutes it is not checking, on every run.
+
+**The absence of a default is the decision.** Defaulting to dollars would be
+correct for most statutes and silently wrong for the drug pages, which is the
+shape of every failure this project has had: a mechanism that appears to run
+while checking nothing. A page whose primary statute has bounded rows and no
+declared unit now FAILS the gate and names the file to edit. Four statutes are
+declared non-dollar today: 893.13 (grams), 817.568 (mixed dollars and person
+counts), 1956 (dollar thresholds that are predicate and jurisdictional rather
+than grading), and 322.2615 (blood alcohol levels).
+
+**A second thing this surfaced.** F.S. 896.101(5)(a) reads "exceeding $300".
+Its audited row recorded that as inclusive because the table was built before
+`minExclusive` existed, with the exclusivity noted only in trigger prose. The
+annotation file now carries the flag, on the same footing as `residual`: prose
+inside a row does not arm a guard, and $300 exactly is a boundary a money
+laundering page could state wrongly.

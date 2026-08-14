@@ -70,6 +70,10 @@ for (const ck of [...passes.keys()].sort()) {
   const ann = ANNOTATIONS[ck] ?? {};
   const residualCites = new Set(ann.residual ?? []);
   const seenResidual = new Set();
+  // Same pattern as residual: a typed field the audit schema could not express
+  // at the time, transcribed from the row's own trigger prose.
+  const exclusiveCites = new Set(ann.minExclusive ?? []);
+  const seenExclusive = new Set();
   const rows = build.rows.map((r, i) => {
     if (!DEGREES.has(r.degree)) problems.push(`${ck} row ${i}: degree ${JSON.stringify(r.degree)}`);
     if (r.scope != null && !SCOPES.has(r.scope)) problems.push(`${ck} row ${i}: scope ${JSON.stringify(r.scope)}`);
@@ -79,8 +83,10 @@ for (const ck of [...passes.keys()].sort()) {
       `max: ${JSON.stringify(r.max ?? null)}`,
       `degree: ${JSON.stringify(r.degree)}`,
     ];
-    if (r.minExclusive) parts.push(`minExclusive: true`);
     const citeKey = r.cite.replace(/\.$/, "");
+    const annExclusive = exclusiveCites.has(r.cite) || exclusiveCites.has(citeKey);
+    if (annExclusive) seenExclusive.add(exclusiveCites.has(r.cite) ? r.cite : citeKey);
+    if (r.minExclusive || annExclusive) parts.push(`minExclusive: true`);
     if (residualCites.has(r.cite) || residualCites.has(citeKey)) {
       parts.push(`residual: true`);
       seenResidual.add(residualCites.has(r.cite) ? r.cite : citeKey);
@@ -105,6 +111,11 @@ for (const ck of [...passes.keys()].sort()) {
         `${ck}: annotated residual cite ${cite} matches no row. The residual rule ` +
           `in check-claims.mts would silently stop guarding this statute.`,
       );
+    }
+  }
+  for (const cite of exclusiveCites) {
+    if (!seenExclusive.has(cite)) {
+      problems.push(`${ck}: annotated minExclusive cite ${cite} matches no row.`);
     }
   }
   const unread = (build.unread ?? []).filter(Boolean).join("; ");

@@ -29,6 +29,7 @@
  * Saying so here because the previous gate in this project was reported as
  * stronger than it was.
  */
+import { readFileSync } from "node:fs";
 import { charges, chargeHref } from "../src/lib/site.ts";
 import { pageCopy } from "../src/lib/page-copy.ts";
 import { STATUTES, degreesAt, type Degree, type GradingRow } from "../src/lib/statutes.ts";
@@ -105,6 +106,22 @@ function degreesIn(sentence: string): Set<Degree> {
 
 type Problem = { kind: string; sentence: string; detail: string };
 
+/**
+ * What min and max are counting, per statute. See the _why block in the JSON.
+ *
+ * Without this the amount rules compare a dollar figure in a sentence against
+ * whatever the row's bounds happen to hold, which on a drug statute is grams.
+ * There is no default: an undeclared primary statute with bounded rows fails
+ * the gate rather than being assumed to be dollars.
+ */
+const ANNOTATIONS: Record<string, { amountUnit?: string }> = JSON.parse(
+  readFileSync(new URL("./statute-table-annotations.json", import.meta.url), "utf8"),
+);
+
+function hasBoundedRows(t: { rows: GradingRow[] }): boolean {
+  return t.rows.some((r) => r.min !== null || r.max !== null);
+}
+
 function auditSentence(
   s: string,
   statute: string,
@@ -145,8 +162,10 @@ function auditSentence(
   }
 
   // 1. Amount-to-degree, checked against the ladder the sentence is talking
-  // about: the general one unless the sentence names a scope.
-  if (primary && degrees.size === 1 && amounts.length) {
+  // about: the general one unless the sentence names a scope. Dollar amounts
+  // may only be compared against a ladder declared to be counting dollars.
+  const amountsComparable = ANNOTATIONS[statute]?.amountUnit === "usd";
+  if (primary && amountsComparable && degrees.size === 1 && amounts.length) {
     const claimed = [...degrees][0];
     for (const amt of amounts) {
       const possible = degreesAt(statute, amt, { scope: scope ?? null });
@@ -315,6 +334,10 @@ console.log("\nLegal claims on written pages");
 {
   const written = charges.filter((c) => c.lead || c.statute || c.sections?.length);
   let any = false;
+  // Statutes whose amount rules are switched off because their bounds are not
+  // dollars. Printed on every run: a rule that is off must say so, or the next
+  // reader takes a green run for coverage it does not have.
+  const notApplicable = new Set<string>();
   for (const c of written) {
     const text = copyOf(c).join("\n");
     // PRIMARY statutes are the ones the page formally presents in a statute
@@ -327,6 +350,22 @@ console.log("\nLegal claims on written pages");
     for (const key of Object.keys(STATUTES)) {
       if (!text.includes(key)) continue;
       const primary = primaryText.includes(key);
+      // A primary statute whose rows carry bounds MUST declare what those
+      // bounds count. No default: assuming dollars is how a drug page gets its
+      // fine figures checked against a gram ladder, and the check would look
+      // like it was working the whole time.
+      const unit = ANNOTATIONS[key]?.amountUnit;
+      if (primary && hasBoundedRows(STATUTES[key]) && !unit) {
+        any = true;
+        fail(
+          `${chargeHref(c)} rests on ${STATUTES[key].cite}, whose rows carry numeric bounds, ` +
+            `but no amountUnit is declared for "${key}" in scripts/statute-table-annotations.json. ` +
+            `The amount rules cannot run against an undeclared unit, and running them anyway would ` +
+            `compare this page's dollar figures to whatever those bounds actually count.`,
+        );
+        continue;
+      }
+      if (primary && unit && unit !== "usd") notApplicable.add(`${key} (${unit})`);
       for (const s of sentences(text)) {
         for (const p of auditSentence(s, key, { primary })) {
           any = true;
@@ -337,6 +376,12 @@ console.log("\nLegal claims on written pages");
   }
   if (!any)
     console.log("  ok    every amount-to-degree and subsection-to-degree claim matches a verified row");
+  if (notApplicable.size)
+    console.log(
+      `  NOTE  amount rules DO NOT run against: ${[...notApplicable].sort().join(", ")}. ` +
+        `Those bounds are not dollars, so a dollar claim about them cannot be checked here ` +
+        `and needs a human or a reviewer. Subsection-to-degree and residual rules still run.`,
+    );
 }
 
 console.log(
