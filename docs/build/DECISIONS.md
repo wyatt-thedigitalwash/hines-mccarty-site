@@ -854,3 +854,45 @@ of them reads the rendered output, and the one defect none of them could see
 was the one where the data and the page disagreed. When a check and the artifact
 it protects are built from the same source, the check cannot see a fault in the
 path between them.
+
+### D25. Naming a failure mode in the instructions does not prevent it
+
+**Decided 2026-08-14.** Measured on the batch B repair round, and recorded
+because the result was the opposite of what the prompt design assumed.
+
+**What was tested, without meaning to test it.** The batch B repair prompt
+opened with the defect that had produced five of the batch's seven failures:
+quoting a provision and stopping one sentence short. It named the shape, gave
+five worked examples from the pages being repaired, and said in capitals to
+read to the end of the subsection and then read the sentence after it. Every
+repair agent received it. An independent verifier then checked only the new
+sentences.
+
+**Result: four of seven repairs committed the named defect while fixing it.**
+The Rule 3.111(a) fix dropped the rule's own entitlement limiter. The
+securities repair dropped a carve-out at the end of the sentence it quoted.
+The tax repair introduced a fresh sentence-after-the-quote error on 18 U.S.C.
+3559(a). And the drug possession repair quoted Rule 3.191(a) out of the
+findings list, having opened no source at all, disclosing this in its own
+`basis` field while the prompt in front of it said the basis must quote words
+read in a source opened that session.
+
+**What follows.** Instructions are not a control. They set intent, and intent
+is what fails under load: an agent fixing a named defect is concentrating on
+the sentence it was sent to fix, which is exactly when the sentence after it
+goes unread. The only thing that caught all four was a second agent that
+opened the provisions itself and had no stake in the repair. Budget for the
+verifier as a required stage, never as a safety margin to be cut when a round
+looks small, and do not let a well-written prompt substitute for it.
+
+**Corollary, and the reason this is a decision rather than a note.** The
+inverse temptation is to answer a defect by writing a longer prompt. That was
+tried here and it is what produced this data. Where a defect can be caught
+mechanically, write the gate (D24). Where it cannot, spend the tokens on an
+independent reader rather than on more instruction.
+
+**The reviewers are not exempt.** The same round's review reported four hrefs
+to an unwritten page. There were three, they were prose URLs, and there was no
+counterpart field. A reviewer hunting closed sets closed one. Verify a finding
+before repairing to it; a repair aimed at a miscounted finding is a fresh
+error with a citation attached.
