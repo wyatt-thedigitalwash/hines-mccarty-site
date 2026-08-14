@@ -12,35 +12,45 @@ primary charging statutes). Heavily shared: the theft statute serves 8 pages,
 
 Updated 2026-08-14 after repair round 2: 68 of 70 tables verified and applied. Repair round 2 passed 23 of 24 (only 812.014 remains, on two typed-field findings, one of which was an audit-prompt vocabulary artifact); batch 3 passed 28 of 29 (212.15 remains, one verifiable level to add). The 921.0022 chart passed a programmatic multiset-diff audit. Round 3 = mechanical patches to 812.014 and 212.15 plus independent re-audit. The Degree union gained the two punishable-by-life categories the chart surfaced, and GradingRow gained minExclusive.
 
-## Verified and applied (18)
+## Verified and applied (68)
 
-In `src/lib/statute-tables/` (17) plus the hand-built partial 812.014 in
-statutes.ts: 409.920, 741.2901, 775.21, 776.08, 782.04, 782.07, 784.041,
-784.045, 784.07, 794.011, 827.071, 893.135 (94 rows), 896.101, 921.0023,
-943.0584, 943.0585, 943.059.
+In `src/lib/statute-tables/` (67 generated files) plus the hand-built partial
+812.014 in statutes.ts, pending its round-3 replacement. Every table passed
+the independent build-then-audit pipeline; the full list is
+`src/lib/statute-tables/index.ts` and the claim checker prints it on every
+run. Notables: 921.0022 ranking chart (624 rows, audited by programmatic
+multiset diff), 775.082 (54), 817.568 (56, two build lineages merged), 893.13
+(47), 316.193 (50), 893.135 (94), 921.0024 (48 covering the full worksheet
+face and key). Zero-row whole-section tables exist for the definitional and
+procedural sections (776.032, 517.021, 18 USC 20/24/3553, 322.271, 794.005) so
+exhaustive claims about them stay checkable.
 
-## In repair round 2 (24) — workflow launched 2026-08-14
+## Round 3, the last two (in flight 2026-08-14)
 
-Failed batch-2 audit; repair + independent re-audit running: 775.082, 775.083,
-775.084, 775.087, 784.03, 784.08, 790.23, 800.04, 812.014 (will replace the
-partial), 815.06, 816.193*, 817.034, 817.568 (two lineages merged), 847.0135,
-893.03, 893.13, 896.104, 921.0022 (the 624-row ranking chart), 921.0024,
-943.0435, 18 USC 1956, 18 USC 924, 21 USC 841. (*316.193 — DUI.)
+- **812.014**: repair-2 build is complete and correct except one typed field;
+  the two round-2 findings were (a) an audit-prompt vocabulary artifact
+  (dwelling IS a defined scope) and (b) min 3000 typed inclusive for "in
+  excess of $3,000". Patch: minExclusive true on the (6) row; keep dwelling
+  scopes. Independent re-audit, then it replaces the hand-built partial.
+- **212.15**: batch-3 build missed one verifiable level (Level 1 on (2)(b),
+  chart-listed). Patch and re-audit.
 
 Tables that PASS re-audit get generated into `src/lib/statute-tables/` by
 `scripts/generate-statute-tables.mjs`, run over the results snapshots
 harvested from the workflow journals (each journal lives under its session's
 `subagents/workflows/<run-id>/journal.jsonl` in the Claude project dir, so
-results survive a killed session). Tables that fail again go to round 3 with
-their new finding lists.
+results survive a killed session).
 
-## Not yet built (~29) — batch 3
+## Known limitation, recorded before it bites
 
-From the remaining-54 list minus batch-2 builds: 921.141, 212.15, 213.29,
-316.1939, 322.2615, 322.271, 517.021, 517.301, 517.302, 776.032, 782.071,
-794.005, 794.0115, 815.04, 893.147, USC: 15/636, 18/1028A, 18/1341, 18/1347,
-18/1348, 18/1349, 18/20, 18/24, 18/371, 18/2252, 18/2252A, 18/3553, 21/846,
-26/7201.
+`GradingRow.min/max` carry dollar amounts and drug quantities in the same
+numeric field with no unit marker. The claim checker's amount rules only fire
+on `$`-prefixed sentence amounts, and primary-statute scoping keeps dollar
+sentences away from most quantity ladders, but a page whose PRIMARY statute is
+quantity-graded (893.135, 21 USC 841) could have a dollar claim judged against
+grams. Before the drug-trafficking rewrite ships, either add a `unit` field to
+the rows of those two tables or verify the checker stays quiet for the right
+reasons.
 
 ## Process learnings carried in the prompts
 
