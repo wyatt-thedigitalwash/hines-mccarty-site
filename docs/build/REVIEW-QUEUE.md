@@ -228,9 +228,21 @@ and wrong against the decision that supersedes it.
 
 ## PUBLISHED FIGURES THAT GO STALE ON SOMEONE ELSE'S SCHEDULE, added 2026-08-14
 
-Four batch A pages publish United States Sentencing Commission statistics for
-fiscal year 2025: federal healthcare fraud, wire and mail fraud, weapons, and
-drug trafficking. The figures were re-fetched from ussc.gov during writing
+THREE batch A pages publish United States Sentencing Commission statistics for
+fiscal year 2025: federal healthcare fraud, wire and mail fraud, and weapons.
+
+**CORRECTION, 2026-08-14, and the way it happened is the point.** This entry
+first said FOUR pages, counting drug trafficking. It does not publish a single
+Quick Facts figure. I read its source notes, which mention USSC Quick Facts,
+and took the mention for inclusion; the sentence I was reading actually says
+the figures were "omitted because the same rhetorical move is already made on
+the federal money laundering page". An adversarial reviewer read the PAGE and
+found no statistic on it. That is the same error class this project keeps
+catching in its own gates: I checked a proxy for the artifact instead of the
+artifact. The drug page does publish USSC PRIMER text describing the Drug
+Quantity Table, all of it verified verbatim against the June 2026 primer, but
+primer text is a description of a guideline and does not go stale on the
+Commission's annual publication calendar the way a fiscal year figure does. The figures were re-fetched from ussc.gov during writing
 rather than carried from the briefs, and the URLs are recorded in each page's
 source notes.
 
