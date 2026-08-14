@@ -337,7 +337,67 @@ function Block({
  * Block above, which is the whole point of the redesign: this file no longer
  * knows what any section is called.
  */
+/**
+ * Render EVERY payload a section carries, not just the one its kind names.
+ *
+ * WHY. This was a switch that returned exactly one payload, so a section of
+ * kind "statute" rendered `statute` and silently dropped `prose`. An
+ * adversarial reviewer found the consequence on the DUI page: three sections
+ * carried 1,489 words that no reader could ever see, including the effective
+ * date of the 2025 refusal amendment, the breath-and-urine scope limit, the
+ * 0.15 and minor-passenger enhancement, and the whole injury and death block.
+ * Two headings promised material their rendered bodies did not contain.
+ *
+ * THE GATES COULD NOT SEE IT, and that is the part worth keeping in mind.
+ * `pageCopy` extracts every field regardless of kind, so the banned-term,
+ * duplication, claim and unverified checks were all reading text that was not
+ * on the page. The reader-question coverage check was worse than blind: it
+ * credited those sections for `answers` a reader never received. page-copy.ts
+ * already warns that a field which renders but is not extracted is a hole in
+ * every gate at once. This is the same hole inverted, and it is more dangerous,
+ * because a gate reading invisible text reports a page in better shape than it
+ * is.
+ *
+ * `ChargeSection` makes every payload optional on every kind, so nothing in the
+ * type system prevents the combination. The renderer therefore has to be total:
+ * kind decides ORDER and emphasis, never what survives. scripts/check-pages.mts
+ * asserts that every payload field on every section is one this function
+ * renders, so adding a field to the schema without teaching this function about
+ * it fails the build rather than quietly deleting content.
+ */
 function SectionBody({ section }: { section: ChargeSection }) {
+  const extras = (
+    <>
+      {section.kind !== "prose" && section.prose?.length ? (
+        <div className="mt-8 space-y-5">
+          {section.prose.map((paragraph) => (
+            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+          ))}
+        </div>
+      ) : null}
+      {section.kind !== "bullets" && section.bullets?.length ? (
+        <ul className="mt-8 space-y-3">
+          {section.bullets.map((item) => (
+            <li key={item.slice(0, 40)} className="flex gap-3">
+              <span aria-hidden="true" className="text-bronze">
+                &bull;
+              </span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </>
+  );
+  return (
+    <>
+      <SectionPrimary section={section} />
+      {extras}
+    </>
+  );
+}
+
+function SectionPrimary({ section }: { section: ChargeSection }) {
   switch (section.kind) {
     case "statute":
       return section.statute ? (

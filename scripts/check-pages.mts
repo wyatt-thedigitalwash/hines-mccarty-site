@@ -867,6 +867,46 @@ console.log("\nVerbatim duplication between pages");
  * conjured by typing it, and everything after the prefix is free text naming
  * which source.
  */
+/**
+ * Every payload a section carries must be one the template renders.
+ *
+ * An adversarial reviewer found 1,489 words on the DUI page that no reader
+ * could see: SectionBody was a switch returning one payload, so `prose` on a
+ * section of kind "statute" was dropped. Every other gate passed, because
+ * pageCopy extracts fields regardless of kind, so the checks were reading text
+ * that was not on the page and the reader-question coverage check was crediting
+ * answers nobody received.
+ *
+ * This is the guard for the general case rather than that instance. Add a
+ * payload field to ChargeSection and forget to teach the renderer about it, and
+ * the build fails here instead of deleting the content in silence.
+ */
+console.log("\nSection payloads reach the page");
+{
+  const RENDERED = ["prose", "bullets", "penalties", "statute", "steps", "guidance"] as const;
+  let bad = 0;
+  for (const c of charges) {
+    for (const s of c.sections ?? []) {
+      for (const key of Object.keys(s)) {
+        if (["id", "heading", "kind", "answers"].includes(key)) continue;
+        const v = (s as Record<string, unknown>)[key];
+        const empty = v == null || (Array.isArray(v) && v.length === 0);
+        if (empty) continue;
+        if (!(RENDERED as readonly string[]).includes(key)) {
+          bad++;
+          fail(
+            `${chargeHref(c)} section "${s.id}" carries "${key}", which ChargeTemplate ` +
+              `does not render. Teach SectionBody about it or remove it: content the ` +
+              `gates can read but a reader cannot see is worse than no content.`,
+          );
+        }
+      }
+    }
+  }
+  if (!bad)
+    console.log("  ok    every payload on every section is one the template renders");
+}
+
 console.log("\nFAQ provenance");
 {
   const PREFIXES = [
