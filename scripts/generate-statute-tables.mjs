@@ -67,7 +67,11 @@ for (const ck of [...passes.keys()].sort()) {
     parts.push(`quote: ${JSON.stringify(r.quote)}`);
     return `    { ${parts.join(", ")} },`;
   });
-  const completeness = audit.completeness === "whole-section" ? "whole-section" : "partial";
+  // Auditors sometimes annotate the field ("whole-section: every ...") or say
+  // "complete"; both affirm full coverage. Anything else degrades to partial,
+  // which only ever narrows what pages may claim.
+  const c = (audit.completeness ?? "").trim().toLowerCase();
+  const completeness = c === "complete" || c.startsWith("whole-section") ? "whole-section" : "partial";
   const unread = (build.unread ?? []).filter(Boolean).join("; ");
   const fname = join(OUT, (/^\d+\w*$/.test(ck) ? `usc-${ck}` : `fs-${ck.replace(/\./g, "-")}`) + ".ts");
   const varname = "TABLE_" + ck.replace(/[^0-9A-Za-z]/g, "_");

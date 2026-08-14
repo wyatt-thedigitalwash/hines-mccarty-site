@@ -4,39 +4,95 @@
  * workflow; FAILed tables never land in this directory.
  */
 import type { StatuteTable } from "../statutes";
+import { TABLE_1028A } from "./usc-1028A";
+import { TABLE_1341 } from "./usc-1341";
+import { TABLE_1347 } from "./usc-1347";
+import { TABLE_1348 } from "./usc-1348";
+import { TABLE_1349 } from "./usc-1349";
+import { TABLE_20 } from "./usc-20";
+import { TABLE_213_29 } from "./fs-213-29";
+import { TABLE_2252 } from "./usc-2252";
+import { TABLE_2252A } from "./usc-2252A";
+import { TABLE_24 } from "./usc-24";
+import { TABLE_316_1939 } from "./fs-316-1939";
+import { TABLE_322_2615 } from "./fs-322-2615";
+import { TABLE_322_271 } from "./fs-322-271";
+import { TABLE_3553 } from "./usc-3553";
+import { TABLE_371 } from "./usc-371";
 import { TABLE_409_920 } from "./fs-409-920";
+import { TABLE_517_021 } from "./fs-517-021";
+import { TABLE_517_301 } from "./fs-517-301";
+import { TABLE_517_302 } from "./fs-517-302";
+import { TABLE_636 } from "./usc-636";
+import { TABLE_7201 } from "./usc-7201";
 import { TABLE_741_2901 } from "./fs-741-2901";
 import { TABLE_775_21 } from "./fs-775-21";
+import { TABLE_776_032 } from "./fs-776-032";
 import { TABLE_776_08 } from "./fs-776-08";
 import { TABLE_782_04 } from "./fs-782-04";
 import { TABLE_782_07 } from "./fs-782-07";
+import { TABLE_782_071 } from "./fs-782-071";
 import { TABLE_784_041 } from "./fs-784-041";
 import { TABLE_784_045 } from "./fs-784-045";
 import { TABLE_784_07 } from "./fs-784-07";
+import { TABLE_794_005 } from "./fs-794-005";
 import { TABLE_794_011 } from "./fs-794-011";
+import { TABLE_794_0115 } from "./fs-794-0115";
+import { TABLE_815_04 } from "./fs-815-04";
 import { TABLE_827_071 } from "./fs-827-071";
+import { TABLE_846 } from "./usc-846";
 import { TABLE_893_135 } from "./fs-893-135";
+import { TABLE_893_147 } from "./fs-893-147";
 import { TABLE_896_101 } from "./fs-896-101";
 import { TABLE_921_0023 } from "./fs-921-0023";
+import { TABLE_921_141 } from "./fs-921-141";
 import { TABLE_943_0584 } from "./fs-943-0584";
 import { TABLE_943_0585 } from "./fs-943-0585";
 import { TABLE_943_059 } from "./fs-943-059";
 
 export const VERIFIED_TABLES: Record<string, StatuteTable> = {
+  "1028A": TABLE_1028A,
+  "1341": TABLE_1341,
+  "1347": TABLE_1347,
+  "1348": TABLE_1348,
+  "1349": TABLE_1349,
+  "20": TABLE_20,
+  "213.29": TABLE_213_29,
+  "2252": TABLE_2252,
+  "2252A": TABLE_2252A,
+  "24": TABLE_24,
+  "316.1939": TABLE_316_1939,
+  "322.2615": TABLE_322_2615,
+  "322.271": TABLE_322_271,
+  "3553": TABLE_3553,
+  "371": TABLE_371,
   "409.920": TABLE_409_920,
+  "517.021": TABLE_517_021,
+  "517.301": TABLE_517_301,
+  "517.302": TABLE_517_302,
+  "636": TABLE_636,
+  "7201": TABLE_7201,
   "741.2901": TABLE_741_2901,
   "775.21": TABLE_775_21,
+  "776.032": TABLE_776_032,
   "776.08": TABLE_776_08,
   "782.04": TABLE_782_04,
   "782.07": TABLE_782_07,
+  "782.071": TABLE_782_071,
   "784.041": TABLE_784_041,
   "784.045": TABLE_784_045,
   "784.07": TABLE_784_07,
+  "794.005": TABLE_794_005,
   "794.011": TABLE_794_011,
+  "794.0115": TABLE_794_0115,
+  "815.04": TABLE_815_04,
   "827.071": TABLE_827_071,
+  "846": TABLE_846,
   "893.135": TABLE_893_135,
+  "893.147": TABLE_893_147,
   "896.101": TABLE_896_101,
   "921.0023": TABLE_921_0023,
+  "921.141": TABLE_921_141,
   "943.0584": TABLE_943_0584,
   "943.0585": TABLE_943_0585,
   "943.059": TABLE_943_059,
