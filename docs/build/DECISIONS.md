@@ -806,3 +806,51 @@ project does not publish claims nobody read a source for.
 
 **Applied to.** The pair-1 repair run of 2026-08-14 and every repair after it,
 including the legacy sweep and the remaining 21 pages.
+
+---
+
+### D24. A gate must read the page, not the data behind it
+
+**Found 2026-08-14 by an adversarial reviewer who read the React component.**
+
+`SectionBody` in `ChargeTemplate.tsx` was a switch returning exactly one
+payload, so a section of kind `statute` rendered its statute and silently
+dropped its `prose`. Three sections on the DUI page carried **1,489 words no
+reader could ever see**: the effective date of the 2025 refusal amendment, the
+pre-amendment comparison, the breath-and-urine scope limit, the 0.15 and
+minor-passenger enhancement, and the whole injury and death block. Two headings
+promised material their rendered bodies did not contain.
+
+**Every gate passed for as long as it existed.** `pageCopy` extracts every
+field regardless of kind, so the banned-term, duplication, claim and
+unverified-claim checks were reading text that was not on the page. The
+reader-question coverage check was worse than blind: it credited those sections
+for `answers` a reader never received.
+
+`page-copy.ts` already carried the warning in the other direction, that a field
+which renders but is not extracted is a hole in every gate at once. **This is
+the same hole inverted, and it is the more dangerous orientation**, because a
+gate reading invisible text reports a page in better shape than it is, and
+nothing about the output looks wrong.
+
+**Two rules follow.**
+
+1. **The renderer is total.** `kind` decides ORDER and emphasis, never what
+   survives. `ChargeSection` makes every payload optional on every kind, so the
+   type system cannot prevent the combination and the component must handle it.
+2. **The gates own the gap they cannot see.** `check-pages.mts` now asserts
+   that every payload field on every section is one the template renders, so
+   adding a field to the schema without teaching `SectionBody` about it fails
+   the build rather than deleting content in silence.
+
+**The verification that mattered was against the built HTML**, not against the
+gate: after the fix, `chapter 2025-121`, the breath-and-urine limit, `0.15` and
+"including the driver" were grepped out of
+`.next/server/app/criminal-defense/dui-defense.html`. A gate confirming its own
+premise is not evidence.
+
+**The generalisable point.** Every gate on this project reads `src/lib`. None
+of them reads the rendered output, and the one defect none of them could see
+was the one where the data and the page disagreed. When a check and the artifact
+it protects are built from the same source, the check cannot see a fault in the
+path between them.
