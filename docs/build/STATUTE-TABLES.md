@@ -27,10 +27,12 @@ partial), 815.06, 816.193*, 817.034, 817.568 (two lineages merged), 847.0135,
 893.03, 893.13, 896.104, 921.0022 (the 624-row ranking chart), 921.0024,
 943.0435, 18 USC 1956, 18 USC 924, 21 USC 841. (*316.193 — DUI.)
 
-Tables that PASS re-audit get generated into `src/lib/statute-tables/` by the
-same generator (kept in the session job dir; regenerate = rerun over the
-results snapshots). Tables that fail again go to round 3 with their new
-finding lists.
+Tables that PASS re-audit get generated into `src/lib/statute-tables/` by
+`scripts/generate-statute-tables.mjs`, run over the results snapshots
+harvested from the workflow journals (each journal lives under its session's
+`subagents/workflows/<run-id>/journal.jsonl` in the Claude project dir, so
+results survive a killed session). Tables that fail again go to round 3 with
+their new finding lists.
 
 ## Not yet built (~29) — batch 3
 
