@@ -1471,3 +1471,26 @@ https://www.flsenate.gov/Laws/Statutes/2025/784.011
 https://www.flsenate.gov/Laws/Statutes/2025/921.0024
 
 > Sentencing multipliers: ... [separate flush paragraph] Violent offenses committed against specified justice system personnel: If the primary offense is a violation of s. 775.0823(2), (3), or (4), the subtotal sentence points are multiplied by 2.5. If the primary offense is a violation of s. 775.0823(5), (6), (7), (8), or (9), the subtotal sentence points are multiplied by 2.0. If the primary offense is a violation of s. 784.07(3) or s. 775.0875(1), or s. 775.0823(10) or (11), the subtotal sentence points are multiplied by 1.5. ... [separate flush paragraph] Offense related to a criminal gang: If the offender is convicted of the primary offense and committed that offense for the purpose of benefiting, promoting, or furthering the interests of a criminal gang as defined in s. 874.03, the subtotal sentence points are multiplied by 1.5. If applying the multiplier results in the lowest permissible sentence exceeding the statutory maximum sentence for the primary offense under chapter 775, the court may not apply the multiplier and must sentence the defendant to the statutory maximum sentence. ... [final flush paragraph of (1)(b)] Adult-on-minor sex offense: ... the subtotal sentence points are multiplied by 2.0. If applying the multiplier results in the lowest permissible sentence exceeding the statutory maximum sentence for the primary offense under chapter 775, the court may not apply the multiplier and must sentence the defendant to the statutory maximum sentence. [Fetched 2026-08-14 with curl and read element by element in the source markup, because flowed text hides the paragraph boundaries. Each named multiplier is its own flush paragraph. The statutory-maximum cap sentence is written inside the criminal gang paragraph and again inside the adult-on-minor sex offense paragraph. It is NOT written into the paragraph that names s. 784.07(3), and its repetition in two paragraphs is evidence it attaches to those multipliers rather than to the block as a whole. A page may quote it and say where it sits; a page may not state that it caps the 784.07(3) multiplier.]
+
+### state/sex-crimes-defense
+
+**F.S. 800.03 (2025), read whole**  
+https://www.flsenate.gov/Laws/Statutes/2025/800.03
+
+Fetched 2026-08-14 because the unverified-claim gate stopped the build on
+/criminal-defense/sex-crimes-defense citing 800.03(2)(b), which brief
+W4-02-sex-crimes.md had flagged UNVERIFIED. The section has no audited table:
+it is not among the five the brief built the page on, and it appears there as
+the offense that sits inside how people speak about this subject and outside
+both statutory enumerations. The page's account of it checks out against the
+text, including subsection (3), which it carries.
+
+> Exposure of sexual organs.-- (1) A person commits unlawful exposure of sexual organs by: (a) Exposing or exhibiting his or her sexual organs in public or on the private premises of another, or so near thereto as to be seen from such private premises, in a vulgar or indecent manner; or (b) Being naked in public in a vulgar or indecent manner.
+> (2)(a) Except as provided in paragraph (b), a violation of this section is a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083. (b) A second or subsequent violation of this section is a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084.
+> (3) The exposure of sexual organs by any of the following does not violate this section: (a) A mother breastfeeding her baby; or (b) An individual who is merely naked at any place provided or set apart for that purpose.
+
+The catchline printed above the section is "Lewdness; indecent exposure", which
+is the catchline of the whole run of sections rather than of 800.03 alone. The
+section's own heading is "Exposure of sexual organs." The em dashes the statute
+prints after the heading and in the history line are rendered "--" here under
+the project's no-em-dash rule; no words are altered.

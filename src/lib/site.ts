@@ -1596,6 +1596,1962 @@ const CHARGE_FAQ: Record<string, FaqItem[]> = {
  * or record, and the defense sections describe process only.
  */
 const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
+  "state/domestic-violence-defense": {
+    title: "Domestic violence charges in Hillsborough County",
+    metaTitle: "Domestic Violence Charges in Hillsborough County | Hines &amp; McCarty",
+    metaDescription: "Statute 741.28 defines domestic violence by the relationship between the people involved, not by the act, and Statute 741.2901 directs the state attorney in each circuit to adopt a pro-prosecution policy.",
+    lead: "Statute 741.28 creates no offense of its own. It defines domestic violence as a category set by who the other person was, so the act is charged under its own offense statute and the relationship attaches consequences that statute does not carry.",
+    sections: [
+      {
+        id: "relationship",
+        heading: "Who the other person has to be, and the sentence of Statute 741.28(3) that follows the list",
+        kind: "statute",
+        answers: [
+          "facing"
+        ],
+        statute: {
+          citation: "Florida Statute 741.28, the 2025 Florida Statutes",
+          body: "The section opens with words that fix its reach: As used in ss. 741.28-741.31. Subsection (2) then provides that Domestic violence means any assault, aggravated assault, battery, aggravated battery, sexual assault, sexual battery, stalking, aggravated stalking, kidnapping, false imprisonment, or any criminal offense resulting in physical injury or death of one family or household member by another family or household member. Read that subsection to its end. The named offenses do not close the definition, because the words after them reach any criminal offense resulting in physical injury or death where the people involved stand in the stated relationship. Subsection (3) is where a domestic violence case is made or unmade. Family or household member means spouses, former spouses, persons related by blood or marriage, persons who are presently residing together as if a family or who have resided together in the past as if a family, and persons who are parents of a child in common regardless of whether they have been married. The subsection does not stop at that sentence. It continues: With the exception of persons who have a child in common, the family or household members must be currently residing or have in the past resided together in the same single dwelling unit. That second sentence is a requirement rather than a description. For the categories other than parents of a child in common, current or past shared residency in the same single dwelling unit is written into the definition. Whether a given living arrangement was a single dwelling unit, and whether people resided together as if a family, are questions of fact about the case rather than labels supplied by the arrest paperwork. Subsection (3) sets no degree of consanguinity on related by blood or marriage and no time limit on former spouses. Because 741.28 limits itself to ss. 741.28-741.31, a provision outside that range that wants the definition says so and imports it. Statute 784.041(2)(b)1. provides that Family or household member has the same meaning as in s. 741.28. Statute 943.0584(2)(f) names family or household member as defined in s. 741.28(3). Statute 921.0024(1)(b) keys its domestic violence multiplier to a crime of domestic violence, as defined in s. 741.28. Where a document uses the phrase without naming a statute, which definition is in play is a question about that document. Subsections (1) and (4) of Statute 741.28 define Department and Law enforcement officer for the same range of sections."
+        }
+      },
+      {
+        id: "prosecution",
+        heading: "Why the case keeps moving after the person named in the report asks the State to stop",
+        kind: "prose",
+        answers: [
+          "next"
+        ],
+        prose: [
+          "Statute 741.2901(1) requires that Each state attorney shall develop special units or assign prosecutors to specialize in the prosecution of domestic violence cases, but such specialization need not be an exclusive area of duty assignment. The same subsection adds that These prosecutors, specializing in domestic violence cases, and their support staff shall receive training in domestic violence issues. So the office on the other side of a domestic case is a designated part of the State Attorney's Office rather than a general assignment.",
+          "Subsection (2) is the provision most readers of this page are looking for, and it has to be read to its last sentence. It opens: It is the intent of the Legislature that domestic violence be treated as a criminal act rather than a private matter. The sentence after that makes criminal prosecution the favored method of enforcing compliance with injunctions for protection against domestic violence, on the stated ground that the length and the severity of sentence for a person found to have committed the crime of domestic violence can be greater, thus providing greater protection to victims and better accountability of perpetrators. A further sentence preserves enforcement by the court through the use of indirect criminal contempt. Then comes the directive: The state attorney in each circuit shall adopt a pro-prosecution policy for acts of domestic violence, as defined in s. 741.28, and an intake policy and procedures coordinated with the clerk of court for violations of injunctions for protection against domestic violence.",
+          "The sentence after that one is the answer to the question people arrive with. The filing, nonfiling, or diversion of criminal charges, and the prosecution of violations of injunctions for protection against domestic violence by the state attorney, shall be determined by these specialized prosecutors over the objection of the victim, if necessary. A statement from the person named in the report that they do not want the case to go forward is information the office receives. The subsection places the filing decision with the specialized prosecutors and says in terms that it may be made over that person's objection.",
+          "The same idea appears earlier, at the arrest. Statute 741.29(4) provides that where a law enforcement officer determines upon probable cause that an act of domestic violence has been committed within the jurisdiction the officer may arrest the person or persons suspected of its commission and charge such person or persons with the appropriate crime, and adds that The decision to arrest and charge shall not require consent of the victim or consideration of the relationship of the parties. Statute 901.15(7) makes a warrantless arrest lawful where there is probable cause to believe the person has committed an act of domestic violence, as defined in s. 741.28, or dating violence, as provided in s. 784.046, repeats the consent sentence, and records a public policy of this state to strongly discourage arrest and charges of the parties for domestic violence or dating violence on each other.",
+          "This section states who decides. It does not state what any office will decide in any case, and nothing on this page predicts an outcome."
+        ]
+      },
+      {
+        id: "nocontact",
+        heading: "The no contact order, the 500 feet, and the residence you may not be able to walk back into",
+        kind: "prose",
+        answers: [
+          "now"
+        ],
+        prose: [
+          "An order of no contact is not a background condition. Statute 903.047(1)(b) provides that as a condition of pretrial release, whether such release is by surety bail bond or recognizance bond or in some other form, the defendant must, if the court issues an order of no contact, refrain from any contact of any type with the victim, except through pretrial discovery pursuant to the Florida Rules of Criminal Procedure. The paragraph continues: An order of no contact is effective immediately and enforceable for the duration of the pretrial release or until it is modified by the court. The defendant shall be informed in writing of the order of no contact, specifying the applicable prohibited acts, before the defendant is released from custody on pretrial release.",
+          "The paragraph then defines its own term, and the qualifier at the front of that definition matters as much as the list after it: As used in this section, unless otherwise specified by the court, the term no contact includes the following prohibited acts. Subparagraph 1. reaches communicating orally or in any written form, either in person, telephonically, electronically, or in any other manner, either directly or indirectly through a third person, with the victim or any other person named in the order. Subparagraph 2. reaches having physical or violent contact with the victim or other named person or his or her property. Subparagraph 3. reaches being within 500 feet of the victim's or other named person's residence, even if the defendant and the victim or other named person share the residence. Subparagraph 4. reaches being within 500 feet of the victim's or other named person's vehicle, place of employment, or a specified place frequented regularly by such person.",
+          "Subparagraph 3. is the answer to the question about going home, and the words that carry it are even if the defendant and the victim or other named person share the residence. A shared address is not an exception written into the subparagraph. The paperwork handed over at release is the document that governs, which is why Statute 903.047(1)(b) requires it to be given in writing, specifying the applicable prohibited acts, before release from custody.",
+          "Two provisions inside the same paragraph run the other way and are easy to miss. Subparagraph 1. provides that if the victim and the defendant have children in common, at the request of the defendant, the court may designate an appropriate third person to contact the victim for the sole purpose of facilitating the defendant's contact with the children. The same subparagraph adds that it does not prohibit an attorney for the defendant, consistent with rules regulating The Florida Bar, from communicating with any person protected by the no contact order for lawful purposes.",
+          "Change comes from the court rather than from an agreement between the people involved. Statute 903.047(2) provides that upon motion by the defendant when bail is set, or upon later motion properly noticed pursuant to law, the court may modify the condition required by paragraph (1)(b) if good cause is shown and the interests of justice so require, that the victim shall be permitted to be heard at any proceeding in which such modification is considered, and that the state attorney shall notify the victim of the provisions of that subsection and of the pendency of any such proceeding.",
+          "Violating the condition is charged as a separate offense on a domestic case. Statute 741.29(7) provides that a person who willfully violates a condition of pretrial release provided in s. 903.047, when the original arrest was for an act of domestic violence as defined in s. 741.28, commits a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083, and shall be held in custody until his or her first appearance.",
+          "An injunction for protection is a separate instrument from a pretrial release condition, obtained in its own proceeding. The notice Statute 741.29(1)(d) requires officers to give describes that route to the person who reports the incident. This page addresses the criminal condition, and a question about an injunction is a question for counsel on the specific papers."
+        ]
+      },
+      {
+        id: "elements",
+        heading: "Where the relationship element is contested, and what Statute 741.28(3) asks alongside the act",
+        kind: "bullets",
+        answers: [
+          "facing"
+        ],
+        bullets: [
+          "That the offense charged is one the definition in Statute 741.28(2) reaches. The subsection names assault, aggravated assault, battery, aggravated battery, sexual assault, sexual battery, stalking, aggravated stalking, kidnapping, and false imprisonment, and then extends to any criminal offense resulting in physical injury or death of one family or household member by another family or household member.",
+          "That the people involved were family or household members within Statute 741.28(3). The relationship has to hold between the person accused and the person injured, so it is a fact about the pair rather than a status carried by either of them.",
+          "For the categories other than parents of a child in common, that the people involved are currently residing or have in the past resided together in the same single dwelling unit. Those are the words of the second sentence of Statute 741.28(3), and they are provable or not on the facts.",
+          "For spouses and former spouses, and for persons related by blood or marriage, the subsection writes in no degree of consanguinity and no time limit since a marriage ended, so the contested question in those categories is usually the dwelling-unit sentence rather than the label.",
+          "For parents of a child in common, the exception in the second sentence removes the shared-residency requirement, in the words With the exception of persons who have a child in common.",
+          "Where Statute 784.041(2)(a) is charged, a different pairing applies: that provision reaches a family or household member, which Statute 784.041(2)(b)1. imports from Statute 741.28, and separately a person with whom the actor is in a dating relationship, which Statute 784.041(2)(b)2. defines as a continuing and significant relationship of a romantic or intimate nature. Those definitions are not identical, and which of them governs is set by the words of the provision named in the charging document.",
+          "The elements of the underlying act come from the offense statute, not from Statute 741.28. What a battery charge puts on the State, limb by limb, is worked through at /criminal-defense/battery-defense."
+        ]
+      },
+      {
+        id: "designation",
+        heading: "What a domestic violence designation adds to the same act",
+        kind: "penalties",
+        answers: [
+          "facing",
+          "consequences"
+        ],
+        penalties: [
+          {
+            degree: "First degree misdemeanor, battery where the people involved are family or household members",
+            maximum: "Up to 1 year",
+            offenseLevel: "Not ranked; the Statute 921.0022 chart ranks felonies",
+            note: "The grading comes from Statute 784.03(1)(b), which provides that except as provided in subsection (2) or subsection (3), a person who commits battery commits a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083. Statute 775.082(4)(a) sets a definite term of imprisonment not exceeding 1 year. Statute 741.28 does not alter that degree. The blank in the level column is structural rather than missing, because the ranking chart ranks felonies. The routes by which a battery is charged at a higher degree are set out at /criminal-defense/battery-defense."
+          },
+          {
+            degree: "Third degree felony, domestic battery by strangulation",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 6",
+            note: "Statute 784.041(2)(a) defines the offense: knowingly and intentionally, against the will of another, impeding the normal breathing or circulation of the blood of a family or household member or of a person with whom he or she is in a dating relationship, so as to create a risk of or cause great bodily harm by applying pressure on the throat or neck of the other person or by blocking the nose or mouth of the other person. Note the disjunction: a risk of great bodily harm satisfies it, and actual great bodily harm is not required by those words. The same paragraph provides that it does not apply to any act of medical diagnosis, treatment, or prescription which is authorized under the laws of this state. Statute 784.041(3) grades the offense a felony of the third degree, up to 5 years under Statute 775.082(3)(e), and the Statute 921.0022 chart lists 784.041 at level 6."
+          },
+          {
+            degree: "First degree misdemeanor, willful violation of a pretrial release condition where the original arrest was for an act of domestic violence",
+            maximum: "Up to 1 year, and the person shall be held in custody until his or her first appearance",
+            offenseLevel: "Not ranked; the Statute 921.0022 chart ranks felonies",
+            note: "Statute 741.29(7) reaches a person who willfully violates a condition of pretrial release provided in s. 903.047, when the original arrest was for an act of domestic violence as defined in s. 741.28, grades that a misdemeanor of the first degree punishable as provided in s. 775.082 or s. 775.083, and carries the custody direction in the same sentence. Statute 775.082(4)(a) sets a definite term of imprisonment not exceeding 1 year."
+          },
+          {
+            degree: "Minimum county jail term, crime of domestic violence with bodily harm intentionally caused, Statute 741.283(1)(a)",
+            maximum: "A minimum of 10 days for a first offense, 15 days for a second offense, 20 days for a third or subsequent offense",
+            note: "The paragraph opens Except as provided in paragraph (b) and applies where a person is adjudicated guilty of a crime of domestic violence, as defined in s. 741.28, and the person has intentionally caused bodily harm to another person. The days are ordered as part of the sentence imposed, unless the court sentences the person to a nonsuspended period of incarceration in a state correctional facility. Statute 741.283(2) adds that the section does not preclude the court from sentencing the person to probation, community control, or an additional period of incarceration. Adjudicated guilty is the trigger here, which is not the trigger Statute 741.281 uses."
+          },
+          {
+            degree: "Minimum county jail term where the crime took place in the presence of a child under 16, Statute 741.283(1)(b)",
+            maximum: "A minimum of 15 days for a first offense, 20 days for a second offense, 30 days for a third or subsequent offense",
+            note: "Paragraph (b) is the exception paragraph (a) points to. It applies where the person is adjudicated guilty of a crime of domestic violence as defined in s. 741.28, has intentionally caused bodily harm to another person, and the crime of domestic violence takes place in the presence of a child under 16 years of age who is a family or household member, as defined in s. 741.28, of the victim or the perpetrator. It closes with the same words as paragraph (a): as part of the sentence imposed, unless the court sentences the person to a nonsuspended period of incarceration in a state correctional facility."
+          },
+          {
+            degree: "Probation and program condition on a crime of domestic violence, Statute 741.281",
+            maximum: "A minimum term of 1 year's probation, with a batterers' intervention program ordered as a condition of probation",
+            note: "The trigger is wider than an adjudication of guilt: the section applies where a person is found guilty of, has adjudication withheld on, or pleads nolo contendere to a crime of domestic violence, as defined in s. 741.28. The section then qualifies itself in its own words. The court must impose the condition of the batterers' intervention program, but the court, in its discretion, may determine not to impose the condition if it states on the record why a batterers' intervention program might be inappropriate; and the court must impose the condition for a defendant placed on probation unless the court determines that the person does not qualify for the program pursuant to s. 741.325. Its last sentence provides that the imposition of probation under the section does not preclude the court from imposing any sentence of imprisonment authorized by s. 775.082."
+          },
+          {
+            degree: "Sentencing multiplier, primary offense committed in the presence of a related child under 16, Statute 921.0024(1)(b)",
+            maximum: "Subtotal sentence points multiplied by 1.5",
+            note: "The worksheet key provides that if the offender is convicted of the primary offense and the primary offense is a crime of domestic violence, as defined in s. 741.28, which was committed in the presence of a child under 16 years of age who is a family or household member as defined in s. 741.28(3) with the victim or perpetrator, the subtotal sentence points are multiplied by 1.5. It operates on the subtotal rather than the total. Statute 921.0024(7) requires a digitized sentencing scoresheet to be prepared for a defendant sentenced for a felony offense, so the worksheet is the instrument a felony charge is scored on. What a specific charge scores is a question for counsel on that charge, and this page prints no total."
+          }
+        ]
+      },
+      {
+        id: "scene",
+        heading: "The report, the lethality assessment, and the primary aggressor question",
+        kind: "guidance",
+        answers: [
+          "now"
+        ],
+        guidance: [
+          {
+            heading: "Rights that do not change because a report used the word domestic",
+            items: [
+              "You have the right to decline to answer questions. It is available at each stage, and it does not have to be explained or justified.",
+              "Appointed counsel is keyed to the earliest of three events rather than to a court date. Fla. R. Crim. P. 3.111(a) provides that a person entitled to appointment of counsel has counsel appointed when the person is formally charged with an offense, or as soon as feasible after custodial restraint, or at the first appearance before a committing judge, whichever occurs earliest.",
+              "Read the written no contact notice before leaving custody. Statute 903.047(1)(b) requires the defendant to be informed in writing of the order, specifying the applicable prohibited acts, before release, and a term in it can differ from the statutory default, because that definition of no contact applies unless otherwise specified by the court.",
+              "Contact through a third person is inside the prohibition. Subparagraph 1. of Statute 903.047(1)(b) names communication directly or indirectly through a third person, so asking a relative to pass a message is the conduct the subparagraph describes."
+            ]
+          },
+          {
+            heading: "What a Hillsborough County domestic violence file is built from",
+            items: [
+              "The written report. Statute 741.29(3) provides that regardless of whether an arrest is made, the officer shall make a written police report that is complete and clearly indicates the alleged offense was an incident of domestic violence, filed in a manner that will permit data on domestic violence cases to be compiled.",
+              "What the report has to carry. The subsection lists items the report must include, including a description of physical injuries observed, if any, at paragraph (a); the grounds, at paragraph (b), where a law enforcement officer decides not to make an arrest or decides to arrest two or more parties; a statement that a copy of the legal rights and remedies notice was given, at paragraph (c); and a notation of the score of a lethality assessment, if one was administered, at paragraph (d).",
+              "Written statements. The closing language of Statute 741.29(3) provides that whenever possible, the law enforcement officer shall obtain a written statement from the victim and witnesses concerning the alleged domestic violence.",
+              "The primary aggressor question. Statute 741.29(5)(b) provides that where an officer has probable cause to believe that two or more persons have committed a misdemeanor or felony, or where two or more persons make complaints, the officer must try to determine who was the primary aggressor. The same subparagraph makes arrest the preferred response with respect to the primary aggressor and withholds that preference from a person who acts in a reasonable manner to protect or defend oneself or another family or household member from domestic violence.",
+              "Separate evaluation. Statute 741.29(5)(a) provides that when complaints are received from two or more parties, the officers shall evaluate each complaint separately to determine whether there is probable cause for arrest.",
+              "The lethality assessment. Statute 741.29(1)(c) requires an officer investigating an alleged incident of domestic violence to administer a lethality assessment where the allegation is against an intimate partner, regardless of whether an arrest is made. Statute 741.29(2)(i) makes the completed form confidential and exempt from s. 119.07(1) and s. 24(a), Art. I of the State Constitution, provides that it may be disclosed to the office of the state attorney, and provides that the state attorney may release the confidential information in furtherance of its official duties and responsibilities, and to the parties in a pending criminal prosecution as required by law.",
+              "Discovery runs in the ordinary course. A domestic file is usually a report, photographs, recorded calls, and accounts given by different people at different times, and those are examinable rather than something to reconstruct from memory."
+            ]
+          }
+        ]
+      },
+      {
+        id: "timeline",
+        heading: "Held until first appearance, and the history assembled before a judge sees the case",
+        kind: "timeline",
+        answers: [
+          "next"
+        ],
+        steps: [
+          {
+            when: "At arrest, before any bond is set",
+            what: "Statute 741.2901(3) provides that when a defendant is arrested for an act of domestic violence, the defendant shall be held in custody until brought before the court for admittance to bail in accordance with chapter 903. This is a custody direction keyed to the category of case, and it sits ahead of whatever a bond schedule would otherwise set."
+          },
+          {
+            when: "Before the first appearance, at the State Attorney's Office",
+            what: "Statute 741.2901(3) also provides that prior to a defendant's first appearance in any charge of domestic violence as defined in s. 741.28, the State Attorney's Office shall perform a thorough investigation of the defendant's history, including, but not limited to: prior arrests for domestic violence, prior arrests for nondomestic charges, prior injunctions for protection against domestic and repeat violence filed listing the defendant as respondent and noting history of other victims, and prior walk-in domestic complaints filed against the defendant. The same subsection directs that this information shall be presented at first appearance, when setting bond, and when passing sentence, for consideration by the court."
+          },
+          {
+            when: "Within 24 hours of arrest",
+            what: "Fla. R. Crim. P. 3.130(a) provides that except when previously released in a lawful manner, an arrested person must be taken before a judge, in person or by audio-video communication technology in the discretion of the court, within 24 hours of arrest. On a domestic charge this is also the hearing at which the history assembled under Statute 741.2901(3) is presented, and at which the court, under the closing sentence of that subsection, shall consider the safety of the victim, the victim's children, and any other person who may be in danger if the defendant is released in determining bail."
+          },
+          {
+            when: "30 days in custody, 60 days on pretrial release, from arrest",
+            what: "Fla. R. Crim. P. 3.134 gives the State 30 days to file formal charges on a defendant in custody and 60 days on a defendant on pretrial release, each track carrying its own automatic release provision and its own good cause extension. Anyone who bonded out is on the 60-day track."
+          },
+          {
+            when: "90 days on a misdemeanor, 175 days on a felony, from the formal charge",
+            what: "Fla. R. Crim. P. 3.191(a) provides that a person charged with a crime be brought to trial within 90 days if the crime charged is a misdemeanor, or within 175 days if the crime charged is a felony, and Rule 3.191(d) starts the period at the formal charge rather than at the arrest. Subdivision (a) routes a missed period to the remedy in subdivision (o), a recapture procedure, so the period is not a date on which a case ends."
+          },
+          {
+            when: "At sentencing, on a finding of guilt, a withheld adjudication, or a plea",
+            what: "Statute 741.281 attaches a minimum term of 1 year's probation and a batterers' intervention program condition where a person is found guilty of, has adjudication withheld on, or pleads nolo contendere to a crime of domestic violence as defined in Statute 741.28. Statute 741.283 attaches minimum county jail days where a person is adjudicated guilty of such a crime and has intentionally caused bodily harm to another person. The figures are in the table above."
+          }
+        ]
+      },
+      {
+        id: "record",
+        heading: "Paragraph (f), and the misdemeanor that stops being sealable because of who the other person was",
+        kind: "prose",
+        answers: [
+          "consequences",
+          "sealing"
+        ],
+        prose: [
+          "A Florida criminal history record is public unless it is sealed or expunged, which is what makes this the question that outlasts a sentence. On a domestic case it turns on a paragraph that does something the rest of the list does not: it makes a misdemeanor permanently ineligible because of who the other person was.",
+          "Statute 943.0584(2) provides that a criminal history record is ineligible for a certificate of eligibility for expunction or a court-ordered expunction pursuant to s. 943.0585 or a certificate of eligibility for sealing or a court-ordered sealing pursuant to s. 943.059 if the record is a conviction for any of the offenses it then lists. Paragraph (2)(f) reads: Assault or battery, as defined in ss. 784.011 and 784.03, respectively, of one family or household member by another family or household member, as defined in s. 741.28(3).",
+          "Read that against the grading. A battery under Statute 784.03(1)(b) is a misdemeanor of the first degree. Paragraph (2)(f) does not ask for a degree, a level of injury, or a felony. It asks whether the people involved were family or household members as Statute 741.28(3) defines them. The relationship is what places the record on the list.",
+          "The definition of conviction attached to that bar closes a route people expect to be open. Statute 943.0584(1) provides that as used in that section, conviction means a determination of guilt which is the result of a trial or the entry of a plea of guilty or nolo contendere, regardless of whether adjudication is withheld, or if the defendant was a minor, a finding that the defendant committed or pled guilty or nolo contendere to committing a delinquent act, regardless of whether adjudication of delinquency is withheld. So the withheld adjudication that Statute 741.281 expressly contemplates, in the words has adjudication withheld on, is still a conviction for the purposes of Statute 943.0584.",
+          "Paragraph (2)(h) of the same list names Felony battery, domestic battery by strangulation, or aggravated battery, as defined in ss. 784.03, 784.041, and 784.045, respectively. And the list does not end at its named offenses: paragraph (2)(hh) is written as a residual provision reaching any violation specified as a predicate offense for registration as a sexual predator under Statute 775.21, or as a sexual offender under Statute 943.0435, without regard to whether that offense alone is sufficient to require such registration.",
+          "Where a record is not placed on that list, the conditions in Statute 943.059(1) are cumulative, and Statute 943.059(2) requires a certificate of eligibility from the department before a petition is filed, valid for 12 months after the date stamped on it. The adult prong of Statute 943.059(1)(b) asks whether the person has ever, before the date the application for a certificate is filed, been adjudicated guilty in this state of a criminal offense, and the thirteen misdemeanors listed in that paragraph, of which battery as defined in Statute 784.03 is item 2., qualify the juvenile prong instead. Statute 943.059(4)(c) makes the unit of sealing one arrest or one incident of alleged criminal activity rather than one count.",
+          "What reaches employment here is the record rather than the label on the charging document. Three things this section does not decide. A specific professional licence is governed by the board that issues it. Immigration consequences are federal and belong with an immigration attorney. And whether a conviction affects firearm rights is set by law outside chapter 741, which this page does not state; that question goes to counsel on the specific record."
+        ]
+      },
+      {
+        id: "who",
+        heading: "The specialized prosecutors Statute 741.2901(1) requires, and where a Hillsborough domestic case sits",
+        kind: "prose",
+        answers: [
+          "who"
+        ],
+        prose: [
+          "Statute 741.2901(1) means the office on the other side of a domestic case is a specialized one. Each state attorney is required to develop special units or assign prosecutors to specialize in the prosecution of domestic violence cases, with the qualification written into the same sentence that such specialization need not be an exclusive area of duty assignment, and those prosecutors and their support staff are required to receive training in domestic violence issues. In Hillsborough County that office is the Office of the State Attorney for the Thirteenth Judicial Circuit, and Statute 741.2901(2) is the provision directing the state attorney in each circuit to adopt a pro-prosecution policy for acts of domestic violence as defined in Statute 741.28.",
+          "Which clerk division holds the file follows the grading of the underlying offense rather than the domestic designation. A battery graded a misdemeanor of the first degree under Statute 784.03(1)(b) and domestic battery by strangulation, graded a felony of the third degree by Statute 784.041(3), sit in different divisions, and the Hillsborough County Clerk lists county criminal alongside circuit criminal at its courthouse locations. Circuit criminal services are at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, Tampa, and criminal court services are at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
+          "Statute 741.2901(3) puts work in front of the first appearance that is separate from the charging document. The State Attorney's Office is directed to investigate the defendant's history and to present it at first appearance, when setting bond, and when passing sentence. A version of that history is in the room before a defense lawyer has said anything about it. If you are reading this before a first appearance, speaking with a defense lawyer is the step that does not wait for a court date."
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: "Can the alleged victim drop domestic violence charges in Hillsborough County?",
+        source: "keywords.md (seeded question in CHARGE_FAQ, grade 6-12mo; W2-04 Section 3, assistant question 1)",
+        answer: "The decision belongs to the State Attorney's office, and on a domestic charge a statute says so in terms. Statute 741.2901(2) records the intent of the Legislature that domestic violence be treated as a criminal act rather than a private matter, directs that the state attorney in each circuit shall adopt a pro-prosecution policy for acts of domestic violence, as defined in s. 741.28, and then provides that the filing, nonfiling, or diversion of criminal charges, and the prosecution of violations of injunctions for protection against domestic violence by the state attorney, shall be determined by these specialized prosecutors over the objection of the victim, if necessary. Statute 741.2901(1) is what creates those prosecutors, requiring each state attorney to develop special units or assign prosecutors to specialize in domestic violence cases and requiring those prosecutors and their support staff to receive training in domestic violence issues. In Hillsborough County the office is the Office of the State Attorney for the Thirteenth Judicial Circuit. The same point appears at the arrest stage in Statute 741.29(4): the decision to arrest and charge shall not require consent of the victim or consideration of the relationship of the parties. A statement from the person named in the report is therefore information the office receives rather than an instruction it follows. This answer states who decides. It does not state what any office will decide in any case."
+      },
+      {
+        question: "Who counts as a family or household member under Florida law?",
+        source: "brief (W2-04 Section 3, assistant question 3)",
+        answer: "Statute 741.28(3) supplies the definition, which by the section's opening words is used in ss. 741.28-741.31 and is imported elsewhere by provisions that say so. Family or household member means spouses, former spouses, persons related by blood or marriage, persons who are presently residing together as if a family or who have resided together in the past as if a family, and persons who are parents of a child in common regardless of whether they have been married. The subsection does not end at that sentence. It continues: With the exception of persons who have a child in common, the family or household members must be currently residing or have in the past resided together in the same single dwelling unit. So for the categories other than parents of a child in common, current or past shared residency in the same single dwelling unit is part of the definition rather than a gloss on it. A related but separate definition sits in the strangulation statute: Statute 784.041(2)(a) reaches a family or household member, which Statute 784.041(2)(b)1. imports from Statute 741.28, and separately a person with whom the actor is in a dating relationship, which Statute 784.041(2)(b)2. defines as a continuing and significant relationship of a romantic or intimate nature. Which definition applies is set by the words of the provision charged, and whether a particular living arrangement satisfies Statute 741.28(3) is a question about the facts of the case."
+      },
+      {
+        question: "Is domestic battery a felony in Florida?",
+        source: "brief (W2-04 Section 3, assistant question 4)",
+        answer: "The words domestic battery do not name a separate offense in Florida's battery statute. A battery is graded by Statute 784.03: under 784.03(1)(b), except as provided in subsection (2) or subsection (3), a person who commits battery commits a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083, and Statute 775.082(4)(a) sets a definite term of imprisonment not exceeding 1 year. Statute 741.28 does not change that degree; it defines domestic violence by the relationship between the people involved, and other provisions then key consequences to that definition, including the minimum county jail days in Statute 741.283, the probation and batterers' intervention program condition in Statute 741.281, and the permanent sealing bar in Statute 943.0584(2)(f). A distinct offense nearby is graded as a felony: Statute 784.041(2)(a) defines domestic battery by strangulation, and Statute 784.041(3) makes it a felony of the third degree, up to 5 years under Statute 775.082(3)(e), listed at level 6 on the Statute 921.0022 offense severity ranking chart. What grades a particular case is the provision named in the charging document. The routes by which a battery is charged as a felony are worked through at /criminal-defense/battery-defense."
+      }
+    ]
+  },
+  "federal/csam-defense": {
+    title: "Federal child pornography charges under 18 U.S.C. 2252 and 18 U.S.C. 2252A",
+    metaTitle: "18 U.S.C. 2252 and 2252A Charges in Tampa | Hines &amp; McCarty",
+    metaDescription: "18 U.S.C. 2252(b)(1) states 5 to 20 years for paragraphs (a)(1), (a)(2) and (a)(3). 2252(b)(2), which governs possession under (a)(4), states up to 10 years and no minimum term.",
+    lead: "Federal charges of this kind are brought under chapter 110 of title 18, most often 18 U.S.C. 2252 or 18 U.S.C. 2252A. Which paragraph of subsection (a) the charging document cites decides the term, because the penalty subsections are keyed to paragraph numbers rather than to any quantity of material.",
+    sections: [
+      {
+        id: "forum-and-court",
+        heading: "Chapter 110 of title 18, F.S. 827.071, and which courthouse the file sits in",
+        kind: "prose",
+        answers: [
+          "facing",
+          "who"
+        ],
+        prose: [
+          "A charge under 18 U.S.C. 2252 or 18 U.S.C. 2252A is a federal charge. It is brought by the United States and heard in a United States district court, and for a case arising in this area that court is the Middle District of Florida, Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue. The section titles are printed in the Code. Section 2252 is titled \"Certain activities relating to material involving the sexual exploitation of minors\" and section 2252A is titled \"Certain activities relating to material constituting or containing child pornography.\" Appearing in that court requires membership of its bar or special admission under its Local Rule 2.01. The federal silo hub carries the rest of the district material, including the counties in the Tampa Division, and this page links up to it rather than repeating it.",
+          "Florida's provision on this subject is F.S. 827.071, and F.S. 827.071(6) provides, in terms addressed to other laws of this state, that \"Prosecution of a person for an offense under this section does not preclude prosecution of that person in this state for a violation of any other law of this state, including a law providing for greater penalties than prescribed in this section or any other crime punishing the sexual performance or the sexual exploitation of children.\"",
+          "A Florida charge is prosecuted by the Office of the State Attorney and heard in circuit court, which in Hillsborough County is the Thirteenth Judicial Circuit. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071. A federal charge does not pass through either building.",
+          "No Florida degree and no Florida offense level attaches to a count under title 18. The severity ranking chart at F.S. 921.0022 ranks Florida offenses, and the Florida Criminal Punishment Code has nothing to say about a federal sentence. A federal defendant is sentenced under the United States Sentencing Guidelines, and the guideline that names these sections is described further down this page.",
+          "One published figure about this district is worth stating plainly, as data rather than as a claim about anyone. In its Quick Facts for fiscal year 2025, the United States Sentencing Commission lists the top six districts for individuals sentenced for child pornography offenses and puts the Middle District of Florida first at 70, followed by the Eastern District of Missouri at 61 and the Southern District of Florida at 54. That is a published count of one district's sentencings in one fiscal year. It says nothing about any particular case and it is not a claim about this firm."
+        ]
+      },
+      {
+        id: "two-sections",
+        heading: "18 U.S.C. 2252 and 18 U.S.C. 2252A are separate sections, and the numbering does not transfer",
+        kind: "bullets",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "Pages written about this subject routinely treat 2252 and 2252A as interchangeable names for the same law. They are separate sections of chapter 110 with separate text, separate paragraph numbering, and separate penalty subsections. A reader holding a charging document needs the section number and the paragraph number, in that order, and needs each claim attached to the section it came from."
+        ],
+        bullets: [
+          "Section 2252 is written in terms of a \"visual depiction\" where, in the words of 2252(a)(1), \"the producing of such visual depiction involves the use of a minor engaging in sexually explicit conduct.\"",
+          "Section 2252A is written in terms of \"child pornography\" as 18 U.S.C. 2256(8) defines that term. That definition reaches the depictions described in its subparagraph (A), and it also reaches those described in subparagraphs (B) and (C), which are quoted further down this page.",
+          "Possession, and knowing access with intent to view, sits at 2252(a)(4) under penalty subsection 2252(b)(2). In the other section it sits at 2252A(a)(5) under penalty subsection 2252A(b)(2). A paragraph number carried across from one section to the other lands on different text.",
+          "Section 2252A contains paragraphs that have no counterpart in section 2252, including the advertising and promotion limb at 2252A(a)(3)(B), the limb at 2252A(a)(6) reaching a person who \"knowingly distributes, offers, sends, or provides to a minor any visual depiction ... for purposes of inducing or persuading a minor to participate in any activity that is illegal,\" and the limb at 2252A(a)(7) reaching child pornography \"that is an adapted or modified depiction of an identifiable minor.\"",
+          "Section 2252A gives (a)(7) its own penalty subsection. 2252A(b)(3) provides that a person who violates, or attempts or conspires to violate, subsection (a)(7) \"shall be fined under this title or imprisoned not more than 15 years, or both.\" Section 2252 has no comparable third penalty subsection.",
+          "Section 2252A also carries the child exploitation enterprise provision at 2252A(g)(1): \"Whoever engages in a child exploitation enterprise shall be fined under this title and imprisoned for any term of years not less than 20 or for life.\" What counts as such an enterprise is defined at 2252A(g)(2).",
+          "Section 2252 carries an affirmative defense that is written to one paragraph. 2252(c) provides that it is an affirmative defense to a charge of violating paragraph (4) of subsection (a) that the defendant \"possessed less than three matters containing any visual depiction proscribed by that paragraph\" and then took the steps described in its subparagraphs (2)(A) or (2)(B). It is a statutory defense with conditions inside it, and whether those conditions are met in a given case is a question for counsel with the file.",
+          "Section 2252A carries an evidentiary provision with no counterpart in 2252. Under 2252A(e), on the government's motion and except for good cause shown, the name, address, social security number, or other nonphysical identifying information of a minor depicted \"shall not be admissible and may be redacted.\""
+        ]
+      },
+      {
+        id: "paragraph-map",
+        heading: "The paragraph cited on the charging document, and the term its penalty subsection states",
+        kind: "penalties",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "An indictment does not say \"2252.\" It says 2252(a)(2), or 2252(a)(4), or 2252A(a)(5). The rows below record paragraphs of 18 U.S.C. 2252(a) and 18 U.S.C. 2252A(a) against the penalty subsection that governs each, in the words those subsections use. Federal offenses carry no Florida degree, so the degree column reads \"no degree assigned\" throughout, and no F.S. 921.0022 offense level applies to any row here.",
+          "The wording in each row is the statute's own. Where a subsection states a floor and a ceiling, both are given. Where it states a ceiling and no floor, that is what the row says."
+        ],
+        penalties: [
+          {
+            degree: "no degree assigned",
+            maximum: "5 to 20 years, with a mandatory minimum term of 5 years",
+            note: "18 U.S.C. 2252(b)(1), reaching a person who \"violates, or attempts or conspires to violate, paragraph (1), (2), or (3) of subsection (a).\" Paragraph (a)(1) names transporting or shipping; (a)(2) names receiving or distributing, or reproducing for distribution; (a)(3) names selling or possessing with intent to sell. The subsection states no dollar or quantity element."
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "15 to 40 years, with a mandatory minimum term of 15 years",
+            note: "18 U.S.C. 2252(b)(1) where the person has a prior conviction of a kind that subsection lists, including a conviction under chapter 110, section 1591, chapter 71, chapter 109A or chapter 117, under the Uniform Code of Military Justice, or under the laws of any State of the kinds described there."
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "Up to 10 years. This subsection states no mandatory minimum term for this paragraph",
+            note: "18 U.S.C. 2252(b)(2), reaching a person who \"violates, or attempts or conspires to violate, paragraph (4) of subsection (a).\" Paragraph (a)(4) names knowing possession of, or knowing access with intent to view, \"1 or more books, magazines, periodicals, films, video tapes, or other matter\" containing a qualifying visual depiction."
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "Up to 20 years. This limb states no mandatory minimum term",
+            note: "18 U.S.C. 2252(b)(2), the limb reached where \"any visual depiction involved in the offense involved a prepubescent minor or a minor who had not attained 12 years of age.\""
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "10 to 20 years, with a mandatory minimum term of 10 years",
+            note: "18 U.S.C. 2252(b)(2) where the person has a prior conviction of a kind that subsection lists. That list is not written the same way as the (b)(1) list: it does not carry section 1591 or sex trafficking of children."
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "5 to 20 years, with a mandatory minimum term of 5 years",
+            note: "18 U.S.C. 2252A(b)(1), reaching a person who \"violates, or attempts or conspires to violate, paragraph (1), (2), (3), (4), or (6) of subsection (a).\" Note that this penalty subsection reaches paragraph (6), which section 2252 does not have."
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "15 to 40 years, with a mandatory minimum term of 15 years",
+            note: "18 U.S.C. 2252A(b)(1) where the person has a prior conviction of a kind that subsection lists, including a conviction under chapter 110, section 1591, chapter 71, chapter 109A or chapter 117, under the Uniform Code of Military Justice, or under state law of the kinds described there."
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "Up to 10 years. This subsection states no mandatory minimum term for this paragraph",
+            note: "18 U.S.C. 2252A(b)(2), reaching a person who \"violates, or attempts or conspires to violate, subsection (a)(5),\" which names knowing possession of, or knowing access with intent to view, material containing an image of child pornography."
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "Up to 20 years. This limb states no mandatory minimum term",
+            note: "18 U.S.C. 2252A(b)(2), the limb reached where \"any image of child pornography involved in the offense involved a prepubescent minor or a minor who had not attained 12 years of age.\""
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "10 to 20 years, with a mandatory minimum term of 10 years",
+            note: "18 U.S.C. 2252A(b)(2) where the person has a prior conviction of a kind that subsection lists. As in section 2252, this list omits section 1591 and sex trafficking of children, which appear in the (b)(1) list."
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "Up to 15 years. This subsection states no mandatory minimum term",
+            note: "18 U.S.C. 2252A(b)(3), reaching a person who \"violates, or attempts or conspires to violate, subsection (a)(7),\" the adapted or modified depiction of an identifiable minor."
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "Not less than 20 years, or for life",
+            note: "18 U.S.C. 2252A(g)(1), for engaging in a child exploitation enterprise as 2252A(g)(2) defines it. The statute states no ceiling short of life."
+          },
+          {
+            degree: "no degree assigned",
+            maximum: "15 to 30 years for an individual with no qualifying prior conviction",
+            note: "18 U.S.C. 2251(e), the penalty subsection for the production offenses in 18 U.S.C. 2251. It is named here because a charging document can cite it alongside a 2252 or 2252A count. Subsection (e) also carries higher tiers keyed to qualifying prior convictions and a separate provision where conduct results in death. Section 2251 is a different section with different elements and this page does not develop it."
+          }
+        ]
+      },
+      {
+        id: "which-paragraph",
+        heading: "Which paragraph of 18 U.S.C. 2252(a) you are charged under",
+        kind: "prose",
+        answers: [
+          "facing",
+          "next"
+        ],
+        prose: [
+          "The paragraph number does more than name conduct. In section 2252 it selects the penalty subsection, it decides whether the pretrial detention presumption at 18 U.S.C. 3142(e)(3)(E) reaches the charge, and it selects the base offense level under USSG 2G2.2(a). Those are separate provisions, enacted at different times and by different bodies, and in section 2252 the line each of them draws falls in the same place: between paragraph (3) and paragraph (4) of subsection (a).",
+          "Start with the penalty subsections. 2252(b)(1) applies to a person who \"violates, or attempts or conspires to violate, paragraph (1), (2), or (3) of subsection (a)\" and states \"imprisoned not less than 5 years and not more than 20 years.\" 2252(b)(2) applies to a person who \"violates, or attempts or conspires to violate, paragraph (4) of subsection (a)\" and states \"fined under this title or imprisoned not more than 10 years, or both.\" Read to the end of each subsection, because each continues: (b)(1) raises the range to not less than 15 nor more than 40 years on a qualifying prior conviction of the kinds it lists, and (b)(2) raises the ceiling to 20 years where any visual depiction involved a prepubescent minor or a minor who had not attained 12 years of age, and states 10 to 20 years on a qualifying prior.",
+          "Now the detention provision. 18 U.S.C. 3142(e)(3) opens with the words \"Subject to rebuttal by the person, it shall be presumed that no condition or combination of conditions will reasonably assure the appearance of the person as required and the safety of the community if the judicial officer finds that there is probable cause to believe that the person committed,\" and its subparagraph (E) reads: \"an offense involving a minor victim under section 1201, 1591, 2241, 2242, 2244(a)(1), 2245, 2251, 2251A, 2252(a)(1), 2252(a)(2), 2252(a)(3), 2252A(a)(1), 2252A(a)(2), 2252A(a)(3), 2252A(a)(4), 2260, 2421, 2422, 2423, or 2425 of this title.\" The paragraphs of section 2252 that appear in that list are 2252(a)(1), 2252(a)(2) and 2252(a)(3). The list does not name 2252(a)(4).",
+          "And the guideline. USSG 2G2.2(a) states the base offense level as \"(1) 18, if the defendant is convicted of 18 U.S.C. 1466A(b), 2252(a)(4), 2252A(a)(5), or 2252A(a)(7). (2) 22, otherwise.\"",
+          "So in section 2252 a person charged under (a)(1), (a)(2) or (a)(3) is reading a subsection that states a five year floor, a paragraph that appears in the presumption list, and a base offense level of 22. A person charged under (a)(4) is reading a subsection that states a ten year ceiling and no minimum term, a paragraph absent from that list, and a base offense level of 18. Receipt is in (a)(2). Possession, and knowing access with intent to view, is in (a)(4). That distinction is the one competitor pages most often collapse, and collapsing it tells a person facing a possession count that a mandatory minimum term applies to it when 2252(b)(2) states none.",
+          "Section 2252A is not laid out the same way, and a reader charged under 2252A should not assume the section 2252 pattern transfers. 2252A(b)(1) reaches paragraphs (1), (2), (3), (4) and also (6) of 2252A(a), while the 3142(e)(3)(E) list names 2252A(a)(1) through 2252A(a)(4) without naming 2252A(a)(6). And 2252A(a)(7) has its own penalty subsection at 2252A(b)(3), stating up to 15 years, is absent from the presumption list, and takes base offense level 18 under 2G2.2(a)(1). The alignment that holds across section 2252 is looser here, and the difference is recorded rather than smoothed over.",
+          "One published figure corroborates that this structure is real rather than theoretical. In its Quick Facts for fiscal year 2025, covering individuals sentenced under USSG 2G2.2, the United States Sentencing Commission reports the length of mandatory minimum penalties as \"None (33%); Five Years (47%); Ten Years (12%); 15 Years (8%).\" A third of that population faced no mandatory minimum term, which is what penalty subsections written to particular paragraphs produce. The Commission's own footnote records that the population excludes individuals convicted of production of child pornography under USSG 2G2.1. This page states no average sentence figure, in any section and in any framing.",
+          "What all of that means for a particular person is read off the charging document, with a lawyer holding it. Nothing here predicts an outcome and nothing here is advice about a specific file."
+        ]
+      },
+      {
+        id: "definitions",
+        heading: "How 18 U.S.C. 2256 defines minor, visual depiction, and child pornography",
+        kind: "statute",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "These definitions apply throughout chapter 110, and they do real work in a charging document. 2256(5) reaches data capable of conversion into a visual image, whether or not stored in a permanent format. 2256(8) is the definition section 2252A is written around. 2256(9)(B) provides that the identifiable minor definition \"shall not be construed to require proof of the actual identity of the identifiable minor.\" And 2256(11) closes with a sentence that has to be read to the end, because it excludes drawings, cartoons, sculptures and paintings from the definition of \"indistinguishable.\"",
+          "The definition of \"sexually explicit conduct\" is at 18 U.S.C. 2256(2). This page cites it and does not reproduce it. That is a deliberate choice about what belongs on a page a family member may be reading, not a gap in the record. The Code is public and the citation is here."
+        ],
+        statute: {
+          citation: "18 U.S.C. 2256(1), (5), (8), (9) and (11)",
+          body: "(1) \"minor\" means any person under the age of eighteen years. (5) \"visual depiction\" includes undeveloped film and videotape, data stored on computer disk or by electronic means which is capable of conversion into a visual image, and data which is capable of conversion into a visual image that has been transmitted by any means, whether or not stored in a permanent format. (8) \"child pornography\" means any visual depiction, including any photograph, film, video, picture, or computer or computer-generated image or picture, whether made or produced by electronic, mechanical, or other means, of sexually explicit conduct, where- (A) the production of such visual depiction involves the use of a minor engaging in sexually explicit conduct; (B) such visual depiction is a digital image, computer image, or computer-generated image that is, or is indistinguishable from, that of a minor engaging in sexually explicit conduct; or (C) such visual depiction has been created, adapted, or modified to appear that an identifiable minor is engaging in sexually explicit conduct. (9)(A) \"identifiable minor\"- (A) means a person- (i)(I) who was a minor at the time the visual depiction was created, adapted, or modified; or (II) whose image as a minor was used in creating, adapting, or modifying the visual depiction; and (ii) who is recognizable as an actual person by the person's face, likeness, or other distinguishing characteristic, such as a unique birthmark or other recognizable feature. (9)(B) shall not be construed to require proof of the actual identity of the identifiable minor. (11) the term \"indistinguishable\" used with respect to a depiction, means virtually indistinguishable, in that the depiction is such that an ordinary person viewing the depiction would conclude that the depiction is of an actual minor engaged in sexually explicit conduct. This definition does not apply to depictions that are drawings, cartoons, sculptures, or paintings depicting minors or adults."
+        }
+      },
+      {
+        id: "report-to-facility",
+        heading: "From a CyberTipline report under 18 U.S.C. 2258A to a Government facility under 18 U.S.C. 3509(m)",
+        kind: "prose",
+        answers: [
+          "next"
+        ],
+        prose: [
+          "The first question a family asks is how the government found out, and part of the answer is a statute. 18 U.S.C. 2258A(a)(1)(A)(i) provides that a provider \"shall, as soon as reasonably possible after obtaining actual knowledge of any facts or circumstances described in paragraph (2)(A), take the actions described in subparagraph (B),\" and 2258A(a)(1)(B)(ii) describes those actions as \"making a report of such facts or circumstances to the CyberTipline, or any successor to the CyberTipline operated by NCMEC.\" The facts or circumstances at 2258A(a)(2)(A) are \"any facts or circumstances from which there is an apparent violation of section 2251, 2251A, 2252, 2252A, 2252B, or 2260 that involves child pornography.\"",
+          "The other half of that section ships with it, because reading the reporting duty without it misleads. 2258A(f) provides: \"Nothing in this section shall be construed to require a provider to- (1) monitor any user, subscriber, or customer of that provider; (2) monitor the content of any communication of any person described in paragraph (1); or (3) affirmatively search, screen, or scan for facts or circumstances described in sections (a) and (b).\" The section imposes a duty to report on actual knowledge. It does not, by its own words, impose a duty to look.",
+          "2258A(h)(1) adds that \"a completed submission by a provider of a report to the CyberTipline under subsection (a)(1) shall be treated as a request to preserve the contents provided in the report for 1 year after the submission to the CyberTipline.\" That is a statutory preservation period attached to the report itself.",
+          "The statute then hands the reader to the discovery provision by name. 2258A(g)(2)(A)(v) permits a law enforcement agency to disclose information in a report \"to a defendant in a criminal case or the attorney for that defendant, subject to the terms and limitations under section 3509(m) or a similar State law, to the extent the information relates to a criminal charge pending against that defendant.\" The cross-reference is in the text, which is why these provisions are one explanation rather than two facts.",
+          "18 U.S.C. 3509(m)(1) provides that \"In any criminal proceeding, any property or material that constitutes child pornography (as defined by section 2256 of this title) shall remain in the care, custody, and control of either the Government or the court.\" 3509(m)(2)(A) provides that \"Notwithstanding Rule 16 of the Federal Rules of Criminal Procedure, a court shall deny, in any criminal proceeding, any request by the defendant to copy, photograph, duplicate, or otherwise reproduce any property or material that constitutes child pornography ..., so long as the Government makes the property or material reasonably available to the defendant.\" And 3509(m)(2)(B) defines that standard: material is deemed reasonably available \"if the Government provides ample opportunity for inspection, viewing, and examination at a Government facility of the property or material by the defendant, his or her attorney, and any individual the defendant may seek to qualify to furnish expert testimony at trial.\"",
+          "So a defense lawyer in one of these cases does not take a copy of anything back to an office, and neither does a retained expert. Examination happens at a Government facility, and the statute names the defendant, the attorney, and a person the defendant may seek to qualify to furnish expert testimony at trial. Lawyers who have not handled a chapter 110 case are regularly surprised by this, which is why it sits high on this page rather than in a footnote.",
+          "This page states the standard 3509(m)(2)(B) supplies and states no local protocol, no district practice, and no logistics for any particular facility, because none of that has been verified for this district. It also does not name an investigating agency or a task force. Which agency received a report and which assembled a file is answered by the documents in that file, not by a general rule."
+        ]
+      },
+      {
+        id: "detention",
+        heading: "Detention under 18 U.S.C. 3142, and the words the statute uses about rebuttal",
+        kind: "prose",
+        answers: [
+          "next"
+        ],
+        prose: [
+          "Whether a person is released or held before trial is decided by a judicial officer at a hearing, under 18 U.S.C. 3142. This section is stated at length rather than compressed, because a short answer to \"is detention automatic\" reads as a prediction whichever way it is phrased, and no prediction is available here.",
+          "Three things are on the face of the statute. First, the presumption in 3142(e)(3) is expressly rebuttable: the subsection opens \"Subject to rebuttal by the person,\" and it operates where \"the judicial officer finds that there is probable cause to believe that the person committed\" one of the offenses it then lists. Second, whether it reaches a chapter 110 charge at all depends on the paragraph charged, because 3142(e)(3)(E) names particular paragraphs, including 2252(a)(1), 2252(a)(2), 2252(a)(3), 2252A(a)(1), 2252A(a)(2), 2252A(a)(3) and 2252A(a)(4), and does not name 2252(a)(4) or 2252A(a)(5). Third, the decision belongs to the judicial officer at a hearing under 3142(f), not to the prosecutor and not to anyone writing a web page.",
+          "The hearing has its own timing rule inside 3142(f): \"The hearing shall be held immediately upon the person's first appearance before the judicial officer unless that person, or the attorney for the Government, seeks a continuance. Except for good cause, a continuance on motion of such person may not exceed five days (not including any intermediate Saturday, Sunday, or legal holiday), and a continuance on motion of the attorney for the Government may not exceed three days (not including any intermediate Saturday, Sunday, or legal holiday). During a continuance, such person shall be detained.\"",
+          "The same subsection sets out what happens at the hearing. The person \"has the right to be represented by counsel, and, if financially unable to obtain adequate representation, to have counsel appointed.\" The person \"shall be afforded an opportunity to testify, to present witnesses, to cross-examine witnesses who appear at the hearing, and to present information by proffer or otherwise.\" The rules of evidence that apply at a criminal trial \"do not apply to the presentation and consideration of information at the hearing.\" Facts supporting a finding under subsection (e) that no condition will reasonably assure the safety of any other person and the community \"shall be supported by clear and convincing evidence.\" And the hearing \"may be reopened, before or after a determination by the judicial officer, at any time before trial\" where the judicial officer finds that information exists that was not known to the movant at the time of the hearing and has a material bearing on the release question.",
+          "That is what the statute says. How any particular hearing goes is not something this page will characterize."
+        ]
+      },
+      {
+        id: "federal-clock",
+        heading: "The intervals that start running at an arrest, a summons, or an indictment",
+        kind: "timeline",
+        answers: [
+          "next"
+        ],
+        steps: [
+          {
+            when: "At the first appearance before a judicial officer",
+            what: "18 U.S.C. 3142(f) provides that the detention hearing \"shall be held immediately upon the person's first appearance before the judicial officer unless that person, or the attorney for the Government, seeks a continuance.\" On counsel, 18 U.S.C. 3006A(a)(1) provides that representation shall be provided for any financially eligible person who \"(A) is charged with a felony or a Class A misdemeanor,\" and the paragraph continues with further categories. 3142(f) separately states that at the hearing the person has the right to be represented by counsel and, if financially unable to obtain adequate representation, to have counsel appointed."
+          },
+          {
+            when: "Up to 5 days on the person's motion, or up to 3 days on the Government's, not counting an intermediate Saturday, Sunday, or legal holiday",
+            what: "Those are the continuance limits in 18 U.S.C. 3142(f), and they open with the words \"Except for good cause.\" The same passage adds that \"During a continuance, such person shall be detained.\" So a continuance sought at a first appearance is a decision with a custody consequence attached to it, and it belongs with counsel."
+          },
+          {
+            when: "Within 30 days from the date of arrest or service of a summons, and longer in the circumstance the statute's second sentence names",
+            what: "18 U.S.C. 3161(b) has two sentences and they are read together: \"Any information or indictment charging an individual with the commission of an offense shall be filed within thirty days from the date on which such individual was arrested or served with a summons in connection with such charges. If an individual has been charged with a felony in a district in which no grand jury has been in session during such thirty-day period, the period of time for filing of the indictment shall be extended an additional thirty days.\" Quoting the first sentence without the second overstates how firm the interval is."
+          },
+          {
+            when: "Within 70 days, measured from the later of the filing of the indictment and the defendant's appearance before a judicial officer of the charging court",
+            what: "18 U.S.C. 3161(c)(1) opens with a condition, \"In any case in which a plea of not guilty is entered,\" and then provides that trial \"shall commence within seventy days from the filing date (and making public) of the information or indictment, or from the date the defendant has appeared before a judicial officer of the court in which such charge is pending, whichever date last occurs.\" Its second sentence adds that where a defendant consents in writing to be tried before a magistrate judge on a complaint, trial shall commence within seventy days from the date of that consent. Periods of delay that are excluded from these computations are addressed elsewhere in section 3161, and this page states the intervals rather than the exclusions."
+          },
+          {
+            when: "At sentencing, which follows a plea or a trial",
+            what: "The guideline computation described in the next section is made in the sentencing process. USSG 2G2.2 supplies a base offense level keyed to the section and paragraph of conviction, then a set of specific offense characteristics. What a computation comes to in a particular case is decided in that case. This page computes nothing and states no range for anyone."
+          }
+        ]
+      },
+      {
+        id: "guideline",
+        heading: "USSG 2G2.2 counts images, and it counts a video as 75 of them",
+        kind: "bullets",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "A reader who has worked through the statute often notices that the penalty subsections state their terms without reference to any number of images. 2252(b)(1) and 2252(b)(2) state ranges keyed to paragraph numbers. The quantity language in section 2252 sits in the element itself at 2252(a)(4), which speaks of \"1 or more books, magazines, periodicals, films, video tapes, or other matter.\" The counting happens at the guideline stage instead, and that is where an image total starts moving a number.",
+          "What follows describes what USSG 2G2.2 computes, from the Guidelines Manual dated November 1, 2025. It computes nothing here for anyone, and it produces no estimate, range, or forecast of any kind."
+        ],
+        bullets: [
+          "Base offense level, 2G2.2(a): \"(1) 18, if the defendant is convicted of 18 U.S.C. 1466A(b), 2252(a)(4), 2252A(a)(5), or 2252A(a)(7). (2) 22, otherwise.\"",
+          "2G2.2(b)(1) is a decrease. Where \"(A) subsection (a)(2) applies; (B) the defendant's conduct was limited to the receipt or solicitation of material involving the sexual exploitation of a minor; and (C) the defendant did not intend to traffic in, or distribute, such material,\" the guideline says to decrease by 2 levels. Application Note 1 defines distribution and states that it \"does not include the mere solicitation of such material by a defendant.\"",
+          "2G2.2(b)(2): increase by 2 levels \"If the material involved a prepubescent minor or a minor who had not attained the age of 12 years.\"",
+          "2G2.2(b)(3)(A) increases the level by the number of levels from the table in USSG 2B1.1 corresponding to the retail value of the material. This page states that the cross-reference exists and states no figure from that table, because the table has not been fetched and quoted for use here.",
+          "2G2.2(b)(4): increase by 4 levels where the offense involved material portraying \"(A) sadistic or masochistic conduct or other depictions of violence; or (B) sexual abuse or exploitation of an infant or toddler.\"",
+          "2G2.2(b)(5): increase by 5 levels \"If the defendant engaged in a pattern of activity involving the sexual abuse or exploitation of a minor.\"",
+          "2G2.2(b)(6): increase by 2 levels \"If the offense involved the use of a computer or an interactive computer service for the possession, transmission, receipt, or distribution of the material, or for accessing with intent to view the material.\"",
+          "2G2.2(b)(7) is the image count: \"(A) at least 10 images, but fewer than 150, increase by 2 levels; (B) at least 150 images, but fewer than 300, increase by 3 levels; (C) at least 300 images, but fewer than 600, increase by 4 levels; and (D) 600 or more images, increase by 5 levels.\"",
+          "Application Note 6(B) supplies the counting rule, and it is the sentence most readers have never seen: \"(i) Each photograph, picture, computer or computer-generated image, or any similar visual depiction shall be considered to be one image. ... (ii) Each video, video-clip, movie, or similar visual depiction shall be considered to have 75 images. If the length of the visual depiction is substantially more than 5 minutes, an upward departure may be warranted.\"",
+          "The commentary's statutory provisions line names \"18 U.S.C. 1466A, 2252, 2252A(a)-(b), 2260(b),\" which is how the guideline attaches to the sections on this page. Which specific offense characteristics are contested in a given case is worked out in that case, with counsel."
+        ]
+      },
+      {
+        id: "after-sentence",
+        heading: "Supervised release under 18 U.S.C. 3583(k), and the registration questions that survive a federal judgment",
+        kind: "prose",
+        answers: [
+          "consequences",
+          "sealing"
+        ],
+        prose: [
+          "Supervised release is one place where the paragraph-by-paragraph pattern in section 2252 does not apply. 18 U.S.C. 3583(k) opens by providing that, notwithstanding subsection (b), the authorized term of supervised release for an offense under the sections it lists, which include 2252 and 2252A, is \"any term of years not less than 5, or life.\" There is no paragraph split in that sentence and no receipt-against-possession line in it. The subsection then continues with a separate provision about revocation of supervised release, which this page does not develop. For contrast, 3583(b) authorizes not more than five years for a Class A or B felony, not more than three years for a Class C or D felony, and not more than one year for a Class E felony or a misdemeanor other than a petty offense.",
+          "On federal registration, the periods are in the statute and the tier is not decided here. 34 U.S.C. 20915(a) provides that a sex offender \"shall keep the registration current for the full registration period (excluding any time the sex offender is in custody or civilly committed) unless the offender is allowed a reduction under subsection (b),\" and states the full registration period as \"(1) 15 years, if the offender is a tier I sex offender; (2) 25 years, if the offender is a tier II sex offender; and (3) the life of the offender, if the offender is a tier III sex offender.\" 34 U.S.C. 20915(b) provides a reduction for maintaining a clean record, which for a tier I sex offender is a 10 year clean-record period and a reduction of 5 years, on the conditions its subparagraphs (A) through (D) list.",
+          "This page assigns no tier to any offense. The tier definitions at 34 U.S.C. 20911 draw their line in a different place from the mandatory minimum line: 20911(3)(B)(iii) places within tier II an offense that involves \"production or distribution of child pornography,\" which is not the same wording as the paragraph split in 2252(b). Applying a tier to a particular conviction is a legal conclusion rather than a quotation, and it is determined in the case, with counsel.",
+          "Florida registration is a separate question governed by Florida law, and a federal judgment does not automatically end it. F.S. 943.0435(1)(h)1.a.(I) defines \"sexual offender\" by reference to a person who \"Has been convicted of committing, or attempting, soliciting, or conspiring to commit, any of the criminal offenses proscribed in the following statutes in this state or similar offenses in another jurisdiction,\" and the list it then gives names s. 827.071 among others. The same paragraph provides that \"Conviction of a similar offense includes, but is not limited to, a conviction by a federal or military tribunal, including courts-martial conducted by the Armed Forces of the United States, and includes a conviction or entry of a plea of guilty or nolo contendere in any state of the United States or other jurisdiction.\" Sub-sub-subparagraph (II) adds a further condition, that the person \"Has been released on or after October 1, 1997, from a sanction imposed for any conviction of an offense described in sub-sub-subparagraph (I) and does not otherwise meet the criteria for registration as a sexual offender under chapter 944 or chapter 985.\" Whether a given federal conviction sits inside that definition is decided in the case and is not decided on this page.",
+          "Where the definition does reach a person, the obligations are concrete and they run on short clocks. F.S. 943.0435(2)(a) requires reporting in person at the sheriff's office in the county where the person establishes or maintains a residence within 48 hours after establishing permanent, temporary, or transient residence in this state, or within 48 hours after release from the custody, control, or supervision of the Department of Corrections. F.S. 943.0435(9)(a) makes a failure to register, or a failure to comply by act or omission with the requirements of that section, a felony of the third degree, and provides that \"Each instance of a failure to register or report changes to the required information specified in this paragraph constitutes a separate offense.\" F.S. 943.0435(5) carves out a person who is also a sexual predator as defined in F.S. 775.21: that section \"does not apply\" to such a person, who \"must register as required under s. 775.21\" instead, with that section's own catch-all offense at F.S. 775.21(10)(a), also a felony of the third degree.",
+          "On sealing, the answer is short. Florida's court-ordered sealing route runs through F.S. 943.059, which requires a certificate of eligibility issued by the Florida Department of Law Enforcement under F.S. 943.059(2) before a petition is filed, and whose eligibility conditions in F.S. 943.059(1) are written about a Florida criminal history record and about a person who has never been \"adjudicated guilty in this state\" of a criminal offense. Those statutes do not reach a judgment entered in a United States district court. What a federal record does or does not permit is a question to put to counsel in the federal case.",
+          "The rest of the record consequences follow the same rule this page applies throughout. What a particular licensing board does is governed by that board's own rules rather than by anything in chapter 110. Immigration consequences turn on federal immigration law and belong with an immigration attorney. Neither is settled here."
+        ]
+      },
+      {
+        id: "rights-now",
+        heading: "Rights and decisions while a chapter 110 investigation or case is open",
+        kind: "guidance",
+        answers: [
+          "now",
+          "who"
+        ],
+        guidance: [
+          {
+            heading: "Rights that exist before any charge is filed",
+            items: [
+              "You are not required to answer questions, and asking for a lawyer is a request rather than an accusation of anything. That right exists whether or not anything has been filed.",
+              "Appointment of counsel is addressed by statute. 18 U.S.C. 3006A(a)(1) provides that representation shall be provided for any financially eligible person who \"(A) is charged with a felony or a Class A misdemeanor,\" and the paragraph continues with further categories. At a detention hearing, 18 U.S.C. 3142(f) states that the person has the right to be represented by counsel and, if financially unable to obtain adequate representation, to have counsel appointed.",
+              "Consent to a search of a phone, a computer, an account, or a home is a legal decision with consequences that outlast the moment. It is a decision to make with counsel rather than at a doorway.",
+              "A lawyer can be retained while a review is still running and before any court date exists. Where nothing has been filed there is no hearing at which appointment can be raised, which is why the pre-charge stage is the one people most often face with nobody on their side of the table."
+            ]
+          },
+          {
+            heading: "What is specific to a file assembled under chapter 110",
+            items: [
+              "The charging document names a section and a paragraph. Read them and bring them to counsel, because the paragraph selects the penalty subsection under 2252(b) or 2252A(b), decides whether 18 U.S.C. 3142(e)(3)(E) reaches the charge, and selects the base offense level under USSG 2G2.2(a).",
+              "The material stays where 18 U.S.C. 3509(m)(1) puts it, in the care, custody, and control of the Government or the court. A lawyer cannot take a copy away, and 3509(m)(2)(B) contemplates inspection, viewing, and examination at a Government facility by the defendant, the attorney, and any individual the defendant may seek to qualify to furnish expert testimony at trial. Retaining an expert therefore has a statutory route attached to it, and that is a conversation to have early.",
+              "What to do with devices, accounts, and stored data is a legal question rather than a housekeeping one. Moving, deleting, resetting, or tidying anything is a decision to put to counsel before it is made, not afterward.",
+              "Records held by a provider may exist for a defined period. 18 U.S.C. 2258A(h)(1) treats a completed CyberTipline submission as a request to preserve the contents provided in the report for 1 year after that submission. What to request, and when, belongs with counsel who can act inside that period.",
+              "Contact with anyone the government may treat as a witness is a subject for counsel before it happens, not a subject for improvisation.",
+              "If a Florida registration obligation already applies to you, F.S. 943.0435(2)(a) runs on a 48 hour clock and F.S. 943.0435(9)(a) makes each instance of a failure a separate offense. That obligation is live now rather than later, and it is separate from anything happening in the federal case.",
+              "Nothing in this list is advice about a particular file, and nothing here says how any case will end."
+            ]
+          }
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: "What is the difference between receipt and possession in a federal child pornography case?",
+        answer: "In 18 U.S.C. 2252 the difference is which paragraph of subsection (a) is charged, and it changes the term the statute states. Receiving is in 2252(a)(2), and 2252(b)(1) provides that a person who \"violates, or attempts or conspires to violate, paragraph (1), (2), or (3) of subsection (a)\" shall be fined \"and imprisoned not less than 5 years and not more than 20 years.\" Possessing, or knowingly accessing with intent to view, is in 2252(a)(4), and 2252(b)(2) provides that a person who \"violates, or attempts or conspires to violate, paragraph (4) of subsection (a)\" shall be \"fined under this title or imprisoned not more than 10 years, or both,\" so that subsection states no mandatory minimum term for that paragraph. Each penalty subsection continues past those words: under 2252(b)(1) a qualifying prior conviction of the kinds it lists raises the range to not less than 15 nor more than 40 years, and under 2252(b)(2) the ceiling rises to 20 years where any visual depiction involved a prepubescent minor or a minor who had not attained 12 years of age, with a qualifying prior producing 10 to 20 years. Section 2252A is numbered differently, with possession and access with intent to view at 2252A(a)(5) under 2252A(b)(2). Which paragraph is charged is read off the charging document, and what it means for a particular person is a question for a lawyer holding that document.",
+        source: "PAA, informational query SERP recorded in brief W4-04-csam Section 3, question 5"
+      },
+      {
+        question: "What is the difference between 18 U.S.C. 2252 and 18 U.S.C. 2252A?",
+        answer: "They are separate sections of chapter 110 of title 18, with separate text, separate paragraph numbering, and separate penalty subsections. Section 2252, titled \"Certain activities relating to material involving the sexual exploitation of minors,\" is written in terms of a \"visual depiction\" where the producing of it \"involves the use of a minor engaging in sexually explicit conduct.\" Section 2252A, titled \"Certain activities relating to material constituting or containing child pornography,\" is written in terms of \"child pornography\" as 18 U.S.C. 2256(8) defines it, a definition that reaches depictions described in its subparagraph (A) and also those described in subparagraphs (B) and (C). The numbering does not carry across: possession, or knowing access with intent to view, is 2252(a)(4) under penalty subsection 2252(b)(2), and 2252A(a)(5) under 2252A(b)(2). Section 2252A also contains paragraphs with no counterpart in section 2252, including the advertising and promotion limb at 2252A(a)(3)(B), the limb at 2252A(a)(6), the adapted or modified depiction limb at 2252A(a)(7) with its own penalty subsection at 2252A(b)(3) stating a fine or imprisonment of not more than 15 years, or both, and the child exploitation enterprise provision at 2252A(g)(1), which states imprisonment \"for any term of years not less than 20 or for life.\"",
+        source: "brief W4-04-csam Section 4, assistant question 2"
+      },
+      {
+        question: "Why can't my lawyer get a copy of the evidence to look at?",
+        answer: "Because 18 U.S.C. 3509(m) says so in terms. Subsection (m)(1) provides that in any criminal proceeding, any property or material that constitutes child pornography as defined by section 2256 \"shall remain in the care, custody, and control of either the Government or the court,\" and subsection (m)(2)(A) provides that \"Notwithstanding Rule 16 of the Federal Rules of Criminal Procedure, a court shall deny, in any criminal proceeding, any request by the defendant to copy, photograph, duplicate, or otherwise reproduce\" such material, so long as the Government makes it reasonably available to the defendant. Subsection (m)(2)(B) then defines that standard: the material is deemed reasonably available \"if the Government provides ample opportunity for inspection, viewing, and examination at a Government facility of the property or material by the defendant, his or her attorney, and any individual the defendant may seek to qualify to furnish expert testimony at trial.\" So examination happens at a Government facility rather than in a lawyer's office, and the statute names the defendant, the attorney, and a person the defendant may seek to qualify as an expert. This answer states the statutory standard and no local practice; what arrangements a particular case takes are worked out in that case.",
+        source: "brief W4-04-csam Section 4, assistant question 6"
+      },
+      {
+        question: "How long does sex offender registration last after a federal conviction?",
+        answer: "Under the federal registration statute the period depends on the tier assigned, and 34 U.S.C. 20915(a) states the full registration period as 15 years for a tier I sex offender, 25 years for a tier II sex offender, and the life of the offender for a tier III sex offender. That same subsection provides that a sex offender \"shall keep the registration current for the full registration period (excluding any time the sex offender is in custody or civilly committed) unless the offender is allowed a reduction under subsection (b),\" and 34 U.S.C. 20915(b) supplies a clean-record reduction, which for a tier I sex offender is a 10 year clean-record period and a reduction of 5 years, on the conditions it lists. Which tier applies to a particular conviction is a legal determination made in the case rather than on a web page, and this page assigns none. Florida registration is a separate question under Florida law: F.S. 943.0435(1)(h)1.a.(I) defines \"sexual offender\" by reference to convictions for offenses proscribed in the Florida statutes it lists, which include s. 827.071, \"or similar offenses in another jurisdiction,\" and the same paragraph states that \"Conviction of a similar offense includes, but is not limited to, a conviction by a federal or military tribunal, including courts-martial conducted by the Armed Forces of the United States.\" Whether a given federal conviction falls inside that definition is decided in the case, with counsel.",
+        source: "brief W4-04-csam Section 4, assistant question 8"
+      }
+    ],
+    counterpart: {
+      href: "/criminal-defense/sex-crimes-defense",
+      label: "Florida sex offense charges, including F.S. 827.071",
+      note: "This page covers the federal charge. Where the charging document cites a Florida section number rather than a section of the United States Code, the Florida offense that covers this subject matter is F.S. 827.071, and the companion page covers it along with the other Florida offenses in that group. The two are separate prosecutions under separate statutes, and one does not decide the other."
+    }
+  },
+  "state/computer-crimes-defense": {
+    title: "Unauthorized computer access charges under Florida Statute 815.06",
+    metaTitle: "Unauthorized Computer Access, Florida Statute 815.06 | Hines & McCarty",
+    metaDescription: "Florida Statute 815.06 grades unauthorized computer access by the kind of harm, not by an amount. Third degree on the access, second at $5,000 damage or a fraud purpose, first on danger to human life.",
+    lead: "Florida charges unauthorized computer access under Statute 815.06. Under paragraph (2)(a) the offense is complete on the access itself. Nothing has to be taken, damaged, or worth a particular amount. What lifts it above a third degree felony is the kind of harm alleged.",
+    sections: [
+      {
+        id: "forum",
+        heading: "Which section of chapter 815 is cited, and whether a federal statute is cited instead",
+        kind: "prose",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "The citation on the paperwork answers the first question. A Florida charge cites a section number in the Florida Statutes, is filed by a state prosecutor, and is heard in circuit court, which for Hillsborough County is the Thirteenth Judicial Circuit. A federal charge cites a section of the United States Code, is filed by a United States Attorney, and is heard in a United States District Court, which for this county is the Middle District of Florida, Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue, Tampa. The companion page linked from this section covers the federal computer statute. Nothing later on this page rests on it.",
+          "The honest summary of the relationship is short. The Florida section and the federal one start from the same idea, access to a computer without authorization, and then separate on what raises the exposure. This page is about the Florida side of that.",
+          "There is a second question inside the citation, and it is about which Florida section. Chapter 815 is titled Computer-Related Crimes and it contains more than one offense-creating section. Statute 815.04 is titled \"Offenses against intellectual property\" and its subsections are written about data, programs, supporting documentation, and trade secrets. Statute 815.06 is titled \"Offenses against users of computers, computer systems, computer networks, and electronic devices\" and is written about access to a device or a system and interference with it. This page is about Statute 815.06.",
+          "There is one provision worth reading early, because it bears on where a case can be brought. Statute 815.06(8) provides that, for the purpose of bringing a civil or criminal action under the section, a person who causes access to a computer, computer system, computer network, or electronic device in one jurisdiction from another jurisdiction is deemed to have personally accessed it in the jurisdiction the access came from as well as in the jurisdiction where the device was. Access reaching into Florida from somewhere else sits inside the section's reach on the face of that subsection."
+        ]
+      },
+      {
+        id: "acts",
+        heading: "Exceeding authorization is inside subsection (2), and so is surveillance through a device",
+        kind: "bullets",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "Subsection (1) defines the word user for this section as \"a person with the authority to operate or maintain a computer, computer system, computer network, or electronic device.\"",
+          "Subsection (2) opens with the mental state and the authorization clause together. A person commits an offense against users of computers, computer systems, computer networks, or electronic devices if he or she acts \"willfully, knowingly, and without authorization or exceeding authorization\" and then does one of the acts listed underneath. Those words reach past the person who was never given access. They also reach a person who had access and is said to have used it in a way the authorization did not cover, and paragraph (2)(a) repeats the idea in its own terms.",
+          "One of the listed acts is not what a reader expects to find in a computer statute. Paragraph (2)(f) is about audio or video surveillance of an individual carried out by accessing an inherent feature or component of a device, and it says in terms that this includes accessing data or information stored by a third party. A camera or a microphone reached through a device sits inside this section, and so does material a service is holding.",
+          "Subsection (2) supplies the conduct. It does not supply the degree. That comes from subsection (3), which is set out further down this page."
+        ],
+        bullets: [
+          "Paragraph (2)(a): accessing, or causing to be accessed, a computer, computer system, computer network, or electronic device \"with knowledge that such access is unauthorized or the manner of use exceeds authorization.\"",
+          "Paragraph (2)(b): disrupting or denying, or causing the denial of, the ability to transmit data to or from an authorized user of a device that \"in whole or in part, is owned by, under contract to, or operated for, on behalf of, or in conjunction with another.\"",
+          "Paragraph (2)(c): destroying, taking, injuring, or damaging \"equipment or supplies used or intended to be used in\" a computer, computer system, computer network, or electronic device.",
+          "Paragraph (2)(d): destroying, injuring, or damaging the computer, computer system, computer network, or electronic device itself.",
+          "Paragraph (2)(e): introducing \"any computer contaminant\" into a computer, computer system, computer network, or electronic device.",
+          "Paragraph (2)(f): engaging in \"audio or video surveillance of an individual by accessing any inherent feature or component\" of such a device, \"including accessing the data or information ... that is stored by a third party.\""
+        ]
+      },
+      {
+        id: "exceptions",
+        heading: "Statute 815.06(7), and the people the section says it does not apply to",
+        kind: "statute",
+        statute: {
+          citation: "F.S. 815.06(7) (2025)",
+          body: "This section does not apply to a person who: (a) Acts pursuant to a search warrant or to an exception to a search warrant authorized by law; (b) Acts within the scope of his or her lawful employment; or (c) Performs authorized security operations of a government or business."
+        },
+        prose: [
+          "This subsection carries more weight on this charge than the equivalent does on most, because the usual argument in an access case is about permission, and the Legislature wrote categories out of the section rather than leaving the subject to be argued in the air.",
+          "Where the access happened at work, paragraph (7)(b) and the scope of lawful employment is often where the contested question sits, and what answers it is what the employer granted, in writing and in practice, rather than what anyone recalls afterward. Paragraph (7)(c) is written about authorized security operations of a government or business, which is the provision that matters where the work was testing or monitoring a system. Paragraph (7)(a) is written about a person acting pursuant to a search warrant or to an exception to a search warrant authorized by law.",
+          "Subsection (9) sits nearby and points somewhere different. The chapter does not impose liability on a provider of an interactive computer service as defined in 47 U.S.C. s. 230(f), an information service as defined in 47 U.S.C. s. 153, or a communications service as defined in Statute 202.11, for providing the transmission, storage, or caching of electronic communications or messages of others, for other related telecommunications or commercial mobile radio service, or for content provided by another person."
+        ]
+      },
+      {
+        id: "now",
+        heading: "What authorization looked like, and who besides you is able to describe it",
+        kind: "guidance",
+        answers: [
+          "now"
+        ],
+        guidance: [
+          {
+            heading: "Rights that do not depend on whose account it was",
+            items: [
+              "You can decline to answer questions about accounts, passwords, devices, or activity on a system, and you can say that you want a lawyer.",
+              "Fla. R. Crim. P. 3.111(a) attaches appointed counsel, for a person entitled to it, at the earliest of these: when formally charged with an offense, as soon as feasible after custodial restraint, or at the first appearance before a committing judge. After an arrest, first appearance is frequently the last of those to arrive rather than the first.",
+              "Fla. R. Crim. P. 3.111(b)(1) is what that appointment runs on: counsel is guaranteed in prosecutions for offenses punishable by incarceration.",
+              "Fla. R. Crim. P. 3.111(c)(1) and (c)(2) put a duty at the jail rather than at the courthouse. The booking officer must immediately advise a defendant of the right to counsel and that counsel will be provided immediately at no charge, and on request must immediately and effectively place the defendant in communication with the public defender.",
+              "Fla. R. Crim. P. 3.130(a): except when previously released in a lawful manner, an arrested person must be taken before a judge within 24 hours of arrest."
+            ]
+          },
+          {
+            heading: "Access records exist before anyone calls you",
+            items: [
+              "Login timestamps, access logs, ticketing systems, and account provisioning records are kept by the owner of the system, not by you, and they are usually gathered before anyone asks you a question.",
+              "Do not log back in to see whether a login still works. A later login is a later access, and paragraph (2)(a) is written about the access.",
+              "Do not delete files, wipe a device, reset a password, or clear a history after learning that there is an investigation. This page describes Statute 815.06 and does not address conduct that comes after an investigation begins, which is its own subject and is worth raising with counsel before acting.",
+              "Consent to an examination of a phone or a laptop can be declined. That is a decision, and it can be made after speaking to a lawyer rather than at the door.",
+              "Written authorization is the material paragraph (7)(b) gets read against: an employment agreement, an acceptable use policy, a provisioning ticket, an email granting access, a supervisor's instruction, a contract with a client. Noting where those documents are and what dates are on them, while they are easy to find, is process rather than argument."
+            ]
+          },
+          {
+            heading: "Shared logins, and access that was never switched off",
+            items: [
+              "A password handed over by a colleague, a shared service account, and an account left live after a role changed are ordinary facts in these cases, and each of them raises the same question: what authorization existed, and who granted it.",
+              "If access was granted to you by somebody, write down who granted it, when, and for what purpose, and give that to a lawyer rather than to the other side.",
+              "An employer's internal review is run by the employer, and what is said in it can leave the company. A lawyer can advise on that before such a meeting rather than after it."
+            ]
+          }
+        ]
+      },
+      {
+        id: "ladder",
+        heading: "What lifts this above a third degree felony, and why $5,000 is not the top of the ladder",
+        kind: "penalties",
+        answers: [
+          "facing"
+        ],
+        penalties: [
+          {
+            degree: "Third degree felony, Statute 815.06(3)(a)",
+            maximum: "Up to 5 years",
+            note: "Except as provided in paragraphs (b) and (c), a violation of subsection (2). The paragraph states no dollar value and no quantity."
+          },
+          {
+            degree: "Second degree felony, Statute 815.06(3)(b)1.",
+            maximum: "Up to 15 years",
+            note: "A violation of subsection (2) that damages a computer, computer equipment or supplies, a computer system, or a computer network where the damage or loss is at least $5,000."
+          },
+          {
+            degree: "Second degree felony, Statute 815.06(3)(b)2.",
+            maximum: "Up to 15 years",
+            note: "The offense committed for the purpose of devising or executing any scheme or artifice to defraud or obtain property. The subparagraph states no dollar figure."
+          },
+          {
+            degree: "Second degree felony, Statute 815.06(3)(b)3.",
+            maximum: "Up to 15 years",
+            note: "Interrupting or impairing a governmental operation or public communication, transportation, or supply of water, gas, or other public service."
+          },
+          {
+            degree: "Second degree felony, Statute 815.06(3)(b)4.",
+            maximum: "Up to 15 years",
+            note: "Intentionally interrupting the transmittal of data to or from, or gaining unauthorized access to, a computer, computer system, computer network, or electronic device belonging to any mode of public or private transit, as defined in Statute 341.031."
+          },
+          {
+            degree: "First degree felony, Statute 815.06(3)(c)1.",
+            maximum: "Up to 30 years",
+            note: "A violation of subsection (2) that endangers human life."
+          },
+          {
+            degree: "First degree felony, Statute 815.06(3)(c)2.",
+            maximum: "Up to 30 years",
+            note: "A violation of subsection (2) that disrupts a computer, computer system, computer network, or electronic device affecting medical equipment used in the direct administration of medical care or treatment to a person."
+          },
+          {
+            degree: "First degree misdemeanor, Statute 815.06(4)",
+            maximum: "Up to 1 year",
+            note: "A standalone offense rather than a violation of subsection (2): willfully, knowingly, and without authorization modifying equipment or supplies used or intended to be used in a computer, computer system, computer network, or electronic device."
+          }
+        ],
+        prose: [
+          "Read the trigger on each row and the shape of the statute shows itself. The dollar figure sits at the second degree tier, where it shares space with a fraud purpose, with interruption of a governmental operation or a public service, and with a transit device reached through Statute 341.031. Paragraph (3)(c), the first degree tier, states no dollar figure. It is written about danger to human life and about medical equipment used in the direct administration of medical care or treatment to a person.",
+          "That is what makes this statute unlike the Florida ladders a reader may have seen elsewhere. A theft charge escalates on what the property was worth. A trafficking charge escalates on weight. This section escalates on what the access put at risk, and the $5,000 in paragraph (3)(b)1. is a route into the second degree rather than a step toward the first.",
+          "There is no offense level printed beside these degrees, and that is a fact about the statute rather than a gap on this page. The Statute 921.0022 offense severity ranking chart carries no entry citing Statute 815.06. A ranked level attached to this section would not have come from that chart.",
+          "Each paragraph of subsection (3) states that the offense is punishable as provided in Statute 775.082, Statute 775.083, or Statute 775.084. Subsection (4) states that it is punishable as provided in Statute 775.082 or Statute 775.083. The terms in the table come from the degree each paragraph assigns, read with Statute 775.082."
+        ]
+      },
+      {
+        id: "timeline",
+        heading: "Nothing in the rules is running while the access logs are being pulled",
+        kind: "timeline",
+        answers: [
+          "next"
+        ],
+        steps: [
+          {
+            when: "Before an arrest",
+            what: "No interval in the Florida Rules of Criminal Procedure is running yet. Rule 3.191(a) starts its count when a person is formally charged, which rule 3.191(d) defines as by information or by indictment. An access case is assembled out of records held by the owner of the system, and that work carries no rule-based deadline."
+          },
+          {
+            when: "Within 24 hours of an arrest",
+            what: "Rule 3.130(a). Except when previously released in a lawful manner, an arrested person must be taken before a judge, in person or by audio-video communication technology in the discretion of the court, within 24 hours of arrest."
+          },
+          {
+            when: "At the first appearance",
+            what: "Rule 3.130(c)(1): where the judge determines that the defendant is entitled to court-appointed counsel and desires counsel, the judge must immediately appoint counsel. Rule 3.130(d): the judge then determines pretrial detention or conditions of release under rule 3.132 or rule 3.131."
+          },
+          {
+            when: "60 days, then the 63rd day, for someone released before charges are filed",
+            what: "Rule 3.134(b)(1). The state must file formal charges on a defendant on pretrial release within 60 days. If it has not, on motion with notice the court orders automatic release on recognizance on the 63rd day, or, where good cause is shown by the state, may continue the defendant on pretrial release for up to an additional 30 days."
+          },
+          {
+            when: "30 days, then the 33rd or the 40th day, for someone still in custody",
+            what: "Rule 3.134(a). Formal charges within 30 days from the date of arrest. On the 30th day, with notice to the state, the court orders automatic release on recognizance on the 33rd day, or, where good cause is shown, on the 40th day. Rule 3.134(a)(3) states that in no event may a defendant remain in custody past 40 days without having been formally charged."
+          },
+          {
+            when: "175 days from the formal charge, on a felony tier",
+            what: "Rule 3.191(a) sets 90 days for a misdemeanor and 175 days for a felony, counted from the formal charge rather than from the arrest. The tiers in subsection (3) of Statute 815.06 are felonies and the offense in subsection (4) is a first degree misdemeanor, so which count applies follows which provision is charged. Rule 3.191(a) routes to the remedy in subdivision (o), which is a recapture procedure rather than an automatic end to a case."
+          },
+          {
+            when: "60 days from a written demand",
+            what: "Rule 3.191(b). A defendant may file a Demand for Speedy Trial and require that trial take place within 60 days."
+          },
+          {
+            when: "After a conviction under the section",
+            what: "Statute 815.06(5)(a) lets the owner or lessee of the computer, computer system, computer network, computer program, computer equipment or supplies, electronic device, or computer data bring a civil action against a person convicted under the section for compensatory damages, in addition to any other civil remedy available, and Statute 815.06(5)(b) lets the court award reasonable attorney fees to the prevailing party. That is a separate case with its own filing."
+          }
+        ]
+      },
+      {
+        id: "consequences",
+        heading: "Subsection (6) reaches a defendant's own laptop, and subsection (5) arrives as a separate civil case",
+        kind: "prose",
+        answers: [
+          "consequences"
+        ],
+        prose: [
+          "Statute 815.06(6) is a forfeiture provision and it reaches property the defendant owns. A computer, computer system, computer network, computer software, computer data, or electronic device owned by a defendant that is used during the commission of a violation of the section is subject to forfeiture as provided under Statutes 932.701 to 932.704, and so is a computer or electronic device owned by the defendant that is used as a repository for the storage of software or data obtained in violation of the section.",
+          "Read what that subsection is, and what it is not. It describes forfeiture. It does not describe what happens to a phone or a laptop that an agency has taken while a case is still running. That is a different question, governed by a different set of rules, and this page does not answer it. If a device has been taken, the property receipt and the case in front of you are what a lawyer needs to look at.",
+          "Subsection (5) creates a proceeding that is not the prosecution. Under (5)(a) the owner or lessee of the computer, computer system, computer network, computer program, computer equipment or supplies, electronic device, or computer data may bring a civil action against a person convicted under the section for compensatory damages, in addition to any other civil remedy available. Under (5)(b) the court may award reasonable attorney fees to the prevailing party. That action is keyed to a conviction under this section.",
+          "On the record itself: an arrest under this section produces a Florida criminal history record, and the tiers in subsection (3) are felonies. What a particular employer, licensing board, or agency does with a record of this kind is set by that body's own rules, and this page does not state them."
+        ]
+      },
+      {
+        id: "sealing",
+        heading: "Chapter 815 is not named in the Statute 943.0584(2) bar list, and what Statute 943.059 still asks for",
+        kind: "prose",
+        answers: [
+          "sealing"
+        ],
+        prose: [
+          "Statute 943.0584 is the list of criminal history records that are ineligible for a court-ordered sealing or expunction. Subsection (1) defines conviction for that purpose as a determination of guilt which is the result of a trial or the entry of a plea of guilty or nolo contendere, regardless of whether adjudication is withheld. That definition is what surprises people first: a withheld adjudication is still a conviction for the purpose of this bar list.",
+          "Subsection (2) makes a record ineligible if the record is a conviction for an offense it names, and its list runs from paragraph (a) through paragraph (hh). It does not cite chapter 815. So the permanent bar in Statute 943.0584 is not what decides the sealing question on a Statute 815.06 record.",
+          "Statute 943.059(1) is what decides it, and its conditions have to hold together. The record is not ineligible for court-ordered sealing under Statute 943.0584. The person has never, before the date the application for a certificate of eligibility is filed, been adjudicated guilty in this state of a criminal offense, or been adjudicated delinquent in this state for committing a felony or one of the misdemeanor offenses that paragraph (1)(b) lists, unless the record of that adjudication of delinquency has been expunged under Statute 943.0515. The person has not been adjudicated guilty of, or adjudicated delinquent for committing, any of the acts stemming from the arrest that the petition covers. The person is no longer under court supervision applicable to that disposition. And the person has never secured a prior sealing or expunction under Statute 943.059, Statute 943.0585, or the former provisions that paragraph names.",
+          "Statute 943.059(2) adds a step that comes before any petition. A person must apply to the department for a certificate of eligibility for sealing, and Statute 943.059(2)(a) conditions issuance on satisfying the criteria in paragraphs (1)(a) to (1)(e), on submitting a certified copy of the disposition of the charge the petition pertains to, and on remitting a $75 processing fee unless the executive director waives it. This is a separate proceeding that comes after the criminal case has finished, not a part of it."
+        ]
+      },
+      {
+        id: "who",
+        heading: "The State Attorney for the Thirteenth Circuit decides the paragraph, and this page will not name who investigated",
+        kind: "prose",
+        answers: [
+          "who"
+        ],
+        prose: [
+          "A felony charge under Statute 815.06 in Hillsborough County is a circuit court case in the Thirteenth Judicial Circuit. Criminal filings go through the clerk at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, Tampa, and criminal court services are also handled at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
+          "The office that decides which paragraph of Statute 815.06 to charge, or whether to file a charge, is the State Attorney for the Thirteenth Judicial Circuit. That decision gets made from the records described above, and it gets made whether or not anyone has spoken to you.",
+          "People ask which agency investigates a computer offense here, and this page does not name one. The assignment was not verified from a source this project accepts, and naming an agency from memory is how a page states something it cannot support. If a card, a subpoena, or a property receipt is in your hands, the agency's name is printed on it, and that document is worth showing a lawyer before anything else happens.",
+          "Who to call: a criminal defense lawyer, before the account, the login, or the question of authorization is explained to anybody else. If you are in custody, Fla. R. Crim. P. 3.111(c)(1) and (c)(2) require the booking officer to advise you of the right to counsel and, on request, to place you in communication with the public defender immediately. If there is no case yet and you are not in custody, that route is keyed to a case that exists, so the call is to retained counsel."
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: "Is it a crime in Florida to log into someone else's account?",
+        answer: "Florida Statute 815.06(2)(a) reaches a person who, willfully, knowingly, and without authorization or exceeding authorization, accesses or causes to be accessed a computer, computer system, computer network, or electronic device with knowledge that such access is unauthorized or the manner of use exceeds authorization. Logging into an account on someone else's device or service can sit inside those words. Under paragraph (3)(a), a violation of subsection (2) that does not fall under paragraph (3)(b) or paragraph (3)(c) is a felony of the third degree, punishable as provided in Statute 775.082, Statute 775.083, or Statute 775.084. Subsection (7) states that the section does not apply to a person who acts pursuant to a search warrant or an exception to a search warrant authorized by law, who acts within the scope of his or her lawful employment, or who performs authorized security operations of a government or business. Whether a particular login sits inside subsection (2) or inside subsection (7) is a question about the facts of the case and about what authorization existed.",
+        source: "brief ST-01-computer-crimes, assistant question 1"
+      },
+      {
+        question: "Do they have to prove I took something or broke something?",
+        answer: "Not under Florida Statute 815.06(2)(a). That paragraph is written about the access: accessing, or causing to be accessed, a computer, computer system, computer network, or electronic device, willfully, knowingly, and without authorization or exceeding authorization, with knowledge that such access is unauthorized or the manner of use exceeds authorization. Paragraph (3)(a) then makes a violation of subsection (2) a felony of the third degree where paragraphs (3)(b) and (3)(c) do not apply, and it states no dollar value and no quantity. Damage and dollar value enter at the second degree tier, where paragraph (3)(b)1. applies if the damage or loss is at least $5,000. Other paragraphs of subsection (2) do describe destruction, damage, denial of the ability to transmit data, computer contaminants, and surveillance through a device, so what the state has to prove depends on the paragraph that is charged.",
+        source: "brief ST-01-computer-crimes, assistant question 3"
+      },
+      {
+        question: "What is the difference between Florida statute 815.04 and 815.06?",
+        answer: "The two sections sit in chapter 815 of the Florida Statutes and they are separated by what the offense is against. Statute 815.04 is titled \"Offenses against intellectual property\" and its subsections are written about data, programs, supporting documentation, and trade secrets: introducing a computer contaminant or modifying or rendering such material unavailable, destroying it, or disclosing or taking material that is a trade secret as defined in Statute 812.081 or that is confidential as provided by law. Statute 815.06 is titled \"Offenses against users of computers, computer systems, computer networks, and electronic devices\" and is written about access to a device or a system and interference with it, with its degree set by subsection (3). A charging document cites a section, and which section it cites indicates which of those the state says was harmed.",
+        source: "PAA, \"What are the crimes against computers in Florida?\", routed here by brief FED-02 and carried in brief ST-01-computer-crimes assistant question 5"
+      },
+      {
+        question: "What is the punishment for computer crime?",
+        answer: "For a Florida charge under Statute 815.06 the answer has two parts: the statute assigns a degree, and Statute 775.082 supplies the term. Paragraph (3)(a) makes a violation of subsection (2) a felony of the third degree, up to 5 years, where paragraphs (3)(b) and (3)(c) do not apply. Paragraph (3)(b) makes it a felony of the second degree, up to 15 years, where the damage or loss is at least $5,000, where the offense is committed for the purpose of devising or executing a scheme or artifice to defraud or obtain property, where a governmental operation or public communication, transportation, or supply of water, gas, or other public service is interrupted or impaired, or where data to or from a public or private transit device is intentionally interrupted or that device is accessed without authorization. Paragraph (3)(c) makes it a felony of the first degree, up to 30 years, where the violation endangers human life or disrupts a device that affects medical equipment used in the direct administration of medical care or treatment to a person. Subsection (4) is a separate misdemeanor of the first degree, up to 1 year, for willfully, knowingly, and without authorization modifying equipment or supplies used or intended to be used in a computer, computer system, computer network, or electronic device. Paragraphs (3)(a), (3)(b), and (3)(c) each name Statute 775.082, Statute 775.083, and Statute 775.084; subsection (4) names Statute 775.082 or Statute 775.083.",
+        source: "PAA, \"What is the punishment for computer crime?\""
+      }
+    ],
+    counterpart: {
+      href: "/federal-criminal-defense/computer-internet-crimes",
+      label: "Federal computer and internet crime charges",
+      note: "This page covers the Florida charge under Statute 815.06, whose degree ladder turns on the kind of harm alleged rather than on an amount. The federal computer statute, 18 U.S.C. 1030, is built on a different plan, and the companion page covers it. If the charging document in your case cites a section of the United States Code rather than a Florida section number, that is the page to read."
+    }
+  },
+  "state/sex-crimes-defense": {
+    title: "Sex crime charges in Hillsborough County",
+    metaTitle: "Sex Crime Charges in Hillsborough County | Hines &amp; McCarty",
+    metaDescription: "Florida grades these charges under separate statutes: Statute 800.04, Statute 847.0135, Statute 800.03, and a registration scheme that creates felonies of its own.",
+    lead: "Sex crimes is a category, not a charge. Florida grades these offenses under separate statutes in separate chapters, and the number on the charging document, Statute 800.04, Statute 847.0135, or Statute 800.03 among them, is what sets the degree and the maximum.",
+    sections: [
+      {
+        id: "which-statute",
+        heading: "Which statute number is on the charging document, and what each reaches",
+        kind: "bullets",
+        answers: [
+          "facing",
+          "who"
+        ],
+        prose: [
+          "A person arrested in Hillsborough County in this area is charged under a specific section, and the sections do not share elements, degrees, or consequences. A lewd or lascivious exhibition under Statute 800.04(7) and a failure to report under Statute 943.0435(9)(a) have nothing in common except the shelf they sit on. Find the number first. The rest of this page is arranged so that the section covering your number can be read without reading the sections that do not.",
+          "Florida law does group some of these offenses, and it does so by listing them. Statute 943.0435(1)(h)1.a.(I) enumerates the convictions that make a person a sexual offender for registration purposes, and Statute 775.21(4)(a)1. enumerates the convictions that can support a sexual predator designation. Those enumerations are what give this category a statutory boundary rather than a marketing one, and the boundary is checkable: Statute 800.03, exposure of sexual organs, sits inside how people speak about this subject and outside both enumerations."
+        ],
+        bullets: [
+          "Statute 800.04, titled Lewd or lascivious offenses committed upon or in the presence of persons less than 16 years of age. Its graded limbs include lewd or lascivious battery at subsection (4), lewd or lascivious molestation at (5), lewd or lascivious conduct at (6), and lewd or lascivious exhibition at (7). The grading turns on the age of the person alleged to be the victim and, separately, on the age of the person charged.",
+          "Statute 847.0135, which subsection (1) gives the short title Computer Pornography and Child Exploitation Prevention Act. Subsection (2) is computer pornography, subsection (3) is the solicitation charge, subsection (4) is traveling to meet a minor, and subsection (5) is a lewd or lascivious exhibition transmitted live over a computer service. These are the sections that online contact and undercover operations produce.",
+          "Statute 800.03, exposure of sexual organs. Subsection (1) defines the conduct as exposing or exhibiting sexual organs in public or on the private premises of another, or so near thereto as to be seen from such private premises, in a vulgar or indecent manner, or being naked in public in a vulgar or indecent manner. Subsection (2)(a) makes a violation a first degree misdemeanor except as provided in paragraph (b), and (2)(b) makes a second or subsequent violation a third degree felony. Subsection (3) says the exposure of sexual organs by a mother breastfeeding her baby, or by an individual who is merely naked at any place provided or set apart for that purpose, does not violate the section.",
+          "Statute 943.0435, sexual offenders required to register with the department; penalty. It operates after a qualifying conviction rather than at the arrest, and it creates its own felonies for reporting failures. Its subsection (5) says the section does not apply to a sexual offender who is also a sexual predator as defined in Statute 775.21, and that a sexual predator must register as required under Statute 775.21.",
+          "Statute 775.21, which subsection (1) titles The Florida Sexual Predators Act. Its subsection (4) sets the criteria for the designation, subsection (5) says who makes it, subsection (6) sets the reporting requirements for a person designated, and subsection (10) carries the penalties.",
+          "Chapter 794, sexual battery, is a separate statutory scheme with its own elements and its own apparatus, and it is not covered here. If the charging document cites Statute 794.011, the sections below are about a different statute.",
+          "A federal prosecution arising from the same conduct is calculated on a different body of law. Statute 921.0022, Statute 921.0023, and the Criminal Punishment Code worksheet in Statute 921.0024 are features of the Florida track and have nothing to say about a federal exposure."
+        ]
+      },
+      {
+        id: "grades",
+        heading: "One category, and grades running from a first degree misdemeanor to a life felony",
+        kind: "penalties",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "Statute 921.0022 is the offense severity ranking chart, and it supplies the number the Florida sentencing scoresheet uses. Its subsection (2) records that the chart's own description column is not controlling, so the level column below is used for the level and the scope of each offense is taken from the operative statute instead. Where an offense is a felony that the chart does not carry, Statute 921.0023 supplies a default by degree until the Legislature assigns one: subsection (1) places an unlisted third degree felony within offense level 1, subsection (2) an unlisted second degree felony within level 4, and subsection (3) an unlisted first degree felony within level 7.",
+          "The Primary Offense table in Statute 921.0024(1)(a) scores a level 9 primary offense at 92 points, level 8 at 74, level 7 at 56, level 6 at 36, level 5 at 28, level 4 at 22, and level 1 at 4. Statute 921.0024(2) then provides that the lowest permissible sentence is any nonstate prison sanction in which the total sentence points equals or is less than 44 points, unless the court determines within its discretion that a prison sentence, which may be up to the statutory maximums for the offenses committed, is appropriate. Above 44 points the same subsection gives a formula: subtract 28 from the total sentence points and decrease the remainder by 25 percent, and the result is the lowest permissible sentence in prison months. A level 7 primary offense scores 56 points before a single prior conviction or additional count is added.",
+          "There is a multiplier written into the worksheet key at Statute 921.0024(1)(b) that reaches part of this table and not the rest of it. Under the adult-on-minor sex offense entry, if the offender was 18 years of age or older and the victim was younger than 18 years of age at the time the offender committed the primary offense, and if the primary offense was committed on or after October 1, 2014, and is a violation of a listed provision including Statute 800.04 and Statute 847.0135(5), the subtotal sentence points are multiplied by 2.0. That entry closes with a limit that is part of the same provision: if applying the multiplier results in the lowest permissible sentence exceeding the statutory maximum sentence for the primary offense under chapter 775, the court may not apply the multiplier and must sentence the defendant to the statutory maximum sentence. Statute 847.0135(3) and Statute 847.0135(4) are absent from that entry's predicate list."
+        ],
+        penalties: [
+          {
+            degree: "Lewd or lascivious battery, Statute 800.04(4)(b)",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 8",
+            note: "Second degree felony. The paragraph reads except as provided in paragraph (c), so it is the grade for a battery under (4)(a) where the (4)(c) enhancement does not apply. Subparagraph (4)(a)1. is engaging in sexual activity with a person 12 years of age or older but less than 16. Subparagraph (4)(a)2. is encouraging, forcing, or enticing any person less than 16 years of age to engage in sadomasochistic abuse, sexual bestiality, prostitution, or any other act involving sexual activity, and it carries no lower age bound."
+          },
+          {
+            degree: "Lewd or lascivious battery with a qualifying prior conviction, Statute 800.04(4)(c)",
+            maximum: "Up to 30 years",
+            offenseLevel: "Level 8",
+            note: "First degree felony. Offender 18 years of age or older who commits lewd or lascivious battery and was previously convicted of a violation of one of the enumerated predicates, which include chapter 794 excluding Statute 794.011(10), Statute 825.1025, Statute 847.0135(5), and this section. The predicates carry no minimum severity, so a prior third degree felony under this section, including one committed while the offender was under 18, is inside the list."
+          },
+          {
+            degree: "Lewd or lascivious molestation, victim less than 12, offender 18 or older, Statute 800.04(5)(b)",
+            maximum: "Up to life. Statute 775.082(3)(a)4.a. directs, except as provided in sub-subparagraph b., a term of imprisonment for life, or a split sentence that is a term of at least 25 years imprisonment and not exceeding life imprisonment followed by probation or community control for the remainder of the person's natural life as provided in Statute 948.012(4). Statute 775.082(3)(a)4.b. directs a term of imprisonment for life where the life felony was committed on or after July 1, 2008, and is a person's second or subsequent violation of Statute 800.04(5)(b).",
+            offenseLevel: "Level 9",
+            note: "Life felony. The punishment clause in Statute 800.04(5)(b) points to Statute 775.082(3)(a)4. specifically rather than to the general Statute 775.082, Statute 775.083, or Statute 775.084 string that the rest of the section uses, and sub-subparagraph 4.a. applies to a life felony committed on or after September 1, 2005."
+          },
+          {
+            degree: "Lewd or lascivious molestation, victim less than 12, offender less than 18, Statute 800.04(5)(c)1.",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 7",
+            note: "Second degree felony. Identical victim age band to the row above it. The age of the person charged is what separates a second degree felony here from a life felony there, and the statute states it in the text of each paragraph rather than in a table."
+          },
+          {
+            degree: "Lewd or lascivious molestation, victim 12 or older but less than 16, offender 18 or older, Statute 800.04(5)(c)2.",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 7",
+            note: "Second degree felony. The subparagraph ends at the words less than 16 years of age; the degree comes from closing language that governs subparagraphs 1. and 2. of paragraph (c) alike."
+          },
+          {
+            degree: "Lewd or lascivious molestation, victim 12 or older but less than 16, offender less than 18, Statute 800.04(5)(d)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 6",
+            note: "Third degree felony. Same victim age band as the row above it and as the enhancement row below it; the age of the person charged and the criminal history are what move the grade."
+          },
+          {
+            degree: "Lewd or lascivious molestation with a qualifying prior conviction, Statute 800.04(5)(e)",
+            maximum: "Up to 30 years",
+            offenseLevel: "Level 7",
+            note: "First degree felony. Offender 18 years of age or older, victim 12 years of age or older but less than 16, with a prior conviction of one of the same enumerated predicates used in (4)(c). This enhancement reaches the 12-to-under-16 band; molestation of a victim under 12 by an offender 18 or older is already graded at (5)(b)."
+          },
+          {
+            degree: "Lewd or lascivious conduct, offender 18 or older, Statute 800.04(6)(b)",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 6",
+            note: "Second degree felony. Paragraph (6)(a) defines the conduct in two branches: intentionally touching a person under 16 in a lewd or lascivious manner, or soliciting a person under 16 to commit a lewd or lascivious act. The solicitation branch requires no touching."
+          },
+          {
+            degree: "Lewd or lascivious conduct, offender less than 18, Statute 800.04(6)(c)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 5",
+            note: "Third degree felony. Same definition in (6)(a); the age of the person charged is the differentiator between this paragraph and (6)(b)."
+          },
+          {
+            degree: "Lewd or lascivious exhibition, offender 18 or older, Statute 800.04(7)(b)",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 5",
+            note: "Second degree felony. Paragraph (7)(a) reaches intentional masturbation, intentionally exposing the genitals in a lewd or lascivious manner, and intentionally committing any other sexual act that does not involve actual physical or sexual contact with the victim, including but not limited to sadomasochistic abuse, sexual bestiality, or the simulation of any act involving sexual activity. The words in the presence of a victim who is less than 16 years of age are closing language governing each of those branches."
+          },
+          {
+            degree: "Lewd or lascivious exhibition, offender less than 18, Statute 800.04(7)(c)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 4",
+            note: "Third degree felony. Same definition in (7)(a); the age of the person charged is the differentiator."
+          },
+          {
+            degree: "Computer pornography, Statute 847.0135(2)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 6",
+            note: "Third degree felony. Reaches knowingly compiling, entering, transmitting, making, printing, publishing, reproducing, causing or allowing to be entered or transmitted, or buying, selling, receiving, exchanging, or disseminating a notice, statement, or advertisement of a minor's name, telephone number, place of residence, physical characteristics, or other descriptive or identifying information for purposes of facilitating, encouraging, offering, or soliciting sexual conduct of or with a minor, or the visual depiction of such conduct."
+          },
+          {
+            degree: "Solicitation using a computer service or device, Statute 847.0135(3)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 7",
+            note: "Third degree felony. This is a third degree felony ranked at the same level as the second degree felony at (4), so the level does not track the degree here. The subsection closes with a charging rule: each separate use of a computer online service, Internet service, local bulletin board service, or any other device capable of electronic data storage or transmission wherein an offense described in the section is committed may be charged as a separate offense."
+          },
+          {
+            degree: "Solicitation where the person misrepresents his or her age, Statute 847.0135(3)",
+            maximum: "Up to 15 years",
+            offenseLevel: "Not carried in the Statute 921.0022 chart",
+            note: "Second degree felony. The enhancing sentence sits inside subsection (3) itself: any person who, in violating this subsection, misrepresents his or her age, commits a felony of the second degree. The ranking chart carries subsection (3) as the third degree base offense and carries no separate entry for this enhancement, so Statute 921.0023(2) supplies the level for an unlisted second degree felony, which is level 4."
+          },
+          {
+            degree: "Traveling to meet a minor, Statute 847.0135(4)",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 7",
+            note: "Second degree felony. The movement element is traveling any distance either within this state, to this state, or from this state by any means, and the subsection also reaches a person who attempts to do so or who causes another to do so or to attempt to do so. There is no distance floor in the text."
+          },
+          {
+            degree: "Lewd or lascivious exhibition using a computer, offender 18 or older, Statute 847.0135(5)(b)",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 5",
+            note: "Second degree felony. Paragraph (5)(a) defines the conduct as committed live over a computer online service, Internet service, or local bulletin board service where the person knows, should know, or has reason to believe that the transmission is viewed on a computer or television monitor by a victim who is less than 16 years of age."
+          },
+          {
+            degree: "Lewd or lascivious exhibition using a computer, offender less than 18, Statute 847.0135(5)(c)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 4",
+            note: "Third degree felony. Same definition in (5)(a); the age of the person charged is the differentiator."
+          },
+          {
+            degree: "Owner or operator of a service permitting a violation, Statute 847.0135(6)",
+            maximum: "A fine not exceeding $2,000",
+            offenseLevel: "Misdemeanors are not ranked in the Statute 921.0022 chart",
+            note: "First degree misdemeanor. The first sentence makes it unlawful for an owner or operator of a computer online service, Internet service, or local bulletin board service knowingly to permit a subscriber to use the service to commit a violation of the section. The penalty sentence that follows reads any person who violates this section, using the word section rather than subsection, and it states the penalty as a fine not exceeding $2,000 rather than by reference to Statute 775.082, Statute 775.083, or Statute 775.084. Statute 943.0435(1)(h)1.a.(I) lists Statute 847.0135 excluding Statute 847.0135(6)."
+          },
+          {
+            degree: "Exposure of sexual organs, first violation, Statute 800.03(2)(a)",
+            maximum: "Up to 1 year",
+            offenseLevel: "Misdemeanors are not ranked in the Statute 921.0022 chart",
+            note: "First degree misdemeanor. The paragraph reads except as provided in paragraph (b), and it is punishable as provided in Statute 775.082 or Statute 775.083. This is the grade a first violation carries, and it is the entry in this table that is heard in county criminal rather than circuit criminal."
+          },
+          {
+            degree: "Exposure of sexual organs, second or subsequent violation, Statute 800.03(2)(b)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Not carried in the Statute 921.0022 chart",
+            note: "Third degree felony. Statute 800.03 is not carried in the ranking chart, so Statute 921.0023(1) supplies the level for an unlisted third degree felony, which is level 1, until the Legislature assigns one. Statute 800.03 is also absent from the enumeration in Statute 943.0435(1)(h)1.a.(I) and from the enumerations in Statute 775.21(4)(a)1."
+          },
+          {
+            degree: "Sexual offender, failure to comply with the reporting requirements, Statute 943.0435(9)(a)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 7",
+            note: "Third degree felony. The paragraph opens with the words except as otherwise specifically provided, and it reaches a long list of failures including failing to register, failing after registration to maintain, acquire, or renew a driver license or an identification card, failing to provide required location or change-of-name information, failing to provide electronic mail addresses and Internet identifiers, failing to report changes to employment information, failing to reregister as required, failing to respond to address verification correspondence within 3 weeks after the date of the correspondence, and knowingly providing false registration information by act or omission. It closes with the sentence that each instance of a failure to register or report changes to the required information specified in the paragraph constitutes a separate offense."
+          },
+          {
+            degree: "Sexual offender, remaining after reporting an intent to vacate a residence, Statute 943.0435(4)(c)",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 7",
+            note: "Second degree felony. A sexual offender who remains at a permanent, temporary, or transient residence after reporting an intent to vacate it must, within 48 hours after the date indicated for vacating, report in person to the agency to which he or she reported under paragraph (b). A person who made the paragraph (b) report and fails to make this one commits a felony of the second degree. Same level as the third degree catch-all, a degree higher in grade."
+          },
+          {
+            degree: "Sexual offender, failure to report an intended out-of-state residence or intended travel, Statute 943.0435(7)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 7 by way of Statute 943.0435(9)(a)",
+            note: "Third degree felony. Subsection (7) states the obligation and then says the failure is punishable as provided in subsection (9), and the degree assignment in subsection (9) is the third degree felony at (9)(a). The obligation itself is to report in person to the sheriff of the county of current residence at least 48 hours before leaving the state to establish residence elsewhere, or at least 21 days before traveling outside the United States, with travel not known within those windows reported in person as soon as possible before departure."
+          },
+          {
+            degree: "Sexual offender, remaining in Florida after reporting an intent to leave, Statute 943.0435(8)",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 7",
+            note: "Second degree felony. A sexual offender who indicates an intent to establish a residence in another state or jurisdiction, or an intent to travel to another country, and later decides to remain in this state, must report within 48 hours after the date indicated for leaving. A person who remains without reporting in the manner the subsection requires commits a felony of the second degree."
+          },
+          {
+            degree: "Third party assisting a sexual offender in eluding law enforcement, Statute 943.0435(13)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 7",
+            note: "Third degree felony. Reaches a person who has reason to believe a sexual offender is not complying with the section and who, with intent to assist the offender in eluding a law enforcement agency seeking to find him or her, withholds information from or does not notify the agency, harbors or attempts to harbor, conceals or attempts to conceal, or provides information the person knows to be false. This subsection is expressly excluded from the mandatory minimum community control provision at (9)(b)."
+          },
+          {
+            degree: "Sexual predator, remaining after reporting an intent to vacate a residence, Statute 775.21(6)(g)3.",
+            maximum: "Up to 15 years",
+            offenseLevel: "Not carried in the Statute 921.0022 chart",
+            note: "Second degree felony. The parallel of Statute 943.0435(4)(c) for a person designated a sexual predator. The chart carries entries at Statute 775.21(10)(a), (10)(b), and (10)(g); Statute 921.0023(2) supplies the level for an unlisted second degree felony, which is level 4."
+          },
+          {
+            degree: "Sexual predator, remaining in Florida after reporting an intent to leave, Statute 775.21(6)(j)",
+            maximum: "Up to 15 years",
+            offenseLevel: "Not carried in the Statute 921.0022 chart",
+            note: "Second degree felony. The parallel of Statute 943.0435(8). Statute 921.0023(2) supplies the level for an unlisted second degree felony, which is level 4."
+          },
+          {
+            degree: "Sexual predator, failure to comply with the reporting requirements, Statute 775.21(10)(a)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 7",
+            note: "Third degree felony. Worded in parallel with Statute 943.0435(9)(a), down to the 3-week address verification window and the sentence that each instance of a failure to register or report changes to the required information specified in the paragraph constitutes a separate offense."
+          },
+          {
+            degree: "Sexual predator working where children regularly congregate, Statute 775.21(10)(b)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 7",
+            note: "Third degree felony. Applies to a sexual predator with a conviction, or a plea of nolo contendere or guilty regardless of adjudication, for one of an enumerated set that includes Statute 800.04 and Statute 847.0135(5), who works, whether for compensation or as a volunteer, at any business, school, child care facility, park, playground, or other place where children regularly congregate. Statute 943.0435 carries no counterpart to this paragraph."
+          },
+          {
+            degree: "Third party assisting a sexual predator in eluding law enforcement, Statute 775.21(10)(g)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 7",
+            note: "Third degree felony. Parallel to Statute 943.0435(13), with a limit written into the paragraph itself: it does not apply if the sexual predator is incarcerated in or is in the custody of a state correctional facility, a contractor-operated correctional facility, a local jail, or a federal correctional facility. It is expressly excluded from the mandatory minimum community control provision at (10)(c)."
+          }
+        ]
+      },
+      {
+        id: "lewd-lascivious",
+        heading: "Statute 800.04 grades by two ages at once, and subsection (3) closes the age defense",
+        kind: "statute",
+        answers: [
+          "facing"
+        ],
+        statute: {
+          citation: "Florida Statute 800.04, the 2025 Florida Statutes",
+          body: "The section is titled Lewd or lascivious offenses committed upon or in the presence of persons less than 16 years of age, and it is built in layers. Subsection (1) is definitions, and it carries one that people do not expect: the definition of sexual activity excludes an act done for a bona fide medical purpose. Subsections (2) and (3) then remove three arguments by name, before any limb is reached. Subsection (2), headed PROHIBITED DEFENSES, provides that neither the victim's lack of chastity nor the victim's consent is a defense to the crimes proscribed by the section. Subsection (3), headed IGNORANCE OR BELIEF OF VICTIM'S AGE, provides that the perpetrator's ignorance of the victim's age, the victim's misrepresentation of his or her age, or the perpetrator's bona fide belief of the victim's age cannot be raised as a defense in a prosecution under the section. Those two subsections are the reason the sentence people most want to say is the sentence the statute has already addressed, and it is better to know that at the beginning than to learn it at a hearing. Subsection (4), LEWD OR LASCIVIOUS BATTERY, provides that a person commits lewd or lascivious battery by engaging in sexual activity with a person 12 years of age or older but less than 16 years of age, or by encouraging, forcing, or enticing any person less than 16 years of age to engage in sadomasochistic abuse, sexual bestiality, prostitution, or any other act involving sexual activity. Read the second branch carefully: it has no lower age bound and it requires no sexual activity by the person charged. Subsection (5), LEWD OR LASCIVIOUS MOLESTATION, provides that a person who intentionally touches in a lewd or lascivious manner the breasts, genitals, genital area, or buttocks, or the clothing covering them, of a person less than 16 years of age, or forces or entices a person under 16 years of age to so touch the perpetrator, commits lewd or lascivious molestation. Subsection (6), LEWD OR LASCIVIOUS CONDUCT, reaches a person who intentionally touches a person under 16 years of age in a lewd or lascivious manner, or who solicits a person under 16 years of age to commit a lewd or lascivious act. Subsection (7), LEWD OR LASCIVIOUS EXHIBITION, reaches a person who intentionally masturbates, who intentionally exposes the genitals in a lewd or lascivious manner, or who intentionally commits any other sexual act that does not involve actual physical or sexual contact with the victim, including, but not limited to, sadomasochistic abuse, sexual bestiality, or the simulation of any act involving sexual activity, in the presence of a victim who is less than 16 years of age. The words about presence are closing language, so they attach to each of the three branches rather than to the last one. Subsection (8), headed EXCEPTION, provides that a mother's breastfeeding of her baby does not under any circumstance constitute a violation of the section. The structural fact that runs through the whole of it is that two ages are doing the work at the same time, the age of the person alleged to be the victim and the age of the person charged, and they are graded in different paragraphs rather than in one place. Subsection (5) alone runs from a life felony where the offender is 18 or older and the victim is less than 12, to a third degree felony where the offender is less than 18 and the victim is 12 to 15, for conduct the statute describes in a single sentence at paragraph (5)(a). The section's History note ends at s. 7, ch. 2022-165."
+        }
+      },
+      {
+        id: "online",
+        heading: "Believed by the person to be a child, and travels any distance",
+        kind: "prose",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "Statute 847.0135 is the section behind an arrest that follows an online conversation, and its text answers three questions people arrive with. It is quoted here as text and nothing more. Nothing in this section says how any case ends or how serious anybody's situation is.",
+          "The first question is whether there has to have been a child. Subsection (3) reaches a person who knowingly uses a computer online service, Internet service, local bulletin board service, or any other device capable of electronic data storage or transmission to seduce, solicit, lure, or entice, or attempt to seduce, solicit, lure, or entice, a child or another person believed by the person to be a child, to commit an illegal act described in chapter 794, chapter 800, or chapter 827, or to otherwise engage in unlawful sexual conduct with a child or with another person believed by the person to be a child. The phrase another person believed by the person to be a child appears on the face of subsection (3) and again on the face of subsection (4), so the existence of an actual child is not written into either as an element.",
+          "The second question follows from the first. Subsection (2) contains this sentence: the fact that an undercover operative or law enforcement officer was involved in the detection and investigation of an offense under this section shall not constitute a defense to a prosecution under this section. The same sentence appears again at the close of paragraph (5)(a), scoped there to a prosecution under that subsection.",
+          "The third is about the traveling charge, which is the count that surprises people most. Subsection (4) reaches any person who travels any distance either within this state, to this state, or from this state by any means, who attempts to do so, or who causes another to do so or to attempt to do so, for the purpose of engaging in an illegal act described in chapter 794, chapter 800, or chapter 827, or to otherwise engage in other unlawful sexual conduct with a child or with another person believed by the person to be a child, after using one of the listed services or devices to solicit as subsection (3) describes. Any distance is the whole of the movement element as the subsection writes it, and a violation is a felony of the second degree.",
+          "Two provisions govern how the counts are built rather than what they require. Subsection (3) provides that each separate use of a computer online service, Internet service, local bulletin board service, or any other device capable of electronic data storage or transmission wherein an offense described in the section is committed may be charged as a separate offense. And inside the same subsection sits a sentence that moves the grade a full degree: any person who, in violating this subsection, misrepresents his or her age, commits a felony of the second degree.",
+          "Two further subsections decide where a case can be brought and what a prosecution does not foreclose. Subsection (7), headed STATE CRIMINAL JURISDICTION, provides that a person is subject to prosecution in this state pursuant to chapter 910 for conduct proscribed by the section which the person engages in while either within or outside this state, if by such conduct the person commits a violation of the section involving a child, a child's guardian, or another person believed by the person to be a child or a child's guardian. Subsection (8), headed EFFECT OF PROSECUTION, preserves other prosecutions, including under laws providing greater penalties. The section's History note ends at s. 7, ch. 2009-194."
+        ]
+      },
+      {
+        id: "registration",
+        heading: "Registration: what the statute requires, and when",
+        kind: "timeline",
+        answers: [
+          "consequences",
+          "next"
+        ],
+        prose: [
+          "This section is the reason a family member is often the person reading. It is written as dates and addresses rather than as consequences, because that is the form the obligations take and because a deadline is something a person can actually act on.",
+          "Read the scope line first. Statute 943.0435(5) provides that the section does not apply to a sexual offender who is also a sexual predator as defined in Statute 775.21, and that a sexual predator must register as required under Statute 775.21. So the deadlines below belong to Statute 943.0435, and a person designated a predator under Statute 775.21 is reporting under the parallel scheme in subsection (6) of that section instead.",
+          "What makes this statute different from the rest of this page is that the offense it creates is an offense of omission, and it runs on a 48-hour clock rather than on a calendar. Statute 943.0435(9)(a) makes a failure to report a felony of the third degree, ranked at level 7 on the Statute 921.0022 chart, and it closes with the sentence that each instance of a failure to register or report changes to the required information specified in that paragraph constitutes a separate offense. Statute 943.0435(9)(b) then provides that for a felony violation of the section, excluding subsection (13), committed on or after July 1, 2018, if the court does not impose a prison sentence, the court shall impose a mandatory minimum term of community control as defined in Statute 948.001: 6 months with electronic monitoring for a first offense, 1 year for a second, and 2 years for a third or subsequent offense. And the opening words of (9)(a), except as otherwise specifically provided, do real work, because two narrower failures are graded a full degree higher. Reporting an intent to vacate a residence and then remaining there is a felony of the second degree under Statute 943.0435(4)(c). Reporting an intent to leave Florida and then remaining in the state is a felony of the second degree under Statute 943.0435(8). Every other Florida ladder on this site counts something: dollars, weight, grams, prior convictions. This provision counts hours, and then counts instances.",
+          "Statute 943.0435(9)(d) removes an argument by name and is worth knowing before it is needed. It provides that an arrest on charges of failure to register where the offender has been provided and advised of the statutory obligations under subsection (2), the service of an information or a complaint for a violation of the section, or an arraignment on charges for a violation of the section constitutes actual notice of the duty to register; that a failure to immediately register following such an arrest, service, or arraignment is grounds for a subsequent charge; that a person charged with a subsequent failure may not assert the defense of a lack of notice; and that registering after the arrest, service, or arraignment is not a defense and does not relieve the person of criminal liability for the failure.",
+          "Where a registration prosecution can be brought is set out in Statute 943.0435(9)(c), which names the county in which the act or omission was committed, the county of the last registered address, the county in which the conviction occurred for the offense that met the criteria for designating the person a sexual offender, the county where the person was released from incarceration, and the county of the intended address reported before release. That is broader than the county where the person lives, and it is the kind of thing worth checking against the paperwork.",
+          "On duration, the statute states a default and then states exceptions in the same subsection, and reading the default by itself gets the rule wrong. Statute 943.0435(11) opens with the words except as provided in s. 943.04354, and then provides that a sexual offender shall maintain registration with the department for the duration of his or her life unless the sexual offender has received a full pardon or has had a conviction set aside in a postconviction proceeding for an offense that meets the criteria for classification as a sexual offender. It then adds a removal route. A person is considered for removal if he or she has been lawfully released from confinement, supervision, or sanction, whichever is later, for at least 25 years and has not been arrested for any felony or misdemeanor offense since release, provided the registration requirement was not based on an adult conviction for one of the excluded categories, which include a violation of Statute 787.01 or Statute 787.02, a violation of Statute 794.011 excluding Statute 794.011(10), a violation of Statute 800.04(4)(a)2. where the court finds the offense involved a victim under 12 years of age or sexual activity by the use of force or coercion, a violation of Statute 800.04(5)(b), a violation of Statute 800.04(5)(c)2. where the court finds the offense involved the use of force or coercion and unclothed genitals or genital area, a violation of Statute 825.1025(2)(a), and attempts or conspiracies to commit such an offense. Subparagraph 2. sets out which circuit court receives the petition, and subparagraph 3. says the court may grant or deny relief, that the department and the state attorney must be given notice at least 3 weeks before the hearing, and that they may present evidence in opposition. Statute 943.04354 is named in subsection (11) and is not described here, because its text has not been fetched for this page.",
+          "Reregistration is a separate obligation from the reporting deadlines and from address verification, and mixing them up is common. Statute 943.0435(14)(a) requires a sexual offender to report in person each year during the month of his or her birthday and during the sixth month following the birth month. Statute 943.0435(14)(b) then sets a different cadence for a person required to register as a result of a conviction for one of an enumerated set, which includes Statute 794.011 excluding Statute 794.011(10), Statute 800.04(4)(a)2. where the court finds the offense involved a victim under 12 or sexual activity by force or coercion, Statute 800.04(5)(b), Statute 800.04(5)(c)1. where the court finds molestation involving unclothed genitals or genital area, Statute 800.04(5)(c)2. where the court finds molestation involving force or coercion and unclothed genitals or genital area, Statute 800.04(5)(d) where the court finds force or coercion and unclothed genitals or genital area, and Statute 825.1025(2)(a): that person must reregister each year during the birth month and every third month thereafter. Note what sets that cadence. It is the underlying conviction, not whether the person is an offender or a predator.",
+          "Separately again, Statute 943.0435(6) requires county and local law enforcement agencies, in conjunction with the department, to verify the addresses of sexual offenders who are not under the care, custody, control, or supervision of the Department of Corrections at least one time per calendar year. Failing to respond to address verification correspondence from the department or from a county or local law enforcement agency within 3 weeks after the date of the correspondence is listed inside Statute 943.0435(9)(a) as one of the failures that paragraph reaches."
+        ],
+        steps: [
+          {
+            when: "Within 48 hours of establishing residence, of release, or of conviction",
+            what: "Statute 943.0435(2)(a) requires an initial in-person report at the sheriff's office: in the county where the person establishes or maintains a permanent, temporary, or transient residence within 48 hours after establishing that residence in Florida or after being released from the custody, control, or supervision of the Department of Corrections or from the custody of a contractor-operated correctional facility; or in the county of conviction within 48 hours after being convicted of a qualifying offense, where the person is not in the custody or control of, or under the supervision of, the Department of Corrections or in the custody of a contractor-operated correctional facility. Paragraph (2)(b) lists the information provided at that report, and it is long: identifying details, employment information, addresses, vehicle information, fingerprints, palm prints, and a photograph among them."
+          },
+          {
+            when: "Within 48 hours after that first report",
+            what: "Statute 943.0435(3) requires an in-person report at a driver license office of the Department of Highway Safety and Motor Vehicles. The subsection carries its own exception in the same sentence: unless a driver license or identification card complying with the requirements of Statute 322.141(3) was previously secured or updated under Statute 944.607. At that office the person secures, renews, or obtains a Florida driver license or identification card if otherwise qualified, identifies himself or herself as a sexual offender required to comply with the section, provides proof of the subsection (2) report, submits to a photograph, and pays the costs assessed."
+          },
+          {
+            when: "Within 48 hours after a change of residence or a change of name",
+            what: "Statute 943.0435(4)(a)1. requires an in-person report at a driver license office within 48 hours after any change in the permanent, temporary, or transient residence, or a change of name by reason of marriage or other legal process, and it applies without regard to the status of the license or card. A person unable to secure or update a license or card reports the change in person at the sheriff's office in the county where he or she resides or is located, within the same 48 hours. The subparagraph ends with a limit that has to be read: it does not apply to an in-state travel residence."
+          },
+          {
+            when: "Within 48 hours after establishing an in-state travel residence",
+            what: "Statute 943.0435(4)(a)2. sets its own route for that category. The report may be made through the department's online system, in person at the sheriff's office in the county where the person is located, in person at the Department of Corrections if the person is in its custody, control, or supervision, or in person at the Department of Juvenile Justice on the same condition. Statute 775.21(2), whose definitions Statute 943.0435(1)(f) adopts, defines an in-state travel residence as a temporary residence in this state established by a person who already has an existing permanent, temporary, or transient residence in this state."
+          },
+          {
+            when: "Within 48 hours after vacating a residence, and within 48 hours after establishing a transient residence, then every 30 days",
+            what: "Statute 943.0435(4)(b)1. requires a person who vacates a permanent, temporary, or transient residence and fails to establish or maintain another to report in person at the sheriff's office in the county where he or she is located within 48 hours, specifying the date of vacating and providing an address for where he or she is or will be located. Statute 943.0435(4)(b)2. requires an in-person report at the sheriff's office within 48 hours after establishing a transient residence, and thereafter an in-person report every 30 days while that transient residence is maintained. The subparagraph adds that reporting to the sheriff under it does not exempt the person from any reregistration requirement."
+          },
+          {
+            when: "Within 48 hours after using a new electronic mail address or Internet identifier",
+            what: "Statute 943.0435(4)(e)1. requires registration of electronic mail addresses and Internet identifiers, and each Internet identifier's corresponding website homepage or application software name, through the department's online system or in person at the sheriff's office, within 48 hours after using them. A person in the custody, control, or supervision of the Department of Corrections or the Department of Juvenile Justice reports them to that department before use rather than within 48 hours after. Statute 943.0435(4)(e)2. sets the same 48-hour window after the change for telephone numbers, changes to employment information including the creation of a new business if self-employed, and changes in enrollment, volunteer, or employment status at an institution of higher education."
+          },
+          {
+            when: "Within 3 weeks after the date of address verification correspondence",
+            what: "Failing to respond within 3 weeks after the date of correspondence from the department or from a county or local law enforcement agency is inside the list of failures that Statute 943.0435(9)(a) makes a felony of the third degree. Statute 943.0435(6) is the provision that puts the verification cadence on the agencies: at least one time per calendar year for a sexual offender not under the care, custody, control, or supervision of the Department of Corrections."
+          },
+          {
+            when: "At least 48 hours before leaving Florida to live elsewhere, at least 21 days before travel outside the United States",
+            what: "Statute 943.0435(7) requires an in-person report to the sheriff of the county of current residence at least 48 hours before the date the person intends to leave Florida to establish residence in another state or jurisdiction, or at least 21 days before the date he or she intends to travel outside the United States. Travel not known within those windows must be reported in person at the sheriff's office as soon as possible before departure. The subsection also requires the address, municipality, county, state, and country of intended residence, and for international travel the expected departure and return dates, flight number, airport or cruise port of departure, or other means of intended travel."
+          },
+          {
+            when: "Within 48 hours after the date given for leaving, if the plan changes",
+            what: "Statute 943.0435(8) covers the person who reported an intent to establish residence in another state or jurisdiction, or an intent to travel to another country, and then decided to remain in Florida. The report is due within 48 hours after the date on which he or she indicated the departure would occur, and remaining in the state without reporting in the manner the subsection requires is a felony of the second degree rather than the third."
+          },
+          {
+            when: "Each year, in the birth month and in the sixth month after it, or in the birth month and every third month",
+            what: "Statute 943.0435(14)(a) sets the ordinary reregistration cadence at the sheriff's office in the county where the person resides or is otherwise located. Statute 943.0435(14)(b) sets a quarterly cadence, birth month and every third month thereafter, where the registration requirement results from a conviction for one of the offenses that paragraph enumerates. Statute 943.0435(14)(c) says the sheriff's office may determine the appropriate times and days for reporting, consistent with the subsection, and lists what a reregistration must include."
+          },
+          {
+            when: "For the duration of the person's life, subject to what subsection (11) says next",
+            what: "Statute 943.0435(11) states the lifetime default, opens with the words except as provided in s. 943.04354, and carves out a full pardon and a conviction set aside in a postconviction proceeding. It then sets the removal path described above: at least 25 years lawfully released from confinement, supervision, or sanction, whichever is later, without an arrest for any felony or misdemeanor since release, subject to the enumerated adult-conviction exclusions, by petition to the criminal division of the circuit court, with notice to the department and the state attorney at least 3 weeks before the hearing."
+          }
+        ]
+      },
+      {
+        id: "predator",
+        heading: "Sexual offender, sexual predator, and the written finding a judge makes at sentencing",
+        kind: "prose",
+        answers: [
+          "consequences",
+          "who"
+        ],
+        prose: [
+          "These are separate statuses under separate statutes, and they are not two words for the same thing. A sexual offender registers under Statute 943.0435. A sexual predator registers under Statute 775.21, and Statute 943.0435(5) removes such a person from the first scheme in terms: the section does not apply to a sexual offender who is also a sexual predator, as defined in Statute 775.21.",
+          "The designation is not automatic and it is not the prosecutor's to make. Statute 775.21(5)(a)2. provides that an offender who meets the sexual predator criteria described in paragraph (4)(a), who is before the court for sentencing for a current offense committed on or after October 1, 1993, is a sexual predator, and that the sentencing court must make a written finding at the time of sentencing that the offender is a sexual predator, with the clerk of the court transmitting a copy of the order containing the written finding to the department within 48 hours after the entry of the order. Statute 775.21(4)(c) covers the case where a court did not make that written finding: the department removes the person from its list of sexual predators and notifies the state attorney, who brings the matter to the court's attention, and if the court does not make a written finding, the person may not be designated a sexual predator with respect to that offense.",
+          "The criteria in Statute 775.21(4)(a) are conjunctive, and a page that quotes subparagraph 1. and stops has quoted a third of them. Designation follows on conviction where subparagraph 1. is satisfied, and subparagraph 2. requires that the offender has not received a pardon for any felony or similar law of another jurisdiction necessary to the operation of the paragraph, and subparagraph 3. requires that a conviction necessary to its operation has not been set aside in any postconviction proceeding.",
+          "Subparagraph 1. itself has two routes, and the difference between them is the practical point of this section. Sub-subparagraph 1.a. reaches a capital, life, or first degree felony violation, or any attempt thereof, of an enumerated set that includes Statute 800.04. That route rests on the current offense by itself. Sub-subparagraph 1.b. reaches any felony violation, or any attempt thereof, of a longer enumerated set that includes Statute 800.04 and Statute 847.0135 excluding Statute 847.0135(6), and it applies where the offender has previously been convicted of, or found to have committed, or has pled nolo contendere or guilty to, regardless of adjudication, a violation drawn from a comparable list. Statute 847.0135 appears in sub-subparagraph 1.b. and does not appear in sub-subparagraph 1.a.",
+          "What counts as the prior is defined rather than left open. Statute 775.21(4)(b) provides that in order to be counted as a prior felony for purposes of the subsection, the felony must have resulted in a conviction sentenced separately, or an adjudication of delinquency entered separately, prior to the current offense, and sentenced or adjudicated separately from any other felony conviction that is to be counted as a prior felony, regardless of the date of offense of the prior felony.",
+          "The penalty subsection runs in parallel with Statute 943.0435 and diverges in places. Statute 775.21(10)(a) is worded like Statute 943.0435(9)(a), down to the 3-week address verification window and the sentence making each instance a separate offense, and it is a felony of the third degree ranked at level 7. Statute 775.21(10)(c) sets the same mandatory minimum community control tiers of 6 months, 1 year, and 2 years with electronic monitoring, for a felony violation of the section excluding paragraph (g), committed on or after July 1, 2018, where the court does not impose a prison sentence. Statute 775.21(6)(g)3. and Statute 775.21(6)(j) are the second degree felonies that correspond to Statute 943.0435(4)(c) and Statute 943.0435(8). And Statute 775.21(10)(b) has no counterpart in Statute 943.0435 at all: it makes it a felony of the third degree for a sexual predator with one of the enumerated convictions, where the victim was a minor, to work, whether for compensation or as a volunteer, at any business, school, child care facility, park, playground, or other place where children regularly congregate.",
+          "Statute 775.21(2) supplies the residence definitions that Statute 943.0435(1)(f) adopts, and the arithmetic in them is easy to miss. A permanent residence is a place where the person abides, lodges, or resides for 3 or more consecutive days that is the person's home or other place where the person primarily lives. A temporary residence is such a place, including a vacation, business, or personal travel destination in or out of this state, occupied for 3 or more days in the aggregate during any calendar year, that is not the person's permanent or transient residence. A transient residence is a county where the person lives, remains, or is located for that purpose for 3 or more days in the aggregate during a calendar year that is not the permanent or temporary residence. For each of them the statute says the first day is excluded and each subsequent day is counted, and that a day includes any part of a calendar day."
+        ]
+      },
+      {
+        id: "now",
+        heading: "What is already in somebody's records before a lawyer is involved",
+        kind: "guidance",
+        answers: [
+          "now"
+        ],
+        guidance: [
+          {
+            heading: "Rights that are in place from the first contact onward",
+            items: [
+              "You have the right to decline to answer questions. It is available at the door, at the station, and at every stage after that, and it does not have to be explained or justified.",
+              "You do not have to consent to a search of a phone, a computer, or a home. Whether a search would have been lawful without consent is a question a court can be asked to decide, and consent is what removes that question from the case.",
+              "You are entitled to see what the State relies on, through discovery, in the ordinary course.",
+              "Counsel is a right, and Fla. R. Crim. P. 3.111(a) fixes when appointment attaches for a person entitled to it: when the person is formally charged with an offense, or as soon as feasible after custodial restraint, or at the first appearance before a committing judge, whichever occurs earliest. Rule 3.111(b)(1) provides that counsel shall be provided to indigent persons in prosecutions for offenses punishable by incarceration, and Rule 3.111(b)(5) sets the steps a court takes before appointing a public defender, including an inquiry into financial status under oath and an affidavit of insolvency.",
+              "Retained counsel has its own protection at the first hearing. Rule 3.130(c)(2) requires the judge to allow the defendant a reasonable time to send for counsel and, if necessary, to postpone the first appearance hearing for that purpose."
+            ]
+          },
+          {
+            heading: "What is different about a case in this category before a lawyer is involved",
+            items: [
+              "An explanation about age is the sentence people most want to give, and Statute 800.04(3) has already addressed it: ignorance of the victim's age, the victim's misrepresentation of his or her age, and a bona fide belief about the victim's age cannot be raised as a defense in a prosecution under that section. Statute 800.04(2) says the same of the victim's lack of chastity and of consent. Whether and how any of that matters to a case is a question for counsel, and it is not a conversation to have with an investigator first.",
+              "In an online case the record was assembled before anyone was arrested. The messages, the account identifiers, and the device sit with a service provider or in an extraction, and Statute 847.0135(3) provides that each separate use of a service or device wherein an offense described in the section is committed may be charged as a separate offense. How many counts appear on a charging document is built from that record rather than from anything said afterward.",
+              "Statute 847.0135 states in subsection (2) that the involvement of an undercover operative or law enforcement officer in the detection and investigation of an offense under the section is not a defense to a prosecution under it, and repeats that sentence at the close of paragraph (5)(a) for prosecutions under that subsection. Anyone who has been told otherwise has been told something the statute contradicts.",
+              "If a registration obligation is already running, the deadlines in the registration section above are running now and none of them waits for a lawyer. They are measured in 48-hour intervals from events that generate no notice: moving, changing a name, opening an email account, deciding not to leave the state after saying you would. Statute 943.0435(9)(d) also provides that an arrest on failure-to-register charges, service of an information or complaint, or an arraignment constitutes actual notice of the duty, and that registering afterward is not a defense.",
+              "A statement made to reassure somebody is still a statement. What was believed, what was said, who was talking to whom, and when a device was used all touch elements of these statutes, and those are conversations to have with a lawyer rather than alone."
+            ]
+          }
+        ]
+      },
+      {
+        id: "clocks",
+        heading: "Twenty-four hours, sixty days, and a limitations clock that can start when a person turns 18",
+        kind: "timeline",
+        answers: [
+          "next"
+        ],
+        prose: [
+          "The intervals below come from the Florida Rules of Criminal Procedure and from Statute 775.15. The limitations provisions are the part of this that is written for these statutes specifically rather than for Florida procedure generally, so they are set out last and in the most detail."
+        ],
+        steps: [
+          {
+            when: "Within 24 hours of the arrest",
+            what: "Fla. R. Crim. P. 3.130(a) provides that, except when previously released in a lawful manner, every arrested person must be taken before a judge, either in person or by audio-video communication technology in the discretion of the court, within 24 hours of arrest. Rule 3.130(b)(1)(B) requires the judge to advise an unrepresented defendant of the right to counsel and that counsel will be appointed if the defendant is financially unable to afford one, and Rule 3.130(c)(1) provides that when the judge determines the defendant is entitled to court-appointed counsel and desires counsel, the judge must immediately appoint counsel. Rule 3.130(d) then directs the judge to determine pretrial detention or conditions of release under rule 3.132 or rule 3.131."
+          },
+          {
+            when: "30 days from arrest, if the person is still in custody",
+            what: "Rule 3.134(a) requires the state to file formal charges by information or indictment within 30 days on defendants in custody. If they remain uncharged, the court on the 30th day and with notice to the state must order automatic release on recognizance on the 33rd day, or on the 40th day if the state shows good cause, and the rule provides that in no event may a defendant remain in custody beyond 40 days without having been formally charged. Release under this rule is not a dismissal, and the state may file afterward."
+          },
+          {
+            when: "60 days from arrest, if the person was released",
+            what: "Rule 3.134(b) is the track for a defendant on pretrial release: 60 days for the state to file, automatic release on recognizance on the 63rd day if it has not, and, on a showing of good cause, continuation on pretrial release for up to an additional 30 days. Custody is what decides which of the two tracks applies, not the charge. The rule was amended effective 2025-07-01, so a version of it circulating as the 33-day rule describes the in-custody track."
+          },
+          {
+            when: "175 days after the formal charge, not after the arrest",
+            what: "Rule 3.191(a) sets the felony speedy trial period at 175 days and 90 days for a misdemeanor, and Rule 3.191(d) fixes where the period starts: a person is formally charged by information or indictment. The gap between an arrest and a charging decision sits outside it. Rule 3.191(a) points to the remedy in subdivision (o), which is a recapture procedure rather than an automatic discharge. Under Rule 3.191(b) a defendant may instead file a demand for speedy trial and require trial within 60 days."
+          },
+          {
+            when: "4 years, 3 years, or 2 years, where the general limitation applies",
+            what: "Statute 775.15(2) sets the general periods except as otherwise provided in that section: 4 years for a felony of the first degree, 3 years for any other felony, 2 years for a misdemeanor of the first degree, and 1 year for a misdemeanor of the second degree or a noncriminal violation. Statute 775.15(3) provides that an offense is committed when every element has occurred or, where a legislative purpose to prohibit a continuing course of conduct plainly appears, when that course of conduct terminates, and that time starts to run on the day after the offense is committed."
+          },
+          {
+            when: "Not until the victim turns 18, or until the violation is reported, whichever comes first",
+            what: "Statute 775.15(13)(a) provides that if the victim of a violation of Statute 794.011, former Statute 794.05 Florida Statutes 1995, Statute 800.04, Statute 826.04, or Statute 847.0135(5) is under the age of 18, the applicable period of limitation, if any, does not begin to run until the victim has reached the age of 18 or the violation is reported to a law enforcement agency or other governmental agency, whichever occurs earlier. The paragraph continues past that sentence: the agency must promptly report the allegation to the state attorney for the judicial circuit in which the alleged violation occurred, and the paragraph applies except to an offense whose prosecution would have been barred by Statute 775.15(2) on or before December 31, 1984."
+          },
+          {
+            when: "At any time, for part of Statute 800.04, and for a life felony",
+            what: "Statute 775.15(18) provides that if the offense is a violation of Statute 800.04(4) or (5) and the victim was under 16 years of age at the time the offense was committed, a prosecution may be commenced at any time, unless, at the time of the offense, the offender is less than 18 years of age and is no more than 4 years older than the victim. The subsection ends with a further limit: it applies to an offense that is not otherwise barred from prosecution on or before October 1, 2014. Separately, Statute 775.15(1) provides that a prosecution for a capital felony, a life felony, or a felony that resulted in a death may be commenced at any time, which reaches the life felony at Statute 800.04(5)(b)."
+          }
+        ]
+      },
+      {
+        id: "record",
+        heading: "Paragraph (o), paragraph (cc), and the sealing route that is written around this list",
+        kind: "prose",
+        answers: [
+          "sealing",
+          "consequences"
+        ],
+        prose: [
+          "Florida criminal history records are public. Unless a record is sealed or expunged, an arrest is visible to an ordinary background check and stays visible for as long as it is unsealed. That is the practical answer to the employment question, and it operates whether or not a case produces a conviction.",
+          "On these statutes the sealing question has a definite answer at one end, and it is better to know it early than to learn it three years later. Statute 943.0584(2) provides that a criminal history record is ineligible for a certificate of eligibility for expunction or a court-ordered expunction pursuant to Statute 943.0585, or for a certificate of eligibility for sealing or a court-ordered sealing pursuant to Statute 943.059, if the record is a conviction for one of the offenses it lists. Paragraph (o) of that list reads lewd or lascivious offenses committed upon or in the presence of persons less than 16 years of age, as defined in s. 800.04. Paragraph (cc) reads any offense defined in s. 847.0135. And paragraph (hh) reaches wider still: any violation specified as a predicate offense for registration as a sexual predator pursuant to s. 775.21, or sexual offender pursuant to s. 943.0435, without regard to whether that offense alone is sufficient to require such registration.",
+          "The word conviction in that section is broader than most readers expect. Statute 943.0584(1) defines it, for use in that section, as a determination of guilt which is the result of a trial or the entry of a plea of guilty or nolo contendere, regardless of whether adjudication is withheld, and, where the defendant was a minor, a finding that the defendant committed or pled guilty or nolo contendere to committing a delinquent act regardless of whether adjudication of delinquency is withheld. The usual route around a permanent record bar is a withheld adjudication, and that definition closes it for a listed offense.",
+          "What the bar attaches to is the record being a conviction for a listed offense, which is not the same thing as the charge that was filed. Where the bar does not apply, the conditions in Statute 943.059(1) are cumulative and still have to be met: the record is not ineligible under Statute 943.0584; the person has never, before the date the application for a certificate of eligibility is filed, been adjudicated guilty in this state of a criminal offense, or adjudicated delinquent in this state for a felony or one of thirteen enumerated misdemeanors; the person has not been adjudicated guilty of, or adjudicated delinquent for committing, any of the acts stemming from the arrest to which the petition pertains; the person is no longer under court supervision for it; and the person has never secured a prior sealing or expunction. Read the second of those carefully, because the thirteen-item misdemeanor list attaches to the delinquency prong rather than to the adult prong, and exposure of sexual organs as defined in Statute 800.03 is subparagraph 9. of that list. Statute 943.059(2) then requires a certificate of eligibility from the department before a petition is filed, and provides that the certificate is valid for 12 months after the date stamped on it.",
+          "There is a second route that requires no petition and no court order, and it is written around the same enumeration this page is built on. Statute 943.0595 is automatic sealing. Its subsection (2)(a) provides that the department shall automatically seal a criminal history record that does not result from an indictment, information, or other charging document for a forcible felony as defined in Statute 776.08 or for an offense enumerated in Statute 943.0435(1)(h)1.a.(I), where one of four things happened: no charging document was filed or issued; a charging document was filed but was dismissed or nolle prosequi by the state attorney or statewide prosecutor, or dismissed by a court of competent jurisdiction, as to each count, except where the dismissal was pursuant to Statute 916.145 or Statute 985.19; a judge or jury acquitted the defendant as to each count, except where the defendant was found not guilty by reason of insanity; or a judge rendered a judgment of acquittal as to each count. Statute 800.04 and Statute 847.0135 are inside the Statute 943.0435(1)(h)1.a.(I) enumeration, so a record resulting from a charging document for one of them falls outside that automatic route even where the case ends without a conviction. Statute 800.03 is absent from that enumeration, and this page does not go further than that, because Statute 776.08 closes its forcible felony definition with the words and any other felony which involves the use or threat of physical force or violence against any individual, which is not a fixed list.",
+          "Two things that sound like the record question are separate from it. Registration duration is set by Statute 943.0435(11) and by Statute 775.21, not by the sealing statutes, so sealing a record and ending a registration obligation are different questions with different statutes behind them. And whether a particular record can be sealed in a particular case is a question for counsel with the disposition in front of them; nothing here says how any case will end, and it is not a reason to expect one ending over another.",
+          "Two consequences sit outside what a Florida criminal statute can answer. A professional license is governed by the rules of the board that issued it. Immigration consequences turn on federal law, and that question belongs with an immigration attorney rather than being read off a Florida statute."
+        ]
+      },
+      {
+        id: "who",
+        heading: "Which offices already hold this file, and where each of these cases is heard",
+        kind: "prose",
+        answers: [
+          "who"
+        ],
+        prose: [
+          "Several offices are working on this before anybody chooses a lawyer, and they answer to different people. The Office of the State Attorney for the Thirteenth Judicial Circuit decides whether to file, what to file, and which subsection a count alleges, and on this page that decision is what fixes the degree, the offense level, and whether registration follows a conviction. The arresting agency wrote the report. The Hillsborough County Clerk holds the file, with circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
+          "Which courtroom depends on the grade rather than on the subject. The felonies in the table above are circuit criminal matters in the Thirteenth Judicial Circuit. A first violation of Statute 800.03 is a first degree misdemeanor under Statute 800.03(2)(a) and is a county criminal matter; a second or subsequent violation is a third degree felony under Statute 800.03(2)(b) and is not. If a case is being prosecuted federally instead, it is heard in the Middle District of Florida, Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue, Tampa.",
+          "One decision on this page belongs to the judge rather than to the prosecutor, and it is worth knowing whose it is. Statute 775.21(5)(a)2. provides that the sentencing court must make a written finding at the time of sentencing that an offender who meets the criteria in paragraph (4)(a) is a sexual predator, and that the clerk of the court transmits a copy of the order containing that finding to the department within 48 hours after the entry of the order. Registration under Statute 943.0435, by contrast, follows from the conviction itself rather than from anyone's exercise of discretion.",
+          "Registration reporting in Hillsborough County is done at the Hillsborough County Sheriff's Office, 1201 Orient Road, Tampa, Florida 33619, Monday through Friday, 7:30am to 3:30pm, telephone 813-247-8460, as listed by the Florida Department of Law Enforcement in its registration locations material. FDLE's Offender Registry Services Bureau can be reached at 1-888-357-7332. Hours and locations change, so confirm them before relying on them for a 48-hour deadline.",
+          "Counsel arrives on two tracks and the first hearing is where each is raised. If you cannot pay, Fla. R. Crim. P. 3.111(a) attaches the appointment at the earliest of three events, when the person is formally charged with an offense, as soon as feasible after custodial restraint, or at the first appearance before a committing judge, and Rule 3.130(c)(1) requires the judge who determines that the defendant is entitled to court-appointed counsel and desires counsel to immediately appoint counsel. If you intend to hire someone, Rule 3.130(c)(2) requires the judge to allow a reasonable time to send for counsel and, if necessary, to postpone the first appearance hearing for that purpose. Rule 3.111(b)(5) sets out what a court does before appointing a public defender, including advising the accused that a lien for the services of counsel may be imposed as provided by law, inquiring into financial status under oath, and requiring an affidavit of insolvency.",
+          "If you are a lawyer referring a matter rather than a person facing one, the scope question is answered in the first section of this page and the grading is answered in the second. A chapter 794 matter and a federal prosecution are outside what this page covers."
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: "Does it matter that I did not know how old they were?",
+        source: "drafted",
+        answer: "For a prosecution under Florida Statute 800.04, the lewd or lascivious offenses statute, the statute answers that question directly and against the argument. Statute 800.04(3), headed IGNORANCE OR BELIEF OF VICTIM'S AGE, provides that the perpetrator's ignorance of the victim's age, the victim's misrepresentation of his or her age, or the perpetrator's bona fide belief of the victim's age cannot be raised as a defense in a prosecution under that section, and Statute 800.04(2) separately provides that neither the victim's lack of chastity nor the victim's consent is a defense. Those provisions are specific to Statute 800.04 and do not speak for other statutes; what they mean for a particular charge, and what else is contested in it, is a question for a lawyer with the charging document and the discovery in front of them."
+      },
+      {
+        question: "The person I was talking to online turned out to be a police officer. Is that a defense?",
+        source: "drafted",
+        answer: "Florida Statute 847.0135, the computer solicitation and traveling statute, addresses this in its own text. Subsection (2) states that the fact that an undercover operative or law enforcement officer was involved in the detection and investigation of an offense under that section shall not constitute a defense to a prosecution under it, and the same sentence appears again at the close of paragraph (5)(a), scoped there to a prosecution under that subsection. Relatedly, subsections (3) and (4) each reach conduct directed at a child or at another person believed by the person to be a child, so the existence of an actual child is not written into either as an element. This describes what that statute says and nothing about any particular case; what is contested in a given prosecution is a question for counsel."
+      },
+      {
+        question: "What happens if I don't register, or if I register late?",
+        source: "drafted",
+        answer: "Under Florida Statute 943.0435, which governs registration as a sexual offender, a failure to report is its own criminal offense. Statute 943.0435(9)(a) makes a failure to register, a failure to provide required location or change-of-name information, a failure to provide electronic mail addresses and Internet identifiers, a failure to reregister, a failure to respond to address verification correspondence within 3 weeks after the date of the correspondence, and a failure otherwise to comply with the section a felony of the third degree, carrying up to 5 years and ranked at level 7 on the Statute 921.0022 chart, and it provides that each instance of a failure to register or report changes to the required information specified in that paragraph constitutes a separate offense. Statute 943.0435(9)(b) adds that for a felony violation of the section, excluding subsection (13), committed on or after July 1, 2018, if the court does not impose a prison sentence, the court shall impose a mandatory minimum term of community control with electronic monitoring of 6 months for a first offense, 1 year for a second, and 2 years for a third or subsequent offense. Two narrower failures are graded a degree higher, to a felony of the second degree: remaining at a residence after reporting an intent to vacate it, under Statute 943.0435(4)(c), and remaining in Florida after reporting an intent to leave the state, under Statute 943.0435(8). A person designated a sexual predator reports under Statute 775.21 instead, whose subsection (10) is worded in parallel."
+      },
+      {
+        question: "What is the difference between being a sexual offender and being a sexual predator in Florida?",
+        source: "drafted",
+        answer: "They are separate statuses under separate Florida statutes. A sexual offender registers under Statute 943.0435, and the status follows from a conviction for one of the offenses enumerated in Statute 943.0435(1)(h)1.a.(I). A sexual predator registers under Statute 775.21, and Statute 943.0435(5) provides that Statute 943.0435 does not apply to a sexual offender who is also a sexual predator. The predator designation is a judicial finding rather than an automatic consequence: Statute 775.21(5)(a)2. provides that the sentencing court must make a written finding at the time of sentencing that an offender meeting the criteria in Statute 775.21(4)(a) is a sexual predator, with the clerk transmitting the order to the department within 48 hours. Those criteria are conjunctive, and subparagraph (4)(a)1. runs on two routes: sub-subparagraph 1.a. reaches a capital, life, or first degree felony violation, or attempt, of an enumerated set including Statute 800.04, on the current offense by itself, while sub-subparagraph 1.b. reaches any felony violation, or attempt, of a longer enumerated set including Statute 800.04 and Statute 847.0135 excluding Statute 847.0135(6), where the offender has a qualifying prior counted under Statute 775.21(4)(b)."
+      },
+      {
+        question: "Do sex crimes have a statute of limitations in Florida?",
+        source: "PAA, sex crimes attorney Tampa, 2026-08-13",
+        answer: "It depends on the statute charged, and Florida Statute 775.15 writes special rules for part of this area. Statute 775.15(18) provides that if the offense is a violation of Statute 800.04(4) or (5) and the victim was under 16 years of age at the time the offense was committed, a prosecution may be commenced at any time, unless, at the time of the offense, the offender is less than 18 years of age and is no more than 4 years older than the victim; that subsection applies to an offense not otherwise barred from prosecution on or before October 1, 2014. Statute 775.15(13)(a) provides that where the victim of a violation of Statute 794.011, former Statute 794.05 Florida Statutes 1995, Statute 800.04, Statute 826.04, or Statute 847.0135(5) is under the age of 18, the applicable period of limitation, if any, does not begin to run until the victim has reached the age of 18 or the violation is reported to a law enforcement agency or other governmental agency, whichever occurs earlier. Statute 775.15(1) allows a prosecution for a capital felony, a life felony, or a felony that resulted in a death to be commenced at any time. Where none of those applies, Statute 775.15(2) sets the general periods: 4 years for a felony of the first degree, 3 years for any other felony, and 2 years for a misdemeanor of the first degree."
+      },
+      {
+        question: "How long can a sex offender visit Florida without having to register?",
+        source: "PAA, florida sex offender registration, 2026-08-13",
+        answer: "Florida measures this by a residence definition rather than by a visit length. Statute 775.21(2), whose definitions Statute 943.0435(1)(f) adopts, defines a temporary residence as a place where the person abides, lodges, or resides, including a vacation, business, or personal travel destination in or out of this state, for 3 or more days in the aggregate during any calendar year that is not the person's permanent or transient residence, and it adds that for a person whose permanent residence is not in this state the term also includes a place where the person is employed, practices a vocation, or is enrolled as a student for any period of time in this state. The counting rule is in the same paragraph: the first day is excluded, each subsequent day is counted, and a day includes any part of a calendar day. Once a temporary residence is established, Statute 943.0435(2)(a) requires an in-person report at the sheriff's office within 48 hours, and Statute 943.0435(3) requires an in-person report at a driver license office of the Department of Highway Safety and Motor Vehicles within 48 hours after that, unless a driver license or identification card complying with Statute 322.141(3) was previously secured or updated under Statute 944.607."
+      }
+    ]
+  },
+  "state/sexual-battery-defense": {
+    title: "Sexual battery charges in Hillsborough County",
+    metaTitle: "Sexual Battery Charges in Hillsborough County | Hines & McCarty",
+    metaDescription: "Florida Statute 794.011 grades sexual battery by the age of each person and by whether force is alleged, from a third degree felony to a capital felony.",
+    lead: "Sexual battery is defined in Florida Statute 794.011(1)(j) as oral, anal, or female genital penetration by, or union with, the sexual organ of another, or the anal or female genital penetration of another by any other object. Which subsection of that section is charged, and the degree that follows from it, turn on the age of the person charged, the age of the person named in the charge, and whether force is alleged.",
+    sections: [
+      {
+        id: "definition",
+        heading: "Penetration by, or union with: what Statute 794.011(1)(j) says, and what (1)(b) defines",
+        kind: "statute",
+        answers: [
+          "facing"
+        ],
+        statute: {
+          citation: "Florida Statute 794.011(1)(j), (1)(b), and (1)(a)",
+          body: "(j) \"Sexual battery\" means oral, anal, or female genital penetration by, or union with, the sexual organ of another or the anal or female genital penetration of another by any other object; however, sexual battery does not include an act done for a bona fide medical purpose. (b) \"Female genitals\" includes the labia minora, labia majora, clitoris, vulva, hymen, and vagina. (a) \"Consent\" means intelligent, knowing, and voluntary consent and does not include coerced submission. \"Consent\" shall not be deemed or construed to mean the failure by the alleged victim to offer physical resistance to the offender."
+        },
+        prose: [
+          "Subsection (1) opens with the words \"As used in this chapter,\" so these definitions are not confined to one paragraph. They travel into the grading subsections that follow, and where one of these words appears in subsection (3), (4), (5) or (8), this is the meaning it carries.",
+          "Three things in the definition are worth reading slowly, because summaries of this charge routinely lose them. First, the defined conduct is penetration by, or union with, so the statute names two things and not one. Second, the term is \"female genital,\" not \"vaginal,\" and paragraph (1)(b) then defines female genitals to include the labia minora, labia majora, clitoris, vulva, hymen, and vagina, which is wider than the narrower word. Third, the definition closes with a carve-out written into the same sentence: sexual battery does not include an act done for a bona fide medical purpose.",
+          "The consent definition carries its own negative, in the same paragraph. Consent means intelligent, knowing, and voluntary consent and does not include coerced submission, and the paragraph then states that consent shall not be deemed or construed to mean the failure by the alleged victim to offer physical resistance to the offender. A page that quoted the first half of that paragraph and stopped would have stated the opposite of what the second half says.",
+          "Subsection (1) defines further terms the grading provisions then use, including these. Paragraph (1)(f) provides that \"Physically helpless\" means unconscious, asleep, or for any other reason physically unable to communicate unwillingness to an act. Paragraph (1)(g) provides that \"Physically incapacitated\" means bodily impaired or handicapped and substantially limited in ability to resist or flee. Paragraph (1)(c) provides that \"Mentally defective\" means a mental disease or defect which renders a person temporarily or permanently incapable of appraising the nature of his or her conduct, and paragraph (1)(d) provides that \"Mentally incapacitated\" means temporarily incapable of appraising or controlling a person's own conduct due to the influence of a narcotic, anesthetic, or intoxicating substance administered without his or her consent or due to any other act committed upon that person without his or her consent. Paragraph (1)(i) provides that \"Serious personal injury\" means great bodily harm or pain, permanent disability, or permanent disfigurement, which is the phrase the force provisions in subsections (3) and (5) are built around. Paragraph (1)(h) provides that \"Retaliation\" includes, but is not limited to, threats of future physical punishment, kidnapping, false imprisonment or forcible confinement, or extortion."
+        ]
+      },
+      {
+        id: "brackets",
+        heading: "Which subsection is charged turns on two ages, read together, and on whether force is alleged",
+        kind: "prose",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "Statute 794.011 does not carry a single penalty. It carries a set of separately graded subsections, and the grading is done by combination: the age of the person charged and the age of the person named in the charge are read together, and then the statute asks whether consent is in issue, whether one of the circumstances listed in paragraph (4)(e) is alleged, and whether force of a particular description was used. The paragraphs are set out below in the statute's own words, because compressing them into a summary sentence produces a wrong answer for somebody.",
+          "Where the person named in the charge is less than 12 years of age, the age of the person charged decides between two paragraphs. Paragraph (2)(a) provides that a person 18 years of age or older who commits sexual battery upon, or in an attempt to commit sexual battery injures the sexual organs of, a person less than 12 years of age commits a capital felony, punishable as provided in ss. 775.082 and 921.1425. Paragraph (2)(b) provides that a person less than 18 years of age who commits sexual battery upon, or in an attempt to commit sexual battery injures the sexual organs of, a person less than 12 years of age commits a life felony, punishable as provided in s. 775.082, s. 775.083, s. 775.084, or s. 794.0115. Neither paragraph contains a consent element; that element appears in the subsections written about a person 12 years of age or older.",
+          "Subsection (3) is the force provision, and it does not limit the age of the person charged. It provides that a person who commits sexual battery upon a person 12 years of age or older, without that person's consent, and in the process thereof: (a) Uses or threatens to use a deadly weapon; or (b) Uses actual physical force likely to cause serious personal injury, commits a life felony, punishable as provided in s. 775.082, s. 775.083, s. 775.084, or s. 794.0115. The degree is assigned by the flush words that follow paragraph (b), so either alternative carries it.",
+          "Subsection (4) is the circumstances provision, and it splits into four paragraphs by age. Paragraph (4)(a) reaches a person 18 years of age or older who commits sexual battery upon a person 12 years of age or older but younger than 18 years of age without that person's consent, under any of the circumstances listed in paragraph (e), and makes it a felony of the first degree, punishable by a term of years not exceeding life or as provided in s. 775.082, s. 775.083, s. 775.084, or s. 794.0115. Paragraph (4)(b) reaches a person 18 years of age or older and a person 18 years of age or older, on the same terms, and makes it a felony of the first degree punishable as provided in those sections, without the term-of-years-not-exceeding-life language. Paragraph (4)(c) reaches a person younger than 18 years of age who commits sexual battery upon a person 12 years of age or older, and also makes it a felony of the first degree. Paragraph (4)(d) reaches a person of any age, where the person was previously convicted of a violation listed in its subparagraphs 1. through 7., and makes it a felony of the first degree punishable by a term of years not exceeding life.",
+          "Paragraph (4)(e) supplies the circumstances those four paragraphs refer to. It provides that the following circumstances apply to paragraphs (a)-(d): 1. The victim is physically helpless to resist. 2. The offender coerces the victim to submit by threatening to use force or violence likely to cause serious personal injury on the victim, and the victim reasonably believes that the offender has the present ability to execute the threat. 3. The offender coerces the victim to submit by threatening to retaliate against the victim, or any other person, and the victim reasonably believes that the offender has the ability to execute the threat in the future. 4. The offender, without the prior knowledge or consent of the victim, administers or has knowledge of someone else administering to the victim any narcotic, anesthetic, or other intoxicating substance that mentally or physically incapacitates the victim. 5. The victim is mentally defective, and the offender has reason to believe this or has actual knowledge of this fact. 6. The victim is physically incapacitated. 7. The offender is a law enforcement officer, correctional officer, or correctional probation officer as defined in s. 943.10(1), (2), (3), (6), (7), (8), or (9), who is certified under s. 943.1395 or is an elected official exempt from such certification by virtue of s. 943.253, or any other person in a position of control or authority in a probation, community control, controlled release, detention, custodial, or similar setting, and such officer, official, or person is acting in such a manner as to lead the victim to reasonably believe that the offender is in a position of control or authority as an agent or employee of government.",
+          "Subsection (5) is the same age structure written without those circumstances and without force of that description, and it is the subject of a separate section below. Subsection (8), the familial or custodial authority provision, has its own section further down as well, because it is graded on a different axis again.",
+          "One further section of the chapter bears directly on the age brackets, and it is short enough to quote whole. Statute 794.021 provides that when, in this chapter, the criminality of conduct depends upon the victim's being below a certain specified age, ignorance of the age is no defense, and that neither shall misrepresentation of age by such person nor a bona fide belief that such person is over the specified age be a defense.",
+          "Age cuts in the other direction as well, at sentencing. Statute 775.082(3)(c) provides that notwithstanding paragraphs (a) and (b), a person convicted of an offense that is not included in s. 782.04 but that is an offense that is a life felony or is punishable by a term of imprisonment for life or by a term of years not exceeding life imprisonment, or an offense that was reclassified as such, which was committed before the person attained 18 years of age may be punished by a term of imprisonment for life or a term of years equal to life imprisonment if the judge conducts a sentencing hearing in accordance with s. 921.1401 and finds that such a sentence is appropriate, and that a person sentenced to a term of imprisonment of more than 20 years is entitled to a review of his or her sentence in accordance with s. 921.1402(2)(d). Paragraphs (2)(b), (4)(c) and (5)(c) of Statute 794.011 are each written about a person under 18, so that provision is one to read alongside them."
+        ]
+      },
+      {
+        id: "grading",
+        heading: "From a third degree felony at level 6 to a capital felony the ranking chart does not rank",
+        kind: "penalties",
+        answers: [
+          "facing"
+        ],
+        penalties: [
+          {
+            degree: "Capital felony, under 794.011(2)(a)",
+            maximum: "Death or life imprisonment, determined under the procedure in Statute 921.1425",
+            offenseLevel: "Not listed on the Statute 921.0022 chart",
+            note: "A person 18 years of age or older; a person less than 12 years of age; a completed sexual battery, or an attempt to commit sexual battery that injures the sexual organs of that person. The paragraph makes it punishable as provided in ss. 775.082 and 921.1425, directs that the procedure set forth in s. 921.1425 be followed in capital cases under this section in order to determine a sentence of death or life imprisonment, requires a prosecutor who intends to seek the death penalty to give notice to the defendant and file the notice with the court within 45 days after arraignment, requires that notice to contain a list of the aggravating factors the state intends to prove and has reason to believe it can prove beyond a reasonable doubt, and permits the court to allow the prosecutor to amend the notice upon a showing of good cause. Whether a death sentence is presently available under this paragraph is a question of federal constitutional law that this page does not answer."
+          },
+          {
+            degree: "First degree felony, the attempt entry the ranking chart carries at 794.011(2)",
+            maximum: "Up to 30 years",
+            offenseLevel: "Level 9",
+            note: "The Statute 921.0022 chart carries an entry at 794.011(2) reading \"Attempted sexual battery; victim less than 12 years of age,\" graded 1st and listed at level 9. Paragraphs (2)(a) and (2)(b) reach an attempt in their own words where the attempt injures the sexual organs of a person less than 12. Where it does not, the degree of an attempt is set by the general attempt statute, which this page has not read and states nothing about."
+          },
+          {
+            degree: "Life felony, under 794.011(2)(b)",
+            maximum: "Up to life",
+            offenseLevel: "Level 9",
+            note: "A person less than 18 years of age; a person less than 12 years of age. Punishable as provided in s. 775.082, s. 775.083, s. 775.084, or s. 794.0115. Statute 775.082(3)(a)3. provides that, except as provided in subparagraph 4., a life felony committed on or after July 1, 1995 is punished by a term of imprisonment for life or by imprisonment for a term of years not exceeding life imprisonment. Fine cap $15,000 under 775.083(1)(a). Where the offense was committed before the person attained 18 years of age, Statute 775.082(3)(c) sets out a separate route through a sentencing hearing under s. 921.1401."
+          },
+          {
+            degree: "Life felony, under 794.011(3)",
+            maximum: "Up to life",
+            offenseLevel: "Level 10",
+            note: "A person 12 years of age or older, without that person's consent, where in the process the person charged uses or threatens to use a deadly weapon, or uses actual physical force likely to cause serious personal injury. \"Serious personal injury\" is defined at 794.011(1)(i) as great bodily harm or pain, permanent disability, or permanent disfigurement. Fine cap $15,000 under 775.083(1)(a). The chart entry reads \"Sexual battery; victim 12 years or older, offender uses or threatens to use deadly weapon or physical force to cause serious injury.\""
+          },
+          {
+            degree: "First degree felony punishable by life, under 794.011(4)(a)",
+            maximum: "Up to life (a term of years not exceeding life)",
+            offenseLevel: "Level 9",
+            note: "A person 18 years of age or older; a person 12 years of age or older but younger than 18; without consent; under any of the circumstances listed in paragraph (4)(e). The chart designation is 1st,PBL. Fine cap $10,000 under 775.083(1)(b)."
+          },
+          {
+            degree: "First degree felony, under 794.011(4)(b)",
+            maximum: "Up to 30 years",
+            offenseLevel: "Level 9",
+            note: "A person 18 years of age or older; a person 18 years of age or older; without consent; under any of the circumstances listed in paragraph (4)(e). This paragraph does not carry the term-of-years-not-exceeding-life language that (4)(a) and (4)(d) carry, and the chart lists it as a plain first degree felony. Maximum from 775.082(3)(b)1."
+          },
+          {
+            degree: "First degree felony, under 794.011(4)(c)",
+            maximum: "Up to 30 years",
+            offenseLevel: "Level 9",
+            note: "A person younger than 18 years of age; a person 12 years of age or older, with no upper age limit written into the paragraph; without consent; under any of the circumstances listed in paragraph (4)(e). A person under 18 is graded here at the first degree."
+          },
+          {
+            degree: "First degree felony punishable by life, under 794.011(4)(d)",
+            maximum: "Up to life (a term of years not exceeding life)",
+            offenseLevel: "Level 9",
+            note: "A person of any age; a person 12 years of age or older; without consent; under any of the circumstances listed in paragraph (4)(e); plus a previous conviction of a violation of one of the provisions its subparagraphs list, which include s. 787.01(2) or s. 787.02(2) in the circumstances described there, s. 787.01(3)(a)2. or 3., s. 787.02(3)(a)2. or 3., s. 800.04, s. 825.1025, s. 847.0135(5), and this chapter, excluding subsection (10) of this section."
+          },
+          {
+            degree: "First degree felony, under 794.011(5)(a)",
+            maximum: "Up to 30 years",
+            offenseLevel: "Level 8",
+            note: "A person 18 years of age or older; a person 12 years of age or older but younger than 18; without consent; and in the process the person charged does not use physical force and violence likely to cause serious personal injury. The chart entry states the same absence of force in its own description."
+          },
+          {
+            degree: "Second degree felony, under 794.011(5)(b)",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 8",
+            note: "A person 18 years of age or older; a person 18 years of age or older; without consent; and in the process the person charged does not use physical force and violence likely to cause serious personal injury. Maximum from 775.082(3)(d). The chart entry reads \"Sexual battery; victim and offender 18 years of age or older; offender does not use physical force likely to cause serious injury.\""
+          },
+          {
+            degree: "Second degree felony, under 794.011(5)(c)",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 8",
+            note: "A person younger than 18 years of age; a person 12 years of age or older; without consent; and in the process the person charged does not use physical force and violence likely to cause serious personal injury."
+          },
+          {
+            degree: "First degree felony, under 794.011(5)(d)",
+            maximum: "Up to 30 years",
+            offenseLevel: "Level 8",
+            note: "A person of any age; a person 12 years of age or older; without consent; no physical force and violence likely to cause serious personal injury; plus a previous conviction of a violation from the same list of provisions that paragraph (4)(d) uses. The prior conviction is what lifts this paragraph to the first degree, with no force element and no paragraph (4)(e) circumstance required."
+          },
+          {
+            degree: "Third degree felony, under 794.011(8)(a)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Level 6",
+            note: "A person in a position of familial or custodial authority to a person less than 18 years of age who solicits that person to engage in any act which would constitute sexual battery. Solicitation alone, with no touching required. Maximum from 775.082(3)(e), fine cap $5,000 under 775.083(1)(c). The chart entry reads \"Solicitation of minor to participate in sexual activity by custodial adult.\" The other 794.011 entries printed in this table sit at levels 8, 9 and 10."
+          },
+          {
+            degree: "First degree felony punishable by life, under 794.011(8)(b)",
+            maximum: "Up to life (a term of years not exceeding life)",
+            offenseLevel: "Level 9",
+            note: "A person in a position of familial or custodial authority who engages in any act with a person 12 years of age or older but younger than 18 which constitutes sexual battery. The chart designation is 1st,PBL, and the entry reads \"Sexual battery; engage in sexual conduct with minor 12 to 18 years by person in familial or custodial authority.\""
+          },
+          {
+            degree: "Capital felony branch of 794.011(8)(c)",
+            maximum: "Punishable pursuant to subsection (2)",
+            offenseLevel: "Not listed on the Statute 921.0022 chart",
+            note: "Paragraph (8)(c) reads \"commits a capital or life felony, punishable pursuant to subsection (2)\" without itself choosing between the two grades. This row records the capital branch, which subsection (2)(a) attaches to a person 18 years of age or older. The conduct is engaging in any act with a person less than 12 years of age which constitutes sexual battery, or an attempt to commit sexual battery that injures the sexual organs of such person, by a person in a position of familial or custodial authority."
+          },
+          {
+            degree: "Life felony branch of 794.011(8)(c)",
+            maximum: "Punishable pursuant to subsection (2)",
+            offenseLevel: "Not listed on the Statute 921.0022 chart",
+            note: "The second branch of the same paragraph. Subsection (2)(b) attaches the life felony grade to a person less than 18 years of age. The elements are the same as the capital branch; the paragraph does not restate the age split inside itself and routes punishment through subsection (2) instead."
+          },
+          {
+            degree: "Third degree felony, under 794.011(10)",
+            maximum: "Up to 5 years",
+            offenseLevel: "Not listed on the Statute 921.0022 chart",
+            note: "This paragraph is not a sexual battery offense. It reaches a person who falsely accuses a person listed in subparagraph (4)(e)7., or another person in a position of control or authority as an agent or employee of government, of violating paragraph (4)(a), (4)(b), (4)(c) or (4)(d). It appears in this table because it sits inside the section, and it is not developed anywhere else on this page. Note the cross-reference: where a prior conviction under \"this chapter\" is a predicate under (4)(d)7. and (5)(d)7., subsection (10) is excluded from it."
+          }
+        ],
+        prose: [
+          "Two rows above are worth putting side by side, because the degree and the scoresheet move independently. Paragraph (5)(a) is a first degree felony with a 30-year ceiling. Paragraph (5)(b) is a second degree felony with a 15-year ceiling. The chart ranks each of them at level 8, alongside (5)(c) and (5)(d). The statutory ceiling doubles between two adjacent paragraphs while the primary offense points do not move, so a person reading the degree off the charging document has read one of the two numbers that matter.",
+          "Three provisions in this table carry no entry on the ranking chart, and this page prints no substitute for one. Statute 921.0023 supplies default levels for unlisted felony offenses, and applying that section to a particular unlisted subsection is a legal conclusion rather than a quotation. The table says the chart does not list them and stops there. That is a question for the attorney reading the charging document.",
+          "The fine figures above come from Statute 775.083(1), which opens by reaching a person who has been convicted of an offense other than a capital felony, and which does not end at the degree schedule. Paragraph (1)(f) permits any higher amount equal to double the pecuniary gain derived from the offense by the offender or double the pecuniary loss suffered by the victim, and paragraph (1)(g) permits any higher amount specifically authorized by statute. The degree figures are caps subject to those two paragraphs, not flat ceilings.",
+          "One further section of the chapter can move a row in this table. Statute 794.023(2) provides that a violation of s. 794.011 shall be reclassified as provided in that subsection if it is charged and proven by the prosecution that, during the same criminal transaction or episode, more than one person committed an act of sexual battery on the same victim, that a felony of the second degree is reclassified to a felony of the first degree, and that a felony of the first degree is reclassified to a life felony. The same subsection then states that it does not apply to life felonies or capital felonies, and that for purposes of sentencing under chapter 921 and determining incentive gain-time eligibility under chapter 944, a felony offense reclassified under it is ranked one level above the ranking under s. 921.0022 or s. 921.0023 of the offense committed."
+        ]
+      },
+      {
+        id: "basic",
+        heading: "The basic charge, and what force adds to it",
+        kind: "statute",
+        answers: [
+          "facing"
+        ],
+        statute: {
+          citation: "Florida Statute 794.005, quoted in full",
+          body: "794.005 Legislative findings and intent as to basic charge of sexual battery. The Legislature finds that the least serious sexual battery offense, which is provided in s. 794.011(5), was intended, and remains intended, to serve as the basic charge of sexual battery and to be necessarily included in the offenses charged under subsections (3) and (4), within the meaning of s. 924.34; and that it was never intended that the sexual battery offense described in s. 794.011(5) require any force or violence beyond the force and violence that is inherent in the accomplishment of \"penetration\" or \"union.\""
+        },
+        prose: [
+          "Florida's basic sexual battery charge is the one with no force in it. Each paragraph of Statute 794.011(5) is written around the same clause: the person charged commits sexual battery upon a person of the stated age, without that person's consent, and in the process does not use physical force and violence likely to cause serious personal injury. The absence of that force is not a defense sitting outside the offense. It is inside the words the Legislature used to define the tier.",
+          "That has a consequence in the same section. Statute 794.011(6) enacts the inclusion structure paragraph by paragraph: (6)(a) provides that the offenses described in paragraphs (5)(a)-(c) are included in any sexual battery offense charged under subsection (3); (6)(b) that the offense described in paragraph (5)(a) is included in an offense charged under paragraph (4)(a); (6)(c) that the offense described in paragraph (5)(b) is included in an offense charged under paragraph (4)(b); (6)(d) that the offense described in paragraph (5)(c) is included in an offense charged under paragraph (4)(c); and (6)(e) that the offense described in paragraph (5)(d) is included in an offense charged under paragraph (4)(d).",
+          "So the statute says the same thing in two places, written thirteen years apart. It says it in the operative text of (5) and (6), and it says it again in a freestanding findings section that states what the Legislature \"intended\" and \"remains intended,\" and that names s. 924.34 as the provision the inclusion is measured against. Statute 794.005 is not a penalty provision and it grades nothing. It is a statement about what the least serious tier of this offense was never intended to require.",
+          "One paragraph of subsection (5) does not follow the force pattern to the same degree, and it is the paragraph a reader is most likely to be surprised by. Paragraph (5)(d) contains the same no-force clause, and it is still a felony of the first degree, because a previous conviction of a listed violation is what grades it. The force question and the prior conviction question are separate questions inside the same subsection.",
+          "Which subsection is named on the charging document is therefore not a formality on this charge. It fixes the degree, the ceiling under Statute 775.082, the fine cap under Statute 775.083, the ranking chart entry and the points that follow it, and, through Statute 794.011(6), what is included within what."
+        ]
+      },
+      {
+        id: "familial",
+        heading: "Statute 794.011(8) removes willingness from the case in its own opening words",
+        kind: "prose",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "Subsection (8) is graded on a different axis from the rest of the section, and it opens with a clause that decides something before the paragraphs are reached. It provides: Without regard to the willingness or consent of the victim, which is not a defense to prosecution under this subsection, a person who is in a position of familial or custodial authority to a person less than 18 years of age and who: (a) Solicits that person to engage in any act which would constitute sexual battery commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084. (b) Engages in any act with that person while the person is 12 years of age or older but younger than 18 years of age which constitutes sexual battery commits a felony of the first degree, punishable by a term of years not exceeding life or as provided in s. 775.082, s. 775.083, or s. 775.084. (c) Engages in any act with that person while the person is less than 12 years of age which constitutes sexual battery, or in an attempt to commit sexual battery injures the sexual organs of such person commits a capital or life felony, punishable pursuant to subsection (2).",
+          "Inside that single subsection the grading runs from a third degree felony with a five year ceiling at paragraph (a) to a capital or life felony at paragraph (c). Paragraph (a) reaches solicitation with no touching alleged, and the ranking chart lists it at level 6. Paragraph (b) is a first degree felony punishable by a term of years not exceeding life, listed at level 9. Paragraph (c) states a grade of capital or life felony without choosing between the two in its own words, and routes the punishment through subsection (2), where the age of the person charged is what separates the capital paragraph from the life felony paragraph.",
+          "The phrase doing the work is \"in a position of familial or custodial authority,\" and Statute 794.011 does not define it in subsection (1). What the subsection does say, in terms, is that willingness or consent is not a defense to prosecution under it. That is a statement about this subsection and not about the section as a whole; the consent element written into subsections (3), (4) and (5) is a different provision doing a different job.",
+          "Subsection (9) sits beside it and answers a related question for a different set of paragraphs. It provides that for prosecution under paragraph (4)(a), (4)(b), (4)(c) or (4)(d) which involves an offense committed under any of the circumstances listed in subparagraph (4)(e)7., acquiescence to a person reasonably believed by the victim to be in a position of authority or control does not constitute consent, and it is not a defense that the perpetrator was not actually in a position of control or authority if the circumstances were such as to lead the victim to reasonably believe that the person was in such a position. Subparagraph (4)(e)7. is the paragraph about officers and other persons in a position of control or authority in a probation, community control, controlled release, detention, custodial or similar setting."
+        ]
+      },
+      {
+        id: "minimum",
+        heading: "Statute 794.0115, and the 25-year and 50-year terms the Dangerous Sexual Felony Offender Act makes mandatory",
+        kind: "bullets",
+        answers: [
+          "facing"
+        ],
+        bullets: [
+          "Statute 794.0115(1) provides that the section may be cited as the \"Dangerous Sexual Felony Offender Act.\" Subsection (2) is a sentencing provision rather than a separate offense: it attaches to a person convicted of a violation of a listed provision, which includes s. 794.011(2), (3), (4), (5), or (8), where the person committed the offense when he or she was 18 years of age or older, and where one of the further conditions in its paragraphs applies.",
+          "The conditions are set out at paragraphs (2)(a) through (2)(e): (a) Caused serious personal injury to the victim as a result of the commission of the offense; (b) Used or threatened to use a deadly weapon during the commission of the offense; (c) Victimized more than one person during the course of the criminal episode applicable to the offense; (d) Committed the offense while under the jurisdiction of a court for a felony offense under the laws of this state, for an offense that is a felony in another jurisdiction, or for an offense that would be a felony if that offense were committed in this state; or (e) Has previously been convicted of a violation of the provisions the paragraph then lists, of any offense under a former statutory designation which is similar in elements, or of any offense in another jurisdiction which is similar in elements.",
+          "Where the section applies, subsection (2) states the term: such a person is a dangerous sexual felony offender, who must be sentenced to a mandatory minimum term of 25 years imprisonment up to, and including, life imprisonment. The same subsection then states a second term keyed to a date: if the offense described in that subsection was committed on or after October 1, 2014, a person who qualifies must be sentenced to a mandatory minimum term of 50 years imprisonment up to, and including, life imprisonment.",
+          "Subsection (3) defines \"Serious personal injury\" for the section as great bodily harm or pain, permanent disability, or permanent disfigurement. Subsection (4) adds a sequencing requirement: the offense described in subsection (2) which is being charged must have been committed after the date of commission of the last prior conviction for an offense that is a prior conviction described in paragraph (2)(e).",
+          "Subsection (5) removes an argument the structure invites: it is irrelevant that a factor listed in subsection (2) is an element of an offense described in that subsection, and it is also irrelevant that such an offense was reclassified to a higher felony degree under s. 794.023 or any other law."
+        ],
+        prose: [
+          "Subsection (6) is where the section overrides the ordinary sentencing ceiling, and it has three sentences rather than the two it is usually quoted with. It provides that notwithstanding s. 775.082(3), chapter 958, any other law, or any interpretation or construction thereof, a person subject to sentencing under this section must be sentenced to the mandatory term of imprisonment provided under this section. It then provides that if the mandatory minimum term of imprisonment imposed under this section exceeds the maximum sentence authorized under s. 775.082, s. 775.084, or chapter 921, the mandatory minimum term of imprisonment under this section must be imposed. And it closes with the sentence that runs the other way: if the mandatory minimum term of imprisonment under this section is less than the sentence that could be imposed under s. 775.082, s. 775.084, or chapter 921, the sentence imposed must include the mandatory minimum term of imprisonment under this section.",
+          "Subsection (7) provides that a defendant sentenced to a mandatory minimum term of imprisonment under this section is not eligible for statutory gain-time under s. 944.275 or any form of discretionary early release, other than pardon or executive clemency, or conditional medical release under s. 947.149, before serving the minimum sentence.",
+          "Nothing in this section is applied here to any set of facts. Whether the section is charged, and whether a condition in paragraphs (2)(a) through (2)(e) is alleged in a particular case, is something to read off the charging document with a lawyer. What the section states plainly is that where it applies, the term is not discretionary and it is not capped by the degree on the charging document."
+        ]
+      },
+      {
+        id: "limits",
+        heading: "Reported within 72 hours, and the applicability date each limitations rule carries with it",
+        kind: "prose",
+        answers: [
+          "next"
+        ],
+        prose: [
+          "Whether an allegation from years ago can still be filed is decided by Statute 775.15, and for this section the answer depends on the degree, on the age of the person named in the charge at the time, on when the offense was reported, and on when it was committed. Each rule below carries its own applicability sentence, and a limitations rule stated without that sentence is stated wrongly for an older allegation.",
+          "Statute 775.15(1) provides that a prosecution for a capital felony, a life felony, or a felony that resulted in a death may be commenced at any time. The subsection does not stop there: it adds that if the death penalty is held to be unconstitutional by the Florida Supreme Court or the United States Supreme Court, crimes designated as capital felonies are considered life felonies for the purposes of that section, and prosecution for such crimes may be commenced at any time.",
+          "Statute 775.15(2) supplies the general periods, subject to the words it opens with, which are \"Except as otherwise provided in this section.\" Paragraph (2)(a) requires a prosecution for a felony of the first degree to be commenced within 4 years after it is committed, and paragraph (2)(b) requires a prosecution for any other felony to be commenced within 3 years after it is committed. Statute 775.15(3) provides that time starts to run on the day after the offense is committed, and Statute 775.15(4)(a) provides that prosecution on a charge on which the defendant has previously been arrested or served with a summons is commenced by the filing of an indictment, information, or other charging document. So the period runs during the stage before a charge exists, and it is the filing that stops it.",
+          "Statute 775.15(13)(a) is written about a person under 18 at the time. It provides that if the victim of a violation of s. 794.011 and the other sections it lists is under the age of 18, the applicable period of limitation, if any, does not begin to run until the victim has reached the age of 18 or the violation is reported to a law enforcement agency or other governmental agency, whichever occurs earlier, and that such agency shall promptly report the allegation to the state attorney for the judicial circuit in which the alleged violation occurred. The same paragraph then adds the sentence that is missing from most descriptions of this charge: if the offense is a first or second degree felony violation of s. 794.011, and the offense is reported within 72 hours after its commission, the prosecution for such offense may be commenced at any time. Paragraph (13)(a) closes with its own applicability sentence, which is that it applies to any such offense except an offense the prosecution of which would have been barred by subsection (2) on or before December 31, 1984.",
+          "Paragraph (13)(b) provides that if the offense is a first degree felony violation of s. 794.011 and the victim was under 18 years of age at the time the offense was committed, a prosecution may be commenced at any time, and it applies to any such offense except one whose prosecution would have been barred by subsection (2) on or before October 1, 2003. Paragraph (13)(c) provides that if the offense is a violation of s. 794.011 and the victim was under 16 years of age at the time, a prosecution may be commenced at any time, and it applies except where prosecution would have been barred by subsection (2) on or before July 1, 2010.",
+          "Subsection (14) is the provision for a person 16 or older at the time. Paragraph (14)(a) provides that a prosecution for a first or second degree felony violation of s. 794.011, if the victim is 16 years of age or older at the time of the offense and the offense is reported to a law enforcement agency within 72 hours after commission of the offense, may be commenced at any time. Paragraph (14)(b) then opens with its exception rather than burying it: except as provided in paragraph (a) or paragraph (13)(b), a prosecution for a first or second degree felony violation of s. 794.011, if the victim is 16 years of age or older at the time of the offense, must be commenced within 8 years after the violation is committed, and that paragraph applies except where prosecution would have been barred by subsection (2) on or before July 1, 2015.",
+          "Subsection (20) provides that if a victim is younger than 18 years of age at the time the offense was committed, a prosecution for a violation of s. 794.011 may be commenced at any time, and that the subsection applies to an offense that is committed on or after July 1, 2020. That date is the whole of its reach, which is why the older paragraphs above have not been superseded.",
+          "Two further subsections turn on identification through DNA, and they are written to different windows. Statute 775.15(16)(a) provides that in addition to the time periods prescribed in the section, a prosecution for the offenses it lists, which include an offense of sexual battery under chapter 794, may be commenced at any time after the date on which the identity of the accused is established, or should have been established by the exercise of due diligence, through the analysis of deoxyribonucleic acid evidence, if a sufficient portion of the evidence collected at the time of the original investigation and tested for DNA is preserved and available for testing by the accused, and paragraph (16)(b) applies that subsection to any offense that is not otherwise barred from prosecution on or after July 1, 2006. Statute 775.15(15)(a) is the earlier version of the same idea, giving 1 year rather than an unlimited period, and paragraph (15)(b) applies it to any offense that is not otherwise barred from prosecution between July 1, 2004, and June 30, 2006.",
+          "Which of these provisions reaches a particular allegation depends on facts that are not on this page: the degree of the paragraph charged, the age of the person named in the charge on the date of the alleged offense, the date of any report, and the date of the alleged conduct measured against the applicability sentence attached to each rule. That is a question to put to a lawyer with the dates in front of them."
+        ]
+      },
+      {
+        id: "sequence",
+        heading: "Twenty-four hours to a first appearance, 45 days on a capital notice, 175 days to trial",
+        kind: "timeline",
+        answers: [
+          "next"
+        ],
+        steps: [
+          {
+            when: "Within 24 hours of arrest",
+            what: "Florida Rule of Criminal Procedure 3.130(a) provides that except when previously released in a lawful manner, every arrested person must be taken before a judge, either in person or by audio-video communication technology in the discretion of the court, within 24 hours of arrest. In Hillsborough County that hearing is held by the First Appearance and Emergency Division, Division O, of the Thirteenth Judicial Circuit. Rule 3.130(d) provides that the judge must proceed to determine pretrial detention or conditions of release under rule 3.132 or rule 3.131. This page does not state how the circuit's bond schedule applies to a charge under Statute 794.011, because mapping a specific charge onto a schedule row is an application rather than a quotation."
+          },
+          {
+            when: "At the earliest of three events, not at the hearing",
+            what: "Rule 3.111(a) provides that a person entitled to appointment of counsel as provided in the rule shall have counsel appointed when the person is formally charged with an offense, or as soon as feasible after custodial restraint, or at the first appearance before a committing judge, whichever occurs earliest. Separately, rule 3.111(c)(1) and (2) put a duty on the officer at the jail to advise a defendant of the right to counsel and, on request, to place the defendant in communication with the public defender. Rule 3.111(b)(1) provides that counsel shall be provided to indigent persons in all prosecutions for offenses punishable by incarceration."
+          },
+          {
+            when: "Within 30 days of arrest, for a person still in custody",
+            what: "Rule 3.134(a)(1) requires the state to file formal charges on defendants in custody by information or indictment within 30 days from the date on which defendants are arrested. Under (a)(2), if the defendants remain uncharged, the court on the 30th day and with notice to the state must order automatic release on recognizance on the 33rd day unless charges are filed by that date, or, if good cause is shown by the state, on the 40th day. Under (a)(3), in no event may any defendants remain in custody beyond 40 days unless they have been formally charged with a crime."
+          },
+          {
+            when: "Within 60 days, for a person who was released",
+            what: "Rule 3.134(b)(1) requires the state to file formal charges on defendants on pretrial release within 60 days, with automatic release on recognizance on the 63rd day unless charges are filed by that date, or, if good cause is shown by the state, continued pretrial release for up to an additional 30 days. This is the track that applies to anyone who bonded out, and the numbers on it are 60 and 63 rather than 30 and 33."
+          },
+          {
+            when: "Within 45 days after arraignment, where subsection (2)(a) is charged",
+            what: "Statute 794.011(2)(a) requires a prosecutor who intends to seek the death penalty to give notice to the defendant and to file the notice with the court within 45 days after arraignment, and requires the notice to contain a list of the aggravating factors the state intends to prove and has reason to believe it can prove beyond a reasonable doubt. The paragraph permits the court to allow the prosecutor to amend the notice upon a showing of good cause. This interval exists on no other subsection of the section."
+          },
+          {
+            when: "Within 175 days of the formal charge",
+            what: "Rule 3.191(a) provides that every person charged with a crime shall be brought to trial within 90 days if the crime charged is a misdemeanor, or within 175 days if the crime charged is a felony, and that the time periods established by that subdivision commence when the person is formally charged with a crime as defined under subdivision (d). Each subsection printed in the penalties table above is a felony, so the 175-day period is the one in play. Rule 3.191(d) provides that a person is formally charged by information, or by indictment, or in the case of alleged misdemeanors by whatever documents constitute a formal charge, so the count runs from the charge rather than from the arrest. Rule 3.191(a) also directs the reader to the remedy in subdivision (o), which is a recapture procedure rather than an automatic end to a case."
+          },
+          {
+            when: "Within 60 days, if a demand is filed",
+            what: "Rule 3.191(b) allows a defendant to file a Demand for Speedy Trial and require trial within 60 days. Whether filing one is appropriate in a given case is a decision for a defendant and their lawyer, and it is not a step this page recommends to anybody."
+          }
+        ]
+      },
+      {
+        id: "before",
+        heading: "Before anyone asks you to describe what happened, and the conditions a first appearance can attach",
+        kind: "guidance",
+        answers: [
+          "now"
+        ],
+        guidance: [
+          {
+            heading: "Rights that are running whether or not a charge exists",
+            items: [
+              "You are not required to answer questions from a law enforcement officer, and asking for a lawyer is not an admission of anything. This is true before an arrest, during an investigation that has produced no charge, and after a charge is filed.",
+              "Rule 3.111(c)(1) and (2) require the officer at the jail to advise a defendant of the right to counsel and, on request, to place the defendant in communication with the public defender. That contact happens before any judge is involved.",
+              "Rule 3.111(a) attaches appointed counsel at the earliest of formal charge, as soon as feasible after custodial restraint, or first appearance. \"As soon as feasible\" is a qualified standard rather than an instant, and rule 3.111(b)(5) sets out what the court does first, including an inquiry into financial status under oath and an affidavit of insolvency.",
+              "Rule 3.130(c)(2) provides that the judge must allow a defendant a reasonable time to send for counsel and must, if necessary, postpone the first appearance hearing for that purpose."
+            ]
+          },
+          {
+            heading: "What is particular to a Statute 794.011 case in the first days",
+            items: [
+              "Conditions of release set at first appearance are a court order. Where a condition restricts contact with a named person or with a place, it binds from the moment it is imposed, and a question about what it covers is a question for a lawyer and for the court, not for the person it names.",
+              "The grading on this section runs on dates. The age of each person at the time of the alleged offense, and the date of the alleged conduct, are what separate paragraph (2)(a) from (2)(b), (4)(a) from (4)(b), and (5)(a) from (5)(b). Statute 794.021 provides that ignorance of an age, misrepresentation of an age, and a bona fide belief that a person is over a specified age are not defenses where criminality depends on that age.",
+              "Which subsection is named on the charging document sets the degree, the ceiling, the fine cap and the ranking chart entry, and Statute 794.011(6) then decides what is included within what. Reading the subsection number, rather than the words \"sexual battery\" on their own, is the first thing a lawyer will do with the paperwork.",
+              "Whether Statute 794.0115 is invoked is visible from the charging document and from what the state alleges under paragraphs (2)(a) through (2)(e) of that section. It is worth identifying early, because subsection (6) of that section states that its term is imposed even where it exceeds what Statute 775.082 or chapter 921 would authorize.",
+              "Nothing on this page is advice about a particular case, and nothing here says how a case will end. A description of what happened, given to anybody other than your own lawyer, is a statement that exists afterward."
+            ]
+          }
+        ]
+      },
+      {
+        id: "record",
+        heading: "Chapter 794 on the sealing bar list, gain-time under 794.011(7), and the sections that name 794.011 for registration",
+        kind: "prose",
+        answers: [
+          "consequences",
+          "sealing"
+        ],
+        prose: [
+          "Start with sealing, because it decides whether the rest of that question is open. Statute 943.0584(2) provides that a criminal history record is ineligible for a certificate of eligibility for expunction or a court-ordered expunction pursuant to s. 943.0585 or a certificate of eligibility for sealing or a court-ordered sealing pursuant to s. 943.059 if the record is a conviction for any of the offenses it then lists. Paragraph (2)(m) of that list reads, in full: Any offense defined in chapter 794. It names the chapter rather than a subsection, and it sets no degree floor.",
+          "The word conviction there is wider than it sounds, and the definition sits in the same section. Statute 943.0584(1) provides that as used in that section, the term conviction means a determination of guilt which is the result of a trial or the entry of a plea of guilty or nolo contendere, regardless of whether adjudication is withheld, or, if the defendant was a minor, a finding that the defendant committed or pled guilty or nolo contendere to committing a delinquent act, regardless of whether adjudication of delinquency is withheld. That definition is expressly scoped to Statute 943.0584 by the words \"as used in this section.\"",
+          "Where a record is not a conviction as that section defines it, the question moves to Statute 943.059(1), which sets cumulative conditions, including that the record is not ineligible under Statute 943.0584, that the person has never been adjudicated guilty in this state of a criminal offense before the certificate application is filed, that the person has not been adjudicated guilty of any of the acts stemming from the arrest, that the person is no longer under court supervision for it, and that the person has never secured a prior sealing or expunction under the sections it names. Statute 943.059(2) then requires a certificate of eligibility from the department before a petition is filed. How any of that applies to a particular record is a question for a lawyer with the disposition in front of them, and this page predicts nothing about it.",
+          "Gain-time is dealt with inside the charging section itself. Statute 794.011(7)(a) provides that a person who is convicted of committing a sexual battery on or after October 1, 1992, is not eligible for basic gain-time under s. 944.275. Paragraph (7)(b) provides that notwithstanding paragraph (a), for sentences imposed for offenses committed on or after July 1, 2023, a person who is convicted of committing or attempting, soliciting, or conspiring to commit a sexual battery in violation of that section is not eligible for basic gain-time under s. 944.275. Paragraph (7)(c) provides that the subsection may be cited as the \"Junny Rios-Martinez, Jr. Act of 1992.\" Separately, Statute 794.0115(7) bars statutory gain-time and discretionary early release, other than pardon or executive clemency or conditional medical release under s. 947.149, before a mandatory minimum imposed under that section is served.",
+          "Registration is a separate consequence, governed by separate statutes, and this page states what those statutes say about this section rather than developing them. Statute 943.0435(1)(h)1.a. defines who is a sexual offender for that section's purposes by a conjunction rather than by a single condition: sub-sub-subparagraph (I) requires conviction of committing, or attempting, soliciting, or conspiring to commit, one of the offenses it enumerates, and that enumeration includes \"s. 794.011, excluding s. 794.011(10),\" and sub-sub-subparagraph (II) then requires that the person has been released on or after October 1, 1997, from a sanction imposed for such a conviction and does not otherwise meet the criteria for registration as a sexual offender under chapter 944 or chapter 985, adding that if no sanction is imposed, the person is deemed to be released upon conviction. Reading (I) without (II) would state the criteria wrongly.",
+          "A second statute can displace the first. Statute 943.0435(5) provides that that section does not apply to a sexual offender who is also a sexual predator, as defined in s. 775.21, and that such a person must register as required under s. 775.21. Statute 775.21 carries its own enumeration naming \"s. 794.011, excluding s. 794.011(10)\" among its predicate offenses. What each of those two sections then requires of a person who falls inside it, and for how long, is set out in that section and is not reproduced here.",
+          "What both sections have in common is worth stating in one sentence, because it is a consequence people do not expect: a failure to comply with the requirements is itself a criminal offense rather than an administrative matter. Statute 943.0435(9)(a) closes by providing that a sexual offender who otherwise fails, by act or omission, to comply with the requirements of that section commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084, and that each instance of a failure to register or report changes to the required information specified in that paragraph constitutes a separate offense. Whether either registration statute reaches a particular case is a question for counsel, and nothing here says that it does."
+        ]
+      },
+      {
+        id: "offices",
+        heading: "The charging office, the division that hears these cases, and who is already holding a file",
+        kind: "prose",
+        answers: [
+          "who"
+        ],
+        prose: [
+          "The decision that matters most on this charge belongs to a prosecutor rather than to a judge, and it is made early. The Office of the State Attorney for the Thirteenth Judicial Circuit, headed by State Attorney Susan S. Lopez, decides whether to file and, on this section more than most, which subsection to file under. That selection fixes the degree, the ceiling under Statute 775.082, the fine cap under Statute 775.083, the ranking chart entry and its points, and, through Statute 794.011(6), which lesser offenses are included within the charge. It also decides which limitations provision in Statute 775.15 is the applicable one, because several of those provisions turn on whether the violation is a first or second degree felony.",
+          "Each subsection printed in the penalties table above is graded as a felony, from the third degree at paragraph (8)(a) to the capital grade at paragraph (2)(a), so a case under this section is a circuit criminal matter in the Thirteenth Judicial Circuit rather than a county criminal one. The Hillsborough County Clerk of the Circuit Court, Victor Crist, holds the file, with criminal court services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071. First appearance is heard by the First Appearance and Emergency Division, Division O. The Chief Judge of the circuit is Christopher C. Sabella, and the Public Defender is Lisa B. McLean.",
+          "More than one law enforcement agency operates in this circuit, and the agencies named on the circuit's own administrative order include the Hillsborough County Sheriff's Office under Sheriff Chad Chronister, the City of Tampa Police Department, the Temple Terrace Police Department, the Plant City Police Department, the Tampa International Airport Police Department, and the University of South Florida Police Department. The order does not assign geography to any of them, so this page does not state which agency handles which part of the county.",
+          "The reason to make a call before the first hearing rather than after it is specific to what this page describes. The subsection selection belongs to the State and it is made from material that exists before anybody is asked for an account. The 24-hour first appearance in rule 3.130(a) runs from the arrest. Where paragraph (2)(a) is charged, the 45-day notice period in that paragraph runs from arraignment. And several of the limitations provisions in Statute 775.15 are written around whether a report was made within 72 hours of the alleged offense, which is a fact fixed long before a lawyer is retained. None of those clocks waits for anybody to decide what to do."
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: "Is sexual assault the same thing as sexual battery in Florida?",
+        answer: "Florida's charging statute for this conduct is Statute 794.011, and the chapter it sits in is titled Sexual battery. Statute 794.011(1)(j) defines sexual battery as oral, anal, or female genital penetration by, or union with, the sexual organ of another or the anal or female genital penetration of another by any other object, and adds that sexual battery does not include an act done for a bona fide medical purpose. Assault is a separate Florida offense with a separate definition and no sexual element: Statute 784.011(1) provides that an assault is an intentional, unlawful threat by word or act to do violence to the person of another, coupled with an apparent ability to do so, and doing some act which creates a well-founded fear in such other person that such violence is imminent, and Statute 784.011(2) makes it a misdemeanor of the second degree except as provided in subsection (3), which raises it to a first degree misdemeanor where it is committed in furtherance of a riot or an aggravated riot prohibited under Statute 870.01. So a Florida charging document describing this conduct is likely to read sexual battery under Statute 794.011, whatever words were used in the conversation beforehand. What a particular document says is a matter of reading it.",
+        source: "PAA on florida sexual battery statute, merged with brief W4-01 Section 4 question A1"
+      },
+      {
+        question: "Does sexual battery in Florida require force?",
+        answer: "Not in the tier the Legislature calls the basic charge. Each paragraph of Florida Statute 794.011(5) is written around the clause that the person charged commits sexual battery upon a person of the stated age, without that person's consent, and in the process does not use physical force and violence likely to cause serious personal injury. Florida Statute 794.005, a separate findings section, states that the Legislature finds that the least serious sexual battery offense, which is provided in s. 794.011(5), was intended, and remains intended, to serve as the basic charge of sexual battery and to be necessarily included in the offenses charged under subsections (3) and (4), within the meaning of s. 924.34; and that it was never intended that the sexual battery offense described in s. 794.011(5) require any force or violence beyond the force and violence that is inherent in the accomplishment of penetration or union. Force of a particular description is what raises the grade elsewhere in the section: Statute 794.011(3) makes it a life felony where the person, in the process, uses or threatens to use a deadly weapon or uses actual physical force likely to cause serious personal injury, and Statute 794.011(1)(i) defines serious personal injury as great bodily harm or pain, permanent disability, or permanent disfigurement. Which subsection applies to a particular allegation is a question for a lawyer reading the charging document.",
+        source: "brief W4-01 Section 4, question A2, the page's C9 question"
+      },
+      {
+        question: "What does Florida Statute 794.011(8) mean?",
+        answer: "Subsection (8) of Florida Statute 794.011 is the familial or custodial authority provision, and it opens with a clause that applies to the whole subsection: without regard to the willingness or consent of the victim, which is not a defense to prosecution under this subsection, a person who is in a position of familial or custodial authority to a person less than 18 years of age and who does one of three things commits the offense the relevant paragraph describes. Paragraph (8)(a) reaches soliciting that person to engage in any act which would constitute sexual battery, and makes it a felony of the third degree. Paragraph (8)(b) reaches engaging in any act with that person while the person is 12 years of age or older but younger than 18 which constitutes sexual battery, and makes it a felony of the first degree punishable by a term of years not exceeding life. Paragraph (8)(c) reaches engaging in any act with that person while the person is less than 12 years of age which constitutes sexual battery, or an attempt to commit sexual battery that injures the sexual organs of such person, and states that it is a capital or life felony punishable pursuant to subsection (2), where the age of the person charged is what separates the two grades. The statute does not define the phrase \"position of familial or custodial authority\" in its definitions subsection, and whether it reaches a particular relationship is a legal question rather than a settled one this answer can resolve.",
+        source: "brief W4-01 Section 4, question A3, corroborated by the related search 794.011 8b"
+      },
+      {
+        question: "How long does the State have to file sexual battery charges in Florida?",
+        answer: "It depends on the degree of the paragraph charged, on the age of the person named in the charge at the time, and on whether and when a report was made, and each rule carries its own applicability date. Florida Statute 775.15(1) provides that a prosecution for a capital felony, a life felony, or a felony that resulted in a death may be commenced at any time. Statute 775.15(14)(a) provides that a prosecution for a first or second degree felony violation of s. 794.011, if the victim is 16 years of age or older at the time of the offense and the offense is reported to a law enforcement agency within 72 hours after commission of the offense, may be commenced at any time; paragraph (14)(b) provides that except as provided in paragraph (a) or paragraph (13)(b), such a prosecution must be commenced within 8 years after the violation is committed, and applies except to an offense whose prosecution would have been barred by subsection (2) on or before July 1, 2015. Statute 775.15(13)(a) provides that where the victim of a violation of s. 794.011 is under 18, the applicable period of limitation does not begin to run until the victim has reached 18 or the violation is reported, whichever occurs earlier, and carries the same 72-hour rule for a first or second degree felony violation. Statute 775.15(13)(b) and (13)(c) allow prosecution at any time for a first degree felony violation where the victim was under 18, and for a violation of s. 794.011 where the victim was under 16, each with its own cut-off date. Statute 775.15(20) allows prosecution at any time where the victim was younger than 18 at the time, and applies to an offense committed on or after July 1, 2020. Which of these reaches a specific allegation is a question to put to a lawyer with the dates.",
+        source: "brief W4-01 Section 4, question A4, merged with the PAA question on statute of limitations"
+      },
+      {
+        question: "Is there a mandatory minimum for sexual battery in Florida?",
+        answer: "There is a sentencing statute that can impose one, and it is separate from the charging section. Florida Statute 794.0115, which may be cited as the Dangerous Sexual Felony Offender Act, applies under subsection (2) to a person convicted of a violation of a listed provision, which includes s. 794.011(2), (3), (4), (5), or (8), where the person committed the offense at 18 years of age or older, and where one of its further conditions applies: causing serious personal injury to the victim as a result of the commission of the offense; using or threatening to use a deadly weapon during the commission of the offense; victimizing more than one person during the course of the criminal episode; committing the offense while under the jurisdiction of a court for a felony offense; or a previous conviction of one of the violations that paragraph lists. Where it applies, subsection (2) states that the person must be sentenced to a mandatory minimum term of 25 years imprisonment up to, and including, life imprisonment, and that if the offense was committed on or after October 1, 2014, the mandatory minimum term is 50 years imprisonment up to, and including, life imprisonment. Subsection (6) provides that the term must be imposed even where it exceeds the maximum sentence authorized under s. 775.082, s. 775.084, or chapter 921, and that where it is less than the sentence that could be imposed under those provisions, the sentence imposed must include it. Subsection (7) bars statutory gain-time and most forms of discretionary early release before the minimum is served. Whether the section is charged in a particular case is something to read off the charging document with a lawyer.",
+        source: "brief W4-01 Section 4, question A5"
+      }
+    ]
+  },
+  "state/homicide-defense": {
+    title: "Homicide charges in Hillsborough County",
+    metaTitle: "Homicide Charges in Hillsborough County | Hines & McCarty",
+    metaDescription: "Florida Statute 782.04 grades murder in the first, second and third degree, Statute 782.07 grades manslaughter and Statute 782.071 grades vehicular homicide. Degrees, ranking chart rows, and capital sentencing procedure.",
+    lead: "A Florida homicide charge is graded by the state of mind the statute names rather than by an amount: Statute 782.04 sets murder in the first, second and third degree, Statute 782.07 sets manslaughter, and Statute 782.071 sets vehicular homicide.",
+    sections: [
+      {
+        id: "degrees",
+        heading: "The state of mind Statute 782.04 names, and the degree that follows from it",
+        kind: "prose",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "Statute 782.04 is titled Murder, and it grades the killing by what the person's state of mind was and by what was happening at the time. Nothing in it turns on a dollar amount, a weight, or a quantity. Paragraph (1)(a) opens with the words The unlawful killing of a human being and then runs routes at its subparagraphs 1., 2. and 3., and the language that grades the offense sits at the end of the paragraph and attaches to each of them: is murder in the first degree and constitutes a capital felony, punishable as provided in s. 775.082. Reading one subparagraph and stopping is how the paragraph gets misread, because the grading clause is not inside any of them.",
+          "Subparagraph (1)(a)1. is the premeditation route: when perpetrated from a premeditated design to effect the death of the person killed or any human being. Subparagraph (1)(a)2. is the felony murder route, and it does not require premeditation: when committed by a person engaged in the perpetration of, or in the attempt to perpetrate, an enumerated felony. The enumerated list is written out in the subsection and includes a trafficking offense prohibited by s. 893.135(1), arson, sexual battery, robbery, burglary, kidnapping, escape, aggravated child abuse, aggravated abuse of an elderly person or disabled adult, aircraft piracy, unlawful throwing, placing, or discharging of a destructive device or bomb, carjacking, home-invasion robbery, aggravated stalking, murder of another human being, resisting an officer with violence to his or her person, aggravated fleeing or eluding with serious bodily injury or death, a felony that is an act of terrorism or is in furtherance of an act of terrorism, and human trafficking. Subparagraph (1)(a)3. is the drug delivery route: a death which resulted from the unlawful distribution by a person 18 years of age or older of a substance listed in its sub-subparagraphs a. through j., which include a substance controlled under s. 893.03(1), cocaine, opium or a synthetic or natural salt, compound, derivative or preparation of opium, methadone, alfentanil, carfentanil, fentanyl, sufentanil, methamphetamine, and a controlled substance analog of any of them, when the substance or mixture is proven to have caused, or is proven to have been a substantial factor in producing, the death of the user. Statute 782.04(6)(a) supplies the definition that route runs on: substantial factor means that the use of the substance or mixture alone is sufficient to cause death, regardless of whether any other substance or mixture used is also sufficient to cause death.",
+          "Statute 782.04(2) is second degree murder, and it is written as the absence of premeditation joined to a description of the act: the unlawful killing of a human being, when perpetrated by any act imminently dangerous to another and evincing a depraved mind regardless of human life, although without any premeditated design to effect the death of any particular individual. It is a felony of the first degree, punishable by imprisonment for a term of years not exceeding life or as provided in s. 775.082, s. 775.083, or s. 775.084. The subsection states no minimum term. A figure sometimes attached to second degree murder in general explanations is a Criminal Punishment Code computation rather than a term written into Statute 782.04, and this page does not restate it or produce a rival calculation.",
+          "Statute 782.04(4) is third degree murder: the unlawful killing of a human being, when perpetrated without any design to effect death, by a person engaged in the perpetration of, or in the attempt to perpetrate, any felony other than the ones its paragraphs (a) through (s) name. That list is an exclusion list rather than a list of what the subsection reaches. The felonies it names are the ones that push the same conduct up into subsection (1)(a)2. or subsection (3); a felony outside the list is what leaves the conduct in subsection (4). The list is enumerated rather than defined by violence, and a trafficking offense prohibited by s. 893.135(1) is item (a) on it.",
+          "Statute 782.04(5)(b) is a further third degree murder provision written to a distributor less than 18 years of age: a killing perpetrated without any design to effect death which resulted from the unlawful distribution by a person less than 18 years of age of a substance or mixture that he or she knew or reasonably should have known contained dangerous fentanyl or fentanyl analogs, proven to have caused or to have been a substantial factor in producing the death of the user. Statute 782.04(5)(a)1. defines dangerous fentanyl or fentanyl analogs by reference to s. 893.135(1)(c)4.a.(I)-(VII), which is narrower than the substance list in subparagraph (1)(a)3.",
+          "One correction, because the question arrives in that form. The section names murder in the first degree, murder in the second degree, and murder in the third degree. It creates no fourth degree of murder. Manslaughter is a separate section, Statute 782.07, and vehicular homicide is another, Statute 782.071. Which section and which subsection appear on the charging document is the first thing worth reading on the paperwork, because the rest of this page is organized by that number."
+        ]
+      },
+      {
+        id: "ladder",
+        heading: "The chapter 782 ladder, and the cells the ranking chart leaves unfilled",
+        kind: "penalties",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "The degree comes from the substantive statute and the term comes from Statute 775.082. The offense level comes from a different place again: the offense severity ranking chart at Statute 921.0022, which the sentencing worksheet at Statute 921.0024 works from. Where the chart lists no entry, this page leaves the cell unfilled and says why rather than supplying a number.",
+          "Statute 921.0022(2) is the reason the rows below are cited by subsection. It provides that for purposes of determining which felony offenses are specifically listed in the offense severity ranking chart and which severity level has been assigned to each of these offenses, the numerical statutory references in the left column of the chart and the felony degree designations in the middle column of the chart are controlling; the language in the right column of the chart is provided solely for descriptive purposes. So the chart's short descriptions are not the offense, and a row is read by its statute number.",
+          "Two things this page does not do. The lowest permissible sentence under the Criminal Punishment Code is not calculated here, because that calculation is an application of the scheme rather than a quotation from it. And Statute 921.0024's worksheet reaches a capital felony through its prior capital felony line, which is a prior record entry rather than a primary offense entry, so a capital felony is not scored on this page as a primary offense in any form.",
+          "A death caused while driving under the influence is charged under a different chapter. Statute 782.071 is written about reckless operation, and Statute 782.071(1)(c) itself names a prior conviction under s. 316.193(3)(c)3. among the priors that raise vehicular homicide to a felony of the first degree. That ladder in Statute 316.193 is set out at /criminal-defense/dui-defense and is not reproduced here."
+        ],
+        penalties: [
+          {
+            degree: "Capital felony",
+            maximum: "Death or life imprisonment without parole",
+            offenseLevel: "None. Statute 921.002 excludes capital felonies from the Criminal Punishment Code",
+            note: "Statute 782.04(1)(a), first degree murder, on each of the routes at its subparagraphs 1., 2. and 3.: premeditated design under subparagraph 1., a killing committed by a person engaged in the perpetration of or attempt to perpetrate an enumerated felony under subparagraph 2., or a death resulting from the unlawful distribution by a person 18 years of age or older of a listed substance under subparagraph 3. The stated reason for the empty level cell is one sentence of Statute 921.002: The Criminal Punishment Code shall apply to all felony offenses, except capital felonies, committed on or after October 1, 1998. The chart at Statute 921.0022 carries no row for completed first degree murder; its 782.04(1) entry is at level 9 and reads Attempt, conspire, or solicit to commit premeditated murder, which is the inchoate offense. The term comes from Statute 775.082(1)(a), which opens except as provided in paragraph (b) and provides that a person who has been convicted of a capital felony shall be punished by death if the proceeding held to determine sentence according to the procedure set forth in s. 921.141 results in a determination that such person shall be punished by death, otherwise such person shall be punished by life imprisonment and shall be ineligible for parole. Paragraph (b) is the separate track for a capital felony under s. 782.04 committed before the person attained 18 years of age, and it is read before paragraph (a) is applied to a young defendant. Subparagraph (1)(b)1. covers a person who actually killed, intended to kill, or attempted to kill the victim: a term of imprisonment for life if, after a sentencing hearing conducted by the court in accordance with s. 921.1401, the court finds that life imprisonment is an appropriate sentence, and a term of imprisonment of at least 40 years if the court finds that life imprisonment is not an appropriate sentence. Subparagraph (1)(b)2. covers a person who did not actually kill, intend to kill, or attempt to kill the victim, and provides that such a person may be punished by a term of imprisonment for life or by a term of years equal to life on the same finding."
+          },
+          {
+            degree: "First degree felony",
+            maximum: "A term of years not exceeding life",
+            offenseLevel: "Level 10",
+            note: "Statute 782.04(2), second degree murder, the depraved mind provision. The subsection states its own term, imprisonment for a term of years not exceeding life, which is the second clause of Statute 775.082(3)(b)1.: for a felony of the first degree, by a term of imprisonment not exceeding 30 years or, when specifically provided by statute, by imprisonment for a term of years not exceeding life imprisonment. The chart lists 782.04(2) at level 10 with the degree designation 1st,PBL."
+          },
+          {
+            degree: "First degree felony",
+            maximum: "A term of years not exceeding life",
+            offenseLevel: "Level 9",
+            note: "Statute 782.04(3), the felony murder provision that reaches a killing by a person other than the person engaged in the perpetration of the felony. Same degree and same term as 782.04(2), and a different level: the chart lists 782.04(3) at level 9 with the degree designation 1st,PBL. The chart's description column for this row reads Accomplice to murder in connection with arson, sexual battery, robbery, burglary, aggravated fleeing or eluding with serious bodily injury or death, and other specified felonies, and under Statute 921.0022(2) that column is descriptive rather than controlling."
+          },
+          {
+            degree: "Second degree felony",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 8",
+            note: "Statute 782.04(4), third degree murder, where the felony being perpetrated is a felony other than the ones its paragraphs (a) through (s) exclude. Term from Statute 775.082(3)(d): for a felony of the second degree, by a term of imprisonment not exceeding 15 years."
+          },
+          {
+            degree: "Second degree felony",
+            maximum: "Up to 15 years",
+            offenseLevel: "No entry in the Statute 921.0022 chart. This page states no level for it",
+            note: "Statute 782.04(5)(b), third degree murder by a distributor less than 18 years of age of a substance or mixture known or reasonably knowable to contain dangerous fentanyl or fentanyl analogs. The chart's entries keyed to 782.04 are (1), (2), (3) and (4); subsection (5) is absent from it. Statute 921.0023 supplies default parameters for a felony offense committed on or after October 1, 1998 that is not listed in the chart, and applying that section to a particular unlisted statute is a legal conclusion rather than a quotation, so this page does not do it. The empty cell means the chart assigns none, not that no level applies at sentencing."
+          },
+          {
+            degree: "Second degree felony",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 7",
+            note: "Statute 782.07(1), manslaughter. The chart entry reads 782.07(1), degree 2nd, described as Killing of a human being by the act, procurement, or culpable negligence of another (manslaughter)."
+          },
+          {
+            degree: "First degree felony",
+            maximum: "Up to 30 years",
+            offenseLevel: "Level 9",
+            note: "Statute 782.07(2), aggravated manslaughter of an elderly person or disabled adult, which is causing the death of an elderly person or disabled adult by culpable negligence under s. 825.102(3). Term from Statute 775.082(3)(b)1."
+          },
+          {
+            degree: "First degree felony",
+            maximum: "Up to 30 years",
+            offenseLevel: "Level 10",
+            note: "Statute 782.07(3), aggravated manslaughter of a child, which is causing the death of a person under the age of 18 by culpable negligence under s. 827.03(2)(b). It carries the same degree as 782.07(2) and a higher level."
+          },
+          {
+            degree: "First degree felony",
+            maximum: "Up to 30 years",
+            offenseLevel: "No entry in the Statute 921.0022 chart. This page states no level for it",
+            note: "Statute 782.07(4), aggravated manslaughter of an officer as defined in s. 943.10(14), a firefighter as defined in s. 112.191, an emergency medical technician as defined in s. 401.23, or a paramedic as defined in s. 401.23, where that person is performing duties within the course of his or her employment. The subsection grades it a felony of the first degree. The chart carries entries for 782.07(1), (2) and (3) and none for (4), and this page does not supply a level by applying Statute 921.0023 to it."
+          },
+          {
+            degree: "Second degree felony",
+            maximum: "Up to 15 years",
+            offenseLevel: "Level 7",
+            note: "Statute 782.071(1)(a), the base vehicular homicide tier. The section defines vehicular homicide as the killing of a human being, or the killing of an unborn child by any injury to the mother, caused by the operation of a motor vehicle by another in a reckless manner likely to cause the death of, or great bodily harm to, another. The chart entry is written at section level, 782.071, degree 2nd, level 7."
+          },
+          {
+            degree: "First degree felony",
+            maximum: "Up to 30 years",
+            offenseLevel: "Level 8",
+            note: "Statute 782.071(1)(b), which applies if at the time of the accident the person knew, or should have known, that the accident occurred, and the person failed to give information and render aid as required by s. 316.062. The paragraph adds that it does not require that the person knew that the accident resulted in injury or death. Statute 782.071 states no mandatory minimum term of imprisonment; this paragraph routes punishment to Statutes 775.082, 775.083 and 775.084."
+          },
+          {
+            degree: "First degree felony",
+            maximum: "Up to 30 years",
+            offenseLevel: "Level 8",
+            note: "Statute 782.071(1)(c), which applies if the person has a prior conviction under that section, s. 316.193(3)(c)3., s. 327.35(3)(a)3.c., or s. 782.072."
+          }
+        ]
+      },
+      {
+        id: "capital-findings",
+        heading: "Unanimity on the aggravating factor, and the eight votes that fix the recommendation",
+        kind: "bullets",
+        answers: [
+          "facing",
+          "next"
+        ],
+        bullets: [
+          "Statute 921.141 is procedure. It assigns no degree and creates no offense. It sets out what happens after a conviction or adjudication of guilt of a capital felony, and the death or life penalties themselves come from Statute 775.082.",
+          "Statute 921.141(1): upon conviction or adjudication of guilt of a defendant of a capital felony, the court shall conduct a separate sentencing proceeding to determine whether the defendant should be sentenced to death or life imprisonment as authorized by s. 775.082. The proceeding is conducted by the trial judge before the trial jury as soon as practicable. Where the trial jury was waived or the defendant pleaded guilty, it is conducted before a jury impaneled for that purpose unless the defendant waives it.",
+          "Statute 921.141(2)(a): after hearing the evidence presented regarding aggravating factors and mitigating circumstances, the jury deliberates and determines if the state has proven, beyond a reasonable doubt, the existence of at least one aggravating factor set forth in subsection (6).",
+          "Statute 921.141(2)(b): the jury shall return findings identifying each aggravating factor found to exist, and a finding that an aggravating factor exists must be unanimous. If the jury does not unanimously find at least one aggravating factor, the defendant is ineligible for a sentence of death. If it unanimously finds at least one, the defendant is eligible and the jury makes a recommendation as to life imprisonment without the possibility of parole or death.",
+          "Statute 921.141(2)(c): if at least eight jurors determine that the defendant should be sentenced to death, the jury's recommendation to the court must be a sentence of death. If fewer than eight jurors so determine, the recommendation must be a sentence of life imprisonment without the possibility of parole.",
+          "Statute 921.141(3)(a)1.: where the recommendation is life imprisonment without the possibility of parole, the court shall impose the recommended sentence of life. That recommendation binds the court.",
+          "Statute 921.141(3)(a)2.: where the recommendation is death and at least eight jurors recommend it, the court, after considering each aggravating factor found by the jury and all mitigating circumstances, may impose a sentence of life imprisonment without the possibility of parole or a sentence of death. The court may consider only an aggravating factor that was unanimously found to exist by the jury, and may impose a sentence of death only if the jury unanimously finds at least one aggravating factor beyond a reasonable doubt. A recommendation of death does not bind the court in the way a recommendation of life does.",
+          "Statute 921.141(3)(b): if the defendant waived the right to a sentencing proceeding by a jury, the court may impose life without the possibility of parole or death after considering the aggravating factors and mitigating circumstances, and may impose death only if the court finds that at least one aggravating factor has been proven to exist beyond a reasonable doubt.",
+          "Statute 921.141(4): the court enters a written order addressing the aggravating factors found to exist, the mitigating circumstances reasonably established by the evidence, whether there are sufficient aggravating factors to warrant the death penalty, and whether they outweigh the mitigating circumstances. If the court does not issue its order requiring the death sentence within 30 days after the rendition of the judgment and sentence, the court shall impose a sentence of life imprisonment without the possibility of parole in accordance with s. 775.082.",
+          "Statute 921.141(6) opens with the words Aggravating factors shall be limited to the following, and then lists them. Those words are the statute's own, and they are why a notice under Statute 782.04(1)(b) draws its list from that subsection. The factors listed there include a prior conviction of another capital felony or of a felony involving the use or threat of violence to the person, a capital felony committed while the defendant was engaged in or an accomplice in an enumerated felony, a capital felony committed for pecuniary gain, and a capital felony that was especially heinous, atrocious, or cruel. Statute 921.141(7) sets out the mitigating circumstances, and Statute 921.141(8) governs victim impact evidence.",
+          "Statute 782.04(1)(b) is what puts the aggravating factors in front of the defense in writing before the sentencing proceeding, and it is covered in the timeline below."
+        ]
+      },
+      {
+        id: "clocks",
+        heading: "Twenty-four hours, forty-five days after arraignment, and a review the Supreme Court of Florida takes without being asked",
+        kind: "timeline",
+        answers: [
+          "next"
+        ],
+        steps: [
+          {
+            when: "Within 24 hours of arrest",
+            what: "Rule 3.130(a) provides that except when previously released in a lawful manner, every arrested person must be taken before a judge, either in person or by audio-video communication technology in the discretion of the court, within 24 hours of arrest. The state attorney or an assistant and the public defender or an assistant must attend. Under Rule 3.130(b)(1) the judge must inform the defendant of the charge, provide a copy of the complaint, and advise that the defendant is not required to say anything, that anything said may be used against him or her, that there is a right to counsel and that counsel will be appointed if the defendant is financially unable to afford it, and that there is a right to communicate with counsel, family, or friends. Under Rule 3.130(c)(1), when the judge determines that the defendant is entitled to court-appointed counsel and desires counsel, the judge must immediately appoint counsel."
+          },
+          {
+            when: "At the same hearing, and this is the question a family asks first",
+            what: "Rule 3.130(d) provides that the judge must proceed to determine pretrial detention or conditions of release under rule 3.132 or rule 3.131. Rule 3.131(a) provides that unless charged with a capital offense or an offense punishable by life imprisonment and the proof of guilt is evident or the presumption is great, every person charged with a crime or violation of municipal or county ordinance is entitled to pretrial release on reasonable conditions. Those are two conditions joined by and, so the charge alone is not the whole of the test. The same subdivision provides that if no conditions of release can reasonably protect the community from risk of physical harm to persons, assure the presence of the accused at trial, or assure the integrity of the judicial process, the accused may be detained. What happens in a particular case is decided at that hearing on that record."
+          },
+          {
+            when: "30 days from arrest in custody, or 60 days on pretrial release",
+            what: "Rule 3.134(a)(1) requires the state to file formal charges on defendants in custody by information, or indictment, within 30 days from the date on which defendants are arrested or from the date of service of capiases. If they remain uncharged, the court on the 30th day and with notice to the state must order automatic release on recognizance on the 33rd day, or on the 40th day if good cause is shown by the state, and in no event may any defendants remain in custody beyond 40 days unless formally charged. Rule 3.134(b)(1) sets 60 days for a defendant on pretrial release, with automatic release from bail and conditions on the 63rd day, or up to an additional 30 days on a showing of good cause. Anyone who bonded out is on the 60 and 63 day track. Rule 3.140(a)(1) adds a step this charge has and others do not: an offense that may be punished by death shall be prosecuted by indictment."
+          },
+          {
+            when: "Within 45 days after arraignment",
+            what: "Statute 782.04(1)(b) provides that if the prosecutor intends to seek the death penalty, the prosecutor must give notice to the defendant and file the notice with the court within 45 days after arraignment, that the notice must contain a list of the aggravating factors the state intends to prove and has reason to believe it can prove beyond a reasonable doubt, and that the court may allow the prosecutor to amend the notice upon a showing of good cause. The same paragraph directs that the procedure in s. 921.141 be followed to determine sentence of death or life imprisonment. The decision is the prosecutor's to make, and this page states the deadline and the required contents rather than how any office exercises that decision."
+          },
+          {
+            when: "175 days from the formal charge, on the undemanded track",
+            what: "Rule 3.191(a) opens with a qualification worth reading before the number: except as otherwise provided by this rule, and subject to the limitations imposed under subdivisions (e) and (f), every person charged with a crime shall be brought to trial within 90 days if the crime charged is a misdemeanor, or within 175 days if the crime charged is a felony. The period commences when the person is formally charged as defined under subdivision (d), which is by information or by indictment, so it runs from the charge rather than from the arrest. If trial is not commenced within the period the defendant is entitled to the remedy set forth in subdivision (o), which is a recapture procedure rather than an automatic end to the case. Under Rule 3.191(b) a defendant may instead file a separate pleading entitled Demand for Speedy Trial and require trial within 60 days, and that subdivision carries limitations of its own."
+          },
+          {
+            when: "As soon as practicable after a conviction of a capital felony",
+            what: "Statute 921.141(1) requires a separate sentencing proceeding before the trial jury. Evidence may be presented as to any matter the court deems relevant to the nature of the crime and the character of the defendant, and shall include matters relating to the aggravating factors enumerated in subsection (6) for which notice was provided under s. 782.04(1)(b), or the mitigating circumstances enumerated in subsection (7). The state and the defendant or defense counsel are permitted to present argument for or against sentence of death."
+          },
+          {
+            when: "Within 30 days after the rendition of the judgment and sentence",
+            what: "Statute 921.141(4) requires the court's written order in support of a sentence of life imprisonment without the possibility of parole or death, and provides that if the court does not issue its order requiring the death sentence within that period, the court shall impose a sentence of life imprisonment without the possibility of parole in accordance with s. 775.082."
+          },
+          {
+            when: "Within 2 years after the filing of a notice of appeal",
+            what: "Statute 921.141(5) provides that the judgment of conviction and sentence of death shall be subject to automatic review by the Supreme Court of Florida and disposition rendered within 2 years after the filing of a notice of appeal, and that such review shall have priority over all other cases and shall be heard in accordance with rules adopted by that court. The review is automatic on a sentence of death."
+          }
+        ]
+      },
+      {
+        id: "participant",
+        heading: "Who caused the death, and the degree the participant faces because of the answer",
+        kind: "statute",
+        answers: [
+          "facing"
+        ],
+        statute: {
+          citation: "Florida Statute 782.04(1)(a)2. and Florida Statute 782.04(3), the 2025 Florida Statutes",
+          body: "Two provisions of the same section send the same underlying felony to two different degrees, and what moves it between them is which person caused the death. Statute 782.04(1)(a)2. reaches a killing when committed by a person engaged in the perpetration of, or in the attempt to perpetrate, one of the felonies it enumerates, and the grading language closing paragraph (1)(a) makes that murder in the first degree and a capital felony, punishable as provided in s. 775.082. Statute 782.04(3) is written the other way around. It opens: When a human being is killed during the perpetration of, or during the attempt to perpetrate, any, and then runs its own enumerated list at paragraphs (a) through (r), and closes: by a person other than the person engaged in the perpetration of or in the attempt to perpetrate such felony, the person perpetrating or attempting to perpetrate such felony commits murder in the second degree, which constitutes a felony of the first degree, punishable by imprisonment for a term of years not exceeding life or as provided in s. 775.082, s. 775.083, or s. 775.084. The clause by a person other than the person engaged in the perpetration is the pivot. The same predicate felony, the same death, and a different answer to who caused it, produce a capital felony under one subparagraph and a felony of the first degree under the other. A person can be inside subsection (3) without having been the person who caused the death. The two lists are also not identical, and the difference is checkable rather than atmospheric: human trafficking appears in the (1)(a)2. list at sub-subparagraph s., and it does not appear in the subsection (3) list, and it does not appear in the exclusion list at subsection (4) either. So each list is read in full rather than assumed to mirror the last one. The offense levels differ where the degrees do not. The Statute 921.0022 chart lists 782.04(2) at level 10 and 782.04(3) at level 9, each with the degree designation 1st,PBL and each carrying the same statutory term, a term of years not exceeding life. A level is an input to the worksheet at Statute 921.0024 rather than a sentence, and this page carries the level without calculating from it. One caution about the chart itself, which is the reason each row on this page is cited to a subsection. The chart's description of the 782.04(3) row reads Accomplice to murder in connection with arson, sexual battery, robbery, burglary, aggravated fleeing or eluding with serious bodily injury or death, and other specified felonies. Statute 921.0022(2) provides that the numerical statutory references in the left column and the felony degree designations in the middle column are controlling, and that the language in the right column is provided solely for descriptive purposes. The subsection's own words are what a charge under it has to satisfy."
+        }
+      },
+      {
+        id: "manslaughter",
+        heading: "Manslaughter is defined by what the killing is not, and vehicular homicide by how the vehicle was driven",
+        kind: "prose",
+        answers: [
+          "facing"
+        ],
+        prose: [
+          "Statute 782.07(1) is short and it is written by exclusion. The killing of a human being by the act, procurement, or culpable negligence of another, without lawful justification according to the provisions of chapter 776 and in cases in which such killing shall not be excusable homicide or murder, according to the provisions of this chapter, is manslaughter, a felony of the second degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084. Note what those words do. The conduct element is act, procurement, or culpable negligence, which is broader than an intentional act. The subsection is defined against the rest of chapter 782, so what is not murder under that chapter is part of what manslaughter is. And chapter 776 is written into the definition of the offense itself, which is why the justification provisions have a section on this page rather than being treated as an afterthought.",
+          "The chart at Statute 921.0022 lists 782.07(1) at offense level 7, which is the same level it gives to vehicular homicide, and the aggravated tiers sit well above it. Statute 782.07(2) reaches a person who causes the death of any elderly person or disabled adult by culpable negligence under s. 825.102(3), and grades it a felony of the first degree; the chart lists it at level 9. Statute 782.07(3) reaches a person who causes the death of any person under the age of 18 by culpable negligence under s. 827.03(2)(b), also a felony of the first degree, and the chart lists it at level 10, above the elderly and disabled adult tier that carries the same degree. Statute 782.07(4) reaches a death caused through culpable negligence of an officer as defined in s. 943.10(14), a firefighter as defined in s. 112.191, an emergency medical technician as defined in s. 401.23, or a paramedic as defined in s. 401.23, while that person is performing duties within the course of his or her employment, and grades it a felony of the first degree. The chart carries no entry for 782.07(4), which is why the level cell for that row is unfilled above.",
+          "Statute 782.071 defines vehicular homicide in its opening words: the killing of a human being, or the killing of an unborn child by any injury to the mother, caused by the operation of a motor vehicle by another in a reckless manner likely to cause the death of, or great bodily harm to, another. The word doing the work is reckless. Subsection (1)(a) grades the base offense a felony of the second degree. Subsection (1)(b) raises it to a felony of the first degree where at the time of the accident the person knew, or should have known, that the accident occurred, and failed to give information and render aid as required by s. 316.062, and it adds that the paragraph does not require that the person knew that the accident resulted in injury or death. Subsection (1)(c) raises it to a felony of the first degree on a prior conviction under that section, s. 316.193(3)(c)3., s. 327.35(3)(a)3.c., or s. 782.072.",
+          "Nothing in Statute 782.071 states a mandatory minimum term of imprisonment. Its paragraphs route punishment to Statutes 775.082, 775.083 and 775.084 without stating a floor of their own. What subsection (4) adds is discretionary and is not a minimum: in addition to any other punishment, the court may order the person to serve 120 community service hours in a trauma center or hospital that regularly receives victims of vehicle accidents, under the supervision of a registered nurse, an emergency room physician, or an emergency medical technician pursuant to a voluntary community service program operated by the trauma center or hospital. Subsection (3) also records that a right of action for civil damages shall exist under s. 768.19, under all circumstances, for all deaths described in the section, so a civil case can run alongside the criminal one.",
+          "A death caused by a driver who was impaired is not charged under Statute 782.071. It is charged under the DUI statute, at Statute 316.193(3)(c)3., which Statute 782.071(1)(c) names by number when it counts prior convictions. That ladder, its offense levels and its mandatory minimum term belong to the DUI statute and are set out at /criminal-defense/dui-defense."
+        ]
+      },
+      {
+        id: "justification",
+        heading: "Chapter 776 justification, excusable homicide, and the point where Statute 776.032 stops",
+        kind: "statute",
+        answers: [
+          "facing"
+        ],
+        statute: {
+          citation: "Florida Statutes 776.012, 776.032, 782.02 and 782.03, the 2025 Florida Statutes",
+          body: "Chapter 776 is on this page because Statute 782.07(1) puts it there: manslaughter is a killing without lawful justification according to the provisions of chapter 776. A page that quotes that definition and then says nothing about chapter 776 has quoted a cross-reference and left it hanging. Statute 776.012(2) is the provision the popular phrase actually names. It provides that a person is justified in using or threatening to use deadly force if he or she reasonably believes that using or threatening to use such force is necessary to prevent imminent death or great bodily harm to himself or herself or another or to prevent the imminent commission of a forcible felony, and that a person who uses or threatens to use deadly force in accordance with that subsection does not have a duty to retreat and has the right to stand his or her ground if the person using or threatening to use the deadly force is not engaged in a criminal activity and is in a place where he or she has a right to be. Statute 776.012(1) does the same job for force other than deadly force, and says the person does not have a duty to retreat before using or threatening to use such force. The words stand his or her ground sit in Statute 776.012(2), not in the immunity section, and the two sections do different jobs. Statute 776.08 supplies the term used in 776.012(2): forcible felony means treason; murder; manslaughter; sexual battery; carjacking; home-invasion robbery; robbery; burglary; arson; kidnapping; aggravated assault; aggravated battery; aggravated stalking; aircraft piracy; unlawful throwing, placing, or discharging of a destructive device or bomb; and any other felony which involves the use or threat of physical force or violence against any individual. That last clause is a residual, so the enumerated names are not the outer edge of the definition. Chapter 782 has justification and excuse provisions of its own. Statute 782.02 is one sentence: the use of deadly force is justifiable when a person is resisting any attempt to murder such person or to commit any felony upon him or her or upon or in any dwelling house in which such person shall be. Statute 782.03 is also one sentence, and its limbs are joined by or: homicide is excusable when committed by accident and misfortune in doing any lawful act by lawful means with usual ordinary caution, and without any unlawful intent, or by accident and misfortune in the heat of passion, upon any sudden and sufficient provocation, or upon a sudden combat, without any dangerous weapon being used and not done in a cruel or unusual manner. Statute 776.032 is the immunity section, and it is procedural rather than a definition of when force is justified. Subsection (1) provides that a person who uses or threatens to use force as permitted in s. 776.012, s. 776.013, or s. 776.031 is justified in such conduct and is immune from criminal prosecution and civil action for the use or threatened use of such force, unless the person against whom force was used or threatened is a law enforcement officer as defined in s. 943.10(14) who was acting in the performance of official duties and identified himself or herself in accordance with any applicable law, or the person using or threatening force knew or reasonably should have known that the person was a law enforcement officer. The same subsection defines its own key term: as used in that subsection, criminal prosecution includes arresting, detaining in custody, and charging or prosecuting the defendant. Subsection (2) is the sentence that reaches a case earliest: a law enforcement agency may use standard procedures for investigating the use or threatened use of force as described in subsection (1), but the agency may not arrest the person for using or threatening to use force unless it determines that there is probable cause that the force that was used or threatened was unlawful. Subsection (4) allocates the burden, and it was rewritten in 2017: in a criminal prosecution, once a prima facie claim of self-defense immunity from criminal prosecution has been raised by the defendant at a pretrial immunity hearing, the burden of proof by clear and convincing evidence is on the party seeking to overcome the immunity from criminal prosecution provided in subsection (1). The party seeking to overcome the immunity, in a criminal prosecution, is the State; that phrasing is this page's paraphrase and the statute's own words are the ones quoted above. Where this page stops is as important as what it says, and the reason is that the statute stops there too. Statute 776.032 does not state what the defendant's prima facie claim requires or what quantum of evidence it takes, so this page states no standard and no characterization of it. Statute 776.032 also does not say how such a hearing is requested, filed, noticed, or scheduled, and this page describes no procedural vehicle that the section does not contain. Those are questions for counsel with the file in front of them."
+        }
+      },
+      {
+        id: "record",
+        heading: "Statute 943.0584 names chapter 782 by section, and a withheld adjudication does not lift it",
+        kind: "prose",
+        answers: [
+          "consequences",
+          "sealing"
+        ],
+        prose: [
+          "A Florida criminal history record is public unless it is sealed or expunged, which is why the record question outlasts the sentence. On this charge it is answered by a list that names the chapter by section. Statute 943.0584(2) provides that a criminal history record is ineligible for a certificate of eligibility for expunction or a court-ordered expunction pursuant to s. 943.0585, or a certificate of eligibility for sealing or a court-ordered sealing pursuant to s. 943.059, if the record is a conviction for any of the offenses it then lists. Paragraph (2)(d) reads: Murder, as defined in s. 782.04, s. 782.065, or s. 782.09. Paragraph (2)(e) reads: Manslaughter or homicide, as defined in s. 782.07, s. 782.071, or s. 782.072. Those two paragraphs reach the provisions on this page.",
+          "The definition attached to that bar is the part people are most often told wrongly. Statute 943.0584(1) provides that as used in that section, conviction means a determination of guilt which is the result of a trial or the entry of a plea of guilty or nolo contendere, regardless of whether adjudication is withheld, and for a minor, a finding that the defendant committed or pled guilty or nolo contendere to committing a delinquent act, regardless of whether adjudication of delinquency is withheld. A disposition described as a withhold is inside that definition, so it does not take a listed offense back out of the bar.",
+          "The other direction is worth stating too. Statute 943.059(1)(a) makes it a condition of sealing that the criminal history record is not ineligible for court-ordered sealing under s. 943.0584, and the remaining conditions in 943.059(1) are cumulative rather than alternatives. Statute 943.059(2) requires a certificate of eligibility from the department before a petition is filed, and 943.059(2)(b) makes that certificate valid for 12 months after the date stamped on it. Statute 943.059(4)(c) also sets the unit: sealing operates on one arrest or one incident of alleged criminal activity rather than on one count, so counts resolved in the same arrest are not assessed separately for this purpose.",
+          "What reaches employment here is the record rather than the degree on the charging document, because a background check reports the arrest and the disposition. Two things this page does not decide. A professional license is governed by the board that issues it and by that board's own rules. Immigration consequences are federal, they do not follow Florida's sealing statutes, and they belong with an immigration attorney rather than with a page about chapter 782."
+        ]
+      },
+      {
+        id: "now",
+        heading: "Statements, the examiner's determination, and what a family can do while someone is held",
+        kind: "guidance",
+        answers: [
+          "now"
+        ],
+        guidance: [
+          {
+            heading: "Rights that do not depend on what the file already says",
+            items: [
+              "You have the right to decline to answer questions. It is available at each stage, and it does not have to be explained or justified to anyone.",
+              "Counsel attaches on an event rather than on a court date. Rule 3.111(a) provides that a person entitled to appointment of counsel shall have counsel appointed when the person is formally charged with an offense, or as soon as feasible after custodial restraint, or at the first appearance before a committing judge, whichever occurs earliest.",
+              "Rule 3.130(b)(1) requires the judge at first appearance to inform the defendant of the charge, provide a copy of the complaint, and advise that the defendant is not required to say anything, that anything said may be used against him or her, that counsel will be appointed if the defendant is financially unable to afford counsel, and that the defendant has a right to communicate with counsel, family, or friends and will be provided reasonable means to do so if necessary.",
+              "Rule 3.130(c)(2) provides that where the defendant has retained counsel or expresses a desire to and is financially able, the judge must allow the defendant a reasonable time to send for counsel and must, if necessary, postpone the first appearance hearing for that purpose.",
+              "Where force was used and a justification is in play, Statute 776.032(2) provides that a law enforcement agency may use standard procedures for investigating the use or threatened use of force, but may not arrest the person for using or threatening to use force unless it determines that there is probable cause that the force that was used or threatened was unlawful."
+            ]
+          },
+          {
+            heading: "What a homicide file is built from, and what a family is asked while it is being built",
+            items: [
+              "The medical examiner's work is a step in the process rather than a formality. Statute 406.11(1)(a) provides that where a person dies in this state of criminal violence, by accident, suddenly when in apparent good health, in police custody, or in any suspicious or unusual circumstance, among other listed circumstances, the medical examiner of the district in which the death occurred or the body was found shall determine the cause of death and make or perform such examinations, investigations, and autopsies as he or she deems necessary or as requested by the state attorney.",
+              "Statute 406.11(2)(a) gives the district medical examiner authority to perform, or have performed, whatever autopsies or laboratory examinations he or she deems necessary and in the public interest to determine the identification of or cause or manner of death of the deceased, or to obtain evidence necessary for forensic examination. The determination of cause and manner of death becomes a document in the file, and it is examinable in the ordinary course rather than something to be reconstructed from memory.",
+              "Statute 406.11(2)(b) requires the Medical Examiners Commission to adopt rules providing for the notification of the next of kin that an investigation by the medical examiner's office is being conducted, and restricts the retention or furnishing of a body part for purposes not connected with that determination without notification of and approval by the next of kin. A family that has been contacted by that office is inside a statutory process rather than an informal one.",
+              "Accounts given to investigators by family members and by people who were present become part of the same file, including accounts given informally and by telephone. That is the reason to speak with a lawyer before giving one, and it applies to a person who is not accused of anything.",
+              "Read the release paperwork rather than assume what it says. Rule 3.131(a) makes it a condition of pretrial release, whether by surety bail bond, recognizance bond, or another form, that the defendant refrain from any contact of any type with the victim except through pretrial discovery under the Florida Rules of Criminal Procedure, and comply with all conditions of pretrial release as ordered by the court. The subdivision allows a court to modify the no-contact condition on motion where good cause is shown and the interests of justice so require, and provides that the victim is permitted to be heard at any proceeding in which such modification is considered.",
+              "Statute 776.032(1) defines its own term in a way that reaches earlier than a trial: as used in that subsection, criminal prosecution includes arresting, detaining in custody, and charging or prosecuting the defendant. Where immunity under that section is in play, it is in play from the beginning of a case rather than at the end of it."
+            ]
+          }
+        ]
+      },
+      {
+        id: "who",
+        heading: "Circuit criminal in the Thirteenth Judicial Circuit, and the offices already holding a file",
+        kind: "prose",
+        answers: [
+          "who"
+        ],
+        prose: [
+          "Each provision described on this page grades the offense as a felony or a capital felony, so a charge under any of them is circuit criminal business in the Thirteenth Judicial Circuit, which is Hillsborough County. There is no county criminal branch of this subject to describe. The Hillsborough County Clerk, Victor Crist, holds the file. Administrative Order S-2026-006 describes the clerk's criminal divisions as felony, misdemeanor, or traffic. Circuit criminal services are at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, Tampa, and criminal court services are also available at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071. The first appearance described in the timeline above is heard in the First Appearance and Emergency Division designated O by that order.",
+          "The charging decision belongs to the Office of the State Attorney for the Thirteenth Judicial Circuit, Susan S. Lopez. On this subject one decision inside that office has a statutory deadline attached to it, and it is the decision families ask about first: Statute 782.04(1)(b) provides that a prosecutor who intends to seek the death penalty must give notice to the defendant and file it with the court within 45 days after arraignment, with a list of the aggravating factors the state intends to prove and has reason to believe it can prove beyond a reasonable doubt. This page states what the statute requires. It does not state how often that notice is filed in this circuit, in what kinds of cases, or by whom, because nothing about how this office exercises that discretion was verified for this page and a guess would be worse than silence.",
+          "Where a defendant is entitled to appointed counsel and wants it, Rule 3.130(c)(1) requires the judge to appoint counsel immediately at first appearance, and Rule 3.111(a) attaches the appointment at the earliest of formal charge, as soon as feasible after custodial restraint, or first appearance. The Public Defender for this circuit is Lisa B. McLean. A person in custody frequently cannot make the call that starts private representation, which is why the reader of this page is often a parent, a sibling, or a spouse. That call can be made by a family member, it does not wait for a court date, and it is the step that is available on the day of the arrest."
+        ]
+      }
+    ],
+    faq: [
+      {
+        question: "What is the difference between first and second degree murder in Florida?",
+        source: "brief (W4-03-homicide Section 4, assistant question 1)",
+        answer: "The difference is written into the statute as a difference of state of mind, and the degrees carry different penalties. Statute 782.04(1)(a)1. reaches an unlawful killing perpetrated from a premeditated design to effect the death of the person killed or any human being, and the grading language closing paragraph (1)(a) makes that murder in the first degree and a capital felony, punishable as provided in Statute 775.082. Statute 782.04(2) reaches an unlawful killing perpetrated by any act imminently dangerous to another and evincing a depraved mind regardless of human life, although without any premeditated design to effect the death of any particular individual, and grades it murder in the second degree, a felony of the first degree, punishable by imprisonment for a term of years not exceeding life. There is a second route to first degree murder that does not involve premeditation: Statute 782.04(1)(a)2. reaches a killing committed by a person engaged in the perpetration of, or attempt to perpetrate, an enumerated felony. Which subsection an accusation falls under is a question about the charging document and the file, and it is one for a lawyer rather than for a page."
+      },
+      {
+        question: "If someone else caused the death, can I still be charged with murder in Florida?",
+        source: "brief (W4-03-homicide Section 4, assistant question 2, the C9 question)",
+        answer: "Florida has a provision written for that situation, and it is Statute 782.04(3). It applies when a human being is killed during the perpetration of, or during the attempt to perpetrate, one of the felonies it lists at paragraphs (a) through (r), by a person other than the person engaged in the perpetration of or in the attempt to perpetrate such felony. In that circumstance the statute provides that the person perpetrating or attempting to perpetrate such felony commits murder in the second degree, which constitutes a felony of the first degree, punishable by imprisonment for a term of years not exceeding life or as provided in Statute 775.082, Statute 775.083, or Statute 775.084. The offense severity ranking chart at Statute 921.0022 lists 782.04(3) at level 9. The contrasting provision is Statute 782.04(1)(a)2., which reaches a killing committed by a person who was engaged in the perpetration, and which is graded murder in the first degree and a capital felony. Whether a particular accusation sits in one provision or the other turns on facts in the file, and this answer describes what the subsections say rather than predicting how any case is charged or resolved."
+      },
+      {
+        question: "What is third degree murder in Florida?",
+        source: "PAA, verbatim on the florida murder degrees SERP, Tampa-geolocated 2026-08-13 (W4-03-homicide Section 3.2)",
+        answer: "Third degree murder is defined at Statute 782.04(4) as the unlawful killing of a human being, when perpetrated without any design to effect death, by a person engaged in the perpetration of, or in the attempt to perpetrate, any felony other than the ones listed in its paragraphs (a) through (s). It is murder in the third degree and constitutes a felony of the second degree, punishable as provided in Statute 775.082, Statute 775.083, or Statute 775.084, which is up to 15 years under Statute 775.082(3)(d). The ranking chart at Statute 921.0022 lists 782.04(4) at offense level 8. Two features of that definition are worth reading closely. The list in (a) through (s) is an exclusion list, so the felonies it names are the ones that take the conduct out of subsection (4) and into subsection (1)(a)2. or subsection (3). And the list is enumerated rather than defined by whether a felony is violent: a trafficking offense prohibited by Statute 893.135(1) is item (a) on it. Statute 782.04(5)(b) grades a further form of third degree murder involving distribution by a person less than 18 years of age of a substance known or reasonably knowable to contain dangerous fentanyl or fentanyl analogs."
+      },
+      {
+        question: "What counts as excusable homicide in Florida?",
+        source: "PAA, verbatim on the homicide attorney Tampa SERP, Tampa-geolocated 2026-08-13 (W4-03-homicide Section 3.1)",
+        answer: "Excusable homicide is defined in a single sentence at Statute 782.03: homicide is excusable when committed by accident and misfortune in doing any lawful act by lawful means with usual ordinary caution, and without any unlawful intent, or by accident and misfortune in the heat of passion, upon any sudden and sufficient provocation, or upon a sudden combat, without any dangerous weapon being used and not done in a cruel or unusual manner. The sentence is built in limbs joined by or, and the closing conditions about a dangerous weapon and about cruel or unusual manner sit at the end of the sentence, so the whole sentence is read together. It matters beyond its own section because Statute 782.07(1) defines manslaughter as a killing in cases in which such killing shall not be excusable homicide or murder according to the provisions of chapter 782. Excusable homicide is a separate concept from justifiable use of deadly force, which is addressed at Statute 782.02 and in chapter 776. Whether any of them fits a particular set of facts is a question for a lawyer with the file, and nothing here predicts an outcome."
+      },
+      {
+        question: "What is the difference between manslaughter and murder in Florida?",
+        source: "brief (W4-03-homicide Section 4, assistant question 5)",
+        answer: "Manslaughter is defined at Statute 782.07(1) partly by reference to what it is not. The killing of a human being by the act, procurement, or culpable negligence of another, without lawful justification according to the provisions of chapter 776 and in cases in which such killing shall not be excusable homicide or murder, according to the provisions of chapter 782, is manslaughter, a felony of the second degree, punishable as provided in Statute 775.082, Statute 775.083, or Statute 775.084, which is up to 15 years under Statute 775.082(3)(d). The murder provisions in Statute 782.04 are written around different states of mind: a premeditated design to effect death under (1)(a)1., a killing committed during an enumerated felony under (1)(a)2., an act imminently dangerous to another evincing a depraved mind without premeditated design under (2), and a killing without any design to effect death during a non-listed felony under (4). The phrase act, procurement, or culpable negligence is the conduct element that distinguishes 782.07(1), and the ranking chart at Statute 921.0022 lists it at offense level 7. Statute 782.07 also carries aggravated tiers keyed to who the person who died was, at subsections (2), (3) and (4). What a particular file supports is not something this answer can address."
+      },
+      {
+        question: "Does the prosecutor have to say in advance whether they are seeking the death penalty?",
+        source: "brief (W4-03-homicide Section 4, assistant question 6)",
+        answer: "There is a notice requirement with a deadline and required contents, and Statute 782.04(1)(b) is the provision that sets it. It provides that if the prosecutor intends to seek the death penalty, the prosecutor must give notice to the defendant and file the notice with the court within 45 days after arraignment; that the notice must contain a list of the aggravating factors the state intends to prove and has reason to believe it can prove beyond a reasonable doubt; and that the court may allow the prosecutor to amend the notice upon a showing of good cause. The same paragraph directs that the procedure set forth in Statute 921.141 be followed to determine sentence of death or life imprisonment. The aggravating factors that can appear on such a notice are the ones in Statute 921.141(6), which opens with the words Aggravating factors shall be limited to the following. The decision to seek the death penalty belongs to the prosecutor. This answer states the deadline and the required contents of the notice; it does not state how any prosecutor's office exercises that decision, and nothing here predicts what will happen in a particular case."
+      }
+    ]
+  },
+
   // ---------------------------------------------------------------------
   // CORPORATE FRAUD. NOT A CHARGE PAGE. Category overview, per D12.
   //

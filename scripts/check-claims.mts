@@ -170,8 +170,65 @@ function auditSentence(
   const primary = opts.primary ?? true;
   const out: Problem[] = [];
   const degrees = degreesIn(s);
-  const amounts = pointAmounts(s);
   const scope = scopeOf(s);
+
+  // THE CLAUSE A DEGREE BELONGS TO.
+  //
+  // The rules below ask whether a degree stated in this text is supported by an
+  // amount or a citation stated in it. That question assumes the sentence makes
+  // ONE assertion. Two correct pages failed because theirs made two.
+  //
+  //   "What lifts this above a third degree felony, and why $5,000 is not the
+  //    top of the ladder"          <- a heading, and it says $5,000 is NOT it
+  //   "The chart carries entries at 775.21(10)(a), (10)(b), and (10)(g);
+  //    921.0023(2) supplies the level for an unlisted second degree felony"
+  //
+  // The first was read as calling $5,000 a third degree felony. The second was
+  // read as attributing a second degree felony to 775.21(10)(a). Both are the
+  // opposite of what the text says, and in both the degree and the thing it was
+  // matched against sit in DIFFERENT independent clauses.
+  //
+  // So the degree's own clause is the unit, and the split is deliberately
+  // narrow: a semicolon, or ", and why", which introduces a separate
+  // explanatory assertion. It is NOT split on a bare comma or a bare "and". A
+  // real error reads "theft of $1,000 is a third degree felony", one clause,
+  // and splitting more aggressively would start pulling amounts away from the
+  // degrees they really do modify, which is how a gate goes quiet while still
+  // appearing to run.
+  //
+  // THE TWO RULES SPLIT DIFFERENTLY, AND THE DIFFERENCE IS THE WHOLE POINT.
+  //
+  // For the AMOUNT rule the split is ", and why" only, never a semicolon, and
+  // there is NO fallback: if the degree's clause carries no amount, no amount
+  // is being called that degree and the rule has nothing to say. A semicolon
+  // is excluded here precisely because "the value was $1,000; that makes it a
+  // third degree felony" is a real error shape, and splitting it would take the
+  // amount away from the degree it genuinely modifies and let the error
+  // through. ", and why" is safe because it introduces a separate explanatory
+  // assertion rather than continuing the one before it.
+  //
+  // For the CITATION rule the split is a semicolon or ", and why", and the
+  // fallback is to the whole sentence when the degree's clause names no
+  // subsection. Narrowing there only happens when the narrower unit still has
+  // citations to check against, so it can remove a false positive but not a
+  // true one.
+  const CITE_RE = /\b(\d{3}\.\d{2,4}(?:\([0-9a-z]{1,3}\))+)/i;
+  const degreeRe =
+    degrees.size === 1
+      ? DEGREE_WORDS.find(([, d]) => d === [...degrees][0])?.[0]
+      : undefined;
+  const clauseHoldingDegree = (splitter: RegExp): string | undefined =>
+    degreeRe ? s.split(splitter).find((c) => degreeRe.test(c)) : undefined;
+
+  const amountSpace = /,\s+and\s+why\s+/i.test(s)
+    ? (clauseHoldingDegree(/,\s+and\s+why\s+/i) ?? s)
+    : s;
+  const amounts = pointAmounts(amountSpace);
+
+  const citeClause = /;|,\s+and\s+why\s+/i.test(s)
+    ? clauseHoldingDegree(/;\s*|,\s+and\s+why\s+/i)
+    : undefined;
+  const claimSpace = citeClause && CITE_RE.test(citeClause) ? citeClause : s;
 
   // 2. Exhaustive claim over a partial reading.
   // The SENTENCE must be about this statute, not merely sit on a page that
@@ -286,7 +343,10 @@ function auditSentence(
   // still catches the original error shape: one citation, wrong degree.
   if (degrees.size === 1) {
     const cited: GradingRow[] = [];
-    for (const m of s.matchAll(/\b(\d{3}\.\d{2,4}(?:\([0-9a-z]{1,3}\))+)/gi)) {
+    // Scoped to the degree's own clause, for the reason set out above: a
+    // semicolon can join a sentence that names subsections to one that states
+    // a degree belonging to a different provision entirely.
+    for (const m of claimSpace.matchAll(/\b(\d{3}\.\d{2,4}(?:\([0-9a-z]{1,3}\))+)/gi)) {
       // The citation must belong to THIS statute's own section.
       //
       // F.S. 921.0022 is the offense severity ranking chart, and its rows are
@@ -407,6 +467,56 @@ console.log("Claim-check self-test: the three errors that shipped on this page")
     );
   } else {
     console.log("  ok    stays quiet on correct, place-scoped sentences");
+  }
+
+  // TWO-CLAUSE TEXT. Both of these are real text from batch C that this gate
+  // reported as errors, and in each the gate's reading was the OPPOSITE of what
+  // the text says. They are kept as tests so the clause rule cannot be widened
+  // back out without someone seeing these fail.
+  const twoClause: [string, string][] = [
+    [
+      "815.06",
+      "What lifts this above a third degree felony, and why $5,000 is not the top of the ladder",
+    ],
+    [
+      "775.21",
+      "The chart carries entries at Statute 775.21(10)(a), (10)(b), and (10)(g); Statute 921.0023(2) supplies the level for an unlisted second degree felony, which is level 4.",
+    ],
+  ];
+  for (const [statute, sentence] of twoClause) {
+    if (!STATUTES[statute]) continue;
+    const problems = auditSentence(sentence, statute);
+    if (problems.length) {
+      fail(
+        `fires on two-clause text whose clauses say different things: ` +
+          `${problems.map((p) => p.kind + " -> " + p.detail).join(" | ")}\n        "${sentence}"`,
+      );
+    } else {
+      console.log(`  ok    reads ${statute} two-clause text by clause, not by sentence`);
+    }
+  }
+
+  // AND THE NARROWING MUST NOT REACH A ONE-CLAUSE ERROR. The clause rule falls
+  // back to the whole sentence when the degree's clause has nothing to check
+  // against, so a semicolon in a sentence whose degree really does belong to
+  // the cited subsection still has to fail.
+  // 812.014(2)(g) is a second degree felony. Calling it a third degree felony
+  // is wrong, and putting a semicolon in front of the mistake must not excuse
+  // it. The cite is deliberately one the rule can actually match: an earlier
+  // draft of this test used 812.014(2)(a), whose rows are cited (2)(a)1. and
+  // (2)(a)3.b., which the citation regex does not reach, so the test passed
+  // and failed for reasons that had nothing to do with what it claimed to
+  // measure. A self-test that cannot fail for its stated reason is worse than
+  // no self-test, because it reads as coverage.
+  const stillCaught =
+    "Statute 812.014(2)(g) is the tier for a firearm; it is a third degree felony.";
+  if (!auditSentence(stillCaught, "812.014").length) {
+    fail(
+      `stopped catching a real wrong-degree claim once a semicolon was in the ` +
+        `sentence. The clause rule has been widened too far.\n        "${stillCaught}"`,
+    );
+  } else {
+    console.log("  ok    a semicolon does not buy a wrong degree its way past the check");
   }
 }
 

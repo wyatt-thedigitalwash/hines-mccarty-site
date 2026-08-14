@@ -54,7 +54,9 @@
   ],
   "812.014": {
     "amountUnit": "usd",
-    "residual": ["812.014(3)(a)"],
+    "residual": [
+      "812.014(3)(a)"
+    ],
     "note": "All 17 bounded rows are property values in dollars. Theft of any property not specified in subsection (2) is the residual: its floor is wherever the other paragraphs stop, so it has none of its own."
   },
   "817.034": {
@@ -63,7 +65,9 @@
   },
   "896.101": {
     "amountUnit": "usd",
-    "minExclusive": ["896.101(5)(a)"],
+    "minExclusive": [
+      "896.101(5)(a)"
+    ],
     "note": "Financial transaction totals in dollars. (5)(a) reads 'exceeding $300', which the row's own trigger text records as exclusive while the typed min could not express it: the table was audited before minExclusive existed. Transcribed here rather than left in prose, because $300 exactly is a real boundary a page could state wrongly."
   },
   "841": {
@@ -76,12 +80,16 @@
   },
   "409.920": {
     "amountUnit": "usd",
-    "minExclusive": ["409.920(2)(b)1.b."],
+    "minExclusive": [
+      "409.920(2)(b)1.b."
+    ],
     "note": "Value received or endeavored to be received, in dollars. The (2)(b)1.b. tier reads \"More than $10,000, but less than $50,000\", so BOTH bounds are strict and $10,000 itself belongs to the tier below. The audited row recorded min inclusive; the page written from it had already worked out that each bound is written strictly and says so, which is the copy being right where the table was short. Third instance of this shape after 812.014(6) and 896.101(5)(a)."
   },
   "517.302": {
     "amountUnit": "usd",
-    "minExclusive": ["517.302(2)"],
+    "minExclusive": [
+      "517.302(2)"
+    ],
     "note": "Aggregate value obtained, in dollars. 517.302(2) reads \"an aggregate value exceeding $50,000 from five or more persons\", a strict threshold, so $50,000 exactly is outside it. Note the row carries a person count in its trigger text rather than in min or max, per the settled convention: min and max hold the dollar element, and the five-person element is a separate condition rather than a second numeric bound."
   },
   "896.104": {
@@ -103,5 +111,13 @@
   "322.2615": {
     "amountUnit": "blood-alcohol-level",
     "note": "AMOUNT RULES OFF. Every bound is 0.08, a blood or breath alcohol level, and the provisions are administrative suspension rules rather than criminal grading."
+  },
+  "800.04": {
+    "amountUnit": "victim-age-with-prior-count-rows",
+    "note": "AMOUNT RULES OFF, and this is the sharpest case yet for having no default. Every bounded row on this statute is an AGE: min 12 and max 16 are the victim age bracket in 800.04(4), (5)(c) and (5)(d), written as 12 years of age or older but less than 16. A default of usd would have compared a dollar figure on the sex crimes page against a child's age and answered with a felony degree. TWO FURTHER NOTES. First, two rows carry min 1 for a count of PRIOR CONVICTIONS, which is contrary to the convention settled above: a count of priors belongs in trigger text with null bounds and scope prior, because min is a threshold of the offense conduct. The audited table predates that convention and is left as audited rather than hand-edited; the rules are off for this statute either way, so nothing reads those two rows. Flag it for the next re-audit. Second, the table itself records a typed-field collision: (5)(c) and (5)(d) have identical scope, min and max and are told apart only by offender age, which the typed fields cannot express."
+  },
+  "815.06": {
+    "amountUnit": "usd",
+    "note": "One bounded row, and it is money: 815.06(3)(b) grades a violation of subsection (2) that causes damage or loss of at least $5,000. Declared usd so the amount rules run. Note what does NOT appear here: the rest of this statute's ladder escalates on the KIND of harm rather than on an amount, which is the computer crimes page's C9, so the amount rules cover one rung of a ladder that is mostly not numeric. A reviewer, not this gate, is what checks the harm-keyed rungs."
   }
 }
