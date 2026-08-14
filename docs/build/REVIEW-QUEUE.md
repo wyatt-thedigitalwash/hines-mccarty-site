@@ -173,6 +173,59 @@ Recorded 2026-08-13. These pages are written and are **not cleared**. They stay
 `published: false`, which keeps them noindex and out of the sitemap, until an
 adversarial pass returns PASS.
 
+**Pair round 5, 2026-08-14.** A pair-level reviewer (grand theft and
+embezzlement read together, sources fetched before copy) returned FAIL with 9
+findings. 8 were applied; 1 was rejected with reasons. The two per-page
+reviews of the same round were killed mid-run by an account spend limit and
+were re-run afterwards against the fixed pages. The pair is still not cleared:
+a pair passes when the pair-level review AND both page reviews return PASS on
+the same text.
+
+**What the pair reviewer caught, and what it says about the pages.** Three of
+the four blocking findings were on embezzlement, which had cleared its own
+substantive findings in an earlier round. That is the argument for reviewing
+pairs as pairs rather than pages as pages:
+
+1. **A wrong statement of law.** The page said theft and organized fraud are
+   "separately chargeable rather than alternatives, and a case can involve
+   counts under both." Grand theft is a lesser included offense of organized
+   fraud, so at conviction on the same conduct they are precisely
+   alternatives. FIXED by removing the assertion rather than by citing the
+   case: the case was not in the project record, and this project does not
+   publish law it has not fetched. The page now says either statute can be the
+   vehicle, both can appear on a charging document, and whether both stand at
+   conviction is a double jeopardy question to raise with a lawyer.
+2. **The page contradicted itself on appointed counsel**, telling a pre-arrest
+   reader in the guidance section that counsel would be appointed, while the
+   who section correctly explained that with no charge there is no hearing and
+   no appointment. FIXED to match the who section.
+3. **The banned-claim shape, in a new place.** The felony-threshold FAQ stated
+   $750 flat. FAQ answers are extractable standalone under FAQPage schema, so
+   the qualification cannot live in the surrounding page. FIXED to carry the
+   dwelling route, the listed items, and the prior-conviction route.
+4. **Grand theft's penalty note read as an exhaustive list** of second degree
+   routes at other offense levels. The verified 921.0022 table has three more
+   at level 7: cargo under (2)(b)2., emergency medical equipment under
+   (2)(b)3., and law enforcement equipment under (2)(b)4. A reader charged
+   under the cargo provision would have taken level 6 from this page and been
+   wrong on the exact number the page holds out as its differentiator. FIXED.
+
+Also fixed: the missing forum question on embezzlement (answered structurally,
+no federal statute numbers or maxima, per the brief's allowlist block); a
+claim that the page links to a comparison instrument that has no route yet;
+the $500 FAQ's missing prior-conviction qualifier; and a sweep of British
+spellings to American across all page copy.
+
+**REJECTED, finding 7: add the Brandon Regional Service Center to both pages.**
+The reviewer read both briefs, which do mandate it, but not DECISIONS.md D7,
+which blocks it from copy pending attorney confirmation. The reason in the
+open question is substantive rather than procedural: a clerk service center is
+not necessarily where a felony is heard, so putting it in a "where your case
+is heard" section could be wrong on the facts. The block stands. This is the
+second reviewer finding this project has examined and rejected with reasons,
+and the pattern in both is the same: a finding correct against one document
+and wrong against the decision that supersedes it.
+
 | Page | Rounds failed | Why it is here |
 |---|---|---|
 | `/criminal-defense/grand-theft-defense` | 4 | Its value ladder was wrong three times in a row, each time in the band beneath the one just corrected. Now rebuilt from the complete text of F.S. 812.014 subsection (2) rather than patched paragraph by paragraph. |
