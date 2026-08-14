@@ -54,6 +54,23 @@ const EXHAUSTIVE =
 
 /** Which scope, if any, a sentence puts itself in. */
 function scopeOf(sentence: string): GradingRow["scope"] | null {
+  // PRIORS FIRST, because they are a different axis from place and this
+  // function can only return one.
+  //
+  // A sentence can be about a shop AND about a record: "taken from a shop, two
+  // or more prior theft convictions make the same $500 a third degree felony
+  // under 812.014(3)(c)" is true, and the shop rule below used to force it onto
+  // the general value ladder, where $500 is a first degree misdemeanor, so the
+  // gate failed correct copy. Value and place decide the ordinary tier; a prior
+  // conviction escalates on top of whatever that tier was. Reading a
+  // recidivist sentence as a value claim is a category error.
+  //
+  // Returning "prior" usually means the amount rules ABSTAIN, since the
+  // recidivist rows are keyed to a record rather than to a dollar range. That
+  // is the honest outcome: this checker cannot adjudicate a prior-conviction
+  // claim, so it should stay quiet rather than answer with the wrong ladder.
+  if (/\bpriors?\b|\bprior (theft )?convictions?\b|previously convicted/i.test(sentence))
+    return "prior";
   // An explicit NOT-a-dwelling statement puts the sentence on the general
   // ladder deliberately. "Taken from a shop, $500 is..." is scoped, not vague.
   if (/\b(from a shop|from a store|not taken from a dwelling|except where taken from a dwelling|away from a dwelling)\b/i.test(sentence))
@@ -61,7 +78,6 @@ function scopeOf(sentence: string): GradingRow["scope"] | null {
   if (/\bdwelling|curtilage|\bhome\b|\bhouse\b/i.test(sentence)) return "dwelling";
   if (/\bfirearm|motor vehicle|stop sign|controlled substance|will, codicil|item list\b/i.test(sentence))
     return "item";
-  if (/\bprior|previously convicted|priors\b/i.test(sentence)) return "prior";
   return null;
 }
 

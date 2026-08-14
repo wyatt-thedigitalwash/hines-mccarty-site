@@ -440,3 +440,230 @@ W2-03 had recorded this as blocked by an allowlist gap; D2 resolved that gap and
 
 **Two constraints that travel with it.** The federal predicate is "punishable by imprisonment for a term exceeding one year", which is not the same test as Florida's "convicted of a felony", so the two prohibitions do not cover identical populations. And the controlled-substance limb at paragraph (3) is the subject of live constitutional litigation, which is a C12-B byline-class matter: the subsection text is quotable, its application to a state-authorised medical marijuana patient is not, and that stays off the page.
 
+
+## Pair 1 round 6, fetched BEFORE the fixes were written, 2026-08-14
+
+The second use of the pre-write rule as intended, and the one that proves it.
+A round-6 adversarial review of grand theft and embezzlement returned 13
+blocking findings. Six of them rested on statutes the fact layer does not
+cover, because the statute tables record provisions that ASSIGN A DEGREE and
+these are eligibility rules, limitations periods, and a procedural rule. So
+they were fetched first, and the fetches changed the fixes: they confirmed the
+reviewer's conclusion in every case and corrected its stated MECHANISM in two,
+which is exactly the outcome that would have been written into the pages as
+error had the fixes been drafted from the review alone.
+
+### F.S. 775.15, criminal statute of limitations
+
+Source: `https://www.flsenate.gov/Laws/Statutes/2025/775.15`. Fetched 2026-08-14 via curl (raw HTML, tags stripped locally to plain text; no summariser in the loop). Whole section read start to finish: subsections (1) through (22) plus the History and Note lines. Cross-checked s. 817.5695 (also by curl) to identify what subsection (10)(a) covers, since (10)(b) piggybacks on it.
+
+**F.S. 775.15(2), intro and (a)-(b)**
+
+> (2)  Except as otherwise provided in this section, prosecutions for other offenses are subject to the following periods of limitation: (a)  A prosecution for a felony of the first degree must be commenced within 4 years after it is committed. (b)  A prosecution for any other felony must be commenced within 3 years after it is committed.
+
+**F.S. 775.15(2)(c)-(d)**
+
+> (c)  A prosecution for a misdemeanor of the first degree must be commenced within 2 years after it is committed. (d)  A prosecution for a misdemeanor of the second degree or a noncriminal violation must be commenced within 1 year after it is committed.
+
+**F.S. 775.15(3)**
+
+> (3)  An offense is committed either when every element has occurred or, if a legislative purpose to prohibit a continuing course of conduct plainly appears, at the time when the course of conduct or the defendant's complicity therein is terminated. Time starts to run on the day after the offense is committed.
+
+**F.S. 775.15(4)(a)**
+
+> (4)(a)  Prosecution on a charge on which the defendant has previously been arrested or served with a summons is commenced by the filing of an indictment, information, or other charging document.
+
+**F.S. 775.15(4)(b)**
+
+> (b)  A prosecution on a charge on which the defendant has not previously been arrested or served with a summons is commenced when either an indictment or information is filed, provided the capias, summons, or other process issued on such indictment or information is executed without unreasonable delay. In determining what is reasonable, inability to locate the defendant after diligent search or the defendant's absence from the state shall be considered. The failure to execute process on or extradite a defendant in another state who has been charged by information or indictment with a crime in this state shall not constitute an unreasonable delay.
+
+**F.S. 775.15(4)(c)**
+
+> (c)  If, however, an indictment or information has been filed within the time period prescribed in this section and the indictment or information is dismissed or set aside because of a defect in its content or form after the time period has elapsed, the period for commencing prosecution shall be extended 3 months from the time the indictment or information is dismissed or set aside.
+
+**What it establishes.**
+
+- The reviewer is right and the page sentence is wrong as written. Under (2), the clock runs from commission (4 years first-degree felony, 3 years any other felony), and (3) says "Time starts to run on the day after the offense is committed." Under (4)(a)-(b), prosecution is only "commenced" when the indictment, information, or other charging document is filed. So the pre-charge investigative period is precisely the window during which the limitations period is running. A deadline runs during it -- indeed the only thing that stops it is the act that ends that stage.
+
+- The page can keep the Rules half only if it is sourced elsewhere. 775.15 says nothing about the Rules of Criminal Procedure; it is a substantive time bar. Do not cite 775.15 for the proposition that no rule governs the pre-charge stage. Note also that (4)(b) does impose one statutory timing duty even after filing: process must be "executed without unreasonable delay," so it is not accurate to say nothing at all constrains the state's pace.
+
+- There is no employer-specific and no theft-specific trigger, tolling, or discovery rule anywhere in the section. Nothing keys off the employment relationship, the employer's audit, the internal investigation, or the date the employer noticed the loss, as such. An embezzlement page must not imply the clock starts when the employer discovers the shortfall. The only discovery-based relief is (12)(a), and it is conditional (see below).
+
+- (12)(a) is an extension, not a start date, and it is doubly capped. It applies only after the ordinary period has already expired, gives only 1 year from discovery by an aggrieved party (or that party's non-complicit legal representative), and "in no case shall this provision extend the period of limitation otherwise applicable by more than 3 years." A common error is describing Florida as having a discovery rule for employee theft; the text gives a short backstop measured from the aggrieved party's discovery, not the state's, and caps the total add-on at 3 years.
+
+- (12)(a) is also gated on the charged offense having fraud or breach of fiduciary obligation as a "material element." Plain theft/embezzlement under ch. 812 is not automatically within it -- whether fraud or fiduciary breach is a material element of the specific charge is a legal question, not a given. Copy should not assume every embezzlement charge gets the extension.
+
+- There is a second, more generous fraud/fiduciary discovery provision that a partial read misses entirely: (10)(b) gives 5 years after discovery, with no 3-year cap, for "any offense, a material element of which is either fraud or a breach of fiduciary obligation." But its opening condition is "If the period prescribed in paragraph (a) has expired" -- and (10)(a) is the 5-year period for s. 817.5695 (exploitation of a person 65 or older), s. 825.102, and s. 825.103. Reading (10)(b)'s "any offense" language in isolation, without the paragraph (a) gate, would badly overstate the limitations period for an ordinary workplace embezzlement.
+
+
+### F.S. 943.0595, automatic sealing
+
+Source: `https://www.flsenate.gov/Laws/Statutes/2025/943.0595`. 2026-08-14, full section retrieved with curl (HTML stripped to text) rather than a summarizing fetcher; entire section read start to finish, plus the cross-referenced provisions F.S. 776.08, 943.0435(1)(h)1.a.(I), 943.059(6), 916.145(1), and 985.19 fetched the same way.
+
+**F.S. 943.0595(1) (2025) — RULEMAKING**
+
+> 943.0595 Automatic sealing of criminal history records; confidentiality of related court records.—(1) RULEMAKING.—Notwithstanding any law dealing generally with the preservation and destruction of public records, the department shall adopt rules addressing the automatic sealing of any criminal history record of a minor or an adult described in this section.
+
+**F.S. 943.0595(2)(a) (2025) — ELIGIBILITY: the exclusion and the four triggering events**
+
+> (2) ELIGIBILITY.—(a) The department shall automatically seal a criminal history record that does not result from an indictment, information, or other charging document for a forcible felony as defined in s. 776.08 or for an offense enumerated in s. 943.0435(1)(h)1.a.(I), if: 1. An indictment, information, or other charging document was not filed or issued in the case giving rise to the criminal history record. 2. An indictment, information, or other charging document was filed in the case giving rise to the criminal history record, but was dismissed or nolle prosequi by the state attorney or statewide prosecutor or was dismissed by a court of competent jurisdiction as to all counts. However, a person is not eligible for automatic sealing under this section if the dismissal was pursuant to s. 916.145 or s. 985.19. 3. A not guilty verdict was rendered by a judge or jury as to all counts. However, a person is not eligible for automatic sealing under this section if the defendant was found not guilty by reason of insanity. 4. A judgment of acquittal was rendered by a judge as to all counts.
+
+**F.S. 943.0595(2)(b) (2025) — no numerical limit**
+
+> (b) There is no limitation on the number of times a person may obtain an automatic sealing for a criminal history record described in paragraph (a).
+
+**F.S. 943.0595(3)(a)-(b) (2025) — PROCESS: who acts, and the court record**
+
+> (3) PROCESS FOR AND EFFECT OF AUTOMATIC SEALING.—(a) Upon the disposition of a criminal case resulting in a criminal history record eligible for automatic sealing under paragraph (2)(a), the clerk of the court shall transmit a certified copy of the disposition of the criminal history record to the department, which shall seal the criminal history record upon receipt of the certified copy. (b) The department shall notify the clerk of the court upon the sealing of the criminal history record as provided in paragraph (a). Upon such notification, the clerk of the court must automatically keep the related court record in the case giving rise to the department’s sealing of the criminal history record confidential and exempt from s. 119.071(1) and s. 24(a), Art. I of the State Constitution.
+
+**F.S. 943.0595(3)(c)-(d) (2025) — the record is not destroyed, and effect equals 943.059 sealing**
+
+> (c) Automatic sealing of a criminal history record and making the related court record confidential and exempt does not require sealing by other criminal justice agencies, or that such record be surrendered to the court, and such record shall continue to be maintained by the department and other criminal justice agencies. (d) Except as provided in this section, automatic sealing of a criminal history record and making the related court record confidential and exempt shall have the same effect, and the department and the clerk of the court may disclose such a record in the same manner, as a record sealed under s. 943.059.
+
+**F.S. 776.08 (2025) — the forcible felony carve-out list**
+
+> 776.08 Forcible felony.—“Forcible felony” means treason; murder; manslaughter; sexual battery; carjacking; home-invasion robbery; robbery; burglary; arson; kidnapping; aggravated assault; aggravated battery; aggravated stalking; aircraft piracy; unlawful throwing, placing, or discharging of a destructive device or bomb; and any other felony which involves the use or threat of physical force or violence against any individual.
+
+**What it establishes.**
+
+- The page's premise is wrong on its face. 943.0595 seals records WITHOUT any court order and WITHOUT any action by the person: the clerk transmits a certified copy of the disposition and FDLE 'shall seal the criminal history record upon receipt.' There is no petition, no certificate of eligibility, no $75 fee, and no judicial discretion, all of which the court-ordered route in 943.059(2)-(4) requires. Copy saying records are public 'unless a court seals or expunges them' omits the entire non-judicial route.
+
+- The reviewer is also too broad. Automatic sealing is NOT triggered by every dismissal or acquittal. Buried in the subparagraphs, past the first sentence, are two disqualifiers a remembered reading loses: (2)(a)2 excludes dismissals 'pursuant to s. 916.145 or s. 985.19' (incompetency dismissals), and (2)(a)3 excludes a defendant 'found not guilty by reason of insanity.'
+
+- 'As to all counts' is load-bearing and appears three times, in (2)(a)2, 3, and 4. A multi-count case where one count survives to conviction while the others are dropped gets nothing under this section. Only subparagraph 1 (no charging document filed or issued at all) has no all-counts qualifier.
+
+- The forcible-felony carve-out is not a closed list. 776.08 ends with 'any other felony which involves the use or threat of physical force or violence against any individual,' so no page should present a finite roster of excluded charges as complete.
+
+- The exclusion is keyed to the CHARGING DOCUMENT, not the arrest charge. The record must 'not result from an indictment, information, or other charging document for a forcible felony ... or for an offense enumerated in s. 943.0435(1)(h)1.a.(I).' Read literally, this creates real tension with (2)(a)1, which covers cases where no charging document was ever filed: in those cases there is no charging document 'for' anything. Do not let copy assert either that a no-file forcible-felony arrest is or is not auto-sealed; the text does not resolve it cleanly and the attorney should decide how to phrase it.
+
+- The second carve-out points to 943.0435(1)(h)1.a.(I) only, which is the sexual-offender predicate OFFENSE LIST (794.011 sexual battery, 794.05, 800.04, 827.071, 787.01/787.02 and 787.025(2)(c) where the victim is a minor, 787.06 human trafficking subsections, 810.145(8), 825.1025, the 847.x series, 895.03 with a written finding, 916.1075(2), 985.701(1), and others). It does NOT import sub-sub-subparagraph (II), which carries the conviction-and-release-date conditions. The cross-reference borrows the list of offenses, nothing else.
+
+
+### F.S. 943.059(1) eligibility conditions, and F.S. 943.0584(1)
+
+Source: `https://www.flsenate.gov/Laws/Statutes/2025/943.059 and https://www.flsenate.gov/Laws/Statutes/2025/943.0584`. 2026-08-14, curl of both flsenate.gov 2025 statute pages, HTML stripped to text locally so no summariser sat between the statute and the quotes. Whole section read for both: 943.059 subsections (1) through (6) plus History; 943.0584 subsections (1) and (2)(a)-(hh) plus History. Verified 943.0584 has no subsection (3) and neither section has flush text after its final subparagraph.
+
+**F.S. 943.059(1), opening flush words**
+
+> 943.059 Court-ordered sealing of criminal history records.—(1) ELIGIBILITY.—A person is eligible to petition a court to seal a criminal history record when:
+
+**F.S. 943.059(1)(a)**
+
+> (a) The criminal history record is not ineligible for court-ordered sealing under s. 943.0584.
+
+**F.S. 943.059(1)(b), lead-in and subparagraphs 1.-13. in full**
+
+> (b) The person has never, before the date the application for a certificate of eligibility is filed, been adjudicated guilty in this state of a criminal offense, or been adjudicated delinquent in this state for committing any felony or any of the following misdemeanor offenses, unless the record of such adjudication of delinquency has been expunged pursuant to s. 943.0515: 1. Assault, as defined in s. 784.011; 2. Battery, as defined in s. 784.03; 3. Assault on a law enforcement officer, a firefighter, or other specified officers, as defined in s. 784.07(2)(a); 4. Carrying a concealed weapon, as defined in s. 790.01(2); 5. Open carrying of a weapon, as defined in s. 790.053; 6. Unlawful possession or discharge of a weapon or firearm at a school-sponsored event or on school property, as defined in s. 790.115; 7. Unlawful use of destructive devices or bombs, as defined in s. 790.1615(1); 8. Unlawful possession of a firearm by a minor, as defined in s. 790.22(5); 9. Exposure of sexual organs, as defined in s. 800.03; 10. Arson, as defined in s. 806.031(1); 11. Petit theft, as defined in s. 812.014(3); 12. Neglect of a child, as defined in s. 827.03(1)(e); or 13. Cruelty to animals, as defined in s. 828.12(1).
+
+**F.S. 943.059(1)(c)**
+
+> (c) The person has not been adjudicated guilty of, or adjudicated delinquent for committing, any of the acts stemming from the arrest or alleged criminal activity to which the petition to seal pertains.
+
+**F.S. 943.059(1)(d) and (1)(e)**
+
+> (d) The person is no longer under court supervision applicable to the disposition of arrest or alleged criminal activity to which the petition to seal pertains. (e) The person has never secured a prior sealing or expunction of a criminal history record under this section, s. 943.0585, former s. 893.14, former s. 901.33, or former s. 943.058.
+
+**F.S. 943.059(2)(a)1. and (2)(b)**
+
+> (a) The department shall issue a certificate of eligibility for sealing to a person who is the subject of a criminal history record if that person: 1. Satisfies the eligibility criteria in paragraphs (1)(a)-(e) and is not ineligible for court-ordered sealing under s. 943.0584. ... (b) A certificate of eligibility for sealing is valid for 12 months after the date stamped on the certificate when issued by the department. After that time, the petitioner must reapply to the department for a new certificate of eligibility. The status of the applicant and the law in effect at the time of the renewal application determine the petitioner's eligibility.
+
+**What it establishes.**
+
+- THE REVIEWER IS RIGHT ON THE OUTCOME AND WRONG ON THE MECHANISM. 943.059(1)(c) does disqualify on 'any of the acts stemming from the arrest or alleged criminal activity' -- but its trigger is being 'adjudicated guilty of, or adjudicated delinquent for committing,' not 'convicted of.' The expanded conviction definition in 943.0584(1) is expressly scoped 'As used in this section,' so it does not travel into 943.059(1)(c). A withheld adjudication therefore does NOT trip (1)(c). Any page or brief that says 'a withheld adjudication on a companion count trips 943.059(1)(c)' is wrong.
+
+- THE 943.0584(1) DEFINITION CUTS THE OTHER WAY FROM WHAT IS USUALLY ASSUMED. Because 'conviction' there includes a plea 'regardless of whether adjudication is withheld,' an 817.034 count resolved by a withheld adjudication is STILL a conviction for 943.0584(2)(v) and still makes the record permanently ineligible. The definition is not a trap that pulls withheld adjudications into 943.059's eligibility conditions; it is a rail that stops a withheld adjudication from rescuing a listed offense.
+
+- THE PAGE'S THEFT-VS-817.034 CONTRAST IS MISLEADING FOR A DIFFERENT REASON THAN THE REVIEWER GAVE: 943.059(4)(c) makes the unit of sealing 'one arrest or one incident of alleged criminal activity,' not one count. If the theft and the organized fraud arise from the same arrest, the record is a single ineligible record under 943.059(1)(a) plus 943.0584(2)(v); the theft count's own sealability never gets reached. Note 4(c)'s last sentence does allow sealing 'only a portion of a criminal history record pertaining to one arrest,' which is a partial-sealing power, but it does not cure the (1)(a) ineligibility of the record itself.
+
+- 943.059(1)(b) IS TWO DIFFERENT BARS AND THE MISDEMEANOR LIST ATTACHES TO ONLY ONE OF THEM. The adult prong is 'never ... been adjudicated guilty in this state of a criminal offense' -- ANY criminal offense, felony or misdemeanor, with no list limiting it. The thirteen enumerated misdemeanors qualify only the juvenile prong, 'been adjudicated delinquent in this state for committing any felony or any of the following misdemeanor offenses.' A remembered reading that treats the thirteen-item list as the universe of disqualifying adult priors gets this backwards.
+
+- 943.059(1)(b) IS ALSO STATE-LIMITED AND TIME-STAMPED: both prongs say 'in this state,' so an out-of-state adjudication of guilt does not trigger (1)(b); and the cutoff is 'before the date the application for a certificate of eligibility is filed,' not the petition date or the arrest date. The juvenile prong has an escape hatch (1)(b) does not give adults: 'unless the record of such adjudication of delinquency has been expunged pursuant to s. 943.0515.'
+
+- THE TWO SECTIONS USE DIFFERENT STATUTORY CITES FOR THE SAME-SOUNDING OFFENSES AND MUST NOT BE MERGED INTO ONE TABLE. Arson in 943.059(1)(b)10. is 's. 806.031(1)'; arson in 943.0584(2)(p) is 's. 806.01'. Assault and battery in 943.059(1)(b)1.-2. are the bare offenses; in 943.0584(2)(f) they count only 'of one family or household member by another family or household member.' The lists do different jobs: (1)(b) is a prior-record bar, 943.0584(2) is an offense-of-record bar.
+
+
+### F.S. 772.11(1), civil theft demand, and F.S. 817.034(4)(f)
+
+Source: `https://www.flsenate.gov/Laws/Statutes/2025/772.11 (and https://www.flsenate.gov/Laws/Statutes/2025/817.034)`. 2026-08-14, via curl to flsenate.gov (2025 Florida Statutes), full HTML retrieved and tag-stripped locally so no summariser sat between the statute text and this report. Both sections read end to end, including History lines.
+
+**F.S. 772.11(1) (2025), full text of the subsection**
+
+> Any person who proves by clear and convincing evidence that he or she has been injured in any fashion by reason of any violation of ss. 812.012-812.037 or s. 825.103(1) has a cause of action for threefold the actual damages sustained and, in any such action, is entitled to minimum damages in the amount of $200, and reasonable attorney's fees and court costs in the trial and appellate courts. Before filing an action for damages under this section, the person claiming injury must make a written demand for $200 or the treble damage amount of the person liable for damages under this section. If the person to whom a written demand is made complies with such demand within 30 days after receipt of the demand, that person shall be given a written release from further civil liability for the specific act of theft or exploitation by the person making the written demand. Any person who has a cause of action under this section may recover the damages allowed under this section from the parents or legal guardian of any unemancipated minor who lives with his or her parents or legal guardian and who is liable for damages under this section. Punitive damages may not be awarded under this section. The defendant is entitled to recover reasonable attorney's fees and court costs in the trial and appellate courts upon a finding that the claimant raised a claim that was without substantial fact or legal support. In awarding attorney's fees and costs under this section, the court may not consider the ability of the opposing party to pay such fees and costs. This section does not limit any right to recover attorney's fees or costs provided under any other law.
+
+**F.S. 772.11(1), the release sentence isolated**
+
+> If the person to whom a written demand is made complies with such demand within 30 days after receipt of the demand, that person shall be given a written release from further civil liability for the specific act of theft or exploitation by the person making the written demand.
+
+**F.S. 772.11(2)**
+
+> For purposes of a cause of action arising under this section, the term "property" does not include the rights of a patient or a resident or a claim for a violation of such rights.
+
+**F.S. 772.11(3)**
+
+> This section does not impose civil liability regarding the provision of health care, residential care, long-term care, or custodial care at a licensed facility or care provided by appropriately licensed personnel in any setting in which such personnel are authorized to practice.
+
+**F.S. 772.11(4)**
+
+> The death of an elderly or disabled person does not cause the court to lose jurisdiction of any claim for relief for theft or exploitation when the victim of the theft or exploitation is an elderly or disabled person.
+
+**F.S. 772.11(5)**
+
+> In a civil action under this section in which an elderly or disabled person is a party, the elderly or disabled person may move the court to advance the trial on the docket. The presiding judge, after consideration of the age and health of the party, may advance the trial on the docket. The motion may be filed and served with the civil complaint or at any time thereafter.
+
+**What it establishes.**
+
+- The reviewer is correct: the release carries two limiting phrases the page dropped. It is a release "from further civil liability for the specific act of theft or exploitation" and it is given "by the person making the written demand." It is not a release from liability generally, not a release from criminal exposure, and not a release that binds anyone other than that one demanding claimant. A second victim, a co-owner, an insurer, or the State is unaffected by it.
+
+- Scope limiter one, subject matter: "for the specific act of theft or exploitation." A course of conduct with multiple takings is not swept in by complying with a demand aimed at one of them. A page saying "a written release from further civil liability" full stop is materially broader than the statute.
+
+- Scope limiter two, who it runs to: "by the person making the written demand." The release is given by the demanding party, so it can only extinguish that party's claim. Nothing in 772.11 makes it a release as to the world.
+
+- The 30 days runs from RECEIPT, not from mailing or dating: "within 30 days after receipt of the demand." A page that says "within 30 days of the letter" gets the trigger wrong.
+
+- "That is the whole of what the text gives" is false. Subsection (1) alone also sets a clear-and-convincing burden of proof, fixes the predicate offenses as ss. 812.012-812.037 or s. 825.103(1), creates parent/legal-guardian liability for damages caused by an unemancipated minor living with them, bars punitive damages outright, gives the DEFENDANT fees and costs on a finding the claim "was without substantial fact or legal support," forbids the court from considering ability to pay when awarding fees, and preserves other fee statutes. Any of these is as page-worthy as the release.
+
+- The demand amount is a floor-or-treble choice, phrased oddly: "a written demand for $200 or the treble damage amount of the person liable for damages under this section." The statute does not say "treble your actual damages" in the way summaries usually render it; quote it rather than restate it.
+
+
+### Fla. R. Crim. P. 3.111(a), appointment of counsel
+
+Source: `https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-2.pdf`. 2026-08-14. NOTE: the URL recorded in docs/research/PAGE-SOURCES.md (https://www-media.floridabar.org/uploads/2026/07/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-1.pdf) now returns HTTP 403 / S3 AccessDenied and is dead. The Bar re-uploaded the same edition under /uploads/2026/08/...-2.pdf; the live link was recovered from the Bar's rules index at https://www.floridabar.org/rules/ctproc/. Bare 
+
+**Fla. R. Crim. P. 3.111(a), When Counsel Provided**
+
+> (a) When Counsel Provided. A person entitled to appointment of counsel as provided herein shall have counsel appointed when the person is formally charged with an offense, or as soon as feasible after custodial restraint, or at the first appearance before a committing judge, whichever occurs earliest.
+
+**Fla. R. Crim. P. 3.111(b)(1), Cases Applicable**
+
+> (1) Counsel shall be provided to indigent persons in all prosecutions for offenses punishable by incarceration including appeals from the conviction thereof. In the discretion of the court, counsel does not have to be provided to an indigent person in a prosecution for a misdemeanor or violation of a municipal ordinance if the judge, at least 15 days prior to trial, files in the cause a written order of no incarceration certifying that the defendant will not be incarcerated in the case pending trial or probation violation hearing, or as part of a sentence after trial, guilty or nolo contendere plea, or probation revocation. This 15-day requirement may be waived by the defendant or defense counsel.
+
+**Fla. R. Crim. P. 3.111(b)(1)(C)**
+
+> (C) If the court withdraws its order of no incarceration, it shall immediately appoint counsel if the defendant is otherwise eligible for the services of the public defender. The court may not withdraw its order of no incarceration once the defendant has been found guilty or pled nolo contendere.
+
+**Fla. R. Crim. P. 3.111(b)(2)**
+
+> (2) Counsel may be provided to indigent persons in all proceedings arising from the initiation of a criminal action against a defendant, including postconviction proceedings and appeals therefrom, extradition proceedings, mental competency proceedings, and other proceedings that are adversary in nature, regardless of the designation of the court in which they occur or the classification of the proceedings as civil or criminal.
+
+**Fla. R. Crim. P. 3.111(b)(4), definition of indigent**
+
+> (4) "Indigent" shall mean a person who is unable to pay for the services of an attorney, including costs of investigation, without substantial hardship to the person or the person's family; "partially indigent" shall mean a person unable to pay more than a portion of the fee charged by an attorney, including costs of investigation, without substantial hardship to the person or the person's family.
+
+**Fla. R. Crim. P. 3.111(b)(5), preconditions to appointment**
+
+> (5) Before appointing a public defender, the court shall: (A) inform the accused that, if the public defender or other counsel is appointed, a lien for the services rendered by counsel may be imposed as provided by law; (B) make inquiry into the financial status of the accused in a manner not inconsistent with the guidelines established by section 27.52, Florida Statutes. The accused shall respond to the inquiry under oath; (C) require the accused to execute an affidavit of insolvency as required by section 27.52, Florida Statutes.
+
+**What it establishes.**
+
+- THE REVIEWER IS RIGHT; THE PAGE IS WRONG. 3.111(a) is an earliest-of-three rule: 'formally charged with an offense, or as soon as feasible after custodial restraint, or at the first appearance before a committing judge, whichever occurs earliest.' A page saying appointed counsel 'arrives at first appearance after an arrest' names the trigger that, after an arrest, is almost always the LAST of the three to occur, since custodial restraint precedes first appearance by up to 24 hours under 3.130(a).
+
+- BUT THE REVIEWER'S PHRASING IS ALSO IMPRECISE, AND THE PAGE MUST NOT COPY IT. The custody trigger is 'as soon as feasible after custodial restraint,' not 'at custodial restraint.' 'As soon as feasible' is a qualified standard, not an instant. Copy in the reviewer's words would overpromise.
+
+- 3.111(a) IS NOT SELF-EXECUTING. It opens 'A person entitled to appointment of counsel as provided herein,' which routes the reader to (b)(1): counsel is guaranteed only 'in all prosecutions for offenses punishable by incarceration,' and even then a judge may switch it off for a misdemeanor or municipal ordinance violation by filing a written order of no incarceration at least 15 days before trial. Any flat 'you will be given a lawyer' claim is wrong for that class of case.
+
+- ON THE ACTUAL QUESTION THE PAGE ASKS -- a reader not in custody and not charged -- 3.111 DOES NOT DELIVER WHAT THE PAGE WANTS. Every operative provision says 'defendant.' The closest hook, (c)(4)(B), governs a defendant 'at liberty on bail or otherwise not in custody,' which presupposes an existing case; and (b)(2)'s discretionary grant is expressly limited to 'proceedings arising from the initiation of a criminal action against a defendant.' There is no provision in Rule 3.111 appointing counsel to a person who has been neither charged nor arrested. If the page tells a pre-charge reader they can get an appointed lawyer, that is unsupported by this rule and should be cut or reframed as retained counsel.
+
+- (c)(4)(B) IS ALSO WEAKER THAN IT LOOKS ONE CLAUSE EARLIER. The gateway in (c)(4) is 'may interview' -- discretionary on the public defender. Only after the PD acts does the mandatory language kick in ('shall immediately seek a formal judicial determination of indigency ... it shall immediately appoint counsel'). The chain starts with a discretionary step, so the outcome cannot be stated as automatic.
+
+- A WHOLE MECHANISM SITS BEFORE ANY JUDGE, WHICH THE PAGE APPARENTLY OMITS. 3.111(c)(1)-(2) puts a duty on the booking officer at the jail: 'immediately advise the defendant ... of the right to counsel' and that 'one will be provided immediately at no charge,' and on request 'immediately and effectively place the defendant in communication with the (office of) public defender.' This is the practically important early touchpoint after arrest and it independently refutes the page's first-appearance framing.
+
