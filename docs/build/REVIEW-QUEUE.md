@@ -226,6 +226,78 @@ second reviewer finding this project has examined and rejected with reasons,
 and the pattern in both is the same: a finding correct against one document
 and wrong against the decision that supersedes it.
 
+## STOPPED AT THREE FAILURES, 2026-08-14. Human decision needed.
+
+**Grand theft and embezzlement have now failed rounds 5, 6 and 7.** The
+programme rule is that three failures stops the run rather than starting a
+fourth, so the run is stopped here and the findings are recorded rather than
+applied.
+
+**The reason to stop is not the count. It is what the round-7 regression check
+found: the FIXES are introducing errors at a steady rate.**
+
+| Round | Verdict | New errors introduced BY THAT ROUND'S FIXES, found in the next round |
+|---|---|---|
+| 5, pair-level | FAIL, 9 findings | 2, both caught in round 6 |
+| 6, per page | FAIL, 13 blocking | 3, all caught in round 7 |
+| 7, per page and pair | FAIL, 13 blocking + 9 pair | not yet measured |
+
+**The two round-6 errors, both mine, both the same shape.** They are worth
+stating exactly, because the shape is the one this project was built to stop
+and it reappeared in the repair step rather than in the writing step.
+
+1. I wrote "the ranking chart lists no level for either" about the two
+   812.014(2)(a)3. routes. I had grepped the chart for the string
+   "812.014(2)(a)3" and found nothing. But the chart's level 7 row, keyed
+   `812.014(2)(a)1.`, reads in full: "Property stolen, valued at $100,000 or
+   more or a semitrailer deployed by a law enforcement officer; **property
+   stolen while causing other property damage**; 1st degree grand theft." The
+   last clause IS the (2)(a)3. conduct. A cite-keyed lookup is not a coverage
+   test, because a chart row's subject matter is in its text, not in its key.
+2. I wrote "the listed items are level 4 whatever they were worth". The chart
+   ranks `812.014(2)(c)4. & 6.-10.` at level 4. Subparagraphs (2)(c)11., 12.
+   and 13. (a stop sign, anhydrous ammonia, any amount of a controlled
+   substance) appear in NO chart row. Four of the ten listed items are not
+   level 4, and the sentence reached them all.
+
+Both are reading part of a source and inferring the rest. Identical to the
+four errors that shipped originally. The difference is only that the reader
+was the repairer rather than the writer.
+
+**What this says about the process, and it is the finding that matters.** The
+verification discipline was built around WRITING: facts are verified by agents
+who write no prose, and writers may only assert a verified row. The REPAIR
+step never got the same treatment. A reviewer fetches the statute and reports;
+the repairer then works from the report plus a table lookup, at speed, under
+the impression that the hard verification already happened. It did not happen
+for the new sentence the repair introduces. Each repair is a fresh writing
+act and it has been getting less verification than the writing it corrects.
+
+**Also found by round 7, and independently important:** two round-6 fixes were
+applied to embezzlement and NOT to grand theft, although both pages carried the
+identical defective sentence. The 943.0595 automatic-sealing correction and
+the two dropped F.S. 772.11(1) release limits are both still wrong on grand
+theft. A pair is reviewed as a pair and must be REPAIRED as a pair.
+
+**Still outstanding on grand theft**, from round 7, in addition to the two
+above: the flush-language riot and state-of-emergency reclassifications are
+missing from a ladder the page calls "the whole theft ladder"; the threshold
+section still opens "Below it the offense is petit theft", which is on the
+banned-claims list in this file; and the (2)(b)3. and (2)(b)4. rows drop the
+taking-location element, stating the rule more broadly than the statute.
+
+**Still outstanding on embezzlement**: three separate misreadings of F.S.
+775.15 in the one timeline step round 6 wrote, including citing (4)(a) to a
+reader who has not been arrested when (4)(b) governs; the omission of F.S.
+817.034(4)(f)'s five-year period on a page whose co-equal charging route is
+817.034; the two express disqualifiers in 943.0595(2)(a)2 and 3 dropped from
+the automatic-sealing paragraph, which the pre-write fetch had specifically
+warned about; an unsourced rule of federal jurisdiction in the forum FAQ; and
+a value-ladder FAQ that reproduces grand theft's C9 subject matter, contrary
+to the Section 4.5 ruling that the ladder lives on one page.
+
+---
+
 | Page | Rounds failed | Why it is here |
 |---|---|---|
 | `/criminal-defense/grand-theft-defense` | 4 | Its value ladder was wrong three times in a row, each time in the band beneath the one just corrected. Now rebuilt from the complete text of F.S. 812.014 subsection (2) rather than patched paragraph by paragraph. |
