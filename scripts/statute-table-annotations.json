@@ -66,6 +66,14 @@
     "minExclusive": ["896.101(5)(a)"],
     "note": "Financial transaction totals in dollars. (5)(a) reads 'exceeding $300', which the row's own trigger text records as exclusive while the typed min could not express it: the table was audited before minExclusive existed. Transcribed here rather than left in prose, because $300 exactly is a real boundary a page could state wrongly."
   },
+  "841": {
+    "amountUnit": "drug-weight-in-grams",
+    "note": "AMOUNT RULES OFF. All 17 bounded rows are drug weights in GRAMS, and the numbers look exactly like money: 1000 for a kilogram of heroin, 5000 for cocaine, 280 for cocaine base, 100 for PCP. A page saying a $5,000 fine on this charge would be compared against the 5,000 GRAM cocaine threshold. This is the same collision that took 893.13 out of the amount rules, and it is worse here because the federal page discusses fines and forfeiture in the same breath as quantities."
+  },
+  "1030": {
+    "amountUnit": "mixed-usd-and-computer-count",
+    "note": "AMOUNT RULES OFF. Two of the three bounded rows are dollars, (c)(2)(B)(iii) at 5000 and (c)(4)(A)(i)(I) at 5000, but (c)(4)(A)(i)(VI) is a count of PROTECTED COMPUTERS at 10, not money. A dollar claim at $10 would meet the computer-count row. The two dollar figures also differ in kind: (c)(2)(B)(iii) reads 'exceeds $5,000' and carries minExclusive, while (c)(4)(A)(i)(I) reads 'aggregating at least $5,000' and is inclusive. And the $5,000 inside (a)(4) is a CARVE-OUT that removes conduct from the offense rather than a floor, so it is recorded nowhere in min at all."
+  },
   "896.104": {
     "amountUnit": "usd",
     "note": "Financial transaction values in dollars, in the same three-tier shape as 896.101(5). Note the builder encoded the two strict thresholds as 300.01 and 10000.01 rather than as a round bound with minExclusive; the arithmetic comes out right at $300 and $10,000 either way, but a future re-audit should normalize it so the convention matches 896.101(5)(a)."

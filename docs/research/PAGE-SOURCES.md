@@ -844,3 +844,260 @@ Method: curl + local tag strip; read the whole of subsection (3) including parag
 **Page check.** VERDICT: CLEAN. Every sentence in CHARGE_CONTENT["white-collar/money-laundering"] that rests on 896.101(3)(a) is supported by the fetched text. Specifics, by sentence.
 
 (1) src/lib/site.ts:2053, elements bullet: "One of the purposes the statute names. Under Statute 896.101(3)(a) the conduct is unlawful where it is done with the intent to promote the carrying on of specified unlawful activity, or knowing that the transaction is designed in whole or in part to conceal or disguise the nature, the location, the source, the ownership, or the control of the proceeds of specified unlawful activity, or to avoid a transaction reporting requirement or money transmitters' registration requirement under
+
+---
+
+## Federal health care fraud, fetched BEFORE writing, 2026-08-14
+
+Writer's own fetches for `federal/healthcare-fraud`, from uscode.house.gov and
+ussc.gov, both allowlisted per D2. The audited tables `usc-1347.ts` and
+`usc-1349.ts` carry the punishment rows; everything below is a definition, a
+procedure, or an eligibility rule, which is why it has no row and needed its own
+fetch. Every section named here was read start to finish in the fetched text,
+including each "except as provided in" clause.
+
+### 18 U.S.C. 24, definitions relating to Federal health care offense
+
+Read whole. Currency note on the page: text contains those laws in effect on
+August 13, 2026. The audited table `usc-24.ts` records the section as assigning
+no punishment, so it has zero rows and these words come from this fetch.
+
+**18 U.S.C. 24(a)**
+
+> (a) As used in this title, the term "Federal health care offense" means a violation of, or a criminal conspiracy to violate-
+> (1) section 669, 1035, 1347, or 1518 of this title or section 1128B of the Social Security Act (42 U.S.C. 1320a-7b); or
+> (2) section 287, 371, 664, 666, 1001, 1027, 1341, 1343, 1349, or 1954 of this title section 301 of the Federal Food, Drug, and Cosmetic Act (21 U.S.C. 331), or section 501 of the Employee Retirement Income Security Act of 1974 (29 U.S.C. 1131), or section 411, 518, or 511 of the Employee Retirement Income Security Act of 1974,, if the violation or conspiracy relates to a health care benefit program.
+
+(The doubled comma and the missing "or" in (a)(2) are in the printed text; the
+page's footnote 1 reads "So in original. The second comma probably should follow
+'1954 of this title'.")
+
+**18 U.S.C. 24(b)**
+
+> (b) As used in this title, the term "health care benefit program" means any public or private plan or contract, affecting commerce, under which any medical benefit, item, or service is provided to any individual, and includes any individual or entity who is providing a medical benefit, item, or service for which payment may be made under the plan or contract.
+
+### 18 U.S.C. 1347, read whole alongside the audited table
+
+Subsections (a) and (b) are the whole of the section. Structural point the table
+cannot record: the words "in connection with the delivery of or payment for
+health care benefits, items, or services" sit in the FLUSH TEXT that follows
+both numbered clauses (1) and (2), so they attach to both. Amendment note on the
+page: "2010 - Pub. L. 111-148 designated existing provisions as subsec. (a) and
+added subsec. (b)."
+
+**Verified absence, from the whole fetched section:** 18 U.S.C. 1347 contains no
+dollar amount, no threshold, no tier, and no minimum term.
+
+### 18 U.S.C. 1365(h)(3), the definition 1347(a) cross-refers to
+
+Definitions subsection read whole. It opens "As used in this section-", so it is
+written for section 1365 and reaches 1347 by the express cross-reference in
+1347(a).
+
+> (3) the term "serious bodily injury" means bodily injury which involves-
+> (A) a substantial risk of death;
+> (B) extreme physical pain;
+> (C) protracted and obvious disfigurement; or
+> (D) protracted loss or impairment of the function of a bodily member, organ, or mental faculty;
+
+### 18 U.S.C. 1035, false statements relating to health care matters
+
+Read whole; (a) and (b) are the section.
+
+> (a) Whoever, in any matter involving a health care benefit program, knowingly and willfully-(1) falsifies, conceals, or covers up by any trick, scheme, or device a material fact; or (2) makes any materially false, fictitious, or fraudulent statements or representations, or makes or uses any materially false writing or document knowing the same to contain any materially false, fictitious, or fraudulent statement or entry, in connection with the delivery of or payment for health care benefits, items, or services, shall be fined under this title or imprisoned not more than 5 years, or both.
+> (b) As used in this section, the term "health care benefit program" has the meaning given such term in section 24(b) of this title.
+
+### 18 U.S.C. 1518, obstruction of criminal investigations of health care offenses
+
+Read whole; (a) and (b) are the section.
+
+> (a) Whoever willfully prevents, obstructs, misleads, delays or attempts to prevent, obstruct, mislead, or delay the communication of information or records relating to a violation of a Federal health care offense to a criminal investigator shall be fined under this title or imprisoned not more than 5 years, or both.
+> (b) As used in this section the term "criminal investigator" means any individual duly authorized by a department, agency, or armed force of the United States to conduct or engage in investigations for prosecutions for violations of health care offenses.
+
+### 18 U.S.C. 3486, administrative subpoenas
+
+Read whole, subsections (a) through (e), including the source credit. This is the
+compulsory-process provision written for health care investigations.
+
+> (a) Authorization.-(1)(A) In any investigation of-
+> (i)(I) a Federal health care offense; or (II) a Federal offense involving the sexual exploitation or abuse of children, the Attorney General;
+> (ii) an unregistered sex offender conducted by the United States Marshals Service, the Director of the United States Marshals Service; or
+> (iii) an offense under section 871 or 879, or a threat against a person protected by the United States Secret Service under paragraph (5) or (6) of section 3056, if the Director of the Secret Service determines that the threat constituting the offense or the threat against the person protected is imminent, the Secretary of the Treasury,
+> may issue in writing and cause to be served a subpoena requiring the production and testimony described in subparagraph (B).
+> (B) Except as provided in subparagraph (C), a subpoena issued under subparagraph (A) may require-
+> (i) the production of any records or other things relevant to the investigation; and
+> (ii) testimony by the custodian of the things required to be produced concerning the production and authenticity of those things.
+
+THE CARVE-OUT AT (C), read and recorded rather than skipped: it limits a
+subpoena served on "a provider of electronic communication service or remote
+computing service, in an investigation of a Federal offense involving the sexual
+exploitation or abuse of children". It is written for the (a)(1)(A)(i)(II) route
+and does not narrow the health care route.
+
+> (2) A subpoena under this subsection shall describe the objects required to be produced and prescribe a return date within a reasonable period of time within which the objects can be assembled and made available.
+> (3) The production of records relating to a Federal health care offense shall not be required under this section at any place more than 500 miles distant from the place where the subpoena for the production of such records is served.
+> (5) At any time before the return date specified in the summons, the person or entity summoned may, in the United States district court for the district in which that person or entity does business or resides, petition for an order modifying or setting aside the summons, or a prohibition of disclosure ordered by a court under paragraph (6).
+> (6)(A) A United States district court for the district in which the summons is or will be served, upon application of the United States, may issue an ex parte order that no person or entity disclose to any other person or entity (other than to an attorney in order to obtain legal advice) the existence of such summons for a period of up to 90 days.
+> (6)(B) Such order may be issued on a showing that the things being sought may be relevant to the investigation and there is reason to believe that such disclosure may result in-(i) endangerment to the life or physical safety of any person; (ii) flight to avoid prosecution; (iii) destruction of or tampering with evidence; or (iv) intimidation of potential witnesses.
+> (6)(C) An order under this paragraph may be renewed for additional periods of up to 90 days upon a showing that the circumstances described in subparagraph (B) continue to exist.
+> (7) A summons issued under this section shall not require the production of anything that would be protected from production under the standards applicable to a subpoena duces tecum issued by a court of the United States.
+> (8) If no case or proceeding arises from the production of records or other things pursuant to this section within a reasonable time after those records or things are produced, the agency to which those records or things were delivered shall, upon written demand made by the person producing those records or things, return them to that person, except where the production required was only of copies rather than originals.
+> (9) A subpoena issued under paragraph (1)(A)(i)(II) or (1)(A)(iii) may require production as soon as possible, but in no event less than 24 hours after service of the subpoena.
+
+**Reading recorded so the next writer does not have to redo it.** The 24-hour
+floor in (a)(9) is keyed by its own words to paragraph (1)(A)(i)(II) and
+(1)(A)(iii). The health care route is (1)(A)(i)(I), so the return-date rule that
+governs it is the reasonable-period rule in (a)(2).
+
+### 18 U.S.C. 982(a)(7), criminal forfeiture on a Federal health care offense
+
+> (7) The court, in imposing sentence on a person convicted of a Federal health care offense, shall order the person to forfeit property, real or personal, that constitutes or is derived, directly or indirectly, from gross proceeds traceable to the commission of the offense.
+
+The verb is "shall" and the measure is gross proceeds traceable to the offense.
+
+### 18 U.S.C. 3161(b) and (c)(1), the Speedy Trial Act intervals
+
+Quoted only to state the two intervals; they are identical for every federal
+charge and the page spends one sentence on them.
+
+> (b) Any information or indictment charging an individual with the commission of an offense shall be filed within thirty days from the date on which such individual was arrested or served with a summons in connection with such charges.
+> (c)(1) In any case in which a plea of not guilty is entered, the trial of a defendant charged in an information or indictment with the commission of an offense shall commence within seventy days from the filing date (and making public) of the information or indictment, or from the date the defendant has appeared before a judicial officer of the court in which such charge is pending, whichever date last occurs.
+
+### 18 U.S.C. 3006A(a)(1), appointment of counsel
+
+Subsection (a) read whole, including all of the (a)(1) categories (A) through (J).
+
+> (a) Choice of Plan.-Each United States district court, with the approval of the judicial council of the circuit, shall place in operation throughout the district a plan for furnishing representation for any person financially unable to obtain adequate representation in accordance with this section.
+> (1) Representation shall be provided for any financially eligible person who-(A) is charged with a felony or a Class A misdemeanor;
+
+The remaining categories at (a)(1)(B) through (J) were read; the page names only
+(A) and says that the list carries others, because a person served with an
+administrative subpoena has not been charged.
+
+### 42 U.S.C. 1320a-7, exclusion from Federal health care programs
+
+Subsections (a), (c)(3) and (i) read whole; (b) read whole as well, and the page
+names it only as a separate permissive list.
+
+> (a) Mandatory exclusion. The Secretary shall exclude the following individuals and entities from participation in any Federal health care program (as defined in section 1320a-7b(f) of this title):
+> (3) Felony conviction relating to health care fraud. Any individual or entity that has been convicted for an offense which occurred after August 21, 1996, under Federal or State law, in connection with the delivery of a health care item or service or with respect to any act or omission in a health care program (other than those specifically described in paragraph (1)) operated by or financed in whole or in part by any Federal, State, or local government agency, of a criminal offense consisting of a felony relating to fraud, theft, embezzlement, breach of fiduciary responsibility, or other financial misconduct.
+> (c)(3)(B) Subject to subparagraph (G), in the case of an exclusion under subsection (a), the minimum period of exclusion shall be not less than five years, except that, upon the request of the administrator of a Federal health care program (as defined in section 1320a-7b(f) of this title) who determines that the exclusion would impose a hardship on beneficiaries (as defined in section 1320a-7a(i)(5) of this title) of that program, the Secretary may, after consulting with the Inspector General of the Department of Health and Human Services, waive the exclusion under subsection (a)(1), (a)(3), or (a)(4) with respect to that program in the case of an individual or entity that is the sole community physician or sole source of essential specialized services in a community. The Secretary's decision whether to waive the exclusion shall not be reviewable.
+> (c)(3)(G) In the case of an exclusion of an individual under subsection (a) based on a conviction occurring on or after August 5, 1997, if the individual has (before, on, or after August 5, 1997) been convicted-(i) on one previous occasion of one or more offenses for which an exclusion may be effected under such subsection, the period of the exclusion shall be not less than 10 years, or (ii) on 2 or more previous occasions of one or more offenses for which an exclusion may be effected under such subsection, the period of the exclusion shall be permanent.
+> (i) "Convicted" defined. For purposes of subsections (a) and (b), an individual or entity is considered to have been "convicted" of a criminal offense-(1) when a judgment of conviction has been entered against the individual or entity by a Federal, State, or local court, regardless of whether there is an appeal pending or whether the judgment of conviction or other record relating to criminal conduct has been expunged; (2) when there has been a finding of guilt against the individual or entity by a Federal, State, or local court; (3) when a plea of guilty or nolo contendere by the individual or entity has been accepted by a Federal, State, or local court; or (4) when the individual or entity has entered into participation in a first offender, deferred adjudication, or other arrangement or program where judgment of conviction has been withheld.
+
+### U.S. Sentencing Commission, Quick Facts: Health Care Fraud, fiscal year 2025
+
+https://www.ussc.gov/research/quick-facts/health-care-fraud, re-fetched by the
+writer 2026-08-14.
+
+> Of the 66,662 cases reported to the Commission in fiscal year 2025, 340 involved health care fraud.
+> 91% had little or no prior criminal history (Criminal History Category I).
+> The median loss for these offenses was $1,279,436.
+> Sentences were increased for: ... conviction of a federal health care offense and a loss of more than $1 million (46%)
+> The average sentence for individuals sentenced for health care fraud was 21 months.
+> 68% were sentenced to prison.
+
+### U.S. Sentencing Commission, Primer on Loss Calculation Under sec. 2B1.1 (2024), page 22
+
+https://www.ussc.gov/sites/default/files/pdf/training/primers/2024_Primer_Loss.pdf,
+fetched as a PDF and read at Section IV.8, "Federal Health Care Offenses
+Involving Government Health Care Programs".
+
+> In federal health care fraud offenses involving a government health care program, "the aggregate dollar amount of fraudulent bills submitted to the Government health care program shall constitute prima facie evidence of the amount of the intended loss, i.e., is evidence sufficient to establish the amount of the intended loss, if not rebutted."
+> However, objections to the loss amount alone do not constitute competent rebuttal evidence. A defendant instead must put forth evidence of legitimate services rendered or other specific evidence that a lower loss amount was intended.
+
+Its footnote 152 attributes the quoted rule to USSG sec. 2B1.1, comment.
+(n.3(F)(viii)). The primer carries the Commission's standard disclaimer, quoted
+from page ii:
+
+> The information in this document should not be considered definitive or comprehensive. In addition, the information in this document does not necessarily represent the official position of the Commission on any particular issue or case, and it is not binding on the Commission, the courts, or the parties in any case.
+
+**Attribution rule for the page.** The primer is described on the page as
+commentary set out in a Commission primer, with the disclaimer carried, and the
+rule is stated only for a government health care program, which is the scope the
+primer's own sentence gives it. The USSG 2B1.1 tiered enhancement and the
+guideline definition of "Government health care program" stay off the page.
+
+**One coarseness in the reference ledger, recorded rather than left to be
+discovered.** `refs()` in scripts/check-unverified.mts reduces both
+"42 U.S.C. 1320a-7" and "42 U.S.C. 1320a-7b" to the same key, so the exclusion
+quotes above will also read as clearing FED-04's flag on the anti-kickback
+section. They do not. The anti-kickback section itself has not been read and
+nothing on the health care fraud page rests on it; the only place 1320a-7b
+appears above is inside the parenthetical that 1320a-7(a) itself prints.
+
+## Batch A, fetched BEFORE the pages shipped, 2026-08-14
+
+The build gate stopped the federal drug trafficking page for citing 18
+U.S.C. 3553(f) and (f)(5), flagged UNVERIFIED in FED-03 and covered by no
+audited row. It could not be: the usc-3553 table is deliberately EMPTY,
+because the section assigns no punishment and the tables record provisions
+that do. The safety valve is nonetheless the provision by which a defendant
+facing a mandatory minimum can be sentenced below it, so it was fetched whole
+and the page checked against it sentence by sentence.
+
+**The page came back CLEAN**, and on the two things most easily got wrong:
+
+### 18 U.S.C. 3553(f), the safety valve
+
+Source: `18 U.S.C. 3553(f) (and the definition at 3553(g)), fetched with curl from https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3553&num=0&edition=prelim (Office of the Law Revision Counsel, prelim edition), tags stripped locally. Subsection (f) read in full: chapeau, paragraphs (1) through (5), subparagraphs (1)(A) through (1)(C), and the flush text following paragraph (5). `
+
+Method: curl -sL to /tmp/3553.html (193,399 bytes), regex tag strip + HTML unescape to /tmp/3553.txt, subsection (f) read at lines 315-360. Page checked at /Users/wyattbensman/Library/Mobile Documents/com~apple~CloudDocs/The Digital Wash/client-sites/hines-mccarty-site/src/lib/site.ts, entry "federal/drug-trafficking" in CHARGE_CONTENT, lines 3368-3532. Every sentence in that entry resting on 3553(f) loca
+
+**18 U.S.C. 3553(f), chapeau**
+
+> (f) Limitation on Applicability of Statutory Minimums in Certain Cases.-Notwithstanding any other provision of law, in the case of an offense under section 401, 404, or 406 of the Controlled Substances Act (21 U.S.C. 841, 844, 846), section 1010 or 1013 of the Controlled Substances Import and Export Act (21 U.S.C. 960, 963), or section 70503 or 70506 of title 46, the court shall impose a sentence pursuant to guidelines promulgated by the United States Sentencing Commission under section 994 of title 28 without regard to any statutory minimum sentence, if the court finds at sentencing, after the Government has been afforded the opportunity to make a recommendation, that-
+
+**18 U.S.C. 3553(f)(1)**
+
+> (1) the defendant does not have- (A) more than 4 criminal history points, excluding any criminal history points resulting from a 1-point offense, as determined under the sentencing guidelines; (B) a prior 3-point offense, as determined under the sentencing guidelines; and (C) a prior 2-point violent offense, as determined under the sentencing guidelines;
+
+**18 U.S.C. 3553(f)(2)**
+
+> (2) the defendant did not use violence or credible threats of violence or possess a firearm or other dangerous weapon (or induce another participant to do so) in connection with the offense;
+
+**18 U.S.C. 3553(f)(3)**
+
+> (3) the offense did not result in death or serious bodily injury to any person;
+
+**18 U.S.C. 3553(f)(4)**
+
+> (4) the defendant was not an organizer, leader, manager, or supervisor of others in the offense, as determined under the sentencing guidelines and was not engaged in a continuing criminal enterprise, as defined in section 408 of the Controlled Substances Act; and
+
+**18 U.S.C. 3553(f)(5)**
+
+> (5) not later than the time of the sentencing hearing, the defendant has truthfully provided to the Government all information and evidence the defendant has concerning the offense or offenses that were part of the same course of conduct or of a common scheme or plan, but the fact that the defendant has no relevant or useful other information to provide or that the Government is already aware of the information shall not preclude a determination by the court that the defendant has complied with this requirement.
+
+**18 U.S.C. 3553(f), flush text following paragraph (5)**
+
+> Information disclosed by a defendant under this subsection may not be used to enhance the sentence of the defendant unless the information relates to a violent offense.
+
+**18 U.S.C. 3553(g)**
+
+> (g) Definition of Violent Offense.-As used in this section, the term "violent offense" means a crime of violence, as defined in section 16, that is punishable by imprisonment.
+
+**Amendment notes on the same page, 2018**
+
+> 2018-Subsec. (f). Pub. L. 115-391, §402(a)(1)(A), (C), in introductory provisions, substituted ", section 1010" for "or section 1010" and inserted ", or section 70503 or 70506 of title 46" after "963)", and inserted concluding provisions. ... Subsec. (f)(1). Pub. L. 115-391, §402(a)(1)(B), added par. (1) and struck out former par. (1) which read as follows: "the defendant does not have more than 1 criminal history point, as determined under the sentencing guidelines;".
+
+**What it establishes.**
+
+- CUMULATIVE, and the page gets this right. The criteria are stated as cumulative everywhere they appear and as alternatives nowhere. The section heading is "Five findings the court makes, and no motion from the government"; the chapeau bullet says the court must find "that five things are so"; each of the five bullets opens "Paragraph (N) requires that"; and the FAQ at site.ts:3529 introduces the list with "if the court finds ... that five things are so:" and joins the five items with semicolons and a closing "and", never with "or". The single most damaging error available here is not present.
+
+- The one thing the page does not do explicitly is say in so many words that failing any one criterion defeats relief. Cumulativeness is carried by "requires" and by "five findings", which is correct but inferential. The statute itself supplies the explicit version: the chapeau is a single conditional ("if the court finds ... that-") and paragraphs (4) and (5) are joined by "and". If you want belt and braces on the most consequential provision on the page, one clause added to the chapeau bullet would do it, e.g. that the court must find all five and that a failure on any one of them ends the inquiry. This is a strengthening, not a correction.
+
+- The (f)(1) conjunction is handled correctly, which is the trap on this provision. The page quotes the statute's "and" between (B) and (C) verbatim rather than silently converting it to "or", then explains the operative effect through the primer's account of Pulsifer v. United States, that any one of the three conditions disqualifies. Quoting "and" without that gloss would read to a lay reader as though all three were needed to disqualify, which is the opposite of how the paragraph operates. The page does not leave that gap open.
+
+- The 2018 amendment is reflected, not remembered wrong. The page states the current "more than 4 criminal history points, excluding any criminal history points resulting from a 1-point offense" test, not the pre-First Step Act "more than 1 criminal history point". It also carries the 46 U.S.C. 70503/70506 offenses that the same amendment inserted into the chapeau, and it quotes the flush-text enhancement protection, which that amendment added as the concluding provisions. All three are on the fetched page.
+
+- Optional precision, non-blocking. At site.ts:3506 the sentence reads "18 U.S.C. 3553(f)(5) sets the deadline ... and the closing sentence of that subsection provides ...". The enhancement protection is flush text following paragraph (5) and belongs to subsection (f) as a whole, not to paragraph (5); the statute's own words are "under this subsection". "That subsection" is defensible as pointing back to (f) within the cite, and site.ts:3470 states the structure correctly ("The subsection then closes with a protection"). If you want the two spots to read identically, change "that subsection" to "subsection (f)". No legal content changes either way.
+
+- Available but unused: 18 U.S.C. 3553(g) defines "violent offense" for the whole section as "a crime of violence, as defined in section 16, that is punishable by imprisonment." The page uses the phrase twice, in the (f)(1)(C) "prior 2-point violent offense" criterion and in the enhancement carve-out, without noting that the section defines it. This is an omission rather than an error, and the statutory definition is quoted above if the page wants it.
+
+**Page check.** Every sentence in the "federal/drug-trafficking" entry that rests on 3553(f) is supported by the fetched text. Nothing needs to be fixed for accuracy. Detail, sentence by sentence:
+
+site.ts:3465 (safety-valve bullet 1) reproduces the chapeau word for word, including "section 401, 404, or 406", the comma-form "section 1010 or 1013", the 46 U.S.C. 70503/70506 clause added in 2018, "without regard to any statutory minimum sentence", and "after the Government has been afforded the opportunity to make a recommendation". Matches the fetched chapeau exactly. It renders "that-" as "that five things are so", which is a true count: paragraphs (1) through (5).
+
+site.ts:3466 (paragraph (1)) is verbatim, including the two features most easily got wrong. It carries "more than 4 criminal history points, excluding any criminal history points resulting from a 1-point offense", not the pre-2018 "more than 1 criminal history point" that the amendment notes show was struck. And it keeps the statute's own conjunction, "; and (C) a prior 2-point violent offense", rather than substituting "or". The Pulsifer gloss that follows is expressly attributed to the Sentencing Commission primer, not to the statute, and it states the disqualifying direction correctly ("the presence of any of these conditions will disqualify"), which is what makes the statutory "and" safe to quote as written.
+
+site.ts:3467 (paragraph (2)) matches, with the statute's parentheses "(or induce another participant to do so)" render
