@@ -1101,3 +1101,209 @@ site.ts:3465 (safety-valve bullet 1) reproduces the chapeau word for word, inclu
 site.ts:3466 (paragraph (1)) is verbatim, including the two features most easily got wrong. It carries "more than 4 criminal history points, excluding any criminal history points resulting from a 1-point offense", not the pre-2018 "more than 1 criminal history point" that the amendment notes show was struck. And it keeps the statute's own conjunction, "; and (C) a prior 2-point violent offense", rather than substituting "or". The Pulsifer gloss that follows is expressly attributed to the Sentencing Commission primer, not to the statute, and it states the disqualifying direction correctly ("the presence of any of these conditions will disqualify"), which is what makes the statutory "and" safe to quote as written.
 
 site.ts:3467 (paragraph (2)) matches, with the statute's parentheses "(or induce another participant to do so)" render
+
+## Batch A repair, sources fetched and recorded, 2026-08-14
+
+These are the provisions the batch A pages quote that the audited statute
+tables do not cover, because the tables record only provisions that ASSIGN A
+PUNISHMENT: amendment histories, forfeiture procedure, DOJ charging policy,
+definitions, and the Federal Rules. Each was fetched by the repair agent that
+used it and independently checked by a verifier, which caught two defective
+entries before they reached this file: a pin cite naming a section and page
+the PDF does not carry, and a URL for the Federal Rules that did not retrieve
+the rule. A bad entry here is worse than a bad sentence on a page, because
+later work trusts this file without re-reading the source.
+
+### federal/computer-internet-crimes
+
+**18 U.S.C. 1030(c)(4)(A)(i), subclauses (I) through (VI)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1030&num=0&edition=prelim`
+
+> (4)(A) except as provided in subparagraphs (E) and (F), a fine under this title, imprisonment for not more than 5 years, or both, in the case of- (i) an offense under subsection (a)(5)(B), which does not occur after a conviction for another offense under this section, if the offense caused (or, in the case of an attempted offense, would, if completed, have caused)- (I) loss to 1 or more persons during any 1-year period (and, for purposes of an investigation, prosecution, or other proceeding brought by the United States only, loss resulting from a related course of conduct affecting 1 or more other protected computers) aggregating at least $5,000 in value; (II) the modification or impairment, or potential modification or impairment, of the medical examination, diagnosis, treatment, or care of 1 or more individuals; (III) physical injury to any person; (IV) a threat to public health or safety; (V) damage affecting a computer used by or for an entity of the United States Government in furtherance of the administration of justice, national defense, or national security; or (VI) damage affecting 10 or more protected computers during any 1-year period; or (ii) an attempt to commit an off
+
+**18 U.S.C. 1030(i)(1)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1030&num=0&edition=prelim`
+
+> (i)(1) The court, in imposing sentence on any person convicted of a violation of this section, or convicted of conspiracy to violate this section, shall order, in addition to any other sentence imposed and irrespective of any provision of State law, that such person forfeit to the United States- (A) such person's interest in any personal property that was used or intended to be used to commit or to facilitate the commission of such violation; and (B) any property, real or personal, constituting or derived from, any proceeds that such person obtained, directly or indirectly, as a result of such violation.
+
+**18 U.S.C. 1030(i)(2)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1030&num=0&edition=prelim`
+
+> (2) The criminal forfeiture of property under this subsection, any seizure and disposition thereof, and any judicial proceeding in relation thereto, shall be governed by the provisions of section 413 of the Comprehensive Drug Abuse Prevention and Control Act of 1970 (21 U.S.C. 853), except subsection (d) of that section.
+
+**18 U.S.C. 1030(j)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1030&num=0&edition=prelim`
+
+> (j) For purposes of subsection (i), the following shall be subject to forfeiture to the United States and no property right shall exist in them: (1) Any personal property used or intended to be used to commit or to facilitate the commission of any violation of this section, or a conspiracy to violate this section. (2) Any property, real or personal, which constitutes or is derived from proceeds traceable to any violation of this section, or a conspiracy to violate this section
+
+**18 U.S.C. 1030, Amendments note, 2001, subsec. (e)(8)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1030&num=0&edition=prelim`
+
+> Subsec. (e)(8). Pub. L. 107-56, Sec. 814(d)(3), added par. (8) and struck out former par. (8) which read as follows: "the term 'damage' means any impairment to the integrity or availability of data, a program, a system, or information, that- "(A) causes loss aggregating at least $5,000 in value during any 1-year period to one or more individuals; "(B) modifies or impairs, or potentially modifies or impairs, the medical examination, diagnosis, treatment, or care of one or more individuals; "(C) causes physical injury to any person; or "(D) threatens public health or safety; and".
+
+**18 U.S.C. 1030, Amendments note, 2001, subsecs. (a)(5)(A) and (a)(5)(B)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1030&num=0&edition=prelim`
+
+> 2001-Subsec. (a)(5)(A). Pub. L. 107-56, Sec. 814(a)(1)-(3), designated existing provisions as cl. (i), redesignated subpars. (B) and (C) as cls. (ii) and (iii), respectively, of subpar. (A), and inserted "and" at end of cl. (iii). Subsec. (a)(5)(B). Pub. L. 107-56, Sec. 814(a)(4), added subpar. (B). Former subpar. (B) redesignated cl. (ii) of subpar. (A).
+
+**18 U.S.C. 1030, Amendments note, 2008, subsec. (a)(5)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1030&num=0&edition=prelim`
+
+> Subsec. (a)(5). Pub. L. 110-326, Sec. 204(a)(1), redesignated cls. (i) to (iii) of subpar. (A) as subpars. (A) to (C), respectively, substituted "damage and loss." for "damage; and" in subpar. (C), and struck out former subpar. (B) which read as follows: "(B) by conduct described in clause (i), (ii), or (iii) of subparagraph (A), caused (or, in the case of an attempted offense, would, if completed, have caused)- "(i) loss to 1 or more persons during any 1-year period (and, for purposes of an investigation, prosecution, or other proceeding brought by the United States only, loss resulting from a related course of conduct affecting 1 or more other protected computers) aggregating at least $5,000 in value; "(ii) the modification or impairment, or potential modification or impairment, of the medical examination, diagnosis, treatment, or care of 1 or more individuals; "(iii) physical injury to any person; "(iv) a threat to public health or safety; or "(v) damage affecting a computer system used by or for a government entity in furtherance of the administration of justice, national defense, or national security;".
+
+**18 U.S.C. 1030, Amendments note, 2008, subsec. (c)(4) and subsecs. (i), (j)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1030&num=0&edition=prelim`
+
+> Subsec. (c)(4). Pub. L. 110-326, Sec. 204(a)(2)(C), amended par. (4) generally. Prior to amendment, par. (4) related to fines and imprisonment for intentionally or recklessly causing damage to a protected computer without authorization. ... Subsecs. (i), (j). Pub. L. 110-326, Sec. 208, added subsecs. (i) and (j).
+
+**21 U.S.C. 853(c)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section853&num=0&edition=prelim`
+
+> (c) Third party transfers All right, title, and interest in property described in subsection (a) vests in the United States upon the commission of the act giving rise to forfeiture under this section. Any such property that is subsequently transferred to a person other than the defendant may be the subject of a special verdict of forfeiture and thereafter shall be ordered forfeited to the United States, unless the transferee establishes in a hearing pursuant to subsection (n) that he is a bona fide purchaser for value of such property who at the time of purchase was reasonably without cause to believe that the property was subject to forfeiture under this section.
+
+**21 U.S.C. 853(d), the presumption 1030(i)(2) withholds**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section853&num=0&edition=prelim`
+
+> (d) Rebuttable presumption There is a rebuttable presumption at trial that any property of a person convicted of a felony under this subchapter or subchapter II is subject to forfeiture under this section if the United States establishes by a preponderance of the evidence that- (1) such property was acquired by such person during the period of the violation of this subchapter or subchapter II or within a reasonable time after such period; and (2) there was no likely source for such property other than the violation of this subchapter or subchapter II.
+
+**21 U.S.C. 853(n)(2)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section853&num=0&edition=prelim`
+
+> (2) Any person, other than the defendant, asserting a legal interest in property which has been ordered forfeited to the United States pursuant to this section may, within thirty days of the final publication of notice or his receipt of notice under paragraph (1), whichever is earlier, petition the court for a hearing to adjudicate the validity of his alleged interest in the property. The hearing shall be held before the court alone, without a jury.
+
+### federal/healthcare-fraud
+
+**18 U.S.C. 1518, fetched whole 2026-08-14, for the contrast with 1519. Section heading: "Obstruction of criminal investigations of health care offenses".**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1518&num=0&edition=prelim`
+
+> (a) Whoever willfully prevents, obstructs, misleads, delays or attempts to prevent, obstruct, mislead, or delay the communication of information or records relating to a violation of a Federal health care offense to a criminal investigator shall be fined under this title or imprisoned not more than 5 years, or both. (b) As used in this section the term "criminal investigator" means any individual duly authorized by a department, agency, or armed force of the United States to conduct or engage in investigations for prosecutions for violations of health care offenses.
+
+**18 U.S.C. 1519, fetched whole 2026-08-14. Section heading: "Destruction, alteration, or falsification of records in Federal investigations and bankruptcy". Added Pub. L. 107-204, title VIII, sec. 802(a), July 30, 2002.**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1519&num=0&edition=prelim`
+
+> Whoever knowingly alters, destroys, mutilates, conceals, covers up, falsifies, or makes a false entry in any record, document, or tangible object with the intent to impede, obstruct, or influence the investigation or proper administration of any matter within the jurisdiction of any department or agency of the United States or any case filed under title 11, or in relation to or contemplation of any such matter or case, shall be fined under this title, imprisoned not more than 20 years, or both.
+
+**18 U.S.C. 3161(b), fetched 2026-08-14. Both sentences, the second of which the page had omitted.**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3161&num=0&edition=prelim`
+
+> Any information or indictment charging an individual with the commission of an offense shall be filed within thirty days from the date on which such individual was arrested or served with a summons in connection with such charges. If an individual has been charged with a felony in a district in which no grand jury has been in session during such thirty-day period, the period of time for filing of the indictment shall be extended an additional thirty days.
+
+**42 U.S.C. 1320a-7(c)(3)(B), fetched 2026-08-14. Re-record in full: the entry at PAGE-SOURCES.md carries subparagraph (G) and the (i) definitions but the waiver clause in (B) is what the page quotes, and its "under subsection (a)(1), (a)(3), or (a)(4)" limit was not carried.**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title42-section1320a-7&num=0&edition=prelim`
+
+> (B) Subject to subparagraph (G), in the case of an exclusion under subsection (a), the minimum period of exclusion shall be not less than five years, except that, upon the request of the administrator of a Federal health care program (as defined in section 1320a-7b(f) of this title) who determines that the exclusion would impose a hardship on beneficiaries (as defined in section 1320a-7a(i)(5) of this title) of that program, the Secretary may, after consulting with the Inspector General of the Department of Health and Human Services, waive the exclusion under subsection (a)(1), (a)(3), or (a)(4) with respect to that program in the case of an individual or entity that is the sole community physician or sole source of essential specialized services in a community. The Secretary's decision whether to waive the exclusion shall not be reviewable.
+
+**U.S. Sentencing Commission, Primer on Loss Calculation Under sec. 2B1.1 (2026), DISCLAIMER page (PDF sheet 2, unnumbered, preceding the table of contents at page i). Recorded in full, including the closing sentence the earlier draft entry omitted without an ellipsis. The attribution rule recorded at PAGE-SOURCES.md lines 1015-1019 needs correcting in one direction only: the quoted prima facie sentence is material the primer quotes and footnotes at 148 to USSG sec. 2B1.1, comment. (n.3(E)(viii)), rather than the primer's own commentary. Do not record the converse proposition that the disclaimer therefore does not reach that sentence. The disclaimer is written to "the information in this document" and draws no distinction between quoted and staff-written material, and the Guidelines Manual is not in this project's record.**, `https://www.ussc.gov/sites/default/files/pdf/training/primers/2026_Primer_Loss.pdf`
+
+> DISCLAIMER  The Commission's legal staff publishes this document to assist in understanding and applying the sentencing guidelines. The information in this document should not be considered definitive or comprehensive. In addition, the information in this document does not necessarily represent the official position of the Commission on any particular issue or case, and it is not binding on the Commission, the courts, or the parties in any case. To the extent this document includes unpublished cases, practitioners should be cognizant of Fed. R. App. P. 32.1, as well as any corresponding rules in their jurisdictions.
+
+**U.S. Sentencing Commission, Primer on Loss Calculation Under sec. 2B1.1 (2026), DISCLAIMER page. The attribution rule recorded at PAGE-SOURCES.md lines 1015-1019 must be corrected: the disclaimer governs the primer's own explanation, and the quoted prima facie sentence is not the primer's commentary but material the primer quotes and footnotes to the guideline commentary.**, `https://www.ussc.gov/sites/default/files/pdf/training/primers/2026_Primer_Loss.pdf`
+
+> The Commission's legal staff publishes this document to assist in understanding and applying the sentencing guidelines. The information in this document should not be considered definitive or comprehensive. In addition, the information in this document does not necessarily represent the official position of the Commission on any particular issue or case, and it is not binding on the Commission, the courts, or the parties in any case.
+
+**U.S. Sentencing Commission, Primer on Loss Calculation Under sec. 2B1.1 (2026), section IV.8, "Federal Health Care Offenses Involving Government Health Care Programs", page 20, with its footnote 148. Fetched as a PDF 2026-08-14. This SUPERSEDES the 2024 edition recorded earlier at PAGE-SOURCES.md line 1000; the current index at https://www.ussc.gov/guidelines/primers links 2026_Primer_Loss.pdf and lists no 2024 loss primer.**, `https://www.ussc.gov/sites/default/files/pdf/training/primers/2026_Primer_Loss.pdf`
+
+> In federal health care fraud offenses involving a government health care program, "the aggregate dollar amount of fraudulent bills submitted to the Government health care program shall constitute prima facie evidence of the amount of the intended loss, i.e., is evidence sufficient to establish the amount of the intended loss, if not rebutted."148 However, objections to the loss amount alone do not constitute competent rebuttal evidence.149 A defendant instead must put forth evidence of legitimate services rendered150 or other specific evidence that a lower loss amount was intended.151 [footnote] 148 USSG §2B1.1, comment. (n.3(E)(viii)).
+
+**U.S. Sentencing Commission, Primer on Loss Calculation Under sec. 2B1.1 (2026), section IV.C.8 (subsection C, Special Rules, item 8), "Federal Health Care Offenses Involving Government Health Care Programs", printed pages 21 to 22, with footnote 148 at printed page 21. PDF downloaded and converted in full 2026-08-14; the passage sits on PDF sheet 25 (which ends with the printed number 21) and runs onto PDF sheet 26 (printed number 22), and the primer's table of contents at page i lists item 8 at page 21. This SUPERSEDES the 2024 edition recorded earlier at PAGE-SOURCES.md line 1000, which should be marked superseded rather than left standing beside this entry; note that the 2024 entry attributes the same sentence to footnote 152 and n.3(F)(viii), so the application note letter moved between editions although the sentence did not. The index at https://www.ussc.gov/guidelines/primers links /sites/default/files/pdf/training/primers/2026_Primer_Loss.pdf for Loss Calculation under 2B1.1, confirmed by fetching the index this session.**, `https://www.ussc.gov/sites/default/files/pdf/training/primers/2026_Primer_Loss.pdf`
+
+> In federal health care fraud offenses involving a government health care program, "the aggregate dollar amount of fraudulent bills submitted to the Government health care program shall constitute prima facie evidence of the amount of the intended loss, i.e., is evidence sufficient to establish the amount of the intended loss, if not rebutted."148 However, objections to the loss amount alone do not constitute competent rebuttal evidence.149 A defendant instead must put forth evidence of legitimate services rendered150 or other specific evidence that a lower loss amount was intended.151 [footnote, page 21] 148 USSG §2B1.1, comment. (n.3(E)(viii)). [next sentence in the primer, page 22, recorded for context and not relied on by the page because it states what courts have done] Courts have discounted the loss amount by the services rendered only if those services are medically necessary and otherwise in compliance with regulations.152
+
+### federal/target-letter-defense
+
+**18 U.S.C. 1001(a), flush penalty text following paragraphs (1) through (3). Source of the term now printed in the penalties row.**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1001&num=0&edition=prelim`
+
+> shall be fined under this title, imprisoned not more than 5 years or, if the offense involves international or domestic terrorism (as defined in section 2331), imprisoned not more than 8 years, or both. If the matter relates to an offense under chapter 109A, 109B, 110, or 117, or section 1591, then the term of imprisonment imposed under this section shall be not more than 8 years.
+
+**18 U.S.C. 1001(b), the judicial-proceeding carve-out that the "Except as otherwise provided in this section" chapeau points at.**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1001&num=0&edition=prelim`
+
+> (b) Subsection (a) does not apply to a party to a judicial proceeding, or that party's counsel, for statements, representations, writings or documents submitted by such party or counsel to a judge or magistrate in that proceeding.
+
+**18 U.S.C. 1001(c), the legislative-branch limitation, the second thing the chapeau points at.**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1001&num=0&edition=prelim`
+
+> (c) With respect to any matter within the jurisdiction of the legislative branch, subsection (a) shall apply only to—(1) administrative matters, including a claim for payment, a matter related to the procurement of property or services, personnel or employment practices, or support services, or a document required by law, rule, or regulation to be submitted to the Congress or any office or officer within the legislative branch; or (2) any investigation or review, conducted pursuant to the authority of any committee, subcommittee, commission or office of the Congress, consistent with applicable rules of the House or Senate.
+
+**18 U.S.C. 1519, whole section, one sentence. Source of the 20-year term now printed in the penalties row.**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1519&num=0&edition=prelim`
+
+> Whoever knowingly alters, destroys, mutilates, conceals, covers up, falsifies, or makes a false entry in any record, document, or tangible object with the intent to impede, obstruct, or influence the investigation or proper administration of any matter within the jurisdiction of any department or agency of the United States or any case filed under title 11, or in relation to or contemplation of any such matter or case, shall be fined under this title, imprisoned not more than 20 years, or both.
+
+**Fed. R. Crim. P. 6(e)(1), Recording the Proceedings. Enacted law binding a court, quoted in the secrecy section.**, `https://uscode.house.gov/view.xhtml?path=/prelim@title18a/title18a-node21&edition=prelim`
+
+> (1) Recording the Proceedings. Except while the grand jury is deliberating or voting, all proceedings must be recorded by a court reporter or by a suitable recording device. But the validity of a prosecution is not affected by the unintentional failure to make a recording. Unless the court orders otherwise, an attorney for the government will retain control of the recording, the reporter's notes, and any transcript prepared from those notes.
+
+**Fed. R. Crim. P. 6(e)(2)(A) and (B), Secrecy. Quoted verbatim in the secrecy section, including the seven-person list.**, `https://uscode.house.gov/view.xhtml?path=/prelim@title18a/title18a-node21&edition=prelim`
+
+> (A) No obligation of secrecy may be imposed on any person except in accordance with Rule 6(e)(2)(B). (B) Unless these rules provide otherwise, the following persons must not disclose a matter occurring before the grand jury: (i) a grand juror; (ii) an interpreter; (iii) a court reporter; (iv) an operator of a recording device; (v) a person who transcribes recorded testimony; (vi) an attorney for the government; or (vii) a person to whom disclosure is made under Rule 6(e)(3)(A)(ii) or (iii).
+
+**Fed. R. Crim. P. 6(f), Indictment and Return. The whole subdivision, including the return sentence the page previously shortened.**, `https://uscode.house.gov/view.xhtml?path=/prelim@title18a/title18a-node21&edition=prelim`
+
+> (f) Indictment and Return. A grand jury may indict only if at least 12 jurors concur. The grand jury—or its foreperson or deputy foreperson—must return the indictment to a magistrate judge in open court. To avoid unnecessary cost or delay, the magistrate judge may take the return by video teleconference from the court where the grand jury sits. If a complaint or information is pending against the defendant and 12 jurors do not concur in the indictment, the foreperson must promptly and in writing report the lack of concurrence to the magistrate judge.
+
+**Fed. R. Crim. P. 6(g), Discharging the Grand Jury. Quoted in timeline step 1; the source of the corrected step label.**, `https://uscode.house.gov/view.xhtml?path=/prelim@title18a/title18a-node21&edition=prelim`
+
+> (g) Discharging the Grand Jury. A grand jury must serve until the court discharges it, but it may serve more than 18 months only if the court, having determined that an extension is in the public interest, extends the grand jury's service. An extension may be granted for no more than 6 months, except as otherwise provided by statute.
+
+**JM 1-1.200, Authority, updated March 2024. DOJ policy only; justice.gov is never a source for what a statute says (D2 scope note).**, `https://www.justice.gov/jm/jm-1-1000-introduction`
+
+> When the Justice Manual conflicts with earlier DOJ statements of policy or procedure, the Justice Manual controls. Any questions about the controlling internal policy or procedure should be directed to the Office of the Deputy Attorney General.
+
+**JM 9-11.150, the three considerations weighed before approving a subpoena for a target, updated April 2018. DOJ policy only, not law (D2).**, `https://www.justice.gov/jm/jm-9-11000-grand-jury`
+
+> In determining whether to approve a subpoena for a "target," careful attention will be paid to the following considerations: The importance to the successful conduct of the grand jury's investigation of the testimony or other information sought; Whether the substance of the testimony or other information sought could be provided by other witnesses; and Whether the questions the prosecutor and the grand jurors intend to ask or the other information sought would be protected by a valid claim of privilege.
+
+**JM 9-11.151, delivery of the Advice of Rights form. DOJ policy only, not law (D2). This is the provision the FAQ 3 repair rests on.**, `https://www.justice.gov/jm/jm-9-11000-grand-jury`
+
+> Notwithstanding the lack of a clear constitutional imperative, it is the policy of the Department that an "Advice of Rights" form be appended to all grand jury subpoenas to be served on any "target" or "subject" of an investigation. See advice of rights below. [...] When a district court insists that the notice of rights not be appended to a grand jury subpoena, the advice of rights may be set forth in a separate letter and mailed to or handed to the witness when the subpoena is served.
+
+**JM 9-11.151, the on-the-record paragraphs, quoted in the advice-of-rights section. DOJ policy only, not law (D2).**, `https://www.justice.gov/jm/jm-9-11000-grand-jury`
+
+> In addition, these "warnings" should be given by the prosecutor on the record before the grand jury and the witness should be asked to affirm that the witness understands them. [...] This supplemental advice of status of the witness as a target should be repeated on the record when the target witness is advised of the matters discussed in the preceding paragraphs.
+
+**JM 9-11.153, Notification of Targets, whole section. DOJ policy only, not law (D2). Recorded because the FAQ 3 repair states that this section sets out no form text, and the record must show the section was read whole.**, `https://www.justice.gov/jm/jm-9-11000-grand-jury`
+
+> When a target is not called to testify pursuant to JM 9-11.150, and does not request to testify on his or her own motion (see JM 9-11.152), the prosecutor, in appropriate cases, is encouraged to notify such person a reasonable time before seeking an indictment in order to afford him or her an opportunity to testify before the grand jury, subject to the conditions set forth in JM 9-11.152. Notification would not be appropriate in routine clear cases or when such action might jeopardize the investigation or prosecution because of the likelihood of flight, destruction or fabrication of evidence, endangerment of other witnesses, undue delay or otherwise would be inconsistent with the ends of justice.
+
+**JM 9-11.155, Notification to Targets when Target Status Ends, the three clauses the page relies on. DOJ policy only, not law (D2).**, `https://www.justice.gov/jm/jm-9-11000-grand-jury`
+
+> The United States Attorney has the discretion to notify an individual, who has been the target of a grand jury investigation, that the individual is no longer considered to be a target by the United States Attorney's Office. Such a notification should be provided only by the United States Attorney having cognizance over the grand jury investigation. Discontinuation of target status may be appropriate when: The target previously has been notified by the government that he or she was a target of the investigation; and, The criminal investigation involving the target has been discontinued without an indictment being returned charging the target, or the government receives evidence in a continuing investigation that conclusively establishes that target status has ended as to this individual. [...] The delivering of such a notification to a target or the attorney for the target shall not preclude the United States Attorney's Office or the grand jury having cognizance over the investigation (or any other grand jury) from reinstituting such an investigation without notification to the target, or the attorney for the target, if, in the opinion of that or any other grand jury, or any United
+
+**JM 9-27.230, Comment to the substantial-federal-interest list, updated June 2023. DOJ policy only, not law (D2).**, `https://www.justice.gov/jm/jm-9-27000-principles-federal-prosecution`
+
+> Comment. The list of relevant considerations is not intended to be all-inclusive. Moreover, not all of the factors will be applicable to every case, and in any particular case one factor may deserve more weight than it might in another case.
+
+**JM 9-27.250, Comment, the non-criminal alternatives the page lists. DOJ policy only, not law (D2).**, `https://www.justice.gov/jm/jm-9-27000-principles-federal-prosecution`
+
+> Examples of such non-criminal approaches include civil tax proceedings; civil actions under the False Claims Act or other statutory causes of action for false or fraudulent claims; civil actions under the securities, customs, antitrust, or other regulatory laws; administrative suspension and debarment or exclusion proceedings; civil judicial and administrative forfeiture; and reference of complaints to licensing authorities or to professional organizations such as bar associations.
+
+### federal/weapons-gun-offenses
+
+**18 U.S.C. 3142(f), both numbered paragraphs**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3142&num=0&edition=prelim`
+
+> (f) Detention Hearing.-The judicial officer shall hold a hearing to determine whether any condition or combination of conditions set forth in subsection (c) of this section will reasonably assure the appearance of such person as required and the safety of any other person and the community- (1) upon motion of the attorney for the Government, in a case that involves- ... (E) any felony that is not otherwise a crime of violence that involves a minor victim or that involves the possession or use of a firearm or destructive device (as those terms are defined in section 921), or any other dangerous weapon, or involves a failure to register under section 2250 of title 18, United States Code; or (2) upon motion of the attorney for the Government or upon the judicial officer's own motion in a case, that involves- (A) a serious risk that such person will flee; or (B) a serious risk that such person will obstruct or attempt to obstruct justice, or threaten, injure, or intimidate, or attempt to threaten, injure, or intimidate, a prospective witness or juror.
+
+**18 U.S.C. 3142(f), chapeau, (f)(1)(A) through (E), and (f)(2)(A) and (B)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3142&num=0&edition=prelim`
+
+> (f) Detention Hearing.-The judicial officer shall hold a hearing to determine whether any condition or combination of conditions set forth in subsection (c) of this section will reasonably assure the appearance of such person as required and the safety of any other person and the community- (1) upon motion of the attorney for the Government, in a case that involves- (A) a crime of violence, a violation of section 1591, or an offense listed in section 2332b(g)(5)(B) for which a maximum term of imprisonment of 10 years or more is prescribed; (B) an offense for which the maximum sentence is life imprisonment or death; (C) an offense for which a maximum term of imprisonment of ten years or more is prescribed in the Controlled Substances Act (21 U.S.C. 801 et seq.), the Controlled Substances Import and Export Act (21 U.S.C. 951 et seq.), or chapter 705 of title 46; (D) any felony if such person has been convicted of two or more offenses described in subparagraphs (A) through (C) of this paragraph, or two or more State or local offenses that would have been offenses described in subparagraphs (A) through (C) of this paragraph if a circumstance giving rise to Federal jurisdiction had exis
+
+**18 U.S.C. 921(a)(33)(B)(ii)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section921&num=0&edition=prelim`
+
+> (ii) A person shall not be considered to have been convicted of such an offense for purposes of this chapter if the conviction has been expunged or set aside, or is an offense for which the person has been pardoned or has had civil rights restored (if the law of the applicable jurisdiction provides for the loss of civil rights under such an offense) unless the pardon, expungement, or restoration of civil rights expressly provides that the person may not ship, transport, possess, or receive firearms.
+
+**18 U.S.C. 921(a)(33)(C), including the proviso and its closing exclusion**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section921&num=0&edition=prelim`
+
+> (C) A person shall not be considered to have been convicted of a misdemeanor crime of domestic violence against an individual in a dating relationship for purposes of this chapter if the conviction has been expunged or set aside, or is an offense for which the person has been pardoned or has had firearm rights restored unless the expungement, pardon, or restoration of rights expressly provides that the person may not ship, transport, possess, or receive firearms: Provided, That, in the case of a person who has not more than 1 conviction of a misdemeanor crime of domestic violence against an individual in a dating relationship, and is not otherwise prohibited under this chapter, the person shall not be disqualified from shipping, transport, possession, receipt, or purchase of a firearm under this chapter if 5 years have elapsed from the later of the judgment of conviction or the completion of the person's custodial or supervisory sentence, if any, and the person has not subsequently been convicted of another such offense, a misdemeanor under Federal, State, Tribal, or local law which has, as an element, the use or attempted use of physical force, or the threatened use of a deadly we
+
+**18 U.S.C. 924(a)(8)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section924&num=0&edition=prelim`
+
+> (8) Whoever knowingly violates subsection (d) or (g) of section 922 shall be fined under this title, imprisoned for not more than 15 years, or both.
+
+**18 U.S.C. 924(c)(1)(B)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section924&num=0&edition=prelim`
+
+> (B) If the firearm possessed by a person convicted of a violation of this subsection- (i) is a short-barreled rifle, short-barreled shotgun, or semiautomatic assault weapon, the person shall be sentenced to a term of imprisonment of not less than 10 years; or (ii) is a machinegun or a destructive device, or is equipped with a firearm silencer or firearm muffler, the person shall be sentenced to a term of imprisonment of not less than 30 years.
+
+**18 U.S.C. 924(c)(1)(C)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section924&num=0&edition=prelim`
+
+> (C) In the case of a violation of this subsection that occurs after a prior conviction under this subsection has become final, the person shall- (i) be sentenced to a term of imprisonment of not less than 25 years; and (ii) if the firearm involved is a machinegun or a destructive device, or is equipped with a firearm silencer or firearm muffler, be sentenced to imprisonment for life.
+
+**18 U.S.C. 924(e)(1)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section924&num=0&edition=prelim`
+
+> (e)(1) In the case of a person who violates section 922(g) of this title and has three previous convictions by any court referred to in section 922(g)(1) of this title for a violent felony or a serious drug offense, or both, committed on occasions different from one another, such person shall be fined under this title and imprisoned not less than fifteen years, and, notwithstanding any other provision of law, the court shall not suspend the sentence of, or grant a probationary sentence to, such person with respect to the conviction under section 922(g).
+
+**18 U.S.C. 924(e)(2)(B)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section924&num=0&edition=prelim`
+
+> (B) the term "violent felony" means any crime punishable by imprisonment for a term exceeding one year, or any act of juvenile delinquency involving the use or carrying of a firearm, knife, or destructive device that would be punishable by imprisonment for such term if committed by an adult, that- (i) has as an element the use, attempted use, or threatened use of physical force against the person of another; or (ii) is burglary, arson, or extortion, involves use of explosives, or otherwise involves conduct that presents a serious potential risk of physical injury to another; and
+
+### federal/wire-mail-fraud
+
+**18 U.S.C. 1341, Frauds and swindles, whole section, text in effect on August 13, 2026**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1341&num=0&edition=prelim`
+
+> Whoever, having devised or intending to devise any scheme or artifice to defraud, or for obtaining money or property by means of false or fraudulent pretenses, representations, or promises, or to sell, dispose of, loan, exchange, alter, give away, distribute, supply, or furnish or procure for unlawful use any counterfeit or spurious coin, obligation, security, or other article, or anything represented to be or intimated or held out to be such counterfeit or spurious article, for the purpose of executing such scheme or artifice or attempting so to do, places in any post office or authorized depository for mail matter, any matter or thing whatever to be sent or delivered by the Postal Service, or deposits or causes to be deposited any matter or thing whatever to be sent or delivered by any private or commercial interstate carrier, or takes or receives therefrom, any such matter or thing, or knowingly causes to be delivered by mail or such carrier according to the direction thereon, or at the place at which it is directed to be delivered by the person to whom it is addressed, any such matter or thing, shall be fined under this title or imprisoned not more than 20 years, or both. If th
+
+**18 U.S.C. 1343, Fraud by wire, radio, or television, whole section, text in effect on August 13, 2026**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1343&num=0&edition=prelim`
+
+> Whoever, having devised or intending to devise any scheme or artifice to defraud, or for obtaining money or property by means of false or fraudulent pretenses, representations, or promises, transmits or causes to be transmitted by means of wire, radio, or television communication in interstate or foreign commerce, any writings, signs, signals, pictures, or sounds for the purpose of executing such scheme or artifice, shall be fined under this title or imprisoned not more than 20 years, or both. If the violation occurs in relation to, or involving any benefit authorized, transported, transmitted, transferred, disbursed, or paid in connection with, a presidentially declared major disaster or emergency (as those terms are defined in section 102 of the Robert T. Stafford Disaster Relief and Emergency Assistance Act (42 U.S.C. 5122)), or affects a financial institution, such person shall be fined not more than $1,000,000 or imprisoned not more than 30 years, or both.
