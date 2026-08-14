@@ -12,7 +12,9 @@
     "check:pages": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-pages.mts",
     "check:unverified": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-unverified.mts",
     "prewrite": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-unverified.mts",
-    "check:claims": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-claims.mts"
+    "check:claims": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-claims.mts",
+    "check:rendered": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-rendered.mts",
+    "postbuild": "npm run check:rendered"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",
