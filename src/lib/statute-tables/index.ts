@@ -6,6 +6,8 @@
 import type { StatuteTable } from "../statutes.ts";
 import { TABLE_1028A } from "./usc-1028A.ts";
 import { TABLE_1341 } from "./usc-1341.ts";
+import { TABLE_1343 } from "./usc-1343.ts";
+import { TABLE_1344 } from "./usc-1344.ts";
 import { TABLE_1347 } from "./usc-1347.ts";
 import { TABLE_1348 } from "./usc-1348.ts";
 import { TABLE_1349 } from "./usc-1349.ts";
@@ -78,6 +80,8 @@ import { TABLE_943_059 } from "./fs-943-059.ts";
 export const VERIFIED_TABLES: Record<string, StatuteTable> = {
   "1028A": TABLE_1028A,
   "1341": TABLE_1341,
+  "1343": TABLE_1343,
+  "1344": TABLE_1344,
   "1347": TABLE_1347,
   "1348": TABLE_1348,
   "1349": TABLE_1349,
