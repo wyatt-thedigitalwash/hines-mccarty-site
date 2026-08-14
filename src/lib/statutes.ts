@@ -28,6 +28,8 @@
  * said the opposite. The failure was never a missing source.
  */
 
+import { VERIFIED_TABLES } from "./statute-tables";
+
 export type Degree =
   | "capital felony"
   | "life felony"
@@ -75,7 +77,7 @@ export type GradingRow = {
    * Without this split the checker fires on correct copy, and a check that
    * cries wolf gets switched off, which is worse than not having it.
    */
-  scope?: "dwelling" | "item" | "prior";
+  scope?: "dwelling" | "item" | "prior" | "victim" | "place";
   /**
    * A RESIDUAL clause: it applies to whatever the rest of the section does not
    * reach. F.S. 812.014(3)(a) is one, "theft of any property not specified in
@@ -365,6 +367,12 @@ export const STATUTES: Record<string, StatuteTable> = {
       },
     ],
   },
+  // Workflow-verified tables, one file per statute in src/lib/statute-tables/.
+  // Each passed the independent build-then-audit pipeline; a FAILed table
+  // never lands there. Keys are the bare section number as it appears in
+  // prose (FS "893.135", USC "1956"), because check-claims.mts matches keys
+  // literally against sentences.
+  ...VERIFIED_TABLES,
 };
 
 /**

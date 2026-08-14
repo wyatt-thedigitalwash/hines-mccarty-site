@@ -1,0 +1,23 @@
+/**
+ * F.S. 943.059 (2025) -- Court-ordered sealing of criminal history records
+ *
+ * GENERATED from an audited build in the statute-table workflow (batch runs of
+ * 2026-08-13). Built by one agent from the full section text, independently
+ * re-fetched and audited by a second agent; verdict PASS. Do not hand-edit a
+ * row without re-running the audit; the claim checker treats these as ground
+ * truth.
+ */
+import type { StatuteTable } from "../statutes";
+
+export const TABLE_943_059: StatuteTable = {
+  cite: "F.S. 943.059 (2025)",
+  title: "Court-ordered sealing of criminal history records",
+  url: "https://www.flsenate.gov/Laws/Statutes/2025/943.059",
+  fetched: "2026-08-13",
+  completeness: "whole-section",
+  unread: "No subsection of 943.059 was skipped: (1) ELIGIBILITY including (1)(a)-(e) and all thirteen subparagraphs of (1)(b); (2) CERTIFICATE OF ELIGIBILITY including (2)(a)1.-3. and (2)(b); (3) PETITION including (3)(a), (3)(b)1.-2. and the flush closing language; (4) COURT AUTHORITY (a)-(e); (5) PROCESSING OF A PETITION OR ORDER (a)-(c); (6) EFFECT OF ORDER including (6)(a)1.-5., (6)(b)1.-10. with sub-subparagraphs 6.a.-c., (6)(c), (6)(d); and the History note were all read start to finish.; Cross-referenced statutes NOT read: s. 943.0584 (categories of records ineligible for court-ordered sealing) -- this is where the actual disqualifying offense list lives and it is incorporated by (1)(a) and (2)(a)1.; Cross-referenced statutes NOT read: s. 943.0585 (court-ordered expunction), s. 943.0583 (human trafficking victim expunction), s. 943.0515 (juvenile record retention/expunction), former ss. 893.14, 901.33, 943.058.; Cross-referenced statutes NOT read: the penalty statutes s. 775.082, s. 775.083, s. 775.084, so the actual terms of imprisonment and fines for the two degrees above were not verified from source in this pass.; Cross-referenced statutes NOT read: the thirteen misdemeanor definitions cited in (1)(b)1.-13. (784.011, 784.03, 784.07(2)(a), 790.01(2), 790.053, 790.115, 790.1615(1), 790.22(5), 800.03, 806.031(1), 812.014(3), 827.03(1)(e), 828.12(1)).; F.S. 921.0022 was fetched but NOT read in full -- it was only pattern-searched for '943.0' entries to confirm 943.059 is absent from the ranking chart. A full read of the chart was not performed.",
+  rows: [
+    { cite: "943.059(3)(b)", min: null, max: null, degree: "third degree felony", trigger: "No dollar amount anywhere in this section; this is a procedural sealing statute, not a value ladder. Trigger is conduct: knowingly providing false information on the sworn statement that accompanies a petition to seal. The sentence appears as unnumbered flush (closing) language following subparagraph (3)(b)2., so it attaches to paragraph (3)(b) as a whole and is easy to miss if you stop reading at subparagraph 2. Not ranked in the F.S. 921.0022 offense severity chart (grepped the 2025 chart for '943.05' and only 943.0435 entries appear), so no level is recorded here.", quote: "Any person who knowingly provides false information on such sworn statement to the court commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084." },
+    { cite: "943.059(6)(d)", min: null, max: null, degree: "first degree misdemeanor", trigger: "No dollar amount. Trigger is conduct by an employee of one of the entities listed in subparagraphs (6)(b)1., 4., 5., 6., 8., 9., or 10.: disclosing information relating to the existence of a sealed criminal history record of a person seeking employment, access authorization, or licensure, other than to the record subject or to persons having direct responsibility for those decisions. The penalty sentence sits at the very end of a long paragraph whose opening clauses are purely a public-records exemption, so it is missed if the paragraph is not read to its last sentence. Misdemeanors are not ranked in the F.S. 921.0022 chart, so no level is recorded.", quote: "A person who violates this paragraph commits a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083." },
+  ],
+};

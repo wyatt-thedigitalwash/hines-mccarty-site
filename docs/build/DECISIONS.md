@@ -674,3 +674,39 @@ starting first. What changes is what anyone is told to expect from it.
 
 **Applied to.** CASES-WE-DEFEND-PLAN.md Section 8.5.4, which gains a subsection
 8.5.6 rather than being rewritten, so the revision history stays visible.
+
+## 2026-08-14, D10 through D12: the statute-table apply step
+
+Context: the 2026-08-13 session died mid-run (its batch-2 workflow was killed
+with 4 of 68 agents unfinished). The journals survived; a new session finished
+the 4 audits from cached builds, and these decisions govern how verified
+tables now land in the codebase.
+
+**D10. Verified tables live in `src/lib/statute-tables/`, one file per
+statute, merged into `STATUTES` by `src/lib/statutes.ts`.** The DoD says
+"an AUDITED table in src/lib/statutes.ts"; with ~72 tables coming, one file
+would pass 15,000 lines and become unreviewable, so statutes.ts stays the
+single import surface (types, helpers, the record) and the data files sit in a
+directory it aggregates. A table reaches that directory only with a PASS
+verdict from the independent audit; FAILed tables never land, so presence in
+the directory IS the verification claim. Generated files carry a do-not-hand-
+edit header because the claim checker treats rows as ground truth.
+
+**D11. Statute keys are the bare section number as prose cites it.** FS
+"893.135", USC "1956". check-claims.mts matches keys literally against
+sentences (`s.includes(statute)`), and "18 U.S.C. § 1956" contains "1956", so
+bare sections keep the exhaustive-claim gate live for both jurisdictions.
+Full citation stays in `cite`. The GradingRow scope union gained "victim" and
+"place", the two values batch-2 builders were already instructed to use.
+
+**D12. A materiality rule was added to the re-audit prompt.** Batch 2 re-
+failed 6 of 7 repaired tables, several rounds on progressively smaller
+findings (an unmarked ellipsis, a spliced heading). Unbounded re-audit does
+not converge: every fresh auditor finds a fresh nit, and a gate that can
+never be satisfied gets routed around, which is the theatre failure this
+project keeps refusing. The rule: report every defect, but verdict FAIL is
+reserved for defects in penalty data a page could repeat (wrong degree, wrong
+bound, missing penalty provision, wrong level, misused scope, meaning-
+changing quote). A cosmetic formatting nit alone is PASS with the nit in
+notes. What this does NOT relax: completeness is still set by the auditor,
+still on coverage alone, and any typed-field error still fails.
