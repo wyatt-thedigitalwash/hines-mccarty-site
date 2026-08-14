@@ -131,7 +131,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                           Degree
                         </th>
                         <th className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
-                          Statutory maximum
+                          Statutory term
                         </th>
                         <th className="py-3 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
                           Offense level
@@ -503,7 +503,16 @@ function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
       <table className="w-full border-collapse text-left">
         <thead>
           <tr className="border-b border-navy/20">
-            {["Degree", "Statutory maximum", "Offense level"].map((h) => (
+            {/* "Statutory term" rather than "Statutory maximum". A reviewer found
+                eleven rows on the federal weapons page whose value is a
+                MANDATORY MINIMUM ("Not less than 15 years, with no suspended
+                sentence and no probation") printed under a header promising a
+                maximum, which is a lie in the rendered table even though every
+                row was individually true. 34 rows across four pages carry a
+                range or a floor rather than a bare ceiling, because federal
+                sentencing routinely has both, so the header was the thing
+                that was wrong. D24: the check that matters reads the page. */}
+            {["Degree", "Statutory term", "Offense level"].map((h) => (
               <th
                 key={h}
                 className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60"
