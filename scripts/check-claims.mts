@@ -97,8 +97,15 @@ function pointAmounts(sentence: string): number[] {
     if (!Number.isFinite(n) || n <= 0) continue;
     const before = sentence.slice(Math.max(0, m.index! - 30), m.index!);
     const after = sentence.slice(m.index! + m[0].length, m.index! + m[0].length + 12);
+    // "in excess of" was missing while its synonym "exceeding" was present, so
+    // a sentence quoting F.S. 812.014(6) verbatim ("a value in excess of
+    // $3,000") read as a POINT claim about $3,000 and was answered from the
+    // general ladder, where $3,000 is a third degree felony. The copy was
+    // right and the list was short. Note the statute uses this idiom for a
+    // STRICT threshold, which is the same thing GradingRow.minExclusive
+    // records, so the two now agree about what the words mean.
     const isBoundary =
-      /\b(less than|more than|under|over|at least|exceeding|up to|between|below|above|from)\s*$/i.test(before) ||
+      /\b(less than|more than|under|over|at least|exceeding|in excess of|greater than|up to|between|below|above|from)\s*$/i.test(before) ||
       /^\s*(or more|or less|and up|or higher)/i.test(after);
     if (!isBoundary) out.push(n);
   }
