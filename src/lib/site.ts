@@ -1126,7 +1126,7 @@ const CHARGE_C9: Record<string, C9Assertion> = {
     statute: "F.S. 812.014",
     section: "What the state has to prove",
     assertion:
-      "Possession was lawful and authorised when it began, so the contested element is intent to deprive rather than the taking.",
+      "Possession was lawful and authorized when it began, so the contested element is intent to deprive rather than the taking.",
   },
   "state/drug-trafficking-defense": {
     statute: "F.S. 893.135",
@@ -1659,7 +1659,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         answers: ["facing"],
         penalties: [
           { degree: "First degree felony, grand theft", maximum: "Up to 30 years", offenseLevel: "Level 7", note: "Property valued at $100,000 or more, under 812.014(2)(a)." },
-          { degree: "Second degree felony, grand theft", maximum: "Up to 15 years", offenseLevel: "Level 6", note: "Property valued at $20,000 or more but less than $100,000, under 812.014(2)(b)1. Two other second degree routes carry different offense levels: a firearm with a prior conviction for grand theft of a firearm under 812.014(2)(g) is ranked at level 7, and property taken from more than 20 dwellings under 812.014(2)(d)3. is ranked at level 5." },
+          { degree: "Second degree felony, grand theft", maximum: "Up to 15 years", offenseLevel: "Level 6", note: "Property valued at $20,000 or more but less than $100,000, under 812.014(2)(b)1. Other second degree routes are ranked differently, and higher: a firearm with a prior conviction for grand theft of a firearm under 812.014(2)(g), cargo worth less than $50,000 taken from the stream of commerce under 812.014(2)(b)2., emergency medical equipment worth $300 or more under 812.014(2)(b)3., and law enforcement equipment worth $300 or more under 812.014(2)(b)4. all rank at level 7. Property taken from more than 20 dwellings under 812.014(2)(d)3. ranks at level 5." },
           { degree: "Third degree felony, grand theft", maximum: "Up to 5 years", offenseLevel: "Level 4", note: "Property valued at $10,000 or more but less than $20,000, under 812.014(2)(c)3. Also property valued at $750 or more taken from a dwelling, under 812.014(2)(d)2." },
           { degree: "Third degree felony, grand theft", maximum: "Up to 5 years", offenseLevel: "Level 3", note: "Property valued at $5,000 or more but less than $10,000, under 812.014(2)(c)2." },
           { degree: "Third degree felony, grand theft", maximum: "Up to 5 years", offenseLevel: "Level 2", note: "Property valued at $750 or more but less than $5,000, under 812.014(2)(c)1. Also property valued at $40 or more but less than $750 taken from a dwelling, under 812.014(2)(d)1." },
@@ -1687,8 +1687,8 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         answers: ["next"],
         steps: [
           { when: "Within 24 hours of arrest", what: "First appearance. Rule 3.130(a) provides that except when previously released in a lawful manner, every arrested person must be taken before a judge, in person or by audio-video communication technology, within 24 hours. The judge determines pretrial detention or conditions of release under rule 3.132 or rule 3.131." },
-          { when: "60 days, if you bonded out", what: "Rule 3.134(b) governs defendants not in custody and gives the State 60 days from arrest to file formal charges, with automatic release on recognisance on the 63rd day if it has not. Under (b)(1)(B) the court may, on a showing of good cause, continue the defendant on pretrial release for up to an additional 30 days. This is the track most people are on, because most people are released before this stage." },
-          { when: "30 days, if you are still in custody", what: "Rule 3.134(a) gives the State 30 days for defendants in custody. If still uncharged the court must order automatic release on recognisance on the 33rd day, or on the 40th if the State shows good cause, and provides that in no event may a defendant remain in custody beyond 40 days uncharged. Release under this rule is not a dismissal and the State can file afterwards." },
+          { when: "60 days, if you bonded out", what: "Rule 3.134(b) governs defendants not in custody and gives the State 60 days from arrest to file formal charges, with automatic release on recognizance on the 63rd day if it has not. Under (b)(1)(B) the court may, on a showing of good cause, continue the defendant on pretrial release for up to an additional 30 days. This is the track most people are on, because most people are released before this stage." },
+          { when: "30 days, if you are still in custody", what: "Rule 3.134(a) gives the State 30 days for defendants in custody. If still uncharged the court must order automatic release on recognizance on the 33rd day, or on the 40th if the State shows good cause, and provides that in no event may a defendant remain in custody beyond 40 days uncharged. Release under this rule is not a dismissal and the State can file afterwards." },
           { when: "175 days from the formal charge", what: "The felony speedy trial period under Rule 3.191(a), which runs from formal charge by information or indictment as subdivision (d) defines it, not from the arrest. A misdemeanor carries 90 days. Missing it does not end a case by itself: the rule directs the reader to the remedy in subdivision (o), which is a recapture procedure rather than automatic discharge. Rule 3.191(b) allows a defendant to demand trial within 60 days instead." },
         ],
       },
@@ -1757,7 +1757,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "An arrest generates a criminal history record, and in Florida those records are public unless a court seals or expunges them. That is the practical answer to what this does to work: an ordinary background check can surface the arrest whether or not the case ends in a conviction, and it stays visible for as long as the record is unsealed. A theft allegation carries particular weight with employers who handle money or inventory, which is why the sealing question below is usually the one that outlasts the sentence. Theft under Statute 812.014 is not on the list of offenses that are permanently barred. Statute 943.0584(2) makes a record ineligible where it is a conviction for one of the offenses it enumerates, and that list includes robbery under 812.13, drug trafficking under 893.135, and the Florida Communications Fraud Act at 817.034. Statute 812.014 appears nowhere in it.",
           "The word conviction there does not mean what most readers expect. Statute 943.0584(1) defines it as a determination of guilt which is the result of a trial or the entry of a plea of guilty or nolo contendere, regardless of whether adjudication is withheld, and continues that where the defendant was a minor it means a finding that the defendant committed or pled guilty or nolo contendere to a delinquent act, regardless of whether adjudication of delinquency is withheld. A withhold is still a conviction for the purposes of that bar.",
           "Where the record is not barred, Statute 943.059(1) sets the conditions, and they are cumulative: the record must not be ineligible under 943.0584; the person must never have been adjudicated guilty in Florida of a criminal offense, or adjudicated delinquent for a felony or one of thirteen listed misdemeanors, of which petit theft is one; the person must not have been adjudicated guilty of any of the acts stemming from this arrest; the person must no longer be under court supervision for it; and the person must never have secured a prior sealing or expunction. Subsection (2) then requires a certificate of eligibility from the department before a petition is filed, which is the step most people meet first.",
-          "Two things this page does not decide. A specific professional licence is governed by the rules of the board that issues it, and none of those are addressed here. Immigration consequences turn on federal law and belong with an immigration attorney rather than being inferred from a Florida statute.",
+          "Two things this page does not decide. A specific professional license is governed by the rules of the board that issues it, and none of those are addressed here. Immigration consequences turn on federal law and belong with an immigration attorney rather than being inferred from a Florida statute.",
         ],
       },
       {
@@ -1773,7 +1773,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     ],
     faq: [
       { question: "How much does the property have to be worth for a theft to be grand theft?", source: "keywords.md", grade: "6-12mo", answer: "The general threshold is $750, and the degree rises again at $20,000 and at $100,000. But $750 only settles it where the property was not taken from a dwelling and is not one of the items the statute lists. From a dwelling, Statute 812.014(2)(d)1. makes property worth $40 or more a third degree felony. And subparagraphs 4. to 13. of Statute 812.014(2)(c) make certain property grand theft whatever its value." },
-      { question: "Is stealing $500 a felony in Florida?", source: "drafted", answer: "It depends where it was taken from. Taken from a shop, $500 is petit theft of the first degree under Statute 812.014(2)(f), a misdemeanor carrying up to 1 year. Taken from a dwelling or its unenclosed curtilage, the same $500 is grand theft of the third degree under 812.014(2)(d)1., a felony carrying up to 5 years. It is also a felony at any value if the property is one of the items in Statute 812.014(2)(c)4. to 13., which include a firearm, a motor vehicle, a will, a stop sign, and any amount of a controlled substance." },
+      { question: "Is stealing $500 a felony in Florida?", source: "drafted", answer: "It depends where it was taken from, and on whether there are prior theft convictions. On a first theft charge, taken from a shop, $500 is petit theft of the first degree under Statute 812.014(2)(f), a misdemeanor carrying up to 1 year. Taken from a dwelling or its unenclosed curtilage, the same $500 is grand theft of the third degree under 812.014(2)(d)1., a felony carrying up to 5 years. Two or more prior theft convictions make it a third degree felony under 812.014(3)(c) wherever it was taken from. It is also a felony at any value if the property is one of the items in Statute 812.014(2)(c)4. to 13., which include a firearm, a motor vehicle, a will, a stop sign, and any amount of a controlled substance." },
       { question: "What is third degree grand theft in Florida?", source: "drafted", answer: "It is the lowest felony tier of theft, with a five year statutory maximum. One degree is not one exposure: within that tier the offense level rises from level 2 to level 4 as the value climbs, and the level is what the sentencing scoresheet uses." },
       { question: "Who decides what the property was worth?", source: "drafted", answer: "Value is something the State has to prove, not something the accusation settles. Statute 812.014 sets the degree by the value of the property where the charge rests on value, so the figure has to be established like any other part of the case, and its source is open to examination." },
       { question: "Can a grand theft charge be sealed later?", source: "drafted", answer: "Theft under Statute 812.014 is not among the offenses Statute 943.0584(2) bars permanently. Whether a particular record qualifies then turns on the cumulative conditions in Statute 943.059(1), and on a certificate of eligibility from the department under 943.059(2). Note that 943.0584(1) defines conviction to include a plea regardless of whether adjudication is withheld." },
@@ -1809,12 +1809,12 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     sections: [
       {
         id: "trust",
-        heading: "Authorised access changes which part of the case is contested",
+        heading: "Authorized access changes which part of the case is contested",
         kind: "prose",
         answers: ["facing"],
         prose: [
           "In most theft cases the argument is whether the defendant took something. Here that is rarely the question, because access was granted at the outset. What is contested is use, and what was intended at the time.",
-          "That moves the dispute into the parts of a business that are least well documented. Permission in a small organisation is often informal, inconsistent, or spoken rather than absent, and the difference between an approved transaction and an unapproved one can exist only in somebody's memory of a conversation.",
+          "That moves the dispute into the parts of a business that are least well documented. Permission in a small organization is often informal, inconsistent, or spoken rather than absent, and the difference between an approved transaction and an unapproved one can exist only in somebody's memory of a conversation.",
           "It also explains a case that looks odd from outside. Statute 812.014 reaches an intent to deprive the owner of a right or benefit either temporarily or permanently. Money that moved and came back is not outside the statute by virtue of having come back, which is why a case can exist where the account balances at the end.",
         ],
       },
@@ -1825,7 +1825,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         answers: ["facing"],
         statute: {
           citation: "Florida Statute 812.014 and Florida Statute 817.034, the 2025 Florida Statutes",
-          body: "Chapter 812 absorbs this conduct by name. Statute 812.012(3) defines obtains or uses, and paragraph (d)1. of that definition covers conduct previously known as stealing, larceny, purloining, abstracting, embezzlement, misapplication, misappropriation, conversion, or obtaining money or property by false pretenses, fraud, or deception. That is how Statute 812.014, titled Theft, reaches a case that begins with lawful access: it does not need a separate offense because its definitional section already names one. Statute 812.014 itself reaches a person who knowingly obtains or uses, or endeavors to obtain or to use, the property of another with intent to deprive the owner of a right to it or to appropriate it to someone not entitled to it. A second statute can also apply. Statute 817.034(3)(d) defines a scheme to defraud as a systematic, ongoing course of conduct with intent to defraud one or more persons, or with intent to obtain property from one or more persons by false or fraudulent pretenses, representations, endorsements of nonconsenting parties, or promises or willful misrepresentations of a future act, and 817.034(4)(a) makes engaging in such a scheme and obtaining property organized fraud. That definition does not describe an isolated act, so where organized fraud is charged the pattern is an element rather than a way of describing the total. The two statutes are separately chargeable rather than alternatives, and a case can involve counts under both.",
+          body: "Chapter 812 absorbs this conduct by name. Statute 812.012(3) defines obtains or uses, and paragraph (d)1. of that definition covers conduct previously known as stealing, larceny, purloining, abstracting, embezzlement, misapplication, misappropriation, conversion, or obtaining money or property by false pretenses, fraud, or deception. That is how Statute 812.014, titled Theft, reaches a case that begins with lawful access: it does not need a separate offense because its definitional section already names one. Statute 812.014 itself reaches a person who knowingly obtains or uses, or endeavors to obtain or to use, the property of another with intent to deprive the owner of a right to it or to appropriate it to someone not entitled to it. A second statute can also apply. Statute 817.034(3)(d) defines a scheme to defraud as a systematic, ongoing course of conduct with intent to defraud one or more persons, or with intent to obtain property from one or more persons by false or fraudulent pretenses, representations, endorsements of nonconsenting parties, or promises or willful misrepresentations of a future act, and 817.034(4)(a) makes engaging in such a scheme and obtaining property organized fraud. That definition does not describe an isolated act, so where organized fraud is charged the pattern is an element rather than a way of describing the total. Either statute can be the vehicle, and both can appear on the same charging document. Whether both can stand at conviction for the same conduct is a separate double jeopardy question with its own case law, and it is one to raise with a lawyer rather than one this page settles.",
         },
       },
       {
@@ -1834,19 +1834,19 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         kind: "prose",
         answers: ["facing"],
         prose: [
-          "Most theft pages are organised around a table of dollar thresholds. This one is not, and the reason is the fork above rather than an omission. The amount matters, but it does not decide the case on its own, because the same money produces a different offense level depending on which statute the count is brought under.",
+          "Most theft pages are organized around a table of dollar thresholds. This one is not, and the reason is the fork above rather than an omission. The amount matters, but it does not decide the case on its own, because the same money produces a different offense level depending on which statute the count is brought under.",
           "Charged as theft, the tiers are the ordinary ones in Statute 812.014. Charged as organized fraud under Statute 817.034(4)(a), there are three: an aggregate value of less than $20,000 is a felony of the third degree, $20,000 or more but less than $50,000 is a felony of the second degree, and $50,000 or more is a felony of the first degree. Those cut lines are not the theft cut lines, and $50,000 is the clearest example: a first degree felony as organized fraud, a second degree felony as theft.",
-          "The offense levels diverge too, and not always in the direction people expect. A $25,000 accusation is a second degree felony either way, at offense level 6 as theft and level 5 as organized fraud. The degree is identical, the scoresheet input is not, and the scoresheet is what the sentence is calculated from. The full value-to-offense-level comparison belongs in one place rather than on each page that touches it, and this page links to it rather than reproducing it.",
+          "The offense levels diverge too, and not always in the direction people expect. A $25,000 accusation is a second degree felony either way, at offense level 6 as theft and level 5 as organized fraud. The degree is identical, the scoresheet input is not, and the scoresheet is what the sentence is calculated from. The full value-to-offense-level comparison belongs in one place rather than being reproduced on each page that touches it.",
         ],
       },
       {
-        id: "authorised",
-        heading: "Four elements, and the one that authorised access moves the fight to",
+        id: "authorized",
+        heading: "Four elements, and the one that authorized access moves the fight to",
         kind: "bullets",
         answers: ["facing"],
         bullets: [
           "That the property belonged to someone else, which in these cases is rarely in dispute.",
-          "That the defendant knowingly obtained or used it. Because possession was authorised at the outset, the argument is usually about use rather than about obtaining.",
+          "That the defendant knowingly obtained or used it. Because possession was authorized at the outset, the argument is usually about use rather than about obtaining.",
           "That the defendant intended to deprive the owner of a right or benefit, or to appropriate the property to someone not entitled to it. Where access began lawfully, intent is ordinarily the contested element.",
           "If the charge is organized fraud, that the conduct was a systematic, ongoing course of conduct, which is a different thing from a single transaction and has to be shown as such.",
         ],
@@ -1869,8 +1869,8 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
             heading: "Rights, which apply the same way inside a company as outside it",
             items: [
               "You have the right to decline to answer questions. An internal interview is not a court, and what is said there does not stay inside the company.",
-              "You have the right to a lawyer, and to have one appointed if you cannot afford one. Neither depends on being charged first.",
-              "Repayment is a decision to take with advice. It does not answer the elements of the offense, and how a repayment is characterised afterwards can carry consequences of its own.",
+              "You can hire a lawyer at any point, and that does not depend on being charged first. Appointed counsel is different: it arrives at first appearance after an arrest, under Rule 3.130(c)(1). At the internal-interview stage there is no hearing yet, so an appointment will not happen on its own.",
+              "Repayment is a decision to take with advice. It does not answer the elements of the offense, and how a repayment is characterized afterwards can carry consequences of its own.",
             ],
           },
         ],
@@ -1916,7 +1916,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         kind: "prose",
         answers: ["who"],
         prose: [
-          "Early on the decisions are being made inside a company, by people who are not neutral and are not bound by criminal procedure. An internal investigator, an outside accountant, and an insurer each answer to the organisation rather than to a court.",
+          "Early on the decisions are being made inside a company, by people who are not neutral and are not bound by criminal procedure. An internal investigator, an outside accountant, and an insurer each answer to the organization rather than to a court.",
           "Once a report is made, the Office of the State Attorney for the Thirteenth Judicial Circuit decides whether to charge and under which statute, and that decision reaches further than the sentence does. Felony charges are heard in circuit court, and the county Clerk holds the file.",
           "Who to call, and when. If a charge exists and you cannot afford a lawyer, counsel is addressed at the first appearance: Rule 3.130(b)(1)(B) requires the judge to advise you of the right and that counsel will be appointed, and Rule 3.130(c)(1) requires immediate appointment once the judge determines you are entitled to it and want it. If no charge exists yet, which is the ordinary position while an internal review is running, there is no hearing to raise it at and no appointment will happen on its own. That is the gap specific to these cases: the stage where the record is being assembled is the stage with no court in it, so a defense lawyer is the only route available during it.",
         ],
@@ -1924,14 +1924,15 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     ],
     faq: [
       { question: "Is there an embezzlement law in Florida?", source: "drafted", answer: "Not under that name. The conduct is prosecuted as theft under Statute 812.014, and where the accusation covers a series of transactions it may instead be charged as organized fraud under Statute 817.034. Embezzlement describes the fact pattern rather than the charge on the paperwork." },
-      { question: "How much do you have to take for it to be a felony in Florida?", source: "drafted", answer: "Charged as theft, the felony threshold is $750, rising in degree at $20,000 and at $100,000. Charged as organized fraud under Statute 817.034, the tiers sit at less than $20,000, at $20,000 or more, and at $50,000 or more, so the same money can produce a different degree depending on the count." },
+      { question: "How much do you have to take for it to be a felony in Florida?", source: "drafted", answer: "Charged as theft, $750 is the general line, and it only settles the question where the property was not taken from a dwelling and is not one of the items the statute lists. Taken from a dwelling or its unenclosed curtilage the line drops to $40 under Statute 812.014(2)(d)1., the listed items are felonies whatever they were worth, and prior theft convictions open a felony route of their own. Above the general line the degree rises at $20,000 and again at $100,000. Charged as organized fraud under Statute 817.034, the tiers sit at less than $20,000, at $20,000 or more, and at $50,000 or more, so the same money can produce a different degree depending on the count." },
       { question: "Does the charging choice change the exposure?", source: "drafted", answer: "It can, and not always as expected. A $25,000 accusation charged as theft is a second degree felony at offense level 6; the same figure as organized fraud is a second degree felony at offense level 5. The degree is identical and the offense level is not, and the offense level is what the scoresheet uses." },
       { question: "Can an embezzlement record be sealed afterwards?", source: "drafted", answer: "It depends on how the case ends. Statute 943.0584(2) bars sealing where the record is a conviction for a listed offense, and the Florida Communications Fraud Act at Statute 817.034 is listed at paragraph (v). Theft under Statute 812.014 is not listed. Because the trigger is the conviction rather than the charge, a case charged under 817.034 that does not end in a conviction on that count is not barred by it." },
-      { question: "If I pay the money back, does the case go away?", source: "drafted", answer: "Repayment does not answer the elements of the offense, so it does not by itself end a criminal case. It can be relevant at other stages, including in negotiation and at sentencing, and it may matter to a separate civil claim. Because how a repayment is characterised carries its own consequences, it is a decision to make with a lawyer." },
-      { question: "Does it matter that I was allowed to handle the money?", source: "drafted", answer: "It changes which part of the case is in dispute. Because access was authorised at the outset, the argument is rarely about whether property was obtained and is usually about use and intent. Statute 812.014 requires an intent to deprive the owner of a right or benefit, or to appropriate the property to someone not entitled to it, and that is a separate question from whether a transaction happened." },
+      { question: "If I pay the money back, does the case go away?", source: "drafted", answer: "Repayment does not answer the elements of the offense, so it does not by itself end a criminal case. It can be relevant at other stages, including in negotiation and at sentencing, and it may matter to a separate civil claim. Because how a repayment is characterized carries its own consequences, it is a decision to make with a lawyer." },
+      { question: "Does it matter that I was allowed to handle the money?", source: "drafted", answer: "It changes which part of the case is in dispute. Because access was authorized at the outset, the argument is rarely about whether property was obtained and is usually about use and intent. Statute 812.014 requires an intent to deprive the owner of a right or benefit, or to appropriate the property to someone not entitled to it, and that is a separate question from whether a transaction happened." },
+      { question: "Is this a state case or a federal case?", source: "drafted", answer: "It can be either, and the answer is visible on the paperwork rather than in the conduct. A case brought by the Office of the State Attorney for the Thirteenth Judicial Circuit under Florida law is heard in circuit court in Hillsborough County. The same fact pattern can instead be prosecuted federally where the money belonged to a bank, to an employee benefit plan, or to an organization that receives federal funds, in which case the prosecutor is a United States Attorney and the court is federal. The charging document names both, so it is the first thing to look at. This page covers the Florida track." },
     ],
     // [NEEDS: Layer 2 targets from the brief] W1-02 names a professional
-    // licence guide and the 33-day correction guide. Neither has a route yet,
+    // license guide and the 33-day correction guide. Neither has a route yet,
     // so the generic hub stands rather than shipping a broken link.
     relatedGuides: [{ label: "Tools and guides", href: "/resources/tools-and-guides" }],
   },
@@ -2904,7 +2905,7 @@ export type Credential = {
   label: string;
   kind: "court" | "certification" | "membership";
   /**
-   * Path under /public to the organisation's mark. Renders instead of the
+   * Path under /public to the organization's mark. Renders instead of the
    * label when present, with the label as its alt text.
    *
    * Only ever set this for a MEMBERSHIP or CERTIFICATION, never for a court.
@@ -2915,7 +2916,7 @@ export type Credential = {
    *
    * [NEEDS: logo files AND written permission to use each mark] Membership
    * does not by itself grant trademark usage rights, and every one of these
-   * organisations has its own brand policy. WEBSITE-PLAN.md Open Question 8.
+   * organizations has its own brand policy. WEBSITE-PLAN.md Open Question 8.
    */
   logo?: string;
   /**
@@ -2931,7 +2932,7 @@ export type Credential = {
  * THIS IS THE HIGHEST-RISK CONTENT ON THE SITE. A certification or membership
  * displayed without the underlying fact is a Rule 4-7.14 problem, not a copy
  * problem, and "Board Certified" specifically is unusable unless an attorney
- * actually holds it AND the strip names the certifying organisation and the
+ * actually holds it AND the strip names the certifying organization and the
  * certified area (Rule 4-7.14(a)(4)).
  *
  * So the five items from the client meeting are all confirmed: false. What
@@ -2939,14 +2940,14 @@ export type Credential = {
  * repo and are claims about where the firm appears rather than about what it
  * has been awarded.
  *
- * [NEEDS: board certification status, and if held, the certifying organisation
+ * [NEEDS: board certification status, and if held, the certifying organization
  * and the certified area] WEBSITE-PLAN.md Open Question 7.
  * [NEEDS: confirm HCBA, NACDL, DUIDLA, and FJA memberships, and permission to
- * use each organisation's mark] Open Question 8. Membership does not by itself
+ * use each organization's mark] Open Question 8. Membership does not by itself
  * grant trademark usage rights.
  * [NEEDS: confirm FACDL membership] The Florida Association of Criminal Defense
  * Lawyers is the on-point credential for this firm and was missing from the
- * client list; FJA is primarily a plaintiff-side organisation.
+ * client list; FJA is primarily a plaintiff-side organization.
  */
 export const credentials: Credential[] = [
   { label: "The Florida Bar", kind: "court", confirmed: true },
@@ -2998,19 +2999,19 @@ export const credentials: Credential[] = [
     logo: "/logos/placeholder-6.svg",
   },
   // Two reserved slots, deliberately unnamed. The strip was sized for eight
-  // marks before the eight were known, and inventing organisation names to
+  // marks before the eight were known, and inventing organization names to
   // fill it would put guesses into the data where a real answer belongs. An
   // unconfirmed entry renders as an unlabelled square either way, so a slot
-  // with no organisation behind it is honest rather than lossy.
-  // [NEEDS: which organisations fill slots 7 and 8, if any] Open Question 8.
+  // with no organization behind it is honest rather than lossy.
+  // [NEEDS: which organizations fill slots 7 and 8, if any] Open Question 8.
   {
-    label: "[NEEDS: organisation]",
+    label: "[NEEDS: organization]",
     kind: "membership",
     confirmed: false,
     logo: "/logos/placeholder-7.svg",
   },
   {
-    label: "[NEEDS: organisation]",
+    label: "[NEEDS: organization]",
     kind: "membership",
     confirmed: false,
     logo: "/logos/placeholder-8.svg",
@@ -3026,7 +3027,7 @@ export const credentials: Credential[] = [
  * out of the strip loses nothing.
  *
  * An entry with `confirmed: false` still renders, but as an UNLABELLED square
- * with generic alt text. The organisation is never named, so the strip can show
+ * with generic alt text. The organization is never named, so the strip can show
  * its full width without the page claiming a certification or membership the
  * firm has not established. Swapping a real file into `logo` is NOT enough to
  * name one: flip `confirmed` to true, and only after WEBSITE-PLAN.md Open

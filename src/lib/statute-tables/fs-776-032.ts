@@ -7,7 +7,7 @@
  * not hand-edit a row without re-running the audit; the claim checker treats
  * these as ground truth.
  */
-import type { StatuteTable } from "../statutes";
+import type { StatuteTable } from "../statutes.ts";
 
 export const TABLE_776_032: StatuteTable = {
   cite: "776.032",

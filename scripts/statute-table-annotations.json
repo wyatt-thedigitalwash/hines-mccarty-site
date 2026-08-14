@@ -1,0 +1,25 @@
+{
+  "_why": [
+    "PROJECT ANNOTATIONS the audit pipeline does not produce, applied by",
+    "scripts/generate-statute-tables.mjs on top of audited rows.",
+    "",
+    "`residual` is the one that matters. A residual clause applies to whatever",
+    "the rest of the section does not reach, so any sentence giving it a dollar",
+    "floor asserts something about every other paragraph. All three errors that",
+    "shipped on the grand theft page were exactly that sentence, and",
+    "check-claims.mts catches them ONLY via rows flagged residual.",
+    "",
+    "The build/audit schema has no residual field: auditors describe the clause",
+    "in `trigger` prose instead. Prose does not arm a guard. Without this file",
+    "the generated table would drop the flag and the residual rule would go",
+    "quiet while still appearing to run, which is precisely the failure mode",
+    "this project already hit once with the completeness flag.",
+    "",
+    "A cite listed here that matches no row is a hard error, not a warning, so",
+    "a renumbered subsection cannot silently disarm the rule."
+  ],
+  "812.014": {
+    "residual": ["812.014(3)(a)"],
+    "note": "Theft of any property not specified in subsection (2). Its floor is wherever the other paragraphs stop, so it has none of its own."
+  }
+}
