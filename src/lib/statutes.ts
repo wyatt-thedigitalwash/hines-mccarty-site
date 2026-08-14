@@ -57,6 +57,14 @@ export type GradingRow = {
   cite: string;
   /** Inclusive lower bound in dollars, or null where value is not the trigger. */
   min: number | null;
+  /**
+   * True where the statute's threshold is strict ("in excess of $3,000"), so
+   * the bound itself does NOT qualify. Without this flag the schema could only
+   * express inclusive minimums, and a guard asking "what happens at exactly
+   * $3,000" would wrongly include the row. Found by the 812.014 round-2
+   * re-audit.
+   */
+  minExclusive?: boolean;
   /** Exclusive upper bound in dollars, or null for open-ended. */
   max: number | null;
   degree: Degree;
@@ -396,7 +404,8 @@ export function rowsAt(
     (r) =>
       (r.scope ?? null) === want &&
       (r.min !== null || r.max !== null) &&
-      (r.min === null || amount >= r.min) &&
+      (r.min === null ||
+        (r.minExclusive ? amount > r.min : amount >= r.min)) &&
       (r.max === null || amount < r.max),
   );
 }

@@ -61,6 +61,7 @@ for (const ck of [...passes.keys()].sort()) {
       `max: ${JSON.stringify(r.max ?? null)}`,
       `degree: ${JSON.stringify(r.degree)}`,
     ];
+    if (r.minExclusive) parts.push(`minExclusive: true`);
     if (r.level != null) parts.push(`level: ${r.level}`);
     if (r.trigger) parts.push(`trigger: ${JSON.stringify(r.trigger)}`);
     if (r.scope) parts.push(`scope: ${JSON.stringify(r.scope)}`);
