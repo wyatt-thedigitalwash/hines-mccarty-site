@@ -712,3 +712,135 @@ all three LSD tiers at (1)(l). The page therefore does not claim the chart
 ranks them. It rests the floor on F.S. 921.0023(3), which places an unlisted
 first degree felony in level 7, a verified row in fs-921-0023.ts. The brief's
 claim was true and its stated basis was incomplete.
+
+## Legacy sweep, fetched BEFORE the pages shipped, 2026-08-14
+
+The build gate stopped two of the four migrated pages: the DUI page cited
+F.S. 322.271(2)(a) and the Florida money laundering page cited F.S.
+896.101(3)(a), both flagged UNVERIFIED in their briefs, neither covered by a
+row in an audited table. Neither could be: the tables record provisions that
+ASSIGN A DEGREE, and these are a restricted-licence provision and a
+prohibited-conduct definition. Both were fetched whole, and the agent that
+fetched each then checked every sentence on the page that rests on it.
+
+**Both pages came back CLEAN.** Recording that here matters as much as
+recording a correction would: the gate fired on missing PROVENANCE rather than
+on a wrong claim, which is what it is for.
+
+### F.S. 322.271, hardship and restricted driving privilege
+
+Source: `F.S. 322.271 (2025) via https://www.flsenate.gov/Laws/Statutes/2025/322.271, fetched with curl and de-tagged locally`.
+
+Method: curl -sL to /tmp/fs322271.html, then a local python3 regex strip of script/style/tags with html.unescape to /tmp/fs322271.txt; read the whole section rather than the flagged paragraph alone, including subsection (1) flush text, all of (2)(a)-(e), and (7), plus the History and the delayed-effective-date note for (1)(b).
+
+**F.S. 322.271(2), flush text introducing (a)-(e)**
+
+> At such hearing, the person whose license has been suspended, canceled, or revoked may show that such suspension, cancellation, or revocation causes a serious hardship and precludes the person from carrying out his or her normal business occupation, trade, or employment and that the use of the person's license in the normal course of his or her business is necessary to the proper support of the person or his or her family.
+
+**F.S. 322.271(2)(a), first sentence**
+
+> Except as otherwise provided in this subsection, the department shall require proof of the successful completion of the applicable department-approved driver training course operating pursuant to s. 318.1451 or DUI program substance abuse education course and evaluation as provided in s. 316.193(5).
+
+**F.S. 322.271(2)(a), second sentence**
+
+> Letters of recommendation from respected business persons in the community, law enforcement officers, or judicial officers may also be required to determine whether the person should be permitted to operate a motor vehicle on a restricted basis for business or employment use only and in determining whether such person can be trusted to so operate a motor vehicle.
+
+**F.S. 322.271(2)(a), third sentence (the 322.2615 carve-out: enrollment, not completion)**
+
+> If a driver license has been suspended under the point system or under s. 322.2615, the department shall require proof of enrollment in the applicable department-approved driver training course or licensed DUI program substance abuse education course, including evaluation and treatment, if referred, and may require letters of recommendation described in this paragraph to determine if the driver should be reinstated on a restricted basis.
+
+**F.S. 322.271(2)(a), fourth through sixth sentences (post-reinstatement conditions)**
+
+> If the person fails to complete the approved course within 90 days after reinstatement or subsequently fails to complete treatment, the department shall cancel his or her driver license until the course and treatment, if applicable, is successfully completed, notwithstanding the terms of the court order or any suspension or revocation of the driving privilege. The department may temporarily reinstate the driving privilege on a restricted basis upon verification from the DUI program that the offender has reentered and is currently participating in treatment and has completed the DUI education course and evaluation requirement. If the DUI program notifies the department of the second failure to complete treatment, the department shall reinstate the driving privilege only after notice of completion of treatment from the DUI program.
+
+**F.S. 322.271(2)(a), seventh sentence (bar tied to a 316.193 conviction)**
+
+> The privilege of driving on a limited or restricted basis for business or employment use may not be granted to a person who has been convicted of a violation of s. 316.193 until completion of the DUI program substance abuse education course and evaluations as provided in s. 316.193(5).
+
+**F.S. 322.271(2)(a), final sentence (the repeat-offender / repeat-refusal bar)**
+
+> Except as provided in paragraph (c), the privilege of driving on a limited or restricted basis for business or employment use may not be granted to a person whose license is revoked pursuant to s. 322.28 or suspended pursuant to s. 322.2615 and who has been convicted of a violation of s. 316.193 two or more times or whose license has been suspended two or more times for refusal to submit to a test pursuant to s. 322.2615 or former s. 322.261.
+
+**F.S. 322.271(1)(a)**
+
+> Upon the suspension, cancellation, or revocation of the driver license of any person as authorized or required in this chapter, except a person whose license is revoked as a habitual traffic offender under s. 322.27(5) or a person who is ineligible to be granted the privilege of driving on a limited or restricted basis under subsection (2), the department shall immediately notify the licensee and, upon his or her request, shall afford him or her an opportunity for a hearing pursuant to chapter 120, as early as practicable within not more than 30 days after receipt of such request, in the county wherein the licensee resides, unless the department and the licensee agree that such hearing may be held in some other county.
+
+**F.S. 322.271(1)(c)1. and 2., with the flush text that follows them**
+
+> 1. "A driving privilege restricted to business purposes only" means a driving privilege that is limited to any driving necessary to maintain livelihood, including driving to and from work, necessary on-the-job driving, driving for educational purposes, and driving for church and for medical purposes. 2. "A driving privilege restricted to employment purposes only" means a driving privilege that is limited to driving to and from work and any necessary on-the-job driving required by an employer or occupation. ... Driving for any purpose other than as provided by this paragraph is not permitted by a person whose driving privilege has been restricted to employment or business purposes. In addition, a person whose driving privilege is restricted to employment or business purposes remains subject to any restriction that applied to the type of license which the person held at the time of the order of suspension, cancellation, or revocation.
+
+**What it establishes.**
+
+- The flagged subsection is fully covered by the fetch and the page's use of it is accurate; no page sentence needs fixing on account of 322.271(2)(a).
+
+- Only one page location depends on 322.271(2)(a): src/lib/site.ts line 2390, inside CHARGE_CONTENT["state/dui-defense"], section id "ten-days"/"Formal review, informal review, or the business purposes trade". A grep of the whole repo for "322.271" turns up no other page assertion resting on (2)(a).
+
+- ST-04-dui.md flagged (2)(a) UNVERIFIED but the brief itself only ever discusses 322.271(7) (see docs/research/briefs/ST-04-dui.md lines 493, 513, 516, 770, 807, 823). The (2)(a) citation appears to have entered at the drafting stage, after the brief, which is consistent with the gate firing on a subsection no brief had read.
+
+- The load-bearing distinction in (2)(a) is completion versus enrollment. General rule: "the department shall require proof of the successful completion". Carve-out: "If a driver license has been suspended under the point system or under s. 322.2615, the department shall require proof of enrollment". A page that said DUI administrative suspensions require completed coursework for a hardship licence would be wrong; this page says enrollment, and is right.
+
+- (2)(a) contains no waiting period. Any future page sentence putting a wait on (2)(a) would be unsupported. The waits are in (2)(c) (12/24 months, s. 322.28(2)(a) revocations), (1)(b) (12 months, HTO), and (4)/(5) (5 years, permanent revocations), and the 30/90-day DUI-suspension waits are in 322.2615(10), not here.
+
+- Two things in (2)(a) the page does not mention, worth considering for coverage rather than correction: the bar on granting the restricted privilege to anyone convicted of s. 316.193 until the s. 316.193(5) course and evaluations are completed, and the rule that failure to complete the course within 90 days after reinstatement, or a subsequent failure to complete treatment, requires the department to cancel the licence notwithstanding the court order. The second is a real practical trap for a reader who obtains the restricted privilege on proof of enrollment alone.
+
+**Page check.** VERDICT: CLEAN. Exactly one passage in CHARGE_CONTENT["state/dui-defense"] rests on 322.271(2)(a) -- the two sentences at /Users/wyattbensman/Library/Mobile Documents/com~apple~CloudDocs/The Digital Wash/client-sites/hines-mccarty-site/src/lib/site.ts line 2390, in the section headed "Formal review, informal review, or the business purposes trade" -- and both are supported by the fetched words. Sentence 1's (2)(a) limb ("where a license has been suspended under Statute 322.2615 the department shall require proof of enrollment in the applicable approved driver training course or licensed DUI program substance abuse education course, including evaluation and treatment if referred") tracks the
+
+### F.S. 896.101(3), the prohibited-conduct provision of the Florida Money Laundering Act
+
+Source: `F.S. 896.101 (2025 Florida Statutes), fetched with `curl -sL https://www.flsenate.gov/Laws/Statutes/2025/896.101` and de-tagged locally with a Python regex strip (no summariser in the loop). Full section text obtained, subsections (1) through (11) plus History line (last amended s. 12, ch. 2017-155). Local copies: /tmp/896101.html, /tmp/896101.txt.`.
+
+Method: curl + local tag strip; read the whole of subsection (3) including paragraph (d) and the flanking subsections (2), (4) and (5). Then read CHARGE_CONTENT["white-collar/money-laundering"] in /Users/wyattbensman/Library/Mobile Documents/com~apple~CloudDocs/The Digital Wash/client-sites/hines-mccarty-site/src/lib/site.ts (lines 1981-2154) and grepped every sentence citing 896.101(3), "subsection (3)", or the paragraph (b)/(c) conduct.
+
+**F.S. 896.101(3), introductory words**
+
+> It is unlawful for a person:
+
+**F.S. 896.101(3)(a), full text with subparagraphs**
+
+> (a) Knowing that the property involved in a financial transaction represents the proceeds of some form of unlawful activity, to conduct or attempt to conduct such a financial transaction which in fact involves the proceeds of specified unlawful activity: 1. With the intent to promote the carrying on of specified unlawful activity; or 2. Knowing that the transaction is designed in whole or in part: a. To conceal or disguise the nature, the location, the source, the ownership, or the control of the proceeds of specified unlawful activity; or b. To avoid a transaction reporting requirement or money transmitters' registration requirement under state law.
+
+**F.S. 896.101(3)(b)**
+
+> (b) To transport or attempt to transport a monetary instrument or funds: 1. With the intent to promote the carrying on of specified unlawful activity; or 2. Knowing that the monetary instrument or funds involved in the transportation represent the proceeds of some form of unlawful activity and knowing that such transportation is designed in whole or in part: a. To conceal or disguise the nature, the location, the source, the ownership, or the control of the proceeds of specified unlawful activity; or b. To avoid a transaction reporting requirement or money transmitters' registration requirement under state law.
+
+**F.S. 896.101(3)(c)**
+
+> (c) To conduct or attempt to conduct a financial transaction which involves property or proceeds which an investigative or law enforcement officer, or someone acting under such officer's direction, represents as being derived from, or as being used to conduct or facilitate, specified unlawful activity, when the person's conduct or attempted conduct is undertaken with the intent: 1. To promote the carrying on of specified unlawful activity; or 2. To conceal or disguise the nature, the location, the source, the ownership, or the control of the proceeds or property believed to be the proceeds of specified unlawful activity; or 3. To avoid a transaction reporting requirement under state law.
+
+**F.S. 896.101(3)(d)**
+
+> (d) For the purposes of this subsection, "investigative or law enforcement officer" means any officer of the State of Florida or political subdivision thereof, of the United States, or of any other state or political subdivision thereof, who is empowered by law to conduct, on behalf of the government, investigations of, or to make arrests for, offenses enumerated in this subsection or similar federal offenses.
+
+**F.S. 896.101(2), introductory words**
+
+> As used in this section, the term:
+
+**F.S. 896.101(2)(a)**
+
+> "Conducts" includes initiating, concluding, or participating in initiating or concluding a transaction.
+
+**F.S. 896.101(2)(c)**
+
+> "Financial transaction" means a transaction involving the movement of funds by wire or other means or involving one or more monetary instruments, which in any way or degree affects commerce, or a transaction involving the transfer of title to any real property, vehicle, vessel, or aircraft, or a transaction involving the use of a financial institution which is engaged in, or the activities of which affect, commerce in any way or degree.
+
+**F.S. 896.101(2)(d)**
+
+> "Knowing" means that a person knew; or, with respect to any transaction or transportation involving more than $10,000 in U.S. currency or foreign equivalent, should have known after reasonable inquiry, unless the person has a duty to file a federal currency transaction report, IRS Form 8300, or a like report under state law and has complied with that reporting requirement in accordance with law.
+
+**What it establishes.**
+
+- 896.101(3)(a) reaches BOTH designs, not one: subparagraph 2.a is concealment or disguise of the nature, location, source, ownership or control of the proceeds, and 2.b is avoidance of a transaction reporting requirement OR a money transmitters' registration requirement under state law. The page names both, and keeps the 'under state law' limit.
+
+- The mental element of (3)(a) is two-layered and the page carries both layers: an antecedent knowledge that the property represents the proceeds of some form of unlawful activity (defined loosely at (2)(e)), plus either intent to promote specified unlawful activity under 1., or knowledge that the transaction is designed to conceal or to avoid a reporting/registration requirement under 2. The objective 'which in fact involves the proceeds of specified unlawful activity' clause sits outside the mens rea and the page treats it separately at line 2149.
+
+- (2)(d) makes 'knowing' reach constructive knowledge above $10,000: 'should have known after reasonable inquiry, unless the person has a duty to file a federal currency transaction report, IRS Form 8300, or a like report under state law and has complied with that reporting requirement.' The page quotes this accurately at line 2052 and again at line 2112.
+
+- Subsection (3) carries no dollar figure anywhere, including (3)(d). The page's claim at line 2054 that the amount belongs to subsection (5) and not to the prohibition is correct.
+
+- (3)(a) covers attempt on the face of the paragraph: 'to conduct or attempt to conduct such a financial transaction'. So does (3)(b) ('transport or attempt to transport') and (3)(c).
+
+- (3)(d) is a definitional paragraph inside subsection (3) defining 'investigative or law enforcement officer' for that subsection. It is unused on the page and nothing on the page contradicts it.
+
+**Page check.** VERDICT: CLEAN. Every sentence in CHARGE_CONTENT["white-collar/money-laundering"] that rests on 896.101(3)(a) is supported by the fetched text. Specifics, by sentence.
+
+(1) src/lib/site.ts:2053, elements bullet: "One of the purposes the statute names. Under Statute 896.101(3)(a) the conduct is unlawful where it is done with the intent to promote the carrying on of specified unlawful activity, or knowing that the transaction is designed in whole or in part to conceal or disguise the nature, the location, the source, the ownership, or the control of the proceeds of specified unlawful activity, or to avoid a transaction reporting requirement or money transmitters' registration requirement under

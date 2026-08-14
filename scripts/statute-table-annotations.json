@@ -46,6 +46,10 @@
     "minExclusive": ["896.101(5)(a)"],
     "note": "Financial transaction totals in dollars. (5)(a) reads 'exceeding $300', which the row's own trigger text records as exclusive while the typed min could not express it: the table was audited before minExclusive existed. Transcribed here rather than left in prose, because $300 exactly is a real boundary a page could state wrongly."
   },
+  "896.104": {
+    "amountUnit": "usd",
+    "note": "Financial transaction values in dollars, in the same three-tier shape as 896.101(5). Note the builder encoded the two strict thresholds as 300.01 and 10000.01 rather than as a round bound with minExclusive; the arithmetic comes out right at $300 and $10,000 either way, but a future re-audit should normalize it so the convention matches 896.101(5)(a)."
+  },
   "817.568": {
     "amountUnit": "mixed-usd-and-person-count",
     "note": "AMOUNT RULES OFF, and this is the clearest case for the whole mechanism. Paragraphs (2)(b) and (2)(c) each carry TWO independent prongs sharing one pair of numeric fields: a dollar prong ($5,000 or more, $50,000 or more, $100,000 or more) and a person-count prong (10 to 20 persons, 20 to 30, 30 or more). The ranges overlap in the small numbers, so a sentence about $15 would be compared against the 10-to-20 PERSON row and answered with a felony degree. No page may have its dollar claims about this statute machine-checked."

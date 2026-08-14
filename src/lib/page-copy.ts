@@ -49,6 +49,31 @@ export const RENDERED_FIELDS = [
   "lastReviewed",
 ] as const;
 
+/**
+ * A penalty row is ONE claim, so it is one entry.
+ *
+ * The fields were emitted separately, which left `check-claims.mts` to
+ * reassemble them: it joins entries with a newline and splits on sentence
+ * punctuation, so "Second degree felony" ran into its own note and the degree
+ * could be checked against the note's dollar figures. That association is the
+ * point, and it must survive. But the same accident ran UNRELATED fields
+ * together too, and "Tools and guides" (a related-guide label, emitted just
+ * before the sections) merged with the first section heading and then borrowed
+ * a citation from the prose after it, producing a subsection-to-degree failure
+ * against a page that was correct. Making the row one entry keeps the true
+ * association and lets the checker terminate entries to stop the false one.
+ */
+function penaltyRow(p: {
+  degree: string;
+  maximum: string;
+  offenseLevel?: string;
+  note?: string;
+}): string {
+  return [p.degree, p.maximum, p.offenseLevel, p.note]
+    .filter((x): x is string => typeof x === "string" && x.length > 0)
+    .join(", ");
+}
+
 export function pageCopy(c: ChargePage): string[] {
   const out: (string | undefined)[] = [
     c.label,
@@ -66,12 +91,7 @@ export function pageCopy(c: ChargePage): string[] {
     ...(c.elements ?? []),
     ...(c.defenseApproach ?? []),
     ...(c.forum ?? []),
-    ...(c.penalties ?? []).flatMap((p) => [
-      p.degree,
-      p.maximum,
-      p.offenseLevel,
-      p.note,
-    ]),
+    ...(c.penalties ?? []).map(penaltyRow),
     ...(c.faq ?? []).flatMap((f) => [f.question, f.answer]),
     ...(c.relatedGuides ?? []).map((g) => g.label),
     ...Object.values(c.readerNeeds ?? {}),
@@ -80,12 +100,7 @@ export function pageCopy(c: ChargePage): string[] {
       ...(s.prose ?? []),
       ...(s.bullets ?? []),
       ...(s.statute ? [s.statute.citation, s.statute.body] : []),
-      ...(s.penalties ?? []).flatMap((p) => [
-        p.degree,
-        p.maximum,
-        p.offenseLevel,
-        p.note,
-      ]),
+      ...(s.penalties ?? []).map(penaltyRow),
       ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
       ...(s.guidance ?? []).flatMap((g) => [g.heading, ...g.items]),
     ]),

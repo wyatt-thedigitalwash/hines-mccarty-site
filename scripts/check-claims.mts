@@ -281,10 +281,25 @@ function auditSentence(
     const cited: GradingRow[] = [];
     for (const m of s.matchAll(/\b(\d{3}\.\d{2,4}(?:\([0-9a-z]{1,3}\))+)/gi)) {
       const row = t.rows.find((r) => r.cite.replace(/\.$/, "") === `${m[1]}`);
-      if (row) cited.push(row);
+      // A row that assigns NO degree cannot contradict a degree claim. Pages
+      // cite definitional subsections for definitional reasons: the identity
+      // theft page cites 817.568(1)(e) to say that a corporation counts as a
+      // person for the count prong, in a sentence whose degree comes from a
+      // paragraph it describes rather than numbers. Counting that citation as
+      // a failed match reported an error against correct copy.
+      if (row && row.degree !== "no degree assigned") cited.push(row);
     }
     const claimed = [...degrees][0];
-    if (cited.length && !cited.some((r) => r.degree === claimed)) {
+    // A "punishable by life" row satisfies a claim of its base degree. The
+    // statute's own words grade F.S. 817.568(7) "a felony of the second degree
+    // punishable as provided in s. 775.082"; the PBL designation comes from
+    // the 921.0022 chart, not from the subsection. A page quoting the
+    // subsection is not misstating the degree, and the identity theft page
+    // separately sets out the discrepancy between the two readings and refers
+    // it to counsel, which is the honest treatment of a live conflict.
+    const satisfies = (rowDegree: Degree) =>
+      rowDegree === claimed || rowDegree === `${claimed} punishable by life`;
+    if (cited.length && !cited.some((r) => satisfies(r.degree))) {
       out.push({
         kind: "wrong-subsection-degree",
         sentence: s,
@@ -298,7 +313,23 @@ function auditSentence(
   return out;
 }
 
-const copyOf = pageCopy;
+/**
+ * Each rendered field is its own text, so it ends before the next one starts.
+ *
+ * The audit joins fields and splits on sentence punctuation. A field with no
+ * terminal punctuation therefore ran into the field after it, and the two were
+ * audited as one sentence. That is CORRECT inside a penalty row, where the
+ * degree and its note are one claim, and `pageCopy` now emits each row as a
+ * single entry to keep exactly that. It is wrong everywhere else: a
+ * related-guide label merged into a section heading, which then borrowed a
+ * citation from the prose that followed, and the checker reported a
+ * subsection-to-degree error on a page whose sentences were all correct.
+ *
+ * A gate that fails correct copy gets switched off, so the boundary is now
+ * explicit rather than accidental.
+ */
+const copyOf = (c: Parameters<typeof pageCopy>[0]) =>
+  pageCopy(c).map((s) => (/[.!?]["'”’)]?\s*$/.test(s) ? s : `${s}.`));
 
 // ================================================================
 // PART 1. The three errors that actually shipped.
