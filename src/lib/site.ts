@@ -2535,7 +2535,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         degree: "Second degree felony",
         maximum: "Up to 15 years",
         offenseLevel: "Level 5",
-        note: "Possession of a firearm, ammunition, or an electric weapon by a person covered by 790.23(1).",
+        note: "Possession of a firearm, ammunition, or an electric weapon by a person covered by 790.23(1), graded by 790.23(3), which reaches any violation of the section.",
       },
       {
         degree: "Third degree felony",

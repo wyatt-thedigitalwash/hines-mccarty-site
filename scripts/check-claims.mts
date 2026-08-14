@@ -105,9 +105,22 @@ function degreesIn(sentence: string): Set<Degree> {
 
 type Problem = { kind: string; sentence: string; detail: string };
 
-function auditSentence(s: string, statute: string): Problem[] {
+function auditSentence(
+  s: string,
+  statute: string,
+  opts: { primary?: boolean } = {},
+): Problem[] {
   const t = STATUTES[statute];
   if (!t) return [];
+  // The amount-to-degree and residual rules ask "is this dollar claim right
+  // under THIS statute's ladder". That question only makes sense against the
+  // statute the page is actually grading under, its PRIMARY statute(s). Run
+  // against every statute a page merely cites and a correct sentence about the
+  // theft ladder gets judged by the organized-fraud ladder, which is how the
+  // gate started crying wolf the day the table count hit 68. The
+  // citation-keyed rules (2 and 3) stay page-wide: they only fire on explicit
+  // citations of this statute, so they cannot cross wires.
+  const primary = opts.primary ?? true;
   const out: Problem[] = [];
   const degrees = degreesIn(s);
   const amounts = pointAmounts(s);
@@ -133,7 +146,7 @@ function auditSentence(s: string, statute: string): Problem[] {
 
   // 1. Amount-to-degree, checked against the ladder the sentence is talking
   // about: the general one unless the sentence names a scope.
-  if (degrees.size === 1 && amounts.length) {
+  if (primary && degrees.size === 1 && amounts.length) {
     const claimed = [...degrees][0];
     for (const amt of amounts) {
       const possible = degreesAt(statute, amt, { scope: scope ?? null });
@@ -181,7 +194,7 @@ function auditSentence(s: string, statute: string): Problem[] {
   // errors. A residual clause applies to what the rest of the section does not
   // reach, so describing it with a dollar figure, or with "only", asserts a
   // floor it does not have. Every error on this page did exactly that.
-  for (const row of t.rows.filter((r) => r.residual)) {
+  for (const row of primary ? t.rows.filter((r) => r.residual) : []) {
     const namesRow =
       s.includes(row.cite) ||
       (degrees.size === 1 && [...degrees][0] === row.degree);
@@ -217,17 +230,26 @@ function auditSentence(s: string, statute: string): Problem[] {
     });
   }
 
-  // 3. Subsection-to-degree.
-  for (const m of s.matchAll(/\b(\d{3}\.\d{2,4}(?:\([0-9a-z]{1,3}\))+)/gi)) {
-    const cite = m[1];
-    const row = t.rows.find((r) => r.cite.replace(/\.$/, "") === `${cite}`);
-    if (!row || degrees.size !== 1) continue;
+  // 3. Subsection-to-degree. A sentence often cites the conduct subsection
+  // alongside the penalty subsection ("a person covered by (1) ... under (3)"),
+  // so the claim stands if ANY cited row carries the degree. It fails when the
+  // sentence names rows and none of them supports the degree it states, which
+  // still catches the original error shape: one citation, wrong degree.
+  if (degrees.size === 1) {
+    const cited: GradingRow[] = [];
+    for (const m of s.matchAll(/\b(\d{3}\.\d{2,4}(?:\([0-9a-z]{1,3}\))+)/gi)) {
+      const row = t.rows.find((r) => r.cite.replace(/\.$/, "") === `${m[1]}`);
+      if (row) cited.push(row);
+    }
     const claimed = [...degrees][0];
-    if (row.degree !== claimed) {
+    if (cited.length && !cited.some((r) => r.degree === claimed)) {
       out.push({
         kind: "wrong-subsection-degree",
         sentence: s,
-        detail: `attributes ${claimed} to ${cite}, which the table records as ${row.degree}. Source: "${row.quote.slice(0, 90)}"`,
+        detail:
+          `attributes ${claimed} to ${cited.map((r) => r.cite).join(", ")}, which the table records as ` +
+          `${[...new Set(cited.map((r) => r.degree))].join(", ")}. ` +
+          `Source: "${cited[0].quote.slice(0, 90)}"`,
       });
     }
   }
@@ -295,11 +317,18 @@ console.log("\nLegal claims on written pages");
   let any = false;
   for (const c of written) {
     const text = copyOf(c).join("\n");
-    // Only audit against statutes the page actually leans on.
+    // PRIMARY statutes are the ones the page formally presents in a statute
+    // block; the value-ladder rules run only against those. Everything else
+    // the page cites still gets the citation-keyed rules.
+    const primaryText = [
+      c.statute?.citation ?? "",
+      ...(c.sections ?? []).map((s) => s.statute?.citation ?? ""),
+    ].join("\n");
     for (const key of Object.keys(STATUTES)) {
       if (!text.includes(key)) continue;
+      const primary = primaryText.includes(key);
       for (const s of sentences(text)) {
-        for (const p of auditSentence(s, key)) {
+        for (const p of auditSentence(s, key, { primary })) {
           any = true;
           fail(`${chargeHref(c)} [${p.kind}] ${p.detail}\n        "${p.sentence.slice(0, 150)}"`);
         }

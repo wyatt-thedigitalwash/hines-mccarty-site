@@ -16,20 +16,23 @@ import { basename, join } from "node:path";
 
 const OUT = "src/lib/statute-tables";
 const DEGREES = new Set([
-  "capital felony", "life felony", "first degree felony", "second degree felony",
-  "third degree felony", "first degree misdemeanor", "second degree misdemeanor",
-  "no degree assigned",
+  "capital felony", "life felony", "first degree felony",
+  "first degree felony punishable by life", "second degree felony punishable by life",
+  "second degree felony", "third degree felony", "first degree misdemeanor",
+  "second degree misdemeanor", "no degree assigned",
 ]);
 const SCOPES = new Set(["dwelling", "item", "prior", "victim", "place"]);
 
 function canon(key) {
   let k = key.trim().replace(/^(fs|FS)[-_ ]/, "").replace(/-2025$/, "");
+  // USC first: "usc-18-924" would otherwise hit the dash-collapse branch below.
+  const usc = k.match(/^usc[- ](\d+)[- ](\w+)$/i);
+  if (usc) return usc[2];
   if ((k.match(/-/g) ?? []).length >= 2 && !k.includes(".")) {
     const parts = k.split("-");
     k = parts[0] + "." + parts.slice(1).join("");
   }
-  const usc = k.match(/^usc[- ](\d+)[- ](\w+)$/i);
-  return usc ? usc[2] : k;
+  return k;
 }
 
 const files = process.argv.slice(2);

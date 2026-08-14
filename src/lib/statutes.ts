@@ -34,6 +34,14 @@ export type Degree =
   | "capital felony"
   | "life felony"
   | "first degree felony"
+  // Real Florida grading categories the original 8-value union could not
+  // express, surfaced when the 921.0022 ranking chart landed: "punishable by
+  // imprisonment for a term of years not exceeding life". Distinct from both
+  // "life felony" and the plain degree, and the chart's controlling degree
+  // column uses them, so squeezing them into trigger text understates the
+  // exposure.
+  | "first degree felony punishable by life"
+  | "second degree felony punishable by life"
   | "second degree felony"
   | "third degree felony"
   | "first degree misdemeanor"
@@ -45,6 +53,8 @@ export const DEGREE_MAXIMUM: Record<Degree, string> = {
   "capital felony": "Death or life without parole",
   "life felony": "Up to life",
   "first degree felony": "Up to 30 years",
+  "first degree felony punishable by life": "Up to life (a term of years not exceeding life)",
+  "second degree felony punishable by life": "Up to life (a term of years not exceeding life)",
   "second degree felony": "Up to 15 years",
   "third degree felony": "Up to 5 years",
   "first degree misdemeanor": "Up to 1 year",

@@ -10,7 +10,7 @@ Sized at P0 inventory: **72 tables** (11 shared infrastructure statutes + 61
 primary charging statutes). Heavily shared: the theft statute serves 8 pages,
 775.082 serves 9, the ranking chart serves 12.
 
-Updated 2026-08-14, mid repair-round-2.
+Updated 2026-08-14 after repair round 2: 68 of 70 tables verified and applied. Repair round 2 passed 23 of 24 (only 812.014 remains, on two typed-field findings, one of which was an audit-prompt vocabulary artifact); batch 3 passed 28 of 29 (212.15 remains, one verifiable level to add). The 921.0022 chart passed a programmatic multiset-diff audit. Round 3 = mechanical patches to 812.014 and 212.15 plus independent re-audit. The Degree union gained the two punishable-by-life categories the chart surfaced, and GradingRow gained minExclusive.
 
 ## Verified and applied (18)
 
