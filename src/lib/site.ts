@@ -3535,6 +3535,11 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     metaTitle: "Federal Health Care Fraud Charges, 18 U.S.C. 1347 | Hines & McCarty",
     metaDescription: "18 U.S.C. 1347 states no dollar figure. It reaches a scheme against any health care benefit program, public or private, and rises from 10 years to life on a result.",
     lead: "Federal health care fraud under 18 U.S.C. 1347 turns on what the scheme was aimed at rather than on an amount. The statute reaches a scheme to defraud any health care benefit program, which 18 U.S.C. 24(b) defines to include a private plan. Nothing in the section sets a dollar threshold.",
+    counterpart: {
+      href: "/white-collar-defense/healthcare-fraud",
+      label: "Florida Medicaid provider fraud, F.S. 409.920",
+      note: "Florida prosecutes Medicaid provider fraud under its own statute, in a state circuit court, and that page covers it. The two are not two versions of one case: this page is about a scheme against any health care benefit program under federal law, and the Florida statute is written to claims submitted into the Florida Medicaid program. This page does not restate what the Florida statute requires or what it carries.",
+    },
     sections: [
       {
         id: "payer",
@@ -3980,6 +3985,11 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     metaTitle: "Federal Wire Fraud and Mail Fraud, 18 U.S.C. 1343 and 1341 | Hines & McCarty",
     metaDescription: "18 U.S.C. 1341 reaches any private or commercial interstate carrier and not only the Postal Service. What each section requires, the 20 year term, and the two conditions that raise it to 30.",
     lead: "Wire fraud and mail fraud open with the same words about a scheme or artifice to defraud, then part on how the scheme traveled. 18 U.S.C. 1343 names a wire, radio, or television transmission in interstate or foreign commerce. 18 U.S.C. 1341 names the Postal Service and any private or commercial interstate carrier.",
+    counterpart: {
+      href: "/white-collar-defense/wire-fraud",
+      label: "Wire fraud under Florida law",
+      note: "No Florida offense carries the name wire fraud. The state analogue is the Florida Communications Fraud Act, and that page covers it, including its per-communication offense and its aggregate-value tiers. A prosecution under 18 U.S.C. 1343 or 18 U.S.C. 1341 is a different statute in a different court, and this page does not restate the Florida one.",
+    },
     sections: [
       {
         id: "carrier",
