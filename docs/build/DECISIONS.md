@@ -747,3 +747,62 @@ Its audited row recorded that as inclusive because the table was built before
 annotation file now carries the flag, on the same footing as `residual`: prose
 inside a row does not arm a guard, and $300 exactly is a boundary a money
 laundering page could state wrongly.
+---
+
+### D23. A repair is a fresh writing act, and gets the same verification as writing
+
+**Decided 2026-08-14, from measurement rather than from principle.**
+
+The verification discipline was built around WRITING. Facts are verified first
+by agents who write no prose; writers may only assert a verified row. The
+REPAIR step never got the same treatment: a reviewer fetched the statute and
+reported, and the repair was then applied from that report plus a table
+lookup, in the main session, at speed.
+
+Round 7's regression check measured what that produced:
+
+| Round | Fixes applied | New errors those fixes introduced |
+|---|---|---|
+| 5 | 8 | 2, found in round 6 |
+| 6 | 13 | 3, found in round 7 |
+
+**Both round-6 errors were the project's signature shape**, committed by the
+repairer rather than the writer:
+
+1. A grep of the F.S. 921.0022 chart for the string `812.014(2)(a)3` returned
+   nothing, and the page was given the sentence "the ranking chart lists no
+   level for either". The chart row **keyed** `812.014(2)(a)1.` reads
+   "... ; property stolen while causing other property damage; 1st degree
+   grand theft", and that clause IS the (2)(a)3. conduct. **A cite-keyed
+   lookup is not a coverage test**, because a row's subject matter lives in
+   its text, not in its key.
+2. "The listed items are level 4 whatever they were worth" reached ten
+   subparagraphs. The chart ranks `(2)(c)4. & 6.-10.` at level 4; (2)(c)11.,
+   12. and 13. appear in no chart row at all.
+
+Reading part of a source and inferring the rest, which is the failure the
+whole fact layer exists to prevent.
+
+**The rule.** Repairs are applied by an agent that RE-FETCHES every provision
+it touches and returns, per edit, the verbatim words the new sentence rests
+on. A second agent then verifies only the new sentences against text it
+fetches itself, asking specifically whether the new text generalises beyond
+what the basis supports, which is where every recent failure sat. Edits are
+returned as exact old/new pairs and applied programmatically, so the main
+session composes no legal prose.
+
+**Evidence it works, gathered the same day, three times.** Every re-fetching
+agent beat a findings-list repair. The pre-write fetch block corrected the
+round-6 reviewer twice, on the 943.059 sealing mechanism and on the phrasing
+of Rule 3.111(a). The gun-page rewrite, told to verify rather than to trust a
+heading, found that five of the thirteen misdemeanors in 943.059(1)(b) are
+chapter 790 offenses, so the charging statute and the sealing statute read the
+same juvenile history for opposite purposes. No review round had that.
+
+**What this does not change.** The reviewer still reviews and still fetches
+first. The point is not that reviewers were wrong; it is that a finding is a
+diagnosis and the sentence written to answer it is a new claim, and this
+project does not publish claims nobody read a source for.
+
+**Applied to.** The pair-1 repair run of 2026-08-14 and every repair after it,
+including the legacy sweep and the remaining 21 pages.
