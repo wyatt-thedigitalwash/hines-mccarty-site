@@ -33,6 +33,7 @@ import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { charges, chargeHref } from "../src/lib/site.ts";
 import { pageCopy } from "../src/lib/page-copy.ts";
+import { STATUTES } from "../src/lib/statutes.ts";
 import type { ChargePage } from "../src/lib/site.ts";
 
 let failed = false;
@@ -204,9 +205,47 @@ const recorded = (() => {
   return out;
 })();
 
+/**
+ * An AUDITED STATUTE TABLE also clears a flag, and it is the stronger record.
+ *
+ * This gate predates the fact layer. When it was written the only evidence a
+ * subsection had been read was a quote in PAGE-SOURCES, so that file was the
+ * whole ledger. There are now 70 tables in src/lib/statute-tables/, each built
+ * from the full section by one agent, independently re-fetched and audited by
+ * a second, and each row carrying the verbatim words and the URL. A row is a
+ * better record than a markdown quote, not a worse one: it was adversarially
+ * checked and the markdown quote was not.
+ *
+ * TWO CONDITIONS, both required, because "we have a table" is not the claim
+ * being made. The claim is that THIS SUBSECTION was read:
+ *
+ *   1. The table's completeness is "whole-section". A partial table proves the
+ *      section was opened, not that this paragraph was reached, and the whole
+ *      point of that field is that a partial reading cannot support a negative.
+ *   2. A row actually cites this subsection, or a row's cite is a prefix of it
+ *      (a row on 893.13(6)(c) covers a citation of 893.13(6)(c)1.).
+ *
+ * What this does NOT do is clear a flag because the statute is present. An
+ * unlisted subsection of a whole-section table still fails, which is right:
+ * the tables record provisions that ASSIGN A DEGREE, so eligibility rules and
+ * definitions inside a fetched section have no row and still need a fetch.
+ */
+const tableCovered = (() => {
+  const out = new Set<string>();
+  for (const t of Object.values(STATUTES)) {
+    if (t.completeness !== "whole-section") continue;
+    for (const r of t.rows) {
+      const cite = r.cite.replace(/\s+/g, "").replace(/\.$/, "");
+      for (const ref of refs(cite)) out.add(ref);
+    }
+  }
+  return out;
+})();
+
 console.log(
   `\n${flaggedRefs.size} subsection-level UNVERIFIED flags across ${briefFiles.length} briefs; ` +
-    `${recorded.size} references recorded in PAGE-SOURCES.md`,
+    `${recorded.size} references recorded in PAGE-SOURCES.md; ` +
+    `${tableCovered.size} covered by a row in a whole-section audited table`,
 );
 
 // --------------------------------------------------------------- pre-write
@@ -275,11 +314,13 @@ console.log("\nWritten pages citing an unverified subsection");
       const hit = [...flaggedRefs].find(([f]) => covers(f, cited));
       if (!hit) continue;
       if (clearedBy(recorded, hit[0], cited)) continue;
+      if (clearedBy(tableCovered, hit[0], cited)) continue;
       any = true;
       fail(
         `${chargeHref(c)} cites ${cited.toUpperCase()}, which ${hit[1].join(", ")} ` +
-          `flagged UNVERIFIED, and PAGE-SOURCES.md records no fetch of it. ` +
-          `Fetch it and record it, or take the claim off the page.`,
+          `flagged UNVERIFIED. No fetch of it is recorded in PAGE-SOURCES.md, and no row ` +
+          `in a whole-section audited statute table covers it. Fetch it and record it, ` +
+          `build the table, or take the claim off the page.`,
       );
     }
   }
