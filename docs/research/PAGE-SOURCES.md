@@ -1307,3 +1307,45 @@ later work trusts this file without re-reading the source.
 **18 U.S.C. 1343, Fraud by wire, radio, or television, whole section, text in effect on August 13, 2026**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1343&num=0&edition=prelim`
 
 > Whoever, having devised or intending to devise any scheme or artifice to defraud, or for obtaining money or property by means of false or fraudulent pretenses, representations, or promises, transmits or causes to be transmitted by means of wire, radio, or television communication in interstate or foreign commerce, any writings, signs, signals, pictures, or sounds for the purpose of executing such scheme or artifice, shall be fined under this title or imprisoned not more than 20 years, or both. If the violation occurs in relation to, or involving any benefit authorized, transported, transmitted, transferred, disbursed, or paid in connection with, a presidentially declared major disaster or emergency (as those terms are defined in section 102 of the Robert T. Stafford Disaster Relief and Emergency Assistance Act (42 U.S.C. 5122)), or affects a financial institution, such person shall be fined not more than $1,000,000 or imprisoned not more than 30 years, or both.
+
+### federal/drug-trafficking, final pass 2026-08-14
+
+The 21 U.S.C. 860 material proposed in an earlier repair round was DROPPED
+rather than recorded. Keeping it would have made this page the place a whole
+statute enters the project record, quoted at length, for a paragraph about a
+protected-place enhancement that is not what a page on 841 and 846 is for. A
+reader facing one is holding an indictment that says section 860 on its face,
+and what it means for them is a lawyer's answer. The provisions below are
+load-bearing for the sentences that remain, so they are recorded.
+
+**21 U.S.C. 841(a) and (a)(1) (uscode.house.gov, prelim, fetched 2026-08-14, text in effect on August 13, 2026)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section841&num=0&edition=prelim`
+
+> Except as authorized by this subchapter, it shall be unlawful for any person knowingly or intentionally- (1) to manufacture, distribute, or dispense, or possess with intent to manufacture, distribute, or dispense, a controlled substance; or (2) to create, distribute, or dispense, or possess with intent to distribute or dispense, a counterfeit substance.
+
+**21 U.S.C. 841(b), introductory text (uscode.house.gov, prelim, fetched 2026-08-14)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section841&num=0&edition=prelim`
+
+> Except as otherwise provided in section 849, 859, 860, or 861 of this title, any person who violates subsection (a) of this section shall be sentenced as follows:
+
+**21 U.S.C. 841(b)(1)(C), opening clause and prior conviction sentence (uscode.house.gov, prelim, fetched 2026-08-14)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section841&num=0&edition=prelim`
+
+> In the case of a controlled substance in schedule I or II, gamma hydroxybutyric acid (including when scheduled as an approved drug product for purposes of section 3(a)(1)(B) of the Hillory J. Farias and Samantha Reid Date-Rape Drug Prohibition Act of 2000), or 1 gram of flunitrazepam, except as provided in subparagraphs (A), (B), and (D), such person shall be sentenced to a term of imprisonment of not more than 20 years and if death or serious bodily injury results from the use of such substance shall be sentenced to a term of imprisonment of not less than twenty years or more than life, a fine not to exceed the greater of that authorized in accordance with the provisions of title 18 or $1,000,000 if the defendant is an individual or $5,000,000 if the defendant is other than an individual, or both. If any person commits such a violation after a prior conviction for a felony drug offense has become final, such person shall be sentenced to a term of imprisonment of not more than 30 years and if death or serious bodily injury results from the use of such substance shall be sentenced to 
+
+**21 U.S.C. 841(b)(1)(D), first and second sentences (uscode.house.gov, prelim, fetched 2026-08-14)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section841&num=0&edition=prelim`
+
+> In the case of less than 50 kilograms of marihuana, except in the case of 50 or more marihuana plants regardless of weight, 10 kilograms of hashish, or one kilogram of hashish oil, such person shall, except as provided in paragraphs (4) and (5) of this subsection, be sentenced to a term of imprisonment of not more than 5 years, a fine not to exceed the greater of that authorized in accordance with the provisions of title 18 or $250,000 if the defendant is an individual or $1,000,000 if the defendant is other than an individual, or both. If any person commits such a violation after a prior conviction for a felony drug offense has become final, such person shall be sentenced to a term of imprisonment of not more than 10 years, a fine not to exceed the greater of twice that authorized in accordance with the provisions of title 18 or $500,000 if the defendant is an individual or $2,000,000 if the defendant is other than an individual, or both.
+
+**21 U.S.C. 841(b)(1)(A), prior conviction sentence (uscode.house.gov, prelim, fetched 2026-08-14), the language subparagraph (A) uses for a qualifying prior**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section841&num=0&edition=prelim`
+
+> If any person commits such a violation after a prior conviction for a serious drug felony or serious violent felony has become final, such person shall be sentenced to a term of imprisonment of not less than 15 years and not more than life imprisonment
+
+**21 U.S.C. 841(b)(1)(B), prior conviction sentence (uscode.house.gov, prelim, fetched 2026-08-14), the language subparagraph (B) uses for a qualifying prior**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section841&num=0&edition=prelim`
+
+> If any person commits such a violation after a prior conviction for a serious drug felony or serious violent felony has become final, such person shall be sentenced to a term of imprisonment which may not be less than 10 years and not more than life imprisonment
+
+**21 U.S.C. 802(44), felony drug offense (uscode.house.gov, prelim, fetched 2026-08-14, text in effect on August 13, 2026)**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section802&num=0&edition=prelim`
+
+> The term "felony drug offense" means an offense that is punishable by imprisonment for more than one year under any law of the United States or of a State or foreign country that prohibits or restricts conduct relating to narcotic drugs, marihuana, anabolic steroids, or depressant or stimulant substances.
+
+**21 U.S.C. 802(58), serious drug felony (uscode.house.gov, prelim, fetched 2026-08-14; paragraph (57) on the current page is "suspicious order")**, `https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title21-section802&num=0&edition=prelim`
+
+> The term "serious drug felony" means an offense described in section 924(e)(2) of title 18 for which- (A) the offender served a term of imprisonment of more than 12 months; and (B) the offender's release from any term of imprisonment was within 15 years of the commencement of the instant offense.
