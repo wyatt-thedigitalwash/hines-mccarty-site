@@ -123,39 +123,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                 floor for very narrow screens. */}
             <Block heading="Degrees and penalties">
               {charge.penalties?.length ? (
-                <div className="overflow-x-auto">
-                  <table className="w-full border-collapse text-left">
-                    <thead>
-                      <tr className="border-b border-navy/20">
-                        <th className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
-                          Degree
-                        </th>
-                        <th className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
-                          Statutory term
-                        </th>
-                        <th className="py-3 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
-                          Offense level
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {charge.penalties.map((row) => (
-                        <tr key={row.degree} className="border-b border-navy/10">
-                          <td className="py-4 pr-6 align-top">{row.degree}</td>
-                          <td className="py-4 pr-6 align-top">{row.maximum}</td>
-                          <td className="py-4 align-top">
-                            {row.offenseLevel ?? "Not applicable"}
-                            {row.note && (
-                              <span className="mt-1 block text-sm text-navy/60">
-                                {row.note}
-                              </span>
-                            )}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
+                <PenaltyTable rows={charge.penalties} />
               ) : (
                 <Needs>
                   degrees, statutory maximums, and offense levels, each verified
@@ -498,6 +466,34 @@ function SectionPrimary({ section }: { section: ChargeSection }) {
    that sentence outside the scroll container. overflow-x-auto stays as a floor
    for very narrow screens. */
 function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
+  /* THE OFFENSE LEVEL COLUMN IS RENDERED ONLY WHERE A ROW ACTUALLY CARRIES ONE.
+     It used to render always, printing "Not applicable" for every empty cell,
+     and that was wrong in two different directions on twelve tables.
+
+     On the eleven federal-offense tables it was noise: F.S. 921.0022 ranks
+     Florida offenses, so a column of "Not applicable" beside 18 U.S.C. rows
+     tells the reader nothing and invites the inference that a level was looked
+     for and not found.
+
+     On /criminal-defense/computer-crimes-defense it was a false statement of
+     law AND a breach of DECISIONS.md D14, which says that page carries no
+     offense-level column on any row under any heading. F.S. 815.06 has no row
+     in the chart, but F.S. 921.0023 assigns a severity level to a felony the
+     chart does not list, so a level DOES apply to an 815.06 felony. What is
+     absent is a chart row, not a level. "Not applicable" said the opposite, and
+     said it in a column D14 had already decided should not exist. The data was
+     compliant, every gate was green, and the defect existed only in the render:
+     D24 again, the check that matters reads the page.
+
+     Where a table MIXES ranked and unranked rows the column stays and the empty
+     cells still read "Not applicable", which is correct for a misdemeanor row,
+     since the chart ranks felonies. Pages that want to say something more
+     precise already do it in the data, e.g. "Not carried in the Statute
+     921.0022 chart". */
+  const hasLevels = rows.some((r) => r.offenseLevel);
+  const headers = hasLevels
+    ? ["Degree", "Statutory term", "Offense level"]
+    : ["Degree", "Statutory term"];
   return (
     <div className="overflow-x-auto">
       <table className="w-full border-collapse text-left">
@@ -512,7 +508,7 @@ function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
                 range or a floor rather than a bare ceiling, because federal
                 sentencing routinely has both, so the header was the thing
                 that was wrong. D24: the check that matters reads the page. */}
-            {["Degree", "Statutory term", "Offense level"].map((h) => (
+            {headers.map((h) => (
               <th
                 key={h}
                 className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60"
@@ -526,15 +522,31 @@ function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
           {rows.map((row) => (
             <tr key={row.degree + row.maximum} className="border-b border-navy/10">
               <td className="py-4 pr-6 align-top">{row.degree}</td>
-              <td className="py-4 pr-6 align-top">{row.maximum}</td>
-              <td className="py-4 align-top">
-                {row.offenseLevel ?? "Not applicable"}
-                {row.note && (
+              {/* The note lives in the LAST rendered cell. It used to live in
+                  the offense-level cell unconditionally, so dropping that column
+                  would have silently deleted a note from every row of all twelve
+                  level-less tables, and every one of those rows carries one. The
+                  notes are where the value thresholds and the conditions on a
+                  mandatory minimum are written, so losing them would have been a
+                  far worse defect than the column this change removes. */}
+              <td className={hasLevels ? "py-4 pr-6 align-top" : "py-4 align-top"}>
+                {row.maximum}
+                {!hasLevels && row.note && (
                   <span className="mt-1 block text-sm text-navy/60">
                     {row.note}
                   </span>
                 )}
               </td>
+              {hasLevels && (
+                <td className="py-4 align-top">
+                  {row.offenseLevel ?? "Not applicable"}
+                  {row.note && (
+                    <span className="mt-1 block text-sm text-navy/60">
+                      {row.note}
+                    </span>
+                  )}
+                </td>
+              )}
             </tr>
           ))}
         </tbody>
