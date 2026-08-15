@@ -25,7 +25,19 @@ Fetched once, recorded once, reused with the citation on each page.
 ### Florida Rules of Criminal Procedure
 
 Source: The Florida Bar's compilation, **updated 2026-07-13**, at
-`https://www-media.floridabar.org/uploads/2026/07/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-1.pdf`
+`https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-2.pdf`
+
+**URL CORRECTED 2026-08-14.** The address this block originally recorded,
+`.../uploads/2026/07/...-7-13-2026-1.pdf`, now returns HTTP 403 with an S3
+AccessDenied body and is dead. The Bar re-uploaded the SAME July 13, 2026
+edition under `/uploads/2026/08/...-2.pdf`, and the live link was recovered
+from the Bar's rules index at `https://www.floridabar.org/rules/ctproc/`. A
+bare request to either address 403s; a browser user agent gets HTTP 200 and
+2,035,359 bytes. Two agents on different tasks re-fetched and confirmed the
+edition is unchanged, so every quotation recorded below still stands. Noted
+here because a dead URL in a source record is the failure D26 is about: the
+record is consulted precisely by writers who have not opened the source, and a
+link that does not resolve invites re-deriving a rule from memory.
 
 **Fetched 2026-08-13. Extracted locally with `pdftotext -layout` rather than
 through a summariser**, because the fetcher returned the PDF as binary and a
@@ -1694,3 +1706,63 @@ Verified against the audited chart: 517.302(1) is the only chapter 517 row at le
 https://www.flsenate.gov/Laws/Statutes/2025/921.0023
 
 > 921.0023 Criminal Punishment Code; ranking unlisted felony offenses.-A felony offense committed on or after October 1, 1998, that is not listed in s. 921.0022 is ranked with respect to offense severity level by the Legislature, commensurate with the harm or potential harm that is caused by the offense to the community. Until the Legislature specifically assigns an offense to a severity level in the offense severity ranking chart, the severity level is within the following parameters: (1) A felony of the third degree within offense level 1. (2) A felony of the second degree within offense level 4. (3) A felony of the first degree within offense level 7. (4) A felony of the first degree punishable by life within offense level 9. (5) A life felony within offense level 10.
+
+---
+
+## De-duplication round 2, fetch records
+
+Recorded 2026-08-14. These are FETCH RECORDS, not quotation records. Each names
+what was opened, from where, and what it established. **No verbatim excerpt is
+given below**, deliberately: the agents returned prose descriptions of what they
+read rather than transcriptions, and inventing a blockquote from a description
+is precisely the failure D26 was written about. A later writer who needs the
+words of these provisions must open them. What these entries establish is that
+the pages resting on them are resting on something that was read.
+
+### state/domestic-violence-defense
+
+**F.S. 741.29 (2025)** -- https://www.flsenate.gov/Laws/Statutes/2025/741.29
+Fetched 2026-08-14, HTTP 200, 61,452 bytes, HTML stripped to text locally so no
+summariser sat between the agent and the section. Read whole. Recorded because
+the round 1 verifier found the page resting on a F.S. 741.29(3) duty that the
+repository held no fetch of anywhere: no table in `src/lib/statute-tables/`, no
+entry in this file, and a brief citing only 741.2901. That gap is now closed.
+
+**F.S. 903.047 (2025)** -- https://www.flsenate.gov/Laws/Statutes/2025/903.047
+Fetched 2026-08-14, HTTP 200, 48,410 bytes, stripped locally. Whole section
+read, for the pretrial release conditions the page states.
+
+### state/sex-crimes-defense
+
+**Fla. R. Crim. P. 3.134 and 3.191**, from the Bar compilation at the corrected
+URL recorded above, extracted with `pdftotext -layout`, cross-checked against an
+independent reproduction at syfert.com.
+
+This fetch is the reason round 2 succeeded where round 1 failed, and the reason
+is worth keeping. The agent did NOT trust this file's existing Rule 3.134
+blockquotes, because they carry ellipses at exactly the points where round 1's
+rewrite closed the sentence with a comma. Going back to the compilation
+recovered three operative clauses the page had been missing:
+
+- 3.134(a)(1) also reaches alleged misdemeanors "by whatever documents
+  constitute a formal charge", and runs the 30 days from arrest **or from
+  service of a capias**. This page's own table carries a first degree
+  misdemeanor at F.S. 800.03(2)(a), so the misdemeanor limb is live here, and a
+  person served with a capias rather than arrested had been given the wrong
+  start date.
+- 3.134(a)(2)(B) ends "unless the state files formal charges by that date".
+  Round 1 carried that condition in (A) and dropped it in (B), which told a
+  reader whose charges were filed on day 39 that the court must release on day
+  40.
+- 3.134(b)(2) exists and was omitted entirely; it is the provision that
+  releases a person from bail conditions on the not-in-custody track.
+
+**A limit of the exclusion mechanism, recorded rather than worked around.**
+Rule 3.130(c)(2), the "capiases on them" clauses, and the opening carve-out of
+Rule 3.191(a) are recorded in this file as inline quotation rather than as
+blockquotes, and `scripts/check-pages.mts` builds its compelled-text exclusion
+set from blockquote lines only. So quoting them exactly is right and still does
+not clear the run. Both agents were asked to say so rather than mangle a quote
+to chase the number, and both did. Neither converted an inline line into a
+blockquote to widen the set, because that would silently change the measurement
+for the published sibling page as well.
