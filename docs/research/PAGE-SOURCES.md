@@ -1766,3 +1766,365 @@ not clear the run. Both agents were asked to say so rather than mangle a quote
 to chase the number, and both did. Neither converted an inline line into a
 blockquote to widen the set, because that would silently change the measurement
 for the published sibling page as well.
+
+---
+
+## Batch C repair, source records
+
+Recorded 2026-08-14, after the batch C adversarial review. Each entry was
+fetched by a repair agent and independently re-fetched by a verifier before the
+edit resting on it was applied.
+
+ONE RECORD FROM THIS ROUND WAS REFUSED. A repair agent recorded F.S.
+943.059(4)(c) under a heading announcing a SOURCE CONFLICT ON THE WORDING, with
+a warning to later writers that a reviewer had rendered the paragraph
+differently. Its verifier fetched the paragraph and found no conflict: the
+paragraph has four sentences, the exception sits inside the first one directly
+after the word "only", and what looked like a conflict was simply a truncated
+quotation somewhere else. The wording was independently confirmed here a third
+time. A warning about a disagreement that does not exist would send every later
+writer to re-litigate a settled provision, so the record was dropped and the
+correct text is recorded below without it. D26.
+
+**F.S. 943.059(4)(c) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.059
+
+_Relied on by state/domestic-violence-defense._
+
+> The court may order the sealing of a criminal history record pertaining to one arrest or one incident of alleged criminal activity only, except the court may order the sealing of a criminal history record pertaining to more than one arrest if the additional arrests directly relate to the original arrest. If the court intends to order the sealing of records pertaining to such additional arrests, such intent must be specified in the order. A criminal justice agency may not seal any record pertaining to such additional arrests if the order to seal does not articulate the intention of the court to seal a record pertaining to more than one arrest. This section does not prevent the court from ordering the sealing of only a portion of a criminal history record pertaining to one arrest or one incident of alleged criminal activity.
+
+**F.S. 943.059(4)(e) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.059
+
+_Relied on by state/domestic-violence-defense._
+
+> This section does not confer any right to the sealing of any criminal history record, and any request for sealing of a criminal history record may be denied at the sole discretion of the court.
+
+**F.S. 943.059(2)(b) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.059
+
+_Relied on by state/domestic-violence-defense._
+
+> A certificate of eligibility for sealing is valid for 12 months after the date stamped on the certificate when issued by the department. After that time, the petitioner must reapply to the department for a new certificate of eligibility. The status of the applicant and the law in effect at the time of the renewal application determine the petitioner's eligibility.
+
+**F.S. 901.15(7) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/901.15
+
+_Relied on by state/domestic-violence-defense._
+
+> There is probable cause to believe that the person has committed an act of domestic violence, as defined in s. 741.28, or dating violence, as provided in s. 784.046. The decision to arrest shall not require consent of the victim or consideration of the relationship of the parties. It is the public policy of this state to strongly discourage arrest and charges of both parties for domestic violence or dating violence on each other and to encourage training of law enforcement and prosecutors in these areas. A law enforcement officer who acts in good faith and exercises due care in making an arrest under this subsection, under s. 741.31(4) or s. 784.047, or pursuant to a foreign order of protection accorded full faith and credit pursuant to s. 741.315, is immune from civil liability that otherwise might result by reason of his or her action.
+
+**F.S. 741.29(4) (2025), contrasted with 901.15(7)**  
+https://www.flsenate.gov/Laws/Statutes/2025/741.29
+
+_Relied on by state/domestic-violence-defense._
+
+> Whenever a law enforcement officer determines upon probable cause that an act of domestic violence has been committed within the jurisdiction the officer may arrest the person or persons suspected of its commission and charge such person or persons with the appropriate crime. The decision to arrest and charge shall not require consent of the victim or consideration of the relationship of the parties. Note the two-word difference from 901.15(7), which omits 'and charge'; the two sentences are not identical and neither repeats the other.
+
+**F.S. 903.047(1)(b) and (1)(b)1. (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/903.047
+
+_Relied on by state/domestic-violence-defense._
+
+> (1)(b) If the court issues an order of no contact, refrain from any contact of any type with the victim, except through pretrial discovery pursuant to the Florida Rules of Criminal Procedure. An order of no contact is effective immediately and enforceable for the duration of the pretrial release or until it is modified by the court. The defendant shall be informed in writing of the order of no contact, specifying the applicable prohibited acts, before the defendant is released from custody on pretrial release. As used in this section, unless otherwise specified by the court, the term 'no contact' includes the following prohibited acts: 1. Communicating orally or in any written form, either in person, telephonically, electronically, or in any other manner, either directly or indirectly through a third person, with the victim or any other person named in the order. If the victim and the defendant have children in common, at the request of the defendant, the court may designate an appropriate third person to contact the victim for the sole purpose of facilitating the defendant's contact with the children. However, this subparagraph does not prohibit an attorney for the defendant, consistent with rules regulating The Florida Bar, from communicating with any person protected by the no contact order for lawful purposes. Subparagraph 1. contains exactly two carve-outs; paragraph (1)(b) as a whole contains more, including the pretrial-discovery exception and 'unless otherwise specified by the court'.
+
+**F.S. 943.0584(2) flush language and (2)(f) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.0584
+
+_Relied on by state/domestic-violence-defense._
+
+> A criminal history record is ineligible for a certificate of eligibility for expunction or a court-ordered expunction pursuant to s. 943.0585 or a certificate of eligibility for sealing or a court-ordered sealing pursuant to s. 943.059 if the record is a conviction for any of the following offenses: ... (f) Assault or battery, as defined in ss. 784.011 and 784.03, respectively, of one family or household member by another family or household member, as defined in s. 741.28(3). The subsection names those two routes and speaks to no others.
+
+**F.S. 943.0583(2) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.0583
+
+_Relied on by state/domestic-violence-defense._
+
+> Notwithstanding any other provision of law, upon the filing of a petition as provided in this section, any court in the circuit in which the petitioner was arrested, so long as the court has jurisdiction over the class of offense or offenses sought to be expunged, may order a criminal justice agency to expunge the criminal history record of a victim of human trafficking who complies with the requirements of this section. A petition need not be filed in the court where the petitioner's criminal proceeding or proceedings originally occurred. This section does not confer any right to the expunction of any criminal history record, and any request for expunction of a criminal history record may be denied at the discretion of the court.
+
+**Fla. R. Crim. P. 3.191(d), Florida Bar compilation updated July 13, 2026**  
+https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-2.pdf
+
+_Relied on by state/computer-crimes-defense._
+
+> "(d) Formally Charged. For the purposes of this rule, a person is formally charged with a crime by information, or by indictment, or in the case of alleged misdemeanors by whatever documents constitute a formal charge." Fetched 2026-08-14 with a browser user agent (a bare request 403s), HTTP 200, 2,035,359 bytes, which matches the size recorded in PAGE-SOURCES.md, so the edition is unchanged. Extracted with pdftotext -layout and read from the extracted text, not through a summarizer.
+
+**Fla. R. Crim. P. 3.111(b)(1), same compilation**  
+https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-2.pdf
+
+_Relied on by state/computer-crimes-defense._
+
+> "Counsel shall be provided to indigent persons in all prosecutions for offenses punishable by incarceration including appeals from the conviction thereof. In the discretion of the court, counsel does not have to be provided to an indigent person in a prosecution for a misdemeanor or violation of a municipal ordinance if the judge, at least 15 days prior to trial, files in the cause a written order of no incarceration certifying that the defendant will not be incarcerated in the case pending trial or probation violation hearing, or as part of a sentence after trial, guilty or nolo contendere plea, or probation revocation. This 15-day requirement may be waived by the defendant or defense counsel." The third sentence is the one that is easy to lose: the 15-day requirement is waivable. Subparagraphs (A) through (C) then govern what happens if the order issues after counsel was appointed, or is withdrawn.
+
+**Fla. R. Crim. P. 3.111(c)(1) and (c)(2), same compilation**  
+https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-2.pdf
+
+_Relied on by state/computer-crimes-defense._
+
+> "(c) Duty of Booking Officer. In addition to any other duty, the officer who commits a defendant to custody has the following duties: (1) The officer shall immediately advise the defendant: (A) of the right to counsel; (B) that, if the defendant is unable to pay a lawyer, one will be provided immediately at no charge. (2) If the defendant requests counsel or advises the officer that he or she cannot afford counsel, the officer shall immediately and effectively place the defendant in communication with the (office of) public defender of the circuit in which the arrest was made." The advice in (B) is conditional on inability to pay, and the trigger in (2) has two limbs, not one.
+
+**F.S. 815.06(3)(b) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/815.06
+
+_Relied on by state/computer-crimes-defense._
+
+> "(b) A person commits a felony of the second degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084, if he or she violates subsection (2) and: 1. Damages a computer, computer equipment or supplies, a computer system, or a computer network and the damage or loss is at least $5,000; 2. Commits the offense for the purpose of devising or executing any scheme or artifice to defraud or obtain property; 3. Interrupts or impairs a governmental operation or public communication, transportation, or supply of water, gas, or other public service; or 4. Intentionally interrupts the transmittal of data to or from, or gains unauthorized access to, a computer, computer system, computer network, or electronic device belonging to any mode of public or private transit, as defined in s. 341.031." Fetched as raw HTML and tag-stripped locally, because a summarizing fetch of this same URL has been observed to flatten the section's text.
+
+**F.S. 943.0584(1) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.0584
+
+_Relied on by state/computer-crimes-defense._
+
+> "As used in this section, the term 'conviction' means a determination of guilt which is the result of a trial or the entry of a plea of guilty or nolo contendere, regardless of whether adjudication is withheld, or if the defendant was a minor, a finding that the defendant committed or pled guilty or nolo contendere to committing a delinquent act, regardless of whether adjudication of delinquency is withheld." One sentence, two limbs. The juvenile limb is the half that gets dropped.
+
+**F.S. 943.059(4)(e) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.059
+
+_Relied on by state/computer-crimes-defense._
+
+> Subsection (4) is headed COURT AUTHORITY and ends at paragraph (e): "This section does not confer any right to the sealing of any criminal history record, and any request for sealing of a criminal history record may be denied at the sole discretion of the court." Any page that recites the subsection (1) eligibility conditions has to carry this, because (4)(e) is the provision that says eligibility is not entitlement. Note also (4)(b): the court may not order sealing until the person has applied for and received a certificate of eligibility under subsection (2).
+
+**F.S. 26.012(2)(d) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/26.012
+
+_Relied on by state/computer-crimes-defense._
+
+> "(2) Circuit courts shall have exclusive original jurisdiction: ... (d) Of all felonies and of all misdemeanors arising out of the same circumstances as a felony which is also charged;" Paragraph letter confirmed by reading (2)(a) through (2)(e) in order. The second limb matters: a misdemeanor is NOT automatically a county court case, only a standalone one is.
+
+**F.S. 34.01(1)(a) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/34.01
+
+_Relied on by state/computer-crimes-defense._
+
+> "(1) County courts shall have original jurisdiction: (a) In all misdemeanor cases not cognizable by the circuit courts." Read with 26.012(2)(d), which supplies what is cognizable by the circuit courts.
+
+**18 U.S.C. 1030, section catchline**  
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section1030&num=0&edition=prelim
+
+_Relied on by state/computer-crimes-defense._
+
+> The section is captioned "Fraud and related activity in connection with computers". It is not captioned, and nothing in Title 18 makes it, the federal computer statute or the federal unauthorized-access statute.
+
+**18 U.S.C. 2701, section catchline and subsection (a)**  
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section2701&num=0&edition=prelim
+
+_Relied on by state/computer-crimes-defense._
+
+> Captioned "Unlawful access to stored communications". Subsection (a): "Except as provided in subsection (c) of this section whoever - (1) intentionally accesses without authorization a facility through which an electronic communication service is provided; or (2) intentionally exceeds an authorization to access that facility; and thereby obtains, alters, or prevents authorized access to a wire or electronic communication while it is in electronic storage in such system shall be punished as provided in subsection (b) of this section." Recorded because it is the source that defeats BOTH "the federal computer statute" and the proposed replacement "the federal unauthorized-access statute": 2701 is a federal unauthorized-access offense too. Any future writer reaching for a definite article in front of 18 U.S.C. 1030 should read this first.
+
+**F.S. 775.082(3)(c) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/775.082
+
+_Relied on by state/sexual-battery-defense._
+
+> Read whole, to the end of the paragraph. "Notwithstanding paragraphs (a) and (b), a person convicted of an offense that is not included in s. 782.04 but that is an offense that is a life felony or is punishable by a term of imprisonment for life or by a term of years not exceeding life imprisonment, or an offense that was reclassified as a life felony or an offense punishable by a term of imprisonment for life or by a term of years not exceeding life imprisonment, which was committed before the person attained 18 years of age may be punished by a term of imprisonment for life or a term of years equal to life imprisonment if the judge conducts a sentencing hearing in accordance with s. 921.1401 and finds that life imprisonment or a term of years equal to life imprisonment is an appropriate sentence. A person who is sentenced to a term of imprisonment of more than 20 years is entitled to a review of his or her sentence in accordance with s. 921.1402(2)(d)." Also read from the same page: (3)(a)3. (life felony committed on or after July 1, 1995, term of imprisonment for life or imprisonment for a term of years not exceeding life imprisonment); (3)(b)1. (first degree felony, not exceeding 30 years, "or, when specifically provided by statute, by imprisonment for a term of years not exceeding life imprisonment"); (3)(d) (second degree, not exceeding 15 years); (3)(e) (third degree, not exceeding 5 years).
+
+**F.S. 794.011(4)(a)-(d) and (5)(a)-(d) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/794.011
+
+_Relied on by state/sexual-battery-defense._
+
+> (4)(a) "A person 18 years of age or older who commits sexual battery upon a person 12 years of age or older but younger than 18 years of age without that person's consent, under any of the circumstances listed in paragraph (e), commits a felony of the first degree, punishable by a term of years not exceeding life or as provided in s. 775.082, s. 775.083, s. 775.084, or s. 794.0115." (4)(c) "A person younger than 18 years of age who commits sexual battery upon a person 12 years of age or older without that person's consent, under any of the circumstances listed in paragraph (e), commits a felony of the first degree, punishable as provided in s. 775.082, s. 775.083, s. 775.084, or s. 794.0115." (4)(d) "A person commits a felony of the first degree, punishable by a term of years not exceeding life or as provided in s. 775.082, s. 775.083, s. 775.084, or s. 794.0115 if the person commits sexual battery upon a person 12 years of age or older without that person's consent, under any of the circumstances listed in paragraph (e), and such person was previously convicted of a violation of:" (5)(c) "A person younger than 18 years of age who commits sexual battery upon a person 12 years of age or older, without that person's consent, and in the process does not use physical force and violence likely to cause serious personal injury commits a felony of the second degree, punishable as provided in s. 775.082, s. 775.083, s. 775.084, or s. 794.0115." Note for later writers: (4)(a) requires the person charged to be 18 or older, so it can never be an offense committed before the person attained 18 and can never be reached by F.S. 775.082(3)(c). (4)(c) carries no term-of-years-not-exceeding-life language and (5)(c) is a second degree felony, so neither is inside 775.082(3)(c) on the degree the paragraph itself assigns.
+
+**F.S. 794.011(2) and (8), and the section's History line (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/794.011
+
+_Relied on by state/sexual-battery-defense._
+
+> (2)(a) "A person 18 years of age or older who commits sexual battery upon, or in an attempt to commit sexual battery injures the sexual organs of, a person less than 12 years of age commits a capital felony, punishable as provided in ss. 775.082 and 921.1425. In all capital cases under this section, the procedure set forth in s. 921.1425 shall be followed in order to determine a sentence of death or life imprisonment. If the prosecutor intends to seek the death penalty, the prosecutor must give notice to the defendant and file the notice with the court within 45 days after arraignment. The notice must contain a list of the aggravating factors the state intends to prove and has reason to believe it can prove beyond a reasonable doubt. The court may allow the prosecutor to amend the notice upon a showing of good cause." (2)(b) "A person less than 18 years of age who commits sexual battery upon, or in an attempt to commit sexual battery injures the sexual organs of, a person less than 12 years of age commits a life felony, punishable as provided in s. 775.082, s. 775.083, s. 775.084, or s. 794.0115." (8)(c) "...commits a capital or life felony, punishable pursuant to subsection (2)." History: "s. 2, ch. 74-121; s. 17, ch. 75-298; s. 1, ch. 84-86; s. 1, ch. 89-216; s. 3, ch. 92-135; s. 1, ch. 92-310; s. 3, ch. 93-156; s. 2, ch. 95-348; s. 99, ch. 99-3; s. 8, ch. 99-188; s. 1, ch. 2002-211; s. 3, ch. 2014-4; s. 5, ch. 2016-13; s. 5, ch. 2017-1; s. 4, ch. 2022-165; s. 1, ch. 2023-25; s. 1, ch. 2023-146." Note: the 45-day notice sentence is in (2)(a) and follows the sentence about "all capital cases under this section," and (8)(c) routes punishment through subsection (2), so the interval is not confined to a charge pleaded as (2)(a).
+
+**F.S. 794.005, History line (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/794.005
+
+_Relied on by state/sexual-battery-defense._
+
+> History: "s. 2, ch. 92-135." Read with the F.S. 794.011 History line ("s. 2, ch. 74-121; ... s. 3, ch. 92-135; ..."), so 794.011 was enacted in 1974 and 794.005 was added in 1992 by an act that amended 794.011 in the same chapter. Any statement that the two provisions were written thirteen years apart is wrong.
+
+**F.S. 943.0435(1)(h)1. (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.0435
+
+_Relied on by state/sexual-battery-defense._
+
+> "'Sexual offender' means a person who meets the criteria in sub-subparagraph a., sub-subparagraph b., sub-subparagraph c., or sub-subparagraph d., as follows:" Sub-subparagraph a. is two-part: a.(I) conviction of committing, or attempting, soliciting, or conspiring to commit, an enumerated offense, the enumeration including "s. 794.011, excluding s. 794.011(10)"; and a.(II) "Has been released on or after October 1, 1997, from a sanction imposed for any conviction of an offense described in sub-sub-subparagraph (I) and does not otherwise meet the criteria for registration as a sexual offender under chapter 944 or chapter 985... If no sanction is imposed, the person is deemed to be released upon conviction." Sub-subparagraph b. reaches a person who establishes or maintains a residence in this state carrying a sexual predator, sexually violent predator, or other sexual offender designation from another state or jurisdiction. Sub-subparagraph c. reaches a person who establishes or maintains a residence in this state and is in the custody or control of, or under the supervision of, another state or jurisdiction as a result of a conviction for an enumerated offense, the list again including "s. 794.011, excluding s. 794.011(10)." Sub-subparagraph d.: "On or after July 1, 2007, has been adjudicated delinquent for committing, or attempting, soliciting, or conspiring to commit, any of the criminal offenses proscribed in the following statutes in this state or similar offenses in another jurisdiction when the juvenile was 14 years of age or older at the time of the offense: (I) Section 794.011, excluding s. 794.011(10); (II) Section 800.04(4)(a)2. where the victim is under 12 years of age or where the court finds sexual activity by the use of force or coercion; (III) Section 800.04(5)(c)1. where the court finds molestation involving unclothed genitals; (IV) Section 800.04(5)(d) where the court finds the use of force or coercion and unclothed genitals; or (V) Any similar offense committed in this state which has been redesignated from a former statute number to one of those listed in this sub-subparagraph." Route d. carries no conviction requirement and no October 1, 1997 release condition. Sub-subparagraph a. is NOT the definition; it is one of four alternative routes.
+
+**F.S. 943.0435(5) and (9)(a) (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.0435
+
+_Relied on by state/sexual-battery-defense._
+
+> (5) "This section does not apply to a sexual offender who is also a sexual predator, as defined in s. 775.21. A sexual predator must register as required under s. 775.21." (9)(a) opens "Except as otherwise specifically provided, a sexual offender who fails to register; who fails, after registration, to maintain, acquire, or renew a driver license or an identification card; ... or who otherwise fails, by act or omission, to comply with the requirements of this section commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084. Each instance of a failure to register or report changes to the required information specified in this paragraph constitutes a separate offense." The opening "Except as otherwise specifically provided" governs the whole paragraph and must travel with any statement of the offense.
+
+**USSG 2G2.2 and Commentary, Guidelines Manual (November 1, 2025), read at pages 202-206 of Chapter 2 Parts E-K. Base offense level (a): "(1) 18, if the defendant is convicted of 18 U.S.C. sec. 1466A(b), sec. 2252(a)(4), sec. 2252A(a)(5), or sec. 2252A(a)(7). (2) 22, otherwise." Subsection (b)(3) opens "(Apply the greatest):" and has SIX subdivisions: "(A) If the offense involved distribution for pecuniary gain, increase by the number of levels from the table in sec.2B1.1 (Theft, Property Destruction, and Fraud) corresponding to the retail value of the material, but by not less than 5 levels. (B) If the defendant distributed in exchange for any valuable consideration, but not for pecuniary gain, increase by 5 levels. (C) If the offense involved distribution to a minor, increase by 5 levels. (D) If the offense involved distribution to a minor that was intended to persuade, induce, entice, or coerce the minor to engage in any illegal activity, other than illegal activity covered under subdivision (E), increase by 6 levels. (E) If the offense involved distribution to a minor that was intended to persuade, induce, entice, coerce, or facilitate the travel of, the minor to engage in prohibited sexual conduct, increase by 7 levels. (F) If the defendant knowingly engaged in distribution, other than distribution described in subdivisions (A) through (E), increase by 2 levels." Commentary opens: "Statutory Provisions: 18 U.S.C. secs. 1466A, 2252, 2252A(a)-(b), 2260(b). For additional statutory provision(s), see Appendix A (Statutory Index)." Application Note 1 includes "'Distribution for pecuniary gain' means distribution for profit." and "'Distribution' means any act ... but does not include the mere solicitation of such material by a defendant." APPLICATION NOTE 6 IN FULL: "(A) Definition of 'Images'.-'Images' means any visual depiction, as defined in 18 U.S.C. sec. 2256(5), that constitutes child pornography, as defined in 18 U.S.C. sec. 2256(8). (B) Determining the Number of Images.-For purposes of determining the number of images under subsection (b)(7): (i) Each photograph, picture, computer or computer-generated image, or any similar visual depiction shall be considered to be one image. (ii) Each video, video-clip, movie, or similar visual depiction shall be considered to have 75 images." THE NOTE ENDS THERE; Application Note 7 follows immediately. There is NO sentence about a visual depiction substantially more than 5 minutes and NO upward-departure sentence anywhere in Note 6. Any writer who finds that sentence in a brief, a table, or an older manual must not carry it into copy attributed to this manual. Historical Note records: "... November 1, 2016 (amendment 801); November 1, 2025 (amendment 836)." What amendment 836 did is NOT stated in the manual and has not been fetched in this record; do not write that amendment 836 removed the departure language without opening the amendment.**  
+https://www.ussc.gov/sites/default/files/pdf/guidelines-manual/2025/CHAPTER_2_E-K.pdf
+
+_Relied on by federal/csam-defense._
+
+> Retrieved 2026-08-14, 844225 bytes, PDF 1.7, extracted with pdftotext -layout and read at 2G2.2 in full including the Commentary, all eight Application Notes, the Background paragraph, and the Historical Note. The USSC also serves this chapter under the filename CHAPTER_2_E_K.pdf with an underscore; that URL 404s and returns an HTML error page with a 200-shaped body, so the hyphenated E-K filename is the live one.
+
+**18 U.S.C. 2252A(e), read whole: "(e) Admissibility of Evidence.-On motion of the government, in any prosecution under this chapter or section 1466A, except for good cause shown, the name, address, social security number, or other nonphysical identifying information, other than the age or approximate age, of any minor who is depicted in any child pornography shall not be admissible and may be redacted from any otherwise admissible evidence, and the jury shall be instructed, upon request of the United States, that it can draw no inference from the absence of such evidence in deciding whether the child pornography depicts an actual minor." TWO TRAPS RECORDED: (1) the words "other than the age or approximate age" are an express carve-out sitting inside the identifying-information list; a writer quoting the list without them tells a reader the minor's age is inadmissible and redactable, which is the opposite of what the subsection provides. (2) The subsection is written to "any prosecution under this chapter or section 1466A", and chapter 110 contains section 2252 as well as 2252A, so this is NOT a 2252A-only rule and must not be described as one. Penalty subsection openings also read: (b)(1) "Whoever violates, or attempts or conspires to violate, paragraph (1), (2), (3), (4), or (6) of subsection (a) shall be fined under this title and imprisoned not less than 5 years and not more than 20 years"; (b)(2) "Whoever violates, or attempts or conspires to violate, subsection (a)(5) shall be fined under this title or imprisoned not more than 10 years"; (b)(3) "Whoever violates, or attempts or conspires to violate, subsection (a)(7) shall be fined under this title or imprisoned not more than 15 years, or both."**  
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section2252A&num=0&edition=prelim
+
+_Relied on by federal/csam-defense._
+
+> Retrieved 2026-08-14 from the prelim edition. Subsection (e) read from its caption to its terminal period. Penalty subsection openings read for the paragraph-number map.
+
+**18 U.S.C. 2258A(a)(2)(A), read whole: "(A) Apparent violations.-The facts or circumstances described in this subparagraph are any facts or circumstances from which there is an apparent violation of section 2251, 2251A, 2252, 2252A, 2252B, or 2260 that involves child pornography, of section 1591 (if the violation involves a minor), or of 2422(b)." TRAP RECORDED: the subparagraph does not stop at "child pornography". A quotation that ends there and closes with a period cuts two further triggers, section 1591 where the violation involves a minor and section 2422(b), and misstates what obliges a provider to file a CyberTipline report. 2258A(a)(2)(B), "Imminent violations", reads: "The facts or circumstances described in this subparagraph are any facts or circumstances which indicate a violation of any of the sections described in subparagraph (A) involving child pornography may be planned or imminent." 2258A(a)(1)(A)(i): "shall, as soon as reasonably possible after obtaining actual knowledge of any facts or circumstances described in paragraph (2)(A), take the actions described in subparagraph (B);" 2258A(a)(1)(B)(ii): "making a report of such facts or circumstances to the CyberTipline, or any successor to the CyberTipline operated by NCMEC."**  
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section2258A&num=0&edition=prelim
+
+_Relied on by federal/csam-defense._
+
+> Retrieved 2026-08-14 from the prelim edition. Subsection (a)(2) read in full including both subparagraphs, plus (a)(1)(A)(i) and (a)(1)(B)(ii).
+
+**18 U.S.C. 2256(9), read whole and character for character: "(9) 'identifiable minor'-(A) means a person-(i)(I) who was a minor at the time the visual depiction was created, adapted, or modified; or (II) whose image as a minor was used in creating, adapting, or modifying the visual depiction; and (ii) who is recognizable as an actual person by the person's face, likeness, or other distinguishing characteristic, such as a unique birthmark or other recognizable feature; and (B) shall not be construed to require proof of the actual identity of the identifiable minor." Note the label structure: the paragraph number carries the definiendum and the subparagraph letters begin at "(A) means a person"; writing "(9)(A) 'identifiable minor'- (A) means" prints the same letter twice for two different things. Note also the conjunctive "; and" joining (A) and (B); replacing it with a full stop turns one conjunctive definition into two free-standing statements. 2256(11): "the term 'indistinguishable' used with respect to a depiction, means virtually indistinguishable, in that the depiction is such that an ordinary person viewing the depiction would conclude that the depiction is of an actual minor engaged in sexually explicit conduct. This definition does not apply to depictions that are drawings, cartoons, sculptures, or paintings depicting minors or adults." The second sentence of (11) is a limit on the definition and must not be dropped.**  
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section2256&num=0&edition=prelim
+
+_Relied on by federal/csam-defense._
+
+> Retrieved 2026-08-14 from the prelim edition. Paragraphs (9) and (11) read in full including all internal labels and connectors.
+
+**18 U.S.C. 3142(f), the continuance sentence read to its end: "During a continuance, such person shall be detained, and the judicial officer, on motion of the attorney for the Government or sua sponte, may order that, while in custody, a person who appears to be a narcotics addict receive a medical examination to determine whether such person is an addict." TRAP RECORDED: the sentence does not end at "detained". Any quotation that stops there is a partial sentence and needs an ellipsis, not a period.**  
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3142&num=0&edition=prelim
+
+_Relied on by federal/csam-defense._
+
+> Retrieved 2026-08-14 from the prelim edition. The continuance sentence in subsection (f) read to its terminal period.
+
+**18 U.S.C. 2252(c), read whole: "Affirmative Defense.-It shall be an affirmative defense to a charge of violating paragraph (4) of subsection (a) that the defendant-(1) possessed less than three matters containing any visual depiction proscribed by that paragraph; and (2) promptly and in good faith, and without retaining or allowing any person, other than a law enforcement agency, to access any visual depiction or copy thereof-(A) took reasonable steps to destroy each such visual depiction; or (B) reported the matter to a law enforcement agency and afforded that agency access to each such visual depiction." The structure is conjunctive into (1) AND (2), and (2) then branches disjunctively into (A) or (B). RECORDED FOR THE CLOSED-SET TRAP: section 2252 states a quantity in TWO places, the element at (a)(4) ("1 or more books, magazines, periodicals, films, video tapes, or other matter", in both the (A) and (B) limbs) and the three-matter threshold in this affirmative defense at (c)(1). Writing that "the quantity language in section 2252" sits at (a)(4) is a completeness claim and it is wrong.**  
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section2252&num=0&edition=prelim
+
+_Relied on by federal/csam-defense._
+
+> Retrieved 2026-08-14 from the prelim edition. Subsections (a)(4) and (c) read in full.
+
+**F.S. 943.0435(9)(a) (2025), opening words: "Except as otherwise specifically provided, a sexual offender who fails to register; who fails, after registration, to maintain, acquire, or renew a driver license or an identification card; ... or who otherwise fails, by act or omission, to comply with the requirements of this section commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084." Final sentence: "Each instance of a failure to register or report changes to the required information specified in this paragraph constitutes a separate offense." TRAP RECORDED: the third-degree grading is NOT unconditional; it opens with the carve-out "Except as otherwise specifically provided". The separate-offense sentence carries no such carve-out and can be stated flat.**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.0435
+
+_Relied on by federal/csam-defense._
+
+> Retrieved 2026-08-14 from flsenate.gov, 2025 statutes. Opening words and closing sentence of paragraph (9)(a) read and confirmed against the project's own statute table at src/lib/statute-tables/fs-943-0435.ts line 25, which carries the same opening limiter and additionally records that the two provisions that 'provide otherwise' are (4)(c) and (8), each a second degree felony. That table detail is a cross-check only and was not fetched from flsenate for this repair, so it is not stated on the page.
+
+**Fla. Stat. 782.071 (2025), vehicular homicide, read whole**  
+https://www.flsenate.gov/Laws/Statutes/2025/0782.071
+
+_Relied on by state/homicide-defense._
+
+> Definitional sentence: "'Vehicular homicide' is the killing of a human being, or the killing of an unborn child by any injury to the mother, caused by the operation of a motor vehicle by another in a reckless manner likely to cause the death of, or great bodily harm to, another." (1)(a) second degree felony. (1)(b) first degree felony if at the time of the accident the person knew, or should have known, that the accident occurred, AND the person failed to give information and render aid as required by s. 316.062; the paragraph adds that it does not require that the person knew that the accident resulted in injury or death. (1)(c): "A felony of the first degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084, if the person has a prior conviction under this section, s. 316.193(3)(c)3., s. 327.35(3)(a)3.c., or s. 782.072." (2) unborn child definition by reference to s. 775.021(5). (3) right of action for civil damages under s. 768.19. (4) discretionary 120 hours of community service at a trauma center or hospital. CRITICAL FOR LATER WRITERS: the words influence, impaired, impairment, alcohol, blood-alcohol, breath-alcohol, chemical substance and controlled substance appear NOWHERE in this section. There is no impairment carve-out, no exclusion of impaired drivers, and no clause stating which chapter a fatal-crash case must be charged under. Do not write an exclusivity rule between this section and s. 316.193; the page previously did and it was a blocking failure.
+
+**Fla. Stat. 316.193(3) (2025), DUI causing death, and its prior-conviction cross-reference**  
+https://www.flsenate.gov/Laws/Statutes/2025/0316.193
+
+_Relied on by state/homicide-defense._
+
+> Subsection (3): "Any person: (a) Who is in violation of subsection (1); (b) Who operates a vehicle; and (c) Who, by reason of such operation, causes or contributes to causing: 1. Damage to the property or person of another commits a misdemeanor of the first degree ... 2. Serious bodily injury to another, as defined in s. 316.1933, commits a felony of the third degree ... 3. The death of any human being or unborn child commits DUI manslaughter ..." Sub-subparagraph (3)(c)3.c. elevates to a felony of the first degree "if the person has a prior conviction under this subparagraph, s. 327.35(3)(a)3.c., s. 782.071, or s. 782.072." CRITICAL FOR LATER WRITERS: nothing in s. 316.193 displaces chapter 782 or says a DUI-caused death must be charged here rather than under s. 782.071. The cross-reference is reciprocal: 782.071(1)(c) counts a prior under 316.193(3)(c)3., and 316.193(3)(c)3.c. counts a prior under 782.071. Two sections that each count a conviction under the other are not mutually exclusive.
+
+**Fla. Stat. 776.032(1) (2025), immunity, complete text of the subsection**  
+https://www.flsenate.gov/Laws/Statutes/2025/0776.032
+
+_Relied on by state/homicide-defense._
+
+> (1): "A person who uses or threatens to use force as permitted in s. 776.012, s. 776.013, or s. 776.031 is justified in such conduct and is immune from criminal prosecution and civil action for the use or threatened use of such force by the person, personal representative, or heirs of the person against whom the force was used or threatened, unless the person against whom force was used or threatened is a law enforcement officer, as defined in s. 943.10(14), who was acting in the performance of his or her official duties and the officer identified himself or herself in accordance with any applicable law or the person using or threatening to use force knew or reasonably should have known that the person was a law enforcement officer. As used in this subsection, the term 'criminal prosecution' includes arresting, detaining in custody, and charging or prosecuting the defendant." The clause "by the person, personal representative, or heirs of the person against whom the force was used or threatened" is what identifies whose civil action the immunity bars, and it has been dropped from this page once already. (4): "In a criminal prosecution, once a prima facie claim of self-defense immunity from criminal prosecution has been raised by the defendant at a pretrial immunity hearing, the burden of proof by clear and convincing evidence is on the party seeking to overcome the immunity from criminal prosecution provided in subsection (1)." Note what (4) does NOT contain: no standard, quantum or characterization for the defendant's prima facie claim, and no procedural vehicle for raising it. Do not supply either.
+
+**Fla. Stat. 776.013 (2025), stand-your-ground language outside 776.012**  
+https://www.flsenate.gov/Laws/Statutes/2025/0776.013
+
+_Relied on by state/homicide-defense._
+
+> Subsection (1) opens "A person who is in a dwelling or residence in which the person has a right to be has no duty to retreat and has the right to" stand his or her ground and use or threaten to use force, running to paragraph (a) for nondeadly force where the person reasonably believes it necessary to defend himself or herself or another against imminent unlawful force, and paragraph (b) for deadly force where the person reasonably believes it necessary to prevent imminent death or great bodily harm or an imminent forcible felony. The phrase "stand his or her ground" is in subsection (1). The section has five subsections: (1) the right just described; (2) the presumption of reasonable fear on unlawful entry; (3) the exceptions to that presumption; (4) presumed criminal intent on unlawful forcible entry; (5) definitions of dwelling, residence and vehicle. CAUTION FOR LATER WRITERS: the stand-your-ground language is NOT confined to 776.012(2), and this page asserted that it was. Also, the retrieved rendering of the clause between "has the right to" and the colon did not match a second rendering I was shown character for character, so do not present 776.013(1) as a character-exact quotation without opening it yourself.
+
+**Fla. Stat. 921.141(9) (2025), APPLICABILITY carve-out**  
+https://www.flsenate.gov/Laws/Statutes/2025/0921.141
+
+_Relied on by state/homicide-defense._
+
+> (9), headed APPLICABILITY: "This section does not apply to a person convicted or adjudicated guilty of a capital sexual battery under s. 794.011, a capital human trafficking of vulnerable persons for sexual exploitation under s. 787.06(5), or a capital drug trafficking felony under s. 893.135." Any sentence saying 921.141 governs capital felonies generally must either be bounded to the capital felony under discussion or carry this carve-out.
+
+**Fla. Stat. 775.082(1)(b) (2025), the juvenile capital track runs to subparagraph 3.**  
+https://www.flsenate.gov/Laws/Statutes/2025/0775.082
+
+_Relied on by state/homicide-defense._
+
+> Paragraph (1)(b) has three subparagraphs and no fourth. 1. covers a person who actually killed, intended to kill, or attempted to kill the victim: life if, after a sentencing hearing under s. 921.1401, the court finds life an appropriate sentence, otherwise a term of at least 40 years. 2. covers a person who did not actually kill, intend to kill, or attempt to kill the victim: life or a term of years equal to life on the same finding. 3.: the court shall make a written finding as to whether the person is eligible for a sentence review hearing under s. 921.1402(2)(a) or (c), based upon whether the person actually killed, intended to kill, or attempted to kill the victim. A walkthrough of (1)(b) that stops after subparagraph 2. has stopped one subparagraph short of the review entitlement.
+
+**Fla. Stat. 782.04 (2025), the subsection (4) exclusion list and the degree-assigning places**  
+https://www.flsenate.gov/Laws/Statutes/2025/0782.04
+
+_Relied on by state/homicide-defense._
+
+> Subsection (4) exclusion list runs (a) through (s). Item (a) is a trafficking offense prohibited by s. 893.135(1). Item (l) is the unlawful distribution of a substance listed in sub-subparagraphs (1)(a)3.a.-j. by a person 18 years of age or older where the substance is proven to have caused, or to have been a substantial factor in producing, the death of the user, which is the predicate of subparagraph (1)(a)3., not of (1)(a)2. or (3). Item (s) is the terrorism felony. Human trafficking appears NOWHERE on the subsection (4) list. The subparagraph (1)(a)2. enumerated list runs a. through s. and human trafficking is item s. So the (4) list is not the mirror of (1)(a)2., and any sentence saying the (4) items are the ones that push conduct into (1)(a)2. or (3) is wrong in both directions. DEGREE-ASSIGNING PLACES: the grading language sits as flush text at the end of paragraph (1)(a) and attaches to subparagraphs 1., 2. and 3. alike, then at (2) murder in the second degree, (3) murder in the second degree, (4) murder in the third degree, and (5)(b) murder in the third degree. Do not write that the section assigns a degree at seven places; that count treats the three (1)(a) subparagraphs as separate assignments, which the flush grading clause contradicts. Write the set open and without a count.
+
+**F.S. 775.21(10)(b), 2025 Florida Statutes, fetched 2026-08-14**  
+https://www.flsenate.gov/Laws/Statutes/2025/775.21
+
+_Relied on by state/sex-crimes-defense._
+
+> "A sexual predator who has been convicted of or found to have committed, or has pled nolo contendere or guilty to, regardless of adjudication, any violation, or attempted violation, of s. 787.01, s. 787.02, or s. 787.025(2)(c), where the victim is a minor; s. 794.011, excluding s. 794.011(10); s. 794.05; former s. 796.03; former s. 796.035; s. 800.04; s. 827.071; s. 847.0133; s. 847.0135(5); s. 847.0145; or s. 985.701(1); or a violation of a similar law of another jurisdiction when the victim of the offense was a minor, and who works, whether for compensation or as a volunteer, at any business, school, child care facility, park, playground, or other place where children regularly congregate, commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084." The only minor-victim qualifiers in the paragraph are the one on the s. 787 group and the one on the similar-law prong. Same fetch: (10)(a) third degree felony with the 3-week address verification window and the separate-offense closer; (10)(c) mandatory minimum community control of 6 months, 1 year, 2 years with electronic monitoring, "For a felony violation of this section, excluding paragraph (g), committed on or after July 1, 2018"; (10)(g) third degree felony closing "This paragraph does not apply if the sexual predator is incarcerated in or is in the custody of a state correctional facility, a contractor-operated correctional facility, a local jail, or a federal correctional facility."
+
+**F.S. 775.21(4)(a), 2025 Florida Statutes, fetched 2026-08-14**  
+https://www.flsenate.gov/Laws/Statutes/2025/775.21
+
+_Relied on by state/sex-crimes-defense._
+
+> "SEXUAL PREDATOR CRITERIA.-(a) For a current offense committed on or after October 1, 1993, upon conviction, an offender shall be designated as a 'sexual predator' under subsection (5), and subject to registration under subsection (6) and community and public notification under subsection (7) if: 1. The felony is: a. A capital, life, or first degree felony violation, or any attempt thereof, of s. 787.01 or s. 787.02, where the victim is a minor, or s. 787.06(3)(f) or (g), where the victim is a minor, or (5); s. 794.011, s. 800.04, or s. 847.0145, or a violation of a similar law of another jurisdiction; or b. Any felony violation, or any attempt thereof, of s. 393.135(2); s. 394.4593(2); s. 787.01, s. 787.02, or s. 787.025(2)(c), where the victim is a minor; ... s. 800.04; s. 810.145(8)(b); s. 825.1025; s. 827.071; s. 847.0135, excluding s. 847.0135(6); s. 847.0145; ... and the offender has previously been convicted of or found to have committed, or has pled nolo contendere or guilty to, regardless of adjudication, any violation of [a comparable list]; 2. The offender has not received a pardon for any felony or similar law of another jurisdiction that is necessary for the operation of this paragraph; and 3. A conviction of a felony or similar law of another jurisdiction necessary to the operation of this paragraph has not been set aside in any postconviction proceeding." Checked for the page's boundary claim: the string s. 800.03 does not appear anywhere in F.S. 775.21.
+
+**F.S. 943.0435(1)(h)1, 2025 Florida Statutes, fetched 2026-08-14**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.0435
+
+_Relied on by state/sex-crimes-defense._
+
+> "(h)1. 'Sexual offender' means a person who meets the criteria in sub-subparagraph a., sub-subparagraph b., sub-subparagraph c., or sub-subparagraph d., as follows: a.(I) Has been convicted of committing, or attempting, soliciting, or conspiring to commit, any of the criminal offenses proscribed in the following statutes in this state or similar offenses in another jurisdiction: s. 393.135(2); s. 394.4593(2); s. 787.01, s. 787.02, or s. 787.025(2)(c), where the victim is a minor; s. 787.06(3)(b), (d), (f), or (g), or (5); former s. 787.06(3)(h); s. 794.011, excluding s. 794.011(10); s. 794.05; former s. 796.03; former s. 796.035; s. 800.04; s. 810.145(8); s. 825.1025; s. 827.071; s. 847.0133; s. 847.0135, excluding s. 847.0135(6); s. 847.0137; s. 847.0138; s. 847.0145; s. 895.03, if the court makes a written finding that the racketeering activity involved at least one sexual offense listed in this sub-sub-subparagraph or at least one offense listed in this sub-sub-subparagraph with sexual intent or motive; s. 916.1075(2); or s. 985.701(1); or any similar offense committed in this state which has been redesignated from a former statute number to one of those listed in this sub-sub-subparagraph; and (II) Has been released on or after October 1, 1997, from a sanction imposed for any conviction of an offense described in sub-sub-subparagraph (I) and does not otherwise meet the criteria for registration as a sexual offender under chapter 944 or chapter 985. ... If no sanction is imposed, the person is deemed to be released upon conviction; b. Establishes or maintains a residence in this state and who has not been designated as a sexual predator by a court of this state but who has been designated as a sexual predator, as a sexually violent predator, or any other sexual offender designation in another state or jurisdiction and was, as a result of such designation, subjected to registration or community or public notification, or both, or would be if the person were a resident of that state or jurisdiction, without regard to whether the person otherwise meets the criteria for registration as a sexual offender; c. Establishes or maintains a residence in this state who is in the custody or control of, or under the supervision of, any other state or jurisdiction as a result of a conviction for [the same enumerated list]; or d. On or after July 1, 2007, has been adjudicated delinquent for committing, or attempting, soliciting, or conspiring to commit, any of the criminal offenses proscribed in the following statutes ... when the juvenile was 14 years of age or older at the time of the offense: (I) Section 794.011, excluding s. 794.011(10); (II) Section 800.04(4)(a)2. ...; (III) Section 800.04(5)(c)1. ...; (IV) Section 800.04(5)(d) ...; or (V) Any similar offense committed in this state which has been redesignated ..." Note for later writers: (I) is not self-standing, it ends '; and' and runs into (II), and s. 800.03 appears in none of a.(I), c. or d.
+
+**F.S. 943.0435(11), 2025 Florida Statutes, fetched 2026-08-14**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.0435
+
+_Relied on by state/sex-crimes-defense._
+
+> "Except as provided in s. 943.04354, a sexual offender shall maintain registration with the department for the duration of his or her life unless the sexual offender has received a full pardon or has had a conviction set aside in a postconviction proceeding for any offense that meets the criteria for classifying the person as a sexual offender for purposes of registration. However, a sexual offender shall be considered for removal of the requirement to register as a sexual offender only if the person: (a)1. Has been lawfully released from confinement, supervision, or sanction, whichever is later, for at least 25 years and has not been arrested for any felony or misdemeanor offense since release, provided that the sexual offender's requirement to register was not based upon an adult conviction: a. For a violation of s. 787.01 or s. 787.02; b. For a violation of s. 794.011, excluding s. 794.011(10); c. For a violation of s. 800.04(4)(a)2. where the court finds the offense involved a victim under 12 years of age or sexual activity by the use of force or coercion; d. For a violation of s. 800.04(5)(b); e. For a violation of s. 800.04(5)(c)2. where the court finds the offense involved the use of force or coercion and unclothed genitals or genital area; f. For a violation of s. 825.1025(2)(a); g. For any attempt or conspiracy to commit any such offense; h. For a violation of similar law of another jurisdiction; or i. For a violation of a similar offense committed in this state which has been redesignated from a former statute number to one of those listed in this subparagraph." The condition is 'only if', a necessary one. Paragraph (b) is a second route: 'Maintains registration with the department as described in sub-subparagraph (1)(h)1.b. for the duration of his or her life until the person provides the department with an order issued by the court that designated the person ... which states that such designation has been removed or demonstrates to the department that such designation, if not imposed by a court, has been removed by operation of law or court order ... To qualify for removal of the registration requirements under this paragraph, a sexual offender described in sub-subparagraph (1)(h)1.b. must establish that his or her designation has been removed and establish that he or she does not meet the criteria for registration under any other sub-subparagraph under subparagraph (1)(h)1.'
+
+**F.S. 943.0595(2)(a), 2025 Florida Statutes, fetched 2026-08-14**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.0595
+
+_Relied on by state/sex-crimes-defense._
+
+> "ELIGIBILITY.-(a) The department shall automatically seal a criminal history record that does not result from an indictment, information, or other charging document for a forcible felony as defined in s. 776.08 or for an offense enumerated in s. 943.0435(1)(h)1.a.(I), if: 1. An indictment, information, or other charging document was not filed or issued in the case giving rise to the criminal history record. 2. An indictment, information, or other charging document was filed ... but was dismissed or nolle prosequi by the state attorney or statewide prosecutor or was dismissed by a court of competent jurisdiction as to all counts. However, a person is not eligible for automatic sealing under this section if the dismissal was pursuant to s. 916.145 or s. 985.19. 3. A not guilty verdict was rendered by a judge or jury as to all counts. However, a person is not eligible for automatic sealing under this section if the defendant was found not guilty by reason of insanity. 4. A judgment of acquittal was rendered by a judge as to all counts." The gate on this project bans the phrase 'not guilty verdict' in page copy, so subparagraph 3. is written on the page as an acquittal by judge or jury; the statutory wording is recorded here for accuracy of the source, not for reuse in copy.
+
+**F.S. 943.059(1)(b), 2025 Florida Statutes, fetched 2026-08-14**  
+https://www.flsenate.gov/Laws/Statutes/2025/943.059
+
+_Relied on by state/sex-crimes-defense._
+
+> "(b) The person has never, before the date the application for a certificate of eligibility is filed, been adjudicated guilty in this state of a criminal offense, or been adjudicated delinquent in this state for committing any felony or any of the following misdemeanor offenses, unless the record of such adjudication of delinquency has been expunged pursuant to s. 943.0515: 1. Assault, as defined in s. 784.011; 2. Battery, as defined in s. 784.03; 3. Assault on a law enforcement officer, a firefighter, or other specified officers, as defined in s. 784.07(2)(a); 4. Carrying a concealed weapon, as defined in s. 790.01(2); 5. Open carrying of a weapon, as defined in s. 790.053; 6. Unlawful possession or discharge of a weapon or firearm at a school-sponsored event or on school property, as defined in s. 790.115; 7. Unlawful use of destructive devices or bombs, as defined in s. 790.1615(1); 8. Unlawful possession of a firearm by a minor, as defined in s. 790.22(5); 9. Exposure of sexual organs, as defined in s. 800.03; 10. Arson, as defined in s. 806.031(1); 11. Petit theft, as defined in s. 812.014(3); 12. Neglect of a child, as defined in s. 827.03(1)(e); or 13. Cruelty to animals, as defined in s. 828.12(1)." Thirteen misdemeanors, exposure of sexual organs at 9., and the expungement unless-clause attaches to the delinquency prong.
+
+**F.S. 800.04(2) and (3), 2025 Florida Statutes, fetched 2026-08-14**  
+https://www.flsenate.gov/Laws/Statutes/2025/800.04
+
+_Relied on by state/sex-crimes-defense._
+
+> "(2) PROHIBITED DEFENSES.-Neither the victim's lack of chastity nor the victim's consent is a defense to the crimes proscribed by this section. (3) IGNORANCE OR BELIEF OF VICTIM'S AGE.-The perpetrator's ignorance of the victim's age, the victim's misrepresentation of his or her age, or the perpetrator's bona fide belief of the victim's age cannot be raised as a defense in a prosecution under this section." Five arguments removed by name, two in (2) and three in (3), not three.
+
+**F.S. 847.0135(2) and (6), 2025 Florida Statutes, fetched 2026-08-14**  
+https://www.flsenate.gov/Laws/Statutes/2025/847.0135
+
+_Relied on by state/sex-crimes-defense._
+
+> "(2) COMPUTER PORNOGRAPHY.-A person who: (a) Knowingly compiles, enters into, or transmits by use of computer; (b) Makes, prints, publishes, or reproduces by other computerized means; (c) Knowingly causes or allows to be entered into or transmitted by use of computer; or (d) Buys, sells, receives, exchanges, or disseminates, any notice, statement, or advertisement of any minor's name, telephone number, place of residence, physical characteristics, or other descriptive or identifying information for purposes of facilitating, encouraging, offering, or soliciting sexual conduct of or with any minor, or the visual depiction of such conduct, commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084. The fact that an undercover operative or law enforcement officer was involved in the detection and investigation of an offense under this section shall not constitute a defense to a prosecution under this section." Three of the four limbs carry a computer element on their face; a summary that drops it describes publishing a minor's identifying information by any means. "(6) OWNERS OR OPERATORS OF COMPUTER SERVICES LIABLE.-It is unlawful for any owner or operator of a computer online service, Internet service, or local bulletin board service knowingly to permit a subscriber to use the service to commit a violation of this section. Any person who violates this section commits a misdemeanor of the first degree, punishable by a fine not exceeding $2,000."
+
+**F.S. 775.082(3)(a)3. and 4., 2025 Florida Statutes, fetched 2026-08-14**  
+https://www.flsenate.gov/Laws/Statutes/2025/775.082
+
+_Relied on by state/sex-crimes-defense._
+
+> "3. Except as provided in subparagraph 4., for a life felony committed on or after July 1, 1995, by a term of imprisonment for life or by imprisonment for a term of years not exceeding life imprisonment. 4.a. Except as provided in sub-subparagraph b., for a life felony committed on or after September 1, 2005, which is a violation of s. 800.04(5)(b), by: (I) A term of imprisonment for life; or (II) A split sentence that is a term of at least 25 years' imprisonment and not exceeding life imprisonment, followed by probation or community control for the remainder of the person's natural life, as provided in s. 948.012(4). b. For a life felony committed on or after July 1, 2008, which is a person's second or subsequent violation of s. 800.04(5)(b), by a term of imprisonment for life." Sub-subparagraph 4.a. is limited to violations of s. 800.04(5)(b); every other life felony committed on or after July 1, 1995 falls to subparagraph 3.
+
+**F.S. 775.15(13)(a), 2025 Florida Statutes, fetched 2026-08-14**  
+https://www.flsenate.gov/Laws/Statutes/2025/775.15
+
+_Relied on by state/sex-crimes-defense._
+
+> "(13)(a) If the victim of a violation of s. 794.011, former s. 794.05, Florida Statutes 1995, s. 800.04, s. 826.04, or s. 847.0135(5) is under the age of 18, the applicable period of limitation, if any, does not begin to run until the victim has reached the age of 18 or the violation is reported to a law enforcement agency or other governmental agency, whichever occurs earlier. Such law enforcement agency or other governmental agency shall promptly report such allegation to the state attorney for the judicial circuit in which the alleged violation occurred. If the offense is a first or second degree felony violation of s. 794.011, and the offense is reported within 72 hours after its commission, the prosecution for such offense may be commenced at any time. This paragraph applies to any such offense except an offense the prosecution of which would have been barred by subsection (2) on or before December 31, 1984." Four sentences, not two.
+
+**Fla. R. Crim. P. 3.111(b)(1) and (b)(5), Florida Bar compilation of the Rules of Criminal Procedure, July 13, 2026 edition, page 22-23, retrieved 2026-08-14**  
+https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-2.pdf
+
+_Relied on by state/sex-crimes-defense._
+
+> "(b)(1) Counsel shall be provided to indigent persons in all prosecutions for offenses punishable by incarceration including appeals from the conviction thereof. In the discretion of the court, counsel does not have to be provided to an indigent person in a prosecution for a misdemeanor or violation of a municipal ordinance if the judge, at least 15 days prior to trial, files in the cause a written order of no incarceration certifying that the defendant will not be incarcerated in the case pending trial or probation violation hearing, or as part of a sentence after trial, guilty or nolo contendere plea, or probation revocation. This 15-day requirement may be waived by the defendant or defense counsel." (b)(1)(A)-(C) then govern discharge of appointed counsel after such an order and reappointment if the order is withdrawn. "(b)(5) Before appointing a public defender, the court shall: (A) inform the accused that, if the public defender or other counsel is appointed, a lien for the services rendered by counsel may be imposed as provided by law; (B) make inquiry into the financial status of the accused in a manner not inconsistent with the guidelines established by section 27.52, Florida Statutes. The accused shall respond to the inquiry under oath; (C) require the accused to execute an affidavit of insolvency..." ACCESS NOTE, confirmed again 2026-08-14: this URL returns 403 to a bare curl and to WebFetch. It returns HTTP 200 at 2,035,359 bytes with a browser user agent and an https://www.floridabar.org/rules/ctproc/ referer; text extracted locally with pdftotext -layout. The earlier /uploads/2026/05/2026_07-JAN-... and /uploads/2026/07/...-1.pdf addresses are dead.
