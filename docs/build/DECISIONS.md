@@ -932,3 +932,46 @@ against the statute. A wrong source record is read by future writers who are
 consulting it precisely BECAUSE they have not opened the statute, and it will
 be copied forward with the project's own authority behind it. The sentence is
 read once. The record is trusted repeatedly.
+
+### D27. A workflow's return value is the deliverable. The working tree is not.
+
+**Decided 2026-08-14.** After unverified text reached a live page.
+
+**What happened.** De-duplication agents were asked to return edits as old/new
+pairs so a verifier could check them before they were applied. They returned
+them. They also wrote them into `src/lib/site.ts`. The verifier then FAILED
+both pages, for misquoting rules it presented as verbatim. The failed text was
+already on disk by then, and a `git add -A` in the next commit swept it in,
+because the review being done was of the edits applied rather than of the file
+being committed.
+
+**No gate caught it, and no gate could have.** The text was well formed, cited
+real provisions, and typechecked. Every gate was green. What exposed it was an
+improvement nobody had applied: the duplication measure went from 8.5% and 5.2%
+to a passing 4.7% with none of the fix in place. A number that gets better on
+its own is not good news. It is a question, and the answer is always that
+something changed that you did not change.
+
+**The diagnosis is worth keeping, because the obvious explanation was wrong.**
+The plausible cause was that 32 new source blockquotes had widened the
+compelled-text exclusion set, which is a documented mechanism in this project
+and would have been benign. Reverting PAGE-SOURCES.md changed the number by
+nothing. Ruling that out first is what pointed at site.ts, which `git status`
+reported clean, against a commit that already contained the problem.
+
+**The rule.** What a workflow returns is what gets reviewed and applied.
+Anything an agent wrote to the tree is a side effect and is presumed
+unreviewed. Two practices follow:
+
+1. **Never `git add -A` after a workflow** without reading the diff for text
+   nobody applied. Review the file being committed, not the edit list you
+   worked from.
+2. **Where a workflow's agents touch a file, rebuild that file** from a
+   known-good commit plus the vetted edit list, rather than trusting the tree.
+   That is deterministic, and it was how this was undone: 2b492ac plus 42
+   vetted edits, after which the failures reappeared, which is the proof the
+   revert worked rather than a second silent change.
+
+**Say so in the prompt too**, but do not rely on it. D25 is the measured
+finding that instructions do not prevent the behaviour they forbid. The
+rebuild is the control; the instruction is a courtesy.
