@@ -896,3 +896,39 @@ to an unwritten page. There were three, they were prose URLs, and there was no
 counterpart field. A reviewer hunting closed sets closed one. Verify a finding
 before repairing to it; a repair aimed at a miscounted finding is a fresh
 error with a citation attached.
+
+### D26. A source record is checked as strictly as copy, because it is read by pages that do not exist yet
+
+**Decided 2026-08-14.** Prompted by a verifier finding in the batch B round 2
+repair that concerned no page at all.
+
+**What happened.** A repair agent recorded three F.S. 921.0022 rows in
+`docs/research/PAGE-SOURCES.md` as verbatim. Two carried pre-amendment dollar
+figures: 509.151(1) as "value greater than $300" and 713.69 as "value $50 or
+more". The chart reads $1,000 for each, and the audited fs-921-0022.ts table
+carries min 1000 for both, so two fetches a day apart agreed against the
+record. The securities fraud page relied on neither row. Nothing rendered
+wrong. Every gate was green.
+
+**Why it was still a failure.** PAGE-SOURCES.md is not a filing cabinet. It is
+consulted as authority: this project's own instructions tell writers to use the
+recorded verbatim text of a court rule rather than re-deriving it, and in the
+same round a page put Rule 3.134 in front of a reader on that basis. The file
+held no other record of those two thresholds. The first page written about
+defrauding an innkeeper or about a landlord's lien would have taken a figure
+wrong by 3x and by 20x, from a record labelled verbatim, and would have been
+right to trust it.
+
+**The rule.** A source record gets the same treatment as page copy: fetched,
+read whole, and independently re-verified before it is written down. Trim a
+record to what was actually verified rather than padding it with surrounding
+text that looks like free context; the padding is where this one failed. Where
+an excerpt starts part-way into a provision, mark it, because an excerpt that
+does not say it is an excerpt reads as the whole thing.
+
+**And the asymmetry that makes this worth a decision.** A wrong sentence on a
+page is read by that page's readers and can be caught by anyone who reads it
+against the statute. A wrong source record is read by future writers who are
+consulting it precisely BECAUSE they have not opened the statute, and it will
+be copied forward with the project's own authority behind it. The sentence is
+read once. The record is trusted repeatedly.
