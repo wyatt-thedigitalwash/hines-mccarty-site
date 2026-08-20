@@ -22,10 +22,10 @@
  *   G4  A counting or closed-set sentence ("two tracks", "only", "every",
  *       "all", "none", "no other", "always", "never", "both") that cites a
  *       provision fires unless that provision is recorded as read whole.
- *       Until the machine-readable read-whole marker lands on PAGE-SOURCES
- *       records (Phase 1 work), the only read-whole evidence this gate
- *       accepts is a whole-section audited statute table, and it prints that
- *       limit on every run (D22: no silent defaults).
+ *       Read-whole evidence is a whole-section audited statute table or a
+ *       READ-WHOLE marker line on a PAGE-SOURCES record (added with the
+ *       Phase 1 records, 2026-08-20). The markers in force are printed on
+ *       every run (D22: no silent defaults).
  *
  * Charge pages are NOT audited here: their citations are covered by
  * check:unverified's flag system plus the brief pipeline that guides lack.
@@ -68,6 +68,23 @@ const wholeSectionKeys = (() => {
   return out;
 })();
 
+/**
+ * READ-WHOLE markers on PAGE-SOURCES records. The machine-readable read-whole
+ * evidence GUIDES-CONCEPT F.3 G4 required, added with the Phase 1 records
+ * (2026-08-20). A marker line is the auditor's claim that the provision was
+ * read start to finish; it lives OUTSIDE the blockquote so it never joins the
+ * compelled duplication corpus.
+ */
+const readWholeMarked = (() => {
+  const out = new Set<string>();
+  for (const line of sourceLines) {
+    const m = line.match(/^READ-WHOLE:\s*(.+)$/);
+    if (!m) continue;
+    for (const r of refs(m[1])) out.add(r);
+  }
+  return out;
+})();
+
 /** Row-level refs from whole-section tables, the stronger per-subsection record. */
 const tableRefs = (() => {
   const out = new Set<string>();
@@ -85,6 +102,8 @@ function g2Cleared(cited: string, recorded: Set<string> = recordedRefs): boolean
   // A whole-section table clears every subsection of its own section: the
   // auditor's finding is that the section was read start to finish.
   if ([...wholeSectionKeys].some((k) => covers(k, cited) || covers(cited, k))) return true;
+  // Same reasoning for a READ-WHOLE marker on a PAGE-SOURCES record.
+  if ([...readWholeMarked].some((k) => covers(k, cited) || covers(cited, k))) return true;
   return false;
 }
 
@@ -208,6 +227,22 @@ console.log("Provenance-gate self-tests");
   t("G4 stays quiet on a counting claim over a whole-section table (F.S. 943.0584)",
     g4Hits("F.S. 943.0584 bars all of the listed offenses.", wholeSectionKeys).length === 0);
 
+  // READ-WHOLE marker: a real marked record clears G2 and G4; text NOT under
+  // a marker still fires. Rule 32 exists only as a marked record, never as a
+  // statute table, so it exercises the marker path and nothing else.
+  t("READ-WHOLE marker parsed from PAGE-SOURCES (Fed. R. Crim. P. Rule 32)",
+    readWholeMarked.has("rule 32"));
+  t("G2 passes a citation cleared only by a READ-WHOLE marker (Rule 32(k))",
+    g2Cleared("rule 32(k)"));
+  t("G4 stays quiet on a counting claim over a marker-cleared provision (Rule 32)",
+    g4Hits("Rule 32 sets two deadlines for the presentence report.",
+      new Set([...wholeSectionKeys, ...readWholeMarked])).length === 0);
+  // "two tracks", not "two forms": the counting-noun list does not include
+  // "forms", so the first fixture never armed the check it was testing.
+  t("G4 still fires when only the marker set is widened and the cite is unmarked (Rule 47)",
+    g4Hits("Rule 47 names two tracks for motions.",
+      new Set([...wholeSectionKeys, ...readWholeMarked])).length >= 1);
+
   if (!ok) {
     console.log("\nProvenance check FAILED (self-tests).");
     process.exit(1);
@@ -278,9 +313,10 @@ console.log("\nG3: quoted spans located in the record, truncation checked");
 
 console.log("\nG4: closed-set and counting claims");
 {
+  const readWhole = new Set([...wholeSectionKeys, ...readWholeMarked]);
   let hits = 0;
   for (const m of surfaces) {
-    for (const h of g4Hits(m.copy.join("\n"), wholeSectionKeys)) {
+    for (const h of g4Hits(m.copy.join("\n"), readWhole)) {
       hits++;
       fail(
         `${m.href}: counting/closed-set claim cites ${h.cited.toUpperCase()}, which is not ` +
@@ -293,10 +329,14 @@ console.log("\nG4: closed-set and counting claims");
 
 // D22: what this run did NOT check, printed every time.
 console.log(
-  "\n  ..    NOT CHECKED, by design or by phase: charge-page citations (check:unverified " +
-    "owns those, flag-driven); the PAGE-SOURCES read-whole marker for G4 (Phase 1; until " +
-    "then only whole-section audited tables count as read-whole); quote fidelity against " +
-    "live external sources (repository records only).",
+  `\n  ..    READ-WHOLE markers in force: ${readWholeMarked.size} ` +
+    `(${[...readWholeMarked].sort().join(", ")})`,
+);
+console.log(
+  "  ..    NOT CHECKED, by design: charge-page citations (check:unverified owns those, " +
+    "flag-driven); quote fidelity against live external sources (each Phase 1 record was " +
+    "verified against a second publisher at record time, and that verification is recorded " +
+    "on the record, not re-run here).",
 );
 
 console.log(failed ? "\nProvenance check FAILED." : "\nProvenance check passed.");

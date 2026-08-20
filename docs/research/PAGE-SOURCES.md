@@ -1420,6 +1420,8 @@ https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3161
 
 > Fetched 2026-08-14; page carries "Text contains those laws in effect on August 13, 2026". (b), both sentences: "Any information or indictment charging an individual with the commission of an offense shall be filed within thirty days from the date on which such individual was arrested or served with a summons in connection with such charges. If an individual has been charged with a felony in a district in which no grand jury has been in session during such thirty-day period, the period of time for filing of the indictment shall be extended an additional thirty days." (c)(1), first sentence: "In any case in which a plea of not guilty is entered, the trial of a defendant charged in an information or indictment with the commission of an offense shall commence within seventy days from the filing date (and making public) of the information or indictment, or from the date the defendant has appeared before a judicial officer of the court in which such charge is pending, whichever date last occurs." (h), opening clause: "The following periods of delay shall be excluded in computing the time within which an information or an indictment must be filed, or in computing the time within which the trial of any such offense must commence:" (paragraphs not reproduced here; (h)(1)(D) is "delay resulting from any pretrial motion, from the filing of the motion through the conclusion of the hearing on, or other prompt disposition of, such motion").
 
+[SUPERSEDED for (h), 2026-08-20: the (h) excerpt above is replaced as the citable basis by the whole-section 18 U.S.C. 3161 record in the Phase 1 section at the end of this file, which carries the READ-WHOLE marker. The (b) and (c)(1) quotations in this record remain good.]
+
 **12 U.S.C. 1829(a)(1), (a)(2)(A), (a)(2)(B), (b), (c)(1)(A)**  
 https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title12-section1829&num=0&edition=prelim
 
@@ -2128,3 +2130,710 @@ https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Criminal-Procedure-
 _Relied on by state/sex-crimes-defense._
 
 > "(b)(1) Counsel shall be provided to indigent persons in all prosecutions for offenses punishable by incarceration including appeals from the conviction thereof. In the discretion of the court, counsel does not have to be provided to an indigent person in a prosecution for a misdemeanor or violation of a municipal ordinance if the judge, at least 15 days prior to trial, files in the cause a written order of no incarceration certifying that the defendant will not be incarcerated in the case pending trial or probation violation hearing, or as part of a sentence after trial, guilty or nolo contendere plea, or probation revocation. This 15-day requirement may be waived by the defendant or defense counsel." (b)(1)(A)-(C) then govern discharge of appointed counsel after such an order and reappointment if the order is withdrawn. "(b)(5) Before appointing a public defender, the court shall: (A) inform the accused that, if the public defender or other counsel is appointed, a lien for the services rendered by counsel may be imposed as provided by law; (B) make inquiry into the financial status of the accused in a manner not inconsistent with the guidelines established by section 27.52, Florida Statutes. The accused shall respond to the inquiry under oath; (C) require the accused to execute an affidavit of insolvency..." ACCESS NOTE, confirmed again 2026-08-14: this URL returns 403 to a bare curl and to WebFetch. It returns HTTP 200 at 2,035,359 bytes with a browser user agent and an https://www.floridabar.org/rules/ctproc/ referer; text extracted locally with pdftotext -layout. The earlier /uploads/2026/05/2026_07-JAN-... and /uploads/2026/07/...-1.pdf addresses are dead.
+
+---
+
+## 2026-08-20: Phase 1 fact layer for guide 2 (GUIDES-CONCEPT.md Phase 1, D29/D30 rulings)
+
+Eleven provisions the federal timeline guide rests on, none previously recorded
+whole. Method for every record in this section: fetched whole from the primary
+source with a browser user agent; independently re-verified the same day
+against a second publisher (law.cornell.edu) by span containment over every
+sentence-level span; recorded whole below, one blockquote line per paragraph so
+the text joins the compelled duplication corpus. The READ-WHOLE line on each
+record is the machine-readable marker GUIDES-CONCEPT F.3 G4 requires: it is the
+auditor's claim that the provision was read start to finish, and
+scripts/check-provenance.mts accepts it as read-whole evidence. A record
+without that line was not read whole, whatever its prose says.
+
+Where the two publishers diverged, the divergence is recorded on the rule and
+in every case inspected the defect was Cornell's (typos, a dropped word), which
+is why the official source is primary and Cornell is verification only.
+
+**18 U.S.C. 3161, whole section, (a) through (k)**  
+READ-WHOLE: 18 U.S.C. 3161
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3161&num=0&edition=prelim
+
+SUPERSEDES, for (h): the partial (h) record in the batch B bank-fraud entry above (the blockquote whose (h) parenthetical reads "paragraphs not reproduced here", near line 1420 at the time of writing). That record's (b) and (c)(1) quotations remain good; its (h) is an excerpt and this whole-section record replaces it as the citable basis for (h). This record also supplies (c)(2), which had NO record anywhere in this file before today (the GUIDES-CONCEPT C.2 table said "absent from the site", corrected 2026-08-20 to absent from this file only).
+
+Fetched 2026-08-20; page carries "Text contains those laws in effect on August 19, 2026". Read whole, recorded whole. Independently re-verified against law.cornell.edu the same day: every sentence-level span of this record is contained in the second publisher's copy.
+
+> §3161. Time limits and exclusions
+> (a) In any case involving a defendant charged with an offense, the appropriate judicial officer, at the earliest practicable time, shall, after consultation with the counsel for the defendant and the attorney for the Government, set the case for trial on a day certain, or list it for trial on a weekly or other short-term trial calendar at a place within the judicial district, so as to assure a speedy trial.
+> (b) Any information or indictment charging an individual with the commission of an offense shall be filed within thirty days from the date on which such individual was arrested or served with a summons in connection with such charges. If an individual has been charged with a felony in a district in which no grand jury has been in session during such thirty-day period, the period of time for filing of the indictment shall be extended an additional thirty days.
+> (c)(1) In any case in which a plea of not guilty is entered, the trial of a defendant charged in an information or indictment with the commission of an offense shall commence within seventy days from the filing date (and making public) of the information or indictment, or from the date the defendant has appeared before a judicial officer of the court in which such charge is pending, whichever date last occurs. If a defendant consents in writing to be tried before a magistrate judge on a complaint, the trial shall commence within seventy days from the date of such consent.
+> (2) Unless the defendant consents in writing to the contrary, the trial shall not commence less than thirty days from the date on which the defendant first appears through counsel or expressly waives counsel and elects to proceed pro se.
+> (d)(1) If any indictment or information is dismissed upon motion of the defendant, or any charge contained in a complaint filed against an individual is dismissed or otherwise dropped, and thereafter a complaint is filed against such defendant or individual charging him with the same offense or an offense based on the same conduct or arising from the same criminal episode, or an information or indictment is filed charging such defendant with the same offense or an offense based on the same conduct or arising from the same criminal episode, the provisions of subsections (b) and (c) of this section shall be applicable with respect to such subsequent complaint, indictment, or information, as the case may be.
+> (2) If the defendant is to be tried upon an indictment or information dismissed by a trial court and reinstated following an appeal, the trial shall commence within seventy days from the date the action occasioning the trial becomes final, except that the court retrying the case may extend the period for trial not to exceed one hundred and eighty days from the date the action occasioning the trial becomes final if the unavailability of witnesses or other factors resulting from the passage of time shall make trial within seventy days impractical. The periods of delay enumerated in section 3161(h) are excluded in computing the time limitations specified in this section. The sanctions of section 3162 apply to this subsection.
+> (e) If the defendant is to be tried again following a declaration by the trial judge of a mistrial or following an order of such judge for a new trial, the trial shall commence within seventy days from the date the action occasioning the retrial becomes final. If the defendant is to be tried again following an appeal or a collateral attack, the trial shall commence within seventy days from the date the action occasioning the retrial becomes final, except that the court retrying the case may extend the period for retrial not to exceed one hundred and eighty days from the date the action occasioning the retrial becomes final if unavailability of witnesses or other factors resulting from passage of time shall make trial within seventy days impractical. The periods of delay enumerated in section 3161(h) are excluded in computing the time limitations specified in this section. The sanctions of section 3162 apply to this subsection.
+> (f) Notwithstanding the provisions of subsection (b) of this section, for the first twelve-calendar-month period following the effective date of this section as set forth in section 3163(a) of this chapter the time limit imposed with respect to the period between arrest and indictment by subsection (b) of this section shall be sixty days, for the second such twelve-month period such time limit shall be forty-five days and for the third such period such time limit shall be thirty-five days.
+> (g) Notwithstanding the provisions of subsection (c) of this section, for the first twelve-calendar-month period following the effective date of this section as set forth in section 3163(b) of this chapter, the time limit with respect to the period between arraignment and trial imposed by subsection (c) of this section shall be one hundred and eighty days, for the second such twelve-month period such time limit shall be one hundred and twenty days, and for the third such period such time limit with respect to the period between arraignment and trial shall be eighty days.
+> (h) The following periods of delay shall be excluded in computing the time within which an information or an indictment must be filed, or in computing the time within which the trial of any such offense must commence:
+> (1) Any period of delay resulting from other proceedings concerning the defendant, including but not limited to-
+> (A) delay resulting from any proceeding, including any examinations, to determine the mental competency or physical capacity of the defendant;
+> (B) delay resulting from trial with respect to other charges against the defendant;
+> (C) delay resulting from any interlocutory appeal;
+> (D) delay resulting from any pretrial motion, from the filing of the motion through the conclusion of the hearing on, or other prompt disposition of, such motion;
+> (E) delay resulting from any proceeding relating to the transfer of a case or the removal of any defendant from another district under the Federal Rules of Criminal Procedure;
+> (F) delay resulting from transportation of any defendant from another district, or to and from places of examination or hospitalization, except that any time consumed in excess of ten days from the date an order of removal or an order directing such transportation, and the defendant's arrival at the destination shall be presumed to be unreasonable;
+> (G) delay resulting from consideration by the court of a proposed plea agreement to be entered into by the defendant and the attorney for the Government; and
+> (H) delay reasonably attributable to any period, not to exceed thirty days, during which any proceeding concerning the defendant is actually under advisement by the court.
+> (2) Any period of delay during which prosecution is deferred by the attorney for the Government pursuant to written agreement with the defendant, with the approval of the court, for the purpose of allowing the defendant to demonstrate his good conduct.
+> (3)(A) Any period of delay resulting from the absence or unavailability of the defendant or an essential witness.
+> (B) For purposes of subparagraph (A) of this paragraph, a defendant or an essential witness shall be considered absent when his whereabouts are unknown and, in addition, he is attempting to avoid apprehension or prosecution or his whereabouts cannot be determined by due diligence. For purposes of such subparagraph, a defendant or an essential witness shall be considered unavailable whenever his whereabouts are known but his presence for trial cannot be obtained by due diligence or he resists appearing at or being returned for trial.
+> (4) Any period of delay resulting from the fact that the defendant is mentally incompetent or physically unable to stand trial.
+> (5) If the information or indictment is dismissed upon motion of the attorney for the Government and thereafter a charge is filed against the defendant for the same offense, or any offense required to be joined with that offense, any period of delay from the date the charge was dismissed to the date the time limitation would commence to run as to the subsequent charge had there been no previous charge.
+> (6) A reasonable period of delay when the defendant is joined for trial with a codefendant as to whom the time for trial has not run and no motion for severance has been granted.
+> (7)(A) Any period of delay resulting from a continuance granted by any judge on his own motion or at the request of the defendant or his counsel or at the request of the attorney for the Government, if the judge granted such continuance on the basis of his findings that the ends of justice served by taking such action outweigh the best interest of the public and the defendant in a speedy trial. No such period of delay resulting from a continuance granted by the court in accordance with this paragraph shall be excludable under this subsection unless the court sets forth, in the record of the case, either orally or in writing, its reasons for finding that the ends of justice served by the granting of such continuance outweigh the best interests of the public and the defendant in a speedy trial.
+> (B) The factors, among others, which a judge shall consider in determining whether to grant a continuance under subparagraph (A) of this paragraph in any case are as follows:
+> (i) Whether the failure to grant such a continuance in the proceeding would be likely to make a continuation of such proceeding impossible, or result in a miscarriage of justice.
+> (ii) Whether the case is so unusual or so complex, due to the number of defendants, the nature of the prosecution, or the existence of novel questions of fact or law, that it is unreasonable to expect adequate preparation for pretrial proceedings or for the trial itself within the time limits established by this section.
+> (iii) Whether, in a case in which arrest precedes indictment, delay in the filing of the indictment is caused because the arrest occurs at a time such that it is unreasonable to expect return and filing of the indictment within the period specified in section 3161(b), or because the facts upon which the grand jury must base its determination are unusual or complex.
+> (iv) Whether the failure to grant such a continuance in a case which, taken as a whole, is not so unusual or so complex as to fall within clause (ii), would deny the defendant reasonable time to obtain counsel, would unreasonably deny the defendant or the Government continuity of counsel, or would deny counsel for the defendant or the attorney for the Government the reasonable time necessary for effective preparation, taking into account the exercise of due diligence.
+> (C) No continuance under subparagraph (A) of this paragraph shall be granted because of general congestion of the court's calendar, or lack of diligent preparation or failure to obtain available witnesses on the part of the attorney for the Government.
+> (8) Any period of delay, not to exceed one year, ordered by a district court upon an application of a party and a finding by a preponderance of the evidence that an official request, as defined in section 3292 of this title, has been made for evidence of any such offense and that it reasonably appears, or reasonably appeared at the time the request was made, that such evidence is, or was, in such foreign country.
+> (i) If trial did not commence within the time limitation specified in section 3161 because the defendant had entered a plea of guilty or nolo contendere subsequently withdrawn to any or all charges in an indictment or information, the defendant shall be deemed indicted with respect to all charges therein contained within the meaning of section 3161, on the day the order permitting withdrawal of the plea becomes final.
+> (j)(1) If the attorney for the Government knows that a person charged with an offense is serving a term of imprisonment in any penal institution, he shall promptly-
+> (A) undertake to obtain the presence of the prisoner for trial; or
+> (B) cause a detainer to be filed with the person having custody of the prisoner and request him to so advise the prisoner and to advise the prisoner of his right to demand trial.
+> (2) If the person having custody of such prisoner receives a detainer, he shall promptly advise the prisoner of the charge and of the prisoner's right to demand trial. If at any time thereafter the prisoner informs the person having custody that he does demand trial, such person shall cause notice to that effect to be sent promptly to the attorney for the Government who caused the detainer to be filed.
+> (3) Upon receipt of such notice, the attorney for the Government shall promptly seek to obtain the presence of the prisoner for trial.
+> (4) When the person having custody of the prisoner receives from the attorney for the Government a properly supported request for temporary custody of such prisoner for trial, the prisoner shall be made available to that attorney for the Government (subject, in cases of interjurisdictional transfer, to any right of the prisoner to contest the legality of his delivery).
+> (k)(1) If the defendant is absent (as defined by subsection (h)(3)) on the day set for trial, and the defendant's subsequent appearance before the court on a bench warrant or other process or surrender to the court occurs more than 21 days after the day set for trial, the defendant shall be deemed to have first appeared before a judicial officer of the court in which the information or indictment is pending within the meaning of subsection (c) on the date of the defendant's subsequent appearance before the court.
+> (2) If the defendant is absent (as defined by subsection (h)(3)) on the day set for trial, and the defendant's subsequent appearance before the court on a bench warrant or other process or surrender to the court occurs not more than 21 days after the day set for trial, the time limit required by subsection (c), as extended by subsection (h), shall be further extended by 21 days.
+
+**18 U.S.C. 3162, whole section, (a) and (b)**  
+READ-WHOLE: 18 U.S.C. 3162
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3162&num=0&edition=prelim
+
+The sanction section. Recorded so no page states the 70-day interval as a case-ending deadline: dismissal under (a)(2) may be with or without prejudice, on stated factors, and (a)(2) makes failure to move for dismissal prior to trial or plea a waiver of the right to dismissal.
+
+Fetched 2026-08-20; page carries "Text contains those laws in effect on August 19, 2026". Read whole, recorded whole. Independently re-verified against law.cornell.edu the same day: every sentence-level span of this record is contained in the second publisher's copy.
+
+> §3162. Sanctions
+> (a)(1) If, in the case of any individual against whom a complaint is filed charging such individual with an offense, no indictment or information is filed within the time limit required by section 3161(b) as extended by section 3161(h) of this chapter, such charge against that individual contained in such complaint shall be dismissed or otherwise dropped. In determining whether to dismiss the case with or without prejudice, the court shall consider, among others, each of the following factors: the seriousness of the offense; the facts and circumstances of the case which led to the dismissal; and the impact of a reprosecution on the administration of this chapter and on the administration of justice.
+> (2) If a defendant is not brought to trial within the time limit required by section 3161(c) as extended by section 3161(h), the information or indictment shall be dismissed on motion of the defendant. The defendant shall have the burden of proof of supporting such motion but the Government shall have the burden of going forward with the evidence in connection with any exclusion of time under subparagraph 3161(h)(3). In determining whether to dismiss the case with or without prejudice, the court shall consider, among others, each of the following factors: the seriousness of the offense; the facts and circumstances of the case which led to the dismissal; and the impact of a reprosecution on the administration of this chapter and on the administration of justice. Failure of the defendant to move for dismissal prior to trial or entry of a plea of guilty or nolo contendere shall constitute a waiver of the right to dismissal under this section.
+> (b) In any case in which counsel for the defendant or the attorney for the Government (1) knowingly allows the case to be set for trial without disclosing the fact that a necessary witness would be unavailable for trial; (2) files a motion solely for the purpose of delay which he knows is totally frivolous and without merit; (3) makes a statement for the purpose of obtaining a continuance which he knows to be false and which is material to the granting of a continuance; or (4) otherwise willfully fails to proceed to trial without justification consistent with section 3161 of this chapter, the court may punish any such counsel or attorney, as follows:
+> (A) in the case of an appointed defense counsel, by reducing the amount of compensation that otherwise would have been paid to such counsel pursuant to section 3006A of this title in an amount not to exceed 25 per centum thereof;
+> (B) in the case of a counsel retained in connection with the defense of a defendant, by imposing on such counsel a fine of not to exceed 25 per centum of the compensation to which he is entitled in connection with his defense of such defendant;
+> (C) by imposing on any attorney for the Government a fine of not to exceed $250;
+> (D) by denying any such counsel or attorney for the Government the right to practice before the court considering such case for a period of not to exceed ninety days; or
+> (E) by filing a report with an appropriate disciplinary committee.
+> The authority to punish provided for by this subsection shall be in addition to any other authority or power available to such court.
+> (c) The court shall follow procedures established in the Federal Rules of Criminal Procedure in punishing any counsel or attorney for the Government pursuant to this section.
+
+**18 U.S.C. 3142, whole section, (a) through (j)**  
+READ-WHOLE: 18 U.S.C. 3142
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3142&num=0&edition=prelim
+
+Recorded whole for (e) detention including both rebuttable presumptions, and (g) the factors list. The existing (f) records above (lines near 1277-1281 and 1985-1986 at the time of writing) remain good and are subsumed rather than superseded; the 1985 record's trap note about the continuance sentence still holds and is visible in the (f) paragraph below.
+
+Fetched 2026-08-20; page carries "Text contains those laws in effect on August 19, 2026". Read whole, recorded whole. Independently re-verified against law.cornell.edu the same day: every sentence-level span of this record is contained in the second publisher's copy.
+
+> §3142. Release or detention of a defendant pending trial
+> (a) In General.-Upon the appearance before a judicial officer of a person charged with an offense, the judicial officer shall issue an order that, pending trial, the person be-
+> (1) released on personal recognizance or upon execution of an unsecured appearance bond, under subsection (b) of this section;
+> (2) released on a condition or combination of conditions under subsection (c) of this section;
+> (3) temporarily detained to permit revocation of conditional release, deportation, or exclusion under subsection (d) of this section; or
+> (4) detained under subsection (e) of this section.
+> (b) Release on Personal Recognizance or Unsecured Appearance Bond.-The judicial officer shall order the pretrial release of the person on personal recognizance, or upon execution of an unsecured appearance bond in an amount specified by the court, subject to the condition that the person not commit a Federal, State, or local crime during the period of release and subject to the condition that the person cooperate in the collection of a DNA sample from the person if the collection of such a sample is authorized pursuant to section 3 of the DNA Analysis Backlog Elimination Act of 2000 (42 U.S.C. 14135a),1 unless the judicial officer determines that such release will not reasonably assure the appearance of the person as required or will endanger the safety of any other person or the community.
+> (c) Release on Conditions.-(1) If the judicial officer determines that the release described in subsection (b) of this section will not reasonably assure the appearance of the person as required or will endanger the safety of any other person or the community, such judicial officer shall order the pretrial release of the person-
+> (A) subject to the condition that the person not commit a Federal, State, or local crime during the period of release and subject to the condition that the person cooperate in the collection of a DNA sample from the person if the collection of such a sample is authorized pursuant to section 3 of the DNA Analysis Backlog Elimination Act of 2000 (42 U.S.C. 14135a); 1 and
+> (B) subject to the least restrictive further condition, or combination of conditions, that such judicial officer determines will reasonably assure the appearance of the person as required and the safety of any other person and the community, which may include the condition that the person-
+> (i) remain in the custody of a designated person, who agrees to assume supervision and to report any violation of a release condition to the court, if the designated person is able reasonably to assure the judicial officer that the person will appear as required and will not pose a danger to the safety of any other person or the community;
+> (ii) maintain employment, or, if unemployed, actively seek employment;
+> (iii) maintain or commence an educational program;
+> (iv) abide by specified restrictions on personal associations, place of abode, or travel;
+> (v) avoid all contact with an alleged victim of the crime and with a potential witness who may testify concerning the offense;
+> (vi) report on a regular basis to a designated law enforcement agency, pretrial services agency, or other agency;
+> (vii) comply with a specified curfew;
+> (viii) refrain from possessing a firearm, destructive device, or other dangerous weapon;
+> (ix) refrain from excessive use of alcohol, or any use of a narcotic drug or other controlled substance, as defined in section 102 of the Controlled Substances Act (21 U.S.C. 802), without a prescription by a licensed medical practitioner;
+> (x) undergo available medical, psychological, or psychiatric treatment, including treatment for drug or alcohol dependency, and remain in a specified institution if required for that purpose;
+> (xi) execute an agreement to forfeit upon failing to appear as required, property of a sufficient unencumbered value, including money, as is reasonably necessary to assure the appearance of the person as required, and shall provide the court with proof of ownership and the value of the property along with information regarding existing encumbrances as the judicial office may require;
+> (xii) execute a bail bond with solvent sureties; who will execute an agreement to forfeit in such amount as is reasonably necessary to assure appearance of the person as required and shall provide the court with information regarding the value of the assets and liabilities of the surety if other than an approved surety and the nature and extent of encumbrances against the surety's property; such surety shall have a net worth which shall have sufficient unencumbered value to pay the amount of the bail bond;
+> (xiii) return to custody for specified hours following release for employment, schooling, or other limited purposes; and
+> (xiv) satisfy any other condition that is reasonably necessary to assure the appearance of the person as required and to assure the safety of any other person and the community.
+> In any case that involves a minor victim under section 1201, 1591, 2241, 2242, 2244(a)(1), 2245, 2251, 2251A, 2252(a)(1), 2252(a)(2), 2252(a)(3), 2252A(a)(1), 2252A(a)(2), 2252A(a)(3), 2252A(a)(4), 2260, 2421, 2422, 2423, or 2425 of this title, or a failure to register offense under section 2250 of this title, any release order shall contain, at a minimum, a condition of electronic monitoring and each of the conditions specified at subparagraphs (iv), (v), (vi), (vii), and (viii).
+> (2) The judicial officer may not impose a financial condition that results in the pretrial detention of the person.
+> (3) The judicial officer may at any time amend the order to impose additional or different conditions of release.
+> (d) Temporary Detention To Permit Revocation of Conditional Release, Deportation, or Exclusion.-If the judicial officer determines that-
+> (1) such person-
+> (A) is, and was at the time the offense was committed, on-
+> (i) release pending trial for a felony under Federal, State, or local law;
+> (ii) release pending imposition or execution of sentence, appeal of sentence or conviction, or completion of sentence, for any offense under Federal, State, or local law; or
+> (iii) probation or parole for any offense under Federal, State, or local law; or
+> (B) is not a citizen of the United States or lawfully admitted for permanent residence, as defined in section 101(a)(20) of the Immigration and Nationality Act (8 U.S.C. 1101(a)(20)); and
+> (2) such person may flee or pose a danger to any other person or the community;
+> such judicial officer shall order the detention of such person, for a period of not more than ten days, excluding Saturdays, Sundays, and holidays, and direct the attorney for the Government to notify the appropriate court, probation or parole official, or State or local law enforcement official, or the appropriate official of the Immigration and Naturalization Service. If the official fails or declines to take such person into custody during that period, such person shall be treated in accordance with the other provisions of this section, notwithstanding the applicability of other provisions of law governing release pending trial or deportation or exclusion proceedings. If temporary detention is sought under paragraph (1)(B) of this subsection, such person has the burden of proving to the court such person's United States citizenship or lawful admission for permanent residence.
+> (e) Detention.-(1) If, after a hearing pursuant to the provisions of subsection (f) of this section, the judicial officer finds that no condition or combination of conditions will reasonably assure the appearance of the person as required and the safety of any other person and the community, such judicial officer shall order the detention of the person before trial.
+> (2) In a case described in subsection (f)(1) of this section, a rebuttable presumption arises that no condition or combination of conditions will reasonably assure the safety of any other person and the community if such judicial officer finds that-
+> (A) the person has been convicted of a Federal offense that is described in subsection (f)(1) of this section, or of a State or local offense that would have been an offense described in subsection (f)(1) of this section if a circumstance giving rise to Federal jurisdiction had existed;
+> (B) the offense described in subparagraph (A) was committed while the person was on release pending trial for a Federal, State, or local offense; and
+> (C) a period of not more than five years has elapsed since the date of conviction, or the release of the person from imprisonment, for the offense described in subparagraph (A), whichever is later.
+> (3) Subject to rebuttal by the person, it shall be presumed that no condition or combination of conditions will reasonably assure the appearance of the person as required and the safety of the community if the judicial officer finds that there is probable cause to believe that the person committed-
+> (A) an offense for which a maximum term of imprisonment of ten years or more is prescribed in the Controlled Substances Act (21 U.S.C. 801 et seq.), the Controlled Substances Import and Export Act (21 U.S.C. 951 et seq.), or chapter 705 of title 46;
+> (B) an offense under section 924(c), 956(a), or 2332b of this title;
+> (C) an offense listed in section 2332b(g)(5)(B) of title 18, United States Code, for which a maximum term of imprisonment of 10 years or more is prescribed;
+> (D) an offense under chapter 77 of this title for which a maximum term of imprisonment of 20 years or more is prescribed; or
+> (E) an offense involving a minor victim under section 1201, 1591, 2241, 2242, 2244(a)(1), 2245, 2251, 2251A, 2252(a)(1), 2252(a)(2), 2252(a)(3), 2252A(a)(1), 2252A(a)(2), 2252A(a)(3), 2252A(a)(4), 2260, 2421, 2422, 2423, or 2425 of this title.
+> (f) Detention Hearing.-The judicial officer shall hold a hearing to determine whether any condition or combination of conditions set forth in subsection (c) of this section will reasonably assure the appearance of such person as required and the safety of any other person and the community-
+> (1) upon motion of the attorney for the Government, in a case that involves-
+> (A) a crime of violence, a violation of section 1591, or an offense listed in section 2332b(g)(5)(B) for which a maximum term of imprisonment of 10 years or more is prescribed;
+> (B) an offense for which the maximum sentence is life imprisonment or death;
+> (C) an offense for which a maximum term of imprisonment of ten years or more is prescribed in the Controlled Substances Act (21 U.S.C. 801 et seq.), the Controlled Substances Import and Export Act (21 U.S.C. 951 et seq.), or chapter 705 of title 46;
+> (D) any felony if such person has been convicted of two or more offenses described in subparagraphs (A) through (C) of this paragraph, or two or more State or local offenses that would have been offenses described in subparagraphs (A) through (C) of this paragraph if a circumstance giving rise to Federal jurisdiction had existed, or a combination of such offenses; or
+> (E) any felony that is not otherwise a crime of violence that involves a minor victim or that involves the possession or use of a firearm or destructive device (as those terms are defined in section 921), or any other dangerous weapon, or involves a failure to register under section 2250 of title 18, United States Code; or
+> (2) upon motion of the attorney for the Government or upon the judicial officer's own motion in a case, that involves-
+> (A) a serious risk that such person will flee; or
+> (B) a serious risk that such person will obstruct or attempt to obstruct justice, or threaten, injure, or intimidate, or attempt to threaten, injure, or intimidate, a prospective witness or juror.
+> The hearing shall be held immediately upon the person's first appearance before the judicial officer unless that person, or the attorney for the Government, seeks a continuance. Except for good cause, a continuance on motion of such person may not exceed five days (not including any intermediate Saturday, Sunday, or legal holiday), and a continuance on motion of the attorney for the Government may not exceed three days (not including any intermediate Saturday, Sunday, or legal holiday). During a continuance, such person shall be detained, and the judicial officer, on motion of the attorney for the Government or sua sponte, may order that, while in custody, a person who appears to be a narcotics addict receive a medical examination to determine whether such person is an addict. At the hearing, such person has the right to be represented by counsel, and, if financially unable to obtain adequate representation, to have counsel appointed. The person shall be afforded an opportunity to testify, to present witnesses, to cross-examine witnesses who appear at the hearing, and to present information by proffer or otherwise. The rules concerning admissibility of evidence in criminal trials do not apply to the presentation and consideration of information at the hearing. The facts the judicial officer uses to support a finding pursuant to subsection (e) that no condition or combination of conditions will reasonably assure the safety of any other person and the community shall be supported by clear and convincing evidence. The person may be detained pending completion of the hearing. The hearing may be reopened, before or after a determination by the judicial officer, at any time before trial if the judicial officer finds that information exists that was not known to the movant at the time of the hearing and that has a material bearing on the issue whether there are conditions of release that will reasonably assure the appearance of such person as required and the safety of any other person and the community.
+> (g) Factors To Be Considered.-The judicial officer shall, in determining whether there are conditions of release that will reasonably assure the appearance of the person as required and the safety of any other person and the community, take into account the available information concerning-
+> (1) the nature and circumstances of the offense charged, including whether the offense is a crime of violence, a violation of section 1591, a Federal crime of terrorism, or involves a minor victim or a controlled substance, firearm, explosive, or destructive device;
+> (2) the weight of the evidence against the person;
+> (3) the history and characteristics of the person, including-
+> (A) the person's character, physical and mental condition, family ties, employment, financial resources, length of residence in the community, community ties, past conduct, history relating to drug or alcohol abuse, criminal history, and record concerning appearance at court proceedings; and
+> (B) whether, at the time of the current offense or arrest, the person was on probation, on parole, or on other release pending trial, sentencing, appeal, or completion of sentence for an offense under Federal, State, or local law; and
+> (4) the nature and seriousness of the danger to any person or the community that would be posed by the person's release. In considering the conditions of release described in subsection (c)(1)(B)(xi) or (c)(1)(B)(xii) of this section, the judicial officer may upon his own motion, or shall upon the motion of the Government, conduct an inquiry into the source of the property to be designated for potential forfeiture or offered as collateral to secure a bond, and shall decline to accept the designation, or the use as collateral, of property that, because of its source, will not reasonably assure the appearance of the person as required.
+> (h) Contents of Release Order.-In a release order issued under subsection (b) or (c) of this section, the judicial officer shall-
+> (1) include a written statement that sets forth all the conditions to which the release is subject, in a manner sufficiently clear and specific to serve as a guide for the person's conduct; and
+> (2) advise the person of-
+> (A) the penalties for violating a condition of release, including the penalties for committing an offense while on pretrial release;
+> (B) the consequences of violating a condition of release, including the immediate issuance of a warrant for the person's arrest; and
+> (C) sections 1503 of this title (relating to intimidation of witnesses, jurors, and officers of the court), 1510 (relating to obstruction of criminal investigations), 1512 (tampering with a witness, victim, or an informant), and 1513 (retaliating against a witness, victim, or an informant).
+> (i) Contents of Detention Order.-In a detention order issued under subsection (e) of this section, the judicial officer shall-
+> (1) include written findings of fact and a written statement of the reasons for the detention;
+> (2) direct that the person be committed to the custody of the Attorney General for confinement in a corrections facility separate, to the extent practicable, from persons awaiting or serving sentences or being held in custody pending appeal;
+> (3) direct that the person be afforded reasonable opportunity for private consultation with counsel; and
+> (4) direct that, on order of a court of the United States or on request of an attorney for the Government, the person in charge of the corrections facility in which the person is confined deliver the person to a United States marshal for the purpose of an appearance in connection with a court proceeding.
+> The judicial officer may, by subsequent order, permit the temporary release of the person, in the custody of a United States marshal or another appropriate person, to the extent that the judicial officer determines such release to be necessary for preparation of the person's defense or for another compelling reason.
+> (j) Presumption of Innocence.-Nothing in this section shall be construed as modifying or limiting the presumption of innocence.
+
+**18 U.S.C. 3143, whole section, (a) through (c)**  
+READ-WHOLE: 18 U.S.C. 3143
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3143&num=0&edition=prelim
+
+Fetched 2026-08-20; page carries "Text contains those laws in effect on August 19, 2026". Read whole, recorded whole. Independently re-verified against law.cornell.edu the same day: every sentence-level span of this record is contained in the second publisher's copy.
+
+> §3143. Release or detention of a defendant pending sentence or appeal
+> (a) Release or Detention Pending Sentence.-(1) Except as provided in paragraph (2), the judicial officer shall order that a person who has been found guilty of an offense and who is awaiting imposition or execution of sentence, other than a person for whom the applicable guideline promulgated pursuant to 28 U.S.C. 994 does not recommend a term of imprisonment, be detained, unless the judicial officer finds by clear and convincing evidence that the person is not likely to flee or pose a danger to the safety of any other person or the community if released under section 3142(b) or (c). If the judicial officer makes such a finding, such judicial officer shall order the release of the person in accordance with section 3142(b) or (c).
+> (2) The judicial officer shall order that a person who has been found guilty of an offense in a case described in subparagraph (A), (B), or (C) of subsection (f)(1) of section 3142 and is awaiting imposition or execution of sentence be detained unless-
+> (A)(i) the judicial officer finds there is a substantial likelihood that a motion for acquittal or new trial will be granted; or
+> (ii) an attorney for the Government has recommended that no sentence of imprisonment be imposed on the person; and
+> (B) the judicial officer finds by clear and convincing evidence that the person is not likely to flee or pose a danger to any other person or the community.
+> (b) Release or Detention Pending Appeal by the Defendant.-(1) Except as provided in paragraph (2), the judicial officer shall order that a person who has been found guilty of an offense and sentenced to a term of imprisonment, and who has filed an appeal or a petition for a writ of certiorari, be detained, unless the judicial officer finds-
+> (A) by clear and convincing evidence that the person is not likely to flee or pose a danger to the safety of any other person or the community if released under section 3142(b) or (c) of this title; and
+> (B) that the appeal is not for the purpose of delay and raises a substantial question of law or fact likely to result in-
+> (i) reversal,
+> (ii) an order for a new trial,
+> (iii) a sentence that does not include a term of imprisonment, or
+> (iv) a reduced sentence to a term of imprisonment less than the total of the time already served plus the expected duration of the appeal process.
+> If the judicial officer makes such findings, such judicial officer shall order the release of the person in accordance with section 3142(b) or (c) of this title, except that in the circumstance described in subparagraph (B)(iv) of this paragraph, the judicial officer shall order the detention terminated at the expiration of the likely reduced sentence.
+> (2) The judicial officer shall order that a person who has been found guilty of an offense in a case described in subparagraph (A), (B), or (C) of subsection (f)(1) of section 3142 and sentenced to a term of imprisonment, and who has filed an appeal or a petition for a writ of certiorari, be detained.
+> (c) Release or Detention Pending Appeal by the Government.-The judicial officer shall treat a defendant in a case in which an appeal has been taken by the United States under section 3731 of this title, in accordance with section 3142 of this title, unless the defendant is otherwise subject to a release or detention order. Except as provided in subsection (b) of this section, the judicial officer, in a case in which an appeal has been taken by the United States under section 3742, shall-
+> (1) if the person has been sentenced to a term of imprisonment, order that person detained; and
+> (2) in any other circumstance, release or detain the person under section 3142.
+
+**Fed. R. Crim. P. 5, whole rule, (a) through (g)**  
+READ-WHOLE: Fed. R. Crim. P. Rule 5
+https://www.uscourts.gov/sites/default/files/document/federal-rules-of-criminal-procedure.pdf
+
+DIVERGENCE NOTE: Cornell's copy of (d)(1)(F) carries two typos ("attoreny", "counsular office") against the official PDF's "attorney" and "consular officer". The official text is recorded.
+
+Fetched 2026-08-20 from the OFFICIAL uscourts.gov PDF ("as amended to December 1, 2025"), extracted locally with pdftotext -layout, line-break hyphenation joined and each join arbitrated against the second publisher. Read whole, recorded whole. Independently re-verified against law.cornell.edu: every span contained in the second copy except where Cornell itself is defective, noted per rule below. Cornell is the SECONDARY path here, used for verification only; the text recorded is the official PDF's.
+
+> Rule 5. Initial Appearance
+> (a) In General.
+> (1) Appearance Upon an Arrest.
+> (A) A person making an arrest within the United States
+> must take the defendant without unnecessary delay before
+> a magistrate judge, or before a state or local judicial officer as Rule 5(c) provides, unless a statute provides otherwise.
+> (B) A person making an arrest outside the United States
+> must take the defendant without unnecessary delay before
+> a magistrate judge, unless a statute provides otherwise.
+> (2) Exceptions.
+> (A) An officer making an arrest under a warrant issued
+> upon a complaint charging solely a violation of 18 U.S.C.
+> § 1073 need not comply with this rule if:
+> (i) the person arrested is transferred without unnecessary delay to the custody of appropriate state or
+> local authorities in the district of arrest; and
+> (ii) an attorney for the government moves promptly,
+> in the district where the warrant was issued, to dismiss the complaint.
+> (B) If a defendant is arrested for violating probation or
+> supervised release, Rule 32.1 applies.
+> (C) If a defendant is arrested for failing to appear in another district, Rule 40 applies.
+> (3) Appearance Upon a Summons. When a defendant appears
+> in response to a summons under Rule 4, a magistrate judge
+> must proceed under Rule 5(d) or (e), as applicable.
+> (b) Arrest Without a Warrant. If a defendant is arrested without
+> a warrant, a complaint meeting Rule 4(a)’s requirement of probable cause must be promptly filed in the district where the offense
+> was allegedly committed.
+> (c) Place of Initial Appearance; Transfer to Another District.
+> (1) Arrest in the District Where the Offense Was Allegedly
+> Committed. If the defendant is arrested in the district where
+> the offense was allegedly committed:
+> (A) the initial appearance must be in that district; and
+> (B) if a magistrate judge is not reasonably available, the
+> initial appearance may be before a state or local judicial
+> officer.
+> (2) Arrest in a District Other Than Where the Offense Was Allegedly Committed. If the defendant was arrested in a district
+> other than where the offense was allegedly committed, the initial appearance must be:
+> (A) in the district of arrest; or
+> (B) in an adjacent district if:
+> (i) the appearance can occur more promptly there; or
+> (ii) the offense was allegedly committed there and
+> the initial appearance will occur on the day of arrest.
+> (3) Procedures in a District Other Than Where the Offense
+> Was Allegedly Committed. If the initial appearance occurs in a
+> district other than where the offense was allegedly committed,
+> the following procedures apply:
+> (A) the magistrate judge must inform the defendant
+> about the provisions of Rule 20;
+> (B) if the defendant was arrested without a warrant, the
+> district court where the offense was allegedly committed
+> must first issue a warrant before the magistrate judge
+> transfers the defendant to that district;
+> (C) the magistrate judge must conduct a preliminary
+> hearing if required by Rule 5.1;
+> (D) the magistrate judge must transfer the defendant to
+> the district where the offense was allegedly committed if:
+> (i) the government produces the warrant, a certified
+> copy of the warrant, or a reliable electronic form of either; and
+> (ii) the judge finds that the defendant is the same
+> person named in the indictment, information, or warrant; and
+> (E) when a defendant is transferred and discharged, the
+> clerk must promptly transmit the papers and any bail to
+> the clerk in the district where the offense was allegedly
+> committed.
+> (4) Procedure for Persons Extradited to the United States. If
+> the defendant is surrendered to the United States in accordance with a request for the defendant’s extradition, the initial
+> appearance must be in the district (or one of the districts)
+> where the offense is charged.
+> (d) Procedure in a Felony Case.
+> (1) Advice. If the defendant is charged with a felony, the
+> judge must inform the defendant of the following:
+> (A) the complaint against the defendant, and any affidavit filed with it;
+> (B) the defendant’s right to retain counsel or to request
+> that counsel be appointed if the defendant cannot obtain
+> counsel;
+> (C) the circumstances, if any, under which the defendant
+> may secure pretrial release;
+> (D) any right to a preliminary hearing;
+> (E) the defendant’s right not to make a statement, and
+> that any statement made may be used against the defendant; and
+> (F) that a defendant who is not a United States citizen
+> may request that an attorney for the government or a federal law enforcement official notify a consular officer from
+> the defendant’s country of nationality that the defendant
+> has been arrested—but that even without the defendant’s
+> request, a treaty or other international agreement may require consular notification.
+> (2) Consulting with Counsel. The judge must allow the defendant reasonable opportunity to consult with counsel.
+> (3) Detention or Release. The judge must detain or release
+> the defendant as provided by statute or these rules.
+> (4) Plea. A defendant may be asked to plead only under Rule
+> 10.
+> (e) Procedure in a Misdemeanor Case. If the defendant is
+> charged with a misdemeanor only, the judge must inform the defendant in accordance with Rule 58(b)(2).
+> (f) Reminder of Prosecutorial Obligation.
+> (1) In General. In all criminal proceedings, on the first
+> scheduled court date when both prosecutor and defense counsel are present, the judge shall issue an oral and written order
+> to prosecution and defense counsel that confirms the disclosure obligation of the prosecutor under Brady v. Maryland, 373
+> U.S. 83 (1963) and its progeny, and the possible consequences of
+> violating such order under applicable law.
+> (2) Formation of Order. Each judicial council in which a district court is located shall promulgate a model order for the
+> purpose of paragraph (1) that the court may use as it determines is appropriate.
+> (g) Video Teleconferencing. Video teleconferencing may be used
+> to conduct an appearance under this rule if the defendant consents.
+> (As amended Feb. 28, 1966, eff. July 1, 1966; Apr. 24, 1972, eff. Oct.
+> 1, 1972; Apr. 28, 1982, eff. Aug. 1, 1982; Pub. L. 98–473, title II, § 209(a),
+> Oct. 12, 1984, 98 Stat. 1986; Mar. 9, 1987, eff. Aug. 1, 1987; May 1, 1990,
+> eff. Dec. 1, 1990; Apr. 22, 1993, eff. Dec. 1, 1993; Apr. 27, 1995, eff. Dec.
+> 1, 1995; Apr. 29, 2002, eff. Dec. 1, 2002; Apr. 12, 2006, eff. Dec. 1, 2006;
+> Apr. 23, 2012, eff. Dec. 1, 2012; Apr. 25, 2014, eff. Dec. 1, 2014; Pub.
+> L. 116–182, § 2, Oct. 21, 2020, 134 Stat. 894.)
+
+**Fed. R. Crim. P. 5.1, whole rule, (a) through (h)**  
+READ-WHOLE: Fed. R. Crim. P. Rule 5.1
+https://www.uscourts.gov/sites/default/files/document/federal-rules-of-criminal-procedure.pdf
+
+Fetched 2026-08-20 from the OFFICIAL uscourts.gov PDF ("as amended to December 1, 2025"), extracted locally with pdftotext -layout, line-break hyphenation joined and each join arbitrated against the second publisher. Read whole, recorded whole. Independently re-verified against law.cornell.edu: every span contained in the second copy except where Cornell itself is defective, noted per rule below. Cornell is the SECONDARY path here, used for verification only; the text recorded is the official PDF's.
+
+> Rule 5.1. Preliminary Hearing
+> (a) In General. If a defendant is charged with an offense other
+> than a petty offense, a magistrate judge must conduct a preliminary hearing unless:
+> (1) the defendant waives the hearing;
+> (2) the defendant is indicted;
+> (3) the government files an information under Rule 7(b)
+> charging the defendant with a felony;
+> (4) the government files an information charging the defendant with a misdemeanor; or
+> (5) the defendant is charged with a misdemeanor and consents to trial before a magistrate judge.
+> (b) Selecting a District. A defendant arrested in a district other
+> than where the offense was allegedly committed may elect to have
+> the preliminary hearing conducted in the district where the prosecution is pending.
+> (c) Scheduling. The magistrate judge must hold the preliminary
+> hearing within a reasonable time, but no later than 14 days after
+> the initial appearance if the defendant is in custody and no later
+> than 21 days if not in custody.
+> (d) Extending the Time. With the defendant’s consent and upon
+> a showing of good cause—taking into account the public interest
+> in the prompt disposition of criminal cases—a magistrate judge
+> may extend the time limits in Rule 5.1(c) one or more times. If the
+> defendant does not consent, the magistrate judge may extend the
+> time limits only on a showing that extraordinary circumstances
+> exist and justice requires the delay.
+> (e) Hearing and Finding. At the preliminary hearing, the defendant may cross-examine adverse witnesses and may introduce evidence but may not object to evidence on the ground that it was
+> unlawfully acquired. If the magistrate judge finds probable cause
+> to believe an offense has been committed and the defendant committed it, the magistrate judge must promptly require the defendant to appear for further proceedings.
+> (f) Discharging the Defendant. If the magistrate judge finds no
+> probable cause to believe an offense has been committed or the defendant committed it, the magistrate judge must dismiss the complaint and discharge the defendant. A discharge does not preclude
+> the government from later prosecuting the defendant for the same
+> offense.
+> (g) Recording the Proceedings. The preliminary hearing must be
+> recorded by a court reporter or by a suitable recording device. A
+> recording of the proceeding may be made available to any party
+> upon request. A copy of the recording and a transcript may be provided to any party upon request and upon any payment required
+> by applicable Judicial Conference regulations.
+> (h) Producing a Statement.
+> (1) In General. Rule 26.2(a)–(d) and (f) applies at any hearing
+> under this rule, unless the magistrate judge for good cause
+> rules otherwise in a particular case.
+> (2) Sanctions for Not Producing a Statement. If a party disobeys a Rule 26.2 order to deliver a statement to the moving
+> party, the magistrate judge must not consider the testimony
+> of a witness whose statement is withheld.
+> (As added Apr. 24, 1972, eff. Oct. 1, 1972; amended Mar. 9, 1987, eff.
+> Aug. 1, 1987; Apr. 22, 1993, eff. Dec. 1, 1993; Apr. 24, 1998, eff. Dec.
+> 1, 1998; Apr. 29, 2002, eff. Dec. 1, 2002; Mar. 26, 2009, eff. Dec. 1, 2009.)
+> TITLE III. THE GRAND JURY, THE INDICTMENT, AND THE
+> INFORMATION
+
+**Fed. R. Crim. P. 10, whole rule, (a) through (c)**  
+READ-WHOLE: Fed. R. Crim. P. Rule 10
+https://www.uscourts.gov/sites/default/files/document/federal-rules-of-criminal-procedure.pdf
+
+Fetched 2026-08-20 from the OFFICIAL uscourts.gov PDF ("as amended to December 1, 2025"), extracted locally with pdftotext -layout, line-break hyphenation joined and each join arbitrated against the second publisher. Read whole, recorded whole. Independently re-verified against law.cornell.edu: every span contained in the second copy except where Cornell itself is defective, noted per rule below. Cornell is the SECONDARY path here, used for verification only; the text recorded is the official PDF's.
+
+> Rule 10. Arraignment
+> (a) In General. An arraignment must be conducted in open court
+> and must consist of:
+> (1) ensuring that the defendant has a copy of the indictment
+> or information;
+> (2) reading the indictment or information to the defendant
+> or stating to the defendant the substance of the charge; and
+> then
+> (3) asking the defendant to plead to the indictment or information.
+> (b) Waiving Appearance. A defendant need not be present for the
+> arraignment if:
+> (1) the defendant has been charged by indictment or misdemeanor information;
+> (2) the defendant, in a written waiver signed by both the defendant and defense counsel, has waived appearance and has
+> affirmed that the defendant received a copy of the indictment
+> or information and that the plea is not guilty; and
+> (3) the court accepts the waiver.
+> (c) Video Teleconferencing. Video teleconferencing may be used
+> to arraign a defendant if the defendant consents.
+> (As amended Mar. 9, 1987, eff. Aug. 1, 1987; Apr. 29, 2002, eff. Dec.
+> 1, 2002.)
+
+**Fed. R. Crim. P. 11, whole rule, (a) through (h)**  
+READ-WHOLE: Fed. R. Crim. P. Rule 11
+https://www.uscourts.gov/sites/default/files/document/federal-rules-of-criminal-procedure.pdf
+
+DIVERGENCE NOTE: Cornell's copy of (d)(2)(A) reads "under 11(c)(5)", dropping the word "Rule"; the official PDF reads "under Rule 11(c)(5)" and is recorded.
+
+Fetched 2026-08-20 from the OFFICIAL uscourts.gov PDF ("as amended to December 1, 2025"), extracted locally with pdftotext -layout, line-break hyphenation joined and each join arbitrated against the second publisher. Read whole, recorded whole. Independently re-verified against law.cornell.edu: every span contained in the second copy except where Cornell itself is defective, noted per rule below. Cornell is the SECONDARY path here, used for verification only; the text recorded is the official PDF's.
+
+> Rule 11. Pleas
+> (a) Entering a Plea.
+> (1) In General. A defendant may plead not guilty, guilty, or
+> (with the court’s consent) nolo contendere.
+> (2) Conditional Plea. With the consent of the court and the
+> government, a defendant may enter a conditional plea of
+> guilty or nolo contendere, reserving in writing the right to
+> have an appellate court review an adverse determination of a
+> specified pretrial motion. A defendant who prevails on appeal
+> may then withdraw the plea.
+> (3) Nolo Contendere Plea. Before accepting a plea of nolo
+> contendere, the court must consider the parties’ views and the
+> public interest in the effective administration of justice.
+> (4) Failure to Enter a Plea. If a defendant refuses to enter a
+> plea or if a defendant organization fails to appear, the court
+> must enter a plea of not guilty.
+> (b) Considering and Accepting a Guilty or Nolo Contendere Plea.
+> (1) Advising and Questioning the Defendant. Before the court
+> accepts a plea of guilty or nolo contendere, the defendant may
+> be placed under oath, and the court must address the defendant personally in open court. During this address, the court
+> must inform the defendant of, and determine that the defendant understands, the following:
+> (A) the government’s right, in a prosecution for perjury
+> or false statement, to use against the defendant any statement that the defendant gives under oath;
+> (B) the right to plead not guilty, or having already so
+> pleaded, to persist in that plea;
+> (C) the right to a jury trial;
+> (D) the right to be represented by counsel—and if necessary have the court appoint counsel—at trial and at
+> every other stage of the proceeding;
+> (E) the right at trial to confront and cross-examine adverse witnesses, to be protected from compelled self-incrimination, to testify and present evidence, and to compel the attendance of witnesses;
+> (F) the defendant’s waiver of these trial rights if the
+> court accepts a plea of guilty or nolo contendere;
+> (G) the nature of each charge to which the defendant is
+> pleading;
+> (H) any maximum possible penalty, including imprisonment, fine, and term of supervised release;
+> (I) any mandatory minimum penalty;
+> (J) any applicable forfeiture;
+> (K) the court’s authority to order restitution;
+> (L) the court’s obligation to impose a special assessment;
+> (M) in determining a sentence, the court’s obligation to
+> calculate the applicable sentencing-guideline range and to
+> consider that range, possible departures under the Sentencing Guidelines, and other sentencing factors under 18
+> U.S.C. § 3553(a);
+> (N) the terms of any plea-agreement provision waiving
+> the right to appeal or to collaterally attack the sentence;
+> and
+> (O) that, if convicted, a defendant who is not a United
+> States citizen may be removed from the United States, denied citizenship, and denied admission to the United
+> States in the future.
+> (2) Ensuring That a Plea Is Voluntary. Before accepting a
+> plea of guilty or nolo contendere, the court must address the
+> defendant personally in open court and determine that the
+> plea is voluntary and did not result from force, threats, or
+> promises (other than promises in a plea agreement).
+> (3) Determining the Factual Basis for a Plea. Before entering
+> judgment on a guilty plea, the court must determine that
+> there is a factual basis for the plea.
+> (c) Plea Agreement Procedure.
+> (1) In General. An attorney for the government and the defendant’s attorney, or the defendant when proceeding pro se,
+> may discuss and reach a plea agreement. The court must not
+> participate in these discussions. If the defendant pleads guilty
+> or nolo contendere to either a charged offense or a lesser or related offense, the plea agreement may specify that an attorney for the government will:
+> (A) not bring, or will move to dismiss, other charges;
+> (B) recommend, or agree not to oppose the defendant’s
+> request, that a particular sentence or sentencing range is
+> appropriate or that a particular provision of the Sentencing Guidelines, or policy statement, or sentencing factor
+> does or does not apply (such a recommendation or request
+> does not bind the court); or
+> (C) agree that a specific sentence or sentencing range is
+> the appropriate disposition of the case, or that a particular provision of the Sentencing Guidelines, or policy statement, or sentencing factor does or does not apply (such a
+> recommendation or request binds the court once the court
+> accepts the plea agreement).
+> (2) Disclosing a Plea Agreement. The parties must disclose
+> the plea agreement in open court when the plea is offered, unless the court for good cause allows the parties to disclose the
+> plea agreement in camera.
+> (3) Judicial Consideration of a Plea Agreement.
+> (A) To the extent the plea agreement is of the type specified in Rule 11(c)(1)(A) or (C), the court may accept the
+> agreement, reject it, or defer a decision until the court has
+> reviewed the presentence report.
+> (B) To the extent the plea agreement is of the type specified in Rule 11(c)(1)(B), the court must advise the defendant that the defendant has no right to withdraw the plea
+> if the court does not follow the recommendation or request.
+> (4) Accepting a Plea Agreement. If the court accepts the plea
+> agreement, it must inform the defendant that to the extent
+> the plea agreement is of the type specified in Rule 11(c)(1)(A)
+> or (C), the agreed disposition will be included in the judgment.
+> (5) Rejecting a Plea Agreement. If the court rejects a plea
+> agreement containing provisions of the type specified in Rule
+> 11(c)(1)(A) or (C), the court must do the following on the
+> record and in open court (or, for good cause, in camera):
+> (A) inform the parties that the court rejects the plea
+> agreement;
+> (B) advise the defendant personally that the court is not
+> required to follow the plea agreement and give the defendant an opportunity to withdraw the plea; and
+> (C) advise the defendant personally that if the plea is not
+> withdrawn, the court may dispose of the case less favorably toward the defendant than the plea agreement contemplated.
+> (d) Withdrawing a Guilty or Nolo Contendere Plea. A defendant
+> may withdraw a plea of guilty or nolo contendere:
+> (1) before the court accepts the plea, for any reason or no
+> reason; or
+> (2) after the court accepts the plea, but before it imposes
+> sentence if:
+> (A) the court rejects a plea agreement under Rule
+> 11(c)(5); or
+> (B) the defendant can show a fair and just reason for requesting the withdrawal.
+> (e) Finality of a Guilty or Nolo Contendere Plea. After the court
+> imposes sentence, the defendant may not withdraw a plea of
+> guilty or nolo contendere, and the plea may be set aside only on
+> direct appeal or collateral attack.
+> (f) Admissibility or Inadmissibility of a Plea, Plea Discussions,
+> and Related Statements. The admissibility or inadmissibility of a
+> plea, a plea discussion, and any related statement is governed by
+> Federal Rule of Evidence 410.
+> (g) Recording the Proceedings. The proceedings during which
+> the defendant enters a plea must be recorded by a court reporter
+> or by a suitable recording device. If there is a guilty plea or a nolo
+> contendere plea, the record must include the inquiries and advice
+> to the defendant required under Rule 11(b) and (c).
+> (h) Harmless Error. A variance from the requirements of this
+> rule is harmless error if it does not affect substantial rights.
+> (As amended Feb. 28, 1966, eff. July 1, 1966; Apr. 22, 1974, eff. Dec.
+> 1, 1975; Pub. L. 94–64, § 3(5)–(10), July 31, 1975, 89 Stat. 371, 372, eff.
+> Aug. 1 and Dec. 1, 1975; Apr. 30, 1979, eff. Aug. 1, 1979, and Dec. 1,
+> 1980; Apr. 28, 1982, eff. Aug. 1, 1982; Apr. 28, 1983, eff. Aug. 1, 1983;
+> Apr. 29, 1985, eff. Aug. 1, 1985; Mar. 9, 1987, eff. Aug. 1, 1987; Pub.
+> L. 100–690, title VII, § 7076, Nov. 18, 1988, 102 Stat. 4406; Apr. 25, 1989,
+> eff. Dec. 1, 1989; Apr. 26, 1999, eff. Dec. 1, 1999; Apr. 29, 2002, eff. Dec.
+> 1, 2002; Apr. 30, 2007, eff. Dec. 1, 2007; Apr. 16, 2013, eff. Dec. 1, 2013.)
+
+**Fed. R. Crim. P. 32, whole rule, (a) through (k)**  
+READ-WHOLE: Fed. R. Crim. P. Rule 32
+https://www.uscourts.gov/sites/default/files/document/federal-rules-of-criminal-procedure.pdf
+
+Fetched 2026-08-20 from the OFFICIAL uscourts.gov PDF ("as amended to December 1, 2025"), extracted locally with pdftotext -layout, line-break hyphenation joined and each join arbitrated against the second publisher. Read whole, recorded whole. Independently re-verified against law.cornell.edu: every span contained in the second copy except where Cornell itself is defective, noted per rule below. Cornell is the SECONDARY path here, used for verification only; the text recorded is the official PDF's.
+
+> Rule 32. Sentencing and Judgment
+> (a) [Reserved.]
+> (b) Time of Sentencing.
+> (1) In General. The court must impose sentence without unnecessary delay.
+> (2) Changing Time Limits. The court may, for good cause,
+> change any time limits prescribed in this rule.
+> (c) Presentence Investigation.
+> (1) Required Investigation.
+> (A) In General. The probation officer must conduct a presentence investigation and submit a report to the court
+> before it imposes sentence unless:
+> (i) 18 U.S.C. § 3593(c) or another statute requires
+> otherwise; or
+> (ii) the court finds that the information in the record
+> enables it to meaningfully exercise its sentencing authority under 18 U.S.C. § 3553, and the court explains its
+> finding on the record.
+> (B) Restitution. If the law permits restitution, the probation officer must conduct an investigation and submit a
+> report that contains sufficient information for the court
+> to order restitution.
+> (2) Interviewing the Defendant. The probation officer who
+> interviews a defendant as part of a presentence investigation
+> must, on request, give the defendant’s attorney notice and a
+> reasonable opportunity to attend the interview.
+> (d) Presentence Report.
+> (1) Applying the Advisory Sentencing Guidelines. The presentence report must:
+> (A) identify all applicable guidelines and policy statements of the Sentencing Commission;
+> (B) calculate the defendant’s offense level and criminal
+> history category;
+> (C) state the resulting sentencing range and kinds of sentences available;
+> (D) identify any factor relevant to:
+> (i) the appropriate kind of sentence, or
+> (ii) the appropriate sentence within the applicable
+> sentencing range; and
+> (E) identify any basis for departing from the applicable
+> sentencing range.
+> (2) Additional Information. The presentence report must also
+> contain the following:
+> (A) the defendant’s history and characteristics, including:
+> (i) any prior criminal record;
+> (ii) the defendant’s financial condition; and
+> (iii) any circumstances affecting the defendant’s behavior that may be helpful in imposing sentence or in
+> correctional treatment;
+> (B) information that assesses any financial, social, psychological, and medical impact on any victim;
+> (C) when appropriate, the nature and extent of nonprison
+> programs and resources available to the defendant;
+> (D) when the law provides for restitution, information
+> sufficient for a restitution order;
+> (E) if the court orders a study under 18 U.S.C. § 3552(b),
+> any resulting report and recommendation;
+> (F) a statement of whether the government seeks forfeiture under Rule 32.2 and any other law; and
+> (G) any other information that the court requires, including information relevant to the factors under 18 U.S.C.
+> § 3553(a).
+> (3) Exclusions. The presentence report must exclude the following:
+> (A) any diagnoses that, if disclosed, might seriously disrupt a rehabilitation program;
+> (B) any sources of information obtained upon a promise
+> of confidentiality; and
+> (C) any other information that, if disclosed, might result
+> in physical or other harm to the defendant or others.
+> (e) Disclosing the Report and Recommendation.
+> (1) Time to Disclose. Unless the defendant has consented in
+> writing, the probation officer must not submit a presentence
+> report to the court or disclose its contents to anyone until the
+> defendant has pleaded guilty or nolo contendere, or has been
+> found guilty.
+> (2) Minimum Required Notice. The probation officer must
+> give the presentence report to the defendant, the defendant’s
+> attorney, and an attorney for the government at least 35 days
+> before sentencing unless the defendant waives this minimum
+> period.
+> (3) Sentence Recommendation. By local rule or by order in a
+> case, the court may direct the probation officer not to disclose
+> to anyone other than the court the officer’s recommendation
+> on the sentence.
+> (f) Objecting to the Report.
+> (1) Time to Object. Within 14 days after receiving the presentence report, the parties must state in writing any objections, including objections to material information, sentencing guideline ranges, and policy statements contained in or
+> omitted from the report.
+> (2) Serving Objections. An objecting party must provide a
+> copy of its objections to the opposing party and to the probation officer.
+> (3) Action on Objections. After receiving objections, the probation officer may meet with the parties to discuss the objections. The probation officer may then investigate further and
+> revise the presentence report as appropriate.
+> (g) Submitting the Report. At least 7 days before sentencing, the
+> probation officer must submit to the court and to the parties the
+> presentence report and an addendum containing any unresolved
+> objections, the grounds for those objections, and the probation officer’s comments on them.
+> (h) Notice of Possible Departure from Sentencing Guidelines. Before the court may depart from the applicable sentencing range on
+> a ground not identified for departure either in the presentence report or in a party’s prehearing submission, the court must give
+> the parties reasonable notice that it is contemplating such a departure. The notice must specify any ground on which the court
+> is contemplating a departure.
+> (i) Sentencing.
+> (1) In General. At sentencing, the court:
+> (A) must verify that the defendant and the defendant’s
+> attorney have read and discussed the presentence report
+> and any addendum to the report;
+> (B) must give to the defendant and an attorney for the
+> government a written summary of—or summarize in camera—any information excluded from the presentence report under Rule 32(d)(3) on which the court will rely in sentencing, and give them a reasonable opportunity to comment on that information;
+> (C) must allow the parties’ attorneys to comment on the
+> probation officer’s determinations and other matters relating to an appropriate sentence; and
+> (D) may, for good cause, allow a party to make a new objection at any time before sentence is imposed.
+> (2) Introducing Evidence; Producing a Statement. The court
+> may permit the parties to introduce evidence on the objections. If a witness testifies at sentencing, Rule 26.2(a)–(d) and
+> (f) applies. If a party fails to comply with a Rule 26.2 order to
+> produce a witness’s statement, the court must not consider
+> that witness’s testimony.
+> (3) Court Determinations. At sentencing, the court:
+> (A) may accept any undisputed portion of the presentence report as a finding of fact;
+> (B) must—for any disputed portion of the presentence report or other controverted matter—rule on the dispute or
+> determine that a ruling is unnecessary either because the
+> matter will not affect sentencing, or because the court will
+> not consider the matter in sentencing; and
+> (C) must append a copy of the court’s determinations
+> under this rule to any copy of the presentence report made
+> available to the Bureau of Prisons.
+> (4) Opportunity to Speak.
+> (A) By a Party. Before imposing sentence, the court
+> must:
+> (i) provide the defendant’s attorney an opportunity
+> to speak on the defendant’s behalf;
+> (ii) address the defendant personally in order to permit the defendant to speak or present any information
+> to mitigate the sentence; and
+> (iii) provide an attorney for the government an opportunity to speak equivalent to that of the defendant’s attorney.
+> (B) By a Victim. Before imposing sentence, the court
+> must address any victim of the crime who is present at
+> sentencing and must permit the victim to be reasonably
+> heard.
+> (C) In Camera Proceedings. Upon a party’s motion and for
+> good cause, the court may hear in camera any statement
+> made under Rule 32(i)(4).
+> (j) Defendant’s Right to Appeal.
+> (1) Advice of a Right to Appeal.
+> (A) Appealing a Conviction. If the defendant pleaded not
+> guilty and was convicted, after sentencing the court must
+> advise the defendant of the right to appeal the conviction.
+> (B) Appealing a Sentence. After sentencing—regardless of
+> the defendant’s plea—the court must advise the defendant
+> of any right to appeal the sentence.
+> (C) Appeal Costs. The court must advise a defendant who
+> is unable to pay appeal costs of the right to ask for permission to appeal in forma pauperis.
+> (2) Clerk’s Filing of Notice. If the defendant so requests, the
+> clerk must immediately prepare and file a notice of appeal on
+> the defendant’s behalf.
+> (k) Judgment.
+> (1) In General. In the judgment of conviction, the court must
+> set forth the plea, the jury verdict or the court’s findings, the
+> adjudication, and the sentence. If the defendant is found not
+> guilty or is otherwise entitled to be discharged, the court
+> must so order. The judge must sign the judgment, and the
+> clerk must enter it.
+> (2) Criminal Forfeiture. Forfeiture procedures are governed
+> by Rule 32.2.
+> (As amended Feb. 28, 1966, eff. July 1, 1966; Apr. 24, 1972, eff. Oct.
+> 1, 1972; Apr. 22, 1974, eff. Dec. 1, 1975; Pub. L. 94–64, § 3(31)–(34), July
+> 31, 1975, 89 Stat. 376, eff. Dec. 1, 1975; Apr. 30, 1979, eff. Aug. 1, 1979,
+> and Dec. 1, 1980; Pub. L. 97–291, § 3, Oct. 12, 1982, 96 Stat. 1249; Apr.
+> 28, 1983, eff. Aug. 1, 1983; Pub. L. 98–473, title II, § 215(a), Oct. 12,
+> 1984, 98 Stat. 2014, eff. Nov. 1, 1987; Pub. L. 99–646, § 25(a), Nov. 10,
+> 1986, 100 Stat. 3597, eff. Nov. 1, 1987; Mar. 9, 1987, eff. Aug. 1, 1987;
+> Apr. 25, 1989, eff. Dec. 1, 1989; Apr. 30, 1991, eff. Dec. 1, 1991; Apr.
+> 22, 1993, eff. Dec. 1, 1993; Apr. 29, 1994, eff. Dec. 1, 1994; Pub. L.
+> 103–322, title XXIII, § 230101(b), Sept. 13, 1994, 108 Stat. 2078, eff.
+> Dec. 1, 1994; Apr. 23, 1996, eff. Dec. 1, 1996; Pub. L. 104–132, title II,
+> § 207(a), Apr. 24, 1996, 110 Stat. 1236; Apr. 17, 2000, eff. Dec. 1, 2000;
+> Apr. 29, 2002, eff. Dec. 1, 2002; Apr. 30, 2007, eff. Dec. 1, 2007; Apr.
+> 23, 2008, eff. Dec. 1, 2008; Mar. 26, 2009, eff. Dec. 1, 2009; Apr. 26, 2011,
+> eff. Dec. 1, 2011.)
+

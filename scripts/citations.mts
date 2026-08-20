@@ -40,6 +40,18 @@ export function refs(text: string): Set<string> {
     const subs = (m[2] ?? "").replace(/\s+/g, "");
     out.add(`rule ${m[1]}${subs}`.toLowerCase());
   }
+  // FEDERAL rules: Rule 5, Rule 5.1, Rule 11(c)(1), Rule 32.1. Added
+  // 2026-08-20 (guide 2 Phase 1): the branch above matches the Florida
+  // pattern only (a digit, a dot, 2-4 digits), so every Fed. R. Crim. P.
+  // citation was invisible to this parser, and therefore to check:unverified
+  // and check:provenance, which is the parser-gap version of a gate that
+  // cannot fail. The lookahead keeps "Rule 3.130" out of this branch: after
+  // "3.1" the next character is a digit, which (?!\d) rejects.
+  const fedRule = /Rule\s*(\d{1,2}(?:\.\d)?)(?!\d|\.\d)((?:\s*\(\s*[0-9a-z]{1,3}\s*\))*)/gi;
+  for (const m of text.matchAll(fedRule)) {
+    const subs = (m[2] ?? "").replace(/\s+/g, "");
+    out.add(`rule ${m[1]}${subs}`.toLowerCase());
+  }
   return out;
 }
 
