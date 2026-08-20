@@ -7322,7 +7322,8 @@ export const guides: GuidePage[] = [
     // (worst cumulative pair 1.65%, final 0.83%, against the 5% limit).
     // Remaining [NEEDS], deliberate: the bond schedule (AO S-2025-063, a
     // refusal until the full record lands), the Q14 logistics, and
-    // owner/lastReviewed.
+    // owner/lastReviewed. F.S. 907.041 was recorded whole 2026-08-20 and the
+    // detention section states its standard from the record.
     lead:
       "The first day after an arrest in Hillsborough County runs on rules with dates in them. This page walks that day in order, from booking through the release decision and the charging clocks behind it, quoting each rule from the recorded text, for the person arrested and for the person waiting on them.",
     sections: [
@@ -7405,9 +7406,10 @@ export const guides: GuidePage[] = [
         heading: "Detention on the State's motion: Rule 3.132",
         prose: [
           "Pretrial detention is not a mood the courtroom is in; it is a motion practice with its own rule. The motion must be in writing, may be filed at any time before trial, and where a judge finds probable cause for a dangerous crime, the hearing runs on the rule's own timetable. At that hearing the defendant is entitled to counsel, and the state bears the burden of proof the rule itself assigns.",
-          "Rule 3.132(k) states the standard in one sentence: \"The state bears the burden of proving the need for pretrial detention under the substantial probability standard in section 907.041, Florida Statutes.\" [NEEDS: F.S. 907.041 recorded whole before this page describes what that standard requires; the statute is long, heavily amended, and cited here only because the rule itself names it.] The order granting or denying detention must follow a hearing, and the rule carries a mandatory-detention provision where its findings are made. For a dangerous crime as the rule lists them, Rule 3.132(f)(1) also constrains what a first-appearance judge may grant before any motion is decided, which is one of the ways the first day differs by charge, and the charge pages carry that difference where it bears on their offense.",
+          "Rule 3.132(k) states the standard in one sentence: \"The state bears the burden of proving the need for pretrial detention under the substantial probability standard in section 907.041, Florida Statutes.\" That statute supplies the test at 907.041(5)(c): \"Upon motion by the state attorney, the court may order pretrial detention if it finds a substantial probability, based on a defendant’s past and present patterns of behavior, the criteria in s. 903.046 , and any other relevant facts, that any of the following circumstances exist:\" and it then lists the circumstances, from prior violations of release conditions through threats to the judicial process to the threat of harm to the community. The statute also assigns the burden in its own words, at (5)(h): \"The state attorney has the burden of showing the need for pretrial detention.\"",
+          "The order granting or denying detention must follow a hearing, and the rule carries a mandatory-detention provision where its findings are made. What counts as a dangerous crime is not left open: 907.041(5)(a) lists the crimes, from arson through written threats to kill, and Rule 3.132(f)(1) constrains what a first-appearance judge may grant for one of them before any motion is decided, which is one of the ways the first day differs by charge. The charge pages carry that difference where it bears on their offense.",
         ],
-        statute: { citation: "Fla. R. Crim. P. 3.132(a)", body: "(a) First Appearance Required. A person arrested for a dangerous crime listed in section 907.041, Florida Statutes, or an unauthorized alien arrested for a forcible felony, must not be released from jail before his or her first appearance." },
+        statute: { citation: "Fla. R. Crim. P. 3.132(a)", body: "(b) A person arrested for a dangerous crime may not be granted nonmonetary pretrial release at a first appearance hearing if the court has determined there is probable cause to believe the person has committed the offense." },
       },
       {
         id: "release-conditions",

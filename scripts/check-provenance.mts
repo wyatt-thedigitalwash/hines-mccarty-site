@@ -409,6 +409,18 @@ console.log(
   `\n  ..    READ-WHOLE markers in force: ${readWholeMarked.size} ` +
     `(${[...readWholeMarked].sort().join(", ")})`,
 );
+{
+  // SINGLE-SOURCE is the machine-findable record that a provision rests on
+  // one official source where the house standard is two independent paths.
+  // Printed every run so the asymmetry is read, not inferred (D22).
+  const single = sourceLines
+    .filter((l) => l.startsWith("SINGLE-SOURCE:"))
+    .map((l) => l.replace(/^SINGLE-SOURCE:\s*/, "").split(" (")[0]);
+  if (single.length)
+    console.log(
+      `  ..    SINGLE-SOURCE records (one official path, no second publisher): ${single.join("; ")}`,
+    );
+}
 console.log(
   "  ..    NOT CHECKED, by design: charge-page citations (check:unverified owns those, " +
     "flag-driven); quote fidelity against live external sources (each Phase 1 record was " +
