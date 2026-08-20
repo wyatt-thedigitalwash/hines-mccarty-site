@@ -22,20 +22,28 @@ export function refs(text: string): Set<string> {
   // 90.404(2) similar-fact evidence, which are two of the most-litigated
   // provisions on a criminal defense site. It also truncated four-digit
   // chapters, so 1006.13(2) keyed as "006.13(2)" and collided with 2006.13(2).
+  // Subdivision groups use [^\S\n] (whitespace except newline), added
+  // 2026-08-20: guide copy is joined with \n for scanning, and the old \s*
+  // let a citation at the end of one string swallow a "(1)(b)" label opening
+  // the next, minting citations of provisions that do not exist.
   const fs =
-    /(?:F\.?\s?S\.?\s*|Florida Statutes?\s*|Statute\s*|s\.\s*)?\b(\d{1,4}\.\d{2,4})((?:\s*\**\s*\(\s*\**\s*[0-9a-z]{1,3}\s*\**\s*\)\s*\**)*)/gi;
+    /(?:F\.?\s?S\.?\s*|Florida Statutes?\s*|Statute\s*|s\.\s*)?\b(\d{1,4}\.\d{2,4})((?:[^\S\n]*\**[^\S\n]*\([^\S\n]*\**[^\S\n]*[0-9a-z]{1,3}[^\S\n]*\**[^\S\n]*\)[^\S\n]*\**)*)/gi;
   for (const m of text.matchAll(fs)) {
     // Strip markdown emphasis so 784.03(**1**)(a) does not degrade to a bare
     // section and slip past the subsection filter.
     const subs = (m[2] ?? "").replace(/[\s*_]+/g, "");
     out.add(`fs ${m[1]}${subs}`.toLowerCase());
   }
-  const usc = /(\d{1,2})\s*U\.?\s?S\.?\s?C\.?\s*(?:§\s*)?(\d{1,4}[A-Za-z]?)((?:\s*\(\s*[0-9a-z]{1,3}\s*\))*)/gi;
+  const usc = /(\d{1,2})\s*U\.?\s?S\.?\s?C\.?\s*(?:§\s*)?(\d{1,4}[A-Za-z]?)((?:[^\S\n]*\([^\S\n]*[0-9a-z]{1,3}[^\S\n]*\))*)/gi;
   for (const m of text.matchAll(usc)) {
     const subs = (m[3] ?? "").replace(/\s+/g, "");
     out.add(`usc ${m[1]} ${m[2]}${subs}`.toLowerCase());
   }
-  const rule = /Rule\s*(\d\.\d{2,4})((?:\s*\(\s*[0-9a-z]{1,3}\s*\))*)/gi;
+  // "Fla. R. Crim. P. 3.111(b)(1)" added 2026-08-20: the Florida records'
+  // own headers abbreviate to "R. Crim. P.", so requiring the literal word
+  // "Rule" meant NO Florida record header ever produced a rule-keyed ref,
+  // and G2 could not clear a rule-phrased citation against them.
+  const rule = /(?:Rule|(?:Fla\.?[^\S\n]*)?R\.?[^\S\n]*Crim\.?[^\S\n]*P\.?)[^\S\n]*(\d\.\d{2,4})((?:[^\S\n]*\([^\S\n]*[0-9a-z]{1,3}[^\S\n]*\))*)/gi;
   for (const m of text.matchAll(rule)) {
     const subs = (m[2] ?? "").replace(/\s+/g, "");
     out.add(`rule ${m[1]}${subs}`.toLowerCase());
@@ -47,7 +55,7 @@ export function refs(text: string): Set<string> {
   // and check:provenance, which is the parser-gap version of a gate that
   // cannot fail. The lookahead keeps "Rule 3.130" out of this branch: after
   // "3.1" the next character is a digit, which (?!\d) rejects.
-  const fedRule = /Rule\s*(\d{1,2}(?:\.\d)?)(?!\d|\.\d)((?:\s*\(\s*[0-9a-z]{1,3}\s*\))*)/gi;
+  const fedRule = /(?:Rule|(?:Fed\.?[^\S\n]*)?R\.?[^\S\n]*Crim\.?[^\S\n]*P\.?)[^\S\n]*(\d{1,2}(?:\.\d)?)(?!\d|\.\d)((?:[^\S\n]*\([^\S\n]*[0-9a-z]{1,3}[^\S\n]*\))*)/gi;
   for (const m of text.matchAll(fedRule)) {
     const subs = (m[2] ?? "").replace(/\s+/g, "");
     out.add(`rule ${m[1]}${subs}`.toLowerCase());

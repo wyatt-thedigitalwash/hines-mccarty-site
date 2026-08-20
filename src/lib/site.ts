@@ -7312,6 +7312,159 @@ export const guides: GuidePage[] = [
     title: "First 24 Hours After a Hillsborough Arrest",
     description:
       "What happens after a Hillsborough arrest, and how the release decision actually works.",
+    metaTitle: "After an Arrest in Hillsborough County | The First 24 Hours | Hines & McCarty",
+    metaDescription:
+      "What the first day after a Hillsborough County arrest involves under the Florida rules: the 24-hour first appearance, counsel, the release decision, and the charging clocks, each quoted from the recorded text.",
+    // Written 2026-08-20, Phase 3. Every claim traces to a PAGE-SOURCES.md
+    // record; per-section duplication measured during writing (worst
+    // cumulative pair 1.76% early, 1.05% final, against the 5% limit). The
+    // release-decision core (Rules 3.131/3.132, F.S. 903.046) and the bond
+    // schedule (AO S-2025-063) are unrecorded and stay [NEEDS] on the page,
+    // written without rather than around, per the Phase 2 rules.
+    lead:
+      "The first day after an arrest in Hillsborough County runs on rules with dates in them. This page walks that day in order, from booking through the release decision and the charging clocks behind it, quoting each rule from the recorded text, for the person arrested and for the person waiting on them.",
+    sections: [
+      {
+        id: "who-and-how",
+        kind: "prose",
+        heading: "Who this page is for, and how it fits the charge pages",
+        prose: [
+          "You are reading this because you were arrested in Hillsborough County, or because someone you care about was and you are the one still outside, trying to understand what is happening and when. The first day runs on rules with dates in them, and this page walks those rules in order, quoting each one from the recorded text.",
+          "The charge pages on this site carry the same first-day rules where they bear on a specific charge, and they carry them unevenly on purpose: the battery page opens at the booking desk because the bond schedule reaches battery, the domestic violence page opens with the custody hold that takes the schedule away, and several pages state the counsel rules in the form their charge needs while others do not reach them at all. That unevenness is what charge-keyed writing looks like. What no charge page does, and what this page exists to do, is carry the whole sequence once, in order, with nothing keyed to any particular charge.",
+          "Where a stage depends on the charge, this page says so and points at the charge pages. Where a rule this page needs has not yet been recorded in this project's source file, the page says that too and stops, rather than writing around the gap.",
+        ],
+      },
+      {
+        id: "first-day-clocks",
+        kind: "timeline",
+        heading: "The first day, and the clocks already running behind it",
+        steps: [
+          { when: "Booking", what: "Arrest, transport, and intake. The clocks below start at the arrest itself, not at any later paperwork, and for a person served with a capias the charging clocks run from that service instead." },
+          { when: "Within 24 hours: first appearance, Rule 3.130", what: "The arrested person goes before a judge, in person or by audio-video technology at the court's discretion. Rights and counsel are addressed, and the judge takes up detention or release." },
+          { when: "At the same hearing: the release decision, Rule 3.130(d)", what: "The judge must determine pretrial detention or conditions of release under rule 3.132 or rule 3.131. This is the decision the waiting family actually experiences as the outcome of day one." },
+          { when: "Day 30, 33, or 40 in custody: Rule 3.134(a)", what: "The state's deadline to file formal charges on a defendant held in custody, with automatic release dates tied to it, each carrying the same condition: unless the state files formal charges by that date." },
+          { when: "Day 60 or 63 if bonded out: Rule 3.134(b)", what: "The parallel track for a defendant on pretrial release, which is the track most people are on. Its second remedy, full release from bail conditions, takes a motion rather than arriving automatically." },
+          { when: "The longer horizon: Rule 3.191", what: "Speedy trial runs from the formal charge, not from the arrest, at 90 days for a misdemeanor and 175 for a felony, with a recapture procedure rather than an automatic discharge at the end." },
+        ],
+      },
+      {
+        id: "twenty-four-hours",
+        kind: "statute",
+        heading: "Twenty-four hours to a judge",
+        prose: [
+          "The opening clause is doing real work. A person released before first appearance, on the bond schedule at the booking desk for instance, is outside this sentence, which is why release can arrive before any judge is seen. For everyone still in custody, the 24 hours runs from arrest, and the rule's own text permits the appearance to happen by video, which in practice is how a family member watching for it should expect to see it.",
+        ],
+        statute: { citation: "Fla. R. Crim. P. 3.130(a)", body: "Except when previously released in a lawful manner, every arrested person must be taken before a judge, either in person or by audio-video communication technology in the discretion of the court, within 24 hours of arrest." },
+      },
+      {
+        id: "counsel-advice",
+        kind: "statute",
+        heading: "What the judge must say about a lawyer",
+        prose: [
+          "Advice and appointment are different sentences in the rule, and the pages on this site have been careful to keep them apart. The advice above is what the judge must tell an unrepresented defendant. The appointment duty sits at 3.130(c)(1): \"When the judge determines that the defendant is entitled to court-appointed counsel and desires counsel, the judge must immediately appoint counsel.\" For retained counsel, the same rule requires the judge to allow the defendant a reasonable time to send for counsel, postponing the hearing for that purpose if necessary.",
+          "Some of this site's charge pages state these first-day counsel duties and some instead reach the appointment framework in Rule 3.111, whichever their charge needs. This page carries the pair once: 3.130 for what happens in the courtroom on day one, 3.111 next, for who is entitled and when the entitlement attaches.",
+        ],
+        statute: { citation: "Fla. R. Crim. P. 3.130(b)(1)(B)", body: "if unrepresented, that the defendant has a right to counsel, and, if financially unable to afford counsel, that counsel will be appointed" },
+      },
+      {
+        id: "appointed-counsel",
+        kind: "statute",
+        heading: "Who is entitled to appointed counsel, and the exception written into it",
+        prose: [
+          "The first sentence is the entitlement: indigent persons, in prosecutions for offenses punishable by incarceration. The rest of the paragraph is the exception, quoted through rather than trimmed, because a reader who hears counsel is provided without the no-incarceration order proviso has been told something the rule does not say. Where the court later withdraws such an order, Rule 3.111(b)(1)(C) requires immediate appointment if the defendant is otherwise eligible.",
+          "Rule 3.111(a) sets when counsel attaches for a person already entitled to it. It confers nothing by itself, which is a distinction this project has recorded because it is easy to get backwards.",
+        ],
+        statute: { citation: "Fla. R. Crim. P. 3.111(b)(1)", body: "(C) If the court withdraws its order of no incarceration, it shall immediately appoint counsel if the defendant is otherwise eligible for the services of the public defender. The court may not withdraw its order of no incarceration once the defendant has been found guilty or pled nolo contendere." },
+      },
+      {
+        id: "release-decision",
+        kind: "statute",
+        heading: "The decision that ends the first hearing",
+        prose: [
+          "That single sentence is the hinge of the first day: the judge must decide, and the rule names the two provisions the decision lives under. Rule 3.131 governs pretrial release and its conditions; rule 3.132 governs pretrial detention on the State's motion.",
+          "[NEEDS: Fla. R. Crim. P. 3.131 and 3.132 recorded whole in PAGE-SOURCES.md, and F.S. 903.046, the criteria a court weighs in setting bail. Those provisions are the substance of the release decision, they appear on no page of this site, and this page will describe what they require only after their text is in the project's record. Until then this page names them and stops.]",
+          "What can be said from the recorded material: the decision is individualized and belongs to the judge, and the conditions that ride on any release are statutory, which is the next section.",
+        ],
+        statute: { citation: "Fla. R. Crim. P. 3.130(d)", body: "The judge must proceed to determine pretrial detention or conditions of release under rule 3.132 or rule 3.131." },
+      },
+      {
+        id: "release-conditions",
+        kind: "statute",
+        heading: "Conditions that ride on release",
+        prose: [
+          "Where the court issues a no-contact order, it is a condition of the release itself: effective immediately, enforceable for the duration of pretrial release or until modified, and handed to the defendant in writing before release. F.S. 903.047 was read whole for this project's record, and the no-contact condition is the part of it a first-day reader most needs stated plainly, because violating a release condition is how a person who just got out goes back in.",
+          "In a domestic violence case the sequence changes before it starts: a separate statute holds the arrested person in custody until first appearance, so no schedule and no early release applies. That is charge-keyed ground and this site's domestic violence page carries it.",
+        ],
+        statute: { citation: "F.S. 903.047(1)(b)", body: "(1)(b) If the court issues an order of no contact, refrain from any contact of any type with the victim, except through pretrial discovery pursuant to the Florida Rules of Criminal Procedure. An order of no contact is effective immediately and enforceable for the duration of the pretrial release or until it is modified by the court. The defendant shall be informed in writing of the order of no contact, specifying the applicable prohibited acts, before the defendant is released from custody on pretrial release." },
+      },
+      {
+        id: "custody-track",
+        kind: "statute",
+        heading: "Held in custody: days 30, 33, and 40",
+        prose: [
+          "Read the conditions before counting the days. Each release date in that paragraph operates unless the state files formal charges by that date, so a filing on day 32 means no release on day 33. The paragraph's backstop is (a)(3): \"In no event may any defendants remain in custody beyond 40 days unless they have been formally charged with a crime.\" The charging deadline itself is 30 days from arrest, and the recorded rule text runs the period from the arrest or from the service of a capias, so a person served rather than arrested counts from that service.",
+        ],
+        statute: { citation: "Fla. R. Crim. P. 3.134(a)(2)", body: "(2) If the defendants remain uncharged, the court on the 30th day and with notice to the state must: (A) Order that the defendants automatically be released on their own recognizance on the 33rd day unless the state files formal charges by that date; or (B) If good cause is shown by the state, order that the defendants automatically be released on their own recognizance on the 40th day" },
+      },
+      {
+        id: "release-track",
+        kind: "statute",
+        heading: "Bonded out: days 60 and 63, and the motion people miss",
+        prose: [
+          "Anyone who bonded out is on this track, and it is the track most people are on. The state's charging period on pretrial release is 60 days, and the recorded rule text gives the court's response to an uncharged day 60 in the same shape as the custody track: an order that the defendant automatically be released on recognizance on the 63rd day unless the state files formal charges by that date, or, on good cause shown, continued pretrial release for up to an additional 30 days unless the state files.",
+          "The paragraph quoted above is a different remedy on a different footing, and conflating the pair is the recorded error this project has already corrected once: release from bail and its conditions under (b)(2) arrives on motion with notice to the state, not automatically. A person waiting on day 63 for conditions to fall away on their own is waiting for something the rule routes through a filing.",
+        ],
+        statute: { citation: "Fla. R. Crim. P. 3.134(b)(2)", body: "(b)(2) On the expiration of the time period prescribed in subsection (1), and on motion with notice to the state, the court shall order that the defendant be released from all requirements of bail and all conditions of pretrial release unless the defendant has been formally charged with a crime." },
+      },
+      {
+        id: "speedy-trial",
+        kind: "statute",
+        heading: "The longer clock behind everything",
+        prose: [
+          "Three parts of that subdivision decide how it is read. The periods run from the formal charge as subdivision (d) defines it, not from the arrest, so the first-day clocks above and this one start at different events. The opening subjects the whole rule to the limitations in subdivisions (e) and (f), which most of this site's pages do not need to reach and this page names so the quotation is honest. And expiry routes to the recapture procedure in subdivision (o) rather than to automatic discharge, which is why nothing on this site describes 175 days as a deadline that ends a case by itself.",
+        ],
+        statute: { citation: "Fla. R. Crim. P. 3.191(a)", body: "(b) Speedy Trial upon Demand. Except as otherwise provided by this rule, and subject to the limitations imposed under subdivisions (e) and (g), every person charged with a crime by indictment or information shall have the right to demand a trial within 60 days, by filing with the court a separate pleading entitled \"Demand for Speedy Trial,\" and serving a copy on the prosecuting authority. ... (o)(3) No later than 5 days from the date of the filing of a notice of expiration of speedy trial time, the court shall hold a hearing on the notice and, unless the court finds that one of the reasons set forth in subdivision (j) exists, shall order that the defendant be brought to trial within 30 days. This recapture period is mandatory before any remedy will be given under this rule. [Pages 125 and 129, same retrieval.]" },
+      },
+      {
+        id: "bond-schedule",
+        kind: "prose",
+        heading: "The bond schedule, and why this page does not quote it",
+        prose: [
+          "Hillsborough operates under a uniform bond schedule adopted by administrative order, and it is the mechanism behind a release that happens at the booking desk before any judge is involved. This site's battery page carries the schedule rows for its own degrees, quoted from the order, together with the order's own limits.",
+          "[NEEDS: Administrative Order S-2025-063 recorded in full in PAGE-SOURCES.md, sections 2 and 4 especially. The order is currently recorded in this project only as excerpts inside one research brief, and the project's rule is that a partial record supports no claims beyond what it quotes. Until the full record lands, this page does not state which charges the schedule covers, what any amount is, or what the order says about judges, and the sections above describe release through the rules alone.]",
+        ],
+      },
+      {
+        id: "waiting",
+        kind: "guidance",
+        heading: "If you are the one waiting",
+        guidance: [
+          { heading: "What the rules give you on day one", items: [
+            "The 24-hour first appearance is the fixed point. It may happen by video under the rule's own text, and the release decision is made there.",
+            "If contact conditions issue, they bind immediately and are delivered in writing before release. Arranging anything that touches a no-contact order happens through counsel, not around it.",
+            "The charging clocks run whether or not anyone is watching them. Custody: 30, 33, 40. Pretrial release: 60 and 63, with the separate motion described above.",
+          ] },
+          { heading: "What this page cannot tell you yet", items: [
+            "[NEEDS: verified Hillsborough logistics, blocked on STATE.md Q14: where first appearance happens, how to attend or view it, and booking facility specifics. Recorded research exists but has not been human-verified, and this project does not publish location logistics on an unverified record.]",
+            "How long any stage takes in practice. The dates above are the rules' dates; pace beyond them is a conversation with counsel.",
+          ] },
+        ],
+      },
+    ],
+    relatedLinks: [
+      {
+        label: "How the bond schedule reaches a battery charge",
+        href: "/criminal-defense/battery-defense",
+      },
+      {
+        label: "The domestic violence custody hold, in charge context",
+        href: "/criminal-defense/domestic-violence-defense",
+      },
+      {
+        label: "The federal counterpart: a federal case, start to finish",
+        href: "/resources/guides/federal-criminal-process-timeline",
+      },
+    ],
     published: false,
   },
   {

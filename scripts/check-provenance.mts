@@ -95,9 +95,28 @@ const tableRefs = (() => {
   return out;
 })();
 
+/**
+ * A [NEEDS: ...] marker is the recorded ABSENCE of a source: it renders
+ * visibly on the page as a gap, and citing a provision inside one is how a
+ * page names what it is missing. Charging G2 or G4 against those citations
+ * would force writers to name gaps vaguely, which is the opposite of what
+ * this project wants. Stripped before extraction; the visible rendering is
+ * what keeps this honest, since a claim smuggled into a NEEDS marker would
+ * be published wearing a NEEDS marker.
+ */
+const stripNeeds = (text: string) => text.replace(/\[NEEDS:[^\]]*\]/g, " ");
+
 /** G2: cleared by a record at least as specific as the citation. */
 function g2Cleared(cited: string, recorded: Set<string> = recordedRefs): boolean {
-  if ([...recorded].some((r) => covers(cited, r))) return true;
+  // A Florida rule number parses under both keyspaces depending on phrasing
+  // ("Rule 3.130(a)" vs a bare "3.130(a)"), and they are one provision, so a
+  // record under either key clears a citation under either.
+  const twins = [cited];
+  if (cited.startsWith("rule ")) twins.push("fs " + cited.slice(5));
+  if (cited.startsWith("fs ")) twins.push("rule " + cited.slice(3));
+  for (const c of twins) {
+    if ([...recorded].some((r) => covers(c, r))) return true;
+  }
   if ([...tableRefs].some((r) => covers(cited, r))) return true;
   // A whole-section table clears every subsection of its own section: the
   // auditor's finding is that the section was read start to finish.
@@ -120,7 +139,10 @@ const buildCorpus = (): string[] => {
   return out;
 };
 
-const normSpan = (s: string) => s.replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, " ").trim();
+// Markdown emphasis in a record is the RECORDER'S formatting, not source
+// text, so span location is blind to asterisks (2026-08-20, found when a
+// span crossing a bolded phrase reported not-in-record).
+const normSpan = (s: string) => s.replace(/\*/g, "").replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, " ").trim();
 
 const LIMITERS =
   /^(unless|except|provided that|but|however|this (?:subsection|section|paragraph) does not|notwithstanding)/i;
@@ -162,10 +184,20 @@ const COUNTING =
 export function g4Hits(
   text: string,
   wholeKeys: Set<string>,
+  corpusNorm: string[] = [],
 ): { sentence: string; cited: string }[] {
   const out: { sentence: string; cited: string }[] = [];
   for (const sentence of text.split(/(?<=[.!?])\s+/)) {
     if (!COUNTING.test(sentence)) continue;
+    // A counting word inside a verbatim record quote is the SOURCE counting,
+    // not the writer: "all requirements of bail" is the rule's own text, and
+    // the gate polices chosen claims over partial readings, not quotation
+    // (2026-08-20, found when G4 fired on a statute body quoted whole).
+    const parts = sentence.split("\n").map((p) => normSpan(p).replace(/^"|"$/g, ""));
+    const quoted = parts.every(
+      (p) => p.length < 20 || corpusNorm.some((c) => c.includes(p)),
+    );
+    if (quoted && parts.some((p) => p.length >= 20)) continue;
     for (const cited of refs(sentence)) {
       const wholeCovered = [...wholeKeys].some(
         (k) => covers(k, cited) || covers(cited, k),
@@ -239,6 +271,23 @@ console.log("Provenance-gate self-tests");
       new Set([...wholeSectionKeys, ...readWholeMarked])).length === 0);
   // "two tracks", not "two forms": the counting-noun list does not include
   // "forms", so the first fixture never armed the check it was testing.
+  // A citation inside a [NEEDS] marker is a named gap, never a G2 claim.
+  t("G2 extraction skips citations inside [NEEDS] markers",
+    ![...refs(stripNeeds("[NEEDS: F.S. 999.99 recorded first] but F.S. 903.047 outside"))]
+      .some((c) => c.includes("999.99")));
+  t("G2 extraction still sees citations outside [NEEDS] markers",
+    [...refs(stripNeeds("[NEEDS: F.S. 999.99] but F.S. 903.047(1)(b) outside"))]
+      .some((c) => c === "fs 903.047(1)(b)"));
+  // The rule/fs twin: one Florida provision, two parser keyspaces.
+  t("G2 clears a rule-phrased citation against an fs-keyed record (Rule 903.047 twin)",
+    g2Cleared("rule 3.130(a)") && g2Cleared("fs 3.130(a)"));
+
+  const g4Corpus = ["(b)(2) the court shall order that the defendant be released from all requirements of bail and all conditions of pretrial release"].map(normSpan);
+  t("G4 stays quiet on a counting word inside a verbatim record quote",
+    g4Hits("Rule 9.877(b)(2)\nthe court shall order that the defendant be released from all requirements of bail and all conditions of pretrial release", new Set(), g4Corpus).length === 0);
+  t("G4 fires on the same counting claim NOT in the record",
+    g4Hits("Rule 9.877(b)(2) removes all requirements of bail in my own words entirely.", new Set(), g4Corpus).length >= 1);
+
   t("G4 still fires when only the marker set is widened and the cite is unmarked (Rule 47)",
     g4Hits("Rule 47 names two tracks for motions.",
       new Set([...wholeSectionKeys, ...readWholeMarked])).length >= 1);
@@ -259,7 +308,7 @@ console.log("\nG2: citation provenance on guide and tool surfaces");
 {
   let cites = 0;
   for (const m of surfaces) {
-    for (const cited of refs(m.copy.join("\n"))) {
+    for (const cited of refs(stripNeeds(m.copy.join("\n")))) {
       cites++;
       if (!g2Cleared(cited))
         fail(
@@ -314,9 +363,10 @@ console.log("\nG3: quoted spans located in the record, truncation checked");
 console.log("\nG4: closed-set and counting claims");
 {
   const readWhole = new Set([...wholeSectionKeys, ...readWholeMarked]);
+  const corpusNorm = corpus.map(normSpan);
   let hits = 0;
   for (const m of surfaces) {
-    for (const h of g4Hits(m.copy.join("\n"), readWhole)) {
+    for (const h of g4Hits(stripNeeds(m.copy.join("\n")), readWhole, corpusNorm)) {
       hits++;
       fail(
         `${m.href}: counting/closed-set claim cites ${h.cited.toUpperCase()}, which is not ` +

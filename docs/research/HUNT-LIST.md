@@ -554,6 +554,70 @@ independent re-derivation its quoted sources get, which is D26's rule arriving
 at numbers: the untrusted class is not the fetched fact but the writer's own
 arithmetic about it.
 
+### Instance 12: every gate green on a page whose body did not exist
+
+**Named 2026-08-20, from the Phase 2 guide build.**
+
+A shell-quoting defect emptied a guide's sections array while its lead and
+metadata landed. The guide therefore counted as "written," rendered a page,
+and passed every gate: typecheck (an empty array is valid), the banned-term
+rail (nothing to scan is nothing banned), heading reuse (no headings), the
+duplication measure (no runs), the rendered check (every extracted string
+reached the HTML, because the extractor saw the same empty array the renderer
+did). Twenty minutes earlier, thirteen sections of that guide had been
+measured, so the pass was not merely hollow; it directly contradicted work
+product that existed outside the tree.
+
+No gate caught it, and no gate could have. Every gate verifies properties of
+what is present. None can detect that the thing itself is missing, because
+"nothing is present" satisfies almost any property universally: all zero
+headings are unique, all zero claims are sourced. This is the vacuous-truth
+edge of defect 1, and it is the same hole G1 closes for a missing ROUTE,
+arriving one level down, where the route exists and the content does not.
+
+What caught it was an implausible count: the provenance gate printed 2
+citations and 0 quoted spans for a guide whose draft carried roughly 25
+citations and 12 spans. The numbers were not wrong. They were true statements
+about an empty body, printed because D22 requires gates to say what they saw,
+not only whether it passed.
+
+**The rule.** A pass whose printed counts do not match what the work should
+have produced is investigated before it is accepted. Gates must keep printing
+their counts (a bare "passed" would have hidden this), and the reader of a
+gate owes the counts thirty seconds of arithmetic: does the volume reported
+match the volume built? Zero is the number to distrust most, and second place
+belongs to any count that stayed the same after work that should have moved
+it.
+
+### Instance 13: correct records in a shape their own gate cannot read
+
+**Named 2026-08-20, same build, found during Phase 3's pre-write check.**
+
+The Phase 1 rule records were textually correct, verified against a second
+publisher, and emitted one blockquote line per WRAPPED PDF LINE, roughly ten
+words each. The G3 truncation detector locates quoted spans inside single
+corpus entries. Against ten-word entries it is structurally unable to locate
+any span longer than a line, so it would have reported zero truncations on
+any quote from those records forever, not because quotes were whole but
+because it could not see them. A truncation detector that cannot see spans
+reports zero truncations, and zero is exactly what a reader expects a healthy
+gate to say.
+
+Correct data plus wrong shape equals a blind gate that runs green. This is
+instance 1's grep-shape failure arriving through a data format: nothing was
+missing, nothing was wrong, and the check could still never have fired. The
+records were reflowed to one blockquote per logical paragraph and re-verified
+against the second publisher; the compelled corpus was unchanged because the
+duplication gate joins its sources order-preserving, which is itself worth
+remembering: two gates read the same records through different windows, and a
+shape can blind one while leaving the other whole.
+
+**The rule.** When a record feeds a gate, the record's SHAPE is part of the
+gate's correctness, and a new record format is verified by planting a
+violation the gate must catch THROUGH that record, not by checking the record
+against its source. Content verification and shape verification are different
+checks, and passing one says nothing about the other.
+
 ### Where this already applies
 
 - **src/lib/statutes.ts**: F.S. 812.014 is recorded `partial` with `unread`

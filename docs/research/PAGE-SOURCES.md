@@ -45,18 +45,21 @@ summariser reading a 20,000 line document is exactly the truncation risk
 HUNT-LIST instance 5 describes. The quotes below are from the extracted text.
 
 **Rule 3.130(a), First Appearance:**
-> "Except when previously released in a lawful manner, every arrested person
-> must be taken before a judge, either in person or by audio-video communication
-> technology in the discretion of the court, within 24 hours of arrest."
+[RESHAPED 2026-08-20: the blockquotes in this record were emitted as wrapped
+~75-character lines, the shape HUNT-LIST Instance 13 records: textually
+correct, and structurally invisible to the G3 truncation detector, which
+locates spans inside single corpus entries. Joined to one blockquote per
+quoted passage; text unchanged. Same day, each 3.134 quoted paragraph gained
+its own subdivision header, because the combined header bound no subdivision
+cite to any quote and the provenance gate could not clear "Rule 3.134(a)(2)"
+against a record that demonstrably quotes it.]
+> "Except when previously released in a lawful manner, every arrested person must be taken before a judge, either in person or by audio-video communication technology in the discretion of the court, within 24 hours of arrest."
 
 **Rule 3.130(b)(1)(B)**, advice only, not appointment:
-> the judge must advise the defendant that "if unrepresented, that the defendant
-> has a right to counsel, and, if financially unable to afford counsel, that
-> counsel **will be appointed**"
+> the judge must advise the defendant that "if unrepresented, that the defendant has a right to counsel, and, if financially unable to afford counsel, that counsel **will be appointed**"
 
 **Rule 3.130(c)(1), Appointed Counsel**, which is where the duty actually sits:
-> "When the judge determines that the defendant is entitled to court-appointed
-> counsel and desires counsel, the judge **must immediately appoint counsel**."
+> "When the judge determines that the defendant is entitled to court-appointed counsel and desires counsel, the judge **must immediately appoint counsel**."
 
 **The pages previously cited 3.130(b) for the appointment duty three times.**
 Advice is (b)(1)(B); appointment is (c)(1). Both are now recorded because both
@@ -67,38 +70,26 @@ reasonable time to send for counsel and must, if necessary, postpone the first
 appearance hearing for that purpose."
 
 **Rule 3.130(d), Pretrial Detention or Release:**
-> "The judge must proceed to determine pretrial detention or conditions of
-> release under rule 3.132 or rule 3.131."
+> "The judge must proceed to determine pretrial detention or conditions of release under rule 3.132 or rule 3.131."
 
 **Rule 3.134, Time for Filing Formal Charges.** Two tracks, and **custody
 decides which**, which is the distinction the first draft of these pages got
 wrong:
 
-> "(a) Defendants in Custody. (1) The state must file formal charges on
-> defendants in custody by information, or indictment ... within 30 days from the
-> date on which defendants are arrested"
+**Rule 3.134(a)(1):**
+> "(a) Defendants in Custody. (1) The state must file formal charges on defendants in custody by information, or indictment ... within 30 days from the date on which defendants are arrested"
 >
-> "(2) If the defendants remain uncharged, the court on the 30th day and with
-> notice to the state must: (A) Order that the defendants automatically be
-> released on their own recognizance on the 33rd day unless the state files
-> formal charges by that date; or (B) If good cause is shown by the state, order
-> that the defendants automatically be released on their own recognizance on the
-> 40th day"
+**Rule 3.134(a)(2):**
+> "(2) If the defendants remain uncharged, the court on the 30th day and with notice to the state must: (A) Order that the defendants automatically be released on their own recognizance on the 33rd day unless the state files formal charges by that date; or (B) If good cause is shown by the state, order that the defendants automatically be released on their own recognizance on the 40th day"
 >
-> "(3) In no event may any defendants remain in custody beyond 40 days unless
-> they have been formally charged with a crime."
+**Rule 3.134(a)(3):**
+> "(3) In no event may any defendants remain in custody beyond 40 days unless they have been formally charged with a crime."
 >
-> "(b) Defendants Not in Custody. (1) The state must file formal charges on
-> defendants on pretrial release ... within 60 days ... (A) Order that the
-> defendants automatically be released on their own recognizance on the 63rd day
-> unless the state files formal charges by that date; or (B) If good cause is
-> shown by the state, the Court may continue the defendant on pretrial release
-> for up to an **additional 30 days** unless the state files formal charges."
+**Rule 3.134(b)(1):**
+> "(b) Defendants Not in Custody. (1) The state must file formal charges on defendants on pretrial release ... within 60 days ... (A) Order that the defendants automatically be released on their own recognizance on the 63rd day unless the state files formal charges by that date; or (B) If good cause is shown by the state, the Court may continue the defendant on pretrial release for up to an **additional 30 days** unless the state files formal charges."
 >
-> "(b)(2) On the expiration of the time period prescribed in subsection (1), and
-> on motion with notice to the state, the court shall order that the defendant be
-> released from all requirements of bail and all conditions of pretrial release
-> unless the defendant has been formally charged with a crime."
+**Rule 3.134(b)(2):**
+> "(b)(2) On the expiration of the time period prescribed in subsection (1), and on motion with notice to the state, the court shall order that the defendant be released from all requirements of bail and all conditions of pretrial release unless the defendant has been formally charged with a crime."
 
 **Both tracks carry a good-cause extension.** An earlier draft stated it for the
 in-custody track and omitted it for the not-in-custody track, which is the same
@@ -111,16 +102,10 @@ meaning anyone who bonded out, the operative numbers are now 60 and 63, not 30
 and 33." The pages lead with the track that applies to most readers.
 
 **Rule 3.191(a), Speedy Trial without Demand:**
-> "every person charged with a crime shall be brought to trial within 90 days if
-> the crime charged is a misdemeanor, or within 175 days if the crime charged is
-> a felony ... The time periods established by this subdivision shall commence
-> when the person is formally charged with a crime as defined under subdivision
-> (d)."
+> "every person charged with a crime shall be brought to trial within 90 days if the crime charged is a misdemeanor, or within 175 days if the crime charged is a felony ... The time periods established by this subdivision shall commence when the person is formally charged with a crime as defined under subdivision (d)."
 
 **Rule 3.191(d), Formally Charged:**
-> "For the purposes of this rule, a person is formally charged with a crime by
-> information, or by indictment, or in the case of alleged misdemeanors by
-> whatever documents constitute a formal charge."
+> "For the purposes of this rule, a person is formally charged with a crime by information, or by indictment, or in the case of alleged misdemeanors by whatever documents constitute a formal charge."
 
 **The period runs from the formal charge, not from the arrest.** Rule 3.191(a)
 also directs the reader to the remedy in subdivision (o), which is a recapture
