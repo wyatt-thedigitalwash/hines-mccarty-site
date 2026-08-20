@@ -353,5 +353,12 @@ if (collisions.length) {
   console.log("  ok    no two populated C9 assertions collide");
 }
 
+console.log(
+  "  ..    guides and tools are SKIPPED BY DESIGN: cover-the-name is a " +
+    "between-charge-pages test, and a guide has no sibling charge it could " +
+    "be confused with (D29; GUIDES-CONCEPT D.2). Their gates are " +
+    "check:pages, check:claims, check:provenance, and check:rendered.",
+);
+
 if (failed) process.exit(1);
 console.log("\nC9 check passed.");

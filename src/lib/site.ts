@@ -7259,6 +7259,83 @@ export const attorneyTrail = (attorney: Attorney): Crumb[] => [
   { name: attorney.name },
 ];
 
+/**
+ * A Layer 2 guide page. GUIDES-CONCEPT.md D.1, built in Phase 0 (D29).
+ *
+ * Structurally parallel to ChargePage and deliberately narrower: no silo, no
+ * counterpart, no penalties requirement, and NO C9 assertion, because
+ * cover-the-name is a between-charge-pages test and a guide has no sibling
+ * charge it could be confused with (check:c9 prints that it skips guides by
+ * design rather than silently not mentioning them).
+ *
+ * Content fields are undefined until the fact layer for the guide clears
+ * (GUIDES-CONCEPT Phases 1 and 4) and the copy is written against the
+ * boundaries in its Section A.5. `published` stays false until the gates, the
+ * adversarial review, and the attorney read are all complete.
+ */
+export type GuidePage = {
+  slug: string;
+  /** Short card label for the Resources hub and the home carousel. */
+  label: string;
+  /** H1 and card title. */
+  title: string;
+  /** One-line card description. */
+  description: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  lead?: string;
+  /** The body, same section grammar as the charge pages. */
+  sections?: ChargeSection[];
+  faq?: FaqItem[];
+  relatedLinks?: RelatedLink[];
+  /** Same coverage contract as ChargePage.readerNeeds. */
+  readerNeeds?: Partial<Record<ReaderQuestion, string>>;
+  /** C11: no guide publishes without both. */
+  owner?: string;
+  lastReviewed?: string;
+  published: boolean;
+};
+
+/**
+ * The two guides. Scope per the 2026-08-20 rulings:
+ * - after-an-arrest is re-scoped to the RELEASE DECISION (GUIDES-CONCEPT A.3,
+ *   Section 0 as rewritten), and absorbs the bond schedule per D32; the cash
+ *   versus surety comparison is its only planned interactive element.
+ * - federal-criminal-process-timeline owns the four vacant federal stages
+ *   (Rules 5.1, 11, 32, 18 U.S.C. 3553(a)) and takes 3161(h)/(c)(2) under the
+ *   A.4 boundary rule, not as free ground.
+ */
+export const guides: GuidePage[] = [
+  {
+    slug: "after-an-arrest",
+    label: "After an Arrest",
+    title: "First 24 Hours After a Hillsborough Arrest",
+    description:
+      "What happens after a Hillsborough arrest, and how the release decision actually works.",
+    published: false,
+  },
+  {
+    slug: "federal-criminal-process-timeline",
+    label: "Federal Case Timeline",
+    title: "Federal Case Timeline, Tampa Division",
+    description:
+      "How a federal case moves from target letter through indictment, trial, and sentencing.",
+    published: false,
+  },
+];
+
+export const guideHref = (g: GuidePage) => `/resources/guides/${g.slug}`;
+
+export const guideBySlug = (slug: string) =>
+  guides.find((g) => g.slug === slug);
+
+export const guideTrail = (guide: GuidePage): Crumb[] => [
+  { name: "Home", href: "/" },
+  { name: "Resources", href: "/resources" },
+  { name: "Tools & Guides", href: "/resources/tools-and-guides" },
+  { name: guide.label },
+];
+
 export type Tool = {
   label: string;
   kind: "Calculator" | "Estimator" | "Checker" | "Guide";
@@ -7311,24 +7388,19 @@ export const tools: Tool[] = [
     href: "/resources/tools/seal-expunge-eligibility",
     published: false,
   },
-  {
-    label: "After an Arrest",
-    kind: "Guide",
-    title: "First 24 Hours After a Hillsborough Arrest",
-    description:
-      "A step-by-step walkthrough of the first day, from booking and first appearance through bond.",
-    href: "/resources/guides/after-an-arrest",
-    published: false,
-  },
-  {
-    label: "Federal Case Timeline",
-    kind: "Guide",
-    title: "Federal Case Timeline, Tampa Division",
-    description:
-      "How a federal case moves from target letter through indictment, trial, and sentencing.",
-    href: "/resources/guides/federal-criminal-process-timeline",
-    published: false,
-  },
+  // The guide rows are DERIVED from `guides` so the two lists cannot drift,
+  // which is the D13 defect (two entries byte-identical in slug and
+  // description getting written toward each other). GUIDES-CONCEPT D.1.
+  ...guides.map(
+    (g): Tool => ({
+      label: g.label,
+      kind: "Guide",
+      title: g.title,
+      description: g.description,
+      href: guideHref(g),
+      published: g.published,
+    }),
+  ),
 ];
 
 export const publishedTools = tools.filter((t) => t.published);

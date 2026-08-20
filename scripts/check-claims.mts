@@ -31,6 +31,7 @@
  */
 import { readFileSync } from "node:fs";
 import { charges, chargeHref } from "../src/lib/site.ts";
+import { measuredPages } from "../src/lib/measured.ts";
 import { pageCopy } from "../src/lib/page-copy.ts";
 import { STATUTES, degreesAt, type Degree, type GradingRow } from "../src/lib/statutes.ts";
 
@@ -526,6 +527,10 @@ console.log("Claim-check self-test: the three errors that shipped on this page")
 console.log("\nLegal claims on written pages");
 {
   const written = charges.filter((c) => c.lead || c.statute || c.sections?.length);
+  // D29 NOTE, printed rather than assumed: guide and tool surfaces are in the
+  // measured registry, and this gate runs its citation-keyed rules over them
+  // below. The value-ladder (amount-to-degree) rules stay charge-only, because
+  // they key on a page's PRIMARY statute block and only charge pages have one.
   let any = false;
   // Statutes whose amount rules are switched off because their bounds are not
   // dollars. Printed on every run: a rule that is off must say so, or the next
@@ -563,6 +568,23 @@ console.log("\nLegal claims on written pages");
         for (const p of auditSentence(s, key, { primary })) {
           any = true;
           fail(`${chargeHref(c)} [${p.kind}] ${p.detail}\n        "${p.sentence.slice(0, 150)}"`);
+        }
+      }
+    }
+  }
+  // Guide and tool surfaces: citation-keyed rules only, no primary statute.
+  // Written guides are zero today, so this loop is expected to be empty; it
+  // exists NOW so content cannot arrive before its gate (GUIDES-CONCEPT
+  // Phase 0's whole point).
+  for (const m of measuredPages) {
+    if (m.kind === "charge" || !m.written) continue;
+    const text = m.copy.join("\n");
+    for (const key of Object.keys(STATUTES)) {
+      if (!text.includes(key)) continue;
+      for (const s of sentences(text)) {
+        for (const p of auditSentence(s, key, { primary: false })) {
+          any = true;
+          fail(`${m.href} [${p.kind}] ${p.detail}\n        "${p.sentence.slice(0, 150)}"`);
         }
       }
     }

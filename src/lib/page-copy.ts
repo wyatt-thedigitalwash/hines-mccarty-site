@@ -16,7 +16,7 @@
  * one function, and `RENDERED_FIELDS` below is the checklist that has to be
  * revisited whenever the page schema grows.
  */
-import type { ChargePage } from "./site.ts";
+import type { ChargePage, GuidePage, Tool } from "./site.ts";
 
 /**
  * Fields rendered to a reader, as a checklist.
@@ -106,4 +106,62 @@ export function pageCopy(c: ChargePage): string[] {
     ]),
   ];
   return out.filter((x): x is string => typeof x === "string" && x.length > 0);
+}
+
+/**
+ * Fields of a GuidePage rendered to a reader. Same contract as RENDERED_FIELDS:
+ * revisit whenever the guide schema grows, because a field that renders but is
+ * not extracted is a hole in every gate at once.
+ */
+export const GUIDE_RENDERED_FIELDS = [
+  "label",
+  "title",
+  "description",
+  "metaTitle",
+  "metaDescription",
+  "lead",
+  "faq[].question|answer",
+  "relatedLinks[].label",
+  "sections[].heading|prose|bullets|statute|penalties|steps|guidance",
+  "readerNeeds{}",
+  "owner",
+  "lastReviewed",
+] as const;
+
+/** Every human-visible string on a guide page. One definition, every gate. */
+export function guideCopy(g: GuidePage): string[] {
+  const out: (string | undefined)[] = [
+    g.label,
+    g.title,
+    g.description,
+    g.metaTitle,
+    g.metaDescription,
+    g.lead,
+    g.owner,
+    g.lastReviewed,
+    ...(g.faq ?? []).flatMap((f) => [f.question, f.answer]),
+    ...(g.relatedLinks ?? []).map((l) => l.label),
+    ...Object.values(g.readerNeeds ?? {}),
+    ...(g.sections ?? []).flatMap((s) => [
+      s.heading,
+      ...(s.prose ?? []),
+      ...(s.bullets ?? []),
+      ...(s.statute ? [s.statute.citation, s.statute.body] : []),
+      ...(s.penalties ?? []).map(penaltyRow),
+      ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
+      ...(s.guidance ?? []).flatMap((gr) => [gr.heading, ...gr.items]),
+    ]),
+  ];
+  return out.filter((x): x is string => typeof x === "string" && x.length > 0);
+}
+
+/**
+ * A tool's renderable copy TODAY is its card: label, title, description,
+ * rendered by the home carousel and the Resources pages. D29 puts tools in the
+ * measured registry precisely so this surface is inside the banned-term and
+ * em-dash rails; when a tool page is built, its page copy joins here rather
+ * than growing a second extractor.
+ */
+export function toolCopy(t: Tool): string[] {
+  return [t.label, t.title, t.description].filter((x) => x.length > 0);
 }

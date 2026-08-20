@@ -26,8 +26,9 @@
  *      merely need a human to look.
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { charges, chargeHref } from "../src/lib/site.ts";
-import { pageCopy } from "../src/lib/page-copy.ts";
+import { charges, chargeHref, guides, guideHref } from "../src/lib/site.ts";
+import { pageCopy, guideCopy } from "../src/lib/page-copy.ts";
+import { measuredPages, measuredTools } from "../src/lib/measured.ts";
 import { STATUTES } from "../src/lib/statutes.ts";
 import {
   isGenericHeading,
@@ -618,13 +619,28 @@ console.log("Page-gate self-tests");
 // ==================================================================
 // PART 2. The real pages.
 // ==================================================================
-const pages = charges.filter(
-  (c) => (c.lead || c.statute || c.sections?.length) && !c.c9Exempt,
-);
+/**
+ * ALL written charge pages, c9Exempt included.
+ *
+ * The filter used to read `&& !c.c9Exempt`, which excluded the target-letter
+ * and corporate-fraud pages from every check in this file. D15 scoped that
+ * exemption to the statute-parse check alone; the C9 collision check lives in
+ * check-c9.mts and never read this list. Narrowed 2026-08-20 with the D29
+ * registry, per GUIDES-CONCEPT F.2: the two-states-one-label failure D15
+ * exists to prevent had arrived in this file.
+ */
+const pages = charges.filter((c) => c.lead || c.statute || c.sections?.length);
 const migrated = pages.filter((c) => c.sections?.length);
 const legacy = pages.filter((c) => !c.sections?.length);
 
+/** D29: guides are measured surfaces from the day they exist. */
+const writtenGuides = guides.filter((g) => g.lead || g.sections?.length);
+
 console.log(`\nWritten charge pages: ${pages.length}`);
+console.log(
+  `Guides: ${guides.length} (written: ${writtenGuides.length})   ` +
+    `tool cards measured: ${measuredTools.length}`,
+);
 console.log(
   `  migrated to sections: ${migrated.length}   awaiting migration: ${legacy.length}`,
 );
@@ -635,13 +651,17 @@ if (legacy.length) {
   for (const c of legacy) console.log(`      ${chargeHref(c)}`);
 }
 
-console.log("\nBanned terms, over extracted copy");
+console.log("\nBanned terms, over extracted copy of every measured surface");
 {
   let any = false;
-  for (const c of pages) {
-    const hits = bannedHits(copyOf(c));
+  // The registry (D29), not the charge list: guide copy and tool-card copy
+  // are lawyer advertising exactly as much as a charge page is, and the
+  // carousel renders tool descriptions on the home page today.
+  for (const m of measuredPages) {
+    if (m.kind === "charge" && !m.written) continue;
+    const hits = bannedHits(m.copy);
     for (const h of hits) {
-      fail(`${chargeHref(c)} [${h.rule}] ${h.text}`);
+      fail(`${m.href} [${h.rule}] ${h.text}`);
       any = true;
     }
   }
@@ -665,6 +685,16 @@ console.log("\nGeneric headings");
       }
     }
   }
+  // Guides are held to the same standard from their first section
+  // (GUIDES-CONCEPT B.3 rule 5).
+  for (const g of writtenGuides) {
+    for (const s of g.sections ?? []) {
+      if (isGenericHeading(s.heading)) {
+        fail(`${guideHref(g)} heading is generic: "${s.heading}"`);
+        any = true;
+      }
+    }
+  }
   if (!any)
     console.log(
       migrated.length
@@ -680,6 +710,14 @@ console.log("\nHeading reuse across pages");
     for (const s of c.sections!) {
       const n = normalizeHeading(s.heading);
       seen.set(n, [...(seen.get(n) ?? []), chargeHref(c)]);
+    }
+  }
+  // Guides share the map, so a guide heading that repeats a charge-page
+  // heading fails exactly as two charge pages would (GUIDES-CONCEPT D.2).
+  for (const g of writtenGuides) {
+    for (const s of g.sections ?? []) {
+      const n = normalizeHeading(s.heading);
+      seen.set(n, [...(seen.get(n) ?? []), guideHref(g)]);
     }
   }
   const reused = [...seen].filter(([, hrefs]) => hrefs.length > 1);
@@ -826,9 +864,15 @@ const compelledShingles: Set<string> = (() => {
   return shingles(src);
 })();
 
-function duplication(x: ChargePage, y: ChargePage): { shared: number; rate: number } {
-  const A = shingles(copyOf(x));
-  const B = shingles(copyOf(y));
+type Dup = { href: string; copy: string[]; legacy: boolean };
+const dupRecord = (c: ChargePage): Dup => ({
+  href: chargeHref(c),
+  copy: copyOf(c),
+  legacy: !c.sections?.length,
+});
+function duplication(x: Dup, y: Dup): { shared: number; rate: number } {
+  const A = shingles(x.copy);
+  const B = shingles(y.copy);
   const shared = [...A].filter((g) => B.has(g) && !compelledShingles.has(g)).length;
   // The denominator drops the compelled runs too, so a page that is mostly
   // quotation is not flattered by a larger denominator than it earned.
@@ -848,31 +892,45 @@ console.log("\nVerbatim duplication between pages");
   let legacyOver = 0;
   let worstLegacyRate = 0;
   const legacyOverNames: string[] = [];
-  for (let i = 0; i < pages.length; i++) {
-    for (let j = i + 1; j < pages.length; j++) {
-      const a = pages[i], b = pages[j];
+  // One combined list, so a written guide is measured against every charge
+  // page and every other guide automatically (D29; GUIDES-CONCEPT D.2). A
+  // guide is never "legacy": that exemption exists for the pre-sections
+  // charge pages and nothing else.
+  const dupPages: Dup[] = [
+    ...pages.map(dupRecord),
+    ...writtenGuides.map(
+      (g): Dup => ({ href: guideHref(g), copy: guideCopy(g), legacy: false }),
+    ),
+  ];
+  for (let i = 0; i < dupPages.length; i++) {
+    for (let j = i + 1; j < dupPages.length; j++) {
+      const a = dupPages[i], b = dupPages[j];
       const { shared, rate } = duplication(a, b);
-      const bothLegacy = !a.sections?.length && !b.sections?.length;
+      const bothLegacy = a.legacy && b.legacy;
       if (rate < DUPLICATION_LIMIT) continue;
       if (bothLegacy) {
         legacyOver++;
         worstLegacyRate = Math.max(worstLegacyRate, rate);
         legacyOverNames.push(
-          `${chargeHref(a)}<>${chargeHref(b)} at ${(rate * 100).toFixed(1)}%`,
+          `${a.href}<>${b.href} at ${(rate * 100).toFixed(1)}%`,
         );
         continue;
       }
       anyDup = true;
       fail(
-        `${chargeHref(a)} and ${chargeHref(b)} share ${shared} eight-word runs, ` +
+        `${a.href} and ${b.href} share ${shared} eight-word runs, ` +
           `${(rate * 100).toFixed(1)}% of the shorter page, over the ` +
           `${(DUPLICATION_LIMIT * 100).toFixed(0)}% limit`,
       );
     }
   }
-  for (const a of migrated)
-    for (const b of pages)
-      if (a !== b) worstMigrated = Math.max(worstMigrated, duplication(a, b).rate);
+  {
+    const migratedRecords = migrated.map(dupRecord);
+    for (const a of migratedRecords)
+      for (const b of dupPages)
+        if (a.href !== b.href)
+          worstMigrated = Math.max(worstMigrated, duplication(a, b).rate);
+  }
   if (legacyOver)
     console.log(
       `  EXPECTED  ${legacyOver} legacy-vs-legacy pair(s) over the limit ` +

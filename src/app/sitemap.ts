@@ -1,5 +1,13 @@
 import { MetadataRoute } from "next";
-import { attorneys, charges, chargeHref, silos, siteUrl } from "@/lib/site";
+import {
+  attorneys,
+  charges,
+  chargeHref,
+  guides,
+  guideHref,
+  silos,
+  siteUrl,
+} from "@/lib/site";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
@@ -39,6 +47,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       .filter((c) => c.published)
       .map((c) => ({
         url: `${siteUrl}${chargeHref(c)}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      })),
+    // Published guides only, same rule as the charge pages: asking Google to
+    // crawl a page and then telling it not to index what it found is the
+    // mismatch the comment above this file's charge filter warns about.
+    ...guides
+      .filter((g) => g.published)
+      .map((g) => ({
+        url: `${siteUrl}${guideHref(g)}`,
         changeFrequency: "monthly" as const,
         priority: 0.7,
       })),
