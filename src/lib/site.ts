@@ -7295,15 +7295,13 @@ export const tools: Tool[] = [
     href: "/sentencing/florida-criminal-punishment-code",
     published: false,
   },
-  {
-    label: "Bond & Bail Estimator",
-    kind: "Estimator",
-    title: "Bond & Bail Estimator, Hillsborough County",
-    description:
-      "See how bond is typically set locally and what to expect at first appearance.",
-    href: "/resources/tools/bond-bail-estimator",
-    published: false,
-  },
+  // The Bond & Bail Estimator row was removed 2026-08-20 under DECISIONS.md
+  // D32: the tool is not built. Its only source, AO S-2025-063, binds the
+  // booking officer and no judge, excludes first and second degree felonies by
+  // its own section 2, and expires 2026-12-31. The bond schedule folds into
+  // the after-an-arrest guide, where the cash versus surety cost comparison
+  // survives as the only interactive element. Do not re-add a row here without
+  // a new decision entry (D31 makes that mandatory, not optional).
   {
     label: "Seal & Expunge Checker",
     kind: "Checker",

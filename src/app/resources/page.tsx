@@ -12,9 +12,10 @@ import CallToAction from "@/components/CallToAction";
  * structure that came out of the client meeting and is already in the header
  * and the side menu. /guides now redirects here rather than competing with it.
  *
- * [PENDING: Layer 2 content] The children are stubs. Build order is
- * CASES-WE-DEFEND-PLAN.md Section 5: sentencing calculator, bond estimator,
- * federal case timeline, seal and expunge checker.
+ * [PENDING: Layer 2 content] The children are stubs. Build order per
+ * CASES-WE-DEFEND-PLAN.md Section 5 as amended by D32 (2026-08-20, bond
+ * estimator not built): sentencing calculator, federal case timeline, seal
+ * and expunge checker, after-an-arrest guide.
  *
  * The sentencing calculator is not linked from this page or any other until it
  * clears done-criteria C1 through C8 (Section 5.6). Listing it here as a link

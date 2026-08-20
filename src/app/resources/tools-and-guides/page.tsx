@@ -7,7 +7,11 @@ import CallToAction from "@/components/CallToAction";
 import EmptyState from "@/components/EmptyState";
 
 /**
- * [PENDING: Layer 2 content] Build order is CASES-WE-DEFEND-PLAN.md Section 5: sentencing calculator, bond estimator, federal case timeline, seal and expunge checker. The calculator is not linked from anywhere until it clears done-criteria C1 through C8.
+ * [PENDING: Layer 2 content] Build order per CASES-WE-DEFEND-PLAN.md Section 5
+ * as amended by D32 (2026-08-20, bond estimator not built): sentencing
+ * calculator, federal case timeline, seal and expunge checker, after-an-arrest
+ * guide. The calculator is not linked from anywhere until it clears
+ * done-criteria C1 through C8.
  */
 export const metadata: Metadata = pageMetadata({
   title: "Tools and Guides | Hines & McCarty",
@@ -47,7 +51,7 @@ export default function Page() {
 
       <EmptyState
         heading="Nothing is published here yet"
-        body="The tools and guides are being built. The first of them explain how sentencing is calculated, how bond is set locally, and what the first day after an arrest actually involves."
+        body="The tools and guides are being built. The first of them explain how sentencing is calculated and what the first day after an arrest actually involves, including how release is decided."
         linkHref="/cases-we-defend"
         linkLabel="Cases we defend"
       />
