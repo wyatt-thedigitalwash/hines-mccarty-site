@@ -776,7 +776,7 @@ function shingles(strings: string[], n = 8): Set<string> {
  *
  * Two kinds, and both are compelled rather than chosen:
  *
- *   1. Verbatim statutory text. Every row in the 70 audited statute tables
+ *   1. Verbatim statutory text. Every row in the 74 audited statute tables
  *      carries the exact words it was built from, and the rule for writers is
  *      that a quote is verbatim. Two pages resting on the same subsection
  *      therefore MUST say those words identically. Counting that as

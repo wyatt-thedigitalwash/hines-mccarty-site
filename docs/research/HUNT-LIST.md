@@ -518,6 +518,42 @@ mattered.
    produces confidence whether or not it is warranted**, and that is the thing to
    watch for, not any of the individual bugs.
 
+### Instance 11: a document promising reproducibility, whose aggregates were not reproducible
+
+**Named 2026-08-20, from the D28 adversarial round over the three tool concept
+documents (docs/build/tools/REVIEW-2026-08-20.md, 434 checked claims).**
+
+GUIDES-CONCEPT.md stated, in its own header, that every number in it was
+"reproducible from the current tree," and described the method. The independent
+reproduction confirmed the method and the row-level figures to the digit
+(11.37%/94, 7.75%/94, 5.58%/113, 4.73%/221, the 124,381-run compelled set) and
+then failed on the aggregates: "ten pairs at or above 5%" was twenty-four, and
+the assembled-guide row's 39.8%/1,796 was 33.4%/1,509 under the same
+definition, with no tested variant producing the stated numbers.
+
+The reproducibility promise produced the same hazard as a gate that cannot
+fail: it closed the question. A reader who spot-checks a row finds it exact,
+extends the trust to the aggregates, and the aggregates are the numbers the
+verdict actually rests on. The claim of reproducibility was doing the work of
+reproduction.
+
+**The split is the same one the page builds produced, now confirmed at scale.**
+Across the round, the fetched material held and the self-produced material did
+not: verbatim quotes traced to recorded fetches survived verification
+(SENTENCING, 124 claims, zero confirmed errors; SEAL, 105 claims, one), while
+the writers' own measurements, counts, and universal claims ("every page
+states," "zero pages carry," "the 70 tables") supplied nearly all of the
+confirmed defects. Both A.2 vacancy errors were false when written; the copy
+they missed had been in the tree for five days.
+
+**The rule.** A claim that a number is reproducible is verified by reproducing
+it, before the number drives a decision, and aggregates are the numbers to
+reproduce first, because they are the ones verdicts rest on and the ones a
+row-level spot-check cannot reach. A document's self-measurements get the same
+independent re-derivation its quoted sources get, which is D26's rule arriving
+at numbers: the untrusted class is not the fetched fact but the writer's own
+arithmetic about it.
+
 ### Where this already applies
 
 - **src/lib/statutes.ts**: F.S. 812.014 is recorded `partial` with `unread`

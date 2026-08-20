@@ -188,7 +188,10 @@ behind it; tools live beside them at `/resources/tools/`):
 - `fbi-hsi-agent-contact-your-rights`
 - `federal-device-seizure-rule-41g`
 - `after-an-arrest` (the Hillsborough first-24-hours guide, client's name for it;
-  absorbs the state bond walkthrough and links to the bond estimator)
+  absorbs the state bond walkthrough. [SUPERSEDED 2026-08-20 by D32: it no
+  longer "links to the bond estimator"; the estimator is not built, the bond
+  schedule folds into this guide, and the cash versus surety comparison is the
+  guide's only interactive element])
 - `pretrial-intervention-13th-circuit`
 - `violation-of-probation-hillsborough`
 - `professional-license-consequences`
@@ -312,7 +315,7 @@ Reordered against the client's tool list from the meeting. Two tools are new
 | # | Tool | Lives in | Build | Effort |
 |---|------|----------|-------|--------|
 | 1 | Sentencing Calculator (FL CPC scoresheet + charge lookup as its input layer) | `/sentencing/florida-criminal-punishment-code` | First | M |
-| 2 | Bond & Bail Estimator | `/resources/tools/bond-estimator` | Second | S |
+| 2 | Bond & Bail Estimator | `/resources/tools/bond-estimator` | ~~Second~~ NOT BUILT, D32 (2026-08-20) | S |
 | 3 | Federal Case Timeline (MDFL Tampa Division, visual) | `/resources/guides/federal-criminal-process-timeline` | Third | S-M |
 | 4 | Seal & Expunge Checker | `/resources/tools/seal-expunge-eligibility` | Fourth | S-M |
 
@@ -325,10 +328,16 @@ Guides (not interactive tools, but the client grouped them here):
 Why the order:
 - **Calculator first** because it is the input layer for 15+ sentencing pages.
   Nothing else unlocks as much of the site.
-- **Bond estimator second.** New, and a good call. Hillsborough publishes a
-  standard bond schedule, so this is a factual lookup rather than a prediction:
-  low accuracy risk, fast to build, strong local long-tail, and it pairs
-  naturally with the After an Arrest guide.
+- **Bond estimator: SUPERSEDED 2026-08-20 by D32. Not built.** The premise
+  below did not survive the source: AO S-2025-063 binds only the booking
+  officer, excludes every first and second degree felony by its own section 2,
+  and expires 2026-12-31, so it is a factual lookup only where the schedule
+  answers the question, and for most of this firm's work it does not. The
+  schedule folds into the After an Arrest guide as a reference section.
+  (Original reasoning, kept for the record: New, and a good call. Hillsborough
+  publishes a standard bond schedule, so this is a factual lookup rather than
+  a prediction: low accuracy risk, fast to build, strong local long-tail, and
+  it pairs naturally with the After an Arrest guide.)
 - **Seal & Expunge fourth, but no longer "build last."** The earlier plan
   deprioritized sealing/expungement entirely. Partially reversed: FS 943.0585 /
   943.059 eligibility is a clean rules-based flowchart and one of the
@@ -343,9 +352,10 @@ accuracy risk -- tools-and-hooks.md Section 3; avoid.md item 30).
 **Tool compliance rails (all tools):** anonymous inputs, no lead-gating of
 results, a no-legal-advice / no-outcome-guarantee disclaimer adjacent to output,
 current statute revision stated on-page (calculator: Oct 23 2025 Rule 3.992).
-Bond estimator specifically: frame output as "the standard Hillsborough bond
-schedule amount for this charge," never as a prediction of the bond a given
-defendant will receive. Seal & expunge checker: output is "you appear to meet /
+Bond estimator specifically: superseded by D32, not built; the framing rule
+below applied while it was planned and is kept for the record. (Was: frame
+output as "the standard Hillsborough bond schedule amount for this charge,"
+never as a prediction of the bond a given defendant will receive.) Seal & expunge checker: output is "you appear to meet /
 not meet the statutory criteria," never "you are eligible."
 Never market the calculator "first in Florida" (competitors already run one; it
 would be false -- avoid.md item 14). Consider voluntary Bar pre-clearance for the

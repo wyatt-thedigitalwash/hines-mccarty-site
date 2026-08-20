@@ -975,3 +975,165 @@ unreviewed. Two practices follow:
 **Say so in the prompt too**, but do not rely on it. D25 is the measured
 finding that instructions do not prevent the behaviour they forbid. The
 rebuild is the control; the instruction is a courtesy.
+
+## 2026-08-20, D28: the concept documents got the adversarial round before the decisions they drive
+
+### D28. A document that will drive a build-or-kill decision gets adversarial verification before the decision, and corrections are marked in place, never applied silently
+
+The three tool concept documents (docs/build/tools/GUIDES-CONCEPT.md,
+SEAL-EXPUNGE-CONCEPT.md, SENTENCING-BOND-CONCEPT.md, all written 2026-08-19 by
+separate agents) each prescribe adversarial review for the artifacts they
+specify. None had received one itself, and each carries verdicts that would
+reverse parts of WEBSITE-PLAN.md. This round applied their own standard to
+them: five independent auditors (per-document citation audits, an independent
+reproduction of every measurement, and a cross-document consistency read on a
+different model family than the writers'), then refute-by-default verification
+of each surviving finding by a fresh agent that opened the sources itself.
+Full record: docs/build/tools/REVIEW-2026-08-20.md.
+
+**Results.** 434 claims checked, 31 findings, 10 verified: 8 confirmed, 2
+refuted. The refuted pair is the reason the verification layer exists; both
+were plausible and both were wrong, which is D25's finding operating in the
+other direction.
+
+**What was wrong, in one paragraph.** GUIDES-CONCEPT overstated both of its
+verdict foundations in opposite directions: guide 2's "vacancy" table claimed
+18 U.S.C. 3161(h) and (c)(2) appear on zero pages when (h) is treated on six
+and (c)(2) on one (the copy landed in site.ts five days before the document was
+written), and guide 1's "everything is already on the charge pages" inventory
+fails per-page probing (Rule 3.111 absent from three pages, the Public Defender
+from four). Meanwhile its duplication measurement UNDERSTATED its own strongest
+evidence: 24 page pairs sit at or above the 5% limit on procedure-only
+comparison, not ten, and the 39.8%/1,796 assembled-guide figure did not
+reproduce (33.4%/1,509 on the same definition). Neither verdict flips, but the
+provision-ownership strategy in B.3/A.5 needed real revision, not just new
+numbers. SEAL-EXPUNGE had one error in 105 checked claims (a misdemeanor degree
+in a hostile fact pattern, violating its own traceability rule).
+SENTENCING-BOND survived with zero confirmed errors in 124 checked claims.
+
+**Standing items this round did NOT resolve.**
+
+1. **The gate-architecture conflict.** The three documents propose three
+   overlapping gate designs for the same hole (tool and guide routes invisible
+   to all five existing gates): SEAL's `check:tool-rendered`, SENTENCING's
+   three-layer `check:tools`, GUIDES' `measuredPages` registry plus
+   `check:provenance`. They disagree on missing-artifact semantics (SEAL: FAIL;
+   GUIDES: skip-with-notice after a route-existence assertion). This is a
+   design decision for the Phase 0 pass that all three documents already
+   require, and the four medium consistency findings in the round record are
+   its input. Leaning: one registry (GUIDES' shape) with SEAL's
+   missing-artifact-FAIL semantics, decided properly when Phase 0 runs.
+2. **17 low-severity findings** in the round record, unverified, mostly
+   measurement-detail and citation-precision items. Anyone relying on a
+   specific number in these documents checks the round record first.
+3. **External-source claims were out of scope by design**: no auditor fetched
+   flsenate.gov, the Bar Handbook, or barklaw.com, so verbatim statute fidelity
+   and the Bark-page claims remain checked only against repository records.
+
+**The rule going forward.** Concept documents that cite repository line numbers
+get the citation audit; concept documents that claim measurements get the
+independent reproduction; documents written by agents get a reader from a
+different model family; and every correction lands marked in place, because a
+silently corrected document destroys the review trail that makes the next
+round's diffs readable. A number that could not be reproduced is treated as
+wrong even when the conclusion it supports is right, which all three of this
+round's measurement corrections turned out to be.
+
+## 2026-08-20, D29 through D32: rulings on the adversarial round's standing items
+
+Four decisions ruled by the client on the D28 round's record. D28 left the
+gate-architecture conflict, the TOOLS.md-bar question, and the bond estimator
+open; these entries close them.
+
+### D29. One measured-surface registry, one gate architecture
+
+There is a single registry of measured surfaces, and every gate iterates it.
+The registry contains **every renderable page**: charges, guides, and tools.
+Its own premise governs membership, because it is the premise all three concept
+documents independently proved: a page outside the registry is invisible to
+every gate, silently, so nothing renderable stays outside it.
+
+The three per-document mechanisms are reconciled into one design against that
+registry rather than built separately:
+
+- GUIDES' `measuredPages` shape is the registry, widened from charges-plus-
+  guides to charges-plus-guides-plus-tools. Each entry carries a copy surface
+  (`pageCopy`, `guideCopy`, or a tool-copy extractor; one interface, three
+  implementations), so the banned-term, duplication, and heading rails have
+  exactly one iteration source.
+- SEAL's `check:tool-rendered` assertions (T1 through T10) and SENTENCING's
+  `check:tools` layers 1 and 2 become per-page assertion sets within the one
+  rendered-artifact gate that enumerates the registry, not separate gates with
+  separate iteration sources.
+- GUIDES' `check:provenance` (G2 through G4) runs against every registry entry
+  whose copy cites a provision, tools included.
+- SENTENCING's layer 3, the headless DOM render, survives as the extension for
+  registry entries with client islands, because a static grep cannot see a
+  hydrated number. It runs only for entries that declare an island.
+- `check:c9` keeps iterating charges alone, and prints that it skips guides
+  and tools by design. Cover-the-name is a between-charge-pages test.
+
+The consistency finding that forced this (three uncoordinated designs, the
+banned-term rail acquiring three iteration sources, tool routes outside the
+registry whose premise is that nothing stays outside it) is recorded in
+docs/build/tools/REVIEW-2026-08-20.md.
+
+### D30. A missing artifact FAILS the rendered gate. Never skip-with-notice.
+
+SEAL E.3's reversal is adopted for every rendered-artifact check that guards a
+registry entry: when the built HTML a gate exists to read is absent, the gate
+fails. GUIDES G5's skip-with-notice is rejected, and not as a preference: its
+stated condition was unsatisfiable as written, because the route-existence
+check it deferred to (G1) is itself postbuild and has asserted nothing in the
+state where the skip triggers. "The page is not built" and "the page contains
+none of its traps" must never produce the same green run. That sentence is the
+whole rule, it appears in both documents with opposite conclusions drawn from
+it, and this entry settles which conclusion follows.
+
+The existing `check-rendered.mts` skip-with-notice behaviour for the charge
+channel predates this entry and is brought under the same rule when the
+registry lands.
+
+### D31. The TOOLS.md not-recommended bar is not self-executing against planned assets
+
+TOOLS.md line 7 exempts assets already in the plan from re-argument by name.
+Its not-recommended table is a design prohibition whose reasoning may reach a
+planned asset, but **applying it to one requires a recorded decision**, per
+SEAL A.1's reading: a live conflict between two plan documents needs a
+decision, not an interpretation. SENTENCING B.2's application of the bar to
+the bond estimator is reclassified accordingly: it was a recommendation that
+needed the human entry it did not have. D32 is that entry. The same applies
+prospectively: any future application of the bar to the seal-and-expunge
+checker, the calculator, or any other planned asset lands here first.
+
+### D32. The bond estimator is not built
+
+The decision both concept documents required and neither could make. The Bond
+& Bail Estimator is removed from the plan:
+
+- **The tool is not built.** Its only real source, AO S-2025-063, binds the
+  booking officer and no judge, excludes every capital, life, first degree and
+  second degree felony by its own section 2, and expires 2026-12-31.
+- **The bond schedule folds into the after-an-arrest guide** as a reference
+  section: limitation first, exclusions second, amounts third with no charge
+  mapped onto any row, what-happens-instead fourth, expiry stated.
+- **The cash versus surety cost comparison survives** as the only interactive
+  element inside that guide, after its premium figures are verified. It is
+  arithmetic on the reader's own paper, maps to no charge, and predicts
+  nothing.
+- **The `tools` row is removed** from `src/lib/site.ts` in its own commit with
+  this reason, per GUIDES D.1's sequencing rule. Removal also resolves
+  SENTENCING open question 9 (delete, not dormant) and the URL disagreement it
+  flagged.
+- WEBSITE-PLAN.md Section 5's estimator entry and the Tier 3 "links to the
+  bond estimator" clause at lines 190-191 are superseded on this point.
+
+For the record, because the round surfaced it: the concept documents' claim
+that the research had already answered this was unsupported. Both documents
+quoted "absorbs the state bond walkthrough" while omitting the same sentence's
+continuation, "and links to the bond estimator". The plan had the guide and the
+estimator coexisting; the research never said the guide absorbs the estimator.
+This entry is therefore a fresh decision made with that elision on the record,
+not a ratification of a consensus that did not exist. GUIDES open question 1
+and SEAL's Phase 0 posture asked for exactly this, and the D31 rule made it
+mandatory rather than optional.

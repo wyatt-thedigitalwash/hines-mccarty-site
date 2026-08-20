@@ -210,7 +210,7 @@ const recorded = (() => {
  *
  * This gate predates the fact layer. When it was written the only evidence a
  * subsection had been read was a quote in PAGE-SOURCES, so that file was the
- * whole ledger. There are now 70 tables in src/lib/statute-tables/, each built
+ * whole ledger. There are now 74 tables in src/lib/statute-tables/, each built
  * from the full section by one agent, independently re-fetched and audited by
  * a second, and each row carrying the verbatim words and the URL. A row is a
  * better record than a markdown quote, not a worse one: it was adversarially
