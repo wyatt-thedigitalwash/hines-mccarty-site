@@ -281,6 +281,19 @@ console.log("Provenance-gate self-tests");
   // The rule/fs twin: one Florida provision, two parser keyspaces.
   t("G2 clears a rule-phrased citation against an fs-keyed record (Rule 903.047 twin)",
     g2Cleared("rule 3.130(a)") && g2Cleared("fs 3.130(a)"));
+  // A citation inside a verbatim record quote is the source speaking.
+  {
+    // Mixed case, matching normSpan, which is deliberately case-preserving.
+    const corpusN = ['The state bears the burden of proving the need for pretrial detention under the substantial probability standard in section 907.041, Florida Statutes.'].map(normSpan);
+    const filter = (text: string) => text.split(/(?<=[.!?])\s+|\n/).filter((sent) => {
+      const p = normSpan(sent).replace(/^"|"$/g, "");
+      return !(p.length >= 20 && corpusN.some((c) => c.includes(p)));
+    }).join("\n");
+    t("G2 skips a citation inside a verbatim record quote (907.041 in 3.132(k))",
+      ![...refs(filter('The state bears the burden of proving the need for pretrial detention under the substantial probability standard in section 907.041, Florida Statutes.'))].some((c) => c.includes("907.041")));
+    t("G2 still sees the same citation in chosen prose",
+      [...refs(filter('My own sentence says section 907.041 does something.'))].some((c) => c.includes("907.041")));
+  }
 
   const g4Corpus = ["(b)(2) the court shall order that the defendant be released from all requirements of bail and all conditions of pretrial release"].map(normSpan);
   t("G4 stays quiet on a counting word inside a verbatim record quote",
@@ -306,9 +319,23 @@ const surfaces = measuredPages.filter(
 
 console.log("\nG2: citation provenance on guide and tool surfaces");
 {
+  // A citation INSIDE a verbatim record quote has the record itself as its
+  // provenance: the quoted rule naming a statute is the source speaking, not
+  // the writer claiming (2026-08-20, found when quoting Rule 3.132(k), whose
+  // own text cites F.S. 907.041). Same principle as G4's quotation exemption.
+  // Chosen prose around the quote still contributes its citations.
+  const corpusNormG2 = corpus.map(normSpan);
+  const unquotedOnly = (text: string) =>
+    text
+      .split(/(?<=[.!?])\s+|\n/)
+      .filter((sent) => {
+        const p = normSpan(sent).replace(/^"|"$/g, "");
+        return !(p.length >= 20 && corpusNormG2.some((c) => c.includes(p)));
+      })
+      .join("\n");
   let cites = 0;
   for (const m of surfaces) {
-    for (const cited of refs(stripNeeds(m.copy.join("\n")))) {
+    for (const cited of refs(unquotedOnly(stripNeeds(m.copy.join("\n"))))) {
       cites++;
       if (!g2Cleared(cited))
         fail(

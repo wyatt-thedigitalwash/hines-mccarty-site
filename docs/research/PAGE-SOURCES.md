@@ -2567,3 +2567,299 @@ Fetched 2026-08-20 from the OFFICIAL uscourts.gov PDF ("as amended to December 1
 > (2) Criminal Forfeiture. Forfeiture procedures are governed by Rule 32.2.
 > (As amended Feb. 28, 1966, eff. July 1, 1966; Apr. 24, 1972, eff. Oct. 1, 1972; Apr. 22, 1974, eff. Dec. 1, 1975; Pub. L. 94–64, § 3(31)–(34), July 31, 1975, 89 Stat. 376, eff. Dec. 1, 1975; Apr. 30, 1979, eff. Aug. 1, 1979, and Dec. 1, 1980; Pub. L. 97–291, § 3, Oct. 12, 1982, 96 Stat. 1249; Apr. 28, 1983, eff. Aug. 1, 1983; Pub. L. 98–473, title II, § 215(a), Oct. 12, 1984, 98 Stat. 2014, eff. Nov. 1, 1987; Pub. L. 99–646, § 25(a), Nov. 10, 1986, 100 Stat. 3597, eff. Nov. 1, 1987; Mar. 9, 1987, eff. Aug. 1, 1987; Apr. 25, 1989, eff. Dec. 1, 1989; Apr. 30, 1991, eff. Dec. 1, 1991; Apr. 22, 1993, eff. Dec. 1, 1993; Apr. 29, 1994, eff. Dec. 1, 1994; Pub. L. 103–322, title XXIII, § 230101(b), Sept. 13, 1994, 108 Stat. 2078, eff. Dec. 1, 1994; Apr. 23, 1996, eff. Dec. 1, 1996; Pub. L. 104–132, title II, § 207(a), Apr. 24, 1996, 110 Stat. 1236; Apr. 17, 2000, eff. Dec. 1, 2000; Apr. 29, 2002, eff. Dec. 1, 2002; Apr. 30, 2007, eff. Dec. 1, 2007; Apr. 23, 2008, eff. Dec. 1, 2008; Mar. 26, 2009, eff. Dec. 1, 2009; Apr. 26, 2011, eff. Dec. 1, 2011.)
 
+---
+
+## 2026-08-20: the release-decision core (guide 1 [NEEDS] item 1)
+
+Rules 3.131 and 3.132 whole from the Florida Bar's current Criminal Procedure
+Rules compilation (the 2026_01-JUL edition dated 7-13-2026, the same official
+compilation every Florida rule record in this file uses), fetched with a
+browser user agent and extracted locally with pdftotext -layout; committee
+notes excluded; line-break hyphenation joined. F.S. 903.046 whole from
+flsenate.gov (2025 Florida Statutes). Both rules run (a) through (m) in this
+compilation; anyone carrying an older mental model of a shorter 3.132 should
+read the (f) custody provisions below, which is exactly why the project rule
+is fetch, never recall.
+
+VERIFICATION PATHS, per provision. F.S. 903.046 was independently re-verified
+against Online Sunshine (leg.state.fl.us), a second publication system: all 24
+sentence-level spans contained. For the two rules, an external second
+publisher was attempted and is unavailable (law.justia.com 403s automated
+fetches, casetext returns 410, Cornell does not host Florida rules); Rule
+3.131(a) is corroborated instead by two prior INDEPENDENT fetches already in
+this repository (the sexual battery page records of 2026-08-14, written by
+different agents from their own fetches), which agree clause for clause,
+including the entitlement sentence and the no-conditions detention sentence.
+The remainder of 3.131 and all of 3.132 rest on the official compilation
+alone, and this paragraph is the record of that limit.
+
+Shape per HUNT-LIST Instance 13: one blockquote per logical paragraph, a
+per-subdivision header binding every subdivision cite to its own quote
+(nested list items (i) through (x) under 3.131(c)(1)(C) are bound to
+(c)(1)(C), their parent), and the shape verified by planting a truncated span
+the G3 detector must catch through these records before anything relied on
+them.
+
+**Fla. R. Crim. P. 3.131, whole rule, (a) through (m)**  
+READ-WHOLE: Fla. R. Crim. P. 3.131
+https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-2.pdf
+
+**Rule 3.131(a):**
+> (a) Right to Pretrial Release. Unless charged with a capital offense or an offense punishable by life imprisonment and the proof of guilt is evident or the presumption is great, every person charged with a crime or violation of municipal or county ordinance is entitled to pretrial release on reasonable conditions. As a condition of pretrial release, whether such release is by surety bail bond or recognizance bond or in some other form, the defendant must refrain from any contact of any type with the victim, except through pretrial discovery under the Florida Rules of Criminal Procedure and must comply with all conditions of pretrial release as ordered by the court. On motion by the defendant when bail is set, or on later motion properly noticed under law, the court may modify the condition precluding victim contact if good cause is shown and the interests of justice so require. The victim is permitted to be heard at any proceeding in which such modification is considered, and the state attorney must notify the victim of the provisions of this subdivision and of the pendency of any such proceeding. If no conditions of release can reasonably protect the community from risk of physical harm to persons, assure the presence of the accused at trial, or assure the integrity of the judicial process, the accused may be detained.
+
+**Rule 3.131(b):**
+> (b)   Pretrial Release Before First Appearance.
+
+**Rule 3.131(b)(1):**
+> (1) A person may be released on bail before his or her first appearance or bail determination hearing under a local bond schedule established by the chief judge of the circuit or by the uniform bond schedule adopted by the Supreme Court in accordance with subsection 903.011(5), Florida Statutes, if no local bond schedule has been established, or as ordered by the issuing judge on an arrest warrant, if applicable.
+
+**Rule 3.131(b)(2):**
+> (2) A person may not be released on bail before his or her first appearance or bail determination hearing if the person meets the criteria set forth in subsection 903.011(6), Florida Statutes.
+
+**Rule 3.131(c):**
+> (c)   Hearing at First Appearance—Conditions of Release.
+
+**Rule 3.131(c)(1):**
+> (1) Unless the state has filed a motion for pretrial detention under rule 3.132, the court must conduct a hearing to determine pretrial release. For the purpose of this rule, bail is defined as any of the forms of release stated below. Except as otherwise provided by this rule, there is a presumption in favor of release on nonmonetary conditions for any person who is granted pretrial release. The judicial officer must impose the first of the following conditions of release that will reasonably protect the community from risk of physical harm to persons, assure the presence of the accused at trial, or assure the integrity of the judicial process; or, if no single condition gives that assurance, must impose any combination of the following conditions:
+
+**Rule 3.131(c)(1)(A):**
+> (A)   personal recognizance of the defendant;
+
+**Rule 3.131(c)(1)(B):**
+> (B) execution of an unsecured appearance bond in an amount specified by the judge;
+
+**Rule 3.131(c)(1)(C):**
+> (C) release on nonmonetary conditions, which may, if appropriate, include being required to:
+
+**Rule 3.131(c)(1)(C):**
+> (i)   maintain employment, or, if unemployed, actively seek employment; (ii)   maintain or commence an educational program; (iii) abide by specified restrictions on personal associations, place of residence, or travel; (iv) report on a regular basis to a designated law enforcement agency, pretrial services agency, or other agency;
+
+**Rule 3.131(c)(1)(C):**
+> (v)    comply with a specified curfew; (vi) refrain from possessing a firearm, destructive device, or other dangerous weapon; (vii) refrain from excessive use of alcohol, or any use of a narcotic drug or other controlled substance without a prescription from a licensed medical practitioner; (viii) undergo available medical, psychological, psychiatric, mental health, or substance abuse evaluation and follow all recommendations, including treatment for drug or alcohol dependency, and remain in a specified institution, if required for that purpose; (ix) return to custody for specified hours following release for employment, school, or other limited purposes; or
+
+**Rule 3.131(c)(1)(C):**
+> (x) any other condition that is reasonably necessary to assure the appearance of the defendant at subsequent proceedings and to protect the community against unreasonable danger of harm; or
+
+**Rule 3.131(c)(1)(D):**
+> (D) execution of a bail bond with sufficient solvent sureties, or the deposit of cash; provided, however, that any criminal defendant who is required to meet monetary bail or bail with any monetary component may satisfy the bail by providing an appearance bond.
+
+**Rule 3.131(c)(2):**
+> (2) The judge must at the defendant’s first appearance, consider all available relevant factors to determine what form of release is necessary to assure the defendant’s appearance. If a monetary bail is required, the judge must determine the amount. A judge conducting a first appearance hearing or bail determination is not bound by a bond schedule authorized by subsection 903.011(5), Florida Statutes. Any judge setting or granting monetary bond must set a separate and specific bail amount for each crime charged. When bail is posted each crime charged requires a separate bond.
+
+**Rule 3.131(c)(3):**
+> (3) In determining whether to release a defendant on bail or other conditions, and what that bail or those conditions may be, the court must consider the nature and circumstances of the offense charged and the penalty provided by law; the weight of the evidence against the defendant; the defendant’s family ties, length of residence in the community, employment history, financial resources, need for substance abuse evaluation or treatment, and mental condition; the defendant’s past and present conduct, including any record of convictions, previous flight to avoid prosecution, or failure to appear at court proceedings; the nature and probability of danger that the defendant’s release poses to the community; the source of funds used to post bail; whether the defendant is already on release pending resolution of another criminal proceeding or is on probation, community control, parole, or other release pending completion of sentence; and any other facts the court considers relevant.
+
+**Rule 3.131(c)(4):**
+> (4) All information provided by a defendant in connection with any application for or attempt to secure bail, to any court, court personnel, or individual soliciting or recording such information for the purpose of evaluating eligibility for or securing bail for the defendant, under circumstances such that the defendant knew or should have known that the information was to be used in connection with an application for bail, must be accurate, truthful, and complete, without omissions, to the best knowledge of the defendant. Failure to comply with the provisions of this subdivision may result in the revocation or modification of bail. However, no defendant may be compelled to provide information regarding his or her criminal record.
+
+**Rule 3.131(c)(5):**
+> (5) Information stated in, or offered in connection with, any order entered under this rule need not strictly conform to the rules of evidence.
+
+**Rule 3.131(d):**
+> (d)   Consequences of Failure to Appear.
+
+**Rule 3.131(d)(1):**
+> (1) Any defendant who willfully and knowingly fails to appear and breaches a bond as specified in section 903.26, Florida Statutes, and who voluntarily appears or surrenders is not eligible for a recognizance bond.
+
+**Rule 3.131(d)(2):**
+> (2) Any defendant who willfully and knowingly fails to appear and breaches a bond as specified in section 903.26, Florida Statutes, and who is arrested at any time following forfeiture is not eligible for a recognizance bond or any form of bond that does not require a monetary undertaking or commitment equal to or greater than $2,000 or twice the value of the monetary commitment or undertaking of the original bond, whichever is greater.
+
+**Rule 3.131(e):**
+> (e)   Subsequent Application for Setting or Modification of Bail.
+
+**Rule 3.131(e)(1):**
+> (1) When a judicial officer not possessing trial jurisdiction orders a defendant held to answer before a court having jurisdiction to try the defendant, and bail has been denied or sought to be modified, application by motion may be made to the court having jurisdiction to try the defendant or, in the absence of the judge of the trial court, to the circuit court. The motion must be determined promptly. No judge of a court of equal or inferior jurisdiction may remove a condition of bail or reduce the amount of bond required, unless the judge:
+
+**Rule 3.131(e)(1)(A):**
+> (A) imposed the conditions of bail or set the amount of bond required;
+
+**Rule 3.131(e)(1)(B):**
+> (B) is the chief judge of the circuit in which the defendant is to be tried;
+
+**Rule 3.131(e)(1)(C):**
+> (C) has been assigned to preside over the criminal trial of the defendant; or
+
+**Rule 3.131(e)(1)(D):**
+> (D) is the first appearance judge and was authorized by the judge initially setting or denying bail to modify or set conditions of release.
+
+**Rule 3.131(e)(2):**
+> (2) Applications by the defendant for modification of bail on any felony charge must be heard by a court in person at a hearing, with the defendant present and with at least 3 hours’ notice to the state attorney and county attorney, if bond forfeiture proceedings are handled by the county attorney. The state may apply for modification of bail by showing good cause and with at least 3 hours’ notice to the attorney for the defendant.
+
+**Rule 3.131(e)(3):**
+> (3) On motion by the defendant, or on the court’s own motion, a court may reconsider the monetary component of the defendant’s bail if he or she is unable to post a monetary bond.
+
+**Rule 3.131(e)(4):**
+> (4) If any trial court fixes bail and refuses its reduction before trial, the defendant may institute habeas corpus proceedings seeking reduction of bail. If application is made to the supreme court or district court of appeal, notice and a copy of such application must be given to the attorney general and the state attorney. Such proceedings must be determined promptly.
+
+**Rule 3.131(f):**
+> (f)   Bail Before Conviction; Condition of Undertaking.
+
+**Rule 3.131(f)(1):**
+> (1) If a person is admitted to bail for appearance for a preliminary hearing or on a charge that a judge is empowered to try, the condition of the undertaking must be that the person will appear for the hearing or to answer the charge and will submit to the orders and process of the judge trying the same and will not depart without leave.
+
+**Rule 3.131(f)(2):**
+> (2) If a person is admitted to bail after being held to answer by a judge or after an indictment or information on which the person is to be tried has been filed, the condition of the undertaking must be that the person will appear to answer the charges before the court in which the person may be prosecuted and submit to the orders and process of the court and will not depart without leave.
+
+**Rule 3.131(g):**
+> (g)   Revocation of Pretrial Release.
+
+**Rule 3.131(g)(1):**
+> (1) Any judge presiding at a first appearance hearing may revoke a defendant’s pretrial release status under section 903.0471, Florida Statutes, on a case not assigned to the first appearance judge but that is pending in the same judicial circuit as the first appearance hearing.
+
+**Rule 3.131(g)(2):**
+> (2) The court must revoke pretrial release for a person who commits a violation of section 843.23, Florida Statutes, while the person is on pretrial release.
+
+**Rule 3.131(g)(3):**
+> (3) The court in its discretion for good cause, any time after a defendant who is at large on bail appears for trial, may commit the defendant to the custody of the proper official to abide by the judgment, sentence, and any further order of the court.
+
+**Rule 3.131(h):**
+> (h) Arrest and Commitment by Court. The court in which the cause is pending may direct the arrest and commitment of the defendant who is at large on bail when:
+
+**Rule 3.131(h)(1):**
+> (1)   there has been a breach of the undertaking;
+
+**Rule 3.131(h)(2):**
+> (2) it appears that the defendant’s sureties or any of them are dead or cannot be found or are insufficient or have ceased to be residents of the state; or
+
+**Rule 3.131(h)(3):**
+> (3) the court is satisfied that the bail should be increased or new or additional security required. The order for the commitment of the defendant must recite generally the facts on which it is based and must direct that the defendant be arrested by any official authorized to make arrests and that the defendant be committed to the official in whose custody the defendant would be if the defendant had not been given bail, to be detained by such official until legally discharged. The defendant must be arrested under such order on a certified copy thereof, in any county, in the same manner as on a warrant of arrest. If the order provided for is made because of the failure of the defendant to appear for judgment, the defendant must be committed. If the order is made for any other cause, the court may determine the conditions of release, if any.
+
+**Rule 3.131(i):**
+> (i)  Bail after Recommitment. If the defendant applies to be admitted to bail after recommitment, the court that recommitted the defendant or the court under subdivision (e)(1) must determine conditions of release, if any, subject to the limitations of subdivision (c).
+
+**Rule 3.131(j):**
+> (j)  Qualifications of Surety after Order of Recommitment. If the defendant offers bail after recommitment, each surety must possess the qualifications and sufficiency and the bail must be furnished in all respects in the manner prescribed for admission to bail before recommitment.
+
+**Rule 3.131(k):**
+> (k) Issuance of Capias; Bail Specified. On the filing of either an indictment or information charging the commission of a crime, if the person named therein is not in custody or at large on bail for the offense charged, the judge must issue or direct the clerk to issue, either immediately or when so directed by the prosecuting attorney, a capias for the arrest of the person. If the person named in the indictment or information is a child and the child has been served with a promise to appear under the Florida Rules of Juvenile Procedure, capias need not be issued. On the filing of the indictment or information, the judge must endorse the amount of bail, if any, and may authorize the setting or modification of bail by the judge presiding over the defendant’s first appearance hearing. This endorsement must be made on the capias and signed by the judge.
+
+**Rule 3.131(l):**
+> (l)  Summons on Misdemeanor Charge. When a complaint is filed charging the commission of a misdemeanor only and the judge deems that process should issue as a result, or when an indictment or information on which the defendant is to be tried charging the commission of a misdemeanor only, and the person named in it is not in custody or at large on bail for the offense charged, the judge must direct the clerk to issue a summons instead of a capias unless the judge has reasonable ground to believe that the person will not appear in response to a summons, in which event an arrest warrant or a capias must be issued with the amount of bail endorsed on it. The summons must state substantially the nature of the offense, the title of the hearing to be conducted, and must command the person against whom the complaint was made to appear before the judge issuing the summons or the judge having jurisdiction of the offense at a time and place stated in it.
+
+**Rule 3.131(m):**
+> (m) Summons When Defendant Is Corporation. On the filing of an indictment or information or complaint charging a corporation with the commission of a crime, whether felony or misdemeanor, the judge must direct the clerk to issue or must issue a summons to secure its appearance to answer the charge. If, after being summoned, the corporation does not appear, a plea of not guilty must be entered and trial and judgment must follow without further process.
+
+**Fla. R. Crim. P. 3.132, whole rule, (a) through (m)**  
+READ-WHOLE: Fla. R. Crim. P. 3.132
+https://www-media.floridabar.org/uploads/2026/08/2026_01-JUL-Criminal-Procedure-Rules-7-13-2026-2.pdf
+
+**Rule 3.132(a):**
+> (a) First Appearance Required. A person arrested for a dangerous crime listed in section 907.041, Florida Statutes, or an unauthorized alien arrested for a forcible felony, must not be released from jail before his or her first appearance.
+
+**Rule 3.132(b):**
+> (b) Contents of Motion. A motion for pretrial detention must be in writing and must set forth with particularity the grounds and the essential facts on which it is based.
+
+**Rule 3.132(c):**
+> (c) Time for Motion. A motion for pretrial detention may be filed any time before trial.
+
+**Rule 3.132(d):**
+> (d) Time for Hearing. If a judge determines there is probable cause to believe the defendant committed a capital felony, a life felony, or a first degree felony, listed as a dangerous crime in section 907.041, Florida Statutes, a pretrial detention hearing must be held within 5 days after first appearance, or, if there is no first appearance, within 5 days after arraignment. Otherwise, the hearing must be held within 5 days after the filing of a motion for pretrial detention.
+
+**Rule 3.132(e):**
+> (e) Continuances. Either the state or the defendant may seek a continuance. The state must show good cause for a continuance. A continuance may not exceed 5 days unless the court finds that extenuating circumstances justify any further delay, or upon agreement of the parties with approval of the court. The state may not be granted more than one continuance.
+
+**Rule 3.132(f):**
+> (f)   Custody; Release Conditions.
+
+**Rule 3.132(f)(1):**
+> (1) Dangerous Crime. At first appearance, a judge must not grant nonmonetary pretrial release if there is probable cause to believe the defendant committed a dangerous crime listed in section 907.041, Florida Statutes. After first appearance and after a finding of probable cause, a person arrested for a dangerous crime listed in section 907.041, Florida Statutes, may not be released on nonmonetary conditions under the supervision of a pretrial release service unless the service certifies to the court that it has investigated or otherwise verified the conditions set forth in section 907.041(3)(b), Florida Statutes.
+
+**Rule 3.132(f)(2):**
+> (2) Unauthorized Aliens. If, at the first appearance hearing, the court determines there is probable cause to believe the defendant committed a forcible felony and further determines by a preponderance of the evidence that the defendant is an unauthorized alien, the court must presume that the defendant presents a substantial flight risk and that no conditions of release will ensure his or her appearance at trial and must order pretrial detention. The defendant may rebut the presumption by demonstrating, by a preponderance of the evidence, that appropriate conditions of release will ensure his or her appearance at trial. If the court determines the defendant has rebutted the presumption, it must consider the criteria in section 903.046, Florida Statutes, and any other relevant facts, to determine whether to release the defendant on bail or other conditions.
+
+**Rule 3.132(f)(3):**
+> (3) Pretrial Detention Motion Filed at First Appearance. The defendant may be held in custody pending the completion of a detention hearing if there is probable cause for the arrest and if the state filed a motion for pretrial detention at first appearance.
+
+**Rule 3.132(f)(4):**
+> (4) State Announces at First Appearance its Intent to Move for Pretrial Detention. If there is probable cause for the arrest, a defendant may be held in jail for up to 4 days if the state informs the judge at first appearance that it intends to file a motion for pretrial detention under section 907.041, Florida Statutes. If the state does not file a motion for pretrial detention within the 4 days, a judge must determine conditions of release or continued detention under rule 3.131.
+
+**Rule 3.132(f)(5):**
+> (5) State Does Not Announce Intent to Move for Pretrial Detention at First Appearance. If there is probable cause for the arrest and if the state does not inform the judge at first appearance that it intends to file a motion for pretrial detention under section 907.041, Florida Statutes, the judge must determine conditions of release or continued detention under rule 3.131.
+
+**Rule 3.132(f)(6):**
+> (6) Pretrial Detention Motion Filed After First Appearance. If the state filed a motion for pretrial detention after first appearance and if there is probable cause to believe the defendant committed the crime for which pretrial detention is sought, the defendant may be held in custody pending the completion of the detention hearing, or the judge may issue either an order to appear or a warrant. The defendant may be held in custody pending the completion of the detention hearing if he or she were arrested on a warrant issued under this subdivision. For a defendant out of custody, if the state is pursuing pretrial detention under section 907.041, Florida Statutes, the state does not need to show good cause as required by rule 3.131(d).
+
+**Rule 3.132(f)(7):**
+> (7) Bail Pending Hearing. If a defendant is released on bail for a dangerous crime that is a capital felony, a life felony, or a first degree felony pending the completion of a detention hearing, the court must inform the defendant that if a surety bond is used to satisfy the monetary component of pretrial release and the motion for pretrial detention is subsequently granted, the defendant will not be entitled to return of the premium on the surety bond.
+
+**Rule 3.132(g):**
+> (g) Jurisdiction. A motion for pretrial detention must be heard by a judge with jurisdiction to conduct the defendant’s trial.
+
+**Rule 3.132(h):**
+> (h) Rights at Hearing. The defendant is entitled to representation by counsel, to present witnesses and evidence, and to cross-examine witnesses who testify at the detention hearing. No testimony by the defendant is admissible to prove guilt at any other judicial proceeding, but such testimony may be admitted in an action for perjury, based upon the defendant’s statements made at the detention hearing, or for impeachment.
+
+**Rule 3.132(i):**
+> (i)   Evidence. Evidence secured in violation of the United States Constitution or the Constitution of the State of Florida is inadmissible. The rules concerning admissibility of evidence in criminal trials do not apply to the presentation and consideration of information at the hearing.
+
+**Rule 3.132(j):**
+> (j)  Communication Technology. A judge may allow testimony using communication technology upon a showing of good cause. Oaths must be administered in accordance with Florida Rule of General Practice and Judicial Administration 2.530.
+
+**Rule 3.132(k):**
+> (k) Burden of Proof. The state bears the burden of proving the need for pretrial detention under the substantial probability standard in section 907.041, Florida Statutes.
+
+**Rule 3.132(l):**
+> (l)   Order.
+
+**Rule 3.132(l)(1):**
+> (1) Hearing Required. An order granting or denying pretrial detention must be issued after a hearing.
+
+**Rule 3.132(l)(2):**
+> (2) Findings. The order may be based solely on hearsay but must be based solely upon evidence introduced at the hearing and must be supported by findings of fact and conclusions of law. The order must be made either in writing or orally on the record within 24 hours of the conclusion of the hearing.
+
+**Rule 3.132(l)(3):**
+> (3) Mandatory Detention Order. The judge must order pretrial detention if the judge finds a substantial probability the defendant committed a capital felony, a life felony, or a first degree felony, listed as a dangerous crime in section 907.041, Florida Statutes, and based on the defendant’s past and present patterns of behavior, consideration of the criteria in section 903.046, Florida Statutes, and any other relevant facts, that no conditions of release or bail will reasonably protect the community from risk of physical harm, ensure the presence of the defendant at trial, or assure the integrity of the judicial process.
+
+**Rule 3.132(m):**
+> (m) Reconsideration. Either party may move for the order granting or denying pretrial detention to be reconsidered any time before trial if the judge finds that information exists that was not known to the party moving for reconsideration at the time of the hearing and that such information has a material bearing on determining whether there are conditions of release or bail that will reasonably assure the appearance of the defendant as required and the safety of any other person and the community from harm. The defendant is entitled to dissolution of a pretrial detention order if the court finds that a subsequent event eliminated the basis for detention. Criminal Court Steering Committee Note 2025 Amendment. Rule 3.132 was substantially revised to reflect chapters 2023-27 and 2024-157, Laws of Florida. Rule 3.132 applies to pretrial detention under section 907.041, Florida Statutes. An example of an extenuating circumstance under rule 3.132(e) is the pretrial confinement of the defendant on other pending charges, or his or her lawful confinement on another basis.
+
+**F.S. 903.046, whole section, (1) and (2)(a) through (2)(m)**  
+READ-WHOLE: F.S. 903.046
+https://www.flsenate.gov/Laws/Statutes/2025/903.046
+
+**F.S. 903.046, catchline:** Purpose of and criteria for bail determination.
+
+**903.046(1):**
+> (1) The purpose of a bail determination in criminal proceedings is to ensure the appearance of the criminal defendant at subsequent proceedings and to protect the community against unreasonable danger from the criminal defendant.
+
+**903.046(2):**
+> (2) When determining whether to release a defendant on bail or other conditions, and what that bail or those conditions may be, the court shall consider:
+
+**903.046(2)(a):**
+> (a) The nature and circumstances of the offense charged.
+
+**903.046(2)(b):**
+> (b) The weight of the evidence against the defendant.
+
+**903.046(2)(c):**
+> (c) The defendant’s family ties, length of residence in the community, immigration status, employment history, financial resources, and mental condition.
+
+**903.046(2)(d):**
+> (d) The defendant’s past and present conduct, including any record of convictions, previous flight to avoid prosecution, or failure to appear at court proceedings. However, any defendant who had failed to appear on the day of any required court proceeding in the case at issue, but who had later voluntarily appeared or surrendered, shall not be eligible for a recognizance bond; and any defendant who failed to appear on the day of any required court proceeding in the case at issue and who was later arrested shall not be eligible for a recognizance bond or for any form of bond which does not require a monetary undertaking or commitment equal to or greater than $2,000 or twice the value of the monetary commitment or undertaking of the original bond, whichever is greater. Notwithstanding anything in this section, the court has discretion in determining conditions of release if the defendant proves circumstances beyond his or her control for the failure to appear. This section may not be construed as imposing additional duties or obligations on a governmental entity related to monetary bonds.
+
+**903.046(2)(e):**
+> (e) The nature and probability of danger which the defendant’s release poses to the community.
+
+**903.046(2)(f):**
+> (f) The source of funds used to post bail or procure an appearance bond, particularly whether the proffered funds, real property, property, or any proposed collateral or bond premium may be linked to or derived from the crime alleged to have been committed or from any other criminal or illicit activities. The burden of establishing the noninvolvement in or nonderivation from criminal or other illicit activity of such proffered funds, real property, property, or any proposed collateral or bond premium falls upon the defendant or other person proffering them to obtain the defendant’s release.
+
+**903.046(2)(g):**
+> (g) Whether the defendant is already on release pending resolution of another criminal proceeding or on probation, parole, or other release pending completion of a sentence.
+
+**903.046(2)(h):**
+> (h) The street value of any drug or controlled substance connected to or involved in the criminal charge. It is the finding and intent of the Legislature that crimes involving drugs and other controlled substances are of serious social concern, that the flight of defendants to avoid prosecution is of similar serious social concern, and that frequently such defendants are able to post monetary bail using the proceeds of their unlawful enterprises to defeat the social utility of pretrial bail. Therefore, the courts should carefully consider the utility and necessity of substantial bail in relation to the street value of the drugs or controlled substances involved.
+
+**903.046(2)(i):**
+> (i) The nature and probability of intimidation and danger to victims.
+
+**903.046(2)(j):**
+> (j) Whether there is probable cause to believe that the defendant committed a new crime while on pretrial release.
+
+**903.046(2)(k):**
+> (k) Any other facts that the court considers relevant.
+
+**903.046(2)(l):**
+> (l) Whether the crime charged is a violation of chapter 874 or alleged to be subject to enhanced punishment under chapter 874 or reclassification under s. 843.22. If any such violation is charged against a defendant or if the defendant is charged with a crime that is alleged to be subject to such enhancement or reclassification, he or she is not eligible for release on bail or surety bond until the first appearance on the case in order to ensure the full participation of the prosecutor and the protection of the public.
+
+**903.046(2)(m):**
+> (m) Whether the defendant, other than a defendant whose only criminal charge is a misdemeanor offense under chapter 316, is required to register as a sexual offender under s. 943.0435 or a sexual predator under s. 775.21; and, if so, he or she is not eligible for release on bail or surety bond until the first appearance on the case in order to ensure the full participation of the prosecutor and the protection of the public.
+

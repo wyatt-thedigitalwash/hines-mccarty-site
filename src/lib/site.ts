@@ -7315,12 +7315,14 @@ export const guides: GuidePage[] = [
     metaTitle: "After an Arrest in Hillsborough County | The First 24 Hours | Hines & McCarty",
     metaDescription:
       "What the first day after a Hillsborough County arrest involves under the Florida rules: the 24-hour first appearance, counsel, the release decision, and the charging clocks, each quoted from the recorded text.",
-    // Written 2026-08-20, Phase 3. Every claim traces to a PAGE-SOURCES.md
-    // record; per-section duplication measured during writing (worst
-    // cumulative pair 1.76% early, 1.05% final, against the 5% limit). The
-    // release-decision core (Rules 3.131/3.132, F.S. 903.046) and the bond
-    // schedule (AO S-2025-063) are unrecorded and stay [NEEDS] on the page,
-    // written without rather than around, per the Phase 2 rules.
+    // Written 2026-08-20, Phase 3; release-decision core added the same day
+    // after the targeted fetch of Rules 3.131/3.132 and F.S. 903.046 (whole,
+    // per-subdivision headers, READ-WHOLE marked). Every claim traces to a
+    // PAGE-SOURCES.md record; per-section duplication measured during writing
+    // (worst cumulative pair 1.65%, final 0.83%, against the 5% limit).
+    // Remaining [NEEDS], deliberate: the bond schedule (AO S-2025-063, a
+    // refusal until the full record lands), the Q14 logistics, and
+    // owner/lastReviewed.
     lead:
       "The first day after an arrest in Hillsborough County runs on rules with dates in them. This page walks that day in order, from booking through the release decision and the charging clocks behind it, quoting each rule from the recorded text, for the person arrested and for the person waiting on them.",
     sections: [
@@ -7341,7 +7343,7 @@ export const guides: GuidePage[] = [
         steps: [
           { when: "Booking", what: "Arrest, transport, and intake. The clocks below start at the arrest itself, not at any later paperwork, and for a person served with a capias the charging clocks run from that service instead." },
           { when: "Within 24 hours: first appearance, Rule 3.130", what: "The arrested person goes before a judge, in person or by audio-video technology at the court's discretion. Rights and counsel are addressed, and the judge takes up detention or release." },
-          { when: "At the same hearing: the release decision, Rule 3.130(d)", what: "The judge must determine pretrial detention or conditions of release under rule 3.132 or rule 3.131. This is the decision the waiting family actually experiences as the outcome of day one." },
+          { when: "At the same hearing: the release decision, Rule 3.130(d)", what: "The judge must determine pretrial detention or conditions of release under rule 3.132 or rule 3.131. This is the decision the waiting family experiences as the outcome of day one, and the release sections below carry what those rules require." },
           { when: "Day 30, 33, or 40 in custody: Rule 3.134(a)", what: "The state's deadline to file formal charges on a defendant held in custody, with automatic release dates tied to it, each carrying the same condition: unless the state files formal charges by that date." },
           { when: "Day 60 or 63 if bonded out: Rule 3.134(b)", what: "The parallel track for a defendant on pretrial release, which is the track most people are on. Its second remedy, full release from bail conditions, takes a motion rather than arriving automatically." },
           { when: "The longer horizon: Rule 3.191", what: "Speedy trial runs from the formal charge, not from the arrest, at 90 days for a misdemeanor and 175 for a felony, with a recapture procedure rather than an automatic discharge at the end." },
@@ -7381,11 +7383,31 @@ export const guides: GuidePage[] = [
         kind: "statute",
         heading: "The decision that ends the first hearing",
         prose: [
-          "That single sentence is the hinge of the first day: the judge must decide, and the rule names the two provisions the decision lives under. Rule 3.131 governs pretrial release and its conditions; rule 3.132 governs pretrial detention on the State's motion.",
-          "[NEEDS: Fla. R. Crim. P. 3.131 and 3.132 recorded whole in PAGE-SOURCES.md, and F.S. 903.046, the criteria a court weighs in setting bail. Those provisions are the substance of the release decision, they appear on no page of this site, and this page will describe what they require only after their text is in the project's record. Until then this page names them and stops.]",
-          "What can be said from the recorded material: the decision is individualized and belongs to the judge, and the conditions that ride on any release are statutory, which is the next section.",
+          "Rule 3.130(d) sends the judge here: the judge must proceed to determine pretrial detention or conditions of release under rule 3.132 or rule 3.131. The paragraph above is where that determination starts, and its opening sentence is an entitlement with a two-part exception: the charge must be capital or life-punishable, and the proof must be evident or the presumption great. The charge alone does not defeat the entitlement.",
+          "The same paragraph carries the no-contact condition and its modification path, which the conditions section below returns to, and it closes with the sentence that permits detention where no conditions of release can do the work. Release is the rule's starting point; detention is what remains when its stated purposes cannot be met another way.",
+          "At the first-appearance hearing itself, Rule 3.131(c)(1) sets a preference order unless the state has filed a detention motion or a custody provision applies: personal recognizance, an unsecured appearance bond, nonmonetary conditions, or a bail bond. Under (c)(2) the judge acts on the available information at the hearing, and under (c)(3) a judge setting monetary bail is not bound by a bond schedule and must set a separate amount for each crime charged.",
         ],
-        statute: { citation: "Fla. R. Crim. P. 3.130(d)", body: "The judge must proceed to determine pretrial detention or conditions of release under rule 3.132 or rule 3.131." },
+        statute: { citation: "Fla. R. Crim. P. 3.131(a)", body: "(a) Right to Pretrial Release. Unless charged with a capital offense or an offense punishable by life imprisonment and the proof of guilt is evident or the presumption is great, every person charged with a crime or violation of municipal or county ordinance is entitled to pretrial release on reasonable conditions. As a condition of pretrial release, whether such release is by surety bail bond or recognizance bond or in some other form, the defendant must refrain from any contact of any type with the victim, except through pretrial discovery under the Florida Rules of Criminal Procedure and must comply with all conditions of pretrial release as ordered by the court. On motion by the defendant when bail is set, or on later motion properly noticed under law, the court may modify the condition precluding victim contact if good cause is shown and the interests of justice so require. The victim is permitted to be heard at any proceeding in which such modification is considered, and the state attorney must notify the victim of the provisions of this subdivision and of the pendency of any such proceeding. If no conditions of release can reasonably protect the community from risk of physical harm to persons, assure the presence of the accused at trial, or assure the integrity of the judicial process, the accused may be detained." },
+      },
+      {
+        id: "what-the-judge-weighs",
+        kind: "statute",
+        heading: "What the judge weighs, by statute",
+        prose: [
+          "The factors themselves are in subsection (2), lettered (a) through (m): the nature and circumstances of the offense, the weight of the evidence, family and community ties, past conduct including any record of convictions and prior failures to appear, the danger release would pose, the source of the funds used to post bail, whether the defendant is already on release in another case, and the rest of the list through the statute's residual entry, \"Any other facts that the court considers relevant.\"",
+          "The recorded rule text mirrors this in Rule 3.131(c)(3), which directs the court to the same ground when setting bail or conditions. A family arranging money for bond should know that where the funds come from is itself a statutory factor.",
+        ],
+        statute: { citation: "F.S. 903.046(1)", body: "(1) The purpose of a bail determination in criminal proceedings is to ensure the appearance of the criminal defendant at subsequent proceedings and to protect the community against unreasonable danger from the criminal defendant." },
+      },
+      {
+        id: "detention-motion",
+        kind: "statute",
+        heading: "Detention on the State's motion: Rule 3.132",
+        prose: [
+          "Pretrial detention is not a mood the courtroom is in; it is a motion practice with its own rule. The motion must be in writing, may be filed at any time before trial, and where a judge finds probable cause for a dangerous crime, the hearing runs on the rule's own timetable. At that hearing the defendant is entitled to counsel, and the state bears the burden of proof the rule itself assigns.",
+          "Rule 3.132(k) states the standard in one sentence: \"The state bears the burden of proving the need for pretrial detention under the substantial probability standard in section 907.041, Florida Statutes.\" [NEEDS: F.S. 907.041 recorded whole before this page describes what that standard requires; the statute is long, heavily amended, and cited here only because the rule itself names it.] The order granting or denying detention must follow a hearing, and the rule carries a mandatory-detention provision where its findings are made. For a dangerous crime as the rule lists them, Rule 3.132(f)(1) also constrains what a first-appearance judge may grant before any motion is decided, which is one of the ways the first day differs by charge, and the charge pages carry that difference where it bears on their offense.",
+        ],
+        statute: { citation: "Fla. R. Crim. P. 3.132(a)", body: "(a) First Appearance Required. A person arrested for a dangerous crime listed in section 907.041, Florida Statutes, or an unauthorized alien arrested for a forcible felony, must not be released from jail before his or her first appearance." },
       },
       {
         id: "release-conditions",
