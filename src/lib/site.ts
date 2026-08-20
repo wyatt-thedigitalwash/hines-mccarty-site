@@ -7320,6 +7320,160 @@ export const guides: GuidePage[] = [
     title: "Federal Case Timeline, Tampa Division",
     description:
       "How a federal case moves from target letter through indictment, trial, and sentencing.",
+    metaTitle: "Federal Case Timeline | How a Federal Criminal Case Moves | Hines & McCarty",
+    metaDescription:
+      "The stages of a federal criminal case in order, from initial appearance under Rule 5 through sentencing under Rule 32, with the governing rule or statute quoted at each stage.",
+    // Written 2026-08-20, Phase 2. Every statutory claim traces to a Phase 1
+    // record in PAGE-SOURCES.md; per-section duplication measured during
+    // writing (worst cumulative pair 0.52% against the 5% limit). The A.5
+    // boundaries govern: target-letter ground is linked, never restated;
+    // 3161(h)/(c)(2) are carried as the whole sequence, with the six carrying
+    // charge pages keeping their charge-keyed points.
+    lead:
+      "A federal criminal case moves through stages that are set by rule and statute, in an order that does not change with the charge. This page walks that order start to finish, quotes the provision that governs each stage, and leaves what a stage means for your specific charge to the page for that charge.",
+    sections: [
+      {
+        id: "how-this-fits",
+        kind: "prose",
+        heading: "What this timeline is, and what the charge pages are",
+        prose: [
+          "Every federal charge page on this site answers one question: what this specific charge involves and how the defense against it is built. Those pages carry the points where a deadline bears on that charge, and several of them address excludable time under 18 U.S.C. 3161(h) or the thirty-day floor at 3161(c)(2) in the context of their own offense.",
+          "This page does the one thing a charge page cannot. It carries the sequence whole, from arrest or summons through sentencing, in order, with the rule or statute that governs each stage quoted from the official text. When you want to know what a stage means for a particular charge, the charge page is the place to read next. When you want to know where you are in the process and what the next stage is, this is.",
+          "Everything below states what a rule or statute requires. None of it states how long a stage takes in practice in the Tampa Division, because no citable source records that, and a number this page could not support would be worse than no number.",
+        ],
+      },
+      {
+        id: "case-sequence",
+        kind: "timeline",
+        heading: "The spine of a federal case, in order",
+        steps: [
+          { when: "Arrest or summons", what: "A federal case reaches most people one of three ways: an arrest on a warrant or without one, a summons to appear, or a letter identifying its recipient as a target of a grand jury investigation before any charge exists. The target letter track is its own subject and this site covers it on a dedicated page rather than here." },
+          { when: "Initial appearance, Rule 5", what: "The first time a defendant stands in front of a magistrate judge. Rights are stated on the record, counsel is addressed, and release or detention is taken up for the first time." },
+          { when: "Preliminary hearing, Rule 5.1, day 14 or day 21", what: "For a defendant charged by complaint, a magistrate judge tests probable cause no later than 14 days after the initial appearance in custody, 21 days out of custody, unless an indictment arrives first or the hearing is waived." },
+          { when: "Indictment, 18 U.S.C. 3161(b), day 30", what: "The formal charge. An information or indictment must be filed within thirty days of arrest or service of a summons, with one narrow grand jury extension described below." },
+          { when: "Arraignment, Rule 10", what: "The charge is read in open court and the defendant pleads to it. The seventy-day trial clock is already running by this point." },
+          { when: "Pretrial and the plea stage, Rules 11 and 12, 18 U.S.C. 3161(c) and (h)", what: "Motions, discovery, and any plea discussions happen against the seventy-day clock and the exclusions that stop it. Most of the calendar movement in a federal case happens here." },
+          { when: "Trial, or a plea under Rule 11", what: "Trial may not begin over the defendant's objection sooner than thirty days after first appearance through counsel, and must begin within the seventy-day limit as extended by excludable time." },
+          { when: "Presentence investigation, Rule 32", what: "After a conviction by plea or verdict, the probation office investigates and reports before any sentence is imposed. The report reaches the parties on a rule-set schedule, and objections have their own deadlines." },
+          { when: "Sentencing and beyond, Rule 32 and 18 U.S.C. 3143", what: "The court imposes sentence without unnecessary delay. Whether a person remains free between conviction and sentence, or pending appeal, is its own statutory question with its own presumptions." },
+        ],
+      },
+      {
+        id: "initial-appearance",
+        kind: "statute",
+        heading: "The first hours in front of a judge: Rule 5",
+        prose: [
+          "The phrase that does the work is without unnecessary delay. The rule does not attach an hour count to it, and this page will not invent one. What the rule does specify is what must happen once the defendant is in front of the judge: under Rule 5(d), a defendant charged with a felony is told the nature of the charge, the right to retain counsel or have counsel appointed, the circumstances under which pretrial release may be available, the right to a preliminary hearing, and the right not to make a statement, with the warning that any statement made may be used against the defendant.",
+          "Detention or release is taken up here as well, under the statute the release section below quotes. For a defendant who cannot afford counsel, appointment is governed by 18 U.S.C. 3006A, which this site's federal pages already address where it bears on a specific charge.",
+        ],
+        statute: { citation: "Fed. R. Crim. P. 5(a)(1)(A)", body: "(A) A person making an arrest within the United States must take the defendant without unnecessary delay before a magistrate judge, or before a state or local judicial officer as Rule 5(c) provides, unless a statute provides otherwise." },
+      },
+      {
+        id: "preliminary-hearing",
+        kind: "statute",
+        heading: "Probable cause, tested: Rule 5.1",
+        prose: [
+          "The preliminary hearing exists for the defendant charged by complaint who has not yet been indicted. A magistrate judge hears evidence and decides whether probable cause supports the charge. Rule 5.1(a) lists six ways the hearing does not happen at all, and the two that decide most cases are an indictment returned before the hearing date and a written waiver. An indictment moots the hearing because the grand jury has already answered the probable cause question.",
+          "If the judge finds probable cause lacking, Rule 5.1(f) directs the magistrate judge to dismiss the complaint and discharge the defendant, and the same rule states plainly that the discharge does not preclude the government from later prosecuting the defendant for the same offense.",
+        ],
+        statute: { citation: "Fed. R. Crim. P. 5.1(c)", body: "(c) Scheduling. The magistrate judge must hold the preliminary hearing within a reasonable time, but no later than 14 days after the initial appearance if the defendant is in custody and no later than 21 days if not in custody." },
+      },
+      {
+        id: "indictment",
+        kind: "statute",
+        heading: "Thirty days to a formal charge: 3161(b)",
+        prose: [
+          "Both sentences matter, and the second is the one that gets dropped. The thirty days runs from arrest or service of a summons, and where no grand jury has sat in the district during that period, the government gets thirty more. A reader who knows only the first sentence expects a dismissal the second sentence forecloses.",
+          "The grand jury itself, target letters, and the choices a person facing one has are the subject of this site's target letter page, which owns that ground. This timeline picks the story up at the charge.",
+        ],
+        statute: { citation: "18 U.S.C. 3161(b)", body: "(b) Any information or indictment charging an individual with the commission of an offense shall be filed within thirty days from the date on which such individual was arrested or served with a summons in connection with such charges. If an individual has been charged with a felony in a district in which no grand jury has been in session during such thirty-day period, the period of time for filing of the indictment shall be extended an additional thirty days." },
+      },
+      {
+        id: "release-detention",
+        kind: "statute",
+        heading: "Free or held while the case runs: 18 U.S.C. 3142",
+        prose: [
+          "Detention is the exception the statute builds, not the default. Section 3142(a) gives four outcomes for a person appearing before a judicial officer: release on personal recognizance or unsecured bond, release on conditions, temporary detention where the person is already on another form of release or subject to removal, and detention. A detention order requires the hearing subsection (f) describes and the finding quoted above.",
+          "Two rebuttable presumptions change the footing. Under 3142(e)(2), for a person charged with a crime of violence or certain other offenses committed while on pretrial release for a felony, and within a five-year window, a presumption arises that no conditions will assure safety. Under 3142(e)(3), probable cause to believe the person committed certain offenses, including specified drug offenses carrying ten years or more, raises the same presumption as to both appearance and safety. Rebuttable is the operative word in both, and which presumption a specific charge triggers is exactly the material this site's drug trafficking, weapons, and child exploitation pages carry for their own offenses.",
+          "The factors the judicial officer weighs either way are listed in subsection (g): the nature and circumstances of the offense, the weight of the evidence, the history and characteristics of the person, and the nature and seriousness of the danger release would pose. The statute names all four; none of them alone decides the question.",
+        ],
+        statute: { citation: "18 U.S.C. 3142(e)(1)", body: "(e) Detention.-(1) If, after a hearing pursuant to the provisions of subsection (f) of this section, the judicial officer finds that no condition or combination of conditions will reasonably assure the appearance of the person as required and the safety of any other person and the community, such judicial officer shall order the detention of the person before trial." },
+      },
+      {
+        id: "arraignment-plea",
+        kind: "statute",
+        heading: "Entering a plea: Rules 10 and 11",
+        prose: [
+          "Arraignment under Rule 10 is short: the indictment or information is read to the defendant, or its substance stated, in open court, and the defendant is asked to plead to it. The plea stage that follows is where Rule 11 governs, and the sentence about participation is its most misunderstood line. Plea discussions are between the parties. The judge stays out of them by rule, not by custom.",
+          "Before accepting a guilty plea, Rule 11(b) requires the court to address the defendant personally, in open court, and confirm the plea is voluntary and that the defendant understands the listed rights being given up and the consequences that follow. Withdrawing a plea afterward is governed by Rule 11(d), and the door narrows at each stage: before acceptance, for any reason or none; after acceptance and before sentence, only where the court rejects the agreement or the defendant shows a fair and just reason; after sentence, not at all on these terms.",
+        ],
+        statute: { citation: "Fed. R. Crim. P. 11(c)(1)", body: "(1) In General. An attorney for the government and the defendant’s attorney, or the defendant when proceeding pro se, may discuss and reach a plea agreement. The court must not participate in these discussions. If the defendant pleads guilty or nolo contendere to either a charged offense or a lesser or related offense, the plea agreement may specify that an attorney for the government will:" },
+      },
+      {
+        id: "seventy-day-clock",
+        kind: "statute",
+        heading: "Seventy days, and a floor of thirty: 3161(c)",
+        prose: [
+          "The clock has two ends and people reliably hear only one. The seventy days is a ceiling, and it starts at the later of the public filing of the charge or the first appearance before a judicial officer of the court where the charge is pending. The floor sits in the next paragraph, 3161(c)(2), quoted here in full because it is short and routinely missed: \"Unless the defendant consents in writing to the contrary, the trial shall not commence less than thirty days from the date on which the defendant first appears through counsel or expressly waives counsel and elects to proceed pro se.\"",
+          "A defense that needs time to prepare has a statutory floor to stand on, and a defendant in a hurry can waive it only in writing. This site's federal money laundering page states the same provision where it bears on that charge; it is restated here because the sequence is unreadable without it.",
+        ],
+        statute: { citation: "18 U.S.C. 3161(c)(1)", body: "(c)(1) In any case in which a plea of not guilty is entered, the trial of a defendant charged in an information or indictment with the commission of an offense shall commence within seventy days from the filing date (and making public) of the information or indictment, or from the date the defendant has appeared before a judicial officer of the court in which such charge is pending, whichever date last occurs. If a defendant consents in writing to be tried before a magistrate judge on a complaint, the trial shall commence within seventy days from the date of such consent." },
+      },
+      {
+        id: "excludable-time",
+        kind: "statute",
+        heading: "Why seventy days rarely means ten weeks: 3161(h)",
+        prose: [
+          "Subsection (h) is the provision that makes every naive reading of the seventy-day clock wrong. It runs from (h)(1) through (h)(8), and its periods of delay stop the clock automatically when they apply. The first category alone covers delay resulting from other proceedings concerning the defendant, and its subparagraphs reach mental competency examinations, trial on other charges, interlocutory appeals, and, at (h)(1)(D), delay resulting from any pretrial motion, from the filing of the motion through the conclusion of the hearing on, or other prompt disposition of, such motion. A single motion can stop the clock for as long as the motion is alive.",
+          "The category that moves the most time in practice is the ends of justice continuance at (h)(7). Its condition is not a formality, and it is quoted here through the sentence that limits it: \"No such period of delay resulting from a continuance granted by the court in accordance with this paragraph shall be excludable under this subsection unless the court sets forth, in the record of the case, either orally or in writing, its reasons for finding that the ends of justice served by the granting of such continuance outweigh the best interests of the public and the defendant in a speedy trial.\" A continuance with no on-record finding excludes nothing.",
+          "Six of this site's federal and white-collar charge pages carry (h) where it bears on their own offense, several quoting its subparagraphs. Per the boundary this guide keeps, those pages own the charge-specific point; this page owns the fact that the exclusions are one system, running (1) through (8), applied to one clock.",
+        ],
+        statute: { citation: "18 U.S.C. 3161(h), opening", body: "(h) The following periods of delay shall be excluded in computing the time within which an information or an indictment must be filed, or in computing the time within which the trial of any such offense must commence:" },
+      },
+      {
+        id: "sanction",
+        kind: "statute",
+        heading: "What happens when the clock is actually broken: 3162",
+        prose: [
+          "Three things in that paragraph run against the instinct a reader brings to it. Dismissal is not automatic; it takes the defendant's motion, and going to trial or pleading guilty without making that motion waives the right to dismissal entirely. Dismissal is not necessarily the end; the court chooses between with prejudice and without on the listed factors, and a dismissal without prejudice permits reprosecution. And the burden sits with the defendant to support the motion, with the government answering only on specified exclusions.",
+          "This is why no page on this site describes the seventy-day limit as a case-ending deadline. The interval and the remedy are different provisions, and the remedy has conditions of its own.",
+        ],
+        statute: { citation: "18 U.S.C. 3162(a)(2)", body: "(2) If a defendant is not brought to trial within the time limit required by section 3161(c) as extended by section 3161(h), the information or indictment shall be dismissed on motion of the defendant. The defendant shall have the burden of proof of supporting such motion but the Government shall have the burden of going forward with the evidence in connection with any exclusion of time under subparagraph 3161(h)(3). In determining whether to dismiss the case with or without prejudice, the court shall consider, among others, each of the following factors: the seriousness of the offense; the facts and circumstances of the case which led to the dismissal; and the impact of a reprosecution on the administration of this chapter and on the administration of justice. Failure of the defendant to move for dismissal prior to trial or entry of a plea of guilty or nolo contendere shall constitute a waiver of the right to dismissal under this section." },
+      },
+      {
+        id: "sentencing",
+        kind: "statute",
+        heading: "From verdict to sentence: Rule 32",
+        prose: [
+          "Sentencing has its own procedural spine. The probation office conducts a presentence investigation and submits a report before sentence is imposed, the report reaches the parties on the schedule quoted above, and Rule 32(f) gives the parties 14 days after receiving it to state objections in writing. The rule's own command for timing is direct: the court must impose sentence without unnecessary delay.",
+          "What the court weighs at sentencing is a statutory question under 18 U.S.C. 3553(a). [NEEDS: 18 U.S.C. 3553(a) recorded verbatim in PAGE-SOURCES.md before this page describes the factors. The section has been read whole for the audited tables, but its text is not yet in this project's quotable record, so this guide names the provision and stops.] The advisory guideline range, the way it is computed, and what any of it means for a specific offense are outside what this page can state from its sources.",
+        ],
+        statute: { citation: "Fed. R. Crim. P. 32(e)(2)", body: "(2) Minimum Required Notice. The probation officer must give the presentence report to the defendant, the defendant’s attorney, and an attorney for the government at least 35 days before sentencing unless the defendant waives this minimum period." },
+      },
+      {
+        id: "after-conviction",
+        kind: "statute",
+        heading: "Between conviction and whatever comes next: 3143",
+        prose: [
+          "The footing flips at conviction. Before trial, detention is the exception that requires findings. Awaiting sentence, detention is the rule unless the judicial officer finds by clear and convincing evidence that the person is not likely to flee or pose a danger. Subsection (b) applies a parallel structure to release pending appeal, with the added requirement that the appeal raise a substantial question likely to result in reversal, a new trial, or a reduced sentence. The presumptions a defendant lived under before trial are not the ones that govern after it.",
+        ],
+        statute: { citation: "18 U.S.C. 3143(a)(1)", body: "(a) Release or Detention Pending Sentence.-(1) Except as provided in paragraph (2), the judicial officer shall order that a person who has been found guilty of an offense and who is awaiting imposition or execution of sentence, other than a person for whom the applicable guideline promulgated pursuant to 28 U.S.C. 994 does not recommend a term of imprisonment, be detained, unless the judicial officer finds by clear and convincing evidence that the person is not likely to flee or pose a danger to the safety of any other person or the community if released under section 3142(b) or (c). If the judicial officer makes such a finding, such judicial officer shall order the release of the person in accordance with section 3142(b) or (c)." },
+      },
+      {
+        id: "where",
+        kind: "prose",
+        heading: "The court this timeline runs in",
+        prose: [
+          "For a case in this site's coverage, the sequence above runs in the United States District Court for the Middle District of Florida, Tampa Division. The rules and statutes quoted here are national; nothing on this page depends on local practice, and where a stage's real-world pace in this Division matters to a decision, that is a conversation with counsel rather than a page.",
+        ],
+      },
+    ],
+    relatedLinks: [
+      {
+        label: "Target letters and the grand jury, in depth",
+        href: "/federal-criminal-defense/target-letter-defense",
+      },
+    ],
     published: false,
   },
 ];

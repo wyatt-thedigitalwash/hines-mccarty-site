@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { type GuidePage, guideTrail } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Needs from "@/components/Needs";
@@ -62,6 +63,29 @@ export default function GuideTemplate({ guide }: { guide: GuidePage }) {
                 4), then copy against the Section A.5 boundaries
               </Needs>
             )}
+
+            {/* Related pages render whenever the data carries them: guideCopy
+                extracts these labels, so a link in data that never rendered
+                would be the D24 hole in reverse. */}
+            {guide.relatedLinks?.length ? (
+              <div className="border-t border-navy/15 pt-8">
+                <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
+                  Read next
+                </h2>
+                <ul className="mt-4 space-y-2">
+                  {guide.relatedLinks.map((l) => (
+                    <li key={l.href}>
+                      <Link
+                        href={l.href}
+                        className="link-arrow font-heading text-sm font-medium underline decoration-1 underline-offset-4 transition-colors hover:text-bronze"
+                      >
+                        {l.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
 
             {/* Rule 4-1.18 / Op. 24-1: adjacent to the content, not footer-only. */}
             <p className="border-t border-navy/15 pt-8 text-sm leading-relaxed text-navy/70">

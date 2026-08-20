@@ -2146,6 +2146,14 @@ auditor's claim that the provision was read start to finish, and
 scripts/check-provenance.mts accepts it as read-whole evidence. A record
 without that line was not read whole, whatever its prose says.
 
+[REFLOWED 2026-08-20, same day: the five rule records below were first emitted
+one blockquote line per WRAPPED PDF LINE, which made it impossible for the G3
+truncation check to locate any rule span longer than a line inside a single
+corpus entry. They are re-emitted one blockquote per logical paragraph. The
+text is unchanged and was re-verified against the second publisher after the
+reflow; the shingle stream the duplication gate builds is order-preserving, so
+the compelled corpus is unchanged.]
+
 Where the two publishers diverged, the divergence is recorded on the rule and
 in every case inspected the defect was Cornell's (typos, a dropped word), which
 is why the official source is primary and Cornell is verification only.
@@ -2345,111 +2353,51 @@ Fetched 2026-08-20 from the OFFICIAL uscourts.gov PDF ("as amended to December 1
 > Rule 5. Initial Appearance
 > (a) In General.
 > (1) Appearance Upon an Arrest.
-> (A) A person making an arrest within the United States
-> must take the defendant without unnecessary delay before
-> a magistrate judge, or before a state or local judicial officer as Rule 5(c) provides, unless a statute provides otherwise.
-> (B) A person making an arrest outside the United States
-> must take the defendant without unnecessary delay before
-> a magistrate judge, unless a statute provides otherwise.
+> (A) A person making an arrest within the United States must take the defendant without unnecessary delay before a magistrate judge, or before a state or local judicial officer as Rule 5(c) provides, unless a statute provides otherwise.
+> (B) A person making an arrest outside the United States must take the defendant without unnecessary delay before a magistrate judge, unless a statute provides otherwise.
 > (2) Exceptions.
-> (A) An officer making an arrest under a warrant issued
-> upon a complaint charging solely a violation of 18 U.S.C.
-> § 1073 need not comply with this rule if:
-> (i) the person arrested is transferred without unnecessary delay to the custody of appropriate state or
-> local authorities in the district of arrest; and
-> (ii) an attorney for the government moves promptly,
-> in the district where the warrant was issued, to dismiss the complaint.
-> (B) If a defendant is arrested for violating probation or
-> supervised release, Rule 32.1 applies.
+> (A) An officer making an arrest under a warrant issued upon a complaint charging solely a violation of 18 U.S.C. § 1073 need not comply with this rule if:
+> (i) the person arrested is transferred without unnecessary delay to the custody of appropriate state or local authorities in the district of arrest; and
+> (ii) an attorney for the government moves promptly, in the district where the warrant was issued, to dismiss the complaint.
+> (B) If a defendant is arrested for violating probation or supervised release, Rule 32.1 applies.
 > (C) If a defendant is arrested for failing to appear in another district, Rule 40 applies.
-> (3) Appearance Upon a Summons. When a defendant appears
-> in response to a summons under Rule 4, a magistrate judge
-> must proceed under Rule 5(d) or (e), as applicable.
-> (b) Arrest Without a Warrant. If a defendant is arrested without
-> a warrant, a complaint meeting Rule 4(a)’s requirement of probable cause must be promptly filed in the district where the offense
-> was allegedly committed.
+> (3) Appearance Upon a Summons. When a defendant appears in response to a summons under Rule 4, a magistrate judge must proceed under Rule 5(d) or (e), as applicable.
+> (b) Arrest Without a Warrant. If a defendant is arrested without a warrant, a complaint meeting Rule 4(a)’s requirement of probable cause must be promptly filed in the district where the offense was allegedly committed.
 > (c) Place of Initial Appearance; Transfer to Another District.
-> (1) Arrest in the District Where the Offense Was Allegedly
-> Committed. If the defendant is arrested in the district where
-> the offense was allegedly committed:
+> (1) Arrest in the District Where the Offense Was Allegedly Committed. If the defendant is arrested in the district where the offense was allegedly committed:
 > (A) the initial appearance must be in that district; and
-> (B) if a magistrate judge is not reasonably available, the
-> initial appearance may be before a state or local judicial
-> officer.
-> (2) Arrest in a District Other Than Where the Offense Was Allegedly Committed. If the defendant was arrested in a district
-> other than where the offense was allegedly committed, the initial appearance must be:
+> (B) if a magistrate judge is not reasonably available, the initial appearance may be before a state or local judicial officer.
+> (2) Arrest in a District Other Than Where the Offense Was Allegedly Committed. If the defendant was arrested in a district other than where the offense was allegedly committed, the initial appearance must be:
 > (A) in the district of arrest; or
 > (B) in an adjacent district if:
 > (i) the appearance can occur more promptly there; or
-> (ii) the offense was allegedly committed there and
-> the initial appearance will occur on the day of arrest.
-> (3) Procedures in a District Other Than Where the Offense
-> Was Allegedly Committed. If the initial appearance occurs in a
-> district other than where the offense was allegedly committed,
-> the following procedures apply:
-> (A) the magistrate judge must inform the defendant
-> about the provisions of Rule 20;
-> (B) if the defendant was arrested without a warrant, the
-> district court where the offense was allegedly committed
-> must first issue a warrant before the magistrate judge
-> transfers the defendant to that district;
-> (C) the magistrate judge must conduct a preliminary
-> hearing if required by Rule 5.1;
-> (D) the magistrate judge must transfer the defendant to
-> the district where the offense was allegedly committed if:
-> (i) the government produces the warrant, a certified
-> copy of the warrant, or a reliable electronic form of either; and
-> (ii) the judge finds that the defendant is the same
-> person named in the indictment, information, or warrant; and
-> (E) when a defendant is transferred and discharged, the
-> clerk must promptly transmit the papers and any bail to
-> the clerk in the district where the offense was allegedly
-> committed.
-> (4) Procedure for Persons Extradited to the United States. If
-> the defendant is surrendered to the United States in accordance with a request for the defendant’s extradition, the initial
-> appearance must be in the district (or one of the districts)
-> where the offense is charged.
+> (ii) the offense was allegedly committed there and the initial appearance will occur on the day of arrest.
+> (3) Procedures in a District Other Than Where the Offense Was Allegedly Committed. If the initial appearance occurs in a district other than where the offense was allegedly committed, the following procedures apply:
+> (A) the magistrate judge must inform the defendant about the provisions of Rule 20;
+> (B) if the defendant was arrested without a warrant, the district court where the offense was allegedly committed must first issue a warrant before the magistrate judge transfers the defendant to that district;
+> (C) the magistrate judge must conduct a preliminary hearing if required by Rule 5.1;
+> (D) the magistrate judge must transfer the defendant to the district where the offense was allegedly committed if:
+> (i) the government produces the warrant, a certified copy of the warrant, or a reliable electronic form of either; and
+> (ii) the judge finds that the defendant is the same person named in the indictment, information, or warrant; and
+> (E) when a defendant is transferred and discharged, the clerk must promptly transmit the papers and any bail to the clerk in the district where the offense was allegedly committed.
+> (4) Procedure for Persons Extradited to the United States. If the defendant is surrendered to the United States in accordance with a request for the defendant’s extradition, the initial appearance must be in the district (or one of the districts) where the offense is charged.
 > (d) Procedure in a Felony Case.
-> (1) Advice. If the defendant is charged with a felony, the
-> judge must inform the defendant of the following:
+> (1) Advice. If the defendant is charged with a felony, the judge must inform the defendant of the following:
 > (A) the complaint against the defendant, and any affidavit filed with it;
-> (B) the defendant’s right to retain counsel or to request
-> that counsel be appointed if the defendant cannot obtain
-> counsel;
-> (C) the circumstances, if any, under which the defendant
-> may secure pretrial release;
+> (B) the defendant’s right to retain counsel or to request that counsel be appointed if the defendant cannot obtain counsel;
+> (C) the circumstances, if any, under which the defendant may secure pretrial release;
 > (D) any right to a preliminary hearing;
-> (E) the defendant’s right not to make a statement, and
-> that any statement made may be used against the defendant; and
-> (F) that a defendant who is not a United States citizen
-> may request that an attorney for the government or a federal law enforcement official notify a consular officer from
-> the defendant’s country of nationality that the defendant
-> has been arrested—but that even without the defendant’s
-> request, a treaty or other international agreement may require consular notification.
+> (E) the defendant’s right not to make a statement, and that any statement made may be used against the defendant; and
+> (F) that a defendant who is not a United States citizen may request that an attorney for the government or a federal law enforcement official notify a consular officer from the defendant’s country of nationality that the defendant has been arrested—but that even without the defendant’s request, a treaty or other international agreement may require consular notification.
 > (2) Consulting with Counsel. The judge must allow the defendant reasonable opportunity to consult with counsel.
-> (3) Detention or Release. The judge must detain or release
-> the defendant as provided by statute or these rules.
-> (4) Plea. A defendant may be asked to plead only under Rule
-> 10.
-> (e) Procedure in a Misdemeanor Case. If the defendant is
-> charged with a misdemeanor only, the judge must inform the defendant in accordance with Rule 58(b)(2).
+> (3) Detention or Release. The judge must detain or release the defendant as provided by statute or these rules.
+> (4) Plea. A defendant may be asked to plead only under Rule 10.
+> (e) Procedure in a Misdemeanor Case. If the defendant is charged with a misdemeanor only, the judge must inform the defendant in accordance with Rule 58(b)(2).
 > (f) Reminder of Prosecutorial Obligation.
-> (1) In General. In all criminal proceedings, on the first
-> scheduled court date when both prosecutor and defense counsel are present, the judge shall issue an oral and written order
-> to prosecution and defense counsel that confirms the disclosure obligation of the prosecutor under Brady v. Maryland, 373
-> U.S. 83 (1963) and its progeny, and the possible consequences of
-> violating such order under applicable law.
-> (2) Formation of Order. Each judicial council in which a district court is located shall promulgate a model order for the
-> purpose of paragraph (1) that the court may use as it determines is appropriate.
-> (g) Video Teleconferencing. Video teleconferencing may be used
-> to conduct an appearance under this rule if the defendant consents.
-> (As amended Feb. 28, 1966, eff. July 1, 1966; Apr. 24, 1972, eff. Oct.
-> 1, 1972; Apr. 28, 1982, eff. Aug. 1, 1982; Pub. L. 98–473, title II, § 209(a),
-> Oct. 12, 1984, 98 Stat. 1986; Mar. 9, 1987, eff. Aug. 1, 1987; May 1, 1990,
-> eff. Dec. 1, 1990; Apr. 22, 1993, eff. Dec. 1, 1993; Apr. 27, 1995, eff. Dec.
-> 1, 1995; Apr. 29, 2002, eff. Dec. 1, 2002; Apr. 12, 2006, eff. Dec. 1, 2006;
-> Apr. 23, 2012, eff. Dec. 1, 2012; Apr. 25, 2014, eff. Dec. 1, 2014; Pub.
-> L. 116–182, § 2, Oct. 21, 2020, 134 Stat. 894.)
+> (1) In General. In all criminal proceedings, on the first scheduled court date when both prosecutor and defense counsel are present, the judge shall issue an oral and written order to prosecution and defense counsel that confirms the disclosure obligation of the prosecutor under Brady v. Maryland, 373 U.S. 83 (1963) and its progeny, and the possible consequences of violating such order under applicable law.
+> (2) Formation of Order. Each judicial council in which a district court is located shall promulgate a model order for the purpose of paragraph (1) that the court may use as it determines is appropriate.
+> (g) Video Teleconferencing. Video teleconferencing may be used to conduct an appearance under this rule if the defendant consents.
+> (As amended Feb. 28, 1966, eff. July 1, 1966; Apr. 24, 1972, eff. Oct. 1, 1972; Apr. 28, 1982, eff. Aug. 1, 1982; Pub. L. 98–473, title II, § 209(a), Oct. 12, 1984, 98 Stat. 1986; Mar. 9, 1987, eff. Aug. 1, 1987; May 1, 1990, eff. Dec. 1, 1990; Apr. 22, 1993, eff. Dec. 1, 1993; Apr. 27, 1995, eff. Dec. 1, 1995; Apr. 29, 2002, eff. Dec. 1, 2002; Apr. 12, 2006, eff. Dec. 1, 2006; Apr. 23, 2012, eff. Dec. 1, 2012; Apr. 25, 2014, eff. Dec. 1, 2014; Pub. L. 116–182, § 2, Oct. 21, 2020, 134 Stat. 894.)
 
 **Fed. R. Crim. P. 5.1, whole rule, (a) through (h)**  
 READ-WHOLE: Fed. R. Crim. P. Rule 5.1
@@ -2458,52 +2406,23 @@ https://www.uscourts.gov/sites/default/files/document/federal-rules-of-criminal-
 Fetched 2026-08-20 from the OFFICIAL uscourts.gov PDF ("as amended to December 1, 2025"), extracted locally with pdftotext -layout, line-break hyphenation joined and each join arbitrated against the second publisher. Read whole, recorded whole. Independently re-verified against law.cornell.edu: every span contained in the second copy except where Cornell itself is defective, noted per rule below. Cornell is the SECONDARY path here, used for verification only; the text recorded is the official PDF's.
 
 > Rule 5.1. Preliminary Hearing
-> (a) In General. If a defendant is charged with an offense other
-> than a petty offense, a magistrate judge must conduct a preliminary hearing unless:
+> (a) In General. If a defendant is charged with an offense other than a petty offense, a magistrate judge must conduct a preliminary hearing unless:
 > (1) the defendant waives the hearing;
 > (2) the defendant is indicted;
-> (3) the government files an information under Rule 7(b)
-> charging the defendant with a felony;
+> (3) the government files an information under Rule 7(b) charging the defendant with a felony;
 > (4) the government files an information charging the defendant with a misdemeanor; or
 > (5) the defendant is charged with a misdemeanor and consents to trial before a magistrate judge.
-> (b) Selecting a District. A defendant arrested in a district other
-> than where the offense was allegedly committed may elect to have
-> the preliminary hearing conducted in the district where the prosecution is pending.
-> (c) Scheduling. The magistrate judge must hold the preliminary
-> hearing within a reasonable time, but no later than 14 days after
-> the initial appearance if the defendant is in custody and no later
-> than 21 days if not in custody.
-> (d) Extending the Time. With the defendant’s consent and upon
-> a showing of good cause—taking into account the public interest
-> in the prompt disposition of criminal cases—a magistrate judge
-> may extend the time limits in Rule 5.1(c) one or more times. If the
-> defendant does not consent, the magistrate judge may extend the
-> time limits only on a showing that extraordinary circumstances
-> exist and justice requires the delay.
-> (e) Hearing and Finding. At the preliminary hearing, the defendant may cross-examine adverse witnesses and may introduce evidence but may not object to evidence on the ground that it was
-> unlawfully acquired. If the magistrate judge finds probable cause
-> to believe an offense has been committed and the defendant committed it, the magistrate judge must promptly require the defendant to appear for further proceedings.
-> (f) Discharging the Defendant. If the magistrate judge finds no
-> probable cause to believe an offense has been committed or the defendant committed it, the magistrate judge must dismiss the complaint and discharge the defendant. A discharge does not preclude
-> the government from later prosecuting the defendant for the same
-> offense.
-> (g) Recording the Proceedings. The preliminary hearing must be
-> recorded by a court reporter or by a suitable recording device. A
-> recording of the proceeding may be made available to any party
-> upon request. A copy of the recording and a transcript may be provided to any party upon request and upon any payment required
-> by applicable Judicial Conference regulations.
+> (b) Selecting a District. A defendant arrested in a district other than where the offense was allegedly committed may elect to have the preliminary hearing conducted in the district where the prosecution is pending.
+> (c) Scheduling. The magistrate judge must hold the preliminary hearing within a reasonable time, but no later than 14 days after the initial appearance if the defendant is in custody and no later than 21 days if not in custody.
+> (d) Extending the Time. With the defendant’s consent and upon a showing of good cause—taking into account the public interest in the prompt disposition of criminal cases—a magistrate judge may extend the time limits in Rule 5.1(c) one or more times. If the defendant does not consent, the magistrate judge may extend the time limits only on a showing that extraordinary circumstances exist and justice requires the delay.
+> (e) Hearing and Finding. At the preliminary hearing, the defendant may cross-examine adverse witnesses and may introduce evidence but may not object to evidence on the ground that it was unlawfully acquired. If the magistrate judge finds probable cause to believe an offense has been committed and the defendant committed it, the magistrate judge must promptly require the defendant to appear for further proceedings.
+> (f) Discharging the Defendant. If the magistrate judge finds no probable cause to believe an offense has been committed or the defendant committed it, the magistrate judge must dismiss the complaint and discharge the defendant. A discharge does not preclude the government from later prosecuting the defendant for the same offense.
+> (g) Recording the Proceedings. The preliminary hearing must be recorded by a court reporter or by a suitable recording device. A recording of the proceeding may be made available to any party upon request. A copy of the recording and a transcript may be provided to any party upon request and upon any payment required by applicable Judicial Conference regulations.
 > (h) Producing a Statement.
-> (1) In General. Rule 26.2(a)–(d) and (f) applies at any hearing
-> under this rule, unless the magistrate judge for good cause
-> rules otherwise in a particular case.
-> (2) Sanctions for Not Producing a Statement. If a party disobeys a Rule 26.2 order to deliver a statement to the moving
-> party, the magistrate judge must not consider the testimony
-> of a witness whose statement is withheld.
-> (As added Apr. 24, 1972, eff. Oct. 1, 1972; amended Mar. 9, 1987, eff.
-> Aug. 1, 1987; Apr. 22, 1993, eff. Dec. 1, 1993; Apr. 24, 1998, eff. Dec.
-> 1, 1998; Apr. 29, 2002, eff. Dec. 1, 2002; Mar. 26, 2009, eff. Dec. 1, 2009.)
-> TITLE III. THE GRAND JURY, THE INDICTMENT, AND THE
-> INFORMATION
+> (1) In General. Rule 26.2(a)–(d) and (f) applies at any hearing under this rule, unless the magistrate judge for good cause rules otherwise in a particular case.
+> (2) Sanctions for Not Producing a Statement. If a party disobeys a Rule 26.2 order to deliver a statement to the moving party, the magistrate judge must not consider the testimony of a witness whose statement is withheld.
+> (As added Apr. 24, 1972, eff. Oct. 1, 1972; amended Mar. 9, 1987, eff. Aug. 1, 1987; Apr. 22, 1993, eff. Dec. 1, 1993; Apr. 24, 1998, eff. Dec. 1, 1998; Apr. 29, 2002, eff. Dec. 1, 2002; Mar. 26, 2009, eff. Dec. 1, 2009.)
+> TITLE III. THE GRAND JURY, THE INDICTMENT, AND THE INFORMATION
 
 **Fed. R. Crim. P. 10, whole rule, (a) through (c)**  
 READ-WHOLE: Fed. R. Crim. P. Rule 10
@@ -2512,25 +2431,16 @@ https://www.uscourts.gov/sites/default/files/document/federal-rules-of-criminal-
 Fetched 2026-08-20 from the OFFICIAL uscourts.gov PDF ("as amended to December 1, 2025"), extracted locally with pdftotext -layout, line-break hyphenation joined and each join arbitrated against the second publisher. Read whole, recorded whole. Independently re-verified against law.cornell.edu: every span contained in the second copy except where Cornell itself is defective, noted per rule below. Cornell is the SECONDARY path here, used for verification only; the text recorded is the official PDF's.
 
 > Rule 10. Arraignment
-> (a) In General. An arraignment must be conducted in open court
-> and must consist of:
-> (1) ensuring that the defendant has a copy of the indictment
-> or information;
-> (2) reading the indictment or information to the defendant
-> or stating to the defendant the substance of the charge; and
-> then
+> (a) In General. An arraignment must be conducted in open court and must consist of:
+> (1) ensuring that the defendant has a copy of the indictment or information;
+> (2) reading the indictment or information to the defendant or stating to the defendant the substance of the charge; and then
 > (3) asking the defendant to plead to the indictment or information.
-> (b) Waiving Appearance. A defendant need not be present for the
-> arraignment if:
+> (b) Waiving Appearance. A defendant need not be present for the arraignment if:
 > (1) the defendant has been charged by indictment or misdemeanor information;
-> (2) the defendant, in a written waiver signed by both the defendant and defense counsel, has waived appearance and has
-> affirmed that the defendant received a copy of the indictment
-> or information and that the plea is not guilty; and
+> (2) the defendant, in a written waiver signed by both the defendant and defense counsel, has waived appearance and has affirmed that the defendant received a copy of the indictment or information and that the plea is not guilty; and
 > (3) the court accepts the waiver.
-> (c) Video Teleconferencing. Video teleconferencing may be used
-> to arraign a defendant if the defendant consents.
-> (As amended Mar. 9, 1987, eff. Aug. 1, 1987; Apr. 29, 2002, eff. Dec.
-> 1, 2002.)
+> (c) Video Teleconferencing. Video teleconferencing may be used to arraign a defendant if the defendant consents.
+> (As amended Mar. 9, 1987, eff. Aug. 1, 1987; Apr. 29, 2002, eff. Dec. 1, 2002.)
 
 **Fed. R. Crim. P. 11, whole rule, (a) through (h)**  
 READ-WHOLE: Fed. R. Crim. P. Rule 11
@@ -2542,130 +2452,53 @@ Fetched 2026-08-20 from the OFFICIAL uscourts.gov PDF ("as amended to December 1
 
 > Rule 11. Pleas
 > (a) Entering a Plea.
-> (1) In General. A defendant may plead not guilty, guilty, or
-> (with the court’s consent) nolo contendere.
-> (2) Conditional Plea. With the consent of the court and the
-> government, a defendant may enter a conditional plea of
-> guilty or nolo contendere, reserving in writing the right to
-> have an appellate court review an adverse determination of a
-> specified pretrial motion. A defendant who prevails on appeal
-> may then withdraw the plea.
-> (3) Nolo Contendere Plea. Before accepting a plea of nolo
-> contendere, the court must consider the parties’ views and the
-> public interest in the effective administration of justice.
-> (4) Failure to Enter a Plea. If a defendant refuses to enter a
-> plea or if a defendant organization fails to appear, the court
-> must enter a plea of not guilty.
+> (1) In General. A defendant may plead not guilty, guilty, or (with the court’s consent) nolo contendere.
+> (2) Conditional Plea. With the consent of the court and the government, a defendant may enter a conditional plea of guilty or nolo contendere, reserving in writing the right to have an appellate court review an adverse determination of a specified pretrial motion. A defendant who prevails on appeal may then withdraw the plea.
+> (3) Nolo Contendere Plea. Before accepting a plea of nolo contendere, the court must consider the parties’ views and the public interest in the effective administration of justice.
+> (4) Failure to Enter a Plea. If a defendant refuses to enter a plea or if a defendant organization fails to appear, the court must enter a plea of not guilty.
 > (b) Considering and Accepting a Guilty or Nolo Contendere Plea.
-> (1) Advising and Questioning the Defendant. Before the court
-> accepts a plea of guilty or nolo contendere, the defendant may
-> be placed under oath, and the court must address the defendant personally in open court. During this address, the court
-> must inform the defendant of, and determine that the defendant understands, the following:
-> (A) the government’s right, in a prosecution for perjury
-> or false statement, to use against the defendant any statement that the defendant gives under oath;
-> (B) the right to plead not guilty, or having already so
-> pleaded, to persist in that plea;
+> (1) Advising and Questioning the Defendant. Before the court accepts a plea of guilty or nolo contendere, the defendant may be placed under oath, and the court must address the defendant personally in open court. During this address, the court must inform the defendant of, and determine that the defendant understands, the following:
+> (A) the government’s right, in a prosecution for perjury or false statement, to use against the defendant any statement that the defendant gives under oath;
+> (B) the right to plead not guilty, or having already so pleaded, to persist in that plea;
 > (C) the right to a jury trial;
-> (D) the right to be represented by counsel—and if necessary have the court appoint counsel—at trial and at
-> every other stage of the proceeding;
+> (D) the right to be represented by counsel—and if necessary have the court appoint counsel—at trial and at every other stage of the proceeding;
 > (E) the right at trial to confront and cross-examine adverse witnesses, to be protected from compelled self-incrimination, to testify and present evidence, and to compel the attendance of witnesses;
-> (F) the defendant’s waiver of these trial rights if the
-> court accepts a plea of guilty or nolo contendere;
-> (G) the nature of each charge to which the defendant is
-> pleading;
+> (F) the defendant’s waiver of these trial rights if the court accepts a plea of guilty or nolo contendere;
+> (G) the nature of each charge to which the defendant is pleading;
 > (H) any maximum possible penalty, including imprisonment, fine, and term of supervised release;
 > (I) any mandatory minimum penalty;
 > (J) any applicable forfeiture;
 > (K) the court’s authority to order restitution;
 > (L) the court’s obligation to impose a special assessment;
-> (M) in determining a sentence, the court’s obligation to
-> calculate the applicable sentencing-guideline range and to
-> consider that range, possible departures under the Sentencing Guidelines, and other sentencing factors under 18
-> U.S.C. § 3553(a);
-> (N) the terms of any plea-agreement provision waiving
-> the right to appeal or to collaterally attack the sentence;
-> and
-> (O) that, if convicted, a defendant who is not a United
-> States citizen may be removed from the United States, denied citizenship, and denied admission to the United
-> States in the future.
-> (2) Ensuring That a Plea Is Voluntary. Before accepting a
-> plea of guilty or nolo contendere, the court must address the
-> defendant personally in open court and determine that the
-> plea is voluntary and did not result from force, threats, or
-> promises (other than promises in a plea agreement).
-> (3) Determining the Factual Basis for a Plea. Before entering
-> judgment on a guilty plea, the court must determine that
-> there is a factual basis for the plea.
+> (M) in determining a sentence, the court’s obligation to calculate the applicable sentencing-guideline range and to consider that range, possible departures under the Sentencing Guidelines, and other sentencing factors under 18 U.S.C. § 3553(a);
+> (N) the terms of any plea-agreement provision waiving the right to appeal or to collaterally attack the sentence; and
+> (O) that, if convicted, a defendant who is not a United States citizen may be removed from the United States, denied citizenship, and denied admission to the United States in the future.
+> (2) Ensuring That a Plea Is Voluntary. Before accepting a plea of guilty or nolo contendere, the court must address the defendant personally in open court and determine that the plea is voluntary and did not result from force, threats, or promises (other than promises in a plea agreement).
+> (3) Determining the Factual Basis for a Plea. Before entering judgment on a guilty plea, the court must determine that there is a factual basis for the plea.
 > (c) Plea Agreement Procedure.
-> (1) In General. An attorney for the government and the defendant’s attorney, or the defendant when proceeding pro se,
-> may discuss and reach a plea agreement. The court must not
-> participate in these discussions. If the defendant pleads guilty
-> or nolo contendere to either a charged offense or a lesser or related offense, the plea agreement may specify that an attorney for the government will:
+> (1) In General. An attorney for the government and the defendant’s attorney, or the defendant when proceeding pro se, may discuss and reach a plea agreement. The court must not participate in these discussions. If the defendant pleads guilty or nolo contendere to either a charged offense or a lesser or related offense, the plea agreement may specify that an attorney for the government will:
 > (A) not bring, or will move to dismiss, other charges;
-> (B) recommend, or agree not to oppose the defendant’s
-> request, that a particular sentence or sentencing range is
-> appropriate or that a particular provision of the Sentencing Guidelines, or policy statement, or sentencing factor
-> does or does not apply (such a recommendation or request
-> does not bind the court); or
-> (C) agree that a specific sentence or sentencing range is
-> the appropriate disposition of the case, or that a particular provision of the Sentencing Guidelines, or policy statement, or sentencing factor does or does not apply (such a
-> recommendation or request binds the court once the court
-> accepts the plea agreement).
-> (2) Disclosing a Plea Agreement. The parties must disclose
-> the plea agreement in open court when the plea is offered, unless the court for good cause allows the parties to disclose the
-> plea agreement in camera.
+> (B) recommend, or agree not to oppose the defendant’s request, that a particular sentence or sentencing range is appropriate or that a particular provision of the Sentencing Guidelines, or policy statement, or sentencing factor does or does not apply (such a recommendation or request does not bind the court); or
+> (C) agree that a specific sentence or sentencing range is the appropriate disposition of the case, or that a particular provision of the Sentencing Guidelines, or policy statement, or sentencing factor does or does not apply (such a recommendation or request binds the court once the court accepts the plea agreement).
+> (2) Disclosing a Plea Agreement. The parties must disclose the plea agreement in open court when the plea is offered, unless the court for good cause allows the parties to disclose the plea agreement in camera.
 > (3) Judicial Consideration of a Plea Agreement.
-> (A) To the extent the plea agreement is of the type specified in Rule 11(c)(1)(A) or (C), the court may accept the
-> agreement, reject it, or defer a decision until the court has
-> reviewed the presentence report.
-> (B) To the extent the plea agreement is of the type specified in Rule 11(c)(1)(B), the court must advise the defendant that the defendant has no right to withdraw the plea
-> if the court does not follow the recommendation or request.
-> (4) Accepting a Plea Agreement. If the court accepts the plea
-> agreement, it must inform the defendant that to the extent
-> the plea agreement is of the type specified in Rule 11(c)(1)(A)
-> or (C), the agreed disposition will be included in the judgment.
-> (5) Rejecting a Plea Agreement. If the court rejects a plea
-> agreement containing provisions of the type specified in Rule
-> 11(c)(1)(A) or (C), the court must do the following on the
-> record and in open court (or, for good cause, in camera):
-> (A) inform the parties that the court rejects the plea
-> agreement;
-> (B) advise the defendant personally that the court is not
-> required to follow the plea agreement and give the defendant an opportunity to withdraw the plea; and
-> (C) advise the defendant personally that if the plea is not
-> withdrawn, the court may dispose of the case less favorably toward the defendant than the plea agreement contemplated.
-> (d) Withdrawing a Guilty or Nolo Contendere Plea. A defendant
-> may withdraw a plea of guilty or nolo contendere:
-> (1) before the court accepts the plea, for any reason or no
-> reason; or
-> (2) after the court accepts the plea, but before it imposes
-> sentence if:
-> (A) the court rejects a plea agreement under Rule
-> 11(c)(5); or
+> (A) To the extent the plea agreement is of the type specified in Rule 11(c)(1)(A) or (C), the court may accept the agreement, reject it, or defer a decision until the court has reviewed the presentence report.
+> (B) To the extent the plea agreement is of the type specified in Rule 11(c)(1)(B), the court must advise the defendant that the defendant has no right to withdraw the plea if the court does not follow the recommendation or request.
+> (4) Accepting a Plea Agreement. If the court accepts the plea agreement, it must inform the defendant that to the extent the plea agreement is of the type specified in Rule 11(c)(1)(A) or (C), the agreed disposition will be included in the judgment.
+> (5) Rejecting a Plea Agreement. If the court rejects a plea agreement containing provisions of the type specified in Rule 11(c)(1)(A) or (C), the court must do the following on the record and in open court (or, for good cause, in camera):
+> (A) inform the parties that the court rejects the plea agreement;
+> (B) advise the defendant personally that the court is not required to follow the plea agreement and give the defendant an opportunity to withdraw the plea; and
+> (C) advise the defendant personally that if the plea is not withdrawn, the court may dispose of the case less favorably toward the defendant than the plea agreement contemplated.
+> (d) Withdrawing a Guilty or Nolo Contendere Plea. A defendant may withdraw a plea of guilty or nolo contendere:
+> (1) before the court accepts the plea, for any reason or no reason; or
+> (2) after the court accepts the plea, but before it imposes sentence if:
+> (A) the court rejects a plea agreement under Rule 11(c)(5); or
 > (B) the defendant can show a fair and just reason for requesting the withdrawal.
-> (e) Finality of a Guilty or Nolo Contendere Plea. After the court
-> imposes sentence, the defendant may not withdraw a plea of
-> guilty or nolo contendere, and the plea may be set aside only on
-> direct appeal or collateral attack.
-> (f) Admissibility or Inadmissibility of a Plea, Plea Discussions,
-> and Related Statements. The admissibility or inadmissibility of a
-> plea, a plea discussion, and any related statement is governed by
-> Federal Rule of Evidence 410.
-> (g) Recording the Proceedings. The proceedings during which
-> the defendant enters a plea must be recorded by a court reporter
-> or by a suitable recording device. If there is a guilty plea or a nolo
-> contendere plea, the record must include the inquiries and advice
-> to the defendant required under Rule 11(b) and (c).
-> (h) Harmless Error. A variance from the requirements of this
-> rule is harmless error if it does not affect substantial rights.
-> (As amended Feb. 28, 1966, eff. July 1, 1966; Apr. 22, 1974, eff. Dec.
-> 1, 1975; Pub. L. 94–64, § 3(5)–(10), July 31, 1975, 89 Stat. 371, 372, eff.
-> Aug. 1 and Dec. 1, 1975; Apr. 30, 1979, eff. Aug. 1, 1979, and Dec. 1,
-> 1980; Apr. 28, 1982, eff. Aug. 1, 1982; Apr. 28, 1983, eff. Aug. 1, 1983;
-> Apr. 29, 1985, eff. Aug. 1, 1985; Mar. 9, 1987, eff. Aug. 1, 1987; Pub.
-> L. 100–690, title VII, § 7076, Nov. 18, 1988, 102 Stat. 4406; Apr. 25, 1989,
-> eff. Dec. 1, 1989; Apr. 26, 1999, eff. Dec. 1, 1999; Apr. 29, 2002, eff. Dec.
-> 1, 2002; Apr. 30, 2007, eff. Dec. 1, 2007; Apr. 16, 2013, eff. Dec. 1, 2013.)
+> (e) Finality of a Guilty or Nolo Contendere Plea. After the court imposes sentence, the defendant may not withdraw a plea of guilty or nolo contendere, and the plea may be set aside only on direct appeal or collateral attack.
+> (f) Admissibility or Inadmissibility of a Plea, Plea Discussions, and Related Statements. The admissibility or inadmissibility of a plea, a plea discussion, and any related statement is governed by Federal Rule of Evidence 410.
+> (g) Recording the Proceedings. The proceedings during which the defendant enters a plea must be recorded by a court reporter or by a suitable recording device. If there is a guilty plea or a nolo contendere plea, the record must include the inquiries and advice to the defendant required under Rule 11(b) and (c).
+> (h) Harmless Error. A variance from the requirements of this rule is harmless error if it does not affect substantial rights.
+> (As amended Feb. 28, 1966, eff. July 1, 1966; Apr. 22, 1974, eff. Dec. 1, 1975; Pub. L. 94–64, § 3(5)–(10), July 31, 1975, 89 Stat. 371, 372, eff. Aug. 1 and Dec. 1, 1975; Apr. 30, 1979, eff. Aug. 1, 1979, and Dec. 1, 1980; Apr. 28, 1982, eff. Aug. 1, 1982; Apr. 28, 1983, eff. Aug. 1, 1983; Apr. 29, 1985, eff. Aug. 1, 1985; Mar. 9, 1987, eff. Aug. 1, 1987; Pub. L. 100–690, title VII, § 7076, Nov. 18, 1988, 102 Stat. 4406; Apr. 25, 1989, eff. Dec. 1, 1989; Apr. 26, 1999, eff. Dec. 1, 1999; Apr. 29, 2002, eff. Dec. 1, 2002; Apr. 30, 2007, eff. Dec. 1, 2007; Apr. 16, 2013, eff. Dec. 1, 2013.)
 
 **Fed. R. Crim. P. 32, whole rule, (a) through (k)**  
 READ-WHOLE: Fed. R. Crim. P. Rule 32
@@ -2677,163 +2510,75 @@ Fetched 2026-08-20 from the OFFICIAL uscourts.gov PDF ("as amended to December 1
 > (a) [Reserved.]
 > (b) Time of Sentencing.
 > (1) In General. The court must impose sentence without unnecessary delay.
-> (2) Changing Time Limits. The court may, for good cause,
-> change any time limits prescribed in this rule.
+> (2) Changing Time Limits. The court may, for good cause, change any time limits prescribed in this rule.
 > (c) Presentence Investigation.
 > (1) Required Investigation.
-> (A) In General. The probation officer must conduct a presentence investigation and submit a report to the court
-> before it imposes sentence unless:
-> (i) 18 U.S.C. § 3593(c) or another statute requires
-> otherwise; or
-> (ii) the court finds that the information in the record
-> enables it to meaningfully exercise its sentencing authority under 18 U.S.C. § 3553, and the court explains its
-> finding on the record.
-> (B) Restitution. If the law permits restitution, the probation officer must conduct an investigation and submit a
-> report that contains sufficient information for the court
-> to order restitution.
-> (2) Interviewing the Defendant. The probation officer who
-> interviews a defendant as part of a presentence investigation
-> must, on request, give the defendant’s attorney notice and a
-> reasonable opportunity to attend the interview.
+> (A) In General. The probation officer must conduct a presentence investigation and submit a report to the court before it imposes sentence unless:
+> (i) 18 U.S.C. § 3593(c) or another statute requires otherwise; or
+> (ii) the court finds that the information in the record enables it to meaningfully exercise its sentencing authority under 18 U.S.C. § 3553, and the court explains its finding on the record.
+> (B) Restitution. If the law permits restitution, the probation officer must conduct an investigation and submit a report that contains sufficient information for the court to order restitution.
+> (2) Interviewing the Defendant. The probation officer who interviews a defendant as part of a presentence investigation must, on request, give the defendant’s attorney notice and a reasonable opportunity to attend the interview.
 > (d) Presentence Report.
 > (1) Applying the Advisory Sentencing Guidelines. The presentence report must:
 > (A) identify all applicable guidelines and policy statements of the Sentencing Commission;
-> (B) calculate the defendant’s offense level and criminal
-> history category;
+> (B) calculate the defendant’s offense level and criminal history category;
 > (C) state the resulting sentencing range and kinds of sentences available;
 > (D) identify any factor relevant to:
 > (i) the appropriate kind of sentence, or
-> (ii) the appropriate sentence within the applicable
-> sentencing range; and
-> (E) identify any basis for departing from the applicable
-> sentencing range.
-> (2) Additional Information. The presentence report must also
-> contain the following:
+> (ii) the appropriate sentence within the applicable sentencing range; and
+> (E) identify any basis for departing from the applicable sentencing range.
+> (2) Additional Information. The presentence report must also contain the following:
 > (A) the defendant’s history and characteristics, including:
 > (i) any prior criminal record;
 > (ii) the defendant’s financial condition; and
-> (iii) any circumstances affecting the defendant’s behavior that may be helpful in imposing sentence or in
-> correctional treatment;
+> (iii) any circumstances affecting the defendant’s behavior that may be helpful in imposing sentence or in correctional treatment;
 > (B) information that assesses any financial, social, psychological, and medical impact on any victim;
-> (C) when appropriate, the nature and extent of nonprison
-> programs and resources available to the defendant;
-> (D) when the law provides for restitution, information
-> sufficient for a restitution order;
-> (E) if the court orders a study under 18 U.S.C. § 3552(b),
-> any resulting report and recommendation;
+> (C) when appropriate, the nature and extent of nonprison programs and resources available to the defendant;
+> (D) when the law provides for restitution, information sufficient for a restitution order;
+> (E) if the court orders a study under 18 U.S.C. § 3552(b), any resulting report and recommendation;
 > (F) a statement of whether the government seeks forfeiture under Rule 32.2 and any other law; and
-> (G) any other information that the court requires, including information relevant to the factors under 18 U.S.C.
-> § 3553(a).
+> (G) any other information that the court requires, including information relevant to the factors under 18 U.S.C. § 3553(a).
 > (3) Exclusions. The presentence report must exclude the following:
 > (A) any diagnoses that, if disclosed, might seriously disrupt a rehabilitation program;
-> (B) any sources of information obtained upon a promise
-> of confidentiality; and
-> (C) any other information that, if disclosed, might result
-> in physical or other harm to the defendant or others.
+> (B) any sources of information obtained upon a promise of confidentiality; and
+> (C) any other information that, if disclosed, might result in physical or other harm to the defendant or others.
 > (e) Disclosing the Report and Recommendation.
-> (1) Time to Disclose. Unless the defendant has consented in
-> writing, the probation officer must not submit a presentence
-> report to the court or disclose its contents to anyone until the
-> defendant has pleaded guilty or nolo contendere, or has been
-> found guilty.
-> (2) Minimum Required Notice. The probation officer must
-> give the presentence report to the defendant, the defendant’s
-> attorney, and an attorney for the government at least 35 days
-> before sentencing unless the defendant waives this minimum
-> period.
-> (3) Sentence Recommendation. By local rule or by order in a
-> case, the court may direct the probation officer not to disclose
-> to anyone other than the court the officer’s recommendation
-> on the sentence.
+> (1) Time to Disclose. Unless the defendant has consented in writing, the probation officer must not submit a presentence report to the court or disclose its contents to anyone until the defendant has pleaded guilty or nolo contendere, or has been found guilty.
+> (2) Minimum Required Notice. The probation officer must give the presentence report to the defendant, the defendant’s attorney, and an attorney for the government at least 35 days before sentencing unless the defendant waives this minimum period.
+> (3) Sentence Recommendation. By local rule or by order in a case, the court may direct the probation officer not to disclose to anyone other than the court the officer’s recommendation on the sentence.
 > (f) Objecting to the Report.
-> (1) Time to Object. Within 14 days after receiving the presentence report, the parties must state in writing any objections, including objections to material information, sentencing guideline ranges, and policy statements contained in or
-> omitted from the report.
-> (2) Serving Objections. An objecting party must provide a
-> copy of its objections to the opposing party and to the probation officer.
-> (3) Action on Objections. After receiving objections, the probation officer may meet with the parties to discuss the objections. The probation officer may then investigate further and
-> revise the presentence report as appropriate.
-> (g) Submitting the Report. At least 7 days before sentencing, the
-> probation officer must submit to the court and to the parties the
-> presentence report and an addendum containing any unresolved
-> objections, the grounds for those objections, and the probation officer’s comments on them.
-> (h) Notice of Possible Departure from Sentencing Guidelines. Before the court may depart from the applicable sentencing range on
-> a ground not identified for departure either in the presentence report or in a party’s prehearing submission, the court must give
-> the parties reasonable notice that it is contemplating such a departure. The notice must specify any ground on which the court
-> is contemplating a departure.
+> (1) Time to Object. Within 14 days after receiving the presentence report, the parties must state in writing any objections, including objections to material information, sentencing guideline ranges, and policy statements contained in or omitted from the report.
+> (2) Serving Objections. An objecting party must provide a copy of its objections to the opposing party and to the probation officer.
+> (3) Action on Objections. After receiving objections, the probation officer may meet with the parties to discuss the objections. The probation officer may then investigate further and revise the presentence report as appropriate.
+> (g) Submitting the Report. At least 7 days before sentencing, the probation officer must submit to the court and to the parties the presentence report and an addendum containing any unresolved objections, the grounds for those objections, and the probation officer’s comments on them.
+> (h) Notice of Possible Departure from Sentencing Guidelines. Before the court may depart from the applicable sentencing range on a ground not identified for departure either in the presentence report or in a party’s prehearing submission, the court must give the parties reasonable notice that it is contemplating such a departure. The notice must specify any ground on which the court is contemplating a departure.
 > (i) Sentencing.
 > (1) In General. At sentencing, the court:
-> (A) must verify that the defendant and the defendant’s
-> attorney have read and discussed the presentence report
-> and any addendum to the report;
-> (B) must give to the defendant and an attorney for the
-> government a written summary of—or summarize in camera—any information excluded from the presentence report under Rule 32(d)(3) on which the court will rely in sentencing, and give them a reasonable opportunity to comment on that information;
-> (C) must allow the parties’ attorneys to comment on the
-> probation officer’s determinations and other matters relating to an appropriate sentence; and
+> (A) must verify that the defendant and the defendant’s attorney have read and discussed the presentence report and any addendum to the report;
+> (B) must give to the defendant and an attorney for the government a written summary of—or summarize in camera—any information excluded from the presentence report under Rule 32(d)(3) on which the court will rely in sentencing, and give them a reasonable opportunity to comment on that information;
+> (C) must allow the parties’ attorneys to comment on the probation officer’s determinations and other matters relating to an appropriate sentence; and
 > (D) may, for good cause, allow a party to make a new objection at any time before sentence is imposed.
-> (2) Introducing Evidence; Producing a Statement. The court
-> may permit the parties to introduce evidence on the objections. If a witness testifies at sentencing, Rule 26.2(a)–(d) and
-> (f) applies. If a party fails to comply with a Rule 26.2 order to
-> produce a witness’s statement, the court must not consider
-> that witness’s testimony.
+> (2) Introducing Evidence; Producing a Statement. The court may permit the parties to introduce evidence on the objections. If a witness testifies at sentencing, Rule 26.2(a)–(d) and
+> (f) applies. If a party fails to comply with a Rule 26.2 order to produce a witness’s statement, the court must not consider that witness’s testimony.
 > (3) Court Determinations. At sentencing, the court:
 > (A) may accept any undisputed portion of the presentence report as a finding of fact;
-> (B) must—for any disputed portion of the presentence report or other controverted matter—rule on the dispute or
-> determine that a ruling is unnecessary either because the
-> matter will not affect sentencing, or because the court will
-> not consider the matter in sentencing; and
-> (C) must append a copy of the court’s determinations
-> under this rule to any copy of the presentence report made
-> available to the Bureau of Prisons.
+> (B) must—for any disputed portion of the presentence report or other controverted matter—rule on the dispute or determine that a ruling is unnecessary either because the matter will not affect sentencing, or because the court will not consider the matter in sentencing; and
+> (C) must append a copy of the court’s determinations under this rule to any copy of the presentence report made available to the Bureau of Prisons.
 > (4) Opportunity to Speak.
-> (A) By a Party. Before imposing sentence, the court
-> must:
-> (i) provide the defendant’s attorney an opportunity
-> to speak on the defendant’s behalf;
-> (ii) address the defendant personally in order to permit the defendant to speak or present any information
-> to mitigate the sentence; and
+> (A) By a Party. Before imposing sentence, the court must:
+> (i) provide the defendant’s attorney an opportunity to speak on the defendant’s behalf;
+> (ii) address the defendant personally in order to permit the defendant to speak or present any information to mitigate the sentence; and
 > (iii) provide an attorney for the government an opportunity to speak equivalent to that of the defendant’s attorney.
-> (B) By a Victim. Before imposing sentence, the court
-> must address any victim of the crime who is present at
-> sentencing and must permit the victim to be reasonably
-> heard.
-> (C) In Camera Proceedings. Upon a party’s motion and for
-> good cause, the court may hear in camera any statement
-> made under Rule 32(i)(4).
+> (B) By a Victim. Before imposing sentence, the court must address any victim of the crime who is present at sentencing and must permit the victim to be reasonably heard.
+> (C) In Camera Proceedings. Upon a party’s motion and for good cause, the court may hear in camera any statement made under Rule 32(i)(4).
 > (j) Defendant’s Right to Appeal.
 > (1) Advice of a Right to Appeal.
-> (A) Appealing a Conviction. If the defendant pleaded not
-> guilty and was convicted, after sentencing the court must
-> advise the defendant of the right to appeal the conviction.
-> (B) Appealing a Sentence. After sentencing—regardless of
-> the defendant’s plea—the court must advise the defendant
-> of any right to appeal the sentence.
-> (C) Appeal Costs. The court must advise a defendant who
-> is unable to pay appeal costs of the right to ask for permission to appeal in forma pauperis.
-> (2) Clerk’s Filing of Notice. If the defendant so requests, the
-> clerk must immediately prepare and file a notice of appeal on
-> the defendant’s behalf.
+> (A) Appealing a Conviction. If the defendant pleaded not guilty and was convicted, after sentencing the court must advise the defendant of the right to appeal the conviction.
+> (B) Appealing a Sentence. After sentencing—regardless of the defendant’s plea—the court must advise the defendant of any right to appeal the sentence.
+> (C) Appeal Costs. The court must advise a defendant who is unable to pay appeal costs of the right to ask for permission to appeal in forma pauperis.
+> (2) Clerk’s Filing of Notice. If the defendant so requests, the clerk must immediately prepare and file a notice of appeal on the defendant’s behalf.
 > (k) Judgment.
-> (1) In General. In the judgment of conviction, the court must
-> set forth the plea, the jury verdict or the court’s findings, the
-> adjudication, and the sentence. If the defendant is found not
-> guilty or is otherwise entitled to be discharged, the court
-> must so order. The judge must sign the judgment, and the
-> clerk must enter it.
-> (2) Criminal Forfeiture. Forfeiture procedures are governed
-> by Rule 32.2.
-> (As amended Feb. 28, 1966, eff. July 1, 1966; Apr. 24, 1972, eff. Oct.
-> 1, 1972; Apr. 22, 1974, eff. Dec. 1, 1975; Pub. L. 94–64, § 3(31)–(34), July
-> 31, 1975, 89 Stat. 376, eff. Dec. 1, 1975; Apr. 30, 1979, eff. Aug. 1, 1979,
-> and Dec. 1, 1980; Pub. L. 97–291, § 3, Oct. 12, 1982, 96 Stat. 1249; Apr.
-> 28, 1983, eff. Aug. 1, 1983; Pub. L. 98–473, title II, § 215(a), Oct. 12,
-> 1984, 98 Stat. 2014, eff. Nov. 1, 1987; Pub. L. 99–646, § 25(a), Nov. 10,
-> 1986, 100 Stat. 3597, eff. Nov. 1, 1987; Mar. 9, 1987, eff. Aug. 1, 1987;
-> Apr. 25, 1989, eff. Dec. 1, 1989; Apr. 30, 1991, eff. Dec. 1, 1991; Apr.
-> 22, 1993, eff. Dec. 1, 1993; Apr. 29, 1994, eff. Dec. 1, 1994; Pub. L.
-> 103–322, title XXIII, § 230101(b), Sept. 13, 1994, 108 Stat. 2078, eff.
-> Dec. 1, 1994; Apr. 23, 1996, eff. Dec. 1, 1996; Pub. L. 104–132, title II,
-> § 207(a), Apr. 24, 1996, 110 Stat. 1236; Apr. 17, 2000, eff. Dec. 1, 2000;
-> Apr. 29, 2002, eff. Dec. 1, 2002; Apr. 30, 2007, eff. Dec. 1, 2007; Apr.
-> 23, 2008, eff. Dec. 1, 2008; Mar. 26, 2009, eff. Dec. 1, 2009; Apr. 26, 2011,
-> eff. Dec. 1, 2011.)
+> (1) In General. In the judgment of conviction, the court must set forth the plea, the jury verdict or the court’s findings, the adjudication, and the sentence. If the defendant is found not guilty or is otherwise entitled to be discharged, the court must so order. The judge must sign the judgment, and the clerk must enter it.
+> (2) Criminal Forfeiture. Forfeiture procedures are governed by Rule 32.2.
+> (As amended Feb. 28, 1966, eff. July 1, 1966; Apr. 24, 1972, eff. Oct. 1, 1972; Apr. 22, 1974, eff. Dec. 1, 1975; Pub. L. 94–64, § 3(31)–(34), July 31, 1975, 89 Stat. 376, eff. Dec. 1, 1975; Apr. 30, 1979, eff. Aug. 1, 1979, and Dec. 1, 1980; Pub. L. 97–291, § 3, Oct. 12, 1982, 96 Stat. 1249; Apr. 28, 1983, eff. Aug. 1, 1983; Pub. L. 98–473, title II, § 215(a), Oct. 12, 1984, 98 Stat. 2014, eff. Nov. 1, 1987; Pub. L. 99–646, § 25(a), Nov. 10, 1986, 100 Stat. 3597, eff. Nov. 1, 1987; Mar. 9, 1987, eff. Aug. 1, 1987; Apr. 25, 1989, eff. Dec. 1, 1989; Apr. 30, 1991, eff. Dec. 1, 1991; Apr. 22, 1993, eff. Dec. 1, 1993; Apr. 29, 1994, eff. Dec. 1, 1994; Pub. L. 103–322, title XXIII, § 230101(b), Sept. 13, 1994, 108 Stat. 2078, eff. Dec. 1, 1994; Apr. 23, 1996, eff. Dec. 1, 1996; Pub. L. 104–132, title II, § 207(a), Apr. 24, 1996, 110 Stat. 1236; Apr. 17, 2000, eff. Dec. 1, 2000; Apr. 29, 2002, eff. Dec. 1, 2002; Apr. 30, 2007, eff. Dec. 1, 2007; Apr. 23, 2008, eff. Dec. 1, 2008; Mar. 26, 2009, eff. Dec. 1, 2009; Apr. 26, 2011, eff. Dec. 1, 2011.)
 
