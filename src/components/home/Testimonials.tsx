@@ -49,7 +49,7 @@ export default function Testimonials() {
         </div>
 
         <Link
-          href="/reviews"
+          href="/results"
           className="link-arrow group mt-14 inline-flex items-center gap-2 font-display text-lg font-bold text-linen transition-colors hover:text-bronze"
         >
           Read more reviews

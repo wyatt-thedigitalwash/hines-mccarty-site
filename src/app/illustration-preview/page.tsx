@@ -14,9 +14,10 @@ export const metadata: Metadata = {
 };
 
 /**
- * Review harness for the three forum illustrations. Throwaway, like
- * /hero-preview. Delete once the illustrations are approved and wired into the
- * silo hubs.
+ * Review harness for the three forum illustrations. Throwaway, like the
+ * /hero-preview route that was deleted 2026-08-21 once its hero was chosen.
+ * Delete this one once the illustrations are approved and wired into the silo
+ * hubs.
  *
  * Renders each at three sizes on both backgrounds, so optical weight and
  * legibility can be judged rather than guessed at.

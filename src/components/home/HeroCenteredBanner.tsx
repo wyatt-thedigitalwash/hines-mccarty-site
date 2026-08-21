@@ -19,7 +19,7 @@ const blocks = [
   {
     label: "Our Insights",
     title: "Plain answers to hard questions.",
-    href: "/insights",
+    href: "/resources/articles",
   },
 ];
 

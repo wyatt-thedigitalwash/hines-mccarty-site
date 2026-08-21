@@ -117,7 +117,7 @@ export default function MattersAndInsights() {
             Notes on the process.
           </h2>
           <Link
-            href="/insights"
+            href="/resources/articles"
             className="link-arrow group inline-flex items-center gap-2 font-display text-lg text-navy transition-colors hover:text-bronze"
           >
             All insights

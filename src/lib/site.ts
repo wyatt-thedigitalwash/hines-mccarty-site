@@ -7941,24 +7941,31 @@ export const caseProcess = [
   },
 ] as const;
 
-// Placeholder posts until the Insights blog is populated.
+// Placeholder posts until the articles index is populated.
+//
+// These point at /resources/articles, the route that exists. They pointed at
+// /insights, which never had a route behind it, so the home page carried three
+// dead links plus one in the section CTA. Repointed 2026-08-21 rather than
+// building a second surface for the same thing: Layer 3 articles live under
+// /resources per WEBSITE-PLAN Section 2, and /insights was a name from an
+// earlier draft that outlived the structure it belonged to.
 export const insightsPreview = [
   {
     title: "What happens after a federal target letter in Tampa",
     category: "Federal Defense",
-    href: "/insights",
+    href: "/resources/articles",
     date: "Coming soon",
   },
   {
     title: "First appearance in Hillsborough County, what to expect",
     category: "State Defense",
-    href: "/insights",
+    href: "/resources/articles",
     date: "Coming soon",
   },
   {
     title: "How Florida's sentencing scoresheet actually works",
     category: "Sentencing",
-    href: "/insights",
+    href: "/resources/articles",
     date: "Coming soon",
   },
 ] as const;
