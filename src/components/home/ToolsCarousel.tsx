@@ -98,27 +98,57 @@ export default function ToolsCarousel() {
         onClickCapture={onClickCapture}
         className="carousel-pad-left no-scrollbar flex cursor-grab snap-x snap-mandatory gap-6 overflow-x-auto pr-6 pb-2 active:cursor-grabbing"
       >
+        {/*
+          PUBLISHED TOOLS LINK; UNPUBLISHED ONES DO NOT.
+
+          Every card here used to be an unconditional <Link>, so the home page
+          shipped two clickable 404s: the calculator and the seal-and-expunge
+          checker both carry hrefs to routes that do not exist and stay
+          `published: false` until they clear their gates. The Resources page
+          had this right from the start and this is the same treatment, which
+          is the point: a card whose destination is not built says so instead
+          of promising a page.
+        */}
         {tools.map((tool, index) => {
           const ToolIcon = toolIcons[index % toolIcons.length];
-          return (
-          <Link
-            key={tool.label}
-            href={tool.href}
-            draggable={false}
-            className="group flex w-[300px] shrink-0 snap-start flex-col bg-white p-8 text-navy transition-colors hover:bg-linen sm:w-[360px]"
-          >
-            <ToolIcon className="h-9 w-9 text-bronze" />
-            <h3 className="mt-5 font-heading text-2xl font-semibold leading-snug text-navy transition-colors group-hover:text-bronze">
-              {tool.label}
-            </h3>
-            <p className="mt-4 flex-1 text-base leading-relaxed text-charcoal">
-              {tool.description}
-            </p>
-            <span className="link-arrow mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-navy transition-colors group-hover:text-bronze">
-              Open
-              <ArrowUpRight />
-            </span>
-          </Link>
+          const inner = (
+            <>
+              <ToolIcon className="h-9 w-9 text-bronze" />
+              <h3 className="mt-5 font-heading text-2xl font-semibold leading-snug text-navy transition-colors group-hover:text-bronze">
+                {tool.label}
+              </h3>
+              <p className="mt-4 flex-1 text-base leading-relaxed text-charcoal">
+                {tool.description}
+              </p>
+              <span
+                className={
+                  tool.published
+                    ? "link-arrow mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-navy transition-colors group-hover:text-bronze"
+                    : "mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-navy/55"
+                }
+              >
+                {tool.published ? "Open" : "In progress"}
+                {tool.published && <ArrowUpRight />}
+              </span>
+            </>
+          );
+
+          return tool.published ? (
+            <Link
+              key={tool.label}
+              href={tool.href}
+              draggable={false}
+              className="group flex w-[300px] shrink-0 snap-start flex-col bg-white p-8 text-navy transition-colors hover:bg-linen sm:w-[360px]"
+            >
+              {inner}
+            </Link>
+          ) : (
+            <div
+              key={tool.label}
+              className="flex w-[300px] shrink-0 snap-start flex-col border border-dashed border-navy/20 bg-white p-8 text-navy sm:w-[360px]"
+            >
+              {inner}
+            </div>
           );
         })}
       </div>

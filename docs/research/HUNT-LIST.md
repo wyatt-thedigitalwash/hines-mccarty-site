@@ -618,6 +618,54 @@ violation the gate must catch THROUGH that record, not by checking the record
 against its source. Content verification and shape verification are different
 checks, and passing one says nothing about the other.
 
+### Instance 14: nothing could see that a destination was absent
+
+**Named 2026-08-21, from a report-only audit of the tool cards.**
+
+The home page shipped two clickable 404s. The tools carousel rendered every
+card as an unconditional link, and two of those cards point at routes that do
+not exist and stay unpublished until they clear their own gates. Separately, a
+charge-data entry pointed at `/resources/guides`, a bare segment with no index
+route behind it, and had done for weeks. Seven gates ran green over all three
+the entire time.
+
+The reason is structural and is worth stating precisely, because it is not
+laziness in any individual gate. **Every check on this site verifies a property
+of the thing in front of it.** Copy is checked for banned terms, quotes for
+truncation, sections for reaching the HTML, citations for provenance. An href
+is a *reference to something else*, and its correctness is a property of the
+OTHER thing, which is not in scope for any check that reads the page. The
+render gate confirmed the link reached the reader, which was true. The
+duplication gate measured its label. Nothing asked the only question that
+mattered: is there anything at the other end.
+
+This is Instance 12 one level out. There, the body was missing and the gates
+verified an empty body's properties; here the target is missing and the gates
+verify a dead link's properties. Both are the vacuous-truth edge of defect 1:
+absence satisfies almost any test applied to presence.
+
+**The two-sweep shape, because either sweep alone leaves the other's hole.**
+A data sweep sees entries that are wrong but dormant, which a rendered sweep
+cannot: the `/resources/guides` entry rendered nowhere, because written content
+overrode the preview it was attached to. A rendered sweep sees hrefs hardcoded
+in components, which a data sweep cannot: `/about`, `/insights`, and `/reviews`
+are written in JSX and appear in no data structure. Running only one of them
+would have found two of the five real defects and reported clean.
+
+**The rule.** A gate that checks references checks that the referent exists,
+and it derives the inventory of what exists rather than being handed a list. A
+hand-maintained inventory is a second copy of the truth, and the copy is what
+goes stale. Where a reference is legitimately allowed to point at something
+unbuilt, the concession is stated as a property that can be checked now, not as
+a promise about later: an unpublished tool's href is permitted in the data
+sweep only because the rendered sweep proves it reaches no reader.
+
+**A note on the first run.** This gate's first output contained a false
+positive: `src/app/favicon.ico` serves at `/favicon.ico`, which is not in
+`public/` and was not in the derived inventory, so every built page appeared to
+link something dead. It was fixed before the gate was relied on. A gate whose
+first finding is wrong teaches its readers to skim the next one.
+
 ### Where this already applies
 
 - **src/lib/statutes.ts**: F.S. 812.014 is recorded `partial` with `unread`

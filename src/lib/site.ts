@@ -1490,8 +1490,15 @@ const templatePreview: Partial<ChargePage> = {
   ],
   relatedGuides: [
     {
+      // Points at the hub, which exists. This was "/resources/guides", a bare
+      // path with no route behind it: the guide routes are
+      // /resources/guides/[guide] and there is no index at that segment. It
+      // rendered nowhere, because written content overrides this preview on
+      // the only entry it attaches to, so nothing caught it until the
+      // route-resolution gate went in. A dormant wrong href is the D27 shape,
+      // correct-looking and unreviewed.
       label: "TEMPLATE PREVIEW. A Layer 2 guide this page links down to",
-      href: "/resources/guides",
+      href: "/resources/tools-and-guides",
     },
   ],
 };
