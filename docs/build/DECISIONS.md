@@ -1137,3 +1137,46 @@ This entry is therefore a fresh decision made with that elision on the record,
 not a ratification of a consensus that did not exist. GUIDES open question 1
 and SEAL's Phase 0 posture asked for exactly this, and the D31 rule made it
 mandatory rather than optional.
+
+### D35. F.S. 921.0023(4) is recorded as a first degree felony punishable by life, and an ambiguity flag is a dated claim rather than a standing note
+
+Named 2026-08-24, from the re-audit that preceded the offense-level instrument
+build.
+
+`src/lib/statute-tables/fs-921-0023.ts` row (4) recorded `degree: "first degree
+felony"` for a subsection whose own quoted text reads "A felony of the first
+degree punishable by life within offense level 9." The row carried an AMBIGUITY
+FLAG explaining the choice, and the explanation rested on one stated ground:
+that the permitted degree list had no separate value for the tier.
+
+**That ground was false, and had already been false for some time.** The
+`Degree` union in `src/lib/statutes.ts` gained `"first degree felony punishable
+by life"` when the s. 921.0022 ranking chart was recorded, and more than twenty
+chart rows now carry it. The flag was written before that landed and was never
+re-read afterwards. The row is corrected, and the trigger text now records the
+correction and its date rather than being quietly rewritten.
+
+**What the stale flag actually cost.** Two things, and the second is worse than
+the first. It understated exposure, recording a plain first degree felony where
+the statute names a tier punishable by life. And it made subsections (3) and (4)
+**indistinguishable by degree**: both read "first degree felony", differing only
+in level. Collapsing those two tiers is precisely what the union was extended to
+prevent, so the flag defeated the fix that had been made for it. The ladder now
+reads five distinct degrees across five subsections, which is a property worth
+checking rather than a fact worth remembering.
+
+**The general rule this sets.** An ambiguity flag is a claim about the state of
+the codebase at the moment it was written, and claims about a codebase go stale
+in a way that claims about a statute do not. So a flag whose reasoning depends
+on a repository fact ("the type has no value for this", "no table records that",
+"nothing consumes this field") states the dependency explicitly and is re-read
+whenever that fact changes. Where the dependency can be expressed as an
+assertion, it is better as an assertion than as prose: prose that is wrong looks
+exactly like prose that is right.
+
+**Not gated today, and named as such.** No check asserts that the 921.0023
+default ladder carries five distinct degrees, and none asserts that a row whose
+quote contains "punishable by life" carries a degree that says so. Both are
+cheap and neither exists yet. HUNT-LIST defect 1 is the reason to say that here
+rather than leave the correction looking finished.
+

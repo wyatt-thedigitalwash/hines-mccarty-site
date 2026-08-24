@@ -666,6 +666,72 @@ positive: `src/app/favicon.ico` serves at `/favicon.ico`, which is not in
 link something dead. It was fixed before the gate was relied on. A gate whose
 first finding is wrong teaches its readers to skim the next one.
 
+### Instance 15: a gate's self-tests green while the gate was blind to the page
+
+**Named 2026-08-24, during the offense-level instrument build.**
+
+`check:offense-level` shipped with 20 self-tests, 11 of them planted
+violations, and every one passed. Against the real built page, T2 reported
+**zero degree-span rows on a page that rendered six**. It was not a false
+negative on a subtle case; the assertion could not see its subject at all.
+
+The cause is one character. The fixtures hand-wrote `<tr data-span
+data-degree=...>`, and the matcher required whitespace after the attribute
+name. React does not emit that: a valueless JSX attribute renders as
+`data-span="true"`, so the next character is `=`. Every self-test matched the
+fixture, the fixture matched nothing the build produces, and the only thing
+that exposed it was running the gate against `.next`.
+
+This is instance 8 with the tables turned. There, gates were theatre because
+their planted violations could not fire. Here the planted violations fired
+perfectly, on input that did not exist. Testing a gate against a stand-in you
+authored tests your model of the artifact, and your model is the thing that
+was already wrong: the same hand that wrote the wrong matcher wrote the
+fixture that agrees with it. D24 says an assertion reads the rendered artifact
+rather than the data behind it; this is the same rule applied one level up, to
+the assertion's own tests.
+
+**The rule.** A fixture that does not look like the artifact tests the
+fixture. Where a gate reads rendered output, at least one self-test asserts
+against real built HTML rather than a hand-written stand-in, and any attribute
+or structural marker the gate matches on is tested in **the spelling the build
+actually emits**. The tolerant version of the matcher is not the fix on its
+own, because tolerance chosen by the same author has the same blind spot; the
+fix is that something the author did not write is in the loop.
+
+### Instance 16: a verification filter narrower than the claim it verifies
+
+**Named 2026-08-24, same build. An extension of instance 1 rather than a new shape.**
+
+OFFENSE-LEVEL-INSTRUMENT-CONCEPT.md stated that F.S. 893.135 has 47 chart rows
+at levels 7, 8 and 9. The figure came from a filter written as
+`/^893\.135\(/`, which requires an opening parenthesis and therefore silently
+drops the bare `893.135` row: "Attempted capital trafficking offense", first
+degree felony, level 9. The section has 48.
+
+What makes this worth its own entry is the direction. The same document
+correctly warns, at length, about the filter that is too WIDE: a prefix match
+on `893.135` catches F.S. 893.1351 and would put a level 5 tier on a page whose
+thesis is that trafficking has no low tier. That hazard was named, gated, and
+given assertion T8. The narrow filter sitting three lines away in the same
+document went unremarked, because a filter that returns fewer rows feels
+conservative and a count that is too low reads as caution.
+
+It is not caution. Both filters answer a question other than the one asked, and
+a claim verified by the wrong question is unverified in either direction. Here
+the levels happened to be unaffected, so the error was harmless, and harmless is
+a property of this instance rather than of the defect: had the missing row been
+level 4, the page's central claim would have been false and the check that was
+run would still have passed.
+
+**The rule.** A verification filter is checked against the boundaries of the
+CLAIM, not only against the failure mode currently feared. When a document
+states a count, it names the filter that produced it, so the filter can be
+re-run and disagreed with; a bare number carries no evidence about which
+question it answered. Where code and a document both derive the same figure,
+the code is the record and the document is a restatement of it, and the
+restatement is what goes stale.
+
 ### Where this already applies
 
 - **src/lib/statutes.ts**: F.S. 812.014 is recorded `partial` with `unread`

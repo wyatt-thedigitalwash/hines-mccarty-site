@@ -3093,3 +3093,361 @@ recorded whole below.
 **907.041(6)(d):**
 > (d) The defendant may request a continuance of his or her first appearance hearing conducted under this subsection. A continuance shall not be longer than 48 hours unless the court determines there are extenuating circumstances. The state attorney shall be entitled to one continuance for good cause. The defendant may not be released from custody pending any such continuance.
 
+
+---
+
+## 2026-08-24: Fla. R. Crim. P. 3.992, the Criminal Punishment Code Scoresheet, recorded whole
+
+The form the sentencing worksheet tool would render
+(docs/build/tools/SENTENCING-WORKSHEET-CONCEPT.md Section 8, machine item 1).
+Before today nothing in this repository recorded the Rule 3.992 form at all,
+which is why that document's C6 was stated as BLOCKED rather than pending.
+
+**Fla. R. Crim. P. 3.992, whole rule, (a) and (b), all four pages**
+READ-WHOLE: Fla. R. Crim. P. 3.992
+SINGLE-SOURCE: Fla. R. Crim. P. 3.992 (SPLIT RECORD, and the split is the point. POINT VALUES: confirmed three ways, by F.S. 921.0024(1)(a) on flsenate.gov, by this form, and by FDLE's independently published copy of the form. LAYOUT AND WORDING: one publisher only, The Florida Bar's standalone form PDF, which is the sole publication path for this revision. So a claim about what the form SCORES rests on three independent paths; a claim about what the form SAYS rests on one. See the verification-paths note below for what was tried and what each alternative could and could not confirm)
+https://www-media.floridabar.org/uploads/2026/01/Rule-3.992-Scoresheet-Effective-October-23-2025-Corrected-1.pdf
+
+**Revision implemented by this record.** Amended effective **October 23, 2025**,
+in *In re Amendments to Florida Rule of Criminal Procedure 3.992*, No.
+SC2025-1036, 2025 WL 2982413. The Florida Bar published a **corrected** upload
+of the same revision in **January 2026**; the corrected PDF carries a
+CreationDate of 2026-01-14. Both dates are load-bearing and both are recorded
+because the correction is substantive, not cosmetic. See "What the January 2026
+correction changed" below.
+
+**Fetched 2026-08-24** with a browser user agent and an
+https://www.floridabar.org/rules/ctproc/ referer (this host 403s a bare curl,
+the same access condition already recorded on the 3.111 and 3.131/3.132
+records). 4 pages, 184,053 bytes, sha256
+002afdabfe682683c9fe8e9fd1ce68301c6b3efc2108944d8fc4546262e5ff5c. Text
+extracted locally with `pdftotext -layout`, then **every one of the four pages
+was rendered to PNG at 150dpi and read visually against the extraction** before
+recording, because this is a form rather than prose and a layout extractor can
+silently drop or reorder a grid. Read whole, recorded whole.
+
+TRANSCRIPTION CONVENTION, stated because it is a departure from the other
+records: runs of underscores and dot leaders that are blank fill-in rules on the
+form face are collapsed to `____`. Checkbox glyphs render as `[ ]`. Nothing else
+is normalized. A bare `II` and a `·` that `pdftotext` emits between the two
+SENTENCE COMPUTATION paragraphs are **not form text**: the visual render shows
+two bordered boxes and no such characters, so they are box-drawing artifacts and
+are omitted here.
+
+**Verification paths, and the honest limit of each.** The house standard is two
+independent publishers. This revision does not have two, and the SINGLE-SOURCE
+marker above says so rather than letting the asymmetry be inferred (D22).
+
+1. **The Florida Bar's live rules index**, https://www.floridabar.org/rules/ctproc/,
+   fetched 2026-08-24: its `3.992` entry links **this exact corrected PDF**. So
+   the file recorded here is the one the Bar publishes as Rule 3.992 today, and
+   nothing supersedes it as of the fetch date.
+2. **The Bar's own rules compilation** (July 13, 2026 edition, 2,035,359 bytes,
+   the same PDF the 3.111 and 3.132 records rest on) **does not reproduce the
+   form.** Its Rule 3.992 section reads, whole: "THE SCORE SHEETS CAN BE FOUND ON
+   THIS WEBPAGE: HTTPS://WWW.FLORIDABAR.ORG/RULES/CTPROC/". It is therefore not a
+   second path for the form's text. It *does* independently confirm the
+   amendment history: its table of amendments lists "10-23-25: 2025 WL 2982413.
+   Amended 3.992." and that is the **last** entry for this rule, through July 13,
+   2026.
+3. **FDLE publishes a Rule 3.992(a) scoresheet** at fdle.state.fl.us (PDF author
+   "Florida Supreme Court"). Fetched and compared. It is an **older revision**
+   (PDF CreationDate 2015-12-15): its Section IX carries six enhancements where
+   the current form carries eight. It is therefore **not** a second path for the
+   2025 text. It **is** an independent publisher's corroboration of all four
+   point grids, which it carries identically to both the statute and the
+   corrected form.
+4. **F.S. 921.0024(1)(a)**, the statute this form implements, independently
+   carries all four point grids and every scalar. That diff is recorded in full
+   at the end of this record and is the strongest verification available: the
+   numbers the tool would render are confirmed by the statute, by FDLE, and by
+   the Bar's current form, three ways.
+5. The Supreme Court's own opinion PDF for SC2025-1036 was sought and **not
+   retrieved**: flcourts.gov serves opinions from opaque numeric download ids
+   and no search path exposed one for this case. NOT FETCHED. The November 2025
+   Bar compilation, which would have been an independent snapshot of the
+   pre-correction text, now 403s and is gone.
+
+So: the **point values are triple-sourced**; the **form's layout and wording are
+single-sourced**. Any claim about what the form *says* rests on one publisher.
+Any claim about what it *scores* does not.
+
+### What the January 2026 correction changed
+
+Both uploads were fetched and diffed line by line. The October 23, 2025 upload
+(https://www-media.floridabar.org/uploads/2025/10/Rule-3.992-Scoresheet-Effective-October-23-2025.pdf,
+183,697 bytes, sha256
+3b6dd8aac13ff59a31c2fc26fbb2102929365aa44480ed13d36fe6787cd89150, PDF
+CreationDate 2025-10-24) differs from the corrected upload in **one substantive
+place**, and it is a point grid:
+
+- **October 2025, page 1, Section II (ADDITIONAL OFFENSE(S)):**
+  `(Level - Points: 1=4, 2=10, 3=16, 4=22, 5=28, 6=36, 7=56, 8=74, 9=92, 10=116)`
+- **January 2026 corrected, same cell:**
+  `(Level - Points: M=0.2, 1=0.7, 2=1.2, 3=2.4, 4=3.6, 5=5.4, 6=18, 7=28, 8=37, 9=46, 10=58)`
+
+The October upload printed the **Primary Offense** grid inside the **Additional
+Offenses** block. That is wrong against F.S. 921.0024(1)(a), and it was wrong
+against the October upload's **own supplemental page**, which carried the
+correct additional-offense grid four pages later. The form contradicted itself
+and the statute in the same cell. The January 2026 upload fixes exactly that
+line.
+
+Every other difference between the two uploads is whitespace, indentation, or a
+typographic repair: `ADDITIONAL OFFENSES(S)` to `ADDITIONAL OFFENSE(S)`, and the
+supplemental Prior Record column header `OFFENSE/DATE/STATE` to `DESCRIPTION`
+with its two stray `/` column rules removed.
+
+**Consequence for the tool, and the reason C6 is a gate rather than a
+formality:** a build against the October 2025 PDF would have rendered a filled
+cell carrying a wrong point value, which is precisely the "silent-wrong" failure
+the concept document's Section 10 names as the one a reader cannot detect. The
+revision date alone would not have caught it; only "including the January 2026
+correction" does.
+
+### (a) Criminal Punishment Code Scoresheet
+
+**Rule 3.992, catchline and (a) lead:**
+> Rule 3.992. Criminal Punishment Code Scoresheet
+> (a) Criminal Punishment Code Scoresheet. The Criminal Punishment Code Scoresheet Preparation Manual is available at: https://www.fdc.myflorida.com/statistics-and-publications
+
+**Rule 3.992(a), header block, fields 1 through 12:**
+> 1. DATE OF SENTENCE  2. PREPARER'S NAME  3. COUNTY  4. SENTENCING JUDGE
+> 5. NAME (LAST, FIRST, MI.I.)  6. DOB  7. DC #  8. RACE [ ] B [ ] W [ ] OTHER  9. GENDER [ ] M [ ] F  10. PRIMARY OFF. DATE  11. PRIMARY DOCKET #  12. PLEA [ ]  TRIAL [ ]
+
+**Rule 3.992(a), Section I, Primary Offense:**
+> I. PRIMARY OFFENSE: If Qualifier, please check ____A ____S ____C ____R (A=Attempt, S=Solicitation, C=Conspiracy, R=Reclassification)
+> FELONY DEGREE / F.S.# / DESCRIPTION / OFFENSE LEVEL / POINTS
+> (Level - Points: 1=4, 2=10, 3=16, 4=22, 5=28, 6=36, 7=56, 8=74, 9=92, 10=116)
+> Prior capital felony triples Primary Offense points [ ]
+> I. ____
+
+**Rule 3.992(a), Section II, Additional Offenses:**
+> II. ADDITIONAL OFFENSE(S): Supplemental page attached [ ]
+> DOCKET# / FEL/MM DEGREE / F.S.# / OFFENSE LEVEL / QUALIFY A S C R / COUNTS / POINTS / TOTAL
+> DESCRIPTION____
+> (Level - Points: M=0.2, 1=0.7, 2=1.2, 3=2.4, 4=3.6, 5=5.4, 6=18, 7=28, 8=37, 9=46, 10=58)
+> Prior capital felony triples Additional Offense points [ ]
+> Supplemental page points ____
+> II. ____
+
+Four offense rows on the face, each with its own DESCRIPTION rule.
+
+**Rule 3.992(a), Section III, Victim Injury:**
+> III. VICTIM INJURY:
+> Number / Total
+> 2nd Degree Murder 240 x ____ = ____
+> Death 120 x ____ = ____
+> Severe 40 x ____ = ____
+> Moderate 18 x ____ = ____
+> Slight 4 x ____ = ____
+> Sex Penetration 80 x ____ = ____
+> Sex Contact 40 x ____ = ____
+> III. ____
+
+**Rule 3.992(a), Section IV, Prior Record:**
+> IV. PRIOR RECORD: Supplemental page attached [ ]
+> FEL/MM DEGREE / F.S.# / OFFENSE LEVEL / QUALIFY: A S C R / DESCRIPTION / NUMBER / POINTS / TOTAL
+> (Level = Points: M=0.2, 1=0.5, 2=0.8, 3=1.6, 4=2.4, 5=3.6, 6=9, 7=14, 8=19, 9=23, 10=29)
+> Supplemental page points ____
+> IV. ____
+
+Nine prior-record rows on the face.
+
+**Rule 3.992(a), page 1 footer and page 2 header:**
+> Page 1 Subtotal: ____
+> Effective Date: For offenses committed under the Criminal Punishment Code effective for offenses committed on or after October 1, 1998, and subsequent revisions.
+> NAME (LAST, FIRST, MI)  DOCKET #
+
+**Rule 3.992(a), Section V, Legal Status Violation:**
+> V. LEGAL STATUS VIOLATION = 4 Points
+> [ ] Escape [ ] Fleeing [ ] Failure to Appear [ ] Supersedeas Bond [ ] Incarceration [ ] Pretrial Intervention or Diversion Program
+> [ ] Court Imposed or Post Prison Release Community Supervision Resulting in a Conviction
+> V. ____
+
+**Rule 3.992(a), Section VI, Community Sanction Violation:**
+> VI. COMMUNITY SANCTION VIOLATION BEFORE THE COURT FOR SENTENCING
+> [ ] Probation [ ] Community Control [ ] Pretrial Intervention or Diversion
+> VI. ____
+> [ ] 6 points for any violation other than new felony conviction x ____ each successive violation OR
+> [ ] New felony conviction = 12 points x ____ each successive violation if new offense results in conviction before or at same time as sentence for violation of probation OR
+> [ ] 12 points x ____ each successive violation for a violent felony offender of special concern when the violation is not based solely on failure to pay costs, fines, or restitution OR
+> [ ] New felony conviction = 24 points x ____ each successive violation for a violent felony offender of special concern if new offense results in a conviction before or at the same time for violation of probation
+
+**Rule 3.992(a), Sections VII and VIII, and the subtotal:**
+> VII. FIREARM/SEMI-AUTOMATIC OR MACHINE GUN = 18 or 25 Points
+> VII. ____
+> VIII. PRIOR SERIOUS FELONY = 30 Points
+> VIII. ____
+> Subtotal Sentence Points ____
+
+**Rule 3.992(a), Section IX, Enhancements:**
+> IX. ENHANCEMENTS (only if the primary offense qualifies for enhancement)
+> Specified Justice System Personnel ____ x 1.5 ____ x. 2.0 ____ x 2.5
+> Drug Trafficking ____ x. 1.5
+> Motor Vehicle Theft ____ x 1.5
+> Criminal Gang Offense ____ x 1.5
+> Domestic Violence in Presence of Related Child ____ x 1.5
+> Adult-on-Minor Sex Offense ____ x 2.0
+> Aggravated Animal Cruelty ____ x 1.25
+> Fleeing/Aggravated Fleeing ____ x 1.5
+> Enhanced Subtotal Sentence Points IX. ____
+> TOTAL SENTENCE POINTS ____
+
+The `x. 2.0` and `x. 1.5` stops are on the form face as printed; they are not
+transcription noise.
+
+**Rule 3.992(a), Sentence Computation:**
+> SENTENCE COMPUTATION
+> If total sentence points are less than or equal to 44, the lowest permissible sentence is any non-state prison sanction. If the total sentence points are 22 points or less, see Section 775.082(10), Florida Statutes, to determine if the court must sentence the offender to a non-state prison sanction.
+> If total sentence points are greater than 44:
+> ____ minus 28 = ____ x .75 = ____
+> total sentence points / lowest permissible prison sentence in months
+> If total sentence points are 60 points or less and court makes findings pursuant to both Florida Statute 948.20 and 397.334(3), the court may place the defendant into a treatment-based drug court program.
+
+**Rule 3.992(a), statutory maximum block:**
+> The maximum sentence for each individual felony offense is the statutory maximum as provided in s. 775.082, F.S., unless the lowest permissible sentence listed above exceeds the statutory maximum for that offense. If the lowest permissible sentence exceeds the statutory maximum for an individual felony offense, the lowest permissible sentence replaces the statutory maximum and must be imposed for that offense. See State v. Gabriel, 314 So. 3d 1243 (Fla. 2021). Sentences for multiple felony offenses may be imposed concurrently or consecutively. If total sentence points are greater than or equal to 363, a life sentence may be imposed.
+> Primary offense: ____ Description ____ Maximum sentence in years
+> Additional offense: ____ Description ____ Maximum sentence in years
+> Total maximum sentence in years for all counts above if consecutive sentences imposed: ____
+
+Three additional-offense rows on the face.
+
+**Rule 3.992(a), Total Sentence Imposed:**
+> TOTAL SENTENCE IMPOSED
+> Years / Months / Days
+> [ ] State Prison [ ] Life ____ ____ ____
+> [ ] County Jail [ ] Time Served ____ ____ ____
+> [ ] Community Control ____ ____ ____
+> [ ] Probation [ ] Modified ____ ____ ____
+> Please check if sentenced as [ ] Habitual Offender, [ ] Habitual Violent Offender, [ ] Violent Career Criminal, [ ] Prison Releasee Reoffender, or a [ ] Mandatory Minimum Applies.
+> [ ] Mitigated Departure [ ] Plea Bargain [ ] Prison Diversion Program
+> [ ] Other Reason(s): ____
+> JUDGE'S SIGNATURE
+> Effective Date: For offenses committed under the Criminal Punishment Code effective for offenses committed on or after October 1, 1998, and subsequent revisions.
+
+### (b) Supplemental Criminal Punishment Code Scoresheet
+
+**Rule 3.992(b), header:**
+> (b) Supplemental Criminal Punishment Code Scoresheet
+> NAME (LAST, FIRST, MI.I)  DOCKET #  DATE OF SENTENCE
+
+**Rule 3.992(b), Section II, Additional Offenses:**
+> II. ADDITIONAL OFFENSE(S):
+> DOCKET# / FEL/MM DEGREE / F.S.# / OFFENSE LEVEL / QUALIFY A S C R / COUNTS / POINTS / TOTAL
+> DESCRIPTION____
+> (Level - Points: M=0.2, 1=0.7, 2=1.2, 3=2.4, 4=3.6, 5=5.4, 6=18, 7=28, 8=37, 9=46, 10=58)
+> II. ____
+
+Five offense rows on the supplemental page.
+
+**Rule 3.992(b), Section IV, Prior Record:**
+> IV. PRIOR RECORD
+> FEL/MM DEGREE / F.S.# / OFFENSE LEVEL / QUALIFY: A S C R / DESCRIPTION / NUMBER / POINTS / TOTAL
+> (Level = Points: M=0.2, 1=0.5, 2=0.8, 3=1.6, 4=2.4, 5=3.6, 6=9, 7=14, 8=19, 9=23, 10=29)
+> IV. ____
+
+Six prior-record rows on the supplemental page.
+
+**Rule 3.992(b), Reasons for Departure, recorded whole, all fifteen lines:**
+> REASONS FOR DEPARTURE - MITIGATING CIRCUMSTANCES
+> (reasons may be checked here or written on the scoresheet)
+> [ ] Legitimate, uncoerced plea bargain.
+> [ ] The defendant was an accomplice to the offense and was a relatively minor participant in the criminal conduct.
+> [ ] The capacity of the defendant to appreciate the criminal nature of the conduct or to conform that conduct to the requirements of law was substantially impaired.
+> [ ] The defendant requires specialized treatment for a mental disorder that is unrelated to substance abuse or addiction, or for a physical disability, and the defendant is amenable to treatment.
+> [ ] The need for payment of restitution to the victim outweighs the need for a prison sentence.
+> [ ] The victim was an initiator, willing participant, aggressor, or provoker of the incident.
+> [ ] The defendant acted under extreme duress or under the domination of another person.
+> [ ] Before the identity of the defendant was determined, the victim was substantially compensated.
+> [ ] The defendant cooperated with the State to resolve the current offense or any other offense.
+> [ ] The offense was committed in an unsophisticated manner and was an isolated incident for which the defendant has shown remorse.
+> [ ] At the time of the offense the defendant was too young to appreciate the consequences of the offense.
+> [ ] The defendant is to be sentenced as a youthful offender.
+> [ ] The defendant is amenable to the services of a postadjudicatory treatment-based drug court program and is otherwise qualified to participate in the program.
+> [ ] The defendant was making a good faith effort to obtain or provide medical assistance for an individual experiencing a drug-related overdose.
+> [ ] Other Reason(s): ____
+> Pursuant to 921.0026(3) the defendant's substance abuse or addiction does not justify a downward departure from the lowest permissible sentence, except for the provisions of s. 921.0026(2)(m).
+> Effective Date: For offenses committed under the Criminal Punishment Code effective for offenses committed on or after October 1, 1998, and subsequent revisions.
+
+### The diff against F.S. 921.0024(1)(a)
+
+SENTENCING-WORKSHEET-CONCEPT.md Section 8 machine item 2, and its Section 12
+open question 1, "the single question most likely to change the plan": if the
+form and the statute disagree, the work stops being transcription and becomes
+interpretation, and the tool should not be built.
+
+Statute text for this diff re-fetched 2026-08-24 from
+https://www.flsenate.gov/Laws/Statutes/2025/921.0024 (2025 Florida Statutes),
+the same URL the audited whole-section table `fs-921-0024.ts` rests on.
+
+**VERDICT: they agree. No contradiction on any value the tool would render.**
+
+**The four point grids, identical in every cell:**
+
+| Grid | F.S. 921.0024(1)(a) | Rule 3.992 (corrected) |
+|---|---|---|
+| Primary Offense | 10=116, 9=92, 8=74, 7=56, 6=36, 5=28, 4=22, 3=16, 2=10, 1=4; **no M row** | same, ascending; **no M row** |
+| Additional Offenses | 10=58, 9=46, 8=37, 7=28, 6=18, 5=5.4, 4=3.6, 3=2.4, 2=1.2, 1=0.7, M=0.2 | same |
+| Victim Injury | 2nd degree murder-death 240; Death 120; Severe 40; Moderate 18; Slight 4; Sexual penetration 80; Sexual contact 40 | same values; labels abbreviated to "2nd Degree Murder", "Sex Penetration", "Sex Contact" |
+| Prior Record | 10=29, 9=23, 8=19, 7=14, 6=9, 5=3.6, 4=2.4, 3=1.6, 2=0.8, 1=0.5, M=0.2 | same |
+
+**The eight scalars, identical:** legal status 4; community sanction 6; with new
+felony conviction 12; violent felony offender of special concern without a new
+felony conviction 12; that offender with a new felony conviction 24; prior
+serious felony 30; firearm 18; semiautomatic firearm or machine gun 25.
+
+**The eight multipliers, identical:** aggravated animal cruelty 1.25; drug
+trafficking 1.5; specified justice system personnel 2.5 / 2.0 / 1.5; grand theft
+of a motor vehicle 1.5; fleeing or eluding 1.5; criminal gang offense 1.5;
+domestic violence in the presence of a related child 1.5; adult-on-minor sex
+offense 2.0.
+
+**The three thresholds, identical:** 44 (nonstate prison sanction at or below),
+the `(total - 28) x .75` computation above it, and 363 (life may be imposed).
+
+**Six differences, all structural, none a contradiction. Recorded individually
+because "they agree" is a conclusion and the reader is entitled to the working.**
+
+- **D1. Prior capital felony is expressed differently and computes identically.**
+  The statute's face carries a separate PRIOR CAPITAL FELONY line in the
+  subtotal stack, and its (1)(b) key directs that points "shall be added to the
+  subtotal sentence points of the offender equal to twice the number of points
+  the offender receives for the primary offense and any additional offense." The
+  form has no such line; it instead prints "Prior capital felony triples Primary
+  Offense points" in Section I and "triples Additional Offense points" in Section
+  II. Adding twice P+A to a subtotal that already contains P+A yields 3(P+A),
+  which is what tripling I and II yields. Both leave victim injury and prior
+  record unmultiplied. Arithmetically equivalent, verified term by term.
+- **D2. Ordering differs in the subtotal stack.** The statute runs prior serious
+  felony, prior capital felony, firearm; the form runs VII firearm, VIII prior
+  serious felony. Addition commutes.
+- **D3. The four designations sit in different places.** The statute's face lists
+  PRISON RELEASEE REOFFENDER, VIOLENT CAREER CRIMINAL, HABITUAL VIOLENT OFFENDER
+  and HABITUAL OFFENDER, each "(no)(yes)", inside the scoring stack between
+  SUBTOTAL and TOTAL SENTENCE POINTS. The form places them on page 3 as
+  post-sentence checkboxes under "Please check if sentenced as", and adds a fifth
+  box, "Mandatory Minimum Applies", that the statute's face does not carry.
+  Neither document attaches a point value to any of them.
+- **D4. The intermediate aggregations are labelled differently.** The statute
+  totals TOTAL OFFENSE SCORE (I+II+III) and TOTAL PRIOR RECORD SCORE (IV)
+  separately; the form prints one "Page 1 Subtotal" over I+II+III+IV. Same
+  components, same sum.
+- **D5. Two multipliers are named differently.** The statute's face labels read
+  "LAW ENF. PROTECT." and "DRUG TRAFFICKER"; the form reads "Specified Justice
+  System Personnel" and "Drug Trafficking". The form's names track the statute's
+  own (1)(b) key headings more closely than the statute's face labels do.
+- **D6. The form carries material sourced outside 921.0024(1)(a).** The
+  administrative header fields 1 through 12; the A/S/C/R qualifier boxes; the
+  22-point cross-reference to s. 775.082(10); the drug-court sentence citing
+  Florida Statute 948.20 and 397.334(3); *State v. Gabriel*, 314 So. 3d 1243
+  (Fla. 2021); the TOTAL SENTENCE IMPOSED block; the judge's signature block; and
+  the supplemental page's mitigating-circumstances list, which is s. 921.0026.
+  These are additions the rule makes, not disagreements with the statute. **A
+  tool rendering this form may not describe any of them from this record**, which
+  covers the form's face and not those sources. s. 775.082(10), s. 948.20, s.
+  397.334(3), s. 921.0026 and *Gabriel*: NOT FETCHED.
+
+**The one contradiction found anywhere in this work was internal to the form's
+own publication history, and the January 2026 correction resolves it.** Recorded
+above under "What the January 2026 correction changed".

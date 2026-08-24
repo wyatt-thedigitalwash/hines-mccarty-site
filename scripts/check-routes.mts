@@ -138,6 +138,29 @@ for (const [file, served] of Object.entries(APP_METADATA))
   if (existsSync(join("src/app", file))) routes.add(served);
 const assets = new Set(publicFiles());
 
+/**
+ * FORBIDDEN EDGES. A link that resolves can still be wrong on the merits.
+ *
+ * Sweeps A and B ask whether a destination exists. Neither can ask whether this
+ * PAGE should be pointing at it, and for one link on this site the answer is
+ * permanently no: the Criminal Punishment Code ranks Florida offenses, so the
+ * offense-level instrument says nothing about a federal charge. That link would
+ * resolve, render, and mislead, and it stays wrong after the tool publishes.
+ * The concept document Section 9 records it as a standing rule rather than a
+ * launch condition, which is exactly the kind of rule that decays into a
+ * comment unless something runs it.
+ */
+const FORBIDDEN_EDGES: { to: string; fromPrefix: string; why: string }[] = [
+  {
+    to: "/resources/tools/offense-level-comparison",
+    fromPrefix: "/federal-criminal-defense",
+    why:
+      "the Criminal Punishment Code applies to Florida offenses only, so the " +
+      "offense-level instrument speaks to nothing on a federal charge page. " +
+      "This is wrong on the merits and stays wrong after the tool publishes.",
+  },
+];
+
 /** Is this href something that exists? */
 function resolves(href: string): boolean {
   const path = href.split("#")[0].split("?")[0];
@@ -191,17 +214,36 @@ console.log("Route-resolution self-tests");
       !wouldFail(false, "/sentencing/florida-criminal-punishment-code"));
   }
 
+  // Sweep C. The rule is a standing one, so its test plants the edge rather
+  // than waiting for someone to write it for real.
+  {
+    const violates = (from: string, href: string) =>
+      FORBIDDEN_EDGES.some((e) => href === e.to && from.startsWith(e.fromPrefix));
+    const TOOL = "/resources/tools/offense-level-comparison";
+    t("PLANTED: a federal charge page linking the offense-level tool FAILS",
+      violates("/federal-criminal-defense/wire-fraud", TOOL));
+    t("a STATE charge page linking the same tool is allowed",
+      !violates("/criminal-defense/grand-theft-defense", TOOL));
+    t("a federal page linking something else is allowed",
+      !violates("/federal-criminal-defense/wire-fraud", "/contact"));
+  }
+
   if (!ok) {
     console.log("\nRoute check FAILED (self-tests).");
     process.exit(1);
   }
 }
 
+// ---------------------------------------------------------------- refs
+// Hoisted out of sweep A so sweep C can ask a different question of the same
+// edges: A asks whether the destination exists, C asks whether this origin is
+// allowed to point at it.
+type Ref = { from: string; shape: string; label: string; href: string };
+const refs: Ref[] = [];
+
 // ---------------------------------------------------------------- A. data
 console.log("\nA. Hrefs in the page data");
 {
-  type Ref = { from: string; shape: string; label: string; href: string };
-  const refs: Ref[] = [];
   for (const c of charges) {
     for (const g of c.relatedGuides ?? [])
       refs.push({ from: chargeHref(c), shape: "relatedGuides", label: g.label, href: g.href });
@@ -250,6 +292,8 @@ console.log("\nA. Hrefs in the page data");
 }
 
 // ---------------------------------------------------------------- B. rendered
+/** page path -> every internal href it renders. Populated only with --rendered. */
+const renderedEdges = new Map<string, Set<string>>();
 console.log("\nB. Hrefs in the built HTML");
 if (!RENDERED) {
   console.log(
@@ -285,6 +329,8 @@ if (!RENDERED) {
       if (!href.startsWith("/")) continue;
       if (href.startsWith("/_next/")) continue;
       checked++;
+      if (!renderedEdges.has(page)) renderedEdges.set(page, new Set());
+      renderedEdges.get(page)!.add(href.split("#")[0].split("?")[0]);
       if (resolves(href)) continue;
       if (!dead.has(href)) dead.set(href, new Set());
       dead.get(href)!.add(page);
@@ -300,6 +346,47 @@ if (!RENDERED) {
   if (!dead.size)
     console.log(
       `  ok    ${checked} internal hrefs across ${files.length} built page(s) all resolve`,
+    );
+}
+
+// ---------------------------------------------------------------- C. forbidden
+console.log("\nC. Links that resolve but must not exist from where they are");
+{
+  const violates = (from: string, href: string) =>
+    FORBIDDEN_EDGES.filter(
+      (e) => href === e.to && from.startsWith(e.fromPrefix),
+    );
+
+  let bad = 0;
+  // Data side. Runs on every invocation, including prebuild.
+  for (const r of refs)
+    for (const e of violates(r.from, r.href.split("#")[0].split("?")[0])) {
+      bad++;
+      fail(
+        `${r.from} [${r.shape}] "${r.label}" links ${e.to}. Pages under ` +
+          `${e.fromPrefix} must not: ${e.why}`,
+      );
+    }
+  // Rendered side. Catches the same edge hardcoded in a component, which the
+  // data side cannot see. Only meaningful with --rendered.
+  for (const [page, hrefs] of renderedEdges)
+    for (const href of hrefs)
+      for (const e of violates(page, href)) {
+        bad++;
+        fail(
+          `the built page ${page} renders a link to ${e.to}. Pages under ` +
+            `${e.fromPrefix} must not: ${e.why}`,
+        );
+      }
+
+  if (!bad)
+    console.log(
+      `  ok    ${FORBIDDEN_EDGES.length} forbidden edge rule(s) hold across ` +
+        `${refs.length} data href(s)` +
+        (RENDERED
+          ? ` and ${[...renderedEdges.values()].reduce((n, s) => n + s.size, 0)} rendered href(s)`
+          : `; the rendered side is DEFERRED to postbuild, so a hardcoded ` +
+            `violation would not be caught by this run`),
     );
 }
 

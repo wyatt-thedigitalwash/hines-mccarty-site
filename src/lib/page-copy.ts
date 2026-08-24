@@ -17,6 +17,7 @@
  * revisited whenever the page schema grows.
  */
 import type { ChargePage, GuidePage, Tool } from "./site.ts";
+import { TOOL_PAGE_COPY } from "./tools/index.ts";
 
 /**
  * Fields rendered to a reader, as a checklist.
@@ -156,12 +157,13 @@ export function guideCopy(g: GuidePage): string[] {
 }
 
 /**
- * A tool's renderable copy TODAY is its card: label, title, description,
- * rendered by the home carousel and the Resources pages. D29 puts tools in the
- * measured registry precisely so this surface is inside the banned-term and
- * em-dash rails; when a tool page is built, its page copy joins here rather
- * than growing a second extractor.
+ * A tool's renderable copy: its card (label, title, description), rendered by
+ * the home carousel and the Resources pages, PLUS the authored copy of its
+ * page where one is built. D29 puts tools in the measured registry precisely
+ * so both surfaces sit inside the banned-term, em-dash and duplication rails.
  */
 export function toolCopy(t: Tool): string[] {
-  return [t.label, t.title, t.description].filter((x) => x.length > 0);
+  return [t.label, t.title, t.description, ...(TOOL_PAGE_COPY[t.href] ?? [])].filter(
+    (x) => x.length > 0,
+  );
 }

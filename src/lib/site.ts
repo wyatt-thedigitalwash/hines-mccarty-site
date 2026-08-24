@@ -3617,11 +3617,10 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   //
   // What this page does NOT reproduce is the cross-statute offense-level
   // comparison. That is the Layer 2 comparison instrument's job (TOOLS.md
-  // item 1).
-  // [NEEDS: link to the offense-level comparison instrument once it ships]
-  // It is not linked today because it does not exist, and shipping a pointer
-  // to a page that is not there is the dead-link problem the 33-day guide
-  // entry in REVIEW-QUEUE.md also guards against.
+  // item 1). It SHIPPED 2026-08-24 and is linked below; the [NEEDS] marker
+  // that stood here is resolved. The condition it was waiting on was never a
+  // date, it was route existence, and `check:routes` is what turned that from
+  // a note into something enforced.
   // ---------------------------------------------------------------------
   "state/grand-theft-defense": {
     title: "Grand theft charges in Hillsborough County",
@@ -3776,11 +3775,17 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       { question: "Can a grand theft charge be sealed later?", source: "drafted", answer: "Theft under Statute 812.014 is not among the offenses Statute 943.0584(2) bars permanently. Sealing does not always start with a petition: Statute 943.0595(2)(a) directs the department to automatically seal some criminal history records, including where an indictment, information, or other charging document was not filed or issued in the case, and Statute 943.0595(3)(a) has the clerk of the court transmit a certified copy of the disposition for that to happen. That route reaches only a record that does not result from a charging document for a forcible felony as defined in Statute 776.08 or for an offense enumerated in Statute 943.0435(1)(h)1.a.(I). Where sealing is by petition, whether a particular record qualifies turns on the cumulative conditions in Statute 943.059(1), and on a certificate of eligibility from the department under 943.059(2). Note that 943.0584(1) defines conviction to include a plea regardless of whether adjudication is withheld." },
       { question: "How long does a theft case take?", source: "drafted", answer: "The rules set outer limits rather than a schedule. First appearance is within 24 hours of arrest under Rule 3.130(a). The State then has 60 days to file charges for someone on pretrial release under Rule 3.134(b), or 30 days for someone in custody under Rule 3.134(a), each counted from the arrest or from service of a capias. If the State has not filed by then, the court orders release on recognizance shortly after, on the 63rd day or the 33rd, and the rule attaches that release to the State not having filed formal charges by the date named. Once formally charged, the felony speedy trial period is 175 days under Rule 3.191(a), or 60 days on a demand under Rule 3.191(b)." },
     ],
-    // [NEEDS: Layer 2 targets from the brief] The 33-day correction guide, the
-    // third degree felony sentencing page, and the offense-level comparison
-    // instrument are all named in W1-03 but none has a route yet. Linking to
-    // them now would ship broken links, so the generic hub stands until they do.
-    relatedGuides: [{ label: "Tools and guides", href: "/resources/tools-and-guides" }],
+    // [NEEDS: Layer 2 targets from the brief] W1-03 names three. The
+    // offense-level comparison instrument shipped 2026-08-24 and is linked
+    // below. The 33-day correction guide and the third degree felony
+    // sentencing page still have no route, so the generic hub stands for them.
+    relatedGuides: [
+      {
+        label: "How Florida ranks offenses: degree compared to offense level",
+        href: "/resources/tools/offense-level-comparison",
+      },
+      { label: "Tools and guides", href: "/resources/tools-and-guides" },
+    ],
   },
 
   // ---------------------------------------------------------------------
@@ -3842,7 +3847,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Charged as theft, the tiers are the ordinary ones in Statute 812.014. Charged as organized fraud under Statute 817.034(4)(a), there are three: an aggregate value of less than $20,000 is a felony of the third degree, $20,000 or more but less than $50,000 is a felony of the second degree, and $50,000 or more is a felony of the first degree. Those cut lines are not the theft cut lines, and $50,000 is the clearest example: a first degree felony as organized fraud, a second degree felony as theft.",
           "The maximums behind those degrees come from Statute 775.082: up to 5 years for a third degree felony, up to 15 for a second, and up to 30 for a first. A maximum is a ceiling rather than a prediction. Statute 775.082(10) sets a floor in the other direction for some third degree felonies: where the offense is a third degree felony that is not a forcible felony as defined in Statute 776.08, excluding any third degree felony violation under chapter 810, and the total sentence points under Statute 921.0024 are 22 points or fewer, the court must impose a nonstate prison sanction, unless it makes written findings that such a sanction could present a danger to the public, in which case it may impose a state prison sentence.",
           "Statute 817.034 also carries two features that change the arithmetic rather than the tier. Under 817.034(4)(b) each act of communication made in furtherance of the scheme is a separate offense, graded by the value obtained or sought in that communication. Under 817.034(4)(e), notwithstanding any contrary provisions of law, separate judgments and sentences for organized fraud under paragraph (a) and for each offense of communications fraud under paragraph (b) may be imposed when all of those offenses involve the same scheme to defraud. That is what the statute authorizes, not a forecast of how any case will be charged.",
-          "The offense levels diverge too, and not always in the direction people expect. A $25,000 accusation is a second degree felony either way, at offense level 6 as theft and level 5 as organized fraud. The degree is identical, the scoresheet input is not, and the scoresheet is what the sentence is calculated from. The full value-to-offense-level comparison belongs in one place rather than being reproduced on each page that touches it.",
+          "The offense levels diverge too, and not always in the direction people expect. A $25,000 accusation is a second degree felony either way, at offense level 6 as theft and level 5 as organized fraud. The degree is identical, the scoresheet input is not, and the scoresheet is what the sentence is calculated from. The full value-to-offense-level comparison belongs in one place rather than being reproduced on each page that touches it, and that place is the offense level page linked at the end of this one.",
         ],
       },
       {
@@ -3940,8 +3945,16 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     ],
     // [NEEDS: Layer 2 targets from the brief] W1-02 names a professional
     // license guide and the 33-day correction guide. Neither has a route yet,
-    // so the generic hub stands rather than shipping a broken link.
-    relatedGuides: [{ label: "Tools and guides", href: "/resources/tools-and-guides" }],
+    // so the generic hub stands for those two. The offense-level comparison is
+    // the destination for the "belongs in one place" sentence in the value
+    // section, which named a place that did not exist until 2026-08-24.
+    relatedGuides: [
+      {
+        label: "How Florida ranks offenses: degree compared to offense level",
+        href: "/resources/tools/offense-level-comparison",
+      },
+      { label: "Tools and guides", href: "/resources/tools-and-guides" },
+    ],
   },
   // ---------------------------------------------------------------------
   // MONEY LAUNDERING, state. From docs/research/briefs/W2-05-money-laundering.md.
@@ -7717,6 +7730,24 @@ export const tools: Tool[] = [
   // the after-an-arrest guide, where the cash versus surety cost comparison
   // survives as the only interactive element. Do not re-add a row here without
   // a new decision entry (D31 makes that mandatory, not optional).
+  {
+    label: "Offense Level Comparison",
+    kind: "Checker",
+    title: "How Florida Ranks Offenses: Degree Compared to Offense Level",
+    description:
+      "See how the offense severity ranking chart scores a charge, and why the degree on a charging document does not tell you the level.",
+    // Route resolved 2026-08-24 by the rule in the concept document Section 9:
+    // a tool that is the hub of a topical silo lives at that silo's root, and
+    // otherwise under /resources/tools/. The /sentencing/ silo does not exist
+    // (no src/app/sentencing directory; the calculator row pointing into it is
+    // itself unpublished), so the second branch applies. If that silo is later
+    // built, moving here costs a redirect and needs a decision entry.
+    href: "/resources/tools/offense-level-comparison",
+    // Stays false until C1 through C8 are dispositioned by a person. The page
+    // renders under noindex meanwhile, and `check:routes` sweep B is what makes
+    // "unpublished" a checkable property rather than a promise.
+    published: false,
+  },
   {
     label: "Seal & Expunge Checker",
     kind: "Checker",

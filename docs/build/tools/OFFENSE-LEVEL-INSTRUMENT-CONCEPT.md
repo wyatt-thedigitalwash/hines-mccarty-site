@@ -173,8 +173,14 @@ and is reproducible: filter the rows by cite prefix or by degree and read the
    SENTENCING-BOND-CONCEPT.md B.3, which had listed five.
 
 2. **"Every drug trafficking tier starts at level 7" needs its statute boundary
-   stated.** The claim is true of `893.135(...)`, 47 chart rows at levels 7, 8
-   and 9. It is false of any filter written as a prefix match on `893.135`,
+   stated.** The claim is true of the section, **48** chart rows at levels 7, 8
+   and 9. CORRECTED 2026-08-24 during the build: this document said 47, because
+   the filter used to verify it was `/^893\.135\(/`, which requires an opening
+   parenthesis and therefore drops the bare `893.135` row, "Attempted capital
+   trafficking offense", first degree felony, level 9. The count was wrong in
+   the safe direction and the levels were unaffected, but a verification filter
+   that is narrower than the claim it verifies is the same defect as one that is
+   wider. It is false of any filter written as a prefix match on `893.135`,
    which also catches **F.S. 893.1351**, a different offense (ownership, lease,
    or rental for trafficking or manufacturing) whose (1) sits at **level 5**.
    The build must match on the section boundary, and the page must not present
@@ -256,9 +262,9 @@ research.** That is what distinguishes this tool from the other two.
 
 | Field | Value |
 |---|---|
-| Route | **Open.** Recommended `/sentencing/offense-levels` if the sentencing silo is built, otherwise `/resources/tools/offense-level-comparison`. See below. |
-| Registry entry | **Does not exist.** No `Tool` row in `src/lib/site.ts` names this asset. |
-| Copy surface | `toolCopy` covers the card only. A page surface must be added. |
+| Route | **RESOLVED 2026-08-24** to `/resources/tools/offense-level-comparison`, by the rule below rather than by preference: the `/sentencing/` silo is not built (no `src/app/sentencing`), so the second branch applies. |
+| Registry entry | **Built 2026-08-24.** `Tool` row in `src/lib/site.ts`, `published: false` until C1 to C8 are dispositioned. |
+| Copy surface | `toolCopy`, extended 2026-08-24 to append `TOOL_PAGE_COPY[href]` from `src/lib/tools/index.ts`. It covered the card only, which was correct until a tool had a page and silently stopped being correct the moment one did. |
 | Linked from | The charge pages carrying an offense-level column, and specifically `/criminal-defense/grand-theft-defense` and `/white-collar-defense/embezzlement` under the C9 ruling. **Not before the route exists**, which `check:routes` now enforces. |
 | Deliberately not linked from | **Every federal page.** Standing rule in plan Section 4.2: the Criminal Punishment Code does not apply to federal cases, so the link is wrong on the merits and stays wrong after C1-C8 clear. |
 

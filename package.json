@@ -14,10 +14,11 @@
     "prewrite": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-unverified.mts",
     "check:claims": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-claims.mts",
     "check:rendered": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-rendered.mts",
-    "postbuild": "npm run check:rendered && npm run check:routes:rendered",
+    "postbuild": "npm run check:rendered && npm run check:routes:rendered && npm run check:offense-level",
     "check:provenance": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-provenance.mts",
     "check:routes": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-routes.mts",
-    "check:routes:rendered": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-routes.mts --rendered"
+    "check:routes:rendered": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-routes.mts --rendered",
+    "check:offense-level": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-offense-level.mts"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",
