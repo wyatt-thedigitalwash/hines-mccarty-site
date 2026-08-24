@@ -2328,6 +2328,107 @@ Fetched 2026-08-20; page carries "Text contains those laws in effect on August 1
 > (2) in any other circumstance, release or detain the person under section 3142.
 
 **Fed. R. Crim. P. 5, whole rule, (a) through (g)**  
+READ-WHOLE: Administrative Order S-2025-063 (Thirteenth Judicial Circuit, Hillsborough County)
+https://www.fljud13.org/Portals/0/AO/DOCS/S-2025-063.pdf
+
+Recorded whole: the preamble, the adoption paragraph, sections 1 through 6, both footnotes, the fourteen crime categories under section 2.G, and the section 4 schedule with all nine rows and their amounts. Six pages, read as a rendered document.
+
+WHY THIS RECORD EXISTS. The order was previously in this project only as excerpts inside one research brief (ST-03-battery.md Section 7.13), and under D26 a partial record supports no claim beyond what it quotes. The after-an-arrest guide therefore described release through the rules alone and stated nothing about which charges the schedule covers or what any amount is. This closes that marker. It does NOT revive the bond estimator: DECISIONS.md D32 killed that tool, and every reason it gives is visible in the text below.
+
+Fetched 2026-08-24 with curl to ao.pdf (1,188,658 bytes, PDF 1.6). METHOD, and it matters here: `pdftotext -layout` produced a text layer whose roman-numeral labels are corrupt, rendering i as "1", ii as "11" and iii as "111", and splitting "944.4731" into "944.4 731". A verbatim record taken from that extraction would have been wrong in the enumeration, which is the part a reader counts. The passages below were therefore transcribed from a visual render of all six pages, and then every one of them was checked programmatically against the independent pdftotext extraction; 40 passages, all verified. The named extraction artifacts were corrected on the comparison side only.
+
+TWO DEFECTS IN THE ORDER'S OWN ENUMERATION, recorded rather than repaired. Under section 2.G the label **viii. appears twice**, once for "Child abuse or aggravated child abuse" and again for "Arson; riot, aggravated riot...", and the label **xii. does not appear at all**, the list running xi. then xiii. There are fourteen items and fourteen labels, so the count coincidentally reconciles while two labels are wrong. This is the authority being defective rather than the record: both are preserved below exactly as published. Any page that cites an item by roman numeral is citing an ambiguous label, so cite the text.
+
+NOT RECORDED HERE: nothing from this order. It is recorded whole. What is still missing for the after-an-arrest guide is the separate STATE.md Q14 item, the human-verified Hillsborough logistics, which this order does not contain.
+
+> IN THE THIRTEENTH JUDICIAL CIRCUIT, HILLSBOROUGH COUNTY, FLORIDA
+> ADMINISTRATIVE ORDER S-2025-063 (Supersedes Administrative Order S-2024-083)
+> UNIFORM STATEWIDE BOND SCHEDULE
+> Under Florida Statutes section 903.011, trial court chief judges may adopt the statewide bond schedule adopted by the Florida Supreme Court, may increase the monetary bond applicable to an offense that is included in the uniform statewide bond schedule, or may petition the Florida Supreme Court for approval of a local bond schedule that sets a lower bond amount than that required by the uniform statewide bond schedule.
+> [footnote 1] Administrative Order AOSC25-69.
+> By the power vested in the chief judge under article V, section 2(d), Florida Constitution; Florida Statutes sections 43.26 and 903.011; and Florida Rule of General Practice and Judicial Administration 2.215(b)(2), it is ORDERED that the uniform statewide bond schedule adopted by the Florida Supreme Court is hereby adopted for the Thirteenth Judicial Circuit without change effective January 1, 2026, through December 31, 2026.
+> 1. General
+> The following bail bond schedule is established so that persons arrested for certain criminal offenses may be released on a bail bond prior to the person's first appearance hearing. This bond schedule applies only to the booking officer, not to judges. This schedule does not bind any judge conducting first appearance hearings or bail bond hearings. All persons brought before a judge for a first appearance hearing or any future proceeding are entitled by law to an individualized inquiry, based on the specific circumstances of the arrestee, to determine whether the arrestee should be released and the conditions of release. When determining bail, judges should consider the criteria set out in Florida Statutes sections 903.011(6) and 903.046 as well as Florida Rule of Criminal Procedure 3.131.
+> 2. First Appearance Hearing Required
+> The following persons may not be released before his or her first appearance hearing, and the bond schedule enumerated in section 4 of this administrative order does not apply, if the person meets any of the following criteria:
+> [footnote 2] Florida Statutes section 903.011(6).
+> A. The person was, at the time of arrest for any felony, on pretrial release, probation, or community control in this state or any other state;
+> B. The person was, at the time of arrest, designated as a sexual offender or sexual predator in this state or any other state;
+> C. The person was arrested for violating a protective injunction;
+> D. The person was, at the time of arrest, on release from supervision under s. 947.1405, s. 947.146, s. 947.149, or s. 944.4731;
+> E. The person has, at any time before the current arrest, been sentenced pursuant to s. 775.082(9) or s. 775.084 as a prison releasee reoffender, habitual violent felony offender, three-time violent felony offender, or violent career criminal;
+> F. The person has been arrested three or more times in the 6 months immediately preceding his or her arrest for the current offense; or
+> G. The person's current offense of arrest is for one or more of the following crimes:
+> i. A capital felony, life felony, felony of the first degree, or felony of the second degree;
+> ii. A homicide under chapter 782; or any attempt, solicitation, or conspiracy to commit a homicide;
+> iii. Assault in furtherance of a riot or an aggravated riot; felony battery; domestic battery by strangulation; domestic violence, as defined in section 741.28; stalking; mob intimidation; assault or battery on a law enforcement officer; assault or battery on juvenile probation officer, or other staff of a detention center or commitment facility, or a staff member of a commitment facility, or health services personnel; assault or battery on a person 65 years of age or older; robbery; burglary; carjacking; or resisting an officer with violence;
+> iv. Kidnapping, false imprisonment, human trafficking, or human smuggling;
+> v. Possession of a firearm or ammunition by a felon, violent career criminal, or person subject to an injunction against committing acts of domestic violence, stalking, or cyberstalking;
+> vi. Sexual battery; indecent, lewd, or lascivious touching; exposure of sexual organs; incest; luring or enticing a child; or child pornography;
+> vii. Abuse, neglect, or exploitation of an elderly person or disabled adult;
+> viii. Child abuse or aggravated child abuse;
+> viii. Arson; riot, aggravated riot, inciting a riot, or aggravated inciting a riot; or a burglary or theft during a riot;
+> ix. Escape; tampering or retaliating against a witness, victim, or informant; destruction of evidence; or tampering with a jury;
+> x. Any offense committed for the purpose of benefitting, promoting, or furthering the interests of a criminal gang;
+> xi. Trafficking in a controlled substance, including conspiracy to engage in trafficking in a controlled substance;
+> xiii. Racketeering; or
+> xiv. Failure to appear at required court proceedings while on bail.
+> Additionally, Florida Rule of Criminal Procedure 3.132(a) prohibits a person arrested for a dangerous crime listed in Florida Statutes section 907.041 from being released from jail prior to his or her first appearance.
+> Furthermore, Florida Statutes section 907.041(6)(b) prohibits an unauthorized alien who is arrested for committing a forcible felony from being released until he or she appears for a first appearance hearing.
+> In accordance with Florida Statutes section 903.047(1)(a) and Florida Rule of Criminal Procedure 3.131(a), an arrested person released from jail before trial must refrain from criminal activity of any kind and must refrain from any contact of any type with the victim, except through pretrial discovery in accordance with the Florida Rules of Criminal Procedure. A violation of either of these conditions of pretrial release subjects the arrestee to revocation of bond.
+> Each crime of arrest requires a separate bond in accordance with Florida Statutes section 903.02(4) and Florida Rule of Criminal Procedure 3.131(b)(2).
+> 3. Warrants
+> Bail for persons arrested on a violation of probation warrant or a failure to appear warrant will be set in the amount provided for in the warrant itself. If the violation of probation warrant or failure to appear warrant is silent as to a bail bond amount, then there will be no bond, pending the arrested person's next appearance before the judge assigned to handle the violation of probation or failure to appear matter. Bail for arrest warrants will be set in the amount provided for in the warrant itself. If the arrest warrant is silent as to a bail bond amount, then the bail bond will be set in accordance with the provisions of this administrative order.
+> 4. Schedule
+> The bond schedule below is effective from January 1, 2026, through December 31, 2026.
+> | CRIME FOR WHICH PERSON IS ARRESTED | BOND AMOUNT |
+> | Third degree felony that involves any amount of force or threat of force against a person. | $5,000 |
+> | Third degree felony that does not involve any force or threat of force against a person. | $2,500 |
+> | First degree misdemeanor or an ordinance punishable like a first degree misdemeanor that involves any amount of force or threat of force against a person. | $1,000 |
+> | First degree misdemeanor or an ordinance punishable like a first degree misdemeanor that does not involve any amount of force or threat of force against a person. | $500 |
+> | Second degree misdemeanor or an ordinance punishable like a second degree misdemeanor that involves any amount of force or threat of force against a person. | $250 |
+> | Second degree misdemeanor or an ordinance punishable like a second degree misdemeanor that does not involve any amount of force or threat of force against a person. | $150 |
+> | Driving under the influence or boating under the influence - first degree misdemeanor offenses | $1,000 |
+> | Driving under the influence or boating under the influence - second offense, second degree misdemeanor offenses | $750 |
+> | Driving under the influence or boating under the influence - first offense, second degree misdemeanor offenses | $500 |
+> 5. Previous Administrative Order Superseded
+> This administrative order supersedes Administrative Order S-2024-083 (Statewide Uniform Bond Schedule).
+> 6. Effective Date
+> This administrative order is effective January 1, 2026, through December 31, 2026.
+> ENTERED on December 29, 2025. Christopher C. Sabella, Chief Judge
+
+READ-WHOLE: 18 U.S.C. 3553(a)
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3553&num=0&edition=prelim
+
+Recorded whole for subsection (a), the sentencing factors: the chapeau, paragraphs (1) through (7), and every subparagraph beneath them, being (2)(A) through (2)(D), (4)(A) and (4)(B), (4)(A)(i) and (ii), and (5)(A) and (5)(B). Eighteen subdivisions, one blockquote line each.
+
+WHY THIS RECORD EXISTS SEPARATELY FROM THE 3553(f) RECORD ABOVE. The safety-valve record near line 1038 covers subsection (f) only and says so. Subsection (a) was read whole for the audited tables but its text never entered this project's quotable record, so the federal-case-timeline guide named the provision and stopped rather than describing the factors from a reading nobody could check. This closes that marker and supersedes nothing: the (f) record stands.
+
+Fetched 2026-08-24 with curl from the Office of the Law Revision Counsel prelim edition; page carries "Text contains those laws in effect on August 23, 2026". Method: curl -sL to 3553.html (193,379 bytes), local tag strip and HTML unescape to 3553.txt (28,845 bytes), subsection (a) cut at the "(b) Application of Guidelines" boundary and emitted programmatically rather than retyped. Independently re-verified the same day against law.cornell.edu: five sentence-level spans drawn from the chapeau, (1), (2)(B), (6) and (7) are each contained in the second publisher's copy.
+
+ON THE TRAILING "1" IN (5)(B). It is a footnote reference in the source, not part of the statute. The OLRC footnote reads: "So in original. The period probably should be a semicolon." It is preserved in the quote below because this record is verbatim, and it is explained here so no page reproduces it as text or silently edits it away.
+
+NOT RECORDED HERE: subsections (b) through (e) and (g) through (i) of 3553. This record is subsection (a) whole and makes no claim about the rest of the section.
+
+> (a) Factors To Be Considered in Imposing a Sentence.-The court shall impose a sentence sufficient, but not greater than necessary, to comply with the purposes set forth in paragraph (2) of this subsection. The court, in determining the particular sentence to be imposed, shall consider-
+> (1) the nature and circumstances of the offense and the history and characteristics of the defendant;
+> (2) the need for the sentence imposed-
+> (A) to reflect the seriousness of the offense, to promote respect for the law, and to provide just punishment for the offense;
+> (B) to afford adequate deterrence to criminal conduct;
+> (C) to protect the public from further crimes of the defendant; and
+> (D) to provide the defendant with needed educational or vocational training, medical care, or other correctional treatment in the most effective manner;
+> (3) the kinds of sentences available;
+> (4) the kinds of sentence and the sentencing range established for-
+> (A) the applicable category of offense committed by the applicable category of defendant as set forth in the guidelines-
+> (i) issued by the Sentencing Commission pursuant to section 994(a)(1) of title 28, United States Code, subject to any amendments made to such guidelines by act of Congress (regardless of whether such amendments have yet to be incorporated by the Sentencing Commission into amendments issued under section 994(p) of title 28); and
+> (ii) that, except as provided in section 3742(g), are in effect on the date the defendant is sentenced; or
+> (B) in the case of a violation of probation or supervised release, the applicable guidelines or policy statements issued by the Sentencing Commission pursuant to section 994(a)(3) of title 28, United States Code, taking into account any amendments made to such guidelines or policy statements by act of Congress (regardless of whether such amendments have yet to be incorporated by the Sentencing Commission into amendments issued under section 994(p) of title 28);
+> (5) any pertinent policy statement-
+> (A) issued by the Sentencing Commission pursuant to section 994(a)(2) of title 28, United States Code, subject to any amendments made to such policy statement by act of Congress (regardless of whether such amendments have yet to be incorporated by the Sentencing Commission into amendments issued under section 994(p) of title 28); and
+> (B) that, except as provided in section 3742(g), is in effect on the date the defendant is sentenced.1
+> (6) the need to avoid unwarranted sentence disparities among defendants with similar records who have been found guilty of similar conduct; and
+> (7) the need to provide restitution to any victims of the offense.
+
 READ-WHOLE: Fed. R. Crim. P. Rule 5
 https://www.uscourts.gov/sites/default/files/document/federal-rules-of-criminal-procedure.pdf
 
