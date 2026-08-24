@@ -15,9 +15,27 @@
  */
 import { OFFENSE_LEVEL_PAGE_COPY } from "./offense-level.ts";
 import { CHARGE_LOOKUP_PAGE_COPY } from "./charge-lookup/copy.ts";
+import { WORKSHEET_PAGE_COPY } from "./sentencing-worksheet.ts";
 
 export const TOOL_PAGE_COPY: Record<string, string[]> = {
   "/resources/tools/offense-level-comparison": OFFENSE_LEVEL_PAGE_COPY,
+  /**
+   * The sentencing worksheet's AUTHORED copy.
+   *
+   * The FORM's own text is deliberately not registered here, on the same
+   * principle as the decoder's statutory dataset below. The cell labels, the
+   * printed point grids and the section headings are Rule 3.992's words, and
+   * the rails this map feeds include bare-word rules the form's own face would
+   * trip: the form prints "Prior serious felony" and "Severe" and "Slight" as
+   * victim-injury categories. Registering the form here would fail the build on
+   * the text of a Florida rule of criminal procedure.
+   *
+   * They are covered instead by `check:worksheet`, which sweeps every cell the
+   * form can emit for every selectable row, and which is where the assertions
+   * that actually matter for this tool live: that no total ever renders, and
+   * that every empty cell carries its label.
+   */
+  "/resources/tools/sentencing-worksheet": WORKSHEET_PAGE_COPY,
   /**
    * The charging-document decoder's AUTHORED copy.
    *

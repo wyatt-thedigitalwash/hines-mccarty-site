@@ -24,7 +24,7 @@
  * every probe below must LOCATE its target. A probe that matches nothing FAILS
  * rather than contributing zero comparisons and passing quietly.
  */
-import { readFileSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { STATUTES } from "../src/lib/statutes.ts";
 import {
   ADDITIONAL_OFFENSE_POINTS,
@@ -450,6 +450,325 @@ console.log("\nSelf-tests (planted violations must fire)");
   if (!selfOk) {
     console.log("\nWorksheet check FAILED (self-tests).");
     process.exit(1);
+  }
+}
+
+// ------------------------------------------------- Section 11 assertions
+/**
+ * T1 through T9 of SENTENCING-WORKSHEET-CONCEPT.md Section 11.
+ *
+ * T2 is the important one. It is the reframe expressed as something a machine
+ * can check, and it is exhaustive over the picker rather than sampled, because a
+ * sampled check on 623 rows is a check that has not run on 622 of them.
+ */
+console.log("\nSection 11 assertions");
+{
+  const worksheetMod = await import("../src/lib/tools/sentencing-worksheet.ts");
+  const {
+    CANNOT_KNOW,
+    FORBIDDEN_OUTPUT_STRINGS,
+    PICKER,
+    TOTAL_SENTENCE_POINTS,
+    VERSION_NOTE,
+    WORKSHEET_PAGE_COPY,
+    worksheet,
+  } = worksheetMod;
+
+  /** Every cell the form can emit, for one selection. */
+  const cellsFor = (row: (typeof PICKER)[number] | null) => {
+    const blocks = worksheet(row);
+    return blocks.flatMap((b) => [
+      ...b.rows.map((r) => ({ block: b.numeral, label: r.label, cell: r.cell })),
+      { block: b.numeral, label: `${b.numeral}. Total`, cell: b.total },
+    ]);
+  };
+
+  // ---- T8 first: it defines what the other assertions must iterate over.
+  {
+    const banned = PICKER.filter(
+      (r) =>
+        /capital/i.test(r.degree) || /misdemeanor|misdemeanour/i.test(r.degree),
+    );
+    if (banned.length)
+      fail(
+        `T8: the picker offers ${banned.length} row(s) it must not: ` +
+          banned.map((r) => `${r.cite} (${r.degree})`).join(", "),
+      );
+    else if (PICKER.length === 0)
+      fail("T8: the picker is empty, so every other assertion iterates nothing.");
+    else ok(`T8: picker has ${PICKER.length} rows, no capital felony and no misdemeanor`);
+    // Every row must carry a level in 1..10, or the primary grid has no cell.
+    const offGrid = PICKER.filter((r) => !(r.level >= 1 && r.level <= 10));
+    if (offGrid.length)
+      fail(`T8: ${offGrid.length} picker row(s) carry a level outside 1 through 10.`);
+  }
+
+  // ---- T2: no total or subtotal ever renders a value. EXHAUSTIVE.
+  {
+    let checked = 0;
+    let offenders = 0;
+    const states: (typeof PICKER)[number][] = [...PICKER];
+    for (const row of [null, ...states] as ((typeof PICKER)[number] | null)[]) {
+      for (const c of cellsFor(row)) {
+        if (!/Total$/i.test(c.label)) continue;
+        checked++;
+        if (c.cell.state !== "empty") {
+          offenders++;
+          if (offenders <= 3)
+            fail(
+              `T2: block ${c.block} total rendered state "${c.cell.state}" for ` +
+                `${row ? row.cite : "the blank form"}. A total must never render.`,
+            );
+        }
+      }
+    }
+    if (TOTAL_SENTENCE_POINTS.state !== "empty")
+      fail("T2: TOTAL SENTENCE POINTS is not empty. This is the box the tool exists not to fill.");
+    if (offenders) fail(`T2: ${offenders} total cell(s) rendered a value.`);
+    else
+      ok(
+        `T2: ${checked} total/subtotal cells across ${PICKER.length + 1} states, all empty (exhaustive, not sampled)`,
+      );
+  }
+
+  // ---- T4: every empty cell carries a label naming the fact it needs.
+  {
+    let bad = 0;
+    let seen = 0;
+    for (const row of [null, ...PICKER] as ((typeof PICKER)[number] | null)[]) {
+      for (const c of cellsFor(row)) {
+        if (c.cell.state !== "empty") continue;
+        seen++;
+        if (!c.cell.needs || c.cell.needs.trim().length < 8) {
+          bad++;
+          if (bad <= 3)
+            fail(
+              `T4: empty cell "${c.label}" in block ${c.block} has no usable label. ` +
+                `An unlabelled blank is a blank a reader can read as a zero.`,
+            );
+        }
+      }
+    }
+    if (!bad) ok(`T4: ${seen} empty cells checked, every one labelled`);
+  }
+
+  // ---- T1: every FILLED cell traces to the typed table or the chart.
+  {
+    let bad = 0;
+    let filledSeen = 0;
+    for (const row of PICKER) {
+      for (const c of cellsFor(row)) {
+        if (c.cell.state !== "filled") continue;
+        filledSeen++;
+        if (!c.cell.source || !c.cell.value) {
+          bad++;
+          fail(`T1: filled cell "${c.label}" carries no value or no source.`);
+          continue;
+        }
+        // The one NUMERIC filled cell. Its value must equal the typed grid.
+        if (c.label === "Points") {
+          const expected = String(
+            (PRIMARY_OFFENSE_POINTS as Record<number, number>)[row.level],
+          );
+          if (c.cell.value !== expected) {
+            bad++;
+            if (bad <= 3)
+              fail(
+                `T1: ${row.cite} at level ${row.level} rendered ${c.cell.value} points, ` +
+                  `but the typed Primary Offense grid says ${expected}.`,
+              );
+          }
+        }
+      }
+    }
+    if (!bad)
+      ok(
+        `T1: ${filledSeen} filled cells across ${PICKER.length} selections, every point value matches the typed grid`,
+      );
+  }
+
+  // ---- T3 (source side): forbidden strings absent from authored copy.
+  {
+    const hay = WORKSHEET_PAGE_COPY.join("\n").toLowerCase();
+    const hits = FORBIDDEN_OUTPUT_STRINGS.filter((s) => hay.includes(s));
+    if (hits.length)
+      fail(`T3: authored copy contains forbidden string(s): ${hits.join(", ")}`);
+    else ok(`T3: none of the ${FORBIDDEN_OUTPUT_STRINGS.length} forbidden strings in authored copy`);
+    /*
+     * "lowest permissible sentence", "months" and "years" are forbidden AS
+     * COMPUTED VALUES, not as substrings. They appear legitimately in the form's
+     * own face and in the cell explaining why the statutory-maximum box is
+     * empty, so the check is that no CELL renders one as a value.
+     *
+     * THE DESCRIPTION CELL IS EXEMPT, AND THE EXEMPTION IS GUARDED. It carries
+     * F.S. 921.0022's descriptive column verbatim, where "years" is an age
+     * ("65 years of age or older", "16 or 17 years of age") and "months" is a
+     * period ("within 6 months") in all 40 rows that contain either. Exempting
+     * a cell by name would be the kind of hole this project keeps finding, so
+     * the exemption is paired with an assertion that the value is BYTE-IDENTICAL
+     * to the chart row it claims to reproduce. A Description cell that ever
+     * stops being verbatim chart text loses the exemption by failing that check
+     * first.
+     */
+    const chart = STATUTES["921.0022"];
+    let notVerbatim = 0;
+    let asOutput = 0;
+    for (const row of [null, ...PICKER] as ((typeof PICKER)[number] | null)[]) {
+      for (const c of cellsFor(row)) {
+        if (c.cell.state !== "filled") continue;
+        // Hoisted out of the closures below: TypeScript's narrowing of
+        // `c.cell` does not survive into an arrow function.
+        const value = c.cell.value;
+        if (c.label === "Description") {
+          const source = chart.rows.find((r) => (r.quote ?? "") === value);
+          if (!source) {
+            notVerbatim++;
+            if (notVerbatim <= 3)
+              fail(
+                `T3: a Description cell is not byte-identical to any F.S. 921.0022 ` +
+                  `row quote, so it cannot claim the verbatim exemption: ` +
+                  `"${value.slice(0, 80)}"`,
+              );
+          }
+          continue;
+        }
+        // A computed sentence length looks like a number next to a time unit.
+        if (
+          /\b\d+(?:\.\d+)?\s*(?:month|year)s?\b/i.test(value) ||
+          /lowest permissible/i.test(value)
+        ) {
+          asOutput++;
+          if (asOutput <= 3)
+            fail(
+              `T3: filled cell "${c.label}" renders a sentence length or a ` +
+                `permissible-sentence label as a VALUE: "${value.slice(0, 80)}"`,
+            );
+        }
+      }
+    }
+    if (!asOutput && !notVerbatim)
+      ok(
+        "T3: no filled cell renders months, years, or a lowest-permissible-sentence " +
+          "label as a value, and every Description cell is verbatim chart text",
+      );
+  }
+
+  // ---- T6 (source side): the version note carries revision AND correction.
+  {
+    if (!VERSION_NOTE.includes(FORM_REVISION.effective))
+      fail(`T6: the version note does not state "${FORM_REVISION.effective}".`);
+    else if (!VERSION_NOTE.includes(FORM_REVISION.correction))
+      fail(`T6: the version note does not name the "${FORM_REVISION.correction}" correction.`);
+    else ok("T6: the version note states the revision and the correction together");
+    if (!WORKSHEET_PAGE_COPY.includes(VERSION_NOTE))
+      fail("T6: the version note is not in WORKSHEET_PAGE_COPY, so no rail sees it.");
+  }
+
+  // ---- T5 (source side): the disclosure exists and is registered.
+  {
+    if (!WORKSHEET_PAGE_COPY.includes(CANNOT_KNOW.body))
+      fail("T5: the Section 5 disclosure is not registered in WORKSHEET_PAGE_COPY.");
+    else if (!/mostly empty/i.test(CANNOT_KNOW.heading))
+      fail("T5: the disclosure heading no longer says the form is mostly empty.");
+    else ok("T5: the Section 5 disclosure is present and registered");
+    // The concept document's draft said "Every one of those raises the score"
+    // across a list ending in the four designations, which the audited table
+    // records as carrying no point value. If that clause ever comes back, the
+    // page is asserting something the record contradicts.
+    if (/every one of those raises the score/i.test(CANNOT_KNOW.body))
+      fail(
+        "T5: the disclosure claims every listed item raises the score. The four " +
+          "sentencing designations are yes/no boxes with no point value per the " +
+          "audited F.S. 921.0024 table. See the note on CANNOT_KNOW.",
+      );
+  }
+
+  // ---- C5 static sweep: nothing in the island can carry a selection away.
+  {
+    const island = "src/components/tools/SentencingWorksheet.tsx";
+    const src = readFileSync(island, "utf8");
+    const FORBIDDEN_APIS = [
+      "fetch(", "XMLHttpRequest", "sendBeacon", "WebSocket", "EventSource",
+      "localStorage", "sessionStorage", "document.cookie", "indexedDB",
+      "location.search", "location.hash", "pushState", "replaceState",
+    ];
+    const found = FORBIDDEN_APIS.filter((a) => src.includes(a));
+    if (found.length)
+      fail(`C5: ${island} references ${found.join(", ")}. Nothing may leave this page.`);
+    else ok(`C5: no storage, network, URL or history API in the island`);
+    if (!/autoComplete="off"/.test(src))
+      fail("C5: the picker does not set autoComplete=\"off\".");
+  }
+
+  // ---- T7: no federal page links the route.
+  {
+    const { measuredPages } = await import("../src/lib/measured.ts");
+    const ROUTE = "/resources/tools/sentencing-worksheet";
+    const offenders = measuredPages.filter(
+      (m) =>
+        m.href.startsWith("/federal-criminal-defense") &&
+        JSON.stringify(m).includes(ROUTE),
+    );
+    if (offenders.length)
+      fail(
+        `T7: ${offenders.length} federal page(s) reference the worksheet route. ` +
+          `The Criminal Punishment Code does not apply to federal cases.`,
+      );
+    else ok("T7: no page under /federal-criminal-defense references the route");
+  }
+
+  // ---- T9 and the rendered-HTML assertions, only with --rendered.
+  const RENDERED = process.argv.includes("--rendered");
+  const PAGE = ".next/server/app/resources/tools/sentencing-worksheet.html";
+  if (!RENDERED) {
+    console.log(
+      "  ..    T9 and the rendered T3/T5 SKIPPED: run `npm run check:worksheet:rendered` " +
+        "after a build. They are the assertions that read the artifact, and D24 is that a " +
+        "gate importing the source cannot see what the page actually shipped.",
+    );
+  } else if (!existsSync(PAGE)) {
+    fail(`T9: ${PAGE} does not exist. Build first; a missing artifact FAILS (D30).`);
+  } else {
+    const html = readFileSync(PAGE, "utf8");
+    const start = html.indexOf("<main");
+    const end = html.lastIndexOf("</main>");
+    const main = start === -1 || end === -1 ? "" : html.slice(start, end);
+    if (!main) fail("T9: no <main> in the rendered page.");
+    const text = main
+      .replace(/<script[\s\S]*?<\/script>/g, " ")
+      .replace(/<[^>]+>/g, " ")
+      .replace(/\s+/g, " ");
+
+    // T9: the static artifact has the blank form, the disclosure, and NO filled cell.
+    if (!main.includes("data-worksheet")) fail("T9: the blank form did not render server side.");
+    if (!main.includes("data-cannot-know")) fail("T9: the disclosure did not render server side.");
+    const filledCount = [...main.matchAll(/data-cell="filled"/g)].length;
+    if (filledCount)
+      fail(
+        `T9: the static artifact contains ${filledCount} filled cell(s). With JavaScript ` +
+          `disabled the page must show the blank form and nothing filled.`,
+      );
+    else if (!main.includes("data-no-js"))
+      fail("T9: the no-JavaScript note did not render, so the page offers no explanation.");
+    else ok("T9: static artifact carries the blank form, the disclosure, the no-JS note, and zero filled cells");
+
+    // T5 rendered: the disclosure PRECEDES the form.
+    const iDisc = main.indexOf("data-cannot-know");
+    const iForm = main.indexOf("data-worksheet");
+    if (iDisc === -1 || iForm === -1 || iDisc > iForm)
+      fail("T5: the Section 5 disclosure does not precede the form in the rendered HTML.");
+    else ok("T5: the disclosure precedes the form in the artifact");
+
+    // T3 rendered.
+    const lower = text.toLowerCase();
+    const hits = FORBIDDEN_OUTPUT_STRINGS.filter((s) => lower.includes(s));
+    if (hits.length) fail(`T3: rendered page contains ${hits.join(", ")}`);
+    else ok("T3: no forbidden string in the rendered page");
+
+    // T6 rendered.
+    if (!text.includes(FORM_REVISION.effective) || !text.includes(FORM_REVISION.correction))
+      fail("T6: the rendered page does not state both the revision and the correction.");
+    else ok("T6: the rendered page states the revision and the January 2026 correction");
   }
 }
 

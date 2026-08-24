@@ -7698,7 +7698,14 @@ export type Tool = {
    * kind is on the card a reader sees, so calling it a checker would promise
    * the thing the concept document's Section 4 forbids.
    */
-  kind: "Calculator" | "Estimator" | "Checker" | "Guide" | "Lookup";
+  /**
+   * "Worksheet" added 2026-08-24 with the sentencing worksheet (D38). The kind
+   * renders on the card, so it is a claim about what the asset does. Calling a
+   * tool that computes nothing a "Calculator" is the predictive framing the
+   * worksheet reframe exists to remove, and it would have been the first word a
+   * reader saw.
+   */
+  kind: "Calculator" | "Estimator" | "Checker" | "Guide" | "Lookup" | "Worksheet";
   title: string;
   description: string;
   href: string;
@@ -7723,13 +7730,45 @@ export type Tool = {
  * cannot measure yet.
  */
 export const tools: Tool[] = [
+  /**
+   * The sentencing worksheet. SENTENCING-WORKSHEET-CONCEPT.md, built 2026-08-24.
+   *
+   * THIS ROW WAS REWRITTEN, not added. It previously read "Sentencing
+   * Calculator", kind "Calculator", described as "Estimate the lowest
+   * permissible sentence under Florida's Criminal Punishment Code by charge,
+   * level, and prior record." Every clause of that was wrong for the asset that
+   * now exists, and the card is the most predictive copy on the site because it
+   * renders on the home carousel and the Resources hub without the page's
+   * disclosure anywhere near it:
+   *
+   *   "Estimate"                        invites a forecast. It computes nothing.
+   *   "the lowest permissible sentence" names an output it does not produce.
+   *   "by ... prior record"             promises an input it does not take, and
+   *                                     prior record is precisely the fact whose
+   *                                     absence the tool exists to show.
+   *
+   * The replacement describes a worksheet: it shows the form and fills only the
+   * cells the charge determines. Recorded as D38, because D31 makes a decision
+   * entry mandatory for a change to this list rather than optional.
+   *
+   * Route moved from `/sentencing/florida-criminal-punishment-code` to
+   * `/resources/tools/` under the same Section 9 rule the offense-level
+   * instrument resolved on the same day: a tool that is the hub of a topical
+   * silo lives at that silo's root, otherwise under `/resources/tools/`. The
+   * `/sentencing/` silo does not exist, and whether it gets built is the
+   * client's open question 2. Nothing linked the old href, so no redirect is
+   * owed; if the silo is later built, moving costs a redirect and a decision.
+   */
   {
-    label: "Sentencing Calculator",
-    kind: "Calculator",
-    title: "Florida Sentencing Scoresheet Calculator",
+    label: "Sentencing Worksheet",
+    kind: "Worksheet",
+    title: "The Florida Sentencing Worksheet, Mostly Empty",
     description:
-      "Estimate the lowest permissible sentence under Florida's Criminal Punishment Code by charge, level, and prior record.",
-    href: "/sentencing/florida-criminal-punishment-code",
+      "See the Criminal Punishment Code worksheet a Florida court computes a sentencing score on, with only the cells a charge selection determines filled in.",
+    href: "/resources/tools/sentencing-worksheet",
+    // Stays false until C1 through C8 are dispositioned by a person. Two are
+    // human-only and neither has happened: the attorney accuracy review, and an
+    // independent read of whether a partly filled form reads as a forecast.
     published: false,
   },
   // The Bond & Bail Estimator row was removed 2026-08-20 under DECISIONS.md

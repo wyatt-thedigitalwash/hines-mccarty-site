@@ -1350,3 +1350,54 @@ the resolver's output.
    The decoder's corpus was written before its resolver precisely to avoid this
    and still absorbed the defect at the single point where a value was filled in
    afterwards.
+
+---
+
+### D38. The sentencing tool's registry row is rewritten, not added, and "Calculator" was part of the defect
+
+**2026-08-24. SENTENCING-WORKSHEET-CONCEPT.md, built.** D31 makes a decision
+entry mandatory for a change to `tools[]` rather than optional, and this is one:
+the row was not added, it was **rewritten in place**, and the row it replaced was
+the most predictive copy on the site.
+
+It read:
+
+> label "Sentencing Calculator", kind `Calculator`, title "Florida Sentencing
+> Scoresheet Calculator", description "Estimate the lowest permissible sentence
+> under Florida's Criminal Punishment Code by charge, level, and prior record."
+
+Every clause of that is wrong for the asset that now exists, and the card is
+where it does the most damage: it renders on the home carousel and the Resources
+hub with none of the page's disclosure anywhere near it. A reader who never
+clicks through still receives the promise.
+
+- **"Estimate"** invites a forecast. The tool computes nothing at all.
+- **"the lowest permissible sentence"** names an output it does not produce.
+  There is no total on the page and `check:worksheet` T2 asserts there never
+  will be, exhaustively over all 623 selectable rows.
+- **"by charge, level, and prior record"** promises an input it does not take,
+  and prior record is precisely the fact whose ABSENCE the tool exists to show.
+  A card advertising prior record as an input describes the opposite of the
+  artifact.
+- **`kind: "Calculator"`** is the same defect in one word, and it is the first
+  word a reader sees on the card. A new `Worksheet` kind was added to the union
+  rather than reusing a near-enough label, because the kind is a claim about what
+  the asset does.
+
+The replacement describes a worksheet: it shows the form the court uses and
+fills only the cells the charge determines.
+
+**Route moved** from `/sentencing/florida-criminal-punishment-code` to
+`/resources/tools/sentencing-worksheet`, under the same Section 9 rule the
+offense-level instrument resolved on the same day: a tool that is the hub of a
+topical silo lives at that silo's root, otherwise under `/resources/tools/`. The
+`/sentencing/` silo does not exist and whether it gets built is the client's open
+question. **Nothing linked the old href**, so no redirect is owed; if the silo is
+later built, moving costs a redirect and a decision entry.
+
+**What did NOT change.** `published: false`. Two of the C1 through C8 criteria
+are human-only and neither has happened: the attorney accuracy review (C7), and
+an independent read of whether a partly filled form reads as a forecast to a
+frightened person, which D25 says is exactly the judgment an independent reader
+should test. The route is built so `check:routes` sweep A resolves the href, and
+sweep B fails if an unpublished card ever renders a link to it.

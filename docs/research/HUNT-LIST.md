@@ -789,6 +789,87 @@ The decoder's corpus was written before the resolver for exactly this reason
 and still absorbed the defect at the one point where a value was filled in
 afterwards, which is how narrow the opening has to be.
 
+### Instance 18: the authority itself was wrong, and every downstream check would have been faithful to it
+
+**Named 2026-08-24, during the Rule 3.992 sentencing-worksheet fetch.**
+
+The Florida Bar's official Rule 3.992 scoresheet PDF, effective October 23,
+2025, printed the **Primary Offense point grid inside the Additional Offenses
+block**: `1=4, 2=10 ... 10=116` where `M=0.2, 1=0.7 ... 10=58` belongs. It
+contradicted F.S. 921.0024(1)(a), the statute the form implements, and it
+contradicted **its own supplemental page four pages later**, which carried the
+correct additional-offense grid. The Bar re-uploaded a corrected PDF in January
+2026 fixing exactly that line.
+
+**Why no gate on this site could have caught it.** Every rail here checks copy
+against a record and a record against a source. That chain was sound and would
+have run green end to end. A record built from the October PDF would have been a
+faithful transcription of it; `check:worksheet` comparing typed values to that
+record would have matched; an auditor re-fetching the same URL would have
+confirmed it. The defect was upstream of the first link. **The verification
+architecture assumes the authority is right, and no amount of checking against
+it tests that assumption.** This is the vacuous-truth family of defect 1 arriving
+through the SOURCE rather than through the comparison function or the input set:
+in instance 17 the normalization discarded the distinction before the check ran;
+here the distinction never entered the chain at all, because the document at the
+root of it was defective.
+
+Note what makes this worse than an ordinary stale-source problem. The tool was
+going to render **one filled cell per selection**, and a wrong point value in a
+filled cell is the concept document's own named silent-wrong failure: it looks
+exactly like a right one, and a reader has nothing to compare it against. C6, the
+criterion requiring the implemented revision to be stated by date, would have
+been satisfied by a page truthfully printing "October 23, 2025" while rendering
+a grid the statute contradicts. **A correct provenance claim about a defective
+source is still a defective page.**
+
+**What actually caught it**, and neither half was optional:
+
+1. **Fetching both revisions and diffing them.** The January 2026 upload is not
+   described anywhere as substantive; the Bar's rules index simply links it, and
+   the file name says "Corrected" without saying what was corrected. Diffing the
+   two uploads line by line is what turned "there is a correction" into "the
+   correction is a point grid, and the superseded upload contradicts the statute
+   in the one cell this tool reads." One fetch of the current PDF would have
+   produced the right numbers by luck and taught nothing; one fetch of the
+   October PDF would have produced wrong numbers silently.
+2. **Rendering all four pages to PNG and reading them.** This is a form, not
+   prose. `pdftotext -layout` can reorder or drop a grid without erroring, and
+   the same run emitted a bare `II` and a `·` between two boxed paragraphs that
+   are not form text at all. Nothing in the extraction announces which of those
+   happened. A human comparison against the rendered page is the only step in
+   the chain with no parser in it.
+
+The cross-check that made the verdict safe was the third source: F.S.
+921.0024(1)(a) on flsenate.gov and FDLE's independently published copy of the
+form both carry the correct additional-offense grid. **Three paths agreeing on
+the numbers is what licensed the conclusion that the January upload is right and
+the October one is wrong**, rather than merely different. Without that, a diff
+between two revisions tells you something changed and cannot tell you which one
+to believe.
+
+**The rule.** For a **form, a table, or any grid-shaped authority**:
+
+- **One fetch is not verification.** The revision history is part of the source.
+  Where a document has been amended or corrected, the superseded version is
+  fetched and diffed too, and the diff is recorded, because "what changed"
+  is evidence about which version to trust and a corrected upload is a
+  publisher telling you it got something wrong.
+- **Layout extraction is checked against a visual render.** Any text pulled from
+  a PDF whose meaning depends on two-dimensional position gets its pages
+  rasterized and read before it is recorded. An extractor that silently drops or
+  transposes a cell produces a record that every downstream gate will honour.
+- **A value that will be rendered as a filled cell needs an independent path
+  that is not the document it came from.** Provenance says where a number came
+  from; it does not say the number is right. Where a second authority exists,
+  as it did here in the statute the form implements, agreement between them is
+  the check, and disagreement is a stop rather than a tiebreak to be resolved by
+  the implementer.
+- **A revision date stated on a page is a claim about the source, not about the
+  page's correctness**, and the two must not be allowed to stand in for each
+  other. C6 now requires the revision **and the correction** to be named
+  together, because the date alone was satisfiable by the defective version.
+
 ### Where this already applies
 
 - **src/lib/statutes.ts**: F.S. 812.014 is recorded `partial` with `unread`
@@ -827,3 +908,23 @@ afterwards, which is how narrow the opening has to be.
   `18 usc 1030 (a)(2)(A)` fixtures are a matched pair, asserting Florida's
   lower-case paragraph and the Code's capital subparagraph. Either alone passes
   under a rule that gets the other wrong.
+- **docs/research/PAGE-SOURCES.md**, the Fla. R. Crim. P. 3.992 record: both the
+  October 23, 2025 upload and the January 2026 correction are fetched, hashed,
+  and diffed on the record, and the diff is stated rather than summarized as
+  "corrected". The record also states that all four pages were rasterized and
+  read against the extraction, and names the two characters the extractor
+  emitted that are not form text.
+- **docs/research/PAGE-SOURCES.md**, the same record's `SINGLE-SOURCE:` marker:
+  it records a SPLIT rather than a single status. The point values rest on three
+  independent paths (the statute, the form, FDLE's copy); the layout and wording
+  rest on one publisher. A marker recording only the weaker half would have
+  misdescribed the record in the cautious direction, which is still
+  misdescribing it.
+- **scripts/check-worksheet.mts**: one assertion exists solely to fire if the
+  Additional Offenses grid ever equals the Primary Offense grid. That equality
+  is not a hypothetical corruption, it is the exact content of the superseded
+  October 2025 PDF, so the gate watches for a future record built from the wrong
+  revision.
+- **src/lib/tools/scoresheet-form.ts**: `FORM_REVISION` carries `effective` and
+  `correction` as two required fields, so a surface cannot state the revision
+  date without also stating the correction.
