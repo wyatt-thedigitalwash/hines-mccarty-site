@@ -870,6 +870,69 @@ to believe.
   other. C6 now requires the revision **and the correction** to be named
   together, because the date alone was satisfiable by the defective version.
 
+### Instance 19: every rail checks what is wired, and nothing checked what is not
+
+**Named 2026-08-24, from a reconciliation pass after two sessions worked this
+tree at the same time.**
+
+Three defects, one week, one shape, none visible to any gate:
+
+1. `scripts/check-worksheet.mts`, 20KB, twenty passing self-tests, **registered
+   in no npm script**. Three source files cited `check:worksheet` in prose as
+   though it ran.
+2. `WORKSHEET_PAGE_COPY`, twelve strings including the page's H1, absent from
+   `TOOL_PAGE_COPY` and therefore outside the banned-term, duplication and
+   provenance rails. Eleven of the twelve reached no extractor at all. This is
+   the D29 hole that assertion T9 was written to close for one tool, live on
+   another.
+3. `src/lib/tools/sentencing-worksheet.ts`, the entire form model plus an
+   eleven-entry forbidden-output list, **imported by nothing**.
+
+Each was individually a small oversight. Together they are not three oversights,
+they are one missing rail, and the pipeline was fully green throughout: 239 `ok`
+lines, fourteen gate verdicts, both route sweeps, exit 0.
+
+**Why nothing could see them.** Every gate here iterates a registry. `check:pages`
+walks `measuredPages`; `check:routes` derives its inventory from the filesystem
+and the page data; `check:offense-level` reads a built page it is pointed at. A
+gate that iterates a registry **cannot report on what is absent from that
+registry**, and it does not merely stay silent: it reports green over a smaller
+world than its output describes. "All 3 copy constants are inside the measured
+corpus" is a true sentence whether the corpus holds three constants or thirty.
+This is defect 1's vacuous-truth edge again, and Instance 12 and Instance 14
+are the same statement about a page body and a link target. Here the unit is the
+wiring itself.
+
+**The concurrency is the cause and not the setting.** These are the shapes that
+appear when two writers share a tree and neither owns the seams. Both sessions
+wrote correct artifacts; what neither wrote was the edge connecting the artifact
+to the thing that runs it, because an edge belongs to no one. Nothing conflicted
+in git, because an absent registration is not a textual difference. The same
+week produced a duplicate `D35` for the same reason, which `check:registries`
+now catches, and that gate and this one are two halves of one observation:
+**shared surfaces need rails precisely because no single writer feels
+responsible for them.**
+
+**The rule.** A gate that exists is registered, a copy constant that exists is
+extracted, and a module that exists is imported, and each of those three is
+asserted rather than assumed. More generally: for every kind of artifact this
+repository produces, something checks that the artifact is REACHABLE from the
+thing that consumes it, not only that the artifact is internally correct.
+Correctness and reachability are different properties, and every gate here was
+measuring the first while the second was what failed.
+
+**The gate is `check:dormant`**, in `prebuild`. Its self-tests plant all three,
+and it was then re-planted against the real inventories rather than hand-written
+ones, per Instance 15: the real `package.json` with `check:worksheet`
+unregistered, the real twelve strings against the real corpus, the real module
+tree with the worksheet's importers redacted. All three fire, and the replant
+reproduces the exact figures above.
+
+**Its own first finding was itself.** Run before it was registered, `check:dormant`
+failed on `scripts/check-dormant.mts`, a gate script no npm script ran. That is
+the correct first output for this gate and it is worth keeping on the record:
+the defect class was live in the act of closing it.
+
 ### Where this already applies
 
 - **src/lib/statutes.ts**: F.S. 812.014 is recorded `partial` with `unread`
