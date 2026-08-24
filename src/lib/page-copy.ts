@@ -161,6 +161,22 @@ export function guideCopy(g: GuidePage): string[] {
  * the home carousel and the Resources pages, PLUS the authored copy of its
  * page where one is built. D29 puts tools in the measured registry precisely
  * so both surfaces sit inside the banned-term, em-dash and duplication rails.
+ *
+ * WHAT IS DELIBERATELY NOT RETURNED HERE: the shipped statutory dataset. The
+ * charge-lookup page renders 987 verbatim quotes and they ARE a rendered
+ * surface, so CHARGING-DOCUMENT-DECODER-CONCEPT.md Section 9 requires them
+ * covered. They are covered, by `check:charge-lookup`, which sweeps every row
+ * the resolver can emit against the rules that can legitimately apply to
+ * quoted statutory text.
+ *
+ * They are not returned here because the rails this function feeds include
+ * bare-word rules that a quoted statute must be allowed to trip. 53 of those
+ * quotes contain "serious", "minor", "likely" or "severe", every one of them
+ * the statute's own word: "serious bodily injury" in 21 U.S.C. 841(b)(1)(A),
+ * "any minor" in 18 U.S.C. 2251(a). Routing the dataset through this extractor
+ * would fail the build on the words of the United States Code, which is the
+ * same false positive `check-pages.mts` already records for "parking
+ * enforcement specialist".
  */
 export function toolCopy(t: Tool): string[] {
   return [t.label, t.title, t.description, ...(TOOL_PAGE_COPY[t.href] ?? [])].filter(

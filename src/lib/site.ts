@@ -7689,7 +7689,16 @@ export const guideTrail = (guide: GuidePage): Crumb[] => [
 
 export type Tool = {
   label: string;
-  kind: "Calculator" | "Estimator" | "Checker" | "Guide";
+  /**
+   * "Lookup" was added 2026-08-24 for the charging-document decoder.
+   *
+   * It is not "Checker": a checker answers a question about the reader's
+   * situation, which is what the seal-and-expunge tool does and what this one
+   * is specified never to do. It resolves a citation to text and stops. The
+   * kind is on the card a reader sees, so calling it a checker would promise
+   * the thing the concept document's Section 4 forbids.
+   */
+  kind: "Calculator" | "Estimator" | "Checker" | "Guide" | "Lookup";
   title: string;
   description: string;
   href: string;
@@ -7746,6 +7755,34 @@ export const tools: Tool[] = [
     // Stays false until C1 through C8 are dispositioned by a person. The page
     // renders under noindex meanwhile, and `check:routes` sweep B is what makes
     // "unpublished" a checkable property rather than a promise.
+    published: false,
+  },
+  /**
+   * The charging-document decoder. CHARGING-DOCUMENT-DECODER-CONCEPT.md
+   * Section 9, added 2026-08-24: no `Tool` row existed for this asset before.
+   *
+   * Route under `/resources/tools/` per the B.4 rule, because it serves no
+   * single silo: TOOLS.md records that it serves more briefs than any other
+   * asset in the file, state and federal alike.
+   *
+   * `published: false` pending C7, the attorney accuracy review of a sample of
+   * resolutions read against the statutes themselves, and the independent read
+   * of the refusal copy. The route is built, so `check:routes` sweep A
+   * verifies the href and sweep B fails if an unpublished card ever renders a
+   * link to it.
+   *
+   * The description says what it does and stops. It promises no assessment, no
+   * comparison and no outcome, because the card is rendered on the home
+   * carousel and the Resources hub and is lawyer advertising exactly as much
+   * as a charge page is.
+   */
+  {
+    label: "Charge Lookup",
+    kind: "Lookup",
+    title: "What Does That Statute Number Mean?",
+    description:
+      "Enter the statute number from a charging document, booking sheet, or indictment and see what that paragraph of Florida or federal law says.",
+    href: "/resources/tools/charge-lookup",
     published: false,
   },
   {

@@ -1138,6 +1138,93 @@ not a ratification of a consensus that did not exist. GUIDES open question 1
 and SEAL's Phase 0 posture asked for exactly this, and the D31 rule made it
 mandatory rather than optional.
 
+### D33. The decoder's output shape treats an absent field as absent, and a federal term is a verbatim span of the row's own quote
+
+The decision CHARGING-DOCUMENT-DECODER-CONCEPT.md Section 12 open question 1
+required, and the one its Section 8 item 3 names as a machine blocker. It is
+made before any decoder code was written, because the shape decides the data
+layer rather than the presentation.
+
+**The problem, restated from the data rather than from the document.** TOOLS.md
+item 3 requires the decoder to return "the offence name, **the degree**, and the
+plain-English description", and adds that "degree and statutory maximum are
+facts and belong". A census of the 74 audited tables this session says that
+requirement cannot be met as written:
+
+- **275 of 275 USC rows record `degree: "no degree assigned"`**, across all 21
+  USC-keyed tables. That is correct law: federal offenses are not graded in
+  degrees. It is also the half of the tool where the measured demand is,
+  `18 usc 2252` at 70/month and `21 usc 841` at 140/month.
+- **419 Florida rows record it too**, out of 1,387. So this is not a federal
+  special case. `784.03(1)(a)` carries no degree because the degree attaches at
+  a different paragraph, which is the concept document's finding 3.
+- 968 rows of 1,662 carry a real degree. The other 694 do not.
+
+**The decision, in three parts.**
+
+1. **An absent field is absent.** Where a row records `no degree assigned`, the
+   result object carries no `degree` key at all. Not an empty string, not a
+   zero, not the literal words "no degree assigned" rendered at a reader. A
+   blank in a degree column is read as "we do not know"; the truth is "this
+   paragraph assigns none", and those are different statements. The renderer
+   cannot show a field that is not there, which is why this is enforced in the
+   type rather than in the template.
+
+2. **Where the row's quote states a term of imprisonment, that term is shown as
+   a VERBATIM SPAN OF THE QUOTE.** Not paraphrased, not recomputed into "5 to 20
+   years", and specifically **not read out of the row's `trigger` field**. The
+   trigger on `2252(b)(1)` says "Term: 5 to 20 years, a mandatory minimum of 5
+   years", which is an auditor's summary. Summaries are prose, and this
+   project's founding rule is that a claim written in prose cannot be checked
+   against a source. The span is located inside `quote` by pattern and the
+   located span is asserted to be a substring of the quote it came from, so the
+   words a reader sees are the statute's words and a gate can prove it.
+
+3. **Where the quote states no term, the tool shows no term and says so.** The
+   same absent-is-absent rule. It does not fall back to the section, to a
+   sibling paragraph, or to `DEGREE_MAXIMUM`.
+
+**What this rejects.** The obvious alternative was a federal-only branch: a
+`degree` field for Florida and a `term` field for USC, switched on the table
+key. It was rejected because the switch would be wrong for 419 Florida rows,
+which is the concept document's finding 3 and the reason that finding is in the
+document. One rule, keyed on what the row actually records rather than on which
+jurisdiction it came from, is both smaller and correct in the case the
+jurisdiction switch gets wrong.
+
+**Consequence for C6 and for the reader.** The decoder's own version note must
+state that federal paragraphs carry no degree because federal offenses are not
+graded in degrees. Without that sentence, a reader who resolves `18 usc 2252`
+and sees no degree learns that the tool is incomplete rather than that the law
+is different. The absence has to be explained where it appears or it reads as a
+defect.
+
+### D34. A paragraph from one of the five partial tables is shown, marked partial, never silently
+
+CHARGING-DOCUMENT-DECODER-CONCEPT.md Section 12 open question 2, taking the
+recommendation the document itself records, and Section 8 item 4.
+
+Five tables are recorded `completeness: "partial"`: 1030, 2251, 741.28, 775.084,
+784.08. A string resolving into one of them **is answered from what the record
+holds and is marked partial at the result**, rather than refused.
+
+**Why show rather than refuse.** The document's own reasoning: "a refusal on a
+paragraph the project demonstrably has text for teaches readers the tool is
+broken." The refusal default exists for the case where the tool cannot tell
+which paragraph is meant. That is not this case. Here the paragraph is
+identified and its verbatim text is in hand; what is unknown is whether the
+section holds OTHER paragraphs that were never read.
+
+**What the mark must therefore say.** Not "this may be incomplete", which is
+vague enough to be ignored. It states the actual limit: the text shown for this
+paragraph is verified, and the list of paragraphs in this section is not known
+to be complete, and it names the table's own `unread` field where one is
+recorded. This is `check-claims.mts` rule 2 applied to a tool: a partial record
+may state what it holds and may never support a claim about what it does not.
+
+**The gate is T5**, and it is a real one rather than a promise: a resolution
+from a partial table that renders without the mark fails the build.
+
 ### D35. F.S. 921.0023(4) is recorded as a first degree felony punishable by life, and an ambiguity flag is a dated claim rather than a standing note
 
 Named 2026-08-24, from the re-audit that preceded the offense-level instrument
@@ -1179,4 +1266,87 @@ default ladder carries five distinct degrees, and none asserts that a row whose
 quote contains "punishable by life" carries a degree that says so. Both are
 cheap and neither exists yet. HUNT-LIST defect 1 is the reason to say that here
 rather than leave the correction looking finished.
+### D36. A criterion that fails on the words of the statute is split by shape, following the existing precedent, and the split is recorded as a departure
 
+CHARGING-DOCUMENT-DECODER-CONCEPT.md assertion T3 says no string from its
+Section 4 forbidden list may appear "in the rendered HTML **or in the shipped
+dataset**". The decoder's shipped dataset is 987 verbatim quotations of Florida
+and federal statutes, and C12 requires them verbatim. Applied literally, T3 and
+C12 cannot both be satisfied.
+
+**Measured before deciding.** Across the 987 rows the resolver can emit:
+
+| Forbidden string | Occurrences in the dataset |
+|---|---|
+| `your charge`, `you are charged with`, `you are facing`, `worse than`, `better than`, `good news`, `bad news` | **0** |
+| `serious` | 25 |
+| `minor` | 21 |
+| `likely` | 5 |
+| `severe` | 2 |
+
+All 53 are the statute's own words doing legal work: "serious bodily injury" in
+21 U.S.C. 841(b)(1)(A), "any minor" in 18 U.S.C. 2251(a), "actual physical
+force likely to cause serious personal injury" in F.S. 794.011(3), "more severe
+than a fine" in F.S. 775.082(5).
+
+**The decision.** The seven claim-shaped phrases are forbidden everywhere,
+copy and dataset alike. The four bare adjectives are forbidden in **authored
+copy only**. `FORBIDDEN_ANYWHERE` and `FORBIDDEN_IN_COPY` in the tool's copy
+module are the two lists, exported so the gate reads them rather than keeping a
+second copy.
+
+**Why this is not an exemption granted to convenience.** It applies the rule
+`check-pages.mts` already records at length: a rule must sit with a CLAIM, not
+with a bare word. That file's own false positives were F.S. 784.07(1)'s
+"parking enforcement specialist" and F.S. 409.913(16)(c)'s "each false or
+erroneous Medicaid claim", and its stated reasoning is that a gate firing on
+quoted statutory text asks the writer to choose which rule to break. Same
+defect, same fix, one surface further out. **Where no such precedent exists,
+the correct move is to raise the conflict and stop rather than decide it inside
+a build**, and this entry exists so that the difference between the two is on
+the record.
+
+**Evidence it did not become theatre.** The copy half failed this build, on the
+sentence "this page does not say how serious a charge is", written by the same
+session that wrote the rule. The dataset half is enforced at zero occurrences,
+which is the state in which a rule is kept rather than dropped.
+
+**To reverse it, C12 is what changes.** The departure exists only because
+verbatim quotation is mandatory. If the tool ever stops quoting operative text,
+the literal T3 becomes satisfiable and is restored.
+
+### D37. Where matching folds information away, matching and display are separate assertions, in both directions
+
+Named from a defect a browser found and twelve green gates could not, recorded
+in full as HUNT-LIST Instance 17.
+
+The decoder folds citation case on purpose: the U.S. Code nests `(a)(2)(A)(i)`,
+a reader types `1030 a2a`, and treating those as different citations would fail
+the query the tool exists to serve. Every assertion then compared **through that
+same fold**, so `18 U.S.C. 1030(a)(2)(a)` and the Code's own
+`1030(a)(2)(A)` were, to every gate, one string. The tool rendered the wrong
+one. The corpus could not object, because its expected values had been read off
+the resolver's output.
+
+**The decision, as a standing rule for this repository:**
+
+1. **A normalization is a deliberate loss of information, and no assertion
+   written on the normalized side can see what was discarded.** Adding more
+   gates on that side never helps. `ParsedCite` therefore carries `path`, the
+   folded match key, and `displayPath`, the written form, as **two fields**
+   rather than one field plus a formatting rule, because a formatting rule is
+   something a later change forgets to apply and a missing field is a type
+   error.
+2. **Both directions, literally.** A rule that lower-cased every citation would
+   produce Florida's correct `(6)(b)` and the Code's wrong `(a)(2)(A)`. The
+   corpus carries `893.13 6B` and `18 usc 1030 (a)(2)(A)` as a matched pair,
+   each of which fails a rule that satisfies the other. One-sided fixtures pass
+   while the tool is half wrong.
+3. **The displayed form is asserted byte-identical to the authority it claims to
+   reproduce**, not to the normalized form of it.
+4. **An expected value read off the implementation tests determinism, not
+   correctness.** Where a fixture's correct answer exists in an external
+   authority, the fixture cites the authority and the value is copied from it.
+   The decoder's corpus was written before its resolver precisely to avoid this
+   and still absorbed the defect at the single point where a value was filled in
+   afterwards.

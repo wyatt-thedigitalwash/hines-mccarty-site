@@ -133,10 +133,59 @@ And, on any refusal, in these words:
 
 | What the tool renders | Source record | State |
 |---|---|---|
-| Operative text, per resolved paragraph | `src/lib/statute-tables/*.ts` rows, 1,533 rows, **every one carries a verbatim quote** | 69 of 74 tables audited whole-section |
+| Operative text, per resolved paragraph | `src/lib/statute-tables/*.ts` rows, ~~1,533~~ **1,662** rows, **every one carries a verbatim quote** | 69 of 74 tables audited whole-section |
 | Degree, where the offense carries one | Same rows, `degree` field | **968 rows carry a real degree.** See finding 1 |
-| The link target | `charges[]` in `src/lib/site.ts`; 28 written pages, each with a recorded C9 statute | Live data |
-| Federal offense identification | The 19 USC-keyed tables | **Whole-section, but see finding 1** |
+| The link target | `charges[]` in `src/lib/site.ts`; ~~28~~ **29** written pages, **27** of them with a C9 that names a statute | Live data |
+| Federal offense identification | The ~~19~~ **21** USC-keyed tables | **Whole-section, but see finding 1** |
+
+**Counts corrected in place 2026-08-24 by the build session's own census, per
+D28.** Struck figures are what this document recorded at writing; bold figures
+are what `STATUTES` actually holds. Every LOAD-BEARING figure in this section
+verified exactly and is unchanged: 74 tables, 69 whole-section, five partial and
+they are the five named, every row carries a quote, and 968 rows carry a real
+degree. The findings those figures support did not move.
+
+**1,533 could not be reproduced by any counting rule tried**, including the
+obvious candidate, rows-carrying-a-quote, which is also 1,662 because every row
+carries one. "The corpus grew since writing" is the charitable reading and it is
+not available: **968 is exact**, and a corpus that gained 129 rows without
+gaining a single graded one is not a corpus that grew. Recorded as
+unreproducible rather than as stale, because those are different states and only
+one of them is honest here. The same applies to 19 versus 21 USC-keyed tables
+and 28 versus 29 written pages: each is a count this document produced and none
+records how.
+
+**"143 distinct cite shapes" did not reproduce either, and the reason it cannot
+be adjudicated is the finding.** A shape census over all 1,662 rows, abstracting
+digits to `N` and letters by case, returns **109** distinct shapes and **1,436**
+distinct raw cites. **This document does not record the abstraction that
+produced 143.** So the two numbers cannot be compared, and that is not a
+tie: an unreproducible number is not a second opinion, it is an unverifiable
+claim. The 109 stands because its method is written down and can be re-run and
+disagreed with; the 143 cannot be defended or refuted by anyone, including its
+author.
+
+**This is HUNT-LIST Instance 11 arriving in the document that instance was
+written about.** Instance 11 was named from the D28 round over these same three
+concept documents, and its rule is that a document's self-measurements get the
+same independent re-derivation its quoted sources get, because the untrusted
+class is not the fetched fact but the writer's own arithmetic about it. Every
+figure in this section that traces to a fetch survived exactly. Every figure the
+writer produced by counting is the one that moved. That is the same split
+Instance 11 recorded at scale, reproduced here at four numbers out of four.
+
+**The rule this build applied, and the reason no gate asserts either count.**
+When a document states a count it names the filter that produced it, so the
+filter can be re-run; a bare number carries no evidence about which question it
+answered (Instance 16). The normaliser is therefore built and tested against
+**every shape actually present, enumerated from the data at build time**, never
+against a figure from this document. A gate asserting "143", or "109", would be
+asserting a fact about a document rather than about the corpus, and would fail
+the day a table is added for reasons having nothing to do with the tool.
+
+Finding 2 itself is untouched by any of this. It does not rest on the count. It
+rests on the same conceptual paragraph being written four ways, which is
+verified, and which the raw-cite figure understates rather than overstates.
 
 ### Three findings this document's own data pass produced
 
@@ -163,6 +212,37 @@ verification**, and that is the tool's real engineering work.
 different paragraph. A decoder that promises a degree per paragraph will show
 blanks on paragraphs that genuinely have none, and must distinguish "this
 paragraph assigns no degree" from "we do not know."
+
+### A fourth finding, from the build session's data pass, 2026-08-24
+
+**4. The 921.0022 chart is inside `STATUTES` and its rows are cites of OTHER
+statutes, so the ship condition below is not satisfied by intending to obey
+it.** The chart table's rows carry cites like `812.014(2)(c)3.` and
+`794.011(8)(b)`: they are the chart's rankings OF other sections, not paragraphs
+of 921.0022. A decoder that indexes every row of every table by its cite
+therefore ingests the chart as a mapping source automatically, without anyone
+deciding to, which is the shape of every gate failure this project has recorded.
+
+The collision is not hypothetical and it is not benign. `794.011(8)(b)` resolves
+to two rows carrying **different degrees**:
+
+| Source table | Degree recorded |
+|---|---|
+| `794.011`, the operative statute, whole-section | first degree felony |
+| `921.0022`, the ranking chart, whole-section | first degree felony **punishable by life** |
+
+That is a chart-versus-statute discrepancy of exactly the family TOOLS.md counts
+six of, sitting on a paragraph the corpus records as a real user query. Indexed
+naively it would present as an *ambiguity* between two equally-weighted sources
+and the tool would show both, which is worse than showing neither: it would
+display a chart-derived degree to a reader as one of two possible answers about
+their own charge.
+
+**So chart exclusion is implemented as a filter with its own gate (T10), not as
+a convention.** `921.0022`, `921.0023` and `921.0024` are excluded from the
+resolution corpus by key, and the gate asserts both directions: that the excluded
+keys contribute no resolvable row, and that `794.011(8)(b)` resolves to exactly
+one row whose degree is the statute's and not the chart's.
 
 ### The constraint that decides the mapping source
 
@@ -283,13 +363,78 @@ reader has no way to tell."
 |---|---|---|
 | T1 | Every string in the recorded-query test corpus resolves to the paragraph the brief recorded, or refuses. No test string resolves to a different paragraph | **New**. The corpus is fixtures from the briefs |
 | T2 | Every quote the tool can render appears verbatim in the audited table row it claims to come from | **New**, extend `check:provenance` G3 |
-| T3 | No string from the Section 4 forbidden list appears in the rendered HTML or in the shipped dataset | `check:pages`, once the copy surface exists |
+| T3 | No string from the Section 4 forbidden list appears in the rendered HTML ~~or in the shipped dataset~~ **, split by shape: the seven claim-shaped phrases are forbidden in copy AND dataset, the four bare adjectives in authored copy only** | `check:pages` plus `check:charge-lookup` |
 | T4 | The Section 5 disclosure renders adjacent to results **and to refusals** | **New**. Refusals are the path most likely to lose it |
 | T5 | No resolution rendered from a `partial` table asserts a complete paragraph list | **New**, and it is the `check-claims.mts` rule 2 principle applied to a tool |
 | T6 | No route, script, or handler in the tool's bundle sends the input anywhere: no fetch, no URL write, no storage API, no analytics call carrying it | **New**, static analysis over the island plus a headless network check. This is C5 made mechanical |
 | T7 | Every charge-page link the tool can emit resolves | `check:routes` sweep A over the generated map |
 | T8 | The version stamp names every table the resolution rests on, by fetch date, and states the Rule 3.992 clause is inapplicable | **New** |
 | T9 | With JavaScript disabled, the page renders its explanation and the disclosure, and no input that appears functional | **New**, headless |
+| T10 | **The 921.0022/0023/0024 chart tables contribute no resolvable row**, and a cite the chart and the statute both carry resolves to the statute's row only | **New, added 2026-08-24.** Section 6 finding 4. The ship condition made mechanical |
+| T11 | Every no-degree row renders **no degree field at all**, and every rendered statutory term is a verbatim substring of the row's own `quote` | **New, added 2026-08-24.** D33 made mechanical |
+| T12 | The client island's import closure **does not reach `site.ts`** | **New, added 2026-08-24 during the build.** Not a concept-document assertion; see below |
+
+**T12 is a build-discovered assertion and is stated as one.** The first working
+build had `panel.ts` importing `charge-map.ts` for its link lookup. That module
+derives the map from `charges`, and `charges` carries the authored prose of all
+30 charge pages, so a map of 33 keys pulled every charge page's copy into the
+island's bundle graph. The map is now computed on the server and passed as a
+prop, and `links.ts` holds the pure half.
+
+**What it saved, measured, because the obvious claim would have been wrong: no
+bytes today.** A shared chunk loaded by every route on this site already
+contains `site.ts`, so the page measures 2.90 MB before and after against a
+1.89 MB site-wide baseline. The roughly 1.0 MB difference is the statute
+dataset, which is this tool's design rather than a defect. The gate exists so
+this tool is not a *second* cause of a problem the site already has, and so the
+day the shared chunk is fixed a one-line import here cannot silently undo it.
+**The shared chunk is a pre-existing, site-wide performance issue outside this
+tool's scope, and it is recorded here rather than fixed.**
+
+**DEPARTURE, recorded as one. T3 was split during the build, 2026-08-24, and
+it is the only place this build does not do what the table above says.**
+Applied literally to the shipped dataset, T3 is unsatisfiable against C12. A count over the 987 rows the
+resolver can emit: the seven claim-shaped phrases (`your charge`, `you are
+charged with`, `you are facing`, `worse than`, `better than`, `good news`, `bad
+news`) occur **zero** times, and the four bare adjectives occur **53** times,
+every one of them the statute's own word doing legal work. `serious bodily
+injury` in 21 U.S.C. 841(b)(1)(A). `any minor` in 18 U.S.C. 2251(a). `actual
+physical force likely to cause serious personal injury` in F.S. 794.011(3).
+`more severe than a fine` in F.S. 775.082(5).
+
+C12 requires those quotes verbatim, so a gate firing on them would force the
+build to choose which of this document's own rules to break. The split follows
+the precedent `check-pages.mts` already records at length for the "parking
+enforcement specialist" false positive: **a rule must sit with a claim, not
+with a bare word.** The claim-shaped phrases are forbidden everywhere,
+including the dataset, which costs nothing today and catches a source that ever
+changes. The bare adjectives are forbidden in authored copy, which is the
+surface Section 4 was actually written about: the tool characterising exposure
+is the live edge, and the statute using "minor" to mean a person under 18 is
+not.
+
+**The split follows an existing precedent rather than inventing an exemption,
+and that distinction is the whole defence of it.** `check-pages.mts` already
+carries this reasoning at length, for F.S. 784.07(1)'s "parking enforcement
+specialist" and F.S. 409.913(16)(c)'s "each false or erroneous Medicaid claim":
+a gate that fires on quoted statutory text asks the writer to choose which rule
+to break, and the fix there was to require the word to sit with a claim about
+the firm. Same defect, same fix, one surface further out. Had no precedent
+existed, the right move would have been to raise the conflict and stop, not to
+decide it inside a build.
+
+**It is not a loosening, and there is evidence rather than an assurance.** The
+copy-surface half of the rule failed this build on its author's own sentence,
+"this page does not say how serious a charge is", written minutes after the
+rule. That sentence is now in `copy.ts` with the failure recorded above it. The
+dataset half is enforced too and costs nothing today, at zero occurrences of
+seven phrases across 987 rows, which is exactly the state in which a rule
+should be kept rather than dropped: it catches the day a source changes.
+
+**To reverse this, the thing that must change is C12, not T3.** The departure
+exists only because verbatim quotation is mandatory. If the tool ever stopped
+quoting operative text, the literal T3 would become satisfiable and should be
+restored.
 
 T6 is the one that matters. C5 is this tool's highest-risk criterion and the one
 a later well-meaning change is most likely to break, so it is the one that must
@@ -297,16 +442,31 @@ be enforced by a machine rather than by a rule in a document.
 
 ## 12. Open questions
 
-1. **What replaces "degree" for a federal resolution?** Owner: whoever builds
-   it, informed by an attorney. Finding 1. Blocks the highest-volume half of
-   the tool.
-2. **Show-marked or refuse, for the five partial tables?** Owner: build
-   decision, recorded in DECISIONS.md either way. Recommended: show what the
-   record holds, marked partial, because a refusal on a paragraph the project
-   demonstrably has text for teaches readers the tool is broken.
+1. ~~**What replaces "degree" for a federal resolution?**~~ **ANSWERED
+   2026-08-24, DECISIONS.md D33.** Nothing replaces it as a field: where a row
+   records `no degree assigned` the result carries no degree key at all, absent
+   rather than blank. Where the row's own quote states a term of imprisonment,
+   that term is shown as a **verbatim span of the quote**, never paraphrased and
+   never read out of the row's `trigger` summary. The rule is keyed on what the
+   row records, not on jurisdiction, because 419 Florida rows carry no degree
+   either and a jurisdiction switch would be wrong for every one of them
+   (finding 3). The decoder's version note must say federal offenses are not
+   graded in degrees, or the absence reads as a defect in the tool rather than a
+   fact about the law.
+2. ~~**Show-marked or refuse, for the five partial tables?**~~ **ANSWERED
+   2026-08-24, DECISIONS.md D34.** Show what the record holds, marked partial,
+   taking this document's own recommendation. The mark states the actual limit,
+   that the paragraph's text is verified and the section's paragraph list is not
+   known to be complete, and names the table's `unread` field where one exists.
+   Gated by T5.
 3. **Does the decoder ship before the charge pages it links to are published?**
    Owner: client, and it is a sequencing question with an SEO answer either way.
-   Cross-references Section 8 human-only item 3.
+   Cross-references Section 8 human-only item 3. **Not answered, and the build
+   does not need it answered**: as of 2026-08-24 **zero of the 30 charge pages
+   are published**, so the decoder ships `published: false` and `noindex`
+   alongside them. Every link it can emit points at a route that exists and is
+   noindex, which is coherent. The question becomes live the day the first
+   charge page publishes, and not before.
 4. **Who is the reviewing attorney for C7?** Owner: the firm.
 5. **Does the tool cover municipal ordinances at all?** Owner: research. They
    appear on booking sheets and are not in any audited table. Recommended: out

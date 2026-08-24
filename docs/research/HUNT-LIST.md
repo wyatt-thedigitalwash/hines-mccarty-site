@@ -732,6 +732,63 @@ question it answered. Where code and a document both derive the same figure,
 the code is the record and the document is a restatement of it, and the
 restatement is what goes stale.
 
+### Instance 17: every gate folded case, so no gate could see a case defect
+
+**Named 2026-08-24, during the charging-document decoder build.**
+
+The decoder shipped twelve assertions, all green, including a 34-fixture
+resolution corpus built from recorded user queries and a gate that reads the
+built page. Opened in a browser, the tool rendered **`18 U.S.C. 1030(a)(2)(a)`
+for a paragraph the United States Code writes `1030(a)(2)(A)`**, and in the
+other direction it would have rendered a booking sheet's upper-case `893.13 6B`
+back as `F.S. 893.13(6)(B)` where Florida writes `(6)(b)`.
+
+Nothing was subtly wrong with any gate. **Every one of them was blind to this
+class of defect for the same structural reason the defect existed.** The
+matcher folds case on purpose: the Code nests `(a)(2)(A)(i)`, a reader types
+`1030 a2a`, and a decoder that treated those as different citations would fail
+the exact query it exists to serve. Case-folding is correct. But every
+assertion downstream compared *through the same fold*, so a citation displayed
+in the wrong case and a citation displayed in the right case were, to every
+gate, the same string. The corpus was worse than silent: its expected values
+had been written by reading the resolver's own output, so **the fixtures
+encoded the defect as the specification**.
+
+This is Instance 15 one level deeper, and the difference is worth stating. In
+Instance 15 the fixture did not look like the artifact, and running against
+`.next` exposed it. Here the fixture looked exactly like the artifact under the
+comparison being used, and running against `.next` would *not* have exposed it,
+because the gate reading the HTML also compared case-insensitively. What
+exposed it was a human looking at rendered output with no comparison in the
+loop at all.
+
+The general shape: **a normalization is a deliberate loss of information, and
+any assertion written on the normalized side cannot see what was discarded.**
+Fold case and case defects vanish; trim whitespace and spacing defects vanish;
+lower-case a URL and path-case defects vanish. The check does not fail. The
+distinction it would have failed on no longer exists by the time the check
+runs. This is the vacuous-truth edge of defect 1 arriving through the
+comparison function rather than through absent data.
+
+**The rule.** A gate that normalizes its input the same way the code does
+cannot detect a normalization defect, and adding more such gates never will.
+Where matching and display deliberately differ, they are **separate assertions
+in both directions**: that the folded forms match, and that the displayed form
+is byte-identical to the authority it claims to reproduce. "Both directions" is
+literal and not rhetorical here. A rule that simply lower-cased every citation
+would have produced the correct Florida `(6)(b)` and the wrong federal
+`(a)(2)(A)`, so a one-sided fixture set passes while the tool is half wrong;
+the corpus now carries the Florida and the federal case as a matched pair,
+each of which fails a rule that satisfies the other.
+
+The corollary is about who writes the expected value. **An expected value read
+off the implementation's output tests that the implementation is deterministic,
+not that it is right.** Where a fixture's correct answer exists in an external
+authority, the fixture cites the authority and the answer is copied from it.
+The decoder's corpus was written before the resolver for exactly this reason
+and still absorbed the defect at the one point where a value was filled in
+afterwards, which is how narrow the opening has to be.
+
 ### Where this already applies
 
 - **src/lib/statutes.ts**: F.S. 812.014 is recorded `partial` with `unread`
@@ -761,3 +818,12 @@ restatement is what goes stale.
   independent paths a claim rests on. These are different questions and both
   need answering.
 - Any future adversarial verification: report paths, not agents.
+- **src/lib/tools/charge-lookup/cite.ts**: `ParsedCite` carries `path` and
+  `displayPath` as two fields rather than one field plus a formatting rule.
+  The folded form is the match key and the written form is the label, and they
+  are separate because a formatting rule is something a later change forgets to
+  apply while a missing field is a type error.
+- **src/lib/tools/charge-lookup/corpus.ts**: the `893.13 6B` and
+  `18 usc 1030 (a)(2)(A)` fixtures are a matched pair, asserting Florida's
+  lower-case paragraph and the Code's capital subparagraph. Either alone passes
+  under a rule that gets the other wrong.
