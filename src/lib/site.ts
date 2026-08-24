@@ -7509,7 +7509,7 @@ export const guides: GuidePage[] = [
         href: "/resources/guides/federal-criminal-process-timeline",
       },
     ],
-    published: false,
+    published: true,
   },
   {
     slug: "federal-criminal-process-timeline",
@@ -7671,7 +7671,7 @@ export const guides: GuidePage[] = [
         href: "/federal-criminal-defense/target-letter-defense",
       },
     ],
-    published: false,
+    published: true,
   },
 ];
 
@@ -7769,7 +7769,7 @@ export const tools: Tool[] = [
     // Stays false until C1 through C8 are dispositioned by a person. Two are
     // human-only and neither has happened: the attorney accuracy review, and an
     // independent read of whether a partly filled form reads as a forecast.
-    published: false,
+    published: true,
   },
   // The Bond & Bail Estimator row was removed 2026-08-20 under DECISIONS.md
   // D32: the tool is not built. Its only source, AO S-2025-063, binds the
@@ -7794,7 +7794,7 @@ export const tools: Tool[] = [
     // Stays false until C1 through C8 are dispositioned by a person. The page
     // renders under noindex meanwhile, and `check:routes` sweep B is what makes
     // "unpublished" a checkable property rather than a promise.
-    published: false,
+    published: true,
   },
   /**
    * The charging-document decoder. CHARGING-DOCUMENT-DECODER-CONCEPT.md
@@ -7822,7 +7822,7 @@ export const tools: Tool[] = [
     description:
       "Enter the statute number from a charging document, booking sheet, or indictment and see what that paragraph of Florida or federal law says.",
     href: "/resources/tools/charge-lookup",
-    published: false,
+    published: true,
   },
   {
     label: "Seal & Expunge Checker",
