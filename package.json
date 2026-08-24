@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "check:c9": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-c9.mts",
-    "prebuild": "npm run check:c9 && npm run check:pages && npm run check:unverified && npm run check:claims && npm run check:provenance && npm run check:charge-lookup && npm run check:routes",
+    "prebuild": "npm run check:registries && npm run check:c9 && npm run check:pages && npm run check:unverified && npm run check:claims && npm run check:provenance && npm run check:charge-lookup && npm run check:routes",
     "check:pages": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-pages.mts",
     "check:unverified": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-unverified.mts",
     "prewrite": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-unverified.mts",
@@ -20,7 +20,8 @@
     "check:routes:rendered": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-routes.mts --rendered",
     "check:offense-level": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-offense-level.mts",
     "check:charge-lookup": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-charge-lookup.mts",
-    "check:charge-lookup:rendered": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-charge-lookup.mts --rendered"
+    "check:charge-lookup:rendered": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-charge-lookup.mts --rendered",
+    "check:registries": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-registries.mts"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",
