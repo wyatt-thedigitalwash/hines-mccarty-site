@@ -3,6 +3,16 @@
 Written 2026-08-19. Concept document only. No code was written and nothing under
 `src/` was modified.
 
+**SUPERSEDED IN PART, 2026-08-24.** The calculator half of this document is
+replaced by docs/build/tools/SENTENCING-WORKSHEET-CONCEPT.md, which reframes
+the artifact from a range calculator to a rendering of the Rule 3.992 worksheet
+with the unknowable cells left visibly empty. This document's analysis is the
+reasoning that reframe rests on, in particular A.4 on the floor being the low
+end of a two-ended question, and B.1's honest assessment that a range framing
+"narrows the gap. It does not close it." Both remain worth reading and neither
+is withdrawn. The bond half is settled separately by DECISIONS.md D32: the
+estimator is not built.
+
 Corrected 2026-08-20 in the D28 low-findings pass, five places: the B.3
 degree-span table gains the sixth degree the chart uses (second degree felony
 punishable by life, level 9, one row); three "30 charge pages" counts become 29
