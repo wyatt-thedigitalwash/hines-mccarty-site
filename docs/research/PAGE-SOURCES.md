@@ -2328,6 +2328,260 @@ Fetched 2026-08-20; page carries "Text contains those laws in effect on August 1
 > (2) in any other circumstance, release or detain the person under section 3142.
 
 **Fed. R. Crim. P. 5, whole rule, (a) through (g)**  
+READ-WHOLE: F.S. 943.059
+https://www.flsenate.gov/Laws/Statutes/2025/0943.059
+
+Court-ordered sealing of criminal history records. Recorded whole from the section body, 63 logical passages, one blockquote line each.
+
+WHY. The sealing arm's operative section. Eligibility in (1), petition requirements in (2), processing in (3), and the effect of an order plus the disclosure exceptions in (4). Previously the audited table carried two penalty rows only, so nothing in this project could state what sealing requires or what it does.
+
+Fetched 2026-08-25 with curl from the Florida Senate's 2025 statutes. Method: the page's SectionBody div was cut at the History div and emitted programmatically rather than retyped. A first extraction attempt truncated every section at its first closing div, producing bodies a third of their true length; the boundary was corrected and the recovered lengths are what is recorded here. NOT independently re-verified against a second publisher: the Florida Senate is the publisher this project uses for the Florida Statutes and no second path was run for this batch, which is stated rather than implied.
+
+> (1) ELIGIBILITY.—A person is eligible to petition a court to seal a criminal history record when:
+> (a) The criminal history record is not ineligible for court-ordered sealing under s. 943.0584.
+> (b) The person has never, before the date the application for a certificate of eligibility is filed, been adjudicated guilty in this state of a criminal offense, or been adjudicated delinquent in this state for committing any felony or any of the following misdemeanor offenses, unless the record of such adjudication of delinquency has been expunged pursuant to s. 943.0515:
+> 1. Assault, as defined in s. 784.011;
+> 2. Battery, as defined in s. 784.03;
+> 3. Assault on a law enforcement officer, a firefighter, or other specified officers, as defined in s. 784.07(2)(a);
+> 4. Carrying a concealed weapon, as defined in s. 790.01(2);
+> 5. Open carrying of a weapon, as defined in s. 790.053;
+> 6. Unlawful possession or discharge of a weapon or firearm at a school-sponsored event or on school property, as defined in s. 790.115;
+> 7. Unlawful use of destructive devices or bombs, as defined in s. 790.1615(1);
+> 8. Unlawful possession of a firearm by a minor, as defined in s. 790.22(5);
+> 9. Exposure of sexual organs, as defined in s. 800.03;
+> 10. Arson, as defined in s. 806.031(1);
+> 11. Petit theft, as defined in s. 812.014(3);
+> 12. Neglect of a child, as defined in s. 827.03(1)(e); or
+> 13. Cruelty to animals, as defined in s. 828.12(1).
+> (c) The person has not been adjudicated guilty of, or adjudicated delinquent for committing, any of the acts stemming from the arrest or alleged criminal activity to which the petition to seal pertains.
+> (d) The person is no longer under court supervision applicable to the disposition of arrest or alleged criminal activity to which the petition to seal pertains.
+> (e) The person has never secured a prior sealing or expunction of a criminal history record under this section, s. 943.0585, former s. 893.14, former s. 901.33, or former s. 943.058.
+> (2) CERTIFICATE OF ELIGIBILITY.—Before petitioning the court to seal a criminal history record, a person seeking to seal a criminal history record must apply to the department for a certificate of eligibility for sealing. The department shall adopt rules relating to the application for and issuance of certificates of eligibility for sealing.
+> (a) The department shall issue a certificate of eligibility for sealing to a person who is the subject of a criminal history record if that person:
+> 1. Satisfies the eligibility criteria in paragraphs (1)(a)-(e) and is not ineligible for court-ordered sealing under s. 943.0584.
+> 2. Has submitted to the department a certified copy of the disposition of charge to which the petition pertains.
+> 3. Remits a $75 processing fee to the department for placement in the Department of Law Enforcement Operating Trust Fund, unless the executive director waives such fee.
+> (b) A certificate of eligibility for sealing is valid for 12 months after the date stamped on the certificate when issued by the department. After that time, the petitioner must reapply to the department for a new certificate of eligibility. The status of the applicant and the law in effect at the time of the renewal application determine the petitioner’s eligibility.
+> (3) PETITION.—Each petition to a court to seal a criminal history record is complete only when accompanied by:
+> (a) A valid certificate of eligibility issued by the department pursuant to this section.
+> (b) The petitioner’s sworn statement that the petitioner:
+> 1. Satisfies the eligibility requirements for sealing in subsection (1).
+> 2. Is eligible for sealing to the best of his or her knowledge and does not have any other petition to seal or expunge a criminal history record pending before any court.
+> Any person who knowingly provides false information on such sworn statement to the court commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084.
+> (4) COURT AUTHORITY.—
+> (a) The courts of this state have jurisdiction over their own procedures, including the maintenance, sealing, and correction of judicial records containing criminal history information to the extent that such procedures are not inconsistent with the conditions, responsibilities, and duties established by this section.
+> (b) Any court of competent jurisdiction may order a criminal justice agency to seal the criminal history record of a minor or an adult who complies with the requirements of this section. The court may not order a criminal justice agency to seal a criminal history record until the person seeking to seal a criminal history record has applied for and received a certificate of eligibility pursuant to subsection (2).
+> (c) The court may order the sealing of a criminal history record pertaining to one arrest or one incident of alleged criminal activity only, except the court may order the sealing of a criminal history record pertaining to more than one arrest if the additional arrests directly relate to the original arrest. If the court intends to order the sealing of records pertaining to such additional arrests, such intent must be specified in the order. A criminal justice agency may not seal any record pertaining to such additional arrests if the order to seal does not articulate the intention of the court to seal a record pertaining to more than one arrest. This section does not prevent the court from ordering the sealing of only a portion of a criminal history record pertaining to one arrest or one incident of alleged criminal activity.
+> (d) Notwithstanding any law to the contrary, a criminal justice agency may comply with laws, court orders, and official requests of other jurisdictions relating to sealing, correction, or confidential handling of criminal history records or information derived therefrom.
+> (e) This section does not confer any right to the sealing of any criminal history record, and any request for sealing of a criminal history record may be denied at the sole discretion of the court.
+> (5) PROCESSING OF A PETITION OR ORDER.—
+> (a) In judicial proceedings under this section, a copy of the completed petition to seal shall be served upon the appropriate state attorney or the statewide prosecutor and upon the arresting agency; however, it is not necessary to make any agency other than the state a party. The appropriate state attorney or the statewide prosecutor and the arresting agency may respond to the court regarding the completed petition to seal.
+> (b) If relief is granted by the court, the clerk of the court shall certify copies of the order to the appropriate state attorney or the statewide prosecutor and the arresting agency. The arresting agency is responsible for forwarding the order to any other agency to which the arresting agency disseminated the criminal history record information to which the order pertains. The department shall forward the order to seal to the Federal Bureau of Investigation. The clerk of the court shall certify a copy of the order to any other agency that the records of the court reflect has received the criminal history record from the court.
+> (c) The department or any other criminal justice agency is not required to act on an order to seal entered by a court when such order does not comply with the requirements of this section. Upon receipt of such an order, the department must notify the issuing court, the appropriate state attorney or statewide prosecutor, the petitioner or the petitioner’s attorney, and the arresting agency of the reason for noncompliance. The appropriate state attorney or statewide prosecutor shall take action within 60 days to correct the record and petition the court to void the order. No cause of action, including contempt of court, shall arise against any criminal justice agency for failure to comply with an order to seal when the petitioner for such order failed to obtain the certificate of eligibility as required by this section or such order does not otherwise comply with the requirements of this section.
+> (6) EFFECT OF ORDER.—
+> (a) A criminal history record of a minor or an adult which is ordered sealed by a court pursuant to this section is confidential and exempt from s. 119.07(1) and s. 24(a), Art. I of the State Constitution and is available only to the following persons:
+> 1. The subject of the record;
+> 2. The subject’s attorney;
+> 3. Criminal justice agencies for their respective criminal justice purposes, which include conducting a criminal history background check for approval of firearms purchases or transfers as authorized by state or federal law;
+> 4. Judges in the state courts system for the purpose of assisting them in their case-related decisionmaking responsibilities, as set forth in s. 943.053(5); or
+> 5. To those entities set forth in subparagraphs (b)1., 4.-6., and 8.-10. for their respective licensing access authorization and employment purposes.
+> (b) The subject of the criminal history record sealed under this section or under other provisions of law, including former ss. 893.14, 901.33, and 943.058, may lawfully deny or fail to acknowledge the arrests covered by the sealed record, except when the subject of the record:
+> 1. Is a candidate for employment with a criminal justice agency;
+> 2. Is a defendant in a criminal prosecution;
+> 3. Concurrently or subsequently petitions for relief under this section, s. 943.0583, or s. 943.0585;
+> 4. Is a candidate for admission to The Florida Bar;
+> 5. Is seeking to be employed or licensed by or to contract with the Department of Children and Families, the Division of Vocational Rehabilitation within the Department of Education, the Agency for Health Care Administration, the Agency for Persons with Disabilities, the Department of Health, the Department of Elderly Affairs, or the Department of Juvenile Justice or to be employed or used by such contractor or licensee in a sensitive position having direct contact with children, the disabled, or the elderly;
+> 6.a. Is seeking to be employed or licensed by, or contract with, the Department of Education, a district unit under s. 1001.30, a special district unit under s. 1011.24, the Florida School for the Deaf and the Blind under s. 1002.36, the Florida Virtual School under s. 1002.37, a virtual instruction program under s. 1002.45, a charter school under s. 1002.33, a hope operator under s. 1002.333, an alternative school under s. 1008.341, a private or parochial school, or a local governmental entity that licenses child care facilities;
+> b. Is seeking to be employed or used by a contractor or licensee under sub-subparagraph a.; or
+> c. Is a person screened under s. 1012.467;
+> 7. Is attempting to purchase a firearm from a licensed importer, licensed manufacturer, or licensed dealer and is subject to a criminal history check under state or federal law;
+> 8. Is seeking to be licensed by the Division of Insurance Agent and Agency Services within the Department of Financial Services;
+> 9. Is seeking to be appointed as a guardian pursuant to s. 744.3125; or
+> 10. Is seeking to be licensed by the Bureau of License Issuance of the Division of Licensing within the Department of Agriculture and Consumer Services to carry a concealed weapon or concealed firearm. This subparagraph applies only in the determination of an applicant’s eligibility under s. 790.06.
+> (c) Subject to the exceptions in paragraph (b), a person who has been granted a sealing under this section, former s. 893.14, former s. 901.33, or former s. 943.058 may not be held under any provision of law of this state to commit perjury or to be otherwise liable for giving a false statement by reason of such person’s failure to recite or acknowledge a sealed criminal history record.
+> (d) Information relating to the existence of a sealed criminal history record provided in accordance with paragraph (b) is confidential and exempt from s. 119.07(1) and s. 24(a), Art. I of the State Constitution, except that the department shall disclose the sealed criminal history record to the entities set forth in subparagraphs (b)1., 4.-6., and 8.-10. for their respective licensing, access authorization, and employment purposes. An employee of an entity set forth in subparagraph (b)1., subparagraph (b)4., subparagraph (b)5., subparagraph (b)6., subparagraph (b)8., subparagraph (b)9., or subparagraph (b)10. may not disclose information relating to the existence of a sealed criminal history record of a person seeking employment, access authorization, or licensure with such entity or contractor, except to the person to whom the criminal history record relates or to persons having direct responsibility for employment, access authorization, or licensure decisions. A person who violates this paragraph commits a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083.
+
+READ-WHOLE: F.S. 943.0584
+https://www.flsenate.gov/Laws/Statutes/2025/0943.0584
+
+Criminal history records ineligible for court-ordered expunction or court-ordered sealing. Recorded whole from the section body, 36 logical passages, one blockquote line each.
+
+WHY. The disqualifying-offense list, re-fetched to close the currency question the concept document raised. The audited table's `unread` field warned that the 2025-156 session laws had not been checked. They have been now: the paragraph list runs (a) through (hh) with no gaps, and all 36 recorded quotes in `fs-943-0584.ts` match this fetch exactly. The table stands as recorded.
+
+Fetched 2026-08-25 with curl from the Florida Senate's 2025 statutes. Method: the page's SectionBody div was cut at the History div and emitted programmatically rather than retyped. A first extraction attempt truncated every section at its first closing div, producing bodies a third of their true length; the boundary was corrected and the recovered lengths are what is recorded here. NOT independently re-verified against a second publisher: the Florida Senate is the publisher this project uses for the Florida Statutes and no second path was run for this batch, which is stated rather than implied.
+
+> (1) As used in this section, the term “conviction” means a determination of guilt which is the result of a trial or the entry of a plea of guilty or nolo contendere, regardless of whether adjudication is withheld, or if the defendant was a minor, a finding that the defendant committed or pled guilty or nolo contendere to committing a delinquent act, regardless of whether adjudication of delinquency is withheld.
+> (2) A criminal history record is ineligible for a certificate of eligibility for expunction or a court-ordered expunction pursuant to s. 943.0585 or a certificate of eligibility for sealing or a court-ordered sealing pursuant to s. 943.059 if the record is a conviction for any of the following offenses:
+> (a) Sexual misconduct, as defined in s. 393.135, s. 394.4593, or s. 916.1075;
+> (b) Illegal use of explosives, as defined in chapter 552;
+> (c) Terrorism, as defined in s. 775.30;
+> (d) Murder, as defined in s. 782.04, s. 782.065, or s. 782.09;
+> (e) Manslaughter or homicide, as defined in s. 782.07, s. 782.071, or s. 782.072;
+> (f) Assault or battery, as defined in ss. 784.011 and 784.03, respectively, of one family or household member by another family or household member, as defined in s. 741.28(3);
+> (g) Aggravated assault, as defined in s. 784.021;
+> (h) Felony battery, domestic battery by strangulation, or aggravated battery, as defined in ss. 784.03, 784.041, and 784.045, respectively;
+> (i) Stalking or aggravated stalking, as defined in s. 784.048;
+> (j) Luring or enticing a child, as defined in s. 787.025;
+> (k) Human trafficking, as defined in s. 787.06;
+> (l) Kidnapping or false imprisonment, as defined in s. 787.01 or s. 787.02;
+> (m) Any offense defined in chapter 794;
+> (n) Procuring a person less than 18 years of age for prostitution, as defined in former s. 796.03;
+> (o) Lewd or lascivious offenses committed upon or in the presence of persons less than 16 years of age, as defined in s. 800.04;
+> (p) Arson, as defined in s. 806.01;
+> (q) Burglary of a dwelling, as defined in s. 810.02;
+> (r) Voyeurism or digital voyeurism, as defined in ss. 810.14 and 810.145, respectively;
+> (s) Robbery or robbery by sudden snatching, as defined in ss. 812.13 and 812.131, respectively;
+> (t) Carjacking, as defined in s. 812.133;
+> (u) Home-invasion robbery, as defined in s. 812.135;
+> (v) A violation of the Florida Communications Fraud Act, as provided in s. 817.034;
+> (w) Abuse of an elderly person or disabled adult, or aggravated abuse of an elderly person or disabled adult, as defined in s. 825.102;
+> (x) Lewd or lascivious offenses committed upon or in the presence of an elderly person or disabled person, as defined in s. 825.1025;
+> (y) Child abuse or aggravated child abuse, as defined in s. 827.03;
+> (z) Sexual performance by a child, as defined in s. 827.071;
+> (aa) Any offense defined in chapter 839;
+> (bb) Certain acts in connection with obscenity, as defined in s. 847.0133;
+> (cc) Any offense defined in s. 847.0135;
+> (dd) Selling or buying of minors, as defined in s. 847.0145;
+> (ee) Aircraft piracy, as defined in s. 860.16;
+> (ff) Manufacturing a controlled substance in violation of chapter 893;
+> (gg) Drug trafficking, as defined in s. 893.135; or
+> (hh) Any violation specified as a predicate offense for registration as a sexual predator pursuant to s. 775.21, or sexual offender pursuant to s. 943.0435, without regard to whether that offense alone is sufficient to require such registration.
+
+READ-WHOLE: F.S. 943.0515
+https://www.flsenate.gov/Laws/Statutes/2025/0943.0515
+
+Retention of criminal history records of minors. Recorded whole from the section body, 10 logical passages, one blockquote line each.
+
+WHY. Cited inside 943.059(1)(b) as the unless-clause that can undo a disqualifying delinquency adjudication. The concept document states the consequence of not having it plainly: a tool that asks about juvenile adjudications without this gives a wrong answer to every reader whose delinquency record was expunged.
+
+Fetched 2026-08-25 with curl from the Florida Senate's 2025 statutes. Method: the page's SectionBody div was cut at the History div and emitted programmatically rather than retyped. A first extraction attempt truncated every section at its first closing div, producing bodies a third of their true length; the boundary was corrected and the recovered lengths are what is recorded here. NOT independently re-verified against a second publisher: the Florida Senate is the publisher this project uses for the Florida Statutes and no second path was run for this batch, which is stated rather than implied.
+
+> (1)(a) The Criminal Justice Information Program shall retain the criminal history record of a minor who is classified as a serious or habitual juvenile offender or committed to a maximum-risk residential facility under chapter 985 for 5 years after the date the offender reaches 21 years of age, at which time the record shall be expunged unless it meets the criteria of paragraph (2)(a) or paragraph (2)(b).
+> (b)1. If the minor is not classified as a serious or habitual juvenile offender or committed to a maximum-risk residential facility under chapter 985, the program shall retain the minor’s criminal history record for 2 years after the date the minor reaches 19 years of age, at which time the record shall be expunged unless it meets the criteria of paragraph (2)(a) or paragraph (2)(b).
+> 2. A minor described in subparagraph 1. may apply to the department to have his or her criminal history record expunged before the minor reaches 21 years of age. To be eligible for expunction under this subparagraph, the minor must be 18 years of age or older and less than 21 years of age and have not been charged by the state attorney with or found to have committed any criminal offense within the 5-year period before the application date. The only offenses eligible to be expunged under this subparagraph are those that the minor committed before the minor reached 18 years of age. A criminal history record expunged under this subparagraph requires the approval of the state attorney for each circuit in which an offense specified in the criminal history record occurred. A minor seeking to expunge a criminal history record under this subparagraph shall apply to the department for expunction in the manner prescribed by rule. An application for expunction under this subparagraph shall include:
+> a. A processing fee of $75 to the department for placement in the Department of Law Enforcement Operating Trust Fund, unless such fee is waived by the executive director.
+> b. A full set of fingerprints of the applicant taken by a law enforcement agency for purposes of identity verification.
+> c. A sworn, written statement from the minor seeking relief that he or she is no longer under court supervision applicable to the disposition of the arrest or alleged criminal activity to which the application to expunge pertains and that he or she has not been charged with or found to have committed a criminal offense, in any jurisdiction of the state or within the United States, within the 5-year period before the application date. A person who knowingly provides false information on the sworn statement required by this sub-subparagraph commits a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083.
+> 3. A minor who applies, but who is not approved for early expunction in accordance with subparagraph 2., shall have his or her criminal history record expunged at age 21 if eligible under subparagraph 1.
+> (2)(a) If a person 18 years of age or older is charged with or convicted of a forcible felony and the person’s criminal history record as a minor has not yet been destroyed, the person’s record as a minor must be merged with the person’s adult criminal history record and must be retained as a part of the person’s adult record.
+> (b) If, at any time, a minor is adjudicated as an adult for a forcible felony, the minor’s criminal history record prior to the time of the minor’s adjudication as an adult must be merged with his or her record as an adjudicated adult.
+> (3) Notwithstanding any other provision of this section, the Criminal Justice Information Program shall retain the criminal history record of a minor adjudicated delinquent for a violation committed on or after July 1, 2007, as provided in s. 943.0435(1)(h)1.d. Such records may not be destroyed and must be merged with the person’s adult criminal history record and retained as a part of the person’s adult record.
+
+READ-WHOLE: F.S. 943.0583
+https://www.flsenate.gov/Laws/Statutes/2025/0943.0583
+
+Human trafficking victim expunction. Recorded whole from the section body, 35 logical passages, one blockquote line each.
+
+WHY. A separate expunction route with its own eligibility. Only subsection (2) was recorded before, so a reader who qualifies under this route would have been told nothing by a tool that knows only 943.059.
+
+Fetched 2026-08-25 with curl from the Florida Senate's 2025 statutes. Method: the page's SectionBody div was cut at the History div and emitted programmatically rather than retyped. A first extraction attempt truncated every section at its first closing div, producing bodies a third of their true length; the boundary was corrected and the recovered lengths are what is recorded here. NOT independently re-verified against a second publisher: the Florida Senate is the publisher this project uses for the Florida Statutes and no second path was run for this batch, which is stated rather than implied.
+
+> (1) As used in this section, the term:
+> (a) “Human trafficking” has the same meaning as provided in s. 787.06.
+> (b) “Official documentation” means any documentation issued by a federal, state, or local agency tending to show a person’s status as a victim of human trafficking.
+> (c) “Victim of human trafficking” means a person subjected to coercion, as defined in s. 787.06, for the purpose of being used in human trafficking, a child under 18 years of age subjected to human trafficking, or an individual subjected to human trafficking as defined by federal law.
+> (2) Notwithstanding any other provision of law, upon the filing of a petition as provided in this section, any court in the circuit in which the petitioner was arrested, so long as the court has jurisdiction over the class of offense or offenses sought to be expunged, may order a criminal justice agency to expunge the criminal history record of a victim of human trafficking who complies with the requirements of this section. A petition need not be filed in the court where the petitioner’s criminal proceeding or proceedings originally occurred. This section does not confer any right to the expunction of any criminal history record, and any request for expunction of a criminal history record may be denied at the discretion of the court. The clerk of the court may not charge a filing fee, service charge, or copy fee or any other charge for a petition filed under this section. The clerk of the court shall treat a petition seeking to expunge more than one eligible case as a single petition.
+> (3) A person who is a victim of human trafficking may petition for the expunction of a criminal history record resulting from the arrest or filing of charges for one or more offenses committed or reported to have been committed while the person was a victim of human trafficking, which offense was committed or reported to have been committed as a part of the human trafficking scheme of which the person was a victim or at the direction of an operator of the scheme, including, but not limited to, violations under chapters 796 and 847, without regard to the disposition of the arrest or of any charges. However, this section does not apply to any offense listed in s. 775.084(1)(b)1. Determination of the petition under this section should be by a preponderance of the evidence. A conviction expunged under this section is deemed to have been vacated due to a substantive defect in the underlying criminal proceedings. If a person is adjudicated not guilty by reason of insanity or is found to be incompetent to stand trial for any such charge, the expunction of the criminal history record may not prevent the entry of the judgment or finding in state and national databases for use in determining eligibility to purchase or possess a firearm or to carry a concealed firearm, as authorized in s. 790.065(2)(a)4.c. and 18 U.S.C. s. 922(t), nor shall it prevent any governmental agency that is authorized by state or federal law to determine eligibility to purchase or possess a firearm or to carry a concealed firearm from accessing or using the record of the judgment or finding in the course of such agency’s official duties.
+> (4) A petition under this section must be initiated by the petitioner with due diligence after the victim has ceased to be a victim of human trafficking or has sought services for victims of human trafficking, subject to reasonable concerns for the safety of the victim, family members of the victim, or other victims of human trafficking that may be jeopardized by the bringing of such petition or for other reasons consistent with the purpose of this section.
+> (5) Official documentation of the victim’s status creates a presumption that his or her participation in the offense was a result of having been a victim of human trafficking but is not required for granting a petition under this section. A determination made without such official documentation must be made by a showing of clear and convincing evidence.
+> (6) Each petition to a court to expunge a criminal history record is complete only when accompanied by:
+> (a) The petitioner’s sworn statement attesting that the petitioner is eligible for such an expunction to the best of his or her knowledge or belief.
+> (b) Official documentation of the petitioner’s status as a victim of human trafficking, if any exists.
+> Any person who knowingly provides false information on such sworn statement to the court commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084.
+> (7)(a) In judicial proceedings under this section, a copy of the completed petition to expunge shall be served upon the appropriate state attorney or the statewide prosecutor and upon the arresting agency; however, it is not necessary to make any agency other than the state a party. The appropriate state attorney or the statewide prosecutor and the arresting agency may respond to the court regarding the completed petition to expunge.
+> (b) The petitioner or the petitioner’s attorney may appear at any hearing under this section telephonically, via video conference, or by other electronic means.
+> (c) The court shall allow an advocate from a state attorney’s office, law enforcement agency, safe house or safe foster home as defined in s. 409.1678(1), or a residential facility offering services to adult victims of human trafficking to be present with the petitioner during any court proceedings or hearings under this section, if the petitioner has made such a request and the advocate is able to be present.
+> (d) If relief is granted by the court, the clerk of the court shall certify copies of the order to the appropriate state attorney or the statewide prosecutor and the arresting agency. The arresting agency is responsible for forwarding the order to any other agency listed in the court order to which the arresting agency disseminated the criminal history record information to which the order pertains. The department shall forward the order to expunge to the Federal Bureau of Investigation. The clerk of the court shall certify a copy of the order to any other agency that the records of the court reflect has received the criminal history record from the court.
+> (8)(a) Any criminal history record of a minor or an adult that is ordered expunged pursuant to this section must be physically destroyed or obliterated by any criminal justice agency having custody of such record, except that any criminal history record in the custody of the department must be retained in all cases.
+> (b) The person who is the subject of a criminal history record that is expunged under this section may lawfully deny or fail to acknowledge the arrests covered by the expunged record, except when the subject of the record is a candidate for employment with a criminal justice agency or is a defendant in a criminal prosecution.
+> (c) Subject to the exceptions in paragraph (b), a person who has been granted an expunction under this section may not be held under any law of this state to commit perjury or to be otherwise liable for giving a false statement by reason of such person’s failure to recite or acknowledge an expunged criminal history record.
+> (9) Any reference to any other chapter, section, or subdivision of the Florida Statutes in this section constitutes a general reference under the doctrine of incorporation by reference.
+> (10)(a) A criminal history record ordered expunged under this section that is retained by the department is confidential and exempt from s. 119.07(1) and s. 24(a), Art. I of the State Constitution, except that the record shall be made available:
+> 1. To criminal justice agencies for their respective criminal justice purposes.
+> 2. To any governmental agency that is authorized by state or federal law to determine eligibility to purchase or possess a firearm or to carry a concealed firearm for use in the course of such agency’s official duties.
+> 3. Upon order of a court of competent jurisdiction.
+> (b) A criminal justice agency may retain a notation indicating compliance with an order to expunge.
+> (11)(a) The following criminal intelligence information or criminal investigative information is confidential and exempt from s. 119.07(1) and s. 24(a), Art. I of the State Constitution:
+> 1. Any information that reveals the identity of a person who is a victim of human trafficking whose criminal history record has been expunged under this section.
+> 2. Any information that may reveal the identity of a person who is a victim of human trafficking whose criminal history record has been ordered expunged under this section.
+> (b) Criminal investigative information and criminal intelligence information made confidential and exempt under this subsection may be disclosed by a law enforcement agency:
+> 1. In the furtherance of its official duties and responsibilities.
+> 2. For print, publication, or broadcast if the law enforcement agency determines that such release would assist in locating or identifying a person that the agency believes to be missing or endangered. The information provided should be limited to that needed to identify or locate the victim.
+> 3. To another governmental agency in the furtherance of its official duties and responsibilities.
+> (c) This exemption applies to such confidential and exempt criminal intelligence information or criminal investigative information held by a law enforcement agency before, on, or after the effective date of the exemption.
+> (12)(a) A petition filed under this section and all pleadings and documents related to the petition are confidential and exempt from s. 119.07(1) and s. 24(a), Art. I of the State Constitution.
+> (b) This subsection is subject to the Open Government Sunset Review Act in accordance with s. 119.15 and is repealed on October 2, 2028, unless reviewed and saved from repeal through reenactment by the Legislature.
+
+READ-WHOLE: F.S. 943.0585
+https://www.flsenate.gov/Laws/Statutes/2025/0943.0585
+
+Court-ordered expunction of criminal history records. Recorded whole from the section body, 60 logical passages, one blockquote line each.
+
+WHY. The expunction arm. Recorded now so the eligibility questions can distinguish sealing from expunction rather than conflating them; the tool's first release answers the sealing arm and says so.
+
+Fetched 2026-08-25 with curl from the Florida Senate's 2025 statutes. Method: the page's SectionBody div was cut at the History div and emitted programmatically rather than retyped. A first extraction attempt truncated every section at its first closing div, producing bodies a third of their true length; the boundary was corrected and the recovered lengths are what is recorded here. NOT independently re-verified against a second publisher: the Florida Senate is the publisher this project uses for the Florida Statutes and no second path was run for this batch, which is stated rather than implied.
+
+> (1) ELIGIBILITY.—A person is eligible to petition a court to expunge a criminal history record if:
+> (a) An indictment, information, or other charging document was not filed or issued in the case giving rise to the criminal history record.
+> (b) An indictment, information, or other charging document was filed or issued in the case giving rise to the criminal history record, was dismissed or nolle prosequi by the state attorney or statewide prosecutor, or was dismissed by a court of competent jurisdiction or a judgment of acquittal was rendered by a judge, or a verdict of not guilty was rendered by a judge or jury.
+> (c) The person is not seeking to expunge a criminal history record that is ineligible for court-ordered expunction under s. 943.0584.
+> (d) The person has never, as of the date the application for a certificate of expunction is filed, been adjudicated guilty in this state of a criminal offense or been adjudicated delinquent in this state for committing any felony or any of the following misdemeanors, unless the record of such adjudication of delinquency has been expunged pursuant to s. 943.0515:
+> 1. Assault, as defined in s. 784.011;
+> 2. Battery, as defined in s. 784.03;
+> 3. Assault on a law enforcement officer, a firefighter, or other specified officers, as defined in s. 784.07(2)(a);
+> 4. Carrying a concealed weapon, as defined in s. 790.01(2);
+> 5. Open carrying of a weapon, as defined in s. 790.053;
+> 6. Unlawful possession or discharge of a weapon or firearm at a school-sponsored event or on school property, as defined in s. 790.115;
+> 7. Unlawful use of destructive devices or bombs, as defined in s. 790.1615(1);
+> 8. Unlawful possession of a firearm, as defined in s. 790.22(5);
+> 9. Exposure of sexual organs, as defined in s. 800.03;
+> 10. Arson, as defined in s. 806.031(1);
+> 11. Petit theft, as defined in s. 812.014(3);
+> 12. Neglect of a child, as defined in s. 827.03(1)(e); or
+> 13. Cruelty to animals, as defined in s. 828.12(1).
+> (e) The person has not been adjudicated guilty of, or adjudicated delinquent for committing, any of the acts stemming from the arrest or alleged criminal activity to which the petition pertains.
+> (f) The person is no longer under court supervision applicable to the disposition of arrest or alleged criminal activity to which the petition to expunge pertains.
+> (g) The person has never secured a prior sealing or expunction of a criminal history record under this section, s. 943.059, former s. 893.14, former s. 901.33, or former s. 943.058, unless expunction is sought of a criminal history record previously sealed for 10 years pursuant to paragraph (h) and the record is otherwise eligible for expunction.
+> (h) The person has previously obtained a court-ordered sealing the criminal history record under s. 943.059, former s. 893.14, former s. 901.33, or former s. 943.058 for a minimum of 10 years because adjudication was withheld or because all charges related to the arrest or alleged criminal activity to which the petition to expunge pertains were not dismissed before trial, without regard to whether the outcome of the trial was other than an adjudication of guilt. The requirement for the record to have previously been sealed for a minimum of 10 years does not apply if a plea was not entered or all charges related to the arrest or alleged criminal activity to which the petition to expunge pertains were dismissed before trial or a judgment of acquittal was rendered by a judge or a verdict of not guilty was rendered by a judge or jury.
+> (2) CERTIFICATE OF ELIGIBILITY.—Before petitioning a court to expunge a criminal history record, a person seeking to expunge a criminal history record must apply to the department for a certificate of eligibility for expunction. The department shall adopt rules to establish procedures for applying for and issuing a certificate of eligibility for expunction.
+> (a) The department shall issue a certificate of eligibility for expunction to a person who is the subject of a criminal history record if that person:
+> 1. Satisfies the eligibility criteria in paragraphs (1)(a)-(h) and is not ineligible under s. 943.0584.
+> 2. Has submitted to the department a written certified statement from the appropriate state attorney or statewide prosecutor which confirms the criminal history record complies with the criteria in paragraph (1)(a) or paragraphs (1)(b) and (c).
+> 3. Has submitted to the department a certified copy of the disposition of the charge to which the petition to expunge pertains.
+> 4. Remits a $75 processing fee to the department for placement in the Department of Law Enforcement Operating Trust Fund, unless the executive director waives such fee.
+> (b) A certificate of eligibility for expunction is valid for 12 months after the date stamped on the certificate when issued by the department. After that time, the petitioner must reapply to the department for a new certificate of eligibility. The petitioner’s status and the law in effect at the time of the renewal application determine the petitioner’s eligibility.
+> (3) PETITION.—Each petition to expunge a criminal history record must be accompanied by:
+> (a) A valid certificate of eligibility issued by the department.
+> (b) The petitioner’s sworn statement that he or she:
+> 1. Satisfies the eligibility requirements for expunction in subsection (1).
+> 2. Is eligible for expunction to the best of his or her knowledge and does not have any other petition to seal or expunge a criminal history record pending before any court.
+> A person who knowingly provides false information on such sworn statement commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084.
+> (4) COURT AUTHORITY.—
+> (a) The courts of this state have jurisdiction over their own procedures, including the maintenance, expunction, and correction of judicial records containing criminal history information to the extent that such procedures are not inconsistent with the conditions, responsibilities, and duties established by this section.
+> (b) A court of competent jurisdiction may order a criminal justice agency to expunge the criminal history record of a minor or an adult who complies with the requirements of this section. The court may not order a criminal justice agency to expunge a criminal history record until the person seeking to expunge a criminal history record has applied for and received a certificate of eligibility under subsection (2).
+> (c) The court may order expunction of a criminal history record pertaining to one arrest or one incident of alleged criminal activity only, except that the court may order the expunction of a criminal history record pertaining to more than one arrest if the additional arrests directly relate to the original arrest. If the court intends to order the expunction of records pertaining to such additional arrests, such intent must be specified in the order. A criminal justice agency may not expunge any record pertaining to such additional arrests if the order to expunge does not articulate the intention of the court to expunge a record pertaining to more than one arrest. This section does not prevent the court from ordering the expunction of only a portion of a criminal history record pertaining to one arrest or one incident of alleged criminal activity.
+> (d) Notwithstanding any law to the contrary, a criminal justice agency may comply with laws, court orders, and official requests of other jurisdictions relating to expunction, correction, or confidential handling of criminal history records or information derived therefrom.
+> (e) This section does not confer any right to expunction of any criminal history record, and any request for expunction of a criminal history record may be denied at the sole discretion of the court.
+> (5) PROCESSING OF A PETITION OR AN ORDER.—
+> (a) In judicial proceedings under this section, a copy of the completed petition to expunge shall be served upon the appropriate state attorney or the statewide prosecutor and upon the arresting agency; however, it is not necessary to make any agency other than the state a party. The appropriate state attorney or the statewide prosecutor and the arresting agency may respond to the court regarding the completed petition to expunge.
+> (b) If relief is granted by the court, the clerk of the court shall certify copies of the order to the appropriate state attorney or the statewide prosecutor and the arresting agency. The arresting agency shall forward the order to any other agency to which the arresting agency disseminated the criminal history record information to which the order pertains. The department shall forward the order to expunge to the Federal Bureau of Investigation. The clerk of the court shall certify a copy of the order to any other agency which the records of the court reflect has received the criminal history record from the court.
+> (c) The department or any other criminal justice agency is not required to act on an order to expunge entered by a court when such order does not comply with the requirements of this section. Upon receipt of such an order, the department must notify the issuing court, the appropriate state attorney or statewide prosecutor, the petitioner or the petitioner’s attorney, and the arresting agency of the reason for noncompliance. The appropriate state attorney or statewide prosecutor shall take action within 60 days to correct the record and petition the court to void the order. No cause of action, including contempt of court, shall arise against any criminal justice agency for failure to comply with an order to expunge when the petitioner for such order failed to obtain the certificate of eligibility as required by this section or such order does not otherwise comply with the requirements of this section.
+> (6) EFFECT OF EXPUNCTION ORDER.—
+> (a) Any criminal history record of a minor or an adult which is ordered expunged by a court of competent jurisdiction pursuant to this section must be physically destroyed or obliterated by any criminal justice agency having custody of such record, except that any criminal history record in the custody of the department must be retained in all cases. A criminal history record ordered expunged which is retained by the department is confidential and exempt from s. 119.07(1) and s. 24(a), Art. I of the State Constitution and not available to any person or entity except upon order of a court of competent jurisdiction. A criminal justice agency may retain a notation indicating compliance with an order to expunge.
+> (b) The person who is the subject of a criminal history record that is expunged under this section or under other provisions of law, including former ss. 893.14, 901.33, and 943.058, may lawfully deny or fail to acknowledge the arrests covered by the expunged record, except when the subject of the record:
+> 1. Is a candidate for employment with a criminal justice agency;
+> 2. Is a defendant in a criminal prosecution;
+> 3. Concurrently or subsequently petitions for relief under this section, s. 943.0583, or s. 943.059;
+> 4. Is a candidate for admission to The Florida Bar;
+> 5. Is seeking to be employed or licensed by or to contract with the Department of Children and Families, the Division of Vocational Rehabilitation within the Department of Education, the Agency for Health Care Administration, the Agency for Persons with Disabilities, the Department of Health, the Department of Elderly Affairs, or the Department of Juvenile Justice or to be employed or used by such contractor or licensee in a sensitive position having direct contact with children, the disabled, or the elderly;
+> 6.a. Is seeking to be employed or licensed by, or contract with, the Department of Education, any district unit under s. 1001.30, any special district unit under s. 1011.24, the Florida School for the Deaf and the Blind under s. 1002.36, the Florida Virtual School under s. 1002.37, any virtual instruction program under s. 1002.45, any charter school under s. 1002.33, any hope operator under s. 1002.333, any alternative school under s. 1008.341, any private or parochial school, or any local governmental entity that licenses child care facilities;
+> b. Is seeking to be employed or used by a contractor or licensee under sub-subparagraph a.; or
+> c. Is a person screened under s. 1012.467;
+> 7. Is seeking to be licensed by the Division of Insurance Agent and Agency Services within the Department of Financial Services; or
+> 8. Is seeking to be appointed as a guardian pursuant to s. 744.3125.
+> (c) Subject to the exceptions in paragraph (b), a person who has been granted an expunction under this section, former s. 893.14, former s. 901.33, or former s. 943.058 may not be held under any provision of law of this state to commit perjury or to be otherwise liable for giving a false statement by reason of such person’s failure to recite or acknowledge an expunged criminal history record.
+> (d) Information relating to the existence of an expunged criminal history record which is provided in accordance with paragraph (a) is confidential and exempt from s. 119.07(1) and s. 24(a), Art. I of the State Constitution, except that the department shall disclose the existence of a criminal history record ordered expunged to the entities set forth in subparagraphs (b)1. and 4.-8. for their respective licensing, access authorization, and employment purposes and to criminal justice agencies for their respective criminal justice purposes. It is unlawful for any employee of an entity set forth in subparagraph (b)1., subparagraph (b)4., subparagraph (b)5., subparagraph (b)6., subparagraph (b)7., or subparagraph (b)8. to disclose information relating to the existence of an expunged criminal history record of a person seeking employment, access authorization, or licensure with such entity or contractor, except to the person to whom the criminal history record relates or to persons having direct responsibility for employment, access authorization, or licensure decisions. A person who violates this paragraph commits a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083.
+
 READ-WHOLE: Administrative Order S-2025-063 (Thirteenth Judicial Circuit, Hillsborough County)
 https://www.fljud13.org/Portals/0/AO/DOCS/S-2025-063.pdf
 
