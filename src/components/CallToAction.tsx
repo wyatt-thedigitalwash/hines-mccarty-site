@@ -52,9 +52,27 @@ function Watermark({ tone }: { tone: "navy" | "white" }) {
       >
         {shape}
       </div>
+      {/*
+        SIZED TO MATCH THE HOME CTA, which is the reference. It is not the same
+        numbers, because it is not the same geometry: the home card masks
+        /shapes/florida-outline.svg at 800x679.2, an aspect of 1.178, while this
+        draws the generated Census outline at 800x620, an aspect of 1.290. The
+        Census shape is wider and shorter, so at an identical width it renders
+        about 100px shorter and bleeds half as far above and below, which reads
+        as the whole state floating inside the card rather than a crop through
+        it.
+
+        Measured on the home card at 1302x497: the watermark is 760x645, so its
+        height is 1.30x the card's and it overflows 127px to the right, about
+        9.7 percent of the card width. 780px here reproduces both against this
+        card, and -right-32 is 128px.
+
+        Match the RATIOS rather than the pixel values if either card's padding
+        changes again.
+      */}
       <div
         aria-hidden
-        className={`pointer-events-none absolute -right-28 top-1/2 hidden w-[620px] -translate-y-1/2 lg:block lg:w-[700px] ${tintLg}`}
+        className={`pointer-events-none absolute -right-32 top-1/2 hidden w-[700px] -translate-y-1/2 lg:block lg:w-[780px] ${tintLg}`}
       >
         {shape}
       </div>

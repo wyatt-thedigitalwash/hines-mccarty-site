@@ -385,9 +385,10 @@ export const attorneys: Attorney[] = [
   {
     slug: "david-hines",
     name: "David Hines",
-    // NOT confirmed. The client supplied a roster line for him but no bio
-    // paragraph, no education, and no prior roles, which are three visible
-    // [NEEDS] markers on a confirmed page. He is the named partner and the
+    // STILL NOT confirmed, though education, federal court admission and two
+    // memberships landed 2026-08-25. What remains visible as [NEEDS] on his
+    // page is the bio overview and prior roles, plus the undergraduate degree
+    // his new law-school entry now implies. He is the named partner and the
     // Managing Partner, so his is the bio a referral checks first; shipping it
     // half-written costs more than leaving it noindex a while longer.
     confirmed: false,
@@ -417,17 +418,52 @@ export const attorneys: Attorney[] = [
     credentials: {
       // [NEEDS: Florida Bar number]
       barAdmission: { state: "Florida", admitted: "2022" },
-      // [NEEDS: courts admitted to] -- not supplied, and not inferred from the
-      // Bar admission here because his civil and business practice may reach
-      // courts the other bios do not.
-      // [NEEDS: education, school, degree, year] -- none was supplied.
-      // [NEEDS: prior roles] -- none was supplied.
+      // Client-supplied 2026-08-25: the Middle District. Florida state courts
+      // follow from the Bar admission above, which is the same reasoning
+      // applied to Lily McCarty's entry, so both render. Nothing beyond these
+      // two is claimed: the Northern and Southern Districts, the Eleventh
+      // Circuit and any other federal court each require separate admission.
+      courts: [
+        "Florida state courts",
+        "U.S. District Court for the Middle District of Florida",
+      ],
+      // Client-supplied 2026-08-25: "Stetson University College of Law, 2022".
+      // Recorded as a Juris Doctor, which is the degree that law school confers
+      // and is consistent with the 2022 Florida Bar admission above. The same
+      // convention is used on Lily McCarty's entry.
+      // [NEEDS: undergraduate degree, school, and year] -- not supplied, and
+      // his entry now shows a law degree with no prior education, which reads
+      // as an omission rather than as an absence.
+      education: [
+        {
+          credential: "Juris Doctor",
+          school: "Stetson University College of Law",
+          year: "2022",
+        },
+      ],
+      // [NEEDS: prior roles] -- still none supplied.
       //
-      // The client's membership line ends on a trailing comma, so the list may
-      // have been cut off mid-sentence. Only the one named organization is
-      // recorded.
+      // Client-supplied 2026-08-25 as "Sections: Criminal Law, Young Lawyers".
+      // WHICH BAR WAS NOT STATED, and it matters under R. 4-7.14 because a
+      // membership names a specific organization. He is recorded as a member of
+      // the Hillsborough County Bar Association, and that association has both
+      // bodies, but so does The Florida Bar, and the two are different claims.
+      // The names are therefore recorded exactly as given, without a parent
+      // organization attached, rather than guessed at.
+      // [NEEDS: confirm whether the Criminal Law and Young Lawyers memberships
+      // are Florida Bar or Hillsborough County Bar Association bodies]
+      // [NEEDS: confirm whether Young Lawyers is a section or a division] --
+      // The Florida Bar calls its young lawyers body a Division, not a Section,
+      // so "section" may be the wrong noun for it.
+      //
+      // The client's earlier membership line ended on a trailing comma, so the
+      // list may still be incomplete.
       // [NEEDS: confirm the membership list is complete]
-      memberships: ["Hillsborough County Bar Association"],
+      memberships: [
+        "Hillsborough County Bar Association",
+        "Criminal Law section",
+        "Young Lawyers section",
+      ],
     },
   },
   {
