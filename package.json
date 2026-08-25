@@ -14,7 +14,7 @@
     "prewrite": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-unverified.mts",
     "check:claims": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-claims.mts",
     "check:rendered": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-rendered.mts",
-    "postbuild": "npm run check:rendered && npm run check:routes:rendered && npm run check:offense-level && npm run check:charge-lookup:rendered && npm run check:worksheet:rendered",
+    "postbuild": "npm run check:rendered && npm run check:routes:rendered && npm run check:offense-level && npm run check:charge-lookup:rendered && npm run check:worksheet:rendered && npm run check:seal-expunge",
     "check:provenance": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-provenance.mts",
     "check:routes": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-routes.mts",
     "check:routes:rendered": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-routes.mts --rendered",
@@ -24,7 +24,8 @@
     "check:registries": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-registries.mts",
     "check:worksheet": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-worksheet.mts",
     "check:worksheet:rendered": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-worksheet.mts --rendered",
-    "check:dormant": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-dormant.mts"
+    "check:dormant": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-dormant.mts",
+    "check:seal-expunge": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-seal-expunge.mts"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",

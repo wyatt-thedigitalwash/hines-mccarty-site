@@ -14,11 +14,13 @@
  * here names a real tool and every tool with a built route has an entry.
  */
 import { OFFENSE_LEVEL_PAGE_COPY } from "./offense-level.ts";
+import { SEAL_EXPUNGE_PAGE_COPY } from "./seal-expunge/copy.ts";
 import { CHARGE_LOOKUP_PAGE_COPY } from "./charge-lookup/copy.ts";
 import { WORKSHEET_PAGE_COPY } from "./sentencing-worksheet.ts";
 
 export const TOOL_PAGE_COPY: Record<string, string[]> = {
   "/resources/tools/offense-level-comparison": OFFENSE_LEVEL_PAGE_COPY,
+  "/resources/tools/seal-expunge-eligibility": SEAL_EXPUNGE_PAGE_COPY,
   /**
    * The sentencing worksheet's AUTHORED copy.
    *

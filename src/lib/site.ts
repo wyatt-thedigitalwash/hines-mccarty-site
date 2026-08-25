@@ -7867,13 +7867,17 @@ export const tools: Tool[] = [
     published: true,
   },
   {
-    label: "Seal & Expunge Checker",
+    label: "Record Sealing Checker",
     kind: "Checker",
-    title: "Record Sealing & Expungement Eligibility Checker",
+    title: "Can This Record Be Sealed? Florida Sealing Checker",
     description:
-      "Find out whether a Florida record may be eligible to be sealed or expunged.",
+      "Answer five short questions and see which of the five conditions in Statute 943.059 your answers satisfy, and which need a lawyer to check.",
     href: "/resources/tools/seal-expunge-eligibility",
-    published: false,
+    // Published: the route exists and the tool answers. The page stays noindex
+    // until the attorney accuracy review, which is the C7 marker in its byline.
+    // The old title promised an expunction arm this release does not have; the
+    // sealing arm is what 943.059 supports and what the tool walks through.
+    published: true,
   },
   // The guide rows are DERIVED from `guides` so the two lists cannot drift,
   // which is the D13 defect (two entries byte-identical in slug and
