@@ -123,13 +123,41 @@ export type AttorneyEducation = {
   detail?: string;
 };
 
+/**
+ * Board certification by The Florida Bar. This is the one place the site may
+ * use "certified," and by extension "specialist," about an attorney: Rule
+ * 4-7.14(a)(4) bars that language EXCEPT for a lawyer certified in the field,
+ * which makes an accurate certification the strongest credential on the page
+ * rather than a risk. It is a certification, not a membership, and is modelled
+ * separately so it can never be filed under `memberships` and lose that force.
+ *
+ * `area` is the field as The Florida Bar names it ("Criminal Trial Law"), not a
+ * paraphrase. `since` is the year first certified and stays undefined until
+ * confirmed, because certification is periodic and a wrong year is a wrong
+ * claim about a live credential.
+ */
+export type AttorneyCertification = {
+  area: string;
+  since?: string;
+};
+
 export type AttorneyCredentials = {
-  barAdmission?: { state: string; number: string; admitted: string };
+  /**
+   * `number` is optional because The Florida Bar number was not supplied for
+   * three of the four attorneys, and an admission year alone is still a true
+   * and complete statement. The alternative was holding three finished bios out
+   * of the index over a field nobody reads, or inventing numbers, and a Bar
+   * number is the last thing on this site that may ever be guessed at: it
+   * resolves to a specific real person in a public registry.
+   */
+  barAdmission?: { state: string; number?: string; admitted: string };
   courts?: string[];
   education?: AttorneyEducation[];
   priorRoles?: string[];
   /** Confirmed memberships only. An unconfirmed membership is not a credential. */
   memberships?: string[];
+  /** See AttorneyCertification. Certifications, never memberships. */
+  boardCertifications?: AttorneyCertification[];
 };
 
 export type Attorney = {
@@ -141,6 +169,23 @@ export type Attorney = {
   concentration?: string;
   /** Path under /public. Undefined renders a monogram, never a stock photo. */
   portrait?: string;
+  /**
+   * CSS object-position for the portrait, when the default centre crop cuts
+   * something it should not.
+   *
+   * The cards are 4:5. A headshot that is TALLER than 4:5 gets its top and
+   * bottom cropped equally, and since a face sits in the upper part of a
+   * portrait, the half taken off the top is the half that matters. Lily's
+   * headshot is 512x760, a ratio of 0.674 against the card's 0.800, so roughly
+   * 16 percent of its height is cropped and half of that came off the top of
+   * her head. Anchoring to the top keeps the photographer's headroom and takes
+   * the whole crop off the bottom instead.
+   *
+   * Set this per attorney rather than changing the default: Colton's and
+   * Maria's headshots are exactly 4:5 and are not cropped at all, so a global
+   * change would be a no-op for them and would silently re-frame David's.
+   */
+  portraitPosition?: string;
   /**
    * True only when every rendered fact is client-verified. Unconfirmed bios
    * render visible [NEEDS] markers, are excluded from the sitemap, and are set
@@ -181,65 +226,228 @@ export const attorneys: Attorney[] = [
   {
     slug: "lily-mccarty",
     name: "Lily McCarty",
-    confirmed: false,
-    // [NEEDS: role and title]
-    // [NEEDS: one-line concentration]
-    // [NEEDS: bio overview, what she handles and how she works a case]
-    // [NEEDS: which practice areas she leads]
-    // [NEEDS: Florida Bar number and admission date]
-    // [NEEDS: courts admitted to]
-    // [NEEDS: education, school, degree, year]
-    // [NEEDS: prior roles]
-    // [NEEDS: memberships]
-    // [NEEDS: portrait]
+    // 512x760 against a 4:5 card. See portraitPosition on the type.
+    portraitPosition: "center top",
+    // Confirmed: overview, practice areas, bar admission, courts, education,
+    // prior roles, and memberships are all client-supplied, so nothing renders
+    // as scaffolding. The portrait is still missing and renders a monogram,
+    // which is the same state Colton Trina publishes in.
+    confirmed: true,
+    role: "Partner",
+    concentration: "State and federal criminal defense",
+    // 512x760, a 0.67 ratio against the 4:5 frame, so object-cover crops the
+    // sides rather than letterboxing. Fine at this size, but it is the tighter
+    // of the four crops.
+    portrait: "/headshots/LilyMcCarty_Headshot.png",
+    //
+    // CONFLICT, unresolved. The client bio opens "Lily McCarty is in private
+    // practice at the Law Office of Lily McCarty," which does not square with
+    // "Partner" at Hines & McCarty on the same roster. Both cannot describe the
+    // present tense. The roster line is used here per the client's answer, and
+    // the sentence about a separate solo practice is NOT rendered, because
+    // naming a second firm on a partner's bio without an accurate label is the
+    // Rule 4-7.21 problem flagged for Maria Pavlidis in Open Question 2a.
+    // [NEEDS: confirm whether the Law Office of Lily McCarty still operates and
+    // how it should be described, if at all]
+    //
+    // "Twenty-one years" from the client bio is not used. Admission in 2004
+    // makes it twenty-two as of 2026, so the source was written earlier and any
+    // fixed number goes stale on the page. "Since 2004" is the same fact and
+    // never needs editing. [NEEDS: confirm 2004 is the admission year, since
+    // the J.D. is dated 2003]
+    overview: [
+      "Lily McCarty is a partner at Hines & McCarty. She has practiced criminal defense since 2004 and represents people charged with offenses in the state and federal courts of the Tampa Bay area.",
+      "She began her career as a public defender in the 13th Judicial Circuit, which covers Hillsborough County.",
+      "The Florida Bar certified her in Criminal Trial Law in 2015. She co-chairs the Criminal Law Section of the Hillsborough County Bar Association for the 2025-26 bar year and sits on the board of directors of the Hillsborough County Association of Criminal Defense Lawyers.",
+    ],
+    // [NEEDS: which practice areas Lily McCarty leads] (WEBSITE-PLAN.md OQ 2)
+    practiceAreaHrefs: ["/criminal-defense", "/federal-criminal-defense"],
+    credentials: {
+      // [NEEDS: Florida Bar number]
+      barAdmission: { state: "Florida", admitted: "2004" },
+      // Florida state courts follow from Bar admission. Federal courts do NOT:
+      // her practice-area line says state AND federal criminal defense, but no
+      // federal court was listed, and appearing in the Middle District requires
+      // separate admission. Listing it unasked would advertise a capability
+      // that may not exist (R. 4-7.13), so only what follows from the Bar
+      // admission renders.
+      // [NEEDS: confirm admission to the U.S. District Court for the Middle
+      // District of Florida, or any other federal court]
+      courts: ["Florida state courts"],
+      boardCertifications: [{ area: "Criminal Trial Law", since: "2015" }],
+      education: [
+        {
+          credential: "Juris Doctor",
+          school: "Florida State University College of Law",
+          year: "2003",
+        },
+        {
+          // [NEEDS: the specific undergraduate degree and major] -- the client
+          // bio says only "undergrad." "Bachelor's degree" is the widest true
+          // statement; a B.A. or B.S. would be a guess between two.
+          credential: "Bachelor's degree, magna cum laude",
+          school: "University of South Florida Honors College",
+          // [NEEDS: graduation year for the undergraduate degree]
+        },
+      ],
+      priorRoles: [
+        "Public defender, 13th Judicial Circuit",
+        // [NEEDS: the years she served as a public defender]
+      ],
+      memberships: [
+        "Hillsborough County Bar Association",
+        "Criminal Law Section, Hillsborough County Bar Association, co-chair for the 2025-26 bar year",
+        "Hillsborough County Association of Criminal Defense Lawyers, board of directors",
+      ],
+    },
   },
   {
     slug: "maria-pavlidis",
     name: "Maria Pavlidis",
+    // NOT confirmed, and not because of the Bar number. Education and prior
+    // roles were not supplied for her at all, and a confirmed bio renders those
+    // two fields as visible [NEEDS] markers. She stays noindex until they land;
+    // everything else below is finished and ready.
     confirmed: false,
-    // [NEEDS: confirm relationship to firm, likely Of Counsel with separate
-    // practice at pavlidislawfirm.com] -- no role label renders until this is
-    // answered. Listing a lawyer from a separate firm without an accurate label
-    // implies a partnership that may not exist (Rule 4-7.21; WEBSITE-PLAN.md
-    // Open Question 2a).
-    // [NEEDS: one-line concentration]
-    // [NEEDS: bio overview, what she handles and how she works a case]
-    // [NEEDS: which practice areas she leads]
-    // [NEEDS: Florida Bar number and admission date]
-    // [NEEDS: courts admitted to]
-    // [NEEDS: education, school, degree, year]
-    // [NEEDS: prior roles]
-    // [NEEDS: memberships]
-    // [NEEDS: portrait]
+    // Open Question 2a is answered: the client's roster says Partner, not Of
+    // Counsel. `ownFirmUrl` is kept below because the separate practice at
+    // pavlidislawfirm.com was never said to have closed.
+    // [NEEDS: confirm whether the Pavlidis Law Firm still operates alongside
+    // the partnership, and how the two should be described together]
+    role: "Partner",
+    concentration: "State and federal criminal defense",
+    // 1200x1500, an exact 4:5 match and the largest of the four. No crop.
+    portrait: "/headshots/MariaPavlidis_Headshot.jpg",
+    //
+    // ---------------------------------------------------------------------
+    // The client bio for Maria Pavlidis is the longest supplied and mostly
+    // cannot run as written. What is dropped, and why, so nobody restores it
+    // from the source document by accident:
+    //
+    // R. 4-7.13, unverifiable superiority and comparative claims:
+    //   "gained a reputation for trying some of the most challenging and
+    //   high-profile cases in the Tampa Bay area"
+    //   "known for fighting for her clients and is sought after for her
+    //   knowledge and skill in trying serious cases"
+    //   "an aggressive defender, but her practice is instilled with a sense of
+    //   compassion"
+    //   "one of the highest recognitions a lawyer in Florida can receive" and
+    //   "the highest level of evaluation offered by the Florida Bar"
+    //
+    // R. 4-7.13, past results predicting future results:
+    //   "has a record of winning difficult cases"
+    //   "uses her extensive expertise in complex criminal cases to get proven
+    //   results"
+    //
+    // R. 4-7.14, expert/specialist language:
+    //   "Ms. Pavlidis is considered an expert and specialist in criminal trial
+    //   law." Board certification does license this wording for the certified
+    //   field, so this line is defensible in a way the others are not. It is
+    //   still dropped: "considered an" makes it a claim about reputation rather
+    //   than about the certificate, and the certification itself is stated
+    //   plainly below, which carries the same weight and needs no argument.
+    //
+    // Unsubstantiated counts (this file's standing rail, and R. 4-7.13):
+    //   "represented thousands of people"
+    //   "she has tried well over 120 cases to verdict"
+    //   "Only seven percent of attorneys in Florida are board certified"
+    // These three are the ones worth recovering. Each is concrete and, if the
+    // firm can substantiate it, each is stronger than anything dropped above.
+    // [NEEDS: substantiation for the trial count, the client count, and the
+    // seven percent figure -- a Florida Bar certification-count citation for
+    // the last] before any of them appears on the site.
+    //
+    // What survives is the factual spine: when she started, what she handles,
+    // where she is admitted, and what she is certified in.
+    // ---------------------------------------------------------------------
+    overview: [
+      "Maria Pavlidis is a partner at Hines & McCarty. She has practiced criminal defense since 2003 and represents people charged with state and federal offenses.",
+      "Her work spans misdemeanor, traffic, and juvenile matters through felonies punishable by life, including homicide cases.",
+      "She is admitted in the Florida state courts and in the United States District Court for the Middle District of Florida, and The Florida Bar has certified her in Criminal Trial Law.",
+    ],
+    // [NEEDS: which practice areas Maria Pavlidis leads] (WEBSITE-PLAN.md OQ 2)
+    practiceAreaHrefs: ["/criminal-defense", "/federal-criminal-defense"],
+    credentials: {
+      // [NEEDS: Florida Bar number]
+      barAdmission: { state: "Florida", admitted: "2003" },
+      courts: [
+        "Florida state courts",
+        "U.S. District Court for the Middle District of Florida",
+      ],
+      // [NEEDS: the year she was first certified in Criminal Trial Law]
+      boardCertifications: [{ area: "Criminal Trial Law" }],
+      // [NEEDS: education, school, degree, year] -- none was supplied.
+      // [NEEDS: prior roles] -- none was supplied.
+      memberships: ["Hillsborough County Bar Association"],
+    },
     ownFirmUrl: "https://pavlidislawfirm.com/",
   },
   {
     slug: "david-hines",
     name: "David Hines",
+    // NOT confirmed. The client supplied a roster line for him but no bio
+    // paragraph, no education, and no prior roles, which are three visible
+    // [NEEDS] markers on a confirmed page. He is the named partner and the
+    // Managing Partner, so his is the bio a referral checks first; shipping it
+    // half-written costs more than leaving it noindex a while longer.
     confirmed: false,
-    // [NEEDS: role and title]
-    // [NEEDS: one-line concentration]
+    role: "Managing Partner",
+    concentration: "Criminal defense and civil litigation",
     // [NEEDS: bio overview, what he handles and how he works a case]
-    // [NEEDS: which practice areas he leads]
-    // [NEEDS: Florida Bar number and admission date]
-    // [NEEDS: courts admitted to]
-    // [NEEDS: education, school, degree, year]
-    // [NEEDS: prior roles]
-    // [NEEDS: memberships]
-    // [NEEDS: portrait]
+    //
+    // TOO SMALL TO SHIP. This file is 240x320, roughly a twentieth of the
+    // megapixels of Maria Pavlidis's. The bio frame is 22rem, about 352 CSS
+    // pixels, which needs ~704px of source on a 2x display, so this upscales
+    // roughly 3x and will look visibly soft. It is also the wrong shape: 0.75
+    // against a 4:5 frame. Wired up because a soft real photo still beats a
+    // monogram, and it is one line to swap.
+    // [NEEDS: a full-resolution headshot for David Hines, at least 800x1000]
+    portrait: "/headshots/DavidHines_Headshot.jpg",
+    //
+    // SITE GAP, not a bio gap. His practice areas are given as Civil
+    // Litigation, Business Disputes, and Criminal Defense. The site has three
+    // capabilities and all three are criminal, so two of his areas have no page
+    // to link to and `practiceAreaHrefs` can only carry the third. That
+    // understates the Managing Partner's practice on his own bio.
+    // [NEEDS: decide whether civil litigation and business disputes get
+    // practice pages, or whether the firm presents as criminal-only and his bio
+    // states the civil work in prose instead]
+    // [NEEDS: which practice areas David Hines leads] (WEBSITE-PLAN.md OQ 2)
+    practiceAreaHrefs: ["/criminal-defense"],
+    credentials: {
+      // [NEEDS: Florida Bar number]
+      barAdmission: { state: "Florida", admitted: "2022" },
+      // [NEEDS: courts admitted to] -- not supplied, and not inferred from the
+      // Bar admission here because his civil and business practice may reach
+      // courts the other bios do not.
+      // [NEEDS: education, school, degree, year] -- none was supplied.
+      // [NEEDS: prior roles] -- none was supplied.
+      //
+      // The client's membership line ends on a trailing comma, so the list may
+      // have been cut off mid-sentence. Only the one named organization is
+      // recorded.
+      // [NEEDS: confirm the membership list is complete]
+      memberships: ["Hillsborough County Bar Association"],
+    },
   },
   {
     slug: "colton-trina",
     name: "Colton Trina",
     confirmed: true,
-    // "Attorney" is factual and non-claiming. [NEEDS: confirm his title within
-    // the firm, associate, partner, or other] before anything more specific.
-    role: "Attorney",
+    // CONFLICT, unresolved. The client gives his title as "Associate, Of
+    // Counsel." Those are two different relationships to a firm: an associate
+    // is employed by it, of counsel is an ongoing affiliation that is neither
+    // partner nor associate, and no lawyer is both at once. "Associate" is
+    // rendered per the client's answer as the more common of the two and the
+    // one consistent with a 2024 admission.
+    // [NEEDS: confirm whether Colton Trina is an associate or of counsel] --
+    // if of counsel, this must change, because the label speaks to who is
+    // responsible for the work (R. 4-7.21).
+    role: "Associate",
     concentration:
       "Criminal defense in the state courts of Hillsborough County",
-    // [NEEDS: portrait] -- rendering a stock photo as a named lawyer would
-    // misrepresent a real person, so the monogram stands in until a real
-    // headshot exists.
+    // 608x760, an exact 4:5 match. No crop.
+    portrait: "/headshots/ColtonTrina_Headshot.png",
 
     // Every sentence below traces to a client-verified fact. Nothing about
     // volume, tenure in private practice, or skill.
@@ -254,6 +462,17 @@ export const attorneys: Attorney[] = [
     // State criminal defense is a description of the work he is verified to do,
     // not a claim that he leads the area.
     // [NEEDS: which practice areas Colton Trina leads] (WEBSITE-PLAN.md OQ 2)
+    //
+    // The client lists his areas as Personal Injury, DUI, and Criminal Defense.
+    // DUI is already covered here: /criminal-defense/dui-defense sits under
+    // this capability, so it needs no separate href. Personal injury does not
+    // exist anywhere on the site, and his Florida Justice Association
+    // membership, a plaintiff-side organization, is consistent with him doing
+    // that work. That is the second attorney whose practice runs outside a
+    // criminal-only site; see the same note on David Hines.
+    // [NEEDS: decide whether personal injury is a practice the site presents]
+    // -- until then his concentration line and this list stay criminal-only,
+    // which is accurate but narrower than what he actually practices.
     practiceAreaHrefs: ["/criminal-defense"],
     credentials: {
       barAdmission: {
@@ -281,7 +500,13 @@ export const attorneys: Attorney[] = [
       priorRoles: [
         "Public defender, approximately two years, representing clients in misdemeanor and felony matters including jury trials",
       ],
-      // [NEEDS: memberships] -- nothing renders here until confirmed.
+      // DUIDLA is expanded to its full name because an unexplained acronym is
+      // not a legible credential to a reader deciding whether to call.
+      memberships: [
+        "Hillsborough County Bar Association",
+        "DUI Defense Lawyers Association",
+        "Florida Justice Association",
+      ],
     },
   },
 ];
@@ -7943,11 +8168,21 @@ export type Credential = {
  * repo and are claims about where the firm appears rather than about what it
  * has been awarded.
  *
- * [NEEDS: board certification status, and if held, the certifying organization
- * and the certified area] WEBSITE-PLAN.md Open Question 7.
- * [NEEDS: confirm HCBA, NACDL, DUIDLA, and FJA memberships, and permission to
- * use each organization's mark] Open Question 8. Membership does not by itself
- * grant trademark usage rights.
+ * Open Question 7 is ANSWERED: Lily McCarty and Maria Pavlidis are both
+ * certified by The Florida Bar in Criminal Trial Law. That is recorded per
+ * attorney in `attorneys` and renders on their bios. The firm-level mark below
+ * still does not: a mark is an image, and the certification being real says
+ * nothing about the right to reproduce the Bar's logo.
+ * [NEEDS: The Florida Bar's board certification mark, and permission to use it]
+ *
+ * Open Question 8 is PARTLY answered. HCBA is confirmed for all four attorneys,
+ * and DUIDLA and FJA are confirmed for Colton Trina. Those are individual
+ * memberships, which is a different claim from the firm holding one, and in
+ * either case membership does not by itself grant trademark usage rights.
+ * [NEEDS: confirm whether HCBA, DUIDLA, and FJA are firm memberships or only
+ * individual ones, and permission to use each organization's mark]
+ * [NEEDS: confirm NACDL membership] -- it appeared on the client meeting list
+ * and no attorney has since claimed it.
  * [NEEDS: confirm FACDL membership] The Florida Association of Criminal Defense
  * Lawyers is the on-point credential for this firm and was missing from the
  * client list; FJA is primarily a plaintiff-side organization.

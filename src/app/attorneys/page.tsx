@@ -209,10 +209,13 @@ export default function AttorneysPage() {
                     >
                       {attorney.name}
                     </Link>
+                    {/* Number omitted when unknown, as on the bio pages. */}
                     <span className="text-charcoal">
-                      , The Florida Bar, No.{" "}
-                      {attorney.credentials?.barAdmission?.number}, admitted{" "}
-                      {attorney.credentials?.barAdmission?.admitted}
+                      , The Florida Bar
+                      {attorney.credentials?.barAdmission?.number
+                        ? `, No. ${attorney.credentials.barAdmission.number}`
+                        : ""}
+                      , admitted {attorney.credentials?.barAdmission?.admitted}
                     </span>
                   </li>
                 ))}

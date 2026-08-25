@@ -47,6 +47,10 @@ export default function Portrait({
         sizes={sizes ?? "(min-width: 1024px) 24rem, 100vw"}
         priority={priority}
         className="object-cover"
+        // Inline rather than a Tailwind class so the value cannot be purged:
+        // it comes from data, and Tailwind only generates classes it can see
+        // as literals in the source it scans.
+        style={{ objectPosition: attorney.portraitPosition ?? "center" }}
       />
     </div>
   );

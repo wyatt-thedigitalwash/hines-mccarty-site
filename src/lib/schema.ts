@@ -135,6 +135,7 @@ export const attorneyJsonLd = (attorney: Attorney) => {
   const url = `${siteUrl}/attorneys/${attorney.slug}`;
   const education = attorney.credentials?.education ?? [];
   const memberships = attorney.credentials?.memberships ?? [];
+  const certifications = attorney.credentials?.boardCertifications ?? [];
 
   const knowsAbout: string[] = [];
   for (const href of attorney.practiceAreaHrefs ?? []) {
@@ -161,6 +162,20 @@ export const attorneyJsonLd = (attorney: Attorney) => {
         }
       : {}),
     ...(knowsAbout.length ? { knowsAbout } : {}),
+    // Board certification as a real credential rather than a string, with The
+    // Florida Bar named as the recognizing authority. This is the one credential
+    // on the site issued by a body that can be checked, so it is the one worth
+    // making machine-readable.
+    ...(certifications.length
+      ? {
+          hasCredential: certifications.map((cert) => ({
+            "@type": "EducationalOccupationalCredential",
+            credentialCategory: "Board Certification",
+            name: `Board Certified in ${cert.area}`,
+            recognizedBy: { "@type": "Organization", name: "The Florida Bar" },
+          })),
+        }
+      : {}),
     ...(memberships.length
       ? {
           memberOf: memberships.map((name) => ({

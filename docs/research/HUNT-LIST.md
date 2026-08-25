@@ -991,3 +991,69 @@ the defect class was live in the act of closing it.
 - **src/lib/tools/scoresheet-form.ts**: `FORM_REVISION` carries `effective` and
   `correction` as two required fields, so a surface cannot state the revision
   date without also stating the correction.
+
+### Open instance: attorney bios are not a measured surface
+
+Found 2026-08-25, while entering the client's attorney copy. NOT yet closed.
+
+`measuredPages` in src/lib/measured.ts has three kinds: `charge`, `guide`, and
+`tool`. `check-pages.mts` iterates that registry for its banned-term sweep, so
+`attorneys[].overview` and `attorneys[].concentration` in src/lib/site.ts are
+read by no gate at all. The registry's own comment gives the right reason for
+including guides and tool cards, that they are "lawyer advertising exactly as
+much as a charge page is," and an attorney bio is the most personal advertising
+on the site: it is the surface where superiority and results claims attach to a
+named human being.
+
+The registry gap is the shallow half. The deeper half was found by running the
+gate's own regexes against the eight worst sentences in the Maria Pavlidis bio
+the client supplied this session. **All eight pass silently.** Enrolling bios in
+`measuredPages` would not have caught one of them:
+
+    SILENT  gained a reputation for trying some of the most challenging and
+            high-profile cases in the Tampa Bay area
+    SILENT  has a record of winning difficult cases and uses her extensive
+            expertise ... to get proven results
+    SILENT  is known for fighting for her clients and is sought after for her
+            knowledge and skill
+    SILENT  is considered an expert and specialist in criminal trial law
+    SILENT  one of the highest recognitions a lawyer in Florida can receive
+    SILENT  the highest level of evaluation offered by the Florida Bar
+    SILENT  she has tried well over 120 cases to verdict
+    SILENT  has represented thousands of people accused of various offenses
+
+The cause is grammatical, not lexical. The word list is fine: `expert`,
+`expertise`, and `specialist` are all in `SUPERIORITY_WORD`. What fails is the
+gating clause. `SUPERIORITY` fires only on `SUPERIORITY_WORD && FIRM_REFERENCE`,
+and `FIRM_REFERENCE` is `we|we're|us|our|ours|the firm|this firm|our firm|this
+office|Hines|McCarty`. Every one of those is first person or a firm name. A bio
+is third person about a named individual: "Ms. Pavlidis," "she," "her." So the
+firm-reference half never matches, and the superiority half never gets to fire.
+`SUPERIORITY_OF_SERVICES`, the other arm, needs the word to directly modify
+`attorney|lawyer|firm|...`, which "an expert and specialist in criminal trial
+law" does not. `OUTCOME_CLAIM` is explicitly `we|our`-gated, so "she has a record
+of winning difficult cases" is invisible to it by construction.
+
+This is the same defect the file's own comment describes fixing for superiority
+once before, arriving in a new place: the gate was tuned against the voice the
+charge pages are written in, and an attorney bio is written in a different voice.
+Third-person prose about a named lawyer is the single most claim-dense surface a
+law firm publishes, and it is the one voice the gate cannot read. The Pavlidis
+copy was caught by a person reading the paste, which is the path the gate exists
+to not depend on.
+
+Not fixed in the same change that found it, deliberately, and the fix is two
+parts rather than one:
+[NEEDS: a third-person arm on `FIRM_REFERENCE` -- the attorney surnames and
+title-plus-surname forms -- so the existing word list works on bio prose. Note
+that `Hines` and `McCarty` are already there as FIRM names, which means the
+McCarty bio is partly covered by accident and the Pavlidis and Trina bios are
+not covered at all. Accidental coverage that varies by whose name is on the door
+is worse than none, because it makes the green line mean different things on
+different pages.]
+[NEEDS: a bio-shaped `measuredPages` entry that the banned-term sweep reads and
+the structural-variation, generic-heading, and duplicate-copy gates skip, since
+those are written against charge-page shape and would fail on a bio for reasons
+that are not defects.]
+Both need planted-violation self-tests built from the eight real sentences above.
+A gate with no self-test is instance 8 again.

@@ -164,10 +164,14 @@ export function BioCredentials({ attorney }: { attorney: Attorney }) {
         </h2>
 
         <dl className="mt-10 grid max-w-4xl gap-8 sm:grid-cols-2">
+          {/* The Bar number renders only when known. "The Florida Bar, No.
+              undefined" is worse than no number at all, and an admission year
+              on its own is still a complete, true statement. */}
           <Field label="Bar admission">
             {c?.barAdmission ? (
               <>
-                The Florida Bar, No. {c.barAdmission.number}
+                The Florida Bar
+                {c.barAdmission.number ? `, No. ${c.barAdmission.number}` : ""}
                 <span className="block text-navy/65">
                   Admitted {c.barAdmission.admitted}
                 </span>
@@ -176,6 +180,28 @@ export function BioCredentials({ attorney }: { attorney: Attorney }) {
               <Needs>Florida Bar number and admission date</Needs>
             )}
           </Field>
+
+          {/* Board certification. Rendered above education and prior roles in
+              source order so it reads early in the list, and only when held:
+              there is no [NEEDS] branch, because most lawyers are not
+              certified and marking its absence would imply the credential is
+              missing rather than simply not applicable. */}
+          {c?.boardCertifications?.length ? (
+            <Field label="Board certification">
+              <ul className="space-y-2">
+                {c.boardCertifications.map((cert) => (
+                  <li key={cert.area}>
+                    The Florida Bar, {cert.area}
+                    {cert.since && (
+                      <span className="block text-navy/65">
+                        Certified since {cert.since}
+                      </span>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </Field>
+          ) : null}
 
           <Field label="Courts">
             {c?.courts?.length ? (
