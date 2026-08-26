@@ -2328,6 +2328,46 @@ Fetched 2026-08-20; page carries "Text contains those laws in effect on August 1
 > (2) in any other circumstance, release or detain the person under section 3142.
 
 **Fed. R. Crim. P. 5, whole rule, (a) through (g)**  
+PARTIAL: 49 CFR Parts 395, 396 and 391 (Federal Motor Carrier Safety Regulations)
+https://www.ecfr.gov/current/title-49/subtitle-B/chapter-III/subchapter-B
+
+Four provisions from three parts, recorded for the truck accident pages. MARKED PARTIAL BECAUSE THAT IS WHAT IT IS: parts 395, 396 and 391 run to hundreds of sections between them and only these four were read. Under D26 this record supports no claim about anything else in the FMCSRs.
+
+WHY THESE FOUR. The truck pillar named the categories of record a commercial vehicle generates and deliberately stated no retention period, on the ground that a wrong number tells a reader they still have time when they do not. These are the numbers. Three of them are retention periods and the fourth is the hours-of-service limit those records are kept to prove.
+
+WHAT THEY SETTLE:
+  395.3(a)     10 consecutive hours off duty before driving; a 14-hour
+               window after coming on duty; 11 hours of driving inside it;
+               no driving after 8 hours without a 30-minute interruption
+  395.8(k)(1)  the carrier retains records of duty status and supporting
+               documents for NOT LESS THAN 6 MONTHS from receipt
+  396.3(c)     inspection, repair and maintenance records for 1 YEAR, and
+               6 MONTHS AFTER the vehicle leaves the carrier's control
+  391.51(c)    the driver qualification file for as long as the driver is
+               employed AND THREE YEARS after
+
+A SIX-MONTH FLOOR IS NOT A GUARANTEE THE RECORD SURVIVES SIX MONTHS. The regulation sets a minimum the carrier must meet, not a maximum after which destruction begins, and it says nothing about the electronic data a vehicle holds, which is governed elsewhere and overwritten on its own schedule. Any page using these figures says what they are: the point past which a carrier is no longer required to have kept it.
+
+Fetched 2026-08-26 from the eCFR renderer API, which serves the current text. INDEPENDENTLY RE-VERIFIED against a second publisher the same day: govinfo's CFR-2024 annual edition of part 395 (CFR-2024-title49-vol5-part395.xml) contains the 10-hour, 14-hour, 11-hour and six-month spans recorded here. Parts 396 and 391 were not second-sourced and that is stated rather than implied.
+
+NOT RECORDED: everything else in these parts, including the short-haul exceptions at 395.1(e), the ELD requirements at 395.22 and 395.34, the sleeper-berth provisions, and the whole of parts 390 and 392.
+
+> **49 CFR 395.3(a), maximum driving time for property-carrying vehicles**
+> (a) Except as otherwise provided in § 395.1, no motor carrier shall permit or require any driver used by it to drive a property-carrying commercial motor vehicle, nor shall any such driver drive a property-carrying commercial motor vehicle, regardless of the number of motor carriers using the driver's services, unless the driver complies with the following requirements:
+> (1) Start of work shift. A driver may not drive without first taking 10 consecutive hours off duty;
+> (2) 14-hour period. A driver may not drive after a period of 14 consecutive hours after coming on-duty following 10 consecutive hours off-duty.
+> (3) Driving time and interruptions of driving periods —
+> (i) Driving time. A driver may drive a total of 11 hours during the period specified in paragraph (a)(2) of this section.
+> (ii) Interruption of driving time. Except for drivers who qualify for either of the short-haul exceptions in § 395.1(e)(1) or (2), driving is not permitted if more than 8 hours of driving time have passed without at least a consecutive 30-minute interruption in driving status. A consecutive 30-minute interruption of driving status may be satisfied either by off-duty, sleeper berth or on-duty not driving time or by a combination of off-duty, sleeper berth and on-duty not driving time.
+> **49 CFR 395.8(k), retention of the record of duty status**
+> (k) Retention of driver's record of duty status and supporting documents.
+> (1) A motor carrier shall retain records of duty status and supporting documents required under this part for each of its drivers for a period of not less than 6 months from the date of receipt.
+> (2) The driver shall retain a copy of each record of duty status for the previous 7 consecutive days which shall be in his/her possession and available for inspection while on duty.
+> **49 CFR 396.3(c), record retention for inspection, repair and maintenance**
+> (c) Record retention. The records required by this section shall be retained where the vehicle is either housed or maintained for a period of 1 year and for 6 months after the motor vehicle leaves the motor carrier's control.
+> **49 CFR 391.51(c), retention of the driver qualification file**
+> (c) Except as provided in paragraph (d) of this section, each driver's qualification file shall be retained for as long as a driver is employed by that motor carrier and for three years thereafter.
+
 PARTIAL: Chapter 2023-15, Laws of Florida (HB 837)
 https://laws.flrules.org/2023/15
 

@@ -880,13 +880,18 @@ export const injuryPages: InjuryPage[] = [
       },
       {
         id: "evidence",
-        kind: "prose",
+        kind: "statute",
         heading: "The evidence that goes away on its own",
         prose: [
           "A commercial vehicle generates records a passenger car does not: hours-of-service logs, maintenance and inspection records, and the data a truck's electronic systems hold about the seconds before impact. Those are not permanent. Retention periods run, vehicles are repaired or sold, and data is overwritten in the ordinary course of a carrier's business rather than by anyone deciding to destroy it.",
           "That is why the first letter a lawyer sends in a trucking case is usually not to an insurer. It is a preservation letter to the carrier, and it is worth less every week it is delayed.",
-          "[NEEDS: the Federal Motor Carrier Safety Regulations recorded in PAGE-SOURCES.md, specifically the hours-of-service and record retention parts] This page therefore names the categories of record that exist and does not state any retention period, because a wrong number here would tell a reader they still have time when they do not.",
+          "The federal rules set how long a carrier must keep each kind. Records of duty status and their supporting documents run six months. Inspection, repair and maintenance records run a year, and six months after the vehicle leaves the carrier's control. The driver qualification file lasts as long as the driver is employed and three years after that.",
+          "Read those as floors rather than as guarantees. Each one is the minimum a carrier is required to meet, not a date destruction begins, and none of them governs the electronic data a vehicle holds about the seconds before impact, which runs on its own schedule and is the first thing to go.",
         ],
+        statute: {
+          citation: "49 CFR 395.8(k)(1)",
+          body: "(1) A motor carrier shall retain records of duty status and supporting documents required under this part for each of its drivers for a period of not less than 6 months from the date of receipt.",
+        },
       },
       {
         id: "wrongful-death",
@@ -920,7 +925,7 @@ export const injuryPages: InjuryPage[] = [
         heading: "What this page does not cover",
         prose: [
           "It does not state what a claim is worth, how long one takes, or what any case will do. It does not state the firm's fees. [NEEDS: the contingency fee terms, and whether a client is responsible for costs if the case does not recover]",
-          "It does not set out the federal trucking rules themselves. Those are the Federal Motor Carrier Safety Regulations, they are not yet recorded in this project, and a page that paraphrased them from memory would be exactly the kind of confident wrong answer this site is built to avoid.",
+          "It sets out four provisions of the Federal Motor Carrier Safety Regulations and no more. The hours-of-service exceptions, the electronic logging requirements and the rest of parts 390 through 396 are not recorded here, so nothing on this page describes them.",
           "The limitations period and the fault bar described on the car accident page apply here too, including the 2023 change and the date it turns on.",
         ],
       },
