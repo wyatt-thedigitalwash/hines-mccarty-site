@@ -820,18 +820,174 @@ export const injuryPages: InjuryPage[] = [
     parent: "car-accidents",
     label: "Compensation",
     title: "What a Car Accident Claim Can Cover",
-    description:
-      "The categories of loss Florida law recognizes, which is a different question from what any claim is worth.",
-    published: false,
+    description: "The categories of loss Florida law recognizes, which is a different question from what any claim is worth.",
+    metaTitle: "What a Florida Car Accident Claim Can Cover",
+    metaDescription: "The categories of loss Florida law recognises after a crash, how contributory fault reduces a recovery, and why no page can tell you what a claim is worth.",
+    lead: "There is a difference between what the law lets you claim and what any particular claim is worth. This page covers the first. Nothing on this site covers the second, because it cannot be known without the file.",
+    sections: [
+      {
+        id: "categories",
+        kind: "statute",
+        heading: "What counts as economic loss",
+        prose: [
+          "Florida defines economic damages by list rather than by principle, and the list is longer than people expect. It reaches past lost income and future lost income reduced to present value, medical and funeral expenses, lost support and services, the replacement value of lost personal property, and repair costs, among others.",
+          "Two things follow. Future losses are claimable but must be reduced to present value, which is an arithmetic exercise rather than an estimate. And several categories have nothing to do with injury at all, which is why a claim is not simply the sum of the medical bills.",
+        ],
+        statute: {
+          citation: "F.S. 768.81(1)(b)",
+          body: "(b) “Economic damages” means past lost income and future lost income reduced to present value; medical and funeral expenses; lost support and services; replacement value of lost personal property; loss of appraised fair market value of real property; costs of construction repairs, including labor, overhead, and profit; and any other economic loss that would not have occurred but for the injury giving rise to the cause of action.",
+        },
+      },
+      {
+        id: "lost-income",
+        kind: "statute",
+        heading: "Lost income, and the part your own policy pays",
+        prose: [
+          "Personal injury protection covers a share of lost income directly: sixty percent of loss of gross income and loss of earning capacity from an inability to work caused by the injury, within the policy limit.",
+          "That is a floor rather than the whole claim. Where losses run past what personal injury protection covers, the remainder is pursued against whoever caused the crash, subject to their coverage and to the fault rules below.",
+        ],
+        statute: {
+          citation: "F.S. 627.736(1)(b)",
+          body: "(b) Disability benefits.—Sixty percent of any loss of gross income and loss of earning capacity per individual from inability to work proximately caused by the injury sustained by the injured person, plus all expenses reasonably incurred in obtaining from others ordinary and necessary services in lieu of those that, but for the injury, the injured person would have performed without income for the benefit of his or her household. All disability benefits payable under this provision must be paid at least every 2 weeks.",
+        },
+      },
+      {
+        id: "fault-reduces",
+        kind: "statute",
+        heading: "How your own share of fault changes the arithmetic",
+        prose: [
+          "Contributory fault chargeable to the claimant diminishes a recovery proportionately. A claim reduced by a quarter for the claimant's own share is the ordinary operation of the statute rather than a penalty.",
+          "Above fifty percent it stops being arithmetic. A party found to be greater than fifty percent at fault for their own harm recovers nothing, which is covered on the car accidents page and is the single most consequential line in Florida injury law since 2023.",
+        ],
+        statute: {
+          citation: "F.S. 768.81(2)",
+          body: "(2) EFFECT OF CONTRIBUTORY FAULT.—In a negligence action, contributory fault chargeable to the claimant diminishes proportionately the amount awarded as economic and noneconomic damages for an injury attributable to the claimant’s contributory fault, but does not bar recovery, subject to subsection (6).",
+        },
+      },
+      {
+        id: "not-covered",
+        kind: "prose",
+        heading: "What this page will not do",
+        prose: [
+          "It will not value a claim. Florida also regulates how medical damages may be proven at Statute 768.0427, which changes what a jury may be shown about the cost of treatment, and none of that produces a figure for a case nobody has read.",
+          "It does not state the firm's fees. [NEEDS: the contingency fee terms, and whether a client is responsible for costs if the case does not recover]",
+          "Anyone offering a number from a web form is guessing, and a guess that is too high costs a claimant more than one that is too low.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "What can I actually claim after a Florida car accident?",
+        source: "drafted",
+        answer: "Florida's list of economic damages covers past and future lost income reduced to present value, medical and funeral expenses, lost support and services, the replacement value of lost personal property, and repair costs, among others. Non-economic loss is a separate category with its own rules. What any of that adds up to depends on the file rather than on the list.",
+      },
+      {
+        question: "How much of my lost wages does insurance pay?",
+        source: "drafted",
+        answer: "Personal injury protection pays sixty percent of loss of gross income and loss of earning capacity from an inability to work caused by the injury, inside the policy limit. Losses beyond that are pursued against the driver who caused the crash, subject to their coverage.",
+      },
+      {
+        question: "What is my case worth?",
+        source: "drafted",
+        answer: "No page can answer that, including this one. It depends on the injuries, the treatment, the available coverage, the share of fault, and what the records show, and Florida also regulates how medical damages may be proven. A lawyer who has read the file can give you a range; a website cannot.",
+      },
+      {
+        question: "Does being partly at fault mean I get nothing?",
+        source: "drafted",
+        answer: "Not unless your share is greater than fifty percent. Below that, contributory fault reduces a recovery proportionately rather than barring it. Above it, the 2023 statute bars recovery entirely.",
+      },
+    ],
+    readerNeeds: {
+      next: "How long a claim takes is not on this page. It depends on treatment, on the insurer, and on whether suit is filed.",
+    },
+    published: true,
   },
   {
     slug: "insurance-claims",
     parent: "car-accidents",
     label: "Insurance Claims",
     title: "Car Accident Insurance Claims in Florida",
-    description:
-      "Personal injury protection, uninsured and underinsured motorist coverage, and total loss.",
-    published: false,
+    description: "Personal injury protection, uninsured and underinsured motorist coverage, and total loss.",
+    metaTitle: "Florida Car Accident Insurance Claims: PIP, UM Coverage, and What Each Pays",
+    metaDescription: "How Florida's no-fault benefits work, what personal injury protection pays and does not, and why uninsured motorist coverage is often the only real source of recovery.",
+    lead: "Two policies usually matter after a Florida crash, and neither of them is the at-fault driver's. This page covers what your own coverage is required to provide and where the rest has to come from.",
+    sections: [
+      {
+        id: "required-benefits",
+        kind: "statute",
+        heading: "What every Florida policy has to provide",
+        prose: [
+          "Personal injury protection is not optional coverage a person chose well. It is required of policies meeting Florida's security requirements, and it applies without regard to fault.",
+          "What it provides is defined by statute rather than by the insurer: medical benefits, disability benefits, and death benefits, each with its own limit and its own conditions.",
+        ],
+        statute: {
+          citation: "F.S. 627.736(1)",
+          body: "(1) REQUIRED BENEFITS.—An insurance policy complying with the security requirements of s. 627.733 must provide personal injury protection to the named insured, relatives residing in the same household unless excluded under s. 627.747, persons operating the insured motor vehicle, passengers in the motor vehicle, and other persons struck by the motor vehicle and suffering bodily injury while not an occupant of a self-propelled vehicle, subject to subsection (2) and paragraph (4)(e), to a limit of $10,000 in medical and disability benefits and $5,000 in death benefits resulting from bodily injury, sickness, disease, or death arising out of the ownership, maintenance, or use of a motor vehicle as follows:",
+        },
+      },
+      {
+        id: "death-benefit",
+        kind: "statute",
+        heading: "The death benefit, and its size",
+        prose: [
+          "Death benefits under personal injury protection are five thousand dollars per individual, in addition to the medical and disability benefits.",
+          "The figure is stated here because it is frequently misunderstood as the value of a fatal claim. It is not. Wrongful death is a separate statute with its own recovery, and the five thousand dollars is a first-party insurance benefit rather than a measure of the loss.",
+        ],
+        statute: {
+          citation: "F.S. 627.736(1)(c)",
+          body: "(c) Death benefits.—Death benefits of $5,000 per individual. Death benefits are in addition to the medical and disability benefits provided under the insurance policy. The insurer may pay death benefits to the executor or administrator of the deceased, to any of the deceased’s relatives by blood, legal adoption, or marriage, or to any person appearing to the insurer to be equitably entitled to such benefits.",
+        },
+      },
+      {
+        id: "um-coverage",
+        kind: "statute",
+        heading: "Uninsured and underinsured motorist coverage",
+        prose: [
+          "Florida does not require most drivers to carry bodily injury liability coverage, so a driver can be entirely at fault and carry nothing that pays for the harm. Uninsured and underinsured motorist coverage is what answers that, and it must be offered with any policy providing bodily injury liability coverage unless the insured rejects it in writing.",
+          "Whether you have it is a question about your own policy. It is worth answering before you need it, and it is one of the first things a lawyer will ask for.",
+        ],
+        statute: {
+          citation: "F.S. 627.727(1)",
+          body: "(1) No motor vehicle liability insurance policy which provides bodily injury liability coverage shall be delivered or issued for delivery in this state with respect to any specifically insured or identified motor vehicle registered or principally garaged in this state unless uninsured motor vehicle coverage is provided therein or supplemental thereto for the protection of persons insured thereunder who are legally entitled to recover damages from owners or operators of uninsured motor vehicles because of bodily injury, sickness, or disease, including death, resulting therefrom. However, the coverage required under this section is not applicable when, or to the extent that, an insured named in the policy makes a written rejection of the coverage on behalf of all insureds under the policy. When a motor vehicle is leased for a period of 1 year or longer and the lessor of such vehicle, by the terms of the lease contract, provides liability coverage on the leased vehicle, the lessee of such vehicle shall have the sole privilege to reject uninsured motorist coverage or to select lower limits than the bodily injury liability limits, regardless of whether the lessor is qualified as a self-insurer pursuant to s. 324.171. Unless an insured, or lessee having the privilege of rejecting uninsured motorist coverage, requests such coverage or requests higher uninsured motorist limits in writing, the coverage or such higher uninsured motorist limits need not be provided in or supplemental to any other policy which renews, extends, changes, supersedes, or replaces an existing policy with the same bodily injury liability limits when an insured or lessee had rejected the coverage. When an insured or lessee has initially selected limits of uninsured motorist coverage lower than her or his bodily injury liability limits, higher limits of uninsured motorist coverage need not be provided in or supplemental to any other policy which renews, extends, changes, supersedes, or replaces an existing policy with the same bodily injury liability limits unless an insured requests higher uninsured motorist coverage in writing. The rejection or selection of lower limits shall be made on a form approved by the office. The form shall fully advise the applicant of the nature of the coverage and shall state that the coverage is equal to bodily injury liability limits unless lower limits are requested or the coverage is rejected. The heading of the form shall be in 12-point bold type and shall state: “You are electing not to purchase certain valuable coverage which protects you and your family or you are purchasing uninsured motorist limits less than your bodily injury liability limits when you sign this form. Please read carefully.” If this form is signed by a named insured, it will be conclusively presumed that there was an informed, knowing rejection of coverage or election of lower limits on behalf of all insureds. The insurer shall notify the named insured at least annually of her or his options as to the coverage required by this section. Such notice shall be part of, and attached to, the notice of premium, shall provide for a means to allow the insured to request such coverage, and shall be given in a manner approved by the office. Receipt of this notice does not constitute an affirmative waiver of the insured’s right to uninsured motorist coverage where the insured has not signed a selection or rejection form. The coverage described under this section shall be over and above, but shall not duplicate, the benefits available to an insured under any workers’ compensation law, personal injury protection benefits, disability benefits law, or similar law; under any automobile medical expense coverage; under any motor vehicle liability insurance coverage; or from the owner or operator of the uninsured motor vehicle or any other person or organization jointly or severally liable together with such owner or operator for the accident; and such coverage shall cover the difference, if any, between the sum of such benefits and the damages sustained, up to the maximum amount of such coverage provided under this section. The amount of coverage available under this section shall not be reduced by a setoff against any coverage, including liability insurance. Such coverage shall not inure directly or indirectly to the benefit of any workers’ compensation or disability benefits carrier or any person or organization qualifying as a self-insurer under any workers’ compensation or disability benefits law or similar law.",
+        },
+      },
+      {
+        id: "not-covered",
+        kind: "prose",
+        heading: "What this page does not cover",
+        prose: [
+          "It does not cover property damage or total loss valuation, which run on different provisions not recorded in this project, so nothing here describes them.",
+          "It does not tell you whether a specific claim will be paid, or what any policy of yours actually says, because coverage turns on the policy document rather than on the statute alone.",
+          "It does not state the firm's fees. [NEEDS: the contingency fee terms, and whether a client is responsible for costs if the case does not recover]",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Do I claim on my own insurance or the other driver's?",
+        source: "drafted",
+        answer: "Your own, first. Personal injury protection is required of Florida policies and pays regardless of fault, which is what no-fault means. Claims beyond those benefits go against the at-fault driver, and where that driver has no bodily injury coverage, uninsured motorist coverage on your own policy is usually what remains.",
+      },
+      {
+        question: "What does PIP actually pay?",
+        source: "drafted",
+        answer: "Medical benefits, disability benefits and a death benefit, each defined by statute. Medical benefits are eighty percent of reasonable expenses for medically necessary care, disability benefits are sixty percent of lost gross income and earning capacity, and the death benefit is five thousand dollars per individual. Initial care has to be received within fourteen days of the crash.",
+      },
+      {
+        question: "The other driver had no insurance. Is that the end of it?",
+        source: "drafted",
+        answer: "Not necessarily. Florida does not require most drivers to carry bodily injury liability coverage, which is exactly the situation uninsured motorist coverage exists for. It has to be offered with any policy carrying bodily injury liability coverage unless the insured rejected it in writing, so the first question is what your own policy says.",
+      },
+      {
+        question: "Is the $5,000 death benefit all a family can recover?",
+        source: "drafted",
+        answer: "No. That figure is a first-party insurance benefit under personal injury protection. Wrongful death is a separate statute, brought by a different person, with its own categories of recovery set out by class of survivor.",
+      },
+    ],
+    readerNeeds: {
+      next: "How long a claim takes is not on this page. It depends on treatment, on the insurer, and on whether suit is filed.",
+    },
+    published: true,
   },
   {
     slug: "catastrophic-injuries",
