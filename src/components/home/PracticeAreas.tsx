@@ -143,14 +143,25 @@ export default function PracticeAreas() {
                   onClick={() => setActive(cap.key)}
                   aria-expanded={isActive}
                   aria-controls={`practice-panel-${cap.key}`}
-                  className="font-display text-5xl leading-none transition-colors"
+                  /*
+                    HOVER HAS TO SAY "PRESSABLE". These read as a heading stack,
+                    and the inactive state going from 30% to 60% navy was too
+                    small a change to register as a control at all.
+
+                    Three signals now: an explicit pointer cursor, because a
+                    <button> does not get one from the user agent; full navy on
+                    hover rather than a midpoint; and the same underline the
+                    active item carries, drawn transparent and revealed on
+                    hover, so hovering previews exactly what clicking does.
+                  */
+                  className="cursor-pointer font-display text-5xl leading-none transition-colors"
                 >
                   <span
-                    className={
+                    className={`border-b-2 pb-2 transition-colors ${
                       isActive
-                        ? "border-b-2 border-navy pb-2 text-navy"
-                        : "text-navy/30 hover:text-navy/60"
-                    }
+                        ? "border-navy text-navy"
+                        : "border-transparent text-navy/30 hover:border-navy/40 hover:text-navy"
+                    }`}
                   >
                     {cap.short}
                   </span>
@@ -200,7 +211,7 @@ export default function PracticeAreas() {
                   onClick={() => toggleMobile(cap.key)}
                   aria-expanded={isOpen}
                   aria-controls={`practice-accordion-${cap.key}`}
-                  className="flex w-full items-center justify-between gap-4"
+                  className="flex w-full cursor-pointer items-center justify-between gap-4"
                 >
                   <span className="font-display text-4xl text-navy">
                     {cap.short}
