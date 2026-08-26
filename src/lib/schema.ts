@@ -2,11 +2,13 @@ import {
   type Attorney,
   type ChargePage,
   type GuidePage,
+  type InjuryPage,
   type Crumb,
   type FaqItem,
   capabilities,
   chargeHref,
   guideHref,
+  injuryHref,
   firm,
   primaryOffice,
   publishedOffices,
@@ -194,6 +196,33 @@ export const guideJsonLd = (guide: GuidePage) => {
     ...(guide.metaDescription ? { description: guide.metaDescription } : {}),
     ...(guide.owner ? { author: { "@type": "Person", name: guide.owner } } : {}),
     ...(guide.lastReviewed ? { dateModified: guide.lastReviewed } : {}),
+    ...(citations.length ? { citation: citations } : {}),
+    publisher: organizationJsonLd(),
+  };
+};
+
+/**
+ * Article markup for an injury page. Same shape as the guide and charge
+ * builders, including the conditional author and dateModified, so a page with
+ * no attorney review emits no false authorship (C11).
+ */
+export const injuryJsonLd = (page: InjuryPage) => {
+  const url = `${siteUrl}${injuryHref(page)}`;
+  const citations = legislationCitations(
+    (page.sections ?? []).flatMap((x) => (x.statute ? [x.statute.citation] : [])),
+  );
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: page.title,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    inLanguage: "en-US",
+    ...(page.metaDescription ? { description: page.metaDescription } : {}),
+    ...(page.owner ? { author: { "@type": "Person", name: page.owner } } : {}),
+    ...(page.lastReviewed ? { dateModified: page.lastReviewed } : {}),
     ...(citations.length ? { citation: citations } : {}),
     publisher: organizationJsonLd(),
   };

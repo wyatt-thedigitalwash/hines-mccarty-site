@@ -35,6 +35,8 @@ import {
   chargeHref,
   guides,
   guideHref,
+  injuryPages,
+  injuryHref,
   tools,
 } from "../src/lib/site.ts";
 
@@ -68,6 +70,9 @@ function staticRoutes(dir = "src/app", prefix = ""): string[] {
 const DYNAMIC: Record<string, string[]> = {
   "/attorneys/[slug]": attorneys.map((a) => `/attorneys/${a.slug}`),
   "/resources/guides/[guide]": guides.map((g) => guideHref(g)),
+  // Catch-all: one entry covers both pillars and spokes, because injuryHref is
+  // the same function generateStaticParams builds its params from.
+  "/personal-injury/[...injury]": injuryPages.map((p) => injuryHref(p)),
   "/criminal-defense/[charge]": charges
     .filter((c) => c.silo === "state")
     .map((c) => chargeHref(c)),

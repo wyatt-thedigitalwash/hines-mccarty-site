@@ -20,14 +20,17 @@
 import {
   type ChargePage,
   type GuidePage,
+  type InjuryPage,
   type Tool,
   charges,
   chargeHref,
   guides,
   guideHref,
+  injuryPages,
+  injuryHref,
   tools,
 } from "./site.ts";
-import { guideCopy, pageCopy, toolCopy } from "./page-copy.ts";
+import { guideCopy, injuryCopy, pageCopy, toolCopy } from "./page-copy.ts";
 
 export type Measured =
   | {
@@ -48,6 +51,15 @@ export type Measured =
       written: boolean;
       published: boolean;
       guide: GuidePage;
+    }
+  | {
+      kind: "injury";
+      key: string;
+      href: string;
+      copy: string[];
+      written: boolean;
+      published: boolean;
+      injury: InjuryPage;
     }
   | {
       kind: "tool";
@@ -83,6 +95,17 @@ export const measuredPages: Measured[] = [
       guide: g,
     }),
   ),
+  ...injuryPages.map(
+    (p): Measured => ({
+      kind: "injury",
+      key: `injury:${p.parent ? `${p.parent}/` : ""}${p.slug}`,
+      href: injuryHref(p),
+      copy: injuryCopy(p),
+      written: Boolean(p.lead || p.sections?.length),
+      published: p.published,
+      injury: p,
+    }),
+  ),
   // Tool GUIDE rows are derived from `guides` and would double-measure the
   // same copy under two keys, so only non-guide tool cards register here; the
   // guide entries above are the canonical surface for that copy.
@@ -104,3 +127,4 @@ export const measuredPages: Measured[] = [
 export const measuredGuides = measuredPages.filter((m) => m.kind === "guide");
 export const measuredCharges = measuredPages.filter((m) => m.kind === "charge");
 export const measuredTools = measuredPages.filter((m) => m.kind === "tool");
+export const measuredInjury = measuredPages.filter((m) => m.kind === "injury");

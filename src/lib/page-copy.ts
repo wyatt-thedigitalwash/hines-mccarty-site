@@ -16,7 +16,7 @@
  * one function, and `RENDERED_FIELDS` below is the checklist that has to be
  * revisited whenever the page schema grows.
  */
-import type { ChargePage, GuidePage, Tool } from "./site.ts";
+import type { ChargePage, GuidePage, InjuryPage, Tool } from "./site.ts";
 import { TOOL_PAGE_COPY } from "./tools/index.ts";
 
 /**
@@ -151,6 +151,53 @@ export function guideCopy(g: GuidePage): string[] {
       ...(s.penalties ?? []).map(penaltyRow),
       ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
       ...(s.guidance ?? []).flatMap((gr) => [gr.heading, ...gr.items]),
+    ]),
+  ];
+  return out.filter((x): x is string => typeof x === "string" && x.length > 0);
+}
+
+/**
+ * Fields of an InjuryPage rendered to a reader. Same contract as
+ * RENDERED_FIELDS: revisit whenever the schema grows, because a field that
+ * renders but is not extracted is a hole in every gate at once.
+ */
+export const INJURY_RENDERED_FIELDS = [
+  "label",
+  "title",
+  "description",
+  "metaTitle",
+  "metaDescription",
+  "lead",
+  "faq[].question|answer",
+  "relatedLinks[].label",
+  "sections[].heading|prose|bullets|statute|penalties|steps|guidance",
+  "readerNeeds{}",
+  "owner",
+  "lastReviewed",
+] as const;
+
+/** Every human-visible string on an injury page. One definition, every gate. */
+export function injuryCopy(p: InjuryPage): string[] {
+  const out: (string | undefined)[] = [
+    p.label,
+    p.title,
+    p.description,
+    p.metaTitle,
+    p.metaDescription,
+    p.lead,
+    p.owner,
+    p.lastReviewed,
+    ...(p.faq ?? []).flatMap((f) => [f.question, f.answer]),
+    ...(p.relatedLinks ?? []).map((l) => l.label),
+    ...Object.values(p.readerNeeds ?? {}),
+    ...(p.sections ?? []).flatMap((s) => [
+      s.heading,
+      ...(s.prose ?? []),
+      ...(s.bullets ?? []),
+      ...(s.statute ? [s.statute.citation, s.statute.body] : []),
+      ...(s.penalties ?? []).map(penaltyRow),
+      ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
+      ...(s.guidance ?? []).flatMap((g) => [g.heading, ...g.items]),
     ]),
   ];
   return out.filter((x): x is string => typeof x === "string" && x.length > 0);

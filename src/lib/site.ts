@@ -632,17 +632,169 @@ export const capabilities = [
 // Attorneys hub carries the overview and links out to the full page.
 // Defined after `capabilities` because it reads from it.
 /**
- * The personal injury practice, as its own silo set.
+ * The personal injury practice: pillars and their spokes, one model.
  *
- * SEPARATE FROM `capabilities` ON PURPOSE. Those three are criminal defence and
- * share a posture: the reader is accused. These do not. A car accident client
- * is a plaintiff, and folding them into the same array would put them under a
- * hub labelled "Cases We Defend", which is the wrong word for someone who was
- * hit by a truck.
+ * SAME GRAMMAR AS A GUIDE, deliberately. `sections` is `ChargeSection[]`, so an
+ * injury page is written with the same primitives as everything else on this
+ * site and inherits every rail already built for them: the statute spans render
+ * as cited blockquotes, the banned-term and duplication checks read the copy
+ * through one extractor, and `check:provenance` sees the quotations. A new
+ * content model would have been a new set of holes.
  *
- * `published` is false until a silo has a written pillar page. Nothing links an
- * unpublished silo, and `check:routes` sweep A is what keeps that honest rather
- * than a promise.
+ * SEPARATE FROM `charges` AND `capabilities` on purpose. Those share a posture,
+ * the reader is accused. An injury reader is a plaintiff. Folding them together
+ * would file a car accident under a hub called "Cases We Defend".
+ *
+ * PILLAR OR SPOKE IS `parent`. Undefined means a pillar and the page sits at
+ * /personal-injury/{slug}; otherwise it sits under its pillar. The route is a
+ * catch-all so both depths come from one file and one expansion.
+ *
+ * EVERY PAGE IS `published: false` AND CARRIES NO SECTIONS. The structure is
+ * seeded from the client's own keyword architecture so the shape is reviewable
+ * and the writing is the only thing left, and nothing links an unpublished page.
+ */
+export type InjuryPage = {
+  /** Route segment. Unique within its parent. */
+  slug: string;
+  /** Undefined for a pillar; the pillar's slug for a spoke. */
+  parent?: string;
+  /** Short card label. */
+  label: string;
+  /** H1 and card title. */
+  title: string;
+  /** One-line card description. */
+  description: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  lead?: string;
+  /** The body, same section grammar as charges and guides. */
+  sections?: ChargeSection[];
+  faq?: FaqItem[];
+  relatedLinks?: RelatedLink[];
+  readerNeeds?: Partial<Record<ReaderQuestion, string>>;
+  /** C11: nothing publishes without both. */
+  owner?: string;
+  lastReviewed?: string;
+  published: boolean;
+};
+
+/**
+ * Seeded from the client's PI keyword architecture, 2026-08-26.
+ *
+ * Two pillars and seven spokes. The crash types the brief lists under car
+ * accidents (rear end, hit and run, rideshare, drunk driving) are keyword
+ * targets WITHIN the types page rather than four separate pages, which is what
+ * the brief's own sub-page list says.
+ */
+export const injuryPages: InjuryPage[] = [
+  {
+    slug: "car-accidents",
+    label: "Car Accidents",
+    title: "Car Accident Claims",
+    description:
+      "Crashes on Hillsborough roads, from the insurance claim through a lawsuit if the claim does not resolve.",
+    published: false,
+  },
+  {
+    slug: "types-of-car-accidents",
+    parent: "car-accidents",
+    label: "Types of Car Accidents",
+    title: "Types of Car Accident Claims",
+    description:
+      "Rear end, hit and run, rideshare, and crashes involving an impaired driver.",
+    published: false,
+  },
+  {
+    slug: "compensation",
+    parent: "car-accidents",
+    label: "Compensation",
+    title: "What a Car Accident Claim Can Cover",
+    description:
+      "The categories of loss Florida law recognizes, which is a different question from what any claim is worth.",
+    published: false,
+  },
+  {
+    slug: "insurance-claims",
+    parent: "car-accidents",
+    label: "Insurance Claims",
+    title: "Car Accident Insurance Claims in Florida",
+    description:
+      "Personal injury protection, uninsured and underinsured motorist coverage, and total loss.",
+    published: false,
+  },
+  {
+    slug: "catastrophic-injuries",
+    parent: "car-accidents",
+    label: "Catastrophic Injuries",
+    title: "Catastrophic Injury Claims",
+    description:
+      "Spinal cord and traumatic brain injuries, and why they are handled differently from the start.",
+    published: false,
+  },
+  {
+    slug: "truck-accidents",
+    label: "Truck Accidents",
+    title: "Truck and Commercial Vehicle Claims",
+    description:
+      "Semi-truck, delivery and commercial vehicle collisions, where a carrier, a driver and a broker may each carry part of the fault.",
+    published: false,
+  },
+  {
+    slug: "semi-truck-collisions",
+    parent: "truck-accidents",
+    label: "Semi-Truck Collisions",
+    title: "18-Wheeler and Semi-Truck Collisions",
+    description:
+      "Jackknife and underride collisions, and the liability that reaches past the driver.",
+    published: false,
+  },
+  {
+    slug: "fmcsa-violations",
+    parent: "truck-accidents",
+    label: "FMCSA Violations",
+    title: "Federal Trucking Rules and FMCSA Violations",
+    description:
+      "Hours of service, maintenance records, and the electronic data a truck carries after a crash.",
+    published: false,
+  },
+  {
+    slug: "delivery-and-box-truck",
+    parent: "truck-accidents",
+    label: "Delivery and Box Trucks",
+    title: "Delivery and Commercial Box Truck Crashes",
+    description:
+      "Local logistics and delivery vehicles, and the contractor question that decides who answers for the driver.",
+    published: false,
+  },
+];
+
+export const injuryHref = (p: InjuryPage) =>
+  `/personal-injury/${p.parent ? `${p.parent}/` : ""}${p.slug}`;
+
+export const injuryBySlug = (segments: string[]) =>
+  injuryPages.find(
+    (p) =>
+      p.slug === segments[segments.length - 1] &&
+      (segments.length === 1 ? !p.parent : p.parent === segments[0]),
+  );
+
+export const injuryPillars = injuryPages.filter((p) => !p.parent);
+export const injurySpokes = (pillarSlug: string) =>
+  injuryPages.filter((p) => p.parent === pillarSlug);
+
+export const injuryTrail = (p: InjuryPage): Crumb[] => {
+  const pillar = p.parent ? injuryPages.find((x) => x.slug === p.parent) : undefined;
+  return [
+    { name: "Home", href: "/" },
+    { name: "Personal Injury", href: "/personal-injury" },
+    ...(pillar ? [{ name: pillar.label, href: injuryHref(pillar) }] : []),
+    { name: p.label },
+  ];
+};
+
+/**
+ * The two pillars, in the shape the home page and the hub already consume.
+ * Derived rather than a second list, so the two cannot drift.
  */
 export type InjuryPractice = {
   key: string;
@@ -653,26 +805,14 @@ export type InjuryPractice = {
   published: boolean;
 };
 
-export const injuryPractices: InjuryPractice[] = [
-  {
-    key: "car",
-    short: "Car Accidents",
-    title: "Car Accident Claims",
-    href: "/personal-injury/car-accidents",
-    summary:
-      "Crashes on Hillsborough roads, from the insurance claim through a lawsuit if the claim does not resolve.",
-    published: false,
-  },
-  {
-    key: "truck",
-    short: "Truck Accidents",
-    title: "Truck and Commercial Vehicle Claims",
-    href: "/personal-injury/truck-accidents",
-    summary:
-      "Semi-truck, delivery and commercial vehicle collisions, where a carrier, a driver and a broker may each carry part of the fault.",
-    published: false,
-  },
-];
+export const injuryPractices: InjuryPractice[] = injuryPillars.map((p) => ({
+  key: p.slug,
+  short: p.label,
+  title: p.title,
+  href: injuryHref(p),
+  summary: p.description,
+  published: p.published,
+}));
 
 export const publishedInjuryPractices = injuryPractices.filter((p) => p.published);
 
