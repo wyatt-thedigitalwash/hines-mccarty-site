@@ -994,9 +994,96 @@ export const injuryPages: InjuryPage[] = [
     parent: "car-accidents",
     label: "Catastrophic Injuries",
     title: "Catastrophic Injury Claims",
-    description:
-      "Spinal cord and traumatic brain injuries, and why they are handled differently from the start.",
-    published: false,
+    description: "Spinal cord and traumatic brain injuries, and why they are handled differently from the start.",
+    metaTitle: "Florida Catastrophic Injury Claims: Why the Arithmetic Changes",
+    metaDescription: "Why a catastrophic injury claim runs past no-fault benefits immediately, how Florida limits evidence of medical damages, and what a fatal injury changes about who may recover.",
+    lead: "A catastrophic injury changes the shape of a claim rather than its size. Benefits that cover an ordinary crash are exhausted in days, and the questions that decide the case become future cost and available coverage rather than fault alone.",
+    sections: [
+      {
+        id: "past-medical",
+        kind: "statute",
+        heading: "What a jury may be shown about the bills already paid",
+        prose: [
+          "Since 2023 Florida limits what evidence may prove the amount of past medical damages. Where charges have been satisfied, the evidence is limited to the amount actually paid, regardless of the source of payment.",
+          "For a catastrophic claim this is not a technicality. The difference between amounts billed and amounts paid is often large, and the statute decides which of them a jury sees.",
+        ],
+        statute: {
+          citation: "F.S. 768.0427(2)(a)",
+          body: "(a) Evidence offered to prove the amount of damages for past medical treatment or services that have been satisfied is limited to evidence of the amount actually paid, regardless of the source of payment.",
+        },
+      },
+      {
+        id: "future-medical",
+        kind: "statute",
+        heading: "Future treatment, which is most of the claim",
+        prose: [
+          "In a spinal cord or brain injury the treatment that has happened is usually a fraction of the treatment that will. Florida sets out what evidence may prove the amount of future medical treatment or services, and it is a defined list rather than an open question.",
+          "That is why these claims involve life care planning and economic analysis early. The future cost has to be proven in the form the statute permits, and reduced to present value, which is arithmetic rather than argument.",
+        ],
+        statute: {
+          citation: "F.S. 768.0427(2)(c)",
+          body: "(c) Evidence offered to prove the amount of damages for any future medical treatment or services the claimant will receive shall include, but is not limited to, evidence as provided in this paragraph.",
+        },
+      },
+      {
+        id: "coverage-runs-out",
+        kind: "prose",
+        heading: "Why coverage becomes the question",
+        prose: [
+          "Personal injury protection provides ten thousand dollars in medical and disability benefits. A serious spinal or brain injury passes that in the first days, often before anyone has been discharged.",
+          "What remains is the at-fault driver's liability coverage, which Florida does not require most drivers to carry, and then uninsured or underinsured motorist coverage on the injured person's own policy. Finding every applicable policy is usually a larger part of a catastrophic case than arguing about fault, and it is work that starts immediately because coverage limits shape everything downstream.",
+        ],
+      },
+      {
+        id: "fatal",
+        kind: "statute",
+        heading: "When the injury was fatal",
+        prose: [
+          "Wrongful death is a different statute, and who may recover is set out by class of survivor rather than by who inherits. The surviving spouse may recover for loss of the decedent's companionship and protection and for mental pain and suffering from the date of injury.",
+          "Children, parents and other survivors have their own provisions at Statute 768.21, and all potential beneficiaries, including the estate, must be identified in the complaint. That is why the question of who is involved gets settled early.",
+        ],
+        statute: {
+          citation: "F.S. 768.21(2)",
+          body: "(2) The surviving spouse may also recover for loss of the decedent’s companionship and protection and for mental pain and suffering from the date of injury.",
+        },
+      },
+      {
+        id: "not-covered",
+        kind: "prose",
+        heading: "What this page does not cover",
+        prose: [
+          "It does not value anything. Catastrophic claims are exactly where a published number does the most harm, because the range is wide and a figure read on a website becomes an expectation before anyone has seen a medical record.",
+          "It does not describe medical prognosis, rehabilitation, or what any injury means for a particular person, none of which is a legal question.",
+          "It does not state the firm's fees. [NEEDS: the contingency fee terms, and whether a client is responsible for costs if the case does not recover]",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Why does PIP not cover a serious injury?",
+        source: "drafted",
+        answer: "Because it was not built to. Personal injury protection provides ten thousand dollars in medical and disability benefits, which a spinal cord or brain injury passes within days. Recovery beyond it comes from the at-fault driver's liability coverage and from uninsured or underinsured motorist coverage on your own policy.",
+      },
+      {
+        question: "Can we claim for treatment that has not happened yet?",
+        source: "drafted",
+        answer: "Yes, and Florida sets out what evidence may prove the amount. Future medical treatment is proven through a defined list of evidence rather than an open estimate, and future losses are reduced to present value. In a catastrophic claim this is usually the largest component and the one requiring the most preparation.",
+      },
+      {
+        question: "Does the jury see what was billed or what was paid?",
+        source: "drafted",
+        answer: "For past treatment that has been satisfied, the evidence is limited to the amount actually paid, regardless of the source of payment. The gap between billed and paid can be substantial, and since 2023 the statute decides which figure is in front of a jury.",
+      },
+      {
+        question: "Who can bring a claim if the injury was fatal?",
+        source: "drafted",
+        answer: "Wrongful death is its own statute and recovery is set out by class of survivor. A surviving spouse may recover for loss of companionship and protection and for mental pain and suffering from the date of injury; children, parents and other survivors have separate provisions. All potential beneficiaries, including the estate, must be identified in the complaint.",
+      },
+    ],
+    readerNeeds: {
+      next: "How long a claim takes is not on this page. It depends on treatment, on the coverage available, and on whether suit is filed.",
+    },
+    published: true,
   },
   {
     slug: "truck-accidents",
@@ -1123,9 +1210,86 @@ export const injuryPages: InjuryPage[] = [
     parent: "truck-accidents",
     label: "Semi-Truck Collisions",
     title: "18-Wheeler and Semi-Truck Collisions",
-    description:
-      "Jackknife and underride collisions, and the liability that reaches past the driver.",
-    published: false,
+    description: "Jackknife and underride collisions, and the liability that reaches past the driver.",
+    metaTitle: "Florida 18-Wheeler and Semi-Truck Collision Claims",
+    metaDescription: "Why a semi-truck claim reaches past the driver, how Florida defines the accident being apportioned, and what a defendant must do to put an absent company on the verdict form.",
+    lead: "An eighty-thousand-pound vehicle fails differently from a car, and the claim that follows is built differently too. The difference is not severity alone. It is that the events being judged start well before the impact.",
+    sections: [
+      {
+        id: "what-is-the-accident",
+        kind: "statute",
+        heading: "The accident is bigger than the collision",
+        prose: [
+          "Florida defines the accident being apportioned broadly. It is the events and actions relating to the incident, and also those relating to the alleged defect or injuries, including enhanced injuries.",
+          "In a jackknife or an underride collision that definition does real work. Whether a trailer was loaded correctly, whether the brakes had been serviced, whether an underride guard met specification, and whether the schedule left time to stop are all events and actions relating to the incident. They happened before the crash and they are part of what gets weighed.",
+        ],
+        statute: {
+          citation: "F.S. 768.81(1)(a)",
+          body: "(a) “Accident” means the events and actions that relate to the incident as well as those events and actions that relate to the alleged defect or injuries, including enhanced injuries.",
+        },
+      },
+      {
+        id: "verdict-form",
+        kind: "statute",
+        heading: "Getting an absent company onto the verdict form",
+        prose: [
+          "Where fault is spread across several companies, a defendant who wants a share allocated to one that is not in the case has to do more than mention it. Putting a named or unnamed nonparty on the verdict form for apportionment carries its own requirement.",
+          "For a claimant the practical effect is that the case cannot be reshaped quietly at the end. It also means the parties named at the outset are a decision with consequences, not a formality.",
+        ],
+        statute: {
+          citation: "F.S. 768.81(3)(a)2.",
+          body: "2. In order to allocate any or all fault to a nonparty and include the named or unnamed nonparty on the verdict form for purposes of apportioning damages, a defendant must prove at trial, by a preponderance of the evidence, the fault of the nonparty in causing the plaintiff’s injuries.",
+        },
+      },
+      {
+        id: "the-driver-clock",
+        kind: "statute",
+        heading: "Where the driver's day started",
+        prose: [
+          "Federal rules do not only cap driving. They set what has to happen before it: a driver may not drive without first taking ten consecutive hours off duty.",
+          "That makes the previous day part of the current case. A driver who was dispatched without the required rest is a documented fact in the carrier's own records rather than an inference about fatigue, and the records that show it are covered on the FMCSA page, along with how long they last.",
+        ],
+        statute: {
+          citation: "49 CFR 395.3(a)(1)",
+          body: "(1) Start of work shift. A driver may not drive without first taking 10 consecutive hours off duty;",
+        },
+      },
+      {
+        id: "not-covered",
+        kind: "prose",
+        heading: "What this page does not cover",
+        prose: [
+          "It does not describe underride guard standards, trailer loading rules or vehicle design requirements. Those sit in federal safety standards not recorded in this project, so this page names them as questions rather than stating what they require.",
+          "It does not tell you who was at fault in your collision, what a claim is worth, or what any case will do. It does not state the firm's fees. [NEEDS: the contingency fee terms, and whether a client is responsible for costs if the case does not recover]",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "What is a jackknife accident and who is responsible?",
+        source: "drafted",
+        answer: "A jackknife is the trailer swinging out of line with the tractor, usually under braking or loss of traction. Responsibility is rarely settled by the manoeuvre alone, because Florida apportions across the events and actions relating to the incident, which reaches loading, maintenance and scheduling as well as the driver's handling.",
+      },
+      {
+        question: "What is an underride collision?",
+        source: "drafted",
+        answer: "A collision in which a passenger vehicle travels under the body of a trailer, which is why these produce injuries out of proportion to the speeds involved. Whether the trailer's guard met the applicable standard is a question this page does not answer, because those standards are not recorded here.",
+      },
+      {
+        question: "Can the trucking company blame a company that is not in the lawsuit?",
+        source: "drafted",
+        answer: "It can try, and the statute sets what it must do first. Allocating fault to a nonparty requires affirmatively pleading that nonparty's fault, and putting a named or unnamed nonparty on the verdict form carries its own requirement. It is not something that can be introduced quietly at the end.",
+      },
+      {
+        question: "Does it matter how long the driver had been working?",
+        source: "drafted",
+        answer: "Yes, and it is documented rather than inferred. A driver may not drive without first taking ten consecutive hours off duty, and may drive eleven hours inside a fourteen-hour window after that. Whether those limits were met appears in the carrier's records, which have their own retention periods.",
+      },
+    ],
+    readerNeeds: {
+      next: "How long a claim takes is not on this page. It depends on treatment, on the coverage available, and on whether suit is filed.",
+    },
+    published: true,
   },
   {
     slug: "fmcsa-violations",
