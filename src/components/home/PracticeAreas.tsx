@@ -3,10 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import {
-  type ChargePage,
   capabilities,
   chargeHref,
   chargesInSilo,
+  injuryHref,
+  injuryPages,
   type SiloKey,
 } from "@/lib/site";
 
@@ -45,16 +46,20 @@ function ChevronIcon({ className = "" }: { className?: string }) {
 }
 
 /**
- * One charge. Reads from `charges`, the same list the Cases We Defend index
- * uses, so the two can never show different sets again.
+ * One row in a panel: a charge, or an injury page.
  *
- * Links to the charge page once it is published, and to its silo hub until
- * then. The stubs are noindex and full of [NEEDS] markers; the home page is
- * the last place that scaffolding should be reachable from.
+ * TAKES A PLAIN ITEM rather than a ChargePage, because this grid now serves
+ * two practices whose page types are different and whose rows are identical.
+ * Both sources build the same shape and the row stays one component.
+ *
+ * `href` already accounts for publication: an unpublished item resolves to its
+ * hub instead. The stubs are noindex and full of [NEEDS] markers, and the home
+ * page is the last place that scaffolding should be reachable from.
  */
-function ItemRow({ charge, siloHref }: { charge: ChargePage; siloHref: string }) {
-  const { label, description } = charge;
-  const href = charge.published ? chargeHref(charge) : siloHref;
+type Item = { key: string; label: string; description: string; href: string };
+
+function ItemRow({ item }: { item: Item }) {
+  const { label, description, href } = item;
 
   return (
     <Link
@@ -78,9 +83,45 @@ function ItemRow({ charge, siloHref }: { charge: ChargePage; siloHref: string })
   );
 }
 
+/**
+ * The four panels. Three criminal silos and the injury practice.
+ *
+ * The injury panel lists pillars and spokes flat rather than nesting them,
+ * because a panel is a list of destinations and the hierarchy is already
+ * expressed by the URLs and by the pages themselves. Nesting it here would
+ * reproduce the two-column layout that was removed from this page for being
+ * unreadable.
+ */
+type Group = { key: string; short: string; href: string; items: Item[] };
+
+const GROUPS: Group[] = [
+  ...capabilities.map((cap) => ({
+    key: cap.key,
+    short: cap.short,
+    href: cap.href,
+    items: chargesInSilo(cap.key as SiloKey).map((c) => ({
+      key: c.slug,
+      label: c.label,
+      description: c.description,
+      href: c.published ? chargeHref(c) : cap.href,
+    })),
+  })),
+  {
+    key: "personal-injury",
+    short: "Injury",
+    href: "/personal-injury",
+    items: injuryPages.map((p) => ({
+      key: `${p.parent ?? ""}/${p.slug}`,
+      label: p.label,
+      description: p.description,
+      href: p.published ? injuryHref(p) : "/personal-injury",
+    })),
+  },
+];
+
 export default function PracticeAreas() {
-  const [active, setActive] = useState<string>(capabilities[0].key);
-  const [openMobile, setOpenMobile] = useState<string[]>([capabilities[0].key]);
+  const [active, setActive] = useState<string>(GROUPS[0].key);
+  const [openMobile, setOpenMobile] = useState<string[]>([GROUPS[0].key]);
 
   const toggleMobile = (key: string) =>
     setOpenMobile((prev) =>
@@ -93,7 +134,7 @@ export default function PracticeAreas() {
         {/* Desktop: category switcher + grid of charges */}
         <div className="hidden lg:grid lg:grid-cols-[16rem_1fr] lg:gap-20">
           <div className="flex flex-col items-start gap-7">
-            {capabilities.map((cap) => {
+            {GROUPS.map((cap) => {
               const isActive = cap.key === active;
               return (
                 <button
@@ -129,19 +170,15 @@ export default function PracticeAreas() {
             a Tailwind display class outranks the user-agent [hidden] rule.
           */}
           <div className="self-start">
-            {capabilities.map((cap) => (
+            {GROUPS.map((group) => (
               <div
-                key={cap.key}
-                id={`practice-panel-${cap.key}`}
-                hidden={cap.key !== active}
+                key={group.key}
+                id={`practice-panel-${group.key}`}
+                hidden={group.key !== active}
               >
                 <div className="grid grid-cols-2 gap-4">
-                  {chargesInSilo(cap.key as SiloKey).map((charge) => (
-                    <ItemRow
-                      key={charge.slug}
-                      charge={charge}
-                      siloHref={cap.href}
-                    />
+                  {group.items.map((item) => (
+                    <ItemRow key={item.key} item={item} />
                   ))}
                 </div>
               </div>
@@ -151,7 +188,7 @@ export default function PracticeAreas() {
 
         {/* Mobile: accordion */}
         <div className="lg:hidden">
-          {capabilities.map((cap) => {
+          {GROUPS.map((cap) => {
             const isOpen = openMobile.includes(cap.key);
             return (
               <div
@@ -177,12 +214,8 @@ export default function PracticeAreas() {
                 {/* Kept mounted and hidden when collapsed, same reason as above */}
                 <div id={`practice-accordion-${cap.key}`} hidden={!isOpen}>
                   <div className="mt-6 flex flex-col gap-3">
-                    {chargesInSilo(cap.key as SiloKey).map((charge) => (
-                      <ItemRow
-                        key={charge.slug}
-                        charge={charge}
-                        siloHref={cap.href}
-                      />
+                    {cap.items.map((item) => (
+                      <ItemRow key={item.key} item={item} />
                     ))}
                   </div>
                 </div>
