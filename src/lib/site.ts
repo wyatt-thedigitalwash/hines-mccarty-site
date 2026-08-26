@@ -976,9 +976,120 @@ export const injuryPages: InjuryPage[] = [
     parent: "truck-accidents",
     label: "FMCSA Violations",
     title: "Federal Trucking Rules and FMCSA Violations",
-    description:
-      "Hours of service, maintenance records, and the electronic data a truck carries after a crash.",
-    published: false,
+    description: "Hours of service, maintenance records, and the electronic data a truck carries after a crash.",
+    metaTitle: "FMCSA Hours of Service and Record Retention After a Florida Truck Crash",
+    metaDescription: "The federal driving limits a commercial driver runs on, how long a carrier must keep the logs, maintenance records and driver qualification file, and why a preservation letter goes out first.",
+    lead: "A commercial driver runs on three clocks set by federal regulation, and the records that prove which one was exceeded are kept for as little as six months. This page sets out both, in the regulation's own words.",
+    sections: [
+      {
+        id: "hours-of-service",
+        kind: "statute",
+        heading: "The clock a driver runs on",
+        prose: [
+          "Federal law limits how long a commercial driver may be at the wheel, and the limits are structured as three separate clocks rather than one. A driver may not start without ten consecutive hours off duty. Once on duty, a fourteen-hour window opens and driving is not permitted after it closes, whatever else happened inside it. Within that window the driver may accumulate eleven hours of actual driving.",
+          "A fourth rule sits inside those: past eight hours of driving time, no further driving is permitted without a consecutive thirty-minute interruption of driving status.",
+          "These matter to an injured person because a violation is a documented fact rather than an opinion about the driver. A log showing the twelfth hour of driving is not an argument that the driver was tired; it is a record that a federal limit was exceeded.",
+        ],
+        statute: {
+          citation: "49 CFR 395.3(a)(3)(i)",
+          body: "(i) Driving time. A driver may drive a total of 11 hours during the period specified in paragraph (a)(2) of this section.",
+        },
+      },
+      {
+        id: "fourteen-hour",
+        kind: "statute",
+        heading: "The window that does not stop for anything",
+        prose: [
+          "The fourteen-hour rule is the one that produces the most violations, because it does not pause. Loading, waiting at a dock, and sitting in traffic all consume it. A driver who spent five hours waiting to be unloaded has five fewer hours in which driving is permitted, and nothing about the delay extends the window.",
+          "That is why dispatch records and delivery timestamps matter alongside the log itself. The question is not only what the driver recorded but what the schedule required of them.",
+        ],
+        statute: {
+          citation: "49 CFR 395.3(a)(2)",
+          body: "(2) 14-hour period. A driver may not drive after a period of 14 consecutive hours after coming on-duty following 10 consecutive hours off-duty.",
+        },
+      },
+      {
+        id: "records-and-clocks",
+        kind: "statute",
+        heading: "How long each record survives",
+        prose: [
+          "Records of duty status and the documents supporting them must be retained for not less than six months from receipt. That is the shortest of the three periods and it covers the material that proves the hours above.",
+          "Inspection, repair and maintenance records run longer: one year, and six months after the vehicle leaves the carrier's control. The driver qualification file, which holds the driver's licence history, medical certification and employment record, is kept for as long as the driver is employed and three years afterwards.",
+          "Every one of those is a floor, not a countdown to deletion. A carrier may hold records longer and often does. What the figure tells you is the point past which nobody is required to still have it, which is the point at which asking becomes urgent rather than routine.",
+        ],
+        statute: {
+          citation: "49 CFR 395.8(k)(1)",
+          body: "(1) A motor carrier shall retain records of duty status and supporting documents required under this part for each of its drivers for a period of not less than 6 months from the date of receipt.",
+        },
+      },
+      {
+        id: "maintenance-file",
+        kind: "statute",
+        heading: "The vehicle's own file",
+        prose: [
+          "Maintenance records are the second place a commercial case is won or lost. They show what was inspected, what was found, what was repaired and when, and they are kept where the vehicle is housed or maintained rather than at a head office.",
+          "The retention period has a second limb worth noting: six months after the vehicle leaves the carrier's control. A tractor sold after a crash starts a shorter clock than one that stays in the fleet.",
+        ],
+        statute: {
+          citation: "49 CFR 396.3(c)",
+          body: "(c) Record retention. The records required by this section shall be retained where the vehicle is either housed or maintained for a period of 1 year and for 6 months after the motor vehicle leaves the motor carrier's control.",
+        },
+      },
+      {
+        id: "driver-file",
+        kind: "statute",
+        heading: "What the carrier knew about its driver",
+        prose: [
+          "The driver qualification file is where a claim against the carrier itself usually begins. It is the record of what the company knew when it put that person in that vehicle, and it survives the employment by three years.",
+          "That matters because a carrier's responsibility is not only for the driver's conduct on the day. Hiring, retention and supervision are separate questions with their own evidence, and this file is most of it.",
+        ],
+        statute: {
+          citation: "49 CFR 391.51(c)",
+          body: "(c) Except as provided in paragraph (d) of this section, each driver's qualification file shall be retained for as long as a driver is employed by that motor carrier and for three years thereafter.",
+        },
+      },
+      {
+        id: "not-covered",
+        kind: "prose",
+        heading: "What this page does not cover",
+        prose: [
+          "It covers four provisions and no more. The short-haul exceptions, the sleeper-berth rules, the electronic logging device requirements and the rest of parts 390 through 396 are not recorded in this project, so nothing here describes them, and a driver may be lawfully operating under an exception this page has not read.",
+          "It does not tell you whether any rule was broken in your case, what a violation is worth, or what a claim will do. It does not state the firm's fees. [NEEDS: the contingency fee terms, and whether a client is responsible for costs if the case does not recover]",
+          "The electronic data a truck holds about the seconds before impact is governed elsewhere and runs on its own schedule. It is usually the first thing to go and this page states no period for it.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "How many hours can a truck driver legally drive?",
+        source: "drafted",
+        answer: "Eleven hours of driving, inside a fourteen-hour window that opens when the driver comes on duty, and only after ten consecutive hours off duty first. Past eight hours of driving, no further driving is permitted without a consecutive thirty-minute interruption. The fourteen-hour window does not pause for loading, waiting or traffic.",
+      },
+      {
+        question: "How long does a trucking company have to keep the logs?",
+        source: "drafted",
+        answer: "Records of duty status and their supporting documents must be kept for not less than six months from receipt. That is a minimum the carrier must meet rather than a date destruction begins, but it is the point past which nobody is required to still have the record. Maintenance records run a year, and six months after the vehicle leaves the carrier's control.",
+      },
+      {
+        question: "What is a spoliation or preservation letter?",
+        source: "drafted",
+        answer: "A written demand that the carrier preserve specified records and the vehicle itself rather than letting them cycle out in the ordinary course. It is normally the first thing sent in a commercial case, before any claim is made to an insurer, because the retention periods above are short enough that waiting costs evidence.",
+      },
+      {
+        question: "Does a violation of the federal rules mean the carrier is automatically liable?",
+        source: "drafted",
+        answer: "No, and this page will not say otherwise. A documented violation is evidence rather than a verdict; fault, causation and damages are still contested questions decided on the whole record. What a violation changes is that the point stops being an argument about what probably happened and becomes a record of what did.",
+      },
+      {
+        question: "The truck had an electronic logging device. Does that make it simple?",
+        source: "drafted",
+        answer: "It makes the hours harder to dispute and does not make the case simple. This page does not describe the electronic logging requirements, which are a separate set of rules not recorded here, and the device's own data runs on its own retention schedule rather than the six-month one above.",
+      },
+    ],
+    readerNeeds: {
+      next: "How long a claim takes is not on this page. It depends on how many parties are involved, on what the records show, and on whether suit is filed.",
+    },
+    published: true,
   },
   {
     slug: "delivery-and-box-truck",
