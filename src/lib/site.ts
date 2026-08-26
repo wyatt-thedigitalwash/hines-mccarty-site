@@ -701,10 +701,110 @@ export const injuryPages: InjuryPage[] = [
   {
     slug: "car-accidents",
     label: "Car Accidents",
-    title: "Car Accident Claims",
-    description:
-      "Crashes on Hillsborough roads, from the insurance claim through a lawsuit if the claim does not resolve.",
-    published: false,
+    title: "Car Accident Claims in Hillsborough County",
+    description: "Crashes on Hillsborough roads, from the insurance claim through a lawsuit if the claim does not resolve.",
+    metaTitle: "Florida Car Accident Claims: PIP, Uninsured Motorists, and the 2023 Changes",
+    metaDescription: "What Florida law actually says after a car accident: the 14-day PIP deadline, uninsured motorist coverage, the 50 percent fault bar, and which limitations period applies to your claim.",
+    lead: "Most of what decides a Florida car accident claim happens in the first two weeks, before anyone has talked about who was at fault. This page sets out the four provisions that do most of the deciding, in the statute's own words.",
+    sections: [
+      {
+        id: "what-pip-covers",
+        kind: "statute",
+        heading: "Your own insurer pays first, whoever caused the crash",
+        prose: [
+          "Florida is a no-fault state, which does not mean nobody is at fault. It means the first medical bills are paid by your own personal injury protection coverage before anyone argues about who caused the collision. The statute sets that coverage at 80 percent of reasonable expenses for medically necessary care, and it attaches a deadline that has nothing to do with courts.",
+          "The deadline is the part people lose claims on. Initial services and care have to be received within 14 days of the accident. Waiting to see whether a sore neck settles down is the single most common way a person forfeits benefits they were entitled to, because the clause does not care why the wait happened.",
+          "There is a second limit inside the same subsection. Where no physician, dentist, physician assistant or advanced practice registered nurse has determined that the injured person had an emergency medical condition, reimbursement is capped at $2,500 rather than the full amount.",
+        ],
+        statute: {
+          citation: "F.S. 627.736(1)(a)",
+          body: "(a) Medical benefits.—Eighty percent of all reasonable expenses for medically necessary medical, surgical, X-ray, dental, and rehabilitative services, including prosthetic devices and medically necessary ambulance, hospital, and nursing services if the individual receives initial services and care pursuant to subparagraph 1. within 14 days after the motor vehicle accident. The medical benefits provide reimbursement only for:",
+        },
+      },
+      {
+        id: "uninsured-motorist",
+        kind: "statute",
+        heading: "What happens when the driver who hit you has no coverage",
+        prose: [
+          "Florida does not require most drivers to carry bodily injury liability coverage. A driver can be entirely legal, entirely at fault, and carry nothing that pays for what they did to you. That is why uninsured and underinsured motorist coverage matters more here than the name suggests: for a large share of Florida collisions it is the only real source of recovery.",
+          "The statute requires the coverage to be offered with every policy that provides bodily injury liability coverage, and it is on the insured to reject it in writing. Whether you have it is a question about your own policy, and it is worth answering before you need it rather than after.",
+        ],
+        statute: {
+          citation: "F.S. 627.727(1)",
+          body: "(1) No motor vehicle liability insurance policy which provides bodily injury liability coverage shall be delivered or issued for delivery in this state with respect to any specifically insured or identified motor vehicle registered or principally garaged in this state unless uninsured motor vehicle coverage is provided therein or supplemental thereto for the protection of persons insured thereunder who are legally entitled to recover damages from owners or operators of uninsured motor vehicles because of bodily injury, sickness, or disease, including death, resulting therefrom. However, the coverage required under this section is not applicable when, or to the extent that, an insured named in the policy makes a written rejection of the coverage on behalf of all insureds under the policy. When a motor vehicle is leased for a period of 1 year or longer and the lessor of such vehicle, by the terms of the lease contract, provides liability coverage on the leased vehicle, the lessee of such vehicle shall have the sole privilege to reject uninsured motorist coverage or to select lower limits than the bodily injury liability limits, regardless of whether the lessor is qualified as a self-insurer pursuant to s. 324.171. Unless an insured, or lessee having the privilege of rejecting uninsured motorist coverage, requests such coverage or requests higher uninsured motorist limits in writing, the coverage or such higher uninsured motorist limits need not be provided in or supplemental to any other policy which renews, extends, changes, supersedes, or replaces an existing policy with the same bodily injury liability limits when an insured or lessee had rejected the coverage. When an insured or lessee has initially selected limits of uninsured motorist coverage lower than her or his bodily injury liability limits, higher limits of uninsured motorist coverage need not be provided in or supplemental to any other policy which renews, extends, changes, supersedes, or replaces an existing policy with the same bodily injury liability limits unless an insured requests higher uninsured motorist coverage in writing. The rejection or selection of lower limits shall be made on a form approved by the office. The form shall fully advise the applicant of the nature of the coverage and shall state that the coverage is equal to bodily injury liability limits unless lower limits are requested or the coverage is rejected. The heading of the form shall be in 12-point bold type and shall state: “You are electing not to purchase certain valuable coverage which protects you and your family or you are purchasing uninsured motorist limits less than your bodily injury liability limits when you sign this form. Please read carefully.” If this form is signed by a named insured, it will be conclusively presumed that there was an informed, knowing rejection of coverage or election of lower limits on behalf of all insureds. The insurer shall notify the named insured at least annually of her or his options as to the coverage required by this section. Such notice shall be part of, and attached to, the notice of premium, shall provide for a means to allow the insured to request such coverage, and shall be given in a manner approved by the office. Receipt of this notice does not constitute an affirmative waiver of the insured’s right to uninsured motorist coverage where the insured has not signed a selection or rejection form. The coverage described under this section shall be over and above, but shall not duplicate, the benefits available to an insured under any workers’ compensation law, personal injury protection benefits, disability benefits law, or similar law; under any automobile medical expense coverage; under any motor vehicle liability insurance coverage; or from the owner or operator of the uninsured motor vehicle or any other person or organization jointly or severally liable together with such owner or operator for the accident; and such coverage shall cover the difference, if any, between the sum of such benefits and the damages sustained, up to the maximum amount of such coverage provided under this section. The amount of coverage available under this section shall not be reduced by a setoff against any coverage, including liability insurance. Such coverage shall not inure directly or indirectly to the benefit of any workers’ compensation or disability benefits carrier or any person or organization qualifying as a self-insurer under any workers’ compensation or disability benefits law or similar law.",
+        },
+      },
+      {
+        id: "comparative-fault",
+        kind: "statute",
+        heading: "Being partly at fault, and the line at 50 percent",
+        prose: [
+          "Florida used to reduce a recovery by the claimant's share of fault and stop there. It changed in 2023. A party found to be more than half responsible for their own harm now recovers nothing at all, rather than a reduced amount, and the statute says so in one sentence.",
+          "Below that line the older arithmetic still applies: fault reduces what is recovered rather than barring it. The subsection also carves out medical negligence under chapter 766, which is a different kind of case with its own rules.",
+          "This is why an insurer's early theory about who did what is not an idle conversation. The difference between 49 percent and 51 percent is not a difference of two percentage points in a settlement; it is the difference between a reduced recovery and none.",
+        ],
+        statute: {
+          citation: "F.S. 768.81(6)",
+          body: "(6) GREATER PERCENTAGE OF FAULT.—In a negligence action to which this section applies, any party found to be greater than 50 percent at fault for his or her own harm may not recover any damages. This subsection does not apply to an action for damages for personal injury or wrongful death arising out of medical negligence pursuant to chapter 766.",
+        },
+      },
+      {
+        id: "how-long",
+        kind: "statute",
+        heading: "How long you have, and why the answer has two versions",
+        prose: [
+          "Florida shortened the limitations period for negligence from four years to two, and the change did not apply to everything at once. The act that made it says which claims it reaches, and it keys the answer to when the claim arose rather than to when someone files or asks.",
+          "The act became law on 24 March 2023. A negligence claim that arose after that date runs on the two-year period at Statute 95.11(5)(a). A claim that arose on or before it runs on the four-year period that the same act struck out.",
+          "There is a trap in the act's own structure worth knowing about, because it is the kind of thing that gets read wrong. A later section sets a general rule about causes of action filed after the effective date. The section quoted here expressly provides otherwise for the limitations amendment and keys it to accrual instead. Reading the general rule and applying it to the deadline gives the wrong answer for a claim that arose before March 2023 and was filed after it.",
+          "None of that tells you when your own clock started. Accrual can be contested, and this page cannot see your dates. If a deadline is anywhere near, that is a conversation to have with a lawyer this week rather than after you have read more pages.",
+        ],
+        statute: {
+          citation: "Chapter 2023-15, Laws of Florida, section 28",
+          body: "Section 28. The amendments made by this act to s. 95.11, Florida Statutes, apply to causes of action accruing after the effective date of this act.",
+        },
+      },
+      {
+        id: "not-covered",
+        kind: "prose",
+        heading: "What this page does not cover",
+        prose: [
+          "It does not tell you what a claim is worth. Florida law sets out categories of loss and how medical damages may be proven; none of that produces a number for a case nobody has read, and any page offering one is guessing in public.",
+          "It does not state the firm's fees. [NEEDS: the contingency fee terms, and whether a client is responsible for costs if the case does not recover] Fee advertising carries its own requirements and nothing goes here until the terms are confirmed in writing.",
+          "It does not cover wrongful death, which is a separate statute with its own list of who may recover, or claims against a government body, which run on their own notice requirements. Both are worth raising early if either might apply.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Do I have to be hurt badly for a claim to be worth bringing?",
+        source: "drafted",
+        answer: "No, and the question is really about which route applies rather than whether one does. Personal injury protection pays for medically necessary care regardless of fault, up to the statutory limit, and it applies to minor injuries as readily as serious ones. What changes with severity is whether a claim goes beyond that coverage against the driver who caused it. A lawyer can tell you which of those you are in; a web page cannot.",
+      },
+      {
+        question: "The insurance company already offered me money. Should I take it?",
+        source: "drafted",
+        answer: "That is a decision to make with advice, and the reason is timing rather than suspicion. An early offer is made before anyone knows what your treatment will cost, and accepting it usually closes the claim for good. If you are still treating, or do not yet know whether you are, you are being asked to price something nobody has measured yet.",
+      },
+      {
+        question: "What if I was partly at fault?",
+        source: "drafted",
+        answer: "It depends which side of 50 percent you are on. Under Statute 768.81(6), a party found to be greater than 50 percent at fault for their own harm may not recover any damages. Below that, fault reduces a recovery rather than barring it. Because that line is decisive rather than gradual, how fault gets characterised early in a claim matters more than people expect.",
+      },
+      {
+        question: "How long do I have to bring a claim in Florida?",
+        source: "drafted",
+        answer: "Two years for a negligence claim that arose after 24 March 2023, and four years for one that arose on or before that date. The 2023 act that shortened the period applies its change to causes of action accruing after its effective date, so the answer turns on when the claim arose rather than on when you ask. When your own clock started can itself be disputed, so treat a near deadline as urgent.",
+      },
+      {
+        question: "Does my own insurance go up if I make a PIP claim?",
+        source: "drafted",
+        answer: "This page does not have a sourced answer to that and will not guess at one. It is a question about your policy and your insurer's rating practices rather than about the statute, and it is worth asking your agent directly.",
+      },
+    ],
+    readerNeeds: {
+      next: "How long a claim takes is not on this page. It depends on treatment, on the insurer, and on whether suit is filed, and no honest range exists that would be true for a reader we have not met.",
+    },
+    published: true,
   },
   {
     slug: "types-of-car-accidents",

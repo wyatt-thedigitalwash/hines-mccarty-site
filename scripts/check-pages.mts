@@ -203,6 +203,40 @@ const CASE_RESULT =
 
 const EM_DASH = /—/;
 
+/**
+ * Em dashes that belong to the SOURCE rather than to a writer.
+ *
+ * Florida punctuates a catchline with an em dash: "(6) GREATER PERCENTAGE OF
+ * FAULT.—In a negligence action...". A verbatim quotation of that text carries
+ * the dash, and the no-em-dash rule is a house style rule about copy this
+ * project writes. Firing it on quoted law asks the writer to choose which rule
+ * to break, C12's verbatim requirement or this one, which is the exact
+ * reasoning DECISIONS.md D36 records for the bare-word rules and the same
+ * false positive check-pages already carries for "parking enforcement
+ * specialist".
+ *
+ * THE EXEMPTION IS PROVED, NOT GRANTED. A string is exempt only when it appears
+ * as a recorded line in PAGE-SOURCES.md, so it is exempt because it demonstrably
+ * came from a source, not because it looks like it did. An authored sentence
+ * with an em dash still fails, and so does a paraphrase of a statute.
+ */
+const RECORDED_LINES: Set<string> = (() => {
+  const out = new Set<string>();
+  try {
+    const ps = readFileSync("docs/research/PAGE-SOURCES.md", "utf8");
+    for (const line of ps.split("\n")) {
+      if (line.startsWith("> ")) out.add(line.slice(2).trim().replace(/\s+/g, " "));
+    }
+  } catch {
+    // A missing record file is check:provenance's problem to report, not this
+    // rule's. It simply exempts nothing.
+  }
+  return out;
+})();
+
+const isRecordedVerbatim = (s: string) =>
+  RECORDED_LINES.has(s.replace(/\s+/g, " ").trim());
+
 type Hit = { rule: string; text: string };
 
 function bannedHits(strings: string[]): Hit[] {
@@ -218,7 +252,12 @@ function bannedHits(strings: string[]): Hit[] {
       // `re` is a RegExp for most rules and an object with the same exec
       // shape for superiority, which needs two conditions rather than one.
       const m = re.exec(s);
-      if (m) hits.push({ rule, text: `${m[0]}  ...  "${s.slice(0, 110)}"` });
+      if (!m) continue;
+      // The only exempted rule. Superiority, outcome claims, promissory
+      // language and case results are forbidden in quoted text too, because a
+      // statute does not contain them and a "quotation" that does is not one.
+      if (rule === "em-dash" && isRecordedVerbatim(s)) continue;
+      hits.push({ rule, text: `${m[0]}  ...  "${s.slice(0, 110)}"` });
     }
   }
   return hits;
@@ -405,6 +444,10 @@ console.log("Page-gate self-tests");
     "We guarantee your charges will be dropped.",
     "We have won a not guilty verdict for clients in this position.",
     "This sentence carries an em dash — like that.",
+    // PLANTED: a paraphrase of a statute, with an em dash, that is NOT a
+    // recorded line. The exemption must not reach it, or it stops being an
+    // exemption and becomes an off switch.
+    "The statute says — in its own words — that the offense is a felony.",
   ];
   const hits = bannedHits(planted);
   const rules = new Set(hits.map((h) => h.rule));

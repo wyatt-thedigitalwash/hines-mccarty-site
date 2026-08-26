@@ -38,9 +38,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
     title: page.metaTitle ?? `${page.title} | Hines & McCarty`,
     description: page.metaDescription ?? page.description,
     path: injuryHref(page),
-    // Unwritten pages stay out of the index. A page of scaffolding costs
-    // E-E-A-T rather than building it.
-    noindex: !page.published || !page.sections?.length,
+    /*
+      THREE CONDITIONS, AND THE THIRD IS THE ONE THAT MATTERS HERE. Unwritten
+      pages stay out of the index because scaffolding costs E-E-A-T rather than
+      building it. Unreviewed pages stay out too, and that is stricter than the
+      guides, deliberately: an injury page carries limitations periods and
+      coverage deadlines, and a reader who acts on a wrong one loses a claim
+      that cannot be reopened. `owner` is set when an attorney has read the page
+      against its sources, so indexing waits for that signature.
+    */
+    noindex: !page.published || !page.sections?.length || !page.owner,
   });
 }
 
