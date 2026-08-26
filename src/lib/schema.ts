@@ -12,6 +12,7 @@ import {
   siloByKey,
   siteUrl,
 } from "./site";
+import { resolveStatuteRefs } from "./statute-links.ts";
 
 /** Stable @id for the firm entity, referenced by every attorney's worksFor. */
 export const organizationId = `${siteUrl}/#organization`;
@@ -108,17 +109,51 @@ export const chargeJsonLd = (charge: ChargePage) => {
   const url = `${siteUrl}${chargeHref(charge)}`;
   const silo = siloByKey(charge.silo);
 
+  /*
+    THE SOURCES THIS PAGE QUOTES, as structured citations.
+
+    Every statutory span on a charge page is verbatim from a recorded table
+    that carries the URL it was fetched from, and none of that was legible to
+    a machine: the quotations rendered as prose and the schema named no
+    sources. `citation` is the property for exactly this, and it is the
+    difference between a page that asserts law and a page that shows where its
+    law came from.
+
+    DERIVED, NEVER LISTED BY HAND. It reads the page's own rendered spans, so a
+    section added or removed changes the list without anyone remembering to.
+    Entries appear only for statutes this project actually recorded; a cited
+    authority nobody fetched contributes nothing rather than a guessed URL.
+  */
+  const quoted = [
+    ...(charge.statute ? [charge.statute.citation] : []),
+    ...(charge.sections ?? []).flatMap((s) => (s.statute ? [s.statute.citation] : [])),
+  ];
+  const seen = new Set<string>();
+  const citations = quoted
+    .flatMap((c) => resolveStatuteRefs(c))
+    .filter((r) => (seen.has(r.url) ? false : (seen.add(r.url), true)))
+    .map((r) => ({
+      "@type": "Legislation" as const,
+      name: r.cite,
+      url: r.url,
+    }));
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
     "@id": `${url}#article`,
     headline: charge.title ?? charge.label,
     url,
+    // The canonical page this Article is the primary content of. Without it a
+    // consumer has to infer the relationship from the URL alone.
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    inLanguage: "en-US",
     ...(charge.metaDescription ? { description: charge.metaDescription } : {}),
     ...(charge.owner
       ? { author: { "@type": "Person", name: charge.owner } }
       : {}),
     ...(charge.lastReviewed ? { dateModified: charge.lastReviewed } : {}),
+    ...(citations.length ? { citation: citations } : {}),
     publisher: organizationJsonLd(),
     ...(silo ? { about: silo.label } : {}),
   };

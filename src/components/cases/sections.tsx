@@ -1,5 +1,6 @@
 import type { ChargeSection, PenaltyRow } from "@/lib/site";
 import Needs from "@/components/Needs";
+import { singleSourceUrl } from "@/lib/statute-links";
 
 /**
  * The section primitives, shared by ChargeTemplate and GuideTemplate.
@@ -48,13 +49,31 @@ export function SectionBody({ section }: { section: ChargeSection }) {
 export function SectionPrimary({ section }: { section: ChargeSection }) {
   switch (section.kind) {
     case "statute":
+      /*
+        A QUOTATION, MARKED UP AS ONE. This span is verbatim statutory text and
+        used to render as two ordinary paragraphs, which made the site's most
+        citable asset indistinguishable from prose to anything reading the page.
+        <blockquote> plus <cite> says what it is, and `cite=` points at the URL
+        the text was actually fetched from.
+
+        The cite attribute is emitted ONLY where the citation names exactly one
+        section and this project recorded it. Where a span quotes several
+        sections at once, and twelve of them do, there is no single correct
+        source URL and the attribute is omitted rather than pointed at one of
+        them. See src/lib/statute-links.ts.
+      */
       return section.statute ? (
-        <>
-          <p className="font-heading text-sm uppercase tracking-wide text-navy/50">
-            {section.statute.citation}
-          </p>
-          <p className="mt-3">{section.statute.body}</p>
-        </>
+        <figure className="m-0">
+          <figcaption className="font-heading text-sm uppercase tracking-wide text-navy/50">
+            <cite className="not-italic">{section.statute.citation}</cite>
+          </figcaption>
+          <blockquote
+            className="m-0 mt-3"
+            cite={singleSourceUrl(section.statute.citation)}
+          >
+            {section.statute.body}
+          </blockquote>
+        </figure>
       ) : (
         <Needs>statute citation and what it says</Needs>
       );
