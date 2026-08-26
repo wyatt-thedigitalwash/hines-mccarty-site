@@ -2328,6 +2328,29 @@ Fetched 2026-08-20; page carries "Text contains those laws in effect on August 1
 > (2) in any other circumstance, release or detain the person under section 3142.
 
 **Fed. R. Crim. P. 5, whole rule, (a) through (g)**  
+PARTIAL: Chapter 2023-15, Laws of Florida (HB 837)
+https://laws.flrules.org/2023/15
+
+Recorded for ONE question and marked partial because that is what it is: sections 27 through 31 and the enactment lines are recorded verbatim below, and the other twenty-six sections of a thirty-nine page act were not read. Under D26 this record supports no claim about anything else in the act.
+
+WHY. The F.S. 95.11 record carried a blocking caution: the two-year negligence limitations period arrived with this act, the section itself is silent on which claims it reaches, and a page stating "two years" flatly would be wrong for older claims. Section 28 answers it directly.
+
+WHAT IT ANSWERS. The two-year period applies to causes of action ACCRUING after the act's effective date. The act took effect on becoming law, and it was approved by the Governor and filed with the Secretary of State on 24 March 2023. A negligence cause of action accruing on or before that date is governed by the prior four-year period, which the act struck from 95.11(3)(a).
+
+THE DISTINCTION BETWEEN SECTIONS 28 AND 30 IS THE TRAP, and it is why this record exists rather than a note. Section 30 sets a general rule of causes of action FILED after the effective date. Section 28 expressly provides otherwise for 95.11 and keys it to ACCRUAL. Reading the general rule and applying it to the limitations amendment gives the wrong answer for any claim that accrued before March 2023 and was filed after it, which is a large population and precisely the one a limitations question is asked about.
+
+STILL NOT A SUBSTITUTE FOR A LAWYER READING THE FILE. Accrual dates are contested, discovery rules exist, tolling exists, and none of that is in these five sections. What this record settles is which version of the statute governs, not when any particular clock started.
+
+Fetched 2026-08-26 with curl from laws.flrules.org, the Secretary of State's session law publication, as a PDF and read as a rendered document. The enrolled bill at flsenate.gov was fetched alongside it and carries the same sections.
+
+> Section 27. The Division of Law Revision is directed to replace the phrase "the effective date of this act" wherever it occurs in this act with the date this act becomes a law.
+> Section 28. The amendments made by this act to s. 95.11, Florida Statutes, apply to causes of action accruing after the effective date of this act.
+> Section 29. This act shall not be construed to impair any right under an insurance contract in effect on or before the effective date of this act. To the extent that this act affects a right under an insurance contract, this act applies to an insurance contract issued or renewed after the effective date of this act.
+> Section 30. Except as otherwise expressly provided in this act, this act shall apply to causes of action filed after the effective date of this act.
+> Section 31. This act shall take effect upon becoming a law.
+> Approved by the Governor March 24, 2023.
+> Filed in Office Secretary of State March 24, 2023.
+
 READ-WHOLE: F.S. 95.11
 https://www.flsenate.gov/Laws/Statutes/2025/95.11
 
@@ -2335,7 +2358,7 @@ Limitations other than for the recovery of real property. Recorded whole from th
 
 WHY. The limitations period, and the single most consequential fact on any personal injury page: get it wrong and a reader misses a deadline that cannot be reopened. Subsection (5)(a) reads WITHIN TWO YEARS, an action founded on negligence, and the History note carries ss. of ch. 2023-15.
 
-APPLICABILITY IS NOT IN THIS TEXT AND MUST NOT BE INFERRED FROM IT. The two-year period arrived with ch. 2023-15. Whether it reaches a cause of action that accrued before that act took effect is governed by the session law rather than by the section, and the section is silent on it. A page that states two years flatly is wrong for older claims, and older claims are exactly the ones where a deadline is about to matter. [NEEDS: ch. 2023-15 fetched and recorded for its effective date and applicability clause before any page states a limitations period.]
+APPLICABILITY IS NOT IN THIS TEXT, AND IS ANSWERED ABOVE. The two-year period arrived with ch. 2023-15 and this section is silent on which claims it reaches. Section 28 of that act, recorded immediately above this record, applies the 95.11 amendments to causes of action ACCRUING after the act's effective date, which was 24 March 2023. A claim accruing on or before that date keeps the prior four-year period. The caution that stood here is answered; what remains true is that no page may state a limitations period without saying which side of that date the claim falls on.
 
 Fetched 2026-08-26 with curl from the Florida Senate's 2025 statutes, for the personal injury practice area. Method: the page's SectionBody div was cut at the History div and emitted programmatically rather than retyped. NOT independently re-verified against a second publisher: the Florida Senate is the publisher this project uses for the Florida Statutes, and no second path was run for this batch, which is stated rather than implied.
 
