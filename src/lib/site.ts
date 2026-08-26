@@ -811,9 +811,105 @@ export const injuryPages: InjuryPage[] = [
     parent: "car-accidents",
     label: "Types of Car Accidents",
     title: "Types of Car Accident Claims",
-    description:
-      "Rear end, hit and run, rideshare, and crashes involving an impaired driver.",
-    published: false,
+    description: "Rear end, hit and run, rideshare, and crashes involving an impaired driver.",
+    metaTitle: "Types of Florida Car Accident Claims: Rear End, Hit and Run, Rideshare",
+    metaDescription: "How the type of crash changes the claim: what a rear-end collision does and does not settle, where coverage comes from in a hit and run, and the two rideshare insurance tiers.",
+    lead: "The kind of crash matters less for what it says about fault than for where the money to pay a claim comes from. Four common types, and what changes about the claim in each.",
+    sections: [
+      {
+        id: "rear-end",
+        kind: "prose",
+        heading: "Rear-end collisions",
+        prose: [
+          "A rear-end collision is the one people assume is settled on arrival, and it is usually the easiest on liability. That is a presumption in practice rather than a statute, and Florida's comparative fault rules still apply: a following driver's share can be reduced by a lead driver's own conduct, and above fifty percent a claimant recovers nothing.",
+          "What a rear-end case turns on more often is injury rather than fault. Low property damage is used to argue low injury, which is an argument about appearances rather than about medicine, and it is why treatment records and the fourteen-day personal injury protection deadline matter as much here as anywhere.",
+        ],
+      },
+      {
+        id: "hit-and-run",
+        kind: "statute",
+        heading: "Hit and run",
+        prose: [
+          "Leaving the scene is a criminal offense with its own statute, and the driver's obligation to stop does not depend on who caused the crash.",
+          "For the injured person the civil question is different and more immediate: if the driver is never identified, there is no liability policy to claim against. Uninsured motorist coverage on your own policy is usually what remains, which makes the answer to whether you carry it the most important fact about a hit and run.",
+        ],
+        statute: {
+          citation: "F.S. 316.027(2)(a)",
+          body: "(2)(a) The driver of a vehicle involved in a crash occurring on public or private property which results in injury to a person other than serious bodily injury shall immediately stop the vehicle at the scene of the crash, or as close thereto as possible, and shall remain at the scene of the crash until he or she has fulfilled the requirements of s. 316.062. A person who willfully violates this paragraph commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084.",
+        },
+      },
+      {
+        id: "rideshare-off",
+        kind: "statute",
+        heading: "Rideshare, and why the app's state decides the coverage",
+        prose: [
+          "A crash involving an Uber or Lyft driver has no single answer on coverage. Florida sets two tiers and the applicable one depends on what the driver was doing at the moment of impact.",
+          "While the driver is logged on to the network but not engaged in a prearranged ride, the required primary liability coverage is at least fifty thousand dollars per person for death and bodily injury, one hundred thousand per incident, and twenty-five thousand for property damage.",
+        ],
+        statute: {
+          citation: "F.S. 627.748(7)",
+          body: "a. A primary automobile liability coverage of at least $50,000 for death and bodily injury per person, $100,000 for death and bodily injury per incident, and $25,000 for property damage;",
+        },
+      },
+      {
+        id: "rideshare-on",
+        kind: "statute",
+        heading: "The other tier, and the state neither tier covers",
+        prose: [
+          "While the driver is engaged in a prearranged ride, the required primary liability coverage is at least one million dollars for death, bodily injury, and property damage. The requirement may be met by the driver's policy, the company's, or a combination of both.",
+          "Neither tier reaches a driver who was logged off. That person is a driver in their own car on their own policy, and whether the app was on is a question of the company's records rather than of anyone's memory. It is worth establishing early, because it decides which of three very different situations a claim is in.",
+        ],
+        statute: {
+          citation: "F.S. 627.748(7)",
+          body: "a. A primary automobile liability coverage of at least $1 million for death, bodily injury, and property damage;",
+        },
+      },
+      {
+        id: "impaired",
+        kind: "prose",
+        heading: "Crashes involving an impaired driver",
+        prose: [
+          "A criminal prosecution and a civil claim run alongside each other and neither decides the other. A conviction is useful evidence and an acquittal does not end a claim, because the two proceedings ask different questions to different standards.",
+          "The criminal side of this firm covers what a Florida DUI charge involves, including the 2025 change making a first refusal its own criminal offense. On the civil side the practical points are that the criminal case generates records worth having, and that impairment does not by itself resolve fault, causation or damages.",
+        ],
+      },
+      {
+        id: "not-covered",
+        kind: "prose",
+        heading: "What this page does not cover",
+        prose: [
+          "It does not cover motorcycle, bicycle, pedestrian or commercial vehicle crashes. Commercial vehicles are the truck accidents section; the others are not written here and this page does not speak for them.",
+          "It does not describe the rideshare rules beyond the insurance requirement in subsection (7). Permitting, background checks and the rest of Statute 627.748 are not recorded in this project.",
+          "It does not state the firm's fees. [NEEDS: the contingency fee terms, and whether a client is responsible for costs if the case does not recover]",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Is the rear driver always at fault in a rear-end collision?",
+        source: "drafted",
+        answer: "Usually treated as the starting point, but not automatically. Florida applies comparative fault, so a following driver's share can be reduced by the lead driver's own conduct, and a claimant more than fifty percent at fault recovers nothing. In practice rear-end cases are contested on injury more often than on fault.",
+      },
+      {
+        question: "What happens if the driver who hit me drove off?",
+        source: "drafted",
+        answer: "Leaving the scene is a criminal offense and the driver's duty to stop does not depend on fault. Civilly, if the driver is never identified there is no liability policy to claim against, so uninsured motorist coverage on your own policy is usually what remains. Whether you carry it becomes the most important fact in the case.",
+      },
+      {
+        question: "Who pays if an Uber or Lyft driver hits me?",
+        source: "drafted",
+        answer: "It depends on what the app was doing. Logged on but not on a ride, required primary liability coverage is at least $50,000 per person, $100,000 per incident and $25,000 property damage. Engaged in a prearranged ride, at least $1 million for death, bodily injury and property damage. Logged off entirely, neither tier applies and it is an ordinary claim against that driver's own policy.",
+      },
+      {
+        question: "Does a DUI conviction mean I automatically win my claim?",
+        source: "drafted",
+        answer: "No. The criminal case and the civil claim ask different questions to different standards, and neither decides the other. A conviction is useful evidence; an acquittal does not end a claim. Fault, causation and damages remain to be established either way.",
+      },
+    ],
+    readerNeeds: {
+      next: "How long a claim takes is not on this page. It depends on treatment, on the coverage available, and on whether suit is filed.",
+    },
+    published: true,
   },
   {
     slug: "compensation",

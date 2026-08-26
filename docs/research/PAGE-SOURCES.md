@@ -2328,6 +2328,48 @@ Fetched 2026-08-20; page carries "Text contains those laws in effect on August 1
 > (2) in any other circumstance, release or detain the person under section 3142.
 
 **Fed. R. Crim. P. 5, whole rule, (a) through (g)**  
+PARTIAL: F.S. 627.748(7) (transportation network company insurance requirements)
+https://www.flsenate.gov/Laws/Statutes/2025/627.748
+
+Subsection (7) only, 28 passages. MARKED PARTIAL: the section runs to a dozen subsections covering permitting, driver background checks, zero-tolerance policies and local preemption, none of which were read. Under D26 this record supports no claim about them.
+
+WHY. A rideshare crash is not a coverage question with one answer. What is available turns on what the app was doing at the moment of impact, and this subsection is where that is set out.
+
+WHAT IT SETTLES. While a driver is logged on to the network but NOT engaged in a prearranged ride: primary liability of at least $50,000 per person for death and bodily injury, $100,000 per incident, and $25,000 for property damage, plus personal injury protection and uninsured motorist coverage. While a driver IS engaged in a prearranged ride: primary liability of at least $1 million for death, bodily injury, and property damage. The requirement may be satisfied by the driver's policy, the company's, or a combination.
+
+THE STATE THIS DOES NOT ADDRESS is the driver who is logged off entirely, who is a driver in their own car on their own policy. Any page using these figures states which state produced which number, because quoting the million-dollar tier without its condition would be the most misleading true sentence available on the subject.
+
+Fetched 2026-08-26 with curl from the Florida Senate's 2025 statutes. NOT independently re-verified against a second publisher.
+
+> (7) TRANSPORTATION NETWORK COMPANY AND TNC DRIVER INSURANCE REQUIREMENTS.—
+> (a) Beginning July 1, 2017, a TNC driver or a TNC on behalf of the TNC driver shall maintain primary automobile insurance that:
+> 1. Recognizes that the TNC driver is a TNC driver or otherwise uses a vehicle to transport riders for compensation; and
+> 2. Covers the TNC driver while the TNC driver is logged on to the digital network of the TNC or while the TNC driver is engaged in a prearranged ride.
+> (b) The following automobile insurance requirements apply while a participating TNC driver is logged on to the digital network but is not engaged in a prearranged ride:
+> 1. Automobile insurance that provides:
+> a. A primary automobile liability coverage of at least $50,000 for death and bodily injury per person, $100,000 for death and bodily injury per incident, and $25,000 for property damage;
+> b. Personal injury protection benefits that meet the minimum coverage amounts required under ss. 627.730-627.7405; and
+> c. Uninsured and underinsured vehicle coverage as required by s. 627.727.
+> 2. The coverage requirements of this paragraph may be satisfied by any of the following:
+> a. Automobile insurance maintained by the TNC driver or the TNC vehicle owner;
+> b. Automobile insurance maintained by the TNC; or
+> c. A combination of sub-subparagraphs a. and b.
+> (c) The following automobile insurance requirements apply while a TNC driver is engaged in a prearranged ride:
+> 1. Automobile insurance that provides:
+> a. A primary automobile liability coverage of at least $1 million for death, bodily injury, and property damage;
+> b. Personal injury protection benefits that meet the minimum coverage amounts required of a limousine under ss. 627.730-627.7405; and
+> c. Uninsured and underinsured vehicle coverage as required by s. 627.727.
+> 2. The coverage requirements of this paragraph may be satisfied by any of the following:
+> a. Automobile insurance maintained by the TNC driver or the TNC vehicle owner;
+> b. Automobile insurance maintained by the TNC; or
+> c. A combination of sub-subparagraphs a. and b.
+> (d) If the TNC driver’s insurance under paragraph (b) or paragraph (c) has lapsed or does not provide the required coverage, the insurance maintained by the TNC must provide the coverage required under this subsection, beginning with the first dollar of a claim, and have the duty to defend such claim.
+> (e) Coverage under an automobile insurance policy maintained by the TNC must not be dependent on a personal automobile insurer first denying a claim, and a personal automobile insurance policy is not required to first deny a claim.
+> (f) Insurance required under this subsection must be provided by an insurer authorized to do business in this state which is a member of the Florida Insurance Guaranty Association or an eligible surplus lines insurer that has a superior, excellent, exceptional, or equivalent financial strength rating by a rating agency acceptable to the Office of Insurance Regulation of the Financial Services Commission.
+> (g) Insurance satisfying the requirements under this subsection is deemed to satisfy the financial responsibility requirement for a motor vehicle under chapter 324 and the security required under s. 627.733 for any period when the TNC driver is logged onto the digital network or engaged in a prearranged ride.
+> (h) A TNC driver shall carry proof of coverage satisfying paragraphs (b) and (c) with him or her at all times during his or her use of a TNC vehicle in connection with a digital network. In the event of an accident, a TNC driver shall provide this insurance coverage information to any party directly involved in the accident or the party’s designated representative, automobile insurers, and investigating police officers. Proof of financial responsibility may be presented through an electronic device, such as a digital phone application, under s. 316.646. Upon request, a TNC driver shall also disclose to any party directly involved in the accident or the party’s designated representative, automobile insurers, and investigating police officers whether he or she was logged on to a digital network or was engaged in a prearranged ride at the time of the accident.
+> (i) If a TNC’s insurer makes a payment for a claim covered under comprehensive coverage or collision coverage, the TNC shall cause its insurer to issue the payment directly to the business repairing the vehicle or jointly to the owner of the vehicle and the primary lienholder on the covered vehicle.
+
 PARTIAL: 49 CFR Parts 395, 396 and 391 (Federal Motor Carrier Safety Regulations)
 https://www.ecfr.gov/current/title-49/subtitle-B/chapter-III/subchapter-B
 
