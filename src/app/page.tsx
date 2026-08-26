@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { organizationJsonLd } from "@/lib/schema";
 import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
-import Capabilities from "@/components/home/Capabilities";
+import Practices from "@/components/home/Practices";
 import PracticeAreas from "@/components/home/PracticeAreas";
 import Tools from "@/components/home/Tools";
 import CoreValues from "@/components/home/CoreValues";
@@ -44,7 +44,7 @@ export default function Home() {
       />
       <Hero />
       <About />
-      <Capabilities />
+      <Practices />
       <PracticeAreas />
       <Tools />
       <CoreValues />
