@@ -27,6 +27,10 @@ import { readFileSync, existsSync, readdirSync } from "node:fs";
 import { guides } from "../src/lib/site.ts";
 import { measuredPages } from "../src/lib/measured.ts";
 
+/** Build output directory. Verification builds use NEXT_DIST_DIR so a running
+ * `next dev` keeps .next to itself. */
+const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
+
 let failed = false;
 const fail = (m: string) => { console.error(`  FAIL  ${m}`); failed = true; };
 
@@ -42,9 +46,9 @@ const strip = (html: string) =>
 const norm = (s: string) => s.replace(/[‘’]/g, "'").replace(/[“”]/g, '"').replace(/\s+/g, " ").trim();
 
 console.log("Rendered-output check (D24)");
-if (!existsSync(".next/server/app")) {
+if (!existsSync(`${DIST_DIR}/server/app`)) {
   fail(
-    ".next/server/app not found. This gate reads built HTML, and a missing " +
+    `${DIST_DIR}/server/app not found. This gate reads built HTML, and a missing ` +
       "artifact FAILS rather than skips (D30): 'the site is not built' and " +
       "'the site contains none of its content' must never produce the same " +
       "green run. Run `npm run build` first.",
@@ -60,7 +64,7 @@ if (!existsSync(".next/server/app")) {
 // are covered per-page below.
 console.log("\nG1: guide routes match the registry, one to one");
 {
-  const dir = ".next/server/app/resources/guides";
+  const dir = `${DIST_DIR}/server/app/resources/guides`;
   const onDisk = existsSync(dir)
     ? readdirSync(dir).filter((f) => f.endsWith(".html")).map((f) => f.replace(/\.html$/, ""))
     : [];
@@ -86,7 +90,7 @@ const writtenGuides = measuredPages.filter((m) => m.kind === "guide" && m.writte
 for (const m of writtenCharges) {
   if (m.kind !== "charge") continue;
   const c = m.charge;
-  const path = `.next/server/app${m.href}.html`;
+  const path = `${DIST_DIR}/server/app${m.href}.html`;
   if (!existsSync(path)) { fail(`${m.href} has no built HTML at ${path}`); continue; }
   const text = norm(strip(readFileSync(path, "utf8")));
   // One sample from every payload channel the page uses, so a whole channel
@@ -118,7 +122,7 @@ for (const m of writtenCharges) {
 for (const m of writtenGuides) {
   if (m.kind !== "guide") continue;
   const g = m.guide;
-  const path = `.next/server/app${m.href}.html`;
+  const path = `${DIST_DIR}/server/app${m.href}.html`;
   if (!existsSync(path)) { fail(`${m.href} has no built HTML at ${path}`); continue; }
   const text = norm(strip(readFileSync(path, "utf8")));
   for (const s of g.sections ?? []) {

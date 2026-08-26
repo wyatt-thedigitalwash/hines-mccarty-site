@@ -28,8 +28,12 @@ import {
   OFFENSE_LEVEL_PAGE_COPY,
 } from "../src/lib/tools/offense-level.ts";
 
+/** Build output directory. Verification builds use NEXT_DIST_DIR so a running
+ * `next dev` keeps .next to itself. */
+const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
+
 const ROUTE = "/resources/tools/offense-level-comparison";
-const PAGE = `.next/server/app${ROUTE}.html`;
+const PAGE = `${DIST_DIR}/server/app${ROUTE}.html`;
 
 let failed = false;
 const fail = (m: string) => { console.error(`  FAIL  ${m}`); failed = true; };

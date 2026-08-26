@@ -53,8 +53,12 @@ import {
   VERSION,
 } from "../src/lib/tools/charge-lookup/copy.ts";
 
+/** Build output directory. Verification builds use NEXT_DIST_DIR so a running
+ * `next dev` keeps .next to itself. */
+const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
+
 const ROUTE = "/resources/tools/charge-lookup";
-const PAGE = `.next/server/app${ROUTE}.html`;
+const PAGE = `${DIST_DIR}/server/app${ROUTE}.html`;
 const ISLAND = "src/components/tools/ChargeLookup.tsx";
 const RENDERED = process.argv.includes("--rendered");
 

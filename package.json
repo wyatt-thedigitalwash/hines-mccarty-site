@@ -26,7 +26,8 @@
     "check:worksheet:rendered": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-worksheet.mts --rendered",
     "check:dormant": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-dormant.mts",
     "check:seal-expunge": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-seal-expunge.mts",
-    "check:quotes": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-quotes.mts"
+    "check:quotes": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-quotes.mts",
+    "verify": "NEXT_DIST_DIR=.next-verify npm run build"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",

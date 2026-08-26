@@ -36,6 +36,10 @@ import {
   type LevelKey,
 } from "../src/lib/tools/scoresheet-form.ts";
 
+/** Build output directory. Verification builds use NEXT_DIST_DIR so a running
+ * `next dev` keeps .next to itself. */
+const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
+
 let failed = false;
 const fail = (m: string) => {
   console.error(`  FAIL  ${m}`);
@@ -719,7 +723,7 @@ console.log("\nSection 11 assertions");
 
   // ---- T9 and the rendered-HTML assertions, only with --rendered.
   const RENDERED = process.argv.includes("--rendered");
-  const PAGE = ".next/server/app/resources/tools/sentencing-worksheet.html";
+  const PAGE = `${DIST_DIR}/server/app/resources/tools/sentencing-worksheet.html`;
   if (!RENDERED) {
     console.log(
       "  ..    T9 and the rendered T3/T5 SKIPPED: run `npm run check:worksheet:rendered` " +

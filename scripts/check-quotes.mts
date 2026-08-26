@@ -25,6 +25,10 @@ import { charges, guides, injuryPages } from "../src/lib/site.ts";
 import { isRecordedVerbatim } from "../src/lib/statute-links.ts";
 import { RECORDED_SOURCES } from "../src/lib/generated/source-index.ts";
 
+/** Build output directory. Verification builds use NEXT_DIST_DIR so a running
+ * `next dev` keeps .next to itself. */
+const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
+
 let failed = false;
 const fail = (m: string) => { console.error(`  FAIL  ${m}`); failed = true; };
 const ok = (m: string) => console.log(`  ok    ${m}`);
@@ -96,7 +100,7 @@ console.log("\nQ3: multi-source spans carry no cite, single-source ones do");
 
 // ---------------------------------------------------------------- Q2 and Q4
 console.log("\nQ2 and Q4: the built pages");
-const ROOT = ".next/server/app";
+const ROOT = `${DIST_DIR}/server/app`;
 if (!existsSync(ROOT)) {
   fail(`${ROOT} not found. A missing artifact FAILS rather than skips (D30). Run \`npm run build\`.`);
 } else {

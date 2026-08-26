@@ -42,6 +42,10 @@ import {
   tools,
 } from "../src/lib/site.ts";
 
+/** Build output directory. Verification builds use NEXT_DIST_DIR so a running
+ * `next dev` keeps .next to itself. */
+const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
+
 let failed = false;
 const fail = (m: string) => { console.error(`  FAIL  ${m}`); failed = true; };
 
@@ -349,9 +353,9 @@ if (!RENDERED) {
       "would report on the PREVIOUS build's HTML, which is worse than not " +
       "running: a stale pass reads as a current one.",
   );
-} else if (!existsSync(".next/server/app")) {
+} else if (!existsSync(`${DIST_DIR}/server/app`)) {
   fail(
-    ".next/server/app not found and --rendered was requested. A missing artifact " +
+    `${DIST_DIR}/server/app not found and --rendered was requested. A missing artifact ` +
       "FAILS rather than skips (D30): 'the site is not built' and 'the site has no " +
       "dead links' must never produce the same green run.",
   );
@@ -363,13 +367,13 @@ if (!RENDERED) {
       if (statSync(full).isDirectory()) walk(full);
       else if (e.endsWith(".html")) files.push(full);
     }
-  })(".next/server/app");
+  })(`${DIST_DIR}/server/app`);
 
   const dead = new Map<string, Set<string>>();
   let checked = 0;
   for (const f of files) {
     const html = readFileSync(f, "utf8");
-    const page = f.replace(".next/server/app", "").replace(/\.html$/, "") || "/";
+    const page = f.replace(`${DIST_DIR}/server/app`, "").replace(/\.html$/, "") || "/";
     for (const m of html.matchAll(/href="([^"]+)"/g)) {
       const href = m[1];
       // Internal page links only. Next's own assets, absolute URLs, and the

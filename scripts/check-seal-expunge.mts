@@ -31,6 +31,10 @@ import {
 } from "../src/lib/tools/seal-expunge/engine.ts";
 import { INTERACTION_ONLY, SEAL_EXPUNGE_PAGE_COPY } from "../src/lib/tools/seal-expunge/copy.ts";
 
+/** Build output directory. Verification builds use NEXT_DIST_DIR so a running
+ * `next dev` keeps .next to itself. */
+const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
+
 let failed = false;
 const fail = (m: string) => { console.error(`  FAIL  ${m}`); failed = true; };
 const ok = (m: string) => console.log(`  ok    ${m}`);
@@ -203,7 +207,7 @@ console.log("\nS6: the copy's question count matches the engine");
 
 // ---------------------------------------------------------------- S5
 console.log("\nS5: the rendered page");
-const PAGE = ".next/server/app/resources/tools/seal-expunge-eligibility.html";
+const PAGE = `${DIST_DIR}/server/app/resources/tools/seal-expunge-eligibility.html`;
 if (!existsSync(PAGE)) {
   fail(`${PAGE} not found. A missing artifact FAILS rather than skips (D30). Run \`npm run build\`.`);
 } else {
