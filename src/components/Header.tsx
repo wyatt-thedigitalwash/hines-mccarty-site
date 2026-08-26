@@ -44,7 +44,22 @@ export default function Header() {
           : "bg-transparent"
       }`}
     >
-      <div className="mx-auto flex max-w-[1400px] items-center justify-between px-6 py-5 lg:px-10">
+      {/*
+        FULL BLEED, unlike the page content below it.
+
+        This bar carried `mx-auto max-w-[1400px]`, the same wrapper every
+        section uses, which is right for reading measure and wrong for a
+        navigation bar: on a 2000px display it left roughly 300px of empty navy
+        outside the logo and outside the last nav item, so the header floated in
+        the middle of its own background while the background ran edge to edge.
+        A bar that spans the viewport should place its controls at the viewport
+        edges.
+
+        The gutter still matches the site's, px-6 and lg:px-10, so the logo
+        lines up with nothing in particular by design: it is anchored to the
+        window rather than to the content column.
+      */}
+      <div className="flex w-full items-center justify-between px-6 py-5 lg:px-10">
         <Link
           href="/"
           className="font-display text-2xl font-extrabold tracking-tight text-linen lg:text-[1.75rem]"
