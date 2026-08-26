@@ -38,27 +38,42 @@ export default function CredentialStrip() {
           would push the fourth item onto the next line. From lg the items go
           back to sizing to their own content, so a wide wordmark is never
           squeezed into a fixed column. */}
-      <ul className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-0 gap-y-8 px-6 lg:gap-x-20 lg:px-10">
+      <ul className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-0 gap-y-8 px-6 lg:gap-x-14 lg:px-10">
         {credentialMarks.map((item, index) => (
           /* Keyed by index, NOT by label. React keys are serialised into the
              RSC flight payload embedded in the HTML, so a label key would put
              every unconfirmed organisation's name into the page even though
              nothing renders it. The list is static and never reorders. */
           <li key={index} className="flex basis-1/4 justify-center lg:basis-auto">
-            {/* Marks sit at one height so they match optically regardless of
-                aspect ratio, and at full opacity: on white they are not
-                competing with a dark field, and this row is the one element
-                whose whole job is to be recognised. unoptimized because these
-                are SVGs, and routing them through the image optimizer would
-                mean turning dangerouslyAllowSVG on globally, which is not worth
-                it for a few small marks. */}
+            {/*
+              Marks sit at one height so they match optically regardless of
+              aspect ratio, and at full opacity: on white they are not
+              competing with a dark field, and this row is the one element
+              whose whole job is to be recognised.
+
+              SIZE. These were 44px, rising to 56px, which suited the flat
+              placeholder squares they were built for and is far too small for
+              what replaced them. Every real mark is a detailed seal with an
+              organisation's name set around its rim, and at 56px that lettering
+              is not legible, so the row read as eight grey circles. 64px, and
+              96px from lg. Eight at 96px plus the gaps measure about 1,160px
+              inside a 1,400px row, so they fit without crowding.
+
+              OPTIMIZED NOW, and the note that used to sit here explained why
+              not: they were SVGs, and the optimizer would have meant enabling
+              dangerouslyAllowSVG globally. They are PNGs, 1,037KB across the
+              eight, on every page that carries this strip. That reasoning
+              expired when the files changed and the flag went with it.
+
+              All eight are square, so one intrinsic ratio describes the set.
+            */}
             <Image
               src={item.logo!}
               alt={item.confirmed ? item.label : "Logo placeholder"}
-              width={200}
-              height={200}
-              unoptimized
-              className="h-11 w-auto lg:h-14"
+              width={540}
+              height={540}
+              sizes="(min-width: 1024px) 96px, 64px"
+              className="h-16 w-auto lg:h-24"
             />
           </li>
         ))}
