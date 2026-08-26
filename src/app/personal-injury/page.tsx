@@ -4,7 +4,7 @@ import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import CallToAction from "@/components/CallToAction";
 import HandledBy from "@/components/attorneys/HandledBy";
-import { injuryPractices } from "@/lib/site";
+import { injuryIsIndexable, injuryPages, injuryPractices } from "@/lib/site";
 
 /**
  * The personal injury hub. The second of the firm's two practices.
@@ -30,7 +30,13 @@ export const metadata: Metadata = pageMetadata({
   description:
     "The personal injury side of Hines & McCarty: car and truck collision claims in Hillsborough County and across Tampa Bay.",
   path: "/personal-injury",
-  noindex: true,
+  /*
+    The hub follows its own spokes. A hub is indexable once at least one page
+    beneath it is, and every injury page waits on the attorney review, so this
+    is false today and flips with the rest of the practice rather than needing
+    to be remembered separately.
+  */
+  noindex: !injuryPages.some(injuryIsIndexable),
 });
 
 const P = "mt-5 max-w-[68ch] text-lg leading-relaxed";

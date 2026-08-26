@@ -45,6 +45,7 @@ import {
 /** Build output directory. Verification builds use NEXT_DIST_DIR so a running
  * `next dev` keeps .next to itself. */
 const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
+const ROOT_DIR = `${DIST_DIR}/server/app`;
 
 let failed = false;
 const fail = (m: string) => { console.error(`  FAIL  ${m}`); failed = true; };
@@ -399,6 +400,55 @@ if (!RENDERED) {
     console.log(
       `  ok    ${checked} internal hrefs across ${files.length} built page(s) all resolve`,
     );
+}
+
+// ------------------------------------------------------------- B2. sitemap
+/**
+ * Nothing in the sitemap is noindex.
+ *
+ * A sitemap entry asks a crawler to fetch a page. A noindex on that page tells
+ * it to discard what it found. Shipping both is a self-cancelling instruction,
+ * and sitemap.ts already carries three separate comments warning about it,
+ * which is the state a rule reaches just before it stops being true. Comments
+ * do not run.
+ *
+ * Rendered-side only: the sitemap is generated, so the check has to read what
+ * was actually emitted rather than the code that emitted it.
+ */
+console.log("\nB2. Sitemap entries are indexable");
+if (!RENDERED) {
+  console.log("  ..    DEFERRED to postbuild, same reason as sweep B.");
+} else {
+  const smPath = join(ROOT_DIR, "sitemap.xml.body");
+  const candidates = [
+    smPath,
+    join(ROOT_DIR, "sitemap.xml"),
+    join(ROOT_DIR, "sitemap.xml.meta"),
+  ];
+  const found = candidates.find((f) => existsSync(f));
+  if (!found) {
+    console.log(
+      "  ..    NOT CHECKED: no generated sitemap found under the build output. " +
+        "The route exists, so this is a shape this gate does not know how to " +
+        "read rather than a missing sitemap, and it is printed rather than " +
+        "passed silently.",
+    );
+  } else {
+    const xml = readFileSync(found, "utf8");
+    const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map((m) => m[1]);
+    let bad = 0;
+    for (const u of urls) {
+      const path = u.replace(/^https?:\/\/[^/]+/, "") || "/";
+      const html = join(ROOT_DIR, `${path === "/" ? "/index" : path}.html`);
+      if (!existsSync(html)) continue;
+      if (/name="robots"[^>]*content="[^"]*noindex/.test(readFileSync(html, "utf8"))) {
+        bad++;
+        fail(`${path} is in the sitemap and its page carries noindex`);
+      }
+    }
+    if (!bad)
+      console.log(`  ok    ${urls.length} sitemap URL(s), none of them noindex`);
+  }
 }
 
 // ---------------------------------------------------------------- C. forbidden

@@ -1664,6 +1664,28 @@ export const injuryBySlug = (segments: string[]) =>
       (segments.length === 1 ? !p.parent : p.parent === segments[0]),
   );
 
+/**
+ * May this injury page be indexed?
+ *
+ * ONE DEFINITION, because three places need the answer and they must not
+ * disagree: the route's `noindex`, the sitemap's filter, and the hub. A sitemap
+ * entry for a noindexed page asks Google to crawl it and then tells it not to
+ * index what it found, which is the mismatch sitemap.ts already warns about for
+ * charges and guides. Stating the rule twice is how that warning stops being
+ * true.
+ *
+ * THREE CONDITIONS. Published, written, and reviewed. The third is stricter
+ * than the guides use and it is deliberate: an injury page carries limitations
+ * periods and coverage deadlines a reader can act on and lose a claim by, so
+ * indexing waits for a named attorney to have read it against its sources.
+ *
+ * It returns false for every injury page today, which is the correct state and
+ * not an omission. `owner` is set at the attorney review, and setting it puts
+ * the whole practice into the sitemap without another code change.
+ */
+export const injuryIsIndexable = (p: InjuryPage): boolean =>
+  p.published && Boolean(p.sections?.length) && Boolean(p.owner);
+
 export const injuryPillars = injuryPages.filter((p) => !p.parent);
 export const injurySpokes = (pillarSlug: string) =>
   injuryPages.filter((p) => p.parent === pillarSlug);

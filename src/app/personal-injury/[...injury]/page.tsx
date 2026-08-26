@@ -5,6 +5,7 @@ import { breadcrumbJsonLd, faqJsonLd, injuryJsonLd } from "@/lib/schema";
 import InjuryTemplate from "@/components/injury/InjuryTemplate";
 import {
   injuryBySlug,
+  injuryIsIndexable,
   injuryHref,
   injuryPages,
   injuryTrail,
@@ -47,7 +48,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
       that cannot be reopened. `owner` is set when an attorney has read the page
       against its sources, so indexing waits for that signature.
     */
-    noindex: !page.published || !page.sections?.length || !page.owner,
+    noindex: !injuryIsIndexable(page),
   });
 }
 

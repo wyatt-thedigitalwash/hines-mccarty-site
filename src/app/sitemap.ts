@@ -5,6 +5,9 @@ import {
   chargeHref,
   guides,
   guideHref,
+  injuryHref,
+  injuryIsIndexable,
+  injuryPages,
   silos,
   siteUrl,
 } from "@/lib/site";
@@ -60,6 +63,29 @@ export default function sitemap(): MetadataRoute.Sitemap {
         changeFrequency: "monthly" as const,
         priority: 0.7,
       })),
+    // The injury practice, gated on `injuryIsIndexable` rather than on
+    // `published` alone. Those pages are all published and all noindex,
+    // because indexing them additionally waits on the attorney review, so
+    // filtering on `published` here would list nine pages that tell Google not
+    // to index them. The predicate lives in site.ts and the route reads the
+    // same one, so the two cannot drift.
+    //
+    // This contributes nothing today. That is the correct state: the practice
+    // enters the sitemap when a named attorney has read it.
+    ...(injuryPages.some(injuryIsIndexable)
+      ? [
+          {
+            url: `${siteUrl}/personal-injury`,
+            changeFrequency: "monthly" as const,
+            priority: 0.8,
+          },
+        ]
+      : []),
+    ...injuryPages.filter(injuryIsIndexable).map((p) => ({
+      url: `${siteUrl}${injuryHref(p)}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
   ];
 
   return pages.map((page) => ({ ...page, lastModified: new Date() }));
