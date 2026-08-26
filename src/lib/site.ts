@@ -846,9 +846,116 @@ export const injuryPages: InjuryPage[] = [
     slug: "truck-accidents",
     label: "Truck Accidents",
     title: "Truck and Commercial Vehicle Claims",
-    description:
-      "Semi-truck, delivery and commercial vehicle collisions, where a carrier, a driver and a broker may each carry part of the fault.",
-    published: false,
+    description: "Semi-truck, delivery and commercial vehicle collisions, where a carrier, a driver and a broker may each carry part of the fault.",
+    metaTitle: "Florida Truck Accident Claims: Who Answers, and What Evidence Disappears",
+    metaDescription: "Commercial vehicle crashes in Hillsborough County: how Florida apportions fault among a driver, a carrier and a broker, the nonparty rule, and the records that cycle out before a claim is filed.",
+    lead: "A commercial crash differs from a car crash in two ways that matter from the first week: more than one company may answer for it, and the records that prove what happened are held by the company you would be making a claim against.",
+    sections: [
+      {
+        id: "who-answers",
+        kind: "statute",
+        heading: "A truck crash usually has more than one defendant",
+        prose: [
+          "A car crash typically has one driver to hold responsible. A commercial crash rarely does. The driver, the motor carrier, the company whose name is on the trailer, a broker who arranged the load, and whoever last serviced the brakes can each hold a share, and they are frequently different companies with different insurers and different lawyers.",
+          "Florida apportions rather than pools. The court enters judgment against each party liable on the basis of that party's percentage of fault, not jointly, so a claim that identifies only the driver can end up allocated against companies nobody brought into the case.",
+          "That is not a reason to sue everyone. It is the reason the question of who was involved gets settled early, while records still exist, rather than after a defendant has pointed at an empty chair.",
+        ],
+        statute: {
+          citation: "F.S. 768.81(3)",
+          body: "(3) APPORTIONMENT OF DAMAGES.—In a negligence action, the court shall enter judgment against each party liable on the basis of such party’s percentage of fault and not on the basis of the doctrine of joint and several liability.",
+        },
+      },
+      {
+        id: "empty-chair",
+        kind: "statute",
+        heading: "The empty chair, and what a defendant has to do to use it",
+        prose: [
+          "Pointing at an absent party is not free. To allocate fault to someone who is not in the case, a defendant has to affirmatively plead that nonparty's fault, and the statute attaches conditions to doing it.",
+          "For a claimant this cuts both ways. It means a defendant cannot quietly blame a company nobody has heard from, and it means the parties a claim names matter from the first pleading rather than at trial.",
+        ],
+        statute: {
+          citation: "F.S. 768.81(3)(a)1.",
+          body: "(a)1. In order to allocate any or all fault to a nonparty, a defendant must affirmatively plead the fault of a nonparty and, absent a showing of good cause, identify the nonparty, if known, or describe the nonparty as specifically as practicable, either by motion or in the initial responsive pleading when defenses are first presented, subject to amendment any time before trial in accordance with the Florida Rules of Civil Procedure.",
+        },
+      },
+      {
+        id: "evidence",
+        kind: "prose",
+        heading: "The evidence that goes away on its own",
+        prose: [
+          "A commercial vehicle generates records a passenger car does not: hours-of-service logs, maintenance and inspection records, and the data a truck's electronic systems hold about the seconds before impact. Those are not permanent. Retention periods run, vehicles are repaired or sold, and data is overwritten in the ordinary course of a carrier's business rather than by anyone deciding to destroy it.",
+          "That is why the first letter a lawyer sends in a trucking case is usually not to an insurer. It is a preservation letter to the carrier, and it is worth less every week it is delayed.",
+          "[NEEDS: the Federal Motor Carrier Safety Regulations recorded in PAGE-SOURCES.md, specifically the hours-of-service and record retention parts] This page therefore names the categories of record that exist and does not state any retention period, because a wrong number here would tell a reader they still have time when they do not.",
+        ],
+      },
+      {
+        id: "wrongful-death",
+        kind: "statute",
+        heading: "When someone did not survive the crash",
+        prose: [
+          "A fatal collision is not the same claim with a worse outcome. It is a different statute, brought by a different person, for different losses. The right of action arises where the death was caused by a wrongful act, negligence, default, or breach of contract or warranty, and where the person would have been entitled to bring a claim had they lived.",
+          "Who may recover, and for what, is set out separately at Statute 768.21 by class of survivor, and it does not simply follow who inherits. That is a question to put to a lawyer early, because the answer shapes who has to be involved.",
+        ],
+        statute: {
+          citation: "F.S. 768.19",
+          body: "When the death of a person is caused by the wrongful act, negligence, default, or breach of contract or warranty of any person, including those occurring on navigable waters, and the event would have entitled the person injured to maintain an action and recover damages if death had not ensued, the person or watercraft that would have been liable in damages if death had not ensued shall be liable for damages as specified in this act notwithstanding the death of the person injured, although death was caused under circumstances constituting a felony.",
+        },
+      },
+      {
+        id: "left-the-scene",
+        kind: "statute",
+        heading: "If the vehicle that hit you did not stop",
+        prose: [
+          "Leaving the scene is a criminal offense in its own right, and it is the one place where the two sides of this firm meet on the same set of facts. The driver's obligation is immediate and it does not depend on who was at fault.",
+          "For an injured person the practical consequence is that a criminal investigation is running alongside any claim, generating records and findings that exist whether or not a civil case is ever filed. Where the driver is never identified, uninsured motorist coverage is usually the route that remains.",
+        ],
+        statute: {
+          citation: "F.S. 316.027(2)(a)",
+          body: "(2)(a) The driver of a vehicle involved in a crash occurring on public or private property which results in injury to a person other than serious bodily injury shall immediately stop the vehicle at the scene of the crash, or as close thereto as possible, and shall remain at the scene of the crash until he or she has fulfilled the requirements of s. 316.062. A person who willfully violates this paragraph commits a felony of the third degree, punishable as provided in s. 775.082, s. 775.083, or s. 775.084.",
+        },
+      },
+      {
+        id: "not-covered",
+        kind: "prose",
+        heading: "What this page does not cover",
+        prose: [
+          "It does not state what a claim is worth, how long one takes, or what any case will do. It does not state the firm's fees. [NEEDS: the contingency fee terms, and whether a client is responsible for costs if the case does not recover]",
+          "It does not set out the federal trucking rules themselves. Those are the Federal Motor Carrier Safety Regulations, they are not yet recorded in this project, and a page that paraphrased them from memory would be exactly the kind of confident wrong answer this site is built to avoid.",
+          "The limitations period and the fault bar described on the car accident page apply here too, including the 2023 change and the date it turns on.",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Who is actually responsible when a semi-truck causes a crash?",
+        source: "drafted",
+        answer: "Often several parties at once. Florida apportions damages against each party liable on the basis of that party's percentage of fault, so the driver, the motor carrier, a broker, and a maintenance provider can each carry a share. Identifying them early matters, because a defendant can plead the fault of a nonparty and shift a share toward a company nobody brought into the case.",
+      },
+      {
+        question: "The trucking company already called me. Should I talk to them?",
+        source: "drafted",
+        answer: "Speak to a lawyer before you give a recorded statement. A carrier's investigator is working for the carrier, and their questions are asked for a reason. Nothing obliges you to give a statement to the other side's insurer, and what you say early tends to be quoted back later.",
+      },
+      {
+        question: "Is evidence from the truck really lost that quickly?",
+        source: "drafted",
+        answer: "It can be, and usually not because anyone destroyed it. Logs, inspection records and onboard data are kept for business reasons and cycle out in the normal course, and the vehicle itself gets repaired or sold. A preservation letter to the carrier is the standard first step for that reason. This page does not state any retention period because the federal rules that set them are not yet recorded here.",
+      },
+      {
+        question: "What if the driver who hit me was delivering for a large company?",
+        source: "drafted",
+        answer: "The question becomes who the driver was working for and on what terms, because that decides which company answers for them. Delivery and logistics work is often performed by contractors rather than employees, and the arrangement is a matter of records rather than of the name on the van.",
+      },
+      {
+        question: "My relative was killed. Is that the same kind of claim?",
+        source: "drafted",
+        answer: "No. Wrongful death is its own statute, brought by a different person, for different losses, and who may recover is set out by class of survivor rather than by who inherits. It is worth speaking to a lawyer early, because the answer shapes who needs to be involved from the start.",
+      },
+    ],
+    readerNeeds: {
+      next: "How long a claim takes is not on this page. It depends on treatment, on how many parties are involved, and on whether suit is filed, and no honest range exists that would be true for a reader we have not met.",
+    },
+    published: true,
   },
   {
     slug: "semi-truck-collisions",
