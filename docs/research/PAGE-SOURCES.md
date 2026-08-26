@@ -2370,6 +2370,25 @@ Fetched 2026-08-26 with curl from the Florida Senate's 2025 statutes. NOT indepe
 > (h) A TNC driver shall carry proof of coverage satisfying paragraphs (b) and (c) with him or her at all times during his or her use of a TNC vehicle in connection with a digital network. In the event of an accident, a TNC driver shall provide this insurance coverage information to any party directly involved in the accident or the party’s designated representative, automobile insurers, and investigating police officers. Proof of financial responsibility may be presented through an electronic device, such as a digital phone application, under s. 316.646. Upon request, a TNC driver shall also disclose to any party directly involved in the accident or the party’s designated representative, automobile insurers, and investigating police officers whether he or she was logged on to a digital network or was engaged in a prearranged ride at the time of the accident.
 > (i) If a TNC’s insurer makes a payment for a claim covered under comprehensive coverage or collision coverage, the TNC shall cause its insurer to issue the payment directly to the business repairing the vehicle or jointly to the owner of the vehicle and the primary lienholder on the covered vehicle.
 
+PARTIAL: 49 CFR 390.5 (definition of commercial motor vehicle)
+https://www.ecfr.gov/current/title-49/section-390.5
+
+One definition from a section of definitions. MARKED PARTIAL and narrowly: only the term "commercial motor vehicle" was read, and part 390 is otherwise unrecorded.
+
+WHY THIS ONE. The FMCSA record already here carries hours-of-service limits and record retention periods, and every one of them applies only to a commercial motor vehicle. Whether the vehicle in a given crash IS one is therefore the question that decides whether any of those rules are in play, and it is the question a delivery-van case turns on: a Sprinter or Transit is frequently rated below the threshold, so the federal rules a claimant reads about on a trucking page may not reach the van that hit them.
+
+WHAT IT SETTLES. The definition requires use on a highway in interstate commerce to transport passengers or property, and then any one of four conditions, the first being a gross vehicle weight rating or gross combination weight rating, or actual weight, of 10,001 pounds or more, whichever is greater. The others cover passenger capacity and placarded hazardous materials.
+
+TWO LIMBS, AND BOTH MATTER. A vehicle can be heavy enough and still fall outside the definition if it is not used in interstate commerce, and a purely local delivery route raises exactly that question. Any page using this states both limbs rather than the weight alone, because quoting the threshold by itself would tell a reader the rules apply whenever the van is big.
+
+Fetched 2026-08-26 from the eCFR renderer API, current text. NOT independently re-verified against a second publisher.
+
+> Commercial motor vehicle means any self-propelled or towed motor vehicle used on a highway in interstate commerce to transport passengers or property when the vehicle—
+> (1) Has a gross vehicle weight rating or gross combination weight rating, or gross vehicle weight or gross combination weight, of 4,536 kg (10,001 pounds) or more, whichever is greater; or
+> (2) Is designed or used to transport more than 8 passengers (including the driver) for compensation; or
+> (3) Is designed or used to transport more than 15 passengers, including the driver, and is not used to transport passengers for compensation; or
+> (4) Is used in transporting material found by the Secretary of Transportation to be hazardous under 49 U.S.C. 5103 and transported in a quantity requiring placarding under regulations prescribed by the Secretary under 49 CFR, subtitle B, chapter I, subchapter C.
+
 PARTIAL: 49 CFR Parts 395, 396 and 391 (Federal Motor Carrier Safety Regulations)
 https://www.ecfr.gov/current/title-49/subtitle-B/chapter-III/subchapter-B
 

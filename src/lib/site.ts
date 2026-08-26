@@ -1512,9 +1512,111 @@ export const injuryPages: InjuryPage[] = [
     parent: "truck-accidents",
     label: "Delivery and Box Trucks",
     title: "Delivery and Commercial Box Truck Crashes",
-    description:
-      "Local logistics and delivery vehicles, and the contractor question that decides who answers for the driver.",
-    published: false,
+    description: "Local logistics and delivery vehicles, and the contractor question that decides who answers for the driver.",
+    metaTitle: "Florida Delivery Van and Box Truck Crashes: Which Rules Actually Apply",
+    metaDescription: "Why the federal trucking rules may not reach the delivery van that hit you, how the commercial motor vehicle threshold works, and why who employed the driver is the question that decides the claim.",
+    lead: "Two assumptions do most of the damage in a delivery vehicle case. The first is that the federal trucking rules automatically apply. The second is that the name on the van is the company you have a claim against. Both are often wrong, and each is a question rather than an answer.",
+    sections: [
+      {
+        id: "is-it-a-cmv",
+        kind: "statute",
+        heading: "Whether the federal rules reach the vehicle at all",
+        prose: [
+          "Everything on the FMCSA page, the hours-of-service limits and the record retention periods, applies to a commercial motor vehicle. That is a defined term, not a description, and a van can look commercial without meeting it.",
+          "The definition has two limbs and both have to hold. The vehicle must be used on a highway in interstate commerce to transport passengers or property, and it must then meet one of four conditions.",
+        ],
+        statute: {
+          citation: "49 CFR 390.5",
+          body: "Commercial motor vehicle means any self-propelled or towed motor vehicle used on a highway in interstate commerce to transport passengers or property when the vehicle—",
+        },
+      },
+      {
+        id: "the-threshold",
+        kind: "statute",
+        heading: "The weight threshold, and why it decides so much",
+        prose: [
+          "The first and most common condition is a gross vehicle weight rating, gross combination weight rating, or actual weight of 10,001 pounds or more, whichever is greater.",
+          "Many of the vans doing local delivery work are rated below that. A crash involving one of them may sit entirely outside the federal scheme, which means no hours-of-service limit was broken because none applied, and no federal retention period governs the records.",
+          "The interstate commerce limb matters just as much and gets less attention. A vehicle can be heavy enough and still fall outside the definition if its use is not in interstate commerce, and a purely local route raises exactly that question. Neither limb answers itself from a photograph of the van.",
+        ],
+        statute: {
+          citation: "49 CFR 390.5",
+          body: "(1) Has a gross vehicle weight rating or gross combination weight rating, or gross vehicle weight or gross combination weight, of 4,536 kg (10,001 pounds) or more, whichever is greater; or",
+        },
+      },
+      {
+        id: "who-employed-the-driver",
+        kind: "prose",
+        heading: "Who the driver was actually working for",
+        prose: [
+          "The name on the vehicle is a branding decision. The delivery economy runs substantially on contracted service providers and independent drivers, so the company whose parcels were in the van, the company that employed the driver, and the company that owned the vehicle can be three different entities.",
+          "That arrangement decides who answers for the driver's conduct, and it is established from records: the contract between the companies, the driver's engagement terms, who directed the route, who controlled the schedule, who owned and maintained the vehicle, and who carried insurance on it.",
+          "This page does not state the legal test for that question. Whether a driver is an employee or a contractor, and when a company answers for a contractor's conduct anyway, is decided on case law and contract terms that are not recorded in this project. [NEEDS: a recorded source for the employee versus independent contractor question in Florida, and for when a principal answers for a contractor's negligence] Naming the records that decide it is useful; inventing the test would not be.",
+        ],
+      },
+      {
+        id: "more-than-one",
+        kind: "statute",
+        heading: "Which is why more than one company usually ends up in the case",
+        prose: [
+          "Where several entities may share responsibility, Florida enters judgment against each party liable on the basis of that party's own percentage of fault rather than jointly.",
+          "The practical consequence is that leaving a company out does not simplify a claim; it risks having a share of fault allocated to an entity that is not there to pay it. Identifying every party early is not thoroughness for its own sake, it is how the arithmetic ends up correct.",
+        ],
+        statute: {
+          citation: "F.S. 768.81(3)",
+          body: "(3) APPORTIONMENT OF DAMAGES.—In a negligence action, the court shall enter judgment against each party liable on the basis of such party’s percentage of fault and not on the basis of the doctrine of joint and several liability.",
+        },
+      },
+      {
+        id: "empty-chair",
+        kind: "statute",
+        heading: "What a defendant must do to blame a company that is absent",
+        prose: [
+          "A defendant cannot simply gesture at a contractor nobody has heard from. Allocating fault to a nonparty requires affirmatively pleading that nonparty's fault, with conditions attached.",
+          "In a delivery case that rule does real work, because the contracting structure gives every defendant an obvious absent party to point at.",
+        ],
+        statute: {
+          citation: "F.S. 768.81(3)(a)1.",
+          body: "(a)1. In order to allocate any or all fault to a nonparty, a defendant must affirmatively plead the fault of a nonparty and, absent a showing of good cause, identify the nonparty, if known, or describe the nonparty as specifically as practicable, either by motion or in the initial responsive pleading when defenses are first presented, subject to amendment any time before trial in accordance with the Florida Rules of Civil Procedure.",
+        },
+      },
+      {
+        id: "not-covered",
+        kind: "prose",
+        heading: "What this page does not cover",
+        prose: [
+          "It does not state whether any particular company is responsible for any particular driver. That turns on the contracts and the records, and it is the first thing a lawyer would ask for.",
+          "It does not set out the employee versus contractor test, for the reason given above: it is not recorded here, and a paraphrase of it from memory would be the kind of confident wrong answer this site exists to avoid.",
+          "It does not state the firm's fees. [NEEDS: the contingency fee terms, and whether a client is responsible for costs if the case does not recover]",
+        ],
+      },
+    ],
+    faq: [
+      {
+        question: "Do the federal trucking rules apply to a delivery van?",
+        source: "drafted",
+        answer: "Only if the van meets the definition of a commercial motor vehicle, which requires use on a highway in interstate commerce plus one of four conditions, the usual one being a weight rating of 10,001 pounds or more. Many local delivery vans are rated below that, in which case the hours-of-service limits and federal record retention periods do not apply at all.",
+      },
+      {
+        question: "Amazon's name was on the van. Do I have a claim against Amazon?",
+        source: "drafted",
+        answer: "Not automatically, and this page will not tell you either way. The delivery economy runs substantially on contracted service providers, so the brand on the vehicle, the driver's employer and the vehicle's owner can be three different companies. Which of them answers for the driver depends on the contracts and on who controlled the work, and that is established from records rather than from the livery.",
+      },
+      {
+        question: "If the driver was a contractor, is nobody else responsible?",
+        source: "drafted",
+        answer: "That does not follow, and the answer is not on this page. When a company answers for a contractor's conduct is a legal question decided on case law and contract terms that are not recorded in this project, so nothing here states the test. What is worth knowing is which records decide it: the contract between the companies, the driver's engagement terms, and who directed the route and schedule.",
+      },
+      {
+        question: "Why would more than one company be sued over one crash?",
+        source: "drafted",
+        answer: "Because Florida apportions. Judgment is entered against each party liable on the basis of that party's own percentage of fault rather than jointly, so a share allocated to a company that is not in the case is a share nobody pays. A defendant can also plead the fault of a nonparty, which in a contracting structure means there is always an absent party available to point at.",
+      },
+    ],
+    readerNeeds: {
+      next: "How long a claim takes is not on this page. It depends on how many entities are involved, on what the contracts show, and on whether suit is filed.",
+    },
+    published: true,
   },
 ];
 
