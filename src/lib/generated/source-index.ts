@@ -5,7 +5,7 @@
 // statute cite its own source: those carry no offence grading, so they have no
 // table in STATUTES and nothing else could resolve them.
 //
-// 18 records with a URL.
+// 26 records with a URL.
 // 3 READ-WHOLE marker(s) state no URL and are deliberately absent
 // rather than linked to a constructed address:
 //   - Fla. R. Crim. P. 3.131
@@ -30,6 +30,38 @@ export const RECORDED_SOURCES: RecordedSource[] = [
   {
     "cite": "18 U.S.C. 3143",
     "url": "https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title18-section3143&num=0&edition=prelim"
+  },
+  {
+    "cite": "F.S. 95.11",
+    "url": "https://www.flsenate.gov/Laws/Statutes/2025/95.11"
+  },
+  {
+    "cite": "F.S. 768.81",
+    "url": "https://www.flsenate.gov/Laws/Statutes/2025/768.81"
+  },
+  {
+    "cite": "F.S. 627.736",
+    "url": "https://www.flsenate.gov/Laws/Statutes/2025/627.736"
+  },
+  {
+    "cite": "F.S. 627.727",
+    "url": "https://www.flsenate.gov/Laws/Statutes/2025/627.727"
+  },
+  {
+    "cite": "F.S. 316.027",
+    "url": "https://www.flsenate.gov/Laws/Statutes/2025/316.027"
+  },
+  {
+    "cite": "F.S. 768.19",
+    "url": "https://www.flsenate.gov/Laws/Statutes/2025/768.19"
+  },
+  {
+    "cite": "F.S. 768.21",
+    "url": "https://www.flsenate.gov/Laws/Statutes/2025/768.21"
+  },
+  {
+    "cite": "F.S. 768.0427",
+    "url": "https://www.flsenate.gov/Laws/Statutes/2025/768.0427"
   },
   {
     "cite": "F.S. 943.059",
