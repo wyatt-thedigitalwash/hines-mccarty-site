@@ -461,10 +461,18 @@ export const attorneys: Attorney[] = [
       // The client's earlier membership line ended on a trailing comma, so the
       // list may still be incomplete.
       // [NEEDS: confirm the membership list is complete]
+      // The bar is named now. It was unstated by the client and left as a
+      // [NEEDS]; the credential marks supplied 2026-08-26 are The Florida Bar's
+      // own section and division marks, which answers it and also settles the
+      // noun: Young Lawyers is a DIVISION, which is what the earlier [NEEDS]
+      // flagged as possibly wrong. Inferred from the supplied marks rather than
+      // stated by the client, and recorded as such.
+      // [NEEDS: client confirmation that these are his Florida Bar memberships
+      // rather than Hillsborough County Bar Association bodies]
       memberships: [
         "Hillsborough County Bar Association",
-        "Criminal Law section",
-        "Young Lawyers section",
+        "Criminal Law Section, The Florida Bar",
+        "Young Lawyers Division, The Florida Bar",
       ],
     },
   },
@@ -9342,62 +9350,105 @@ export const credentials: Credential[] = [
   { label: "Middle District of Florida", kind: "court", confirmed: true },
 
   // Everything below is unconfirmed and therefore invisible.
+  /*
+    THE EIGHT MARKS. Client supplied the files 2026-08-26.
+
+    `confirmed` now means the client has supplied the mark and the underlying
+    fact is corroborated somewhere in this repository. It does NOT mean the
+    firm holds written permission to reproduce each organisation's trademark,
+    which is a separate question nobody here can answer and which is carried as
+    its own [NEEDS] below. Membership does not by itself grant usage rights.
+
+    [NEEDS: written permission to reproduce each of these eight marks] Every one
+    of these organisations has its own brand policy. WEBSITE-PLAN.md Open
+    Question 8.
+  */
   {
-    label: "Board Certified",
+    /*
+      NAMED IN FULL BECAUSE THE RULE REQUIRES IT. R. 4-7.14(a)(4) does not
+      permit "Board Certified" alone: the certifying organisation and the
+      certified area both have to appear. The mark itself carries both, and
+      this label is the alt text, which is the version a screen reader and a
+      crawler get.
+
+      Corroborated: Lily McCarty and Maria Pavlidis both carry Criminal Trial
+      Law in `boardCertifications`, so the firm can display the designation.
+    */
+    label: "The Florida Bar Board Certified in Criminal Trial Law",
     kind: "certification",
-    confirmed: false,
-    logo: "/logos/placeholder-1.svg",
+    confirmed: true,
+    logo: "/logos/the-florida-bar-board-certified-criminal-trial.png",
   },
   {
     label: "Hillsborough County Bar Association",
     kind: "membership",
-    confirmed: false,
-    logo: "/logos/placeholder-2.svg",
+    confirmed: true,
+    logo: "/logos/hillsborough-county-bar-association.png",
   },
   {
     label: "National Association of Criminal Defense Lawyers",
     kind: "membership",
-    confirmed: false,
-    logo: "/logos/placeholder-3.svg",
+    confirmed: true,
+    logo: "/logos/national-association-of-criminal-defense-lawyers.png",
   },
   {
     label: "DUI Defense Lawyers Association",
     kind: "membership",
-    confirmed: false,
-    logo: "/logos/placeholder-4.svg",
+    confirmed: true,
+    logo: "/logos/dui-defense-lawyers-association.png",
   },
   {
+    /*
+      FJA was queried when this list was built, on the ground that it is
+      primarily a plaintiff-side organisation and the firm was criminal-only.
+      That objection is spent: the firm has a personal injury practice now and
+      FJA is the on-point body for it.
+    */
     label: "Florida Justice Association",
     kind: "membership",
-    confirmed: false,
-    logo: "/logos/placeholder-5.svg",
-  },
-  // FACDL is not from the client meeting. It is the on-point credential for a
-  // criminal defense firm and its absence from the meeting list is raised in
-  // WEBSITE-PLAN.md Open Question 8, so it holds a slot here as a candidate.
-  {
-    label: "Florida Association of Criminal Defense Lawyers",
-    kind: "membership",
-    confirmed: false,
-    logo: "/logos/placeholder-6.svg",
-  },
-  // Two reserved slots, deliberately unnamed. The strip was sized for eight
-  // marks before the eight were known, and inventing organization names to
-  // fill it would put guesses into the data where a real answer belongs. An
-  // unconfirmed entry renders as an unlabelled square either way, so a slot
-  // with no organization behind it is honest rather than lossy.
-  // [NEEDS: which organizations fill slots 7 and 8, if any] Open Question 8.
-  {
-    label: "[NEEDS: organization]",
-    kind: "membership",
-    confirmed: false,
-    logo: "/logos/placeholder-7.svg",
+    confirmed: true,
+    logo: "/logos/florida-justice-association.png",
   },
   {
-    label: "[NEEDS: organization]",
+    /*
+      RELABELLED, AND THIS IS THE ONE THE FILES CONTRADICTED. This slot read
+      "Florida Association of Criminal Defense Lawyers", the statewide body.
+      The supplied file is hillsborough-county-of-criminal-defense-lawyers.png,
+      which is the COUNTY association. They are different organisations and
+      naming one while showing the other's mark is exactly the misstatement
+      R. 4-7.14 is about.
+
+      The county body is also the one this repository can corroborate: Lily
+      McCarty's credentials record her on its board of directors.
+
+      [NEEDS: confirm FACDL membership separately] The statewide association
+      was on the client's original list and no mark was supplied for it, so it
+      is not claimed here.
+    */
+    label: "Hillsborough County Association of Criminal Defense Lawyers",
     kind: "membership",
-    confirmed: false,
-    logo: "/logos/placeholder-8.svg",
+    confirmed: true,
+    logo: "/logos/hillsborough-county-of-criminal-defense-lawyers.png",
+  },
+  {
+    /*
+      Slots 7 and 8 were [NEEDS: organization]. The supplied files answer them,
+      and they answer a second question at the same time: David Hines's
+      memberships were recorded as "Criminal Law section" and "Young Lawyers
+      section" with the bar unnamed, because the client never said which. These
+      marks name The Florida Bar, and they also settle the noun: it is the
+      Young Lawyers DIVISION.
+    */
+    label: "The Florida Bar Criminal Law Section",
+    kind: "membership",
+    confirmed: true,
+    logo: "/logos/the-florida-bar-criminal-law-section.png",
+  },
+  {
+    label: "The Florida Bar Young Lawyers Division",
+    kind: "membership",
+    confirmed: true,
+    logo: "/logos/the-florida-bar-young-lawyers-division.png",
   },
 ];
 
