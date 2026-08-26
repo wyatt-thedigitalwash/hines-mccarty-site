@@ -12,9 +12,9 @@ import Testimonials from "@/components/home/Testimonials";
 import CTA from "@/components/home/CTA";
 
 export const metadata: Metadata = {
-  title: "Criminal Defense Attorneys in Tampa Bay",
+  title: "Criminal Defense and Personal Injury Attorneys in Tampa Bay",
   description:
-    "Hines & McCarty is a Brandon, Florida criminal defense firm handling serious state and federal charges across Greater Tampa Bay. Four attorneys, each focused on their own areas of criminal law.",
+    "Hines & McCarty is a Brandon, Florida firm handling serious state and federal criminal charges and personal injury claims across Greater Tampa Bay.",
 };
 
 export default function Home() {

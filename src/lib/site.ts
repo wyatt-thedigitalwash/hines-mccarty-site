@@ -44,7 +44,9 @@ export const absoluteUrl = (path: string) =>
 export const firm = {
   name: "Hines & McCarty",
   legalName: "Hines & McCarty, PLLC",
-  tagline: "Criminal Defense, State and Federal",
+  // Covers both practices as of 2026-08-26. It read "Criminal Defense, State
+  // and Federal" while the firm also takes injury work, which understated it.
+  tagline: "Criminal Defense and Personal Injury",
   phone: "(813) 738-8650",
   phoneHref: "tel:+18137388650",
   // [NEEDS: confirm the firm number accepts text messages] -- the bio CTA reads
@@ -629,6 +631,51 @@ export const capabilities = [
 // home link, so there is no Home entry. About has no top-level slot: the
 // Attorneys hub carries the overview and links out to the full page.
 // Defined after `capabilities` because it reads from it.
+/**
+ * The personal injury practice, as its own silo set.
+ *
+ * SEPARATE FROM `capabilities` ON PURPOSE. Those three are criminal defence and
+ * share a posture: the reader is accused. These do not. A car accident client
+ * is a plaintiff, and folding them into the same array would put them under a
+ * hub labelled "Cases We Defend", which is the wrong word for someone who was
+ * hit by a truck.
+ *
+ * `published` is false until a silo has a written pillar page. Nothing links an
+ * unpublished silo, and `check:routes` sweep A is what keeps that honest rather
+ * than a promise.
+ */
+export type InjuryPractice = {
+  key: string;
+  short: string;
+  title: string;
+  href: string;
+  summary: string;
+  published: boolean;
+};
+
+export const injuryPractices: InjuryPractice[] = [
+  {
+    key: "car",
+    short: "Car Accidents",
+    title: "Car Accident Claims",
+    href: "/personal-injury/car-accidents",
+    summary:
+      "Crashes on Hillsborough roads, from the insurance claim through a lawsuit if the claim does not resolve.",
+    published: false,
+  },
+  {
+    key: "truck",
+    short: "Truck Accidents",
+    title: "Truck and Commercial Vehicle Claims",
+    href: "/personal-injury/truck-accidents",
+    summary:
+      "Semi-truck, delivery and commercial vehicle collisions, where a carrier, a driver and a broker may each carry part of the fault.",
+    published: false,
+  },
+];
+
+export const publishedInjuryPractices = injuryPractices.filter((p) => p.published);
+
 export const primaryNav: NavItem[] = [
   {
     label: "Attorneys",
@@ -649,12 +696,26 @@ export const primaryNav: NavItem[] = [
     // Plain-language label by client direction. The keywords live in the page's
     // meta title, not the nav. 30+ money pages sit under this item, so it needs
     // a real hub page behind it, not just a dropdown.
-    label: "Cases We Defend",
+    // Renamed from "Cases We Defend" 2026-08-26. The href and the hub page are
+    // unchanged; the LABEL changed because the firm now has a second practice
+    // and "Cases We Defend" is the criminal one, not the site.
+    label: "Criminal Defense",
     href: "/cases-we-defend",
     children: capabilities.map((c) => ({
       label: c.title,
       href: c.href,
       description: c.summary,
+    })),
+  },
+  {
+    label: "Personal Injury",
+    href: "/personal-injury",
+    // Only published silos appear. Neither has a pillar page yet, so this is a
+    // single link to the hub rather than a dropdown onto two 404s.
+    children: publishedInjuryPractices.map((p) => ({
+      label: p.title,
+      href: p.href,
+      description: p.summary,
     })),
   },
   {
