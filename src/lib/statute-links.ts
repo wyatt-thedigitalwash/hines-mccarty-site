@@ -23,7 +23,7 @@
  * the page's `citation` schema, which is a list and can hold them all.
  */
 import { STATUTES } from "./statutes.ts";
-import { RECORDED_SOURCES } from "./generated/source-index.ts";
+import { RECORDED_LINE_HASHES, RECORDED_SOURCES } from "./generated/source-index.ts";
 
 export type StatuteRef = { key: string; cite: string; url: string };
 
@@ -137,4 +137,33 @@ export function singleSourceUrl(citation: string): string | undefined {
   if (named > 1) return undefined;
   const refs = resolveStatuteRefs(citation);
   return refs.length === 1 ? refs[0].url : undefined;
+}
+
+// ---------------------------------------------------------------- verbatim
+/** FNV-1a, matching scripts/build-source-index.mjs exactly. */
+function fnv1a(str: string): string {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, "0");
+}
+
+/**
+ * Is this text a verbatim line from a recorded source?
+ *
+ * THE QUESTION A BLOCKQUOTE ASKS. `<blockquote cite="...">` asserts that the
+ * text inside it came from that URL. That was rendered around every
+ * `statute.body` on the site, and for 35 of 56 spans it was not true: the
+ * charge pages carry authored prose that quotes fragments, in the shape "The
+ * section is short enough to read whole. (1)(a) The offense of battery occurs
+ * when...". Prose about a statute is not a quotation of it, and marking it up
+ * as one overclaims to every reader and every machine.
+ *
+ * So the markup is now conditional on this returning true, which makes the
+ * quotation element a checkable claim rather than a default.
+ */
+export function isRecordedVerbatim(text: string): boolean {
+  return RECORDED_LINE_HASHES.has(fnv1a(text.replace(/\s+/g, " ").trim()));
 }

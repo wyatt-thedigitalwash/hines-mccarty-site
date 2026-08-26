@@ -1,6 +1,6 @@
 import type { ChargeSection, PenaltyRow } from "@/lib/site";
 import Needs from "@/components/Needs";
-import { singleSourceUrl } from "@/lib/statute-links";
+import { isRecordedVerbatim, singleSourceUrl } from "@/lib/statute-links";
 
 /**
  * The section primitives, shared by ChargeTemplate and GuideTemplate.
@@ -50,30 +50,45 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
   switch (section.kind) {
     case "statute":
       /*
-        A QUOTATION, MARKED UP AS ONE. This span is verbatim statutory text and
-        used to render as two ordinary paragraphs, which made the site's most
-        citable asset indistinguishable from prose to anything reading the page.
-        <blockquote> plus <cite> says what it is, and `cite=` points at the URL
-        the text was actually fetched from.
+        A QUOTATION IS MARKED UP AS ONE. ANYTHING ELSE IS NOT.
 
-        The cite attribute is emitted ONLY where the citation names exactly one
-        section and this project recorded it. Where a span quotes several
-        sections at once, and twelve of them do, there is no single correct
-        source URL and the attribute is omitted rather than pointed at one of
-        them. See src/lib/statute-links.ts.
+        <blockquote cite="..."> asserts that the text inside came from that URL.
+        That markup used to wrap every statute body, and for 35 of 56 spans the
+        assertion was false: the charge pages carry authored prose that quotes
+        fragments, in the shape "The section is short enough to read whole.
+        (1)(a) The offense of battery occurs when...". Prose ABOUT a statute is
+        not a quotation OF it, and dressing it as one overclaims to every reader
+        and every machine that reads the page.
+
+        So the element is chosen by a checkable property rather than by default:
+        a body that is a verbatim line from a recorded source renders as a
+        cited quotation, and a body that is not renders as what it is, an
+        attributed passage. `check:quotes` asserts the split both ways.
+
+        The citation still renders in both cases. What changes is whether the
+        page claims the words are the statute's.
       */
       return section.statute ? (
-        <figure className="m-0">
-          <figcaption className="font-heading text-sm uppercase tracking-wide text-navy/50">
-            <cite className="not-italic">{section.statute.citation}</cite>
-          </figcaption>
-          <blockquote
-            className="m-0 mt-3"
-            cite={singleSourceUrl(section.statute.citation)}
-          >
-            {section.statute.body}
-          </blockquote>
-        </figure>
+        isRecordedVerbatim(section.statute.body) ? (
+          <figure className="m-0" data-statute-quote>
+            <figcaption className="font-heading text-sm uppercase tracking-wide text-navy/50">
+              <cite className="not-italic">{section.statute.citation}</cite>
+            </figcaption>
+            <blockquote
+              className="m-0 mt-3"
+              cite={singleSourceUrl(section.statute.citation)}
+            >
+              {section.statute.body}
+            </blockquote>
+          </figure>
+        ) : (
+          <div data-statute-gloss>
+            <p className="font-heading text-sm uppercase tracking-wide text-navy/50">
+              <cite className="not-italic">{section.statute.citation}</cite>
+            </p>
+            <p className="mt-3">{section.statute.body}</p>
+          </div>
+        )
       ) : (
         <Needs>statute citation and what it says</Needs>
       );

@@ -42,6 +42,42 @@ for (const m of text.matchAll(/^(?:READ-WHOLE|PARTIAL):[ \t]*(.+)\n(https?:\/\/\
 }
 
 const markers = [...text.matchAll(/^(?:READ-WHOLE|PARTIAL):[ \t]*(.+)$/gm)].map((m) => m[1].trim());
+
+/**
+ * Hashes of every recorded line, so a renderer can ask "is this text verbatim
+ * from a source?" without shipping 600KB of statute into the bundle.
+ *
+ * WHY THE QUESTION NEEDS ANSWERING AT ALL. `statute.body` was rendered as a
+ * <blockquote cite=...> on every page, which asserts that the text came from
+ * that URL. On the charge pages it does not: those bodies are authored prose
+ * that quotes fragments, e.g. "The section is short enough to read whole.
+ * (1)(a) The offense of battery occurs when...". 35 of 56 spans were making a
+ * claim about their own provenance that was not true.
+ *
+ * FNV-1a rather than a crypto hash: deterministic, dependency-free, and it runs
+ * in any rendering context. Collisions across ~1,500 short lines are not a
+ * practical concern, and a collision would make a prose span render as a
+ * quotation rather than the reverse, which the gate then catches.
+ */
+function fnv1a(str) {
+  let h = 0x811c9dc5;
+  for (let i = 0; i < str.length; i++) {
+    h ^= str.charCodeAt(i);
+    h = Math.imul(h, 0x01000193) >>> 0;
+  }
+  return h.toString(16).padStart(8, "0");
+}
+
+const recordedLines = [
+  ...new Set(
+    text
+      .split("\n")
+      .filter((l) => l.startsWith("> "))
+      .map((l) => l.slice(2).trim().replace(/\s+/g, " "))
+      .filter((l) => l.length > 0),
+  ),
+];
+const lineHashes = [...new Set(recordedLines.map(fnv1a))].sort();
 const skipped = markers.filter((c) => !seen.has(c));
 
 mkdirSync("src/lib/generated", { recursive: true });
@@ -63,6 +99,11 @@ writeFileSync(
 export type RecordedSource = { cite: string; url: string };
 
 export const RECORDED_SOURCES: RecordedSource[] = ${JSON.stringify(records, null, 2)};
+
+// FNV-1a hashes of ${recordedLines.length} recorded lines, for asking whether a
+// rendered span is verbatim from a source. See isRecordedVerbatim in
+// src/lib/statute-links.ts.
+export const RECORDED_LINE_HASHES: ReadonlySet<string> = new Set(${JSON.stringify(lineHashes)});
 `,
   "utf8",
 );

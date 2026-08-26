@@ -21,7 +21,8 @@ import {
   resolveStatuteRefs,
   singleSourceUrl,
 } from "../src/lib/statute-links.ts";
-import { charges, guides } from "../src/lib/site.ts";
+import { charges, guides, injuryPages } from "../src/lib/site.ts";
+import { isRecordedVerbatim } from "../src/lib/statute-links.ts";
 import { RECORDED_SOURCES } from "../src/lib/generated/source-index.ts";
 
 let failed = false;
@@ -112,55 +113,73 @@ if (!existsSync(ROOT)) {
   // from a READ-WHOLE record in PAGE-SOURCES.md; court rules only ever have the
   // second. This set was the tables alone at first and failed four correct
   // guide citations, which is a gate narrower than the claim it verifies.
+  // BOTH source registries. A cite may come from an offence-grading table or
+  // from a READ-WHOLE record in PAGE-SOURCES.md; court rules only ever have the
+  // second. This set was the tables alone at first and failed four correct
+  // guide citations, which is a gate narrower than the claim it verifies.
   const recorded = new Set([
     ...Object.values(STATUTES).map((t) => t.url),
     ...RECORDED_SOURCES.map((r) => r.url),
   ]);
-  let bq = 0, cited = 0, bad = 0;
+
+  // Count inside <main> only. The RSC flight payload repeats every attribute
+  // as a string later in the file, which doubled the gloss count on the first
+  // run, and the home page carries testimonial <blockquote>s that are correct
+  // markup and nothing to do with statutes. Statute quotations are tagged.
+  const mainOf = (html: string) => {
+    const a = html.indexOf("<main");
+    const b = html.lastIndexOf("</main>");
+    return a === -1 || b === -1 ? "" : html.slice(a, b);
+  };
+
+  let quotes = 0, glosses = 0, cited = 0, bad = 0;
   for (const f of files) {
-    const html = readFileSync(f, "utf8");
-    for (const tag of html.match(/<blockquote[^>]*>/g) ?? []) {
-      bq++;
+    const main = mainOf(readFileSync(f, "utf8"));
+    quotes += (main.match(/data-statute-quote/g) ?? []).length;
+    glosses += (main.match(/data-statute-gloss/g) ?? []).length;
+    for (const tag of main.match(/<blockquote[^>]*>/g) ?? []) {
       const m = tag.match(/cite="([^"]*)"/);
       if (!m) continue;
       cited++;
-      // Attribute values are HTML-escaped in the built markup, so a URL with a
-      // query string arrives as &amp; and compares unequal to the recorded one.
-      // The gate's first run failed three federal citations for this reason and
-      // every one of them was correct on the page.
-      const url = m[1]
-        .replace(/&amp;/g, "&")
-        .replace(/&#x27;|&#39;/g, "'")
-        .replace(/&quot;/g, '"');
+      const url = m[1].replace(/&amp;/g, "&");
       if (!recorded.has(url)) {
         bad++;
-        fail(`${f.replace(ROOT, "")}: cite="${url}" is not a recorded statute url`);
+        fail(`${f.replace(ROOT, "")}: cite="${url}" is not a recorded source url`);
+      }
+    }
+    // A gloss must never carry a cite: that is the overclaim this split exists
+    // to end.
+    if (/data-statute-gloss[^>]*cite=/.test(main)) {
+      bad++;
+      fail(`${f.replace(ROOT, "")}: an attributed passage carries a cite attribute`);
+    }
+  }
+
+  // What the data says should render, computed independently of the pages.
+  let expectVerbatim = 0, expectGloss = 0;
+  for (const set of [charges, guides, injuryPages]) {
+    for (const c of set as { sections?: { statute?: { body: string } }[] }[]) {
+      for (const sec of c.sections ?? []) {
+        if (!sec.statute) continue;
+        if (isRecordedVerbatim(sec.statute.body)) expectVerbatim++;
+        else expectGloss++;
       }
     }
   }
-  if (bq === 0) {
-    fail("no <blockquote> on any built page; statute spans are not marked up as quotations");
-  } else if (!bad) {
-    ok(`${bq} blockquotes across the built site, ${cited} carrying a cite, every one a recorded source url`);
-  }
 
-  // Q4: the count of rendered spans should equal the count of blockquotes.
-  const chargeSpans = charges
-    .filter((c) => c.sections?.length)
-    .reduce(
-      (n, c) => n + (c.statute ? 1 : 0) + (c.sections ?? []).filter((s) => s.statute).length,
-      0,
-    );
-  const guideSpans = guides.reduce(
-    (n, g) => n + (g.sections ?? []).filter((s) => s.statute).length,
-    0,
-  );
-  const expected = chargeSpans + guideSpans;
-  if (bq < expected) {
-    fail(`${expected} statute spans exist in the data (${chargeSpans} charge, ${guideSpans} guide) but only ${bq} blockquotes rendered`);
-  } else {
-    ok(`all ${expected} statute spans reach a blockquote: ${chargeSpans} on charge pages, ${guideSpans} on guides`);
+  if (quotes !== expectVerbatim) {
+    bad++;
+    fail(`${expectVerbatim} statute spans are verbatim from a record but ${quotes} rendered as quotations`);
   }
+  if (glosses !== expectGloss) {
+    bad++;
+    fail(`${expectGloss} statute spans are authored passages but ${glosses} rendered as such`);
+  }
+  if (!bad)
+    ok(
+      `${quotes} verbatim spans render as cited quotations and ${glosses} authored passages render as attributed prose; ` +
+        `${cited} cite attributes all resolve to a recorded source`,
+    );
 }
 
 console.log(
