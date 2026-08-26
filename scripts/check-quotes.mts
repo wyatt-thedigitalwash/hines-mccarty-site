@@ -21,7 +21,8 @@ import {
   resolveStatuteRefs,
   singleSourceUrl,
 } from "../src/lib/statute-links.ts";
-import { charges } from "../src/lib/site.ts";
+import { charges, guides } from "../src/lib/site.ts";
+import { RECORDED_SOURCES } from "../src/lib/generated/source-index.ts";
 
 let failed = false;
 const fail = (m: string) => { console.error(`  FAIL  ${m}`); failed = true; };
@@ -79,9 +80,12 @@ console.log("\nQ3: multi-source spans carry no cite, single-source ones do");
     }
     if (url) {
       linked++;
-      if (!Object.values(STATUTES).some((t) => t.url === url)) {
+      const known =
+        Object.values(STATUTES).some((t) => t.url === url) ||
+        RECORDED_SOURCES.some((r) => r.url === url);
+      if (!known) {
         bad++;
-        fail(`cite ${url} is not the url of any recorded statute table`);
+        fail(`cite ${url} is not the url of any recorded source`);
       }
     } else unlinked++;
   }
@@ -104,7 +108,14 @@ if (!existsSync(ROOT)) {
     }
   })(ROOT);
 
-  const recorded = new Set(Object.values(STATUTES).map((t) => t.url));
+  // BOTH source registries. A cite may come from an offence-grading table or
+  // from a READ-WHOLE record in PAGE-SOURCES.md; court rules only ever have the
+  // second. This set was the tables alone at first and failed four correct
+  // guide citations, which is a gate narrower than the claim it verifies.
+  const recorded = new Set([
+    ...Object.values(STATUTES).map((t) => t.url),
+    ...RECORDED_SOURCES.map((r) => r.url),
+  ]);
   let bq = 0, cited = 0, bad = 0;
   for (const f of files) {
     const html = readFileSync(f, "utf8");
@@ -134,16 +145,21 @@ if (!existsSync(ROOT)) {
   }
 
   // Q4: the count of rendered spans should equal the count of blockquotes.
-  const expected = charges
+  const chargeSpans = charges
     .filter((c) => c.sections?.length)
     .reduce(
       (n, c) => n + (c.statute ? 1 : 0) + (c.sections ?? []).filter((s) => s.statute).length,
       0,
     );
+  const guideSpans = guides.reduce(
+    (n, g) => n + (g.sections ?? []).filter((s) => s.statute).length,
+    0,
+  );
+  const expected = chargeSpans + guideSpans;
   if (bq < expected) {
-    fail(`${expected} statute spans exist in charge data but only ${bq} blockquotes rendered site-wide`);
+    fail(`${expected} statute spans exist in the data (${chargeSpans} charge, ${guideSpans} guide) but only ${bq} blockquotes rendered`);
   } else {
-    ok(`every one of the ${expected} charge-page statute spans reaches a blockquote (site total ${bq}, which also counts guides)`);
+    ok(`all ${expected} statute spans reach a blockquote: ${chargeSpans} on charge pages, ${guideSpans} on guides`);
   }
 }
 

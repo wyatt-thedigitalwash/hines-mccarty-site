@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { guideBySlug, guideTrail, guides } from "@/lib/site";
-import { breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
+import { breadcrumbJsonLd, faqJsonLd, guideJsonLd } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
 import GuideTemplate from "@/components/guides/GuideTemplate";
 
@@ -49,6 +49,7 @@ export default async function GuideRoute({ params }: Params) {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify([
             breadcrumbJsonLd(guideTrail(guide)),
+            guideJsonLd(guide),
             ...(faq ? [faq] : []),
           ]),
         }}

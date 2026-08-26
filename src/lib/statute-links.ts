@@ -23,6 +23,7 @@
  * the page's `citation` schema, which is a list and can hold them all.
  */
 import { STATUTES } from "./statutes.ts";
+import { RECORDED_SOURCES } from "./generated/source-index.ts";
 
 export type StatuteRef = { key: string; cite: string; url: string };
 
@@ -55,6 +56,51 @@ function namedSections(citation: string): string[] {
   return [...out];
 }
 
+
+/**
+ * Matching a rendered citation to a READ-WHOLE record in PAGE-SOURCES.md.
+ *
+ * WHY A SECOND PATH EXISTS. `STATUTES` holds offence-grading tables. Court
+ * rules and procedural statutes carry no degrees, so they have no table, and
+ * before this 21 of the 22 statutory spans across the two guides resolved to
+ * nothing: those pages quoted eleven authorities each and cited none of them.
+ * The sources were recorded all along, under READ-WHOLE markers with their
+ * fetch URLs, which `scripts/build-source-index.mjs` now generates into a
+ * module.
+ *
+ * NORMALIZATION ORDER IS LOad-BEARING. Parenthetical groups are stripped BEFORE
+ * splitting on the comma, because one record's own comma sits inside its
+ * parentheses: "Administrative Order S-2025-063 (Thirteenth Judicial Circuit,
+ * Hillsborough County)". Splitting first left an unbalanced fragment that
+ * matched nothing.
+ *
+ * Subdivisions are dropped so 3161(b), 3161(c)(1) and 3161(h) all reach the
+ * record for 3161, while the decimal is kept so Rule 5 and Rule 5.1 stay
+ * distinct.
+ */
+function normalizeCite(citation: string): string {
+  return citation
+    .toLowerCase()
+    .replace(/\([^)]*\)/g, " ")
+    .split(",")[0]
+    .replace(/\brule\s+/g, "")
+    .replace(/§/g, "")
+    .replace(/\s+/g, " ")
+    .replace(/[.\s]+$/, "")
+    .trim();
+}
+
+const RECORD_INDEX = new Map(
+  RECORDED_SOURCES.map((r) => [normalizeCite(r.cite), r]),
+);
+
+/** The recorded source for a citation, from PAGE-SOURCES.md, or undefined. */
+export function recordedSourceFor(
+  citation: string,
+): { cite: string; url: string } | undefined {
+  return RECORD_INDEX.get(normalizeCite(citation));
+}
+
 /** Every recorded statute a citation string names, in the order named. */
 export function resolveStatuteRefs(citation: string): StatuteRef[] {
   const refs: StatuteRef[] = [];
@@ -63,7 +109,11 @@ export function resolveStatuteRefs(citation: string): StatuteRef[] {
     if (!table) continue;
     refs.push({ key: n, cite: table.cite, url: table.url });
   }
-  return refs;
+  if (refs.length) return refs;
+  // No grading table. A court rule or procedural statute may still be recorded
+  // whole in PAGE-SOURCES.md, which is the only source these ever had.
+  const rec = recordedSourceFor(citation);
+  return rec ? [{ key: normalizeCite(citation), cite: rec.cite, url: rec.url }] : [];
 }
 
 /** How many distinct sections the citation names. Exported for the gate. */
@@ -80,7 +130,11 @@ export function namedSectionCount(citation: string): number {
  * other four.
  */
 export function singleSourceUrl(citation: string): string | undefined {
-  if (namedSections(citation).length !== 1) return undefined;
+  const named = namedSections(citation).length;
+  // A rule citation names no "section" by the numeric test, so a record match
+  // is the only signal it has one source. A citation naming several sections
+  // never links, whichever path resolved it.
+  if (named > 1) return undefined;
   const refs = resolveStatuteRefs(citation);
   return refs.length === 1 ? refs[0].url : undefined;
 }

@@ -1,10 +1,12 @@
 import {
   type Attorney,
   type ChargePage,
+  type GuidePage,
   type Crumb,
   type FaqItem,
   capabilities,
   chargeHref,
+  guideHref,
   firm,
   primaryOffice,
   publishedOffices,
@@ -105,38 +107,41 @@ export const faqJsonLd = (items: FaqItem[] | undefined) => {
  * page's own `owner` and `lastReviewed`, so a page with no attorney review
  * emits no false authorship or freshness signal (done-criterion C11).
  */
+/**
+ * THE SOURCES A PAGE QUOTES, as structured citations.
+ *
+ * Every statutory span on this site is verbatim from a recorded table that
+ * carries the URL it was fetched from, and none of that was legible to a
+ * machine: the quotations rendered as prose and the schema named no sources.
+ * `citation` is the property for exactly this, and it is the difference
+ * between a page that asserts law and a page that shows where its law came
+ * from.
+ *
+ * DERIVED, NEVER LISTED BY HAND. Callers pass the page's own rendered spans, so
+ * a section added or removed changes the list without anyone remembering to.
+ * Entries appear only for statutes this project actually recorded; a cited
+ * authority nobody fetched contributes nothing rather than a guessed URL.
+ *
+ * SHARED BY CHARGES AND GUIDES on purpose. Two copies of this would drift, and
+ * the guide templates already went a whole build emitting no Article schema at
+ * all while the charge pages had one.
+ */
+function legislationCitations(spanCitations: string[]) {
+  const seen = new Set<string>();
+  return spanCitations
+    .flatMap((c) => resolveStatuteRefs(c))
+    .filter((r) => (seen.has(r.url) ? false : (seen.add(r.url), true)))
+    .map((r) => ({ "@type": "Legislation" as const, name: r.cite, url: r.url }));
+}
+
 export const chargeJsonLd = (charge: ChargePage) => {
   const url = `${siteUrl}${chargeHref(charge)}`;
   const silo = siloByKey(charge.silo);
 
-  /*
-    THE SOURCES THIS PAGE QUOTES, as structured citations.
-
-    Every statutory span on a charge page is verbatim from a recorded table
-    that carries the URL it was fetched from, and none of that was legible to
-    a machine: the quotations rendered as prose and the schema named no
-    sources. `citation` is the property for exactly this, and it is the
-    difference between a page that asserts law and a page that shows where its
-    law came from.
-
-    DERIVED, NEVER LISTED BY HAND. It reads the page's own rendered spans, so a
-    section added or removed changes the list without anyone remembering to.
-    Entries appear only for statutes this project actually recorded; a cited
-    authority nobody fetched contributes nothing rather than a guessed URL.
-  */
-  const quoted = [
+  const citations = legislationCitations([
     ...(charge.statute ? [charge.statute.citation] : []),
-    ...(charge.sections ?? []).flatMap((s) => (s.statute ? [s.statute.citation] : [])),
-  ];
-  const seen = new Set<string>();
-  const citations = quoted
-    .flatMap((c) => resolveStatuteRefs(c))
-    .filter((r) => (seen.has(r.url) ? false : (seen.add(r.url), true)))
-    .map((r) => ({
-      "@type": "Legislation" as const,
-      name: r.cite,
-      url: r.url,
-    }));
+    ...(charge.sections ?? []).flatMap((x) => (x.statute ? [x.statute.citation] : [])),
+  ]);
 
   return {
     "@context": "https://schema.org",
@@ -156,6 +161,41 @@ export const chargeJsonLd = (charge: ChargePage) => {
     ...(citations.length ? { citation: citations } : {}),
     publisher: organizationJsonLd(),
     ...(silo ? { about: silo.label } : {}),
+  };
+};
+
+/**
+ * Article markup for a guide page.
+ *
+ * Guides carried a BreadcrumbList and nothing else: no Article, no authorship,
+ * and no citations, while between them quoting 22 statutory spans in full. They
+ * are the longest-form and most citation-worthy pages on the site and they were
+ * the least legible to anything reading them.
+ *
+ * Deliberately the same shape as `chargeJsonLd`, including the conditional
+ * author and dateModified, so a guide with no attorney review emits no false
+ * authorship or freshness signal (done-criterion C11). Neither guide carries an
+ * owner today, so neither emits one.
+ */
+export const guideJsonLd = (guide: GuidePage) => {
+  const url = `${siteUrl}${guideHref(guide)}`;
+  const citations = legislationCitations(
+    (guide.sections ?? []).flatMap((x) => (x.statute ? [x.statute.citation] : [])),
+  );
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${url}#article`,
+    headline: guide.title ?? guide.label,
+    url,
+    mainEntityOfPage: { "@type": "WebPage", "@id": url },
+    inLanguage: "en-US",
+    ...(guide.metaDescription ? { description: guide.metaDescription } : {}),
+    ...(guide.owner ? { author: { "@type": "Person", name: guide.owner } } : {}),
+    ...(guide.lastReviewed ? { dateModified: guide.lastReviewed } : {}),
+    ...(citations.length ? { citation: citations } : {}),
+    publisher: organizationJsonLd(),
   };
 };
 
