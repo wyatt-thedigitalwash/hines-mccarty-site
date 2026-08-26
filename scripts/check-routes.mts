@@ -35,8 +35,10 @@ import {
   chargeHref,
   guides,
   guideHref,
+  attorneysLeadingPractice,
   injuryPages,
   injuryHref,
+  practiceAreaIndex,
   tools,
 } from "../src/lib/site.ts";
 
@@ -294,6 +296,47 @@ console.log("\nA. Hrefs in the page data");
         `the plan, not a defect: ${planned.map((t) => `${t.label} -> ${t.href}`).join("; ")}. ` +
         `Sweep B fails if any of them renders.`,
     );
+}
+
+// ---------------------------------------------------- A2. practice-area refs
+/**
+ * An attorney's practice-area hrefs resolve to a practice area, not just to a
+ * route.
+ *
+ * These two are different questions and only the first was ever asked. Every
+ * href here also resolves as a ROUTE, so sweep A passes on all of them. But the
+ * bio renders them by looking each one up in `practiceAreaIndex` and dropping
+ * what it cannot find, so an href that is a real page and not a real practice
+ * area renders NOTHING and reports nothing. That is what erased Colton Trina's
+ * injury practice from his own bio the moment it was added.
+ */
+console.log("\nA2. Attorney practice-area references resolve to a practice area");
+{
+  let bad = 0, checked = 0;
+  for (const a of attorneys) {
+    for (const [field, hrefs] of [
+      ["practiceAreaHrefs", a.practiceAreaHrefs ?? []],
+      ["leadsPracticeHrefs", a.leadsPracticeHrefs ?? []],
+    ] as const) {
+      for (const href of hrefs) {
+        checked++;
+        if (!practiceAreaIndex.some((p) => p.href === href)) {
+          bad++;
+          fail(
+            `${a.slug} [${field}] names ${href}, which resolves as a route but ` +
+              `is not in practiceAreaIndex, so it renders as nothing on the bio`,
+          );
+        }
+      }
+    }
+  }
+  // The reciprocal: a practice with a lead must be able to render one.
+  for (const p of practiceAreaIndex) {
+    const leads = attorneysLeadingPractice(p.href);
+    if (leads.length) checked++;
+  }
+  if (!bad)
+    console.log(`  ok    ${checked} practice-area reference(s) resolve to a named practice area`);
 }
 
 // ---------------------------------------------------------------- B. rendered

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import CallToAction from "@/components/CallToAction";
-import Needs from "@/components/Needs";
+import HandledBy from "@/components/attorneys/HandledBy";
 import { injuryPractices } from "@/lib/site";
 
 /**
@@ -62,12 +62,6 @@ export default function PersonalInjuryHub() {
             practice rather than replacing it, and the same collision sometimes
             produces both.
           </p>
-          <p className={`${P} text-linen/75`}>
-            <Needs>
-              which attorneys handle injury matters, and whether Colton Trina
-              leads this practice area
-            </Needs>
-          </p>
         </div>
       </section>
 
@@ -122,6 +116,11 @@ export default function PersonalInjuryHub() {
           </div>
         </div>
       </section>
+
+      {/* Renders only when an attorney is mapped to this practice. Colton
+          Trina was confirmed 2026-08-26, so it renders here and nowhere on the
+          criminal side, where Open Question 2 is still open. */}
+      <HandledBy href="/personal-injury" />
 
       <CallToAction
         heading="Talk to an attorney about your injury claim."

@@ -3,6 +3,7 @@ import { SectionBody } from "@/components/cases/sections";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Byline from "@/components/cases/Byline";
 import CallToAction from "@/components/CallToAction";
+import HandledBy from "@/components/attorneys/HandledBy";
 import Needs from "@/components/Needs";
 import EmptyState from "@/components/EmptyState";
 import {
@@ -117,6 +118,8 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
           </div>
         </div>
       </section>
+
+      <HandledBy href="/personal-injury" />
 
       <CallToAction
         heading="Talk to an attorney about your injury claim."

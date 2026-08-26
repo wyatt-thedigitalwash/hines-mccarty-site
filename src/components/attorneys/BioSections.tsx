@@ -1,5 +1,10 @@
 import Link from "next/link";
-import { type Attorney, attorneyTrail, capabilities, firm } from "@/lib/site";
+import {
+  type Attorney,
+  attorneyTrail,
+  firm,
+  practiceAreaIndex,
+} from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Needs from "@/components/Needs";
 import Portrait from "./Portrait";
@@ -98,9 +103,12 @@ export function BioOverview({ attorney }: { attorney: Attorney }) {
 
 /* Section 3. Reciprocal with the HandledBy block on the practice pages. */
 export function BioPracticeAreas({ attorney }: { attorney: Attorney }) {
+  // Resolved against practiceAreaIndex, not `capabilities`. The latter is the
+  // three criminal silos, so it silently dropped /personal-injury and erased
+  // an attorney's second practice from his own bio.
   const areas = (attorney.practiceAreaHrefs ?? [])
-    .map((href) => capabilities.find((c) => c.href === href))
-    .filter((c): c is (typeof capabilities)[number] => Boolean(c));
+    .map((href) => practiceAreaIndex.find((c) => c.href === href))
+    .filter((c): c is (typeof practiceAreaIndex)[number] => Boolean(c));
 
   return (
     <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">

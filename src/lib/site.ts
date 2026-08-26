@@ -482,8 +482,10 @@ export const attorneys: Attorney[] = [
     // if of counsel, this must change, because the label speaks to who is
     // responsible for the work (R. 4-7.21).
     role: "Associate",
+    // Client-confirmed 2026-08-26: he handles all of the firm's personal
+    // injury work as well as his criminal practice.
     concentration:
-      "Criminal defense in the state courts of Hillsborough County",
+      "Criminal defense in the state courts of Hillsborough County, and personal injury",
     // 608x760, an exact 4:5 match. No crop.
     portrait: "/headshots/ColtonTrina_Headshot.png",
 
@@ -493,7 +495,7 @@ export const attorneys: Attorney[] = [
     // brief asks for a "how they work a case" paragraph and no verified
     // material exists for one, so none is invented.
     overview: [
-      "Colton Trina is a criminal defense attorney at Hines & McCarty. He practices in the state courts of Hillsborough County, in the 13th Judicial Circuit.",
+      "Colton Trina is an attorney at Hines & McCarty. He practices criminal defense in the state courts of Hillsborough County, in the 13th Judicial Circuit, and handles the firm's personal injury matters.",
       "Before entering private practice, he spent approximately two years as a public defender, representing clients in misdemeanor and felony matters and trying cases to juries.",
       "He studied criminal law and litigation at Southern Illinois University Simmons Law School, where he served on the Moot Court Board, and holds an engineering degree from Southern Illinois University Carbondale.",
     ],
@@ -511,7 +513,16 @@ export const attorneys: Attorney[] = [
     // [NEEDS: decide whether personal injury is a practice the site presents]
     // -- until then his concentration line and this list stay criminal-only,
     // which is accurate but narrower than what he actually practices.
-    practiceAreaHrefs: ["/criminal-defense"],
+    practiceAreaHrefs: ["/criminal-defense", "/personal-injury"],
+    // THE FIRST POPULATED `leadsPracticeHrefs` ON THIS SITE, and only for the
+    // injury practice. The client answered 2026-08-26 that Colton handles all
+    // personal injury work, which is exactly the claim this field makes: this
+    // is the person who handles this area for the firm.
+    //
+    // The criminal areas stay empty. WEBSITE-PLAN.md Open Question 2 asks which
+    // attorney leads which criminal area and is still unanswered; answering one
+    // practice does not answer the other.
+    leadsPracticeHrefs: ["/personal-injury"],
     credentials: {
       barAdmission: {
         state: "Florida",
@@ -765,6 +776,40 @@ export const injuryPages: InjuryPage[] = [
     description:
       "Local logistics and delivery vehicles, and the contractor question that decides who answers for the driver.",
     published: false,
+  },
+];
+
+/**
+ * Every linkable practice area, both practices, as one lookup.
+ *
+ * WHY IT EXISTS. `BioPracticeAreas` resolved an attorney's practiceAreaHrefs
+ * against `capabilities` alone and dropped anything it did not find. The moment
+ * Colton Trina's bio carried /personal-injury, his injury practice vanished
+ * from his own page: the data said he practised it, the page showed three
+ * criminal silos and no sign of it, and nothing failed. A filter narrower than
+ * the claim it serves, which this project has now met often enough to name.
+ *
+ * The injury entry is the HUB rather than the two silos, because that is the
+ * page an attorney practises "in" while the silos are subject matter.
+ */
+export const practiceAreaIndex: {
+  key: string;
+  title: string;
+  href: string;
+  summary: string;
+}[] = [
+  ...capabilities.map((c) => ({
+    key: c.key,
+    title: c.title,
+    href: c.href,
+    summary: c.summary,
+  })),
+  {
+    key: "personal-injury",
+    title: "Personal Injury",
+    href: "/personal-injury",
+    summary:
+      "Collision claims in Hillsborough County and across Tampa Bay, from the insurance claim through a lawsuit if the claim does not resolve.",
   },
 ];
 
