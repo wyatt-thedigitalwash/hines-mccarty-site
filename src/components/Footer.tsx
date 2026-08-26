@@ -5,6 +5,8 @@ import {
   primaryNav,
   primaryOffice,
   capabilities,
+  injuryPillars,
+  injuryHref,
 } from "@/lib/site";
 
 export default function Footer() {
@@ -13,7 +15,7 @@ export default function Footer() {
   return (
     <footer className="bg-navy text-linen">
       <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
-        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr]">
+        <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
             <Link
               href="/"
@@ -22,8 +24,8 @@ export default function Footer() {
               Hines <span className="text-bronze">&amp;</span> McCarty
             </Link>
             <p className="mt-5 max-w-sm text-linen/60">
-              A Brandon criminal defense firm handling serious state and federal
-              charges across {firm.serviceArea}.
+              A Brandon firm handling serious state and federal criminal
+              charges and personal injury claims across {firm.serviceArea}.
             </p>
             <a
               href={firm.phoneHref}
@@ -50,7 +52,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <span className="eyebrow text-bronze">Cases We Defend</span>
+            <span className="eyebrow text-bronze">Criminal Defense</span>
             <ul className="mt-5 space-y-3">
               {capabilities.map((cap) => (
                 <li key={cap.key}>
@@ -62,6 +64,46 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/*
+            The pillars only. Spokes belong on the practice pages; a footer
+            that lists nine injury links next to three criminal ones would
+            imply the injury practice is three times the size of the other.
+          */}
+          <div>
+            <span className="eyebrow text-bronze">Personal Injury</span>
+            <ul className="mt-5 space-y-3">
+              {/*
+                `label` rather than `title`. The page titles run to
+                "Car Accident Claims in Hillsborough County", which is right on
+                a page and wrong beside "White-Collar Defense" in a footer
+                column.
+              */}
+              {injuryPillars.map((p) => (
+                <li key={p.slug}>
+                  <Link
+                    href={injuryHref(p)}
+                    className="text-linen/70 transition-colors hover:text-linen"
+                  >
+                    {p.label}
+                  </Link>
+                </li>
+              ))}
+              {/*
+                The hub, named so it does not simply repeat the column heading
+                above it. The criminal column has no equivalent because its hub
+                is reachable from the main nav under the same words.
+              */}
+              <li>
+                <Link
+                  href="/personal-injury"
+                  className="text-linen/70 transition-colors hover:text-linen"
+                >
+                  All injury claims
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
