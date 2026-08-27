@@ -80,7 +80,6 @@ export default function AboutPage() {
       <PageHero
         title="A Brandon criminal defense firm built for the charges other firms refer out."
         photo={HERO_PHOTO}
-        pb="pb-20 lg:pb-28"
       >
         <p>
           {firm.name} is four attorneys who each concentrate on a different part

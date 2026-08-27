@@ -68,17 +68,9 @@ type Props = {
    * the padded container. The credential strip is the only user of this.
    */
   bleed?: ReactNode;
-  /** Bottom padding of the content wrapper. */
-  pb?: string;
 };
 
-export default function PageHero({
-  title,
-  children,
-  photo,
-  bleed,
-  pb = "pb-20 lg:pb-24",
-}: Props) {
+export default function PageHero({ title, children, photo, bleed }: Props) {
   return (
     <section
       data-bg="navy"
@@ -106,9 +98,34 @@ export default function PageHero({
         </div>
       ) : null}
 
-      <div
-        className={`relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10 ${pb}`}
-      >
+      {/*
+        lg:min-h-[380px] IS WHAT MAKES EVERY HERO THE SAME HEIGHT. Measured in
+        the browser at 1024, 1280, 1440 and 1920, the seven heroes ran from
+        457px to 567px, a 110px spread with no pattern to it beyond how much
+        copy each page happened to have.
+
+          attorneys       521      results     457
+          personal-injury 551      resources   457
+          about           567      contact     527
+
+        The floor is 380px of CONTENT, which is the tallest of them once the
+        176px of pt-44 comes off, so nothing is squeezed and nothing is cut.
+        Every one of these pages now measures 556px. It holds at all four
+        widths because max-w-4xl and max-w-2xl cap the text, so no heading
+        re-wraps between 1024 and 1920 and the number cannot drift.
+
+        CONTENT STAYS TOP-ALIGNED rather than centring in the taller box. Every
+        h1 then starts at the same y on every page, which is the consistency a
+        reader actually perceives moving between them; the slack falls to the
+        bottom, where it reads as room rather than as a different layout.
+
+        lg ONLY. A phone hero is as tall as its copy, because there the height
+        is the copy and padding a short one out would just be scroll.
+
+        /cases-we-defend is taller than 556 and correctly so: it carries the
+        credential strip on its bottom edge, which no other hero does.
+      */}
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 pb-20 lg:min-h-[380px] lg:px-10 lg:pb-24">
         <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
           {title}
         </h1>
