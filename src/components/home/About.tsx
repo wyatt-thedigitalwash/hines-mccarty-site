@@ -48,62 +48,62 @@ export default function About() {
       is no second value here to keep in step with it.
     */
     <section data-bg="light" className="bg-white pb-24 text-navy lg:pb-32">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+      {/*
+        ONE GRID FOR THE WHOLE SECTION, because the Our Firm button belongs in
+        two different places at two different widths and this is what lets it be
+        ONE link rather than two.
+
+        From md it is a two-column grid: heading at row 1 column 1, the button
+        at row 1 column 2, the cards spanning both at row 2. Below md it is a
+        single column in DOM order, which is heading, cards, button.
+
+        The DOM order IS the mobile order, deliberately. The alternative was to
+        render the button twice, `hidden md:inline-flex` in the header and
+        `md:hidden` under the cards, which works and is common and puts two
+        links to /about in the markup, one of them permanently invisible. A
+        second copy of a thing is a second thing to keep correct, and an
+        invisible one is the copy nobody notices has gone stale. Explicit grid
+        placement moves the single link instead.
+      */}
+      <div className="mx-auto grid max-w-[1400px] grid-cols-1 px-6 md:grid-cols-[1fr_auto] md:gap-x-12 lg:px-10">
         {/*
           THE SAME HEADER AS THE PRACTICES SECTION, on purpose, so the two
-          section openings on this page are one pattern rather than two: block
-          left in a max-w-2xl column, heading at text-4xl sm:text-5xl on a 1.05
-          line, copy at text-lg with mt-6. It briefly went full-width and
-          centred; matching Practices is what replaced that.
+          section openings on this page are one pattern rather than two:
+          heading at text-4xl sm:text-5xl on a 1.05 line, copy at text-lg with
+          mt-6. It briefly went full-width and centred; matching Practices is
+          what replaced that.
 
-          The two values that differ from Practices are colour, because that
-          section is on navy and this one is on white, and space-y-5, because
-          this copy is two paragraphs where that is one.
+          Three values differ from Practices. Colour, because that section is
+          on navy and this one is on white. space-y-5, because this copy is two
+          paragraphs where that is one. And the measure: max-w-3xl here against
+          its max-w-2xl, because 672px was a narrow column for two paragraphs.
+          768px is still a comfortable measure at text-lg, around 85 characters.
 
           THE HEADING LOSES ITS lg:text-6xl. Practices tops out at sm:text-5xl,
           and leaving this one a step larger is exactly the near-miss that makes
           a page look assembled: not different enough to read as a hierarchy,
           different enough to notice.
-
-          OUR FIRM SITS ON THE RIGHT, and goes to /about rather than to
-          /attorneys. That is a real distinction and not a second route to the
-          same place: /about is the firm, and the button under the cards below
-          still goes to /attorneys, the people. Aligned to the bottom of the
-          copy rather than centred against it, so it lands on the last line's
-          baseline instead of floating beside the middle of the block.
-
-          Below md it stacks under the copy and stays left, which is the same
-          rule the rest of this component follows.
         */}
-        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-12">
-          <div className="max-w-2xl">
-            <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl">
-              A partnership, not a single name on the door.
-            </h2>
-            <div className="mt-6 space-y-5 text-lg leading-relaxed text-charcoal">
-              <p>
-                Hines &amp; McCarty is a Brandon firm built around four
-                attorneys who each concentrate on different areas. When a case
-                comes in, it goes to the person who knows that kind of case, not
-                to whoever is available.
-              </p>
-              <p>
-                That structure is why so much of the firm&apos;s work arrives by
-                referral, from former clients and from other lawyers who send
-                the matters they do not handle themselves.
-              </p>
-            </div>
+        <div className="max-w-3xl md:col-start-1 md:row-start-1">
+          <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl">
+            A partnership, not a single name on the door.
+          </h2>
+          <div className="mt-6 space-y-5 text-lg leading-relaxed text-charcoal">
+            <p>
+              Hines &amp; McCarty is a Brandon firm built around four attorneys
+              who each concentrate on different areas. When a case comes in, it
+              goes to the person who knows that kind of case, not to whoever is
+              available.
+            </p>
+            <p>
+              That structure is why so much of the firm&apos;s work arrives by
+              referral, from former clients and from other lawyers who send the
+              matters they do not handle themselves.
+            </p>
           </div>
-
-          <Link
-            href="/about"
-            className="inline-flex shrink-0 items-center self-start border border-navy px-8 py-4 font-display text-lg transition-colors hover:border-bronze hover:text-bronze md:self-auto"
-          >
-            Our Firm
-          </Link>
         </div>
 
-        <ul className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 lg:mt-16 lg:grid-cols-4">
+        <ul className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 md:col-span-2 md:row-start-2 lg:mt-16 lg:grid-cols-4">
           {attorneys.map((attorney) => (
             <li key={attorney.slug}>
               <Link
@@ -140,11 +140,25 @@ export default function About() {
           ))}
         </ul>
 
+        {/*
+          OUR FIRM, and it goes to /about. It is now the only button in the
+          section: a "Meet the attorneys" button sat here pointing at
+          /attorneys, and it went with the cards above it, which are themselves
+          four links to the four bios it was offering to take a reader to.
+          /attorneys is still one click away in the nav and in the footer.
+
+          LAST IN THE DOM, WHICH IS WHERE IT RENDERS ON A PHONE: under the
+          cards, centred, with mt-12 of its own. From md the explicit row and
+          column placement lifts it into the header row, right-aligned and sat
+          on the last line of the copy's baseline rather than centred against a
+          two-paragraph block. mt-0 there because the header row supplies the
+          spacing.
+        */}
         <Link
-          href="/attorneys"
-          className="mt-12 inline-flex items-center border border-navy px-8 py-4 font-display text-lg transition-colors hover:border-bronze hover:text-bronze"
+          href="/about"
+          className="mt-12 inline-flex shrink-0 items-center justify-self-center border border-navy px-8 py-4 font-display text-lg transition-colors hover:border-bronze hover:text-bronze md:col-start-2 md:row-start-1 md:mt-0 md:self-end md:justify-self-end"
         >
-          Meet the attorneys
+          Our Firm
         </Link>
       </div>
     </section>
