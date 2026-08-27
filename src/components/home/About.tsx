@@ -49,11 +49,31 @@ export default function About() {
     */
     <section data-bg="light" className="bg-white pb-24 text-navy lg:pb-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="max-w-3xl">
+        {/*
+          FULL WIDTH AND CENTRED FROM md, LEFT-ALIGNED BELOW IT. The block was
+          max-w-3xl and left-aligned at every width, so on a desktop it sat in
+          the left half of a 1400px container with the right half empty. It now
+          takes the container's whole width, which at lg puts the heading on one
+          line instead of two.
+
+          md is the 768px breakpoint CLAUDE.md names as this site's mobile line,
+          not a value picked for this component. Centring is a desktop move: a
+          phone has no width to centre within, so it buys nothing there and
+          costs the ragged left edge that makes wrapped body copy easy to read.
+
+          THE PARAGRAPHS KEEP A MEASURE, and it is the same max-w-3xl the whole
+          block used to have. That is the one place this does not go full
+          width: at 1320px the body would run near 150 characters a line, and
+          centred text is harder to track back than left-aligned text at the
+          same length, because the eye has no fixed left edge to return to. So
+          they are centred within the container rather than stretched across
+          it, which is what makes the block read as centred at all.
+        */}
+        <div className="text-left md:text-center">
           <h2 className="font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
             A partnership, not a single name on the door.
           </h2>
-          <div className="mt-8 space-y-5 text-lg leading-relaxed text-charcoal">
+          <div className="mx-auto mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-charcoal">
             <p>
               Hines &amp; McCarty is a Brandon firm built around four attorneys
               who each concentrate on different areas. When a case comes in, it
