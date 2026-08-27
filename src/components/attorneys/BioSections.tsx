@@ -52,7 +52,20 @@ export function BioHeader({ attorney }: { attorney: Attorney }) {
               {attorney.concentration ?? <Needs>one-line concentration</Needs>}
             </p>
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
+            {/*
+              THE MARKS, ABOVE THE CALL BUTTON. They used to ride the hero's
+              bottom edge as a full-bleed white band, which was the right
+              treatment when it was the firm's eight and the wrong one once it
+              became this attorney's two or three: a page-wide band under two
+              seals reads as a band that failed to load. Beside the name and
+              the concentration they are doing the job they are there for,
+              which is answering "who is this" before the reader has to scroll.
+            */}
+            <div className="mt-8 max-w-xl">
+              <CredentialStrip marks={attorneyMarks(attorney)} inline />
+            </div>
+
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               {/* [NEEDS: confirm the firm number accepts text messages] before
                   this label ships. If the line is voice only, "Call or Text"
                   advertises a capability the firm does not have (R. 4-7.13). */}
@@ -66,12 +79,6 @@ export function BioHeader({ attorney }: { attorney: Attorney }) {
           </div>
         </div>
       </div>
-
-      {/* Credential strip on the hero's bottom edge. Full bleed, so the bottom
-          padding lives on the content wrapper above rather than on the section,
-          which would inset the strip. */}
-      {/* This attorney's marks, not the firm's eight. See attorneyMarks. */}
-      <CredentialStrip marks={attorneyMarks(attorney)} />
     </section>
   );
 }
