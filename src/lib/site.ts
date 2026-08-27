@@ -492,8 +492,21 @@ export const attorneys: Attorney[] = [
     role: "Associate",
     // Client-confirmed 2026-08-26: he handles all of the firm's personal
     // injury work as well as his criminal practice.
-    concentration:
-      "Criminal defense in the state courts of Hillsborough County, and personal injury",
+    /*
+      SHORTENED 2026-08-27 to sit with its three siblings, which run "State and
+      federal criminal defense" and "Criminal defense and civil litigation".
+      This read "Criminal defense in the state courts of Hillsborough County,
+      and personal injury" and wrapped to three lines in a card where the others
+      take one.
+
+      "State" is kept rather than dropped to "Criminal defense and personal
+      injury". It is not decoration: the other two criminal attorneys say "state
+      and federal", and Colton was admitted in 2024 and practises in
+      Hillsborough state courts. Dropping the word would widen a scope claim
+      while tidying a line, which is the kind of edit that is invisible until
+      someone relies on it. The venue detail survives in his overview.
+    */
+    concentration: "State criminal defense and personal injury",
     // 608x760, an exact 4:5 match. No crop.
     portrait: "/headshots/ColtonTrina_Headshot.png",
 
