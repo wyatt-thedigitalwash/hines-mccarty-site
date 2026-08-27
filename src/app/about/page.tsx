@@ -12,6 +12,7 @@ import {
 } from "@/lib/site";
 import { organizationJsonLd } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
+import PageHero, { HERO_PHOTO } from "@/components/PageHero";
 import Needs from "@/components/Needs";
 import Byline from "@/components/cases/Byline";
 
@@ -76,21 +77,19 @@ export default function AboutPage() {
       />
 
       {/* 1. Statement hero */}
-      <section data-bg="navy" className="bg-navy pt-36 pb-20 lg:pt-44 lg:pb-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
-            A Brandon criminal defense firm built for the charges other firms
-            refer out.
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/70">
-            {firm.name} is four attorneys who each concentrate on a different
-            part of criminal law, practicing in the state courts of Hillsborough
-            County and in the Middle District of Florida. The firm was built so
-            that a serious case goes to someone who has handled that exact kind
-            of case before.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="A Brandon criminal defense firm built for the charges other firms refer out."
+        photo={HERO_PHOTO}
+        pb="pb-20 lg:pb-28"
+      >
+        <p>
+          {firm.name} is four attorneys who each concentrate on a different part
+          of criminal law, practicing in the state courts of Hillsborough County
+          and in the Middle District of Florida. The firm was built so that a
+          serious case goes to someone who has handled that exact kind of case
+          before.
+        </p>
+      </PageHero>
 
       {/* 2. The thesis */}
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">

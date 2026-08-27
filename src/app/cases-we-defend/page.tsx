@@ -3,6 +3,7 @@ import Link from "next/link";
 import { capabilities, charges, firm } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import CredentialStrip from "@/components/CredentialStrip";
+import PageHero, { HERO_PHOTO } from "@/components/PageHero";
 import ChargeIndex from "@/components/cases/ChargeIndex";
 import CallToAction from "@/components/CallToAction";
 
@@ -18,24 +19,21 @@ export const metadata: Metadata = pageMetadata({
 export default function CasesWeDefendPage() {
   return (
     <>
-      <section data-bg="navy" className="bg-navy pt-36 lg:pt-44">
-        <div className="mx-auto max-w-[1400px] px-6 pb-20 lg:px-10 lg:pb-24">
-          <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
-            Cases we defend.
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/70">
-            {firm.name} handles serious state and federal charges in
-            Hillsborough County and in the Middle District of Florida, including
-            the matters many firms refer out. Select a charge to read what it
-            involves, what the statute says, and how the defense is built.
-          </p>
-        </div>
-
-      {/* Credential strip on the hero's bottom edge. Full bleed, so the bottom
-          padding lives on the content wrapper above rather than on the section,
-          which would inset the strip. */}
-      <CredentialStrip />
-      </section>
+      {/* The credential strip rides the hero's bottom edge, full bleed, which
+          is why it goes through `bleed` rather than being placed after the
+          hero: it has to sit inside the navy and outside the padded wrapper. */}
+      <PageHero
+        title="Cases we defend."
+        photo={HERO_PHOTO}
+        bleed={<CredentialStrip />}
+      >
+        <p>
+          {firm.name} handles serious state and federal charges in Hillsborough
+          County and in the Middle District of Florida, including the matters
+          many firms refer out. Select a charge to read what it involves, what
+          the statute says, and how the defense is built.
+        </p>
+      </PageHero>
 
       {/*
         Same card structure as the home Capabilities grid: min-h-[380px]

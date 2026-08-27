@@ -3,6 +3,7 @@ import Link from "next/link";
 import { articles, primaryNav, tools } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import CallToAction from "@/components/CallToAction";
+import PageHero, { HERO_PHOTO } from "@/components/PageHero";
 
 /**
  * The Layer 2 hub.
@@ -35,18 +36,13 @@ const RESOURCES = primaryNav.find((item) => item.href === "/resources");
 export default function ResourcesPage() {
   return (
     <>
-      <section data-bg="navy" className="bg-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
-            Resources
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/70">
-            Plain-language explanations of how a case moves, what the terms on
-            the paperwork mean, and what happens at each stage. Written for the
-            moment before you know what you are dealing with.
-          </p>
-        </div>
-      </section>
+      <PageHero title="Resources" photo={HERO_PHOTO}>
+        <p>
+          Plain-language explanations of how a case moves, what the terms on the
+          paperwork mean, and what happens at each stage. Written for the moment
+          before you know what you are dealing with.
+        </p>
+      </PageHero>
 
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

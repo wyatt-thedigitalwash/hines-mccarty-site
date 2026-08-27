@@ -10,6 +10,7 @@ import { pageMetadata } from "@/lib/metadata";
 import Needs from "@/components/Needs";
 import Portrait from "@/components/attorneys/Portrait";
 import CallToAction from "@/components/CallToAction";
+import PageHero, { HERO_PHOTO } from "@/components/PageHero";
 
 export const metadata: Metadata = pageMetadata({
   title: "Our Attorneys | Hines & McCarty, Criminal Defense in Tampa Bay",
@@ -25,19 +26,17 @@ export default function AttorneysPage() {
 
   return (
     <>
-      <section data-bg="navy" className="bg-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
-            Four attorneys, four different concentrations.
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/70">
-            Each attorney at {firm.name} concentrates on a different part of
-            criminal law, so a case goes to the person who already knows that
-            kind of case. Select an attorney to read their background, courts,
-            and credentials.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="Four attorneys, four different concentrations."
+        photo={HERO_PHOTO}
+      >
+        <p>
+          Each attorney at {firm.name} concentrates on a different part of
+          criminal law, so a case goes to the person who already knows that kind
+          of case. Select an attorney to read their background, courts, and
+          credentials.
+        </p>
+      </PageHero>
 
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

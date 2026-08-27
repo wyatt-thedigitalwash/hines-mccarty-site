@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { firm, publishedOffices } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
+import PageHero, { HERO_PHOTO } from "@/components/PageHero";
 import ContactForm from "@/components/contact/ContactForm";
 
 /**
@@ -28,23 +29,18 @@ export const metadata: Metadata = pageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <section data-bg="navy" className="bg-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
-            Contact
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/70">
-            The fastest way to reach the firm is by phone. If you cannot speak
-            freely right now, send a message and we will arrange a time.
-          </p>
-          <a
-            href={firm.phoneHref}
-            className="mt-10 inline-flex items-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
-          >
-            Call {firm.phone}
-          </a>
-        </div>
-      </section>
+      <PageHero title="Contact" photo={HERO_PHOTO}>
+        <p>
+          The fastest way to reach the firm is by phone. If you cannot speak
+          freely right now, send a message and we will arrange a time.
+        </p>
+        <a
+          href={firm.phoneHref}
+          className="mt-10 inline-flex items-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
+        >
+          Call {firm.phone}
+        </a>
+      </PageHero>
 
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

@@ -5,6 +5,7 @@ import { breadcrumbJsonLd } from "@/lib/schema";
 import CallToAction from "@/components/CallToAction";
 import HandledBy from "@/components/attorneys/HandledBy";
 import InjuryIndex from "@/components/injury/InjuryIndex";
+import PageHero, { HERO_PHOTO } from "@/components/PageHero";
 import {
   firm,
   injuryIsIndexable,
@@ -61,19 +62,17 @@ export default function PersonalInjuryHub() {
         }}
       />
 
-      <section data-bg="navy" className="bg-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
-            If someone else caused it, you should not be the one paying for it.
-          </h1>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/70">
-            {firm.name} handles injury claims arising from car and commercial
-            vehicle collisions in Hillsborough County and across Tampa Bay.
-            Select a claim type to read what the law actually says about it, in
-            the statute&apos;s own words.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        title="If someone else caused it, you should not be the one paying for it."
+        photo={HERO_PHOTO}
+      >
+        <p>
+          {firm.name} handles injury claims arising from car and commercial
+          vehicle collisions in Hillsborough County and across Tampa Bay. Select
+          a claim type to read what the law actually says about it, in the
+          statute&apos;s own words.
+        </p>
+      </PageHero>
 
       {/*
         Same card geometry as the criminal hub: min-h-[380px] lg:min-h-[440px],
