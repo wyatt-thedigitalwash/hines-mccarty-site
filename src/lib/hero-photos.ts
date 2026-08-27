@@ -7,7 +7,7 @@ import type { InjuryPage } from "@/lib/site";
  * ONE MODULE RATHER THAN A LITERAL PER PAGE so that replacing an image, or
  * splitting one that is currently shared, is an edit here and not a search.
  *
- * THREE PAGES ARE STILL ON STOCK. SITE_HERO_PHOTO is /backgrounds/yes3.jpg, the downtown Tampa
+ * TWO PAGES ARE STILL ON STOCK. SITE_HERO_PHOTO is /backgrounds/yes3.jpg, the downtown Tampa
  * skyline. It is the one being used because the other four files in that folder
  * are a shelf of GERMAN statute books (NJW, BGB, StGB, ZPO) and the gilded
  * Justice on the Old Bailey in London, which are stock photographs of a
@@ -15,14 +15,14 @@ import type { InjuryPage } from "@/lib/site";
  * practises in. It is a placeholder until real photography arrives, not a
  * choice anyone made.
  *
- * THE REST ARE NOT. Six of the client's own files, one per subject: three for
- * personal injury, one for the criminal hub, one for case results and one for
- * resources. All delivered 2026-08-27.
+ * THE REST ARE NOT. Seven of the client's own files, one per subject: three
+ * for personal injury, one for the criminal hub, and one each for case
+ * results, resources and the about page. All delivered 2026-08-27.
  */
 
 /**
- * The shared placeholder, now down to three pages: /attorneys, /about and
- * /contact. Still waiting on real photography.
+ * The shared placeholder, now down to two pages: /attorneys and /contact.
+ * Still waiting on real photography.
  */
 export const SITE_HERO_PHOTO: HeroPhoto = { src: "/backgrounds/yes3.jpg" };
 
@@ -37,6 +37,14 @@ export const SITE_HERO_PHOTO: HeroPhoto = { src: "/backgrounds/yes3.jpg" };
  */
 export const CRIMINAL_HUB_PHOTO: HeroPhoto = {
   src: "/criminal-trial/HinesMcCarty_CriminalTrial.jpg",
+};
+
+/**
+ * /about. It lives under public/team because that is the folder it arrived in,
+ * alongside the two mock team photographs it is nothing like.
+ */
+export const ABOUT_PHOTO: HeroPhoto = {
+  src: "/team/HinesMcCarty_About.jpg",
 };
 
 /** /results. */
