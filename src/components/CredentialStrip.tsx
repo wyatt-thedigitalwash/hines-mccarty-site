@@ -22,26 +22,6 @@ import { credentialMarks, type Credential } from "@/lib/site";
  * full width without the page naming a certification or membership the firm has
  * not established. See `credentialMarks` in src/lib/site.ts.
  */
-
-/**
- * ONE DEFINITION OF HOW A MARK RENDERS, used by both layouts below. The alt-text
- * rule is the reason this is factored out rather than written twice: an
- * unconfirmed mark must never name its organisation, and a second copy of that
- * conditional is a second place for it to be got wrong.
- */
-function Mark({ item, className, sizes }: { item: Credential; className: string; sizes: string }) {
-  return (
-    <Image
-      src={item.logo!}
-      alt={item.confirmed ? item.label : "Logo placeholder"}
-      width={540}
-      height={540}
-      sizes={sizes}
-      className={className}
-    />
-  );
-}
-
 /**
  * `marks` defaults to the firm's whole set. A bio passes that attorney's own,
  * via `attorneyMarks`, because eight marks under one person's photograph reads
@@ -51,49 +31,26 @@ function Mark({ item, className, sizes }: { item: Credential; className: string;
  * lines up with the cards above it, which is what it was built for. A subset
  * distributed the same way is what the client saw on a bio: two or three marks
  * flung to opposite ends of a 1,320px row with a third of a screen of white
- * between them. So the row spreads only when it is the complete set, and
- * otherwise centres on a real gap. Deriving it means a caller cannot get the
- * combination wrong, and there is no third state to reason about.
+ * between them. So the row spreads only when it is the complete set. Deriving
+ * it means a caller cannot get the combination wrong, and there is no third
+ * state to reason about.
+ *
+ * A SUBSET STARTS AT THE LEFT MARGIN FROM md, and centres below it. The left
+ * edge is not an absence of centring, it is an alignment: this wrapper carries
+ * the same max-w-[1400px] and px-6/px-10 as every content column on the page,
+ * so the first mark's left edge lands on the same vertical as the heading above
+ * it and the copy below. Centred, a short row floats free of both.
+ *
+ * On a phone there is no column to align to, only a viewport the row nearly
+ * fills, so it centres. md is the 768px line CLAUDE.md names as this site's
+ * mobile breakpoint rather than a number picked here.
  */
 export default function CredentialStrip({
   marks = credentialMarks,
-  inline = false,
 }: {
   marks?: Credential[];
-  /**
-   * Render as a plate inside a column rather than as a full-bleed band.
-   *
-   * WHY IT IS A LIGHT PLATE AND NOT MARKS DROPPED STRAIGHT ONTO THE NAVY. All
-   * eight files are PNGs WITH TRANSPARENCY, and the artwork inside them is dark:
-   * the Hillsborough County Bar seal is black line work, the board certification
-   * mark sets "CRIMINAL TRIAL" in navy, and the Florida Justice Association
-   * wordmark is near-black. On the navy field those do not read as understated,
-   * they disappear. A credential nobody can make out is not a credential, and
-   * recolouring somebody else's trademark to fit our palette is not an option
-   * either. So the plate carries the light ground the marks were drawn for.
-   */
-  inline?: boolean;
 }) {
   if (marks.length === 0) return null;
-
-  if (inline) {
-    return (
-      <ul
-        data-credential-plate
-        className="flex flex-wrap items-center gap-x-7 gap-y-5 bg-linen px-6 py-5 sm:gap-x-9 sm:px-7 sm:py-6"
-      >
-        {marks.map((item, index) => (
-          <li key={index} className="flex">
-            {/* Smaller than the band's 72/104px because this sits in a column
-                rather than across a page, and larger than the 56px the band
-                started at, which was too small to read the lettering set around
-                these seals' rims. */}
-            <Mark item={item} className="h-14 w-auto sm:h-16" sizes="64px" />
-          </li>
-        ))}
-      </ul>
-    );
-  }
 
   const spread = marks.length === credentialMarks.length;
 
@@ -133,7 +90,7 @@ export default function CredentialStrip({
         className={
           spread
             ? "mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-0 gap-y-8 px-6 lg:justify-between lg:gap-x-6 lg:px-10"
-            : "mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-10 gap-y-8 px-6 sm:gap-x-14 lg:gap-x-16 lg:px-10"
+            : "mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-10 gap-y-8 px-6 sm:gap-x-14 md:justify-start lg:gap-x-16 lg:px-10"
         }
       >
         {marks.map((item, index) => (
@@ -175,8 +132,11 @@ export default function CredentialStrip({
 
               All eight are square, so one intrinsic ratio describes the set.
             */}
-            <Mark
-              item={item}
+            <Image
+              src={item.logo!}
+              alt={item.confirmed ? item.label : "Logo placeholder"}
+              width={540}
+              height={540}
               sizes="(min-width: 1024px) 104px, 72px"
               className="h-[72px] w-auto lg:h-[104px]"
             />
