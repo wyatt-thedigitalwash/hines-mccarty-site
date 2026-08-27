@@ -18,7 +18,6 @@ import { join } from "node:path";
 import { STATUTES } from "../src/lib/statutes.ts";
 import {
   namedSectionCount,
-  resolveStatuteRefs,
   singleSourceUrl,
 } from "../src/lib/statute-links.ts";
 import { charges, guides, injuryPages } from "../src/lib/site.ts";

@@ -45,10 +45,6 @@
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 
-/** Build output directory. Verification builds use NEXT_DIST_DIR so a running
- * `next dev` keeps .next to itself. */
-const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
-
 const DECISIONS = "docs/build/DECISIONS.md";
 const HUNT_LIST = "docs/research/HUNT-LIST.md";
 
