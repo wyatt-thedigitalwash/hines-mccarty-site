@@ -37,8 +37,21 @@ export default function CredentialStrip() {
           quarter-width cells already supply the spacing; adding gap on top
           would push the fourth item onto the next line. From lg the items go
           back to sizing to their own content, so a wide wordmark is never
-          squeezed into a fixed column. */}
-      <ul className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-0 gap-y-8 px-6 lg:gap-x-14 lg:px-10">
+          squeezed into a fixed column.
+
+          FROM lg THE ROW IS justify-between, NOT justify-center. This wrapper
+          is already the same max-w-[1400px] with the same px-10 as the card
+          grid below it, but centring eight fixed-width marks left them
+          occupying about 1,224px of a 1,320px row, so the strip sat inside the
+          cards rather than lining up with them. Distributing puts the first
+          mark's left edge and the last mark's right edge on the same verticals
+          as the outer cards.
+
+          gap-x-6 is a floor rather than the spacing: justify-between hands out
+          the remaining space, which lands the real gaps near 70px. The floor
+          only matters if a wider mark is ever added, where it stops two marks
+          touching. */}
+      <ul className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-0 gap-y-8 px-6 lg:justify-between lg:gap-x-6 lg:px-10">
         {credentialMarks.map((item, index) => (
           /* Keyed by index, NOT by label. React keys are serialised into the
              RSC flight payload embedded in the HTML, so a label key would put
