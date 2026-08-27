@@ -1401,3 +1401,66 @@ an independent read of whether a partly filled form reads as a forecast to a
 frightened person, which D25 says is exactly the judgment an independent reader
 should test. The route is built so `check:routes` sweep A resolves the href, and
 sweep B fails if an unpublished card ever renders a link to it.
+
+### D39. Charge pages are ordered by the reader's question, and the order-similarity trigger is retired to allow it
+
+**2026-08-27. Client direction, after reading a charge page as a reader.**
+
+Charge pages were ordered by legal significance. `ChargePage.sections` says so:
+"the body, ordered by significance rather than by a fixed sequence." On
+`/criminal-defense/dui-defense` that put a statutory amendment first, because
+the October 2025 refusal provision is the most consequential change in Florida
+DUI law in years, and nobody's first question after an arrest.
+
+The site already declares six reader questions in `READER_QUESTIONS`, and every
+section already records which ones it answers. The page scattered them:
+
+| answers | sections |
+| --- | --- |
+| facing | 0, 3, 4 |
+| now | 1, 2, 6 |
+| next | 1, 5 |
+
+A reader asking what they are facing had to read section 0, skip two dense
+sections about licence deadlines, reach the penalty ladder at 3, and continue to
+4. Nobody does that.
+
+**The order was not only editorial. A gate was pushing the pages apart.**
+`check:pages` failed any two pages whose section-*kind* sequences were 80% or
+more similar by edit distance, on the reasoning that the same blocks doing the
+same jobs in the same succession is what a form with the nouns swapped looks
+like. Measured across the 28 written pages before this change:
+
+```
+order as written                worst pair 0.78    0 of 378 over the limit
+reordered by reader question    worst pair 0.91   24 of 378 over
+```
+
+0.78 against a limit of 0.80. The section order was being chosen, in part, to
+stay two points under a gate. That is the gate deciding the page.
+
+**The decision.** Order every charge page by the reader's question, in the order
+a person in trouble actually asks them: what am I facing, what do I do right
+now, what happens next and when, what this does to my record, whether it can
+ever be sealed, who to call. Note this is NOT the order `READER_QUESTIONS`
+declares, which puts `next` before `now`. With a hard 10-day deadline on a DUI
+licence case, what to do now outranks what happens later.
+
+Retire the order-similarity trigger. It was right while nothing else determined
+the order. Once the sequence is the intended shape of every charge page, two
+pages sharing it is the design working rather than evidence of a copy.
+
+**What still catches a clone, none of it relaxed:** an identical section id
+sequence, an IDENTICAL kind sequence, heading overlap, and prose duplication.
+Identity is a different claim from similarity and it survives reader-ordering:
+the reordered corpus reaches 0.91 at worst, so no pair is identical, and any
+pair that ever becomes identical still fails. A new self-test asserts that
+backstop directly rather than assuming it.
+
+**The self-test that relied on order alone is now a CONTROL.** Two pages sharing
+a block succession with different ids and different headings must PASS, because
+that is the shape two honestly reader-ordered pages take. If it starts failing,
+something restored the trigger rather than found a real clone.
+
+**Applied to DUI only so far.** The remaining 27 follow once the shape is
+confirmed on screen.

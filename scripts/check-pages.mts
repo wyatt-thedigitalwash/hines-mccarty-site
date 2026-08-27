@@ -393,13 +393,35 @@ function interchangeable(x: ChargePage, y: ChargePage): Interchange {
     a.kinds.length >= 3 && b.kinds.length >= 3
       ? 1 - editDistance(a.kinds, b.kinds) / longest
       : 0;
-  const ORDER_LIMIT = 0.8;
+  /*
+    ORDER SIMILARITY IS MEASURED AND REPORTED, AND NO LONGER FIRES. D39.
+
+    It used to fail any pair at or above 0.80, on the reasoning that the same
+    blocks doing the same jobs in the same succession is what a form with the
+    nouns swapped looks like. That was right while nothing else determined the
+    order, and it stopped being right the moment the pages were deliberately
+    ordered by the reader's question: What am I facing, what do I do now, what
+    happens next, what does it do to my record, who do I call. Once that
+    sequence is the intended shape of every charge page, two pages sharing it
+    is the design working, not evidence of a copy.
+
+    It was also SHAPING the pages rather than only judging them. Measured
+    across the 28 written pages at the moment of this change:
+
+      order as written                worst pair 0.78    0 of 378 over the limit
+      reordered by reader question    worst pair 0.91   24 of 378 over
+
+    0.78 against a limit of 0.80. The section order was being chosen, in part,
+    to stay two points under a gate, which is the gate deciding the page.
+
+    WHAT STILL CATCHES A CLONE, and none of it is relaxed: an identical section
+    id sequence, an IDENTICAL kind sequence, heading overlap, and prose
+    duplication. Identity is a different claim from similarity and it survives
+    reader-ordering: at the worst the reordered corpus reaches 0.91, so no pair
+    is identical, and any pair that ever becomes identical still fails.
+  */
   const headingOverlap = jaccard(a.headings, b.headings);
   const reasons: string[] = [];
-  if (orderSimilarity >= ORDER_LIMIT && !kindsSame)
-    reasons.push(
-      `section kinds run in ${(orderSimilarity * 100).toFixed(0)}% the same order (limit ${(ORDER_LIMIT * 100).toFixed(0)}%)`,
-    );
   if (idsSame) reasons.push(`section id sequence contained (${a.ids.join(">")})`);
   if (kindsSame)
     reasons.push(`identical section kind sequence (${a.kinds.join(">")})`);
@@ -567,13 +589,43 @@ console.log("Page-gate self-tests");
   seqA.sections = order.map((k, i) => ({ id: `x${i}`, heading: `Alpha ${i}`, kind: k as never }));
   seqB.sections = order.filter((_, i) => i !== 4).map((k, i) => ({ id: `y${i}`, heading: `Beta ${i}`, kind: k as never }));
   const seqR = interchangeable(seqA, seqB);
-  if (!seqR.yes) {
+  // CONTROL, INVERTED BY D39. This pair is the same succession of blocks with
+  // one dropped, with DIFFERENT ids and DIFFERENT headings. It used to fail on
+  // order similarity alone. It must now pass, because that is exactly the shape
+  // two honestly reader-ordered pages take, and a gate that fails it would make
+  // the reader-first ordering unbuildable. If this ever starts failing again,
+  // something restored the order trigger rather than found a real clone.
+  if (seqR.yes) {
     fail(
-      `structural check does NOT fire on the same block succession with one ` +
-        `section dropped (order similarity ${(seqR.orderSimilarity * 100).toFixed(0)}%).`,
+      `CONTROL: the structural check fired on two pages that share a block ` +
+        `succession but have different ids and different headings ` +
+        `(order similarity ${(seqR.orderSimilarity * 100).toFixed(0)}%, reasons: ` +
+        `${seqR.reasons.join("; ")}). D39 retired that trigger.`,
     );
   } else {
-    console.log(`  ok    FAILS on the same succession minus one block (${seqR.reasons[0]})`);
+    console.log(
+      `  ok    CONTROL: same succession, different ids and headings, does NOT fire ` +
+        `(order similarity ${(seqR.orderSimilarity * 100).toFixed(0)}%, D39)`,
+    );
+  }
+
+  // AND THE BACKSTOP THAT REPLACED IT. An IDENTICAL kind sequence still fires,
+  // with different ids and different headings, because identity is a different
+  // claim from similarity and no honest pair of pages reaches it.
+  const idA = mk("idA");
+  const idB = mk("idB");
+  const same = ["prose", "penalties", "timeline", "guidance", "bullets", "statute"];
+  idA.sections = same.map((k, i) => ({ id: `p${i}`, heading: `Alpha subject ${i}`, kind: k as never }));
+  idB.sections = same.map((k, i) => ({ id: `q${i}`, heading: `Beta subject ${i}`, kind: k as never }));
+  const idR = interchangeable(idA, idB);
+  if (!idR.yes) {
+    fail(
+      "structural check does NOT fire on an IDENTICAL kind sequence with " +
+        "different ids and headings. That is the backstop D39 leaned on when it " +
+        "retired the order-similarity trigger, so it has to hold.",
+    );
+  } else {
+    console.log(`  ok    an identical kind sequence still fires (${idR.reasons.join("; ")})`);
   }
 
   // The cheapest evasion found by the gate testing: clone a page, append one
