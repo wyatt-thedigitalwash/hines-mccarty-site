@@ -30,7 +30,13 @@ export default function CredentialStrip() {
        dissolve into the white section beneath it on the section and bio pages,
        but the row of marks already reads as its own band and the rule only drew
        a seam across the page. */
-    <div className="bg-white py-8 lg:py-9">
+    /* THE PADDING IS THE SPACING ON BOTH SIDES OF THE ROW. Nothing above or
+       below this component contributes any: the hero's sweep ends on its own
+       bottom edge, and the section beneath drops its top padding because it is
+       white too. So these two numbers are the whole gap, which is why they are
+       doubled from the py-8 lg:py-9 they started at rather than split between
+       here and a neighbour. 64px, 72px from lg. */
+    <div className="bg-white py-16 lg:py-18">
       {/* Below lg each item takes a quarter of the row, which lays eight marks
           out as an even 4 + 4. Left to wrap on its own the row broke 5 + 3 and
           looked accidental. Horizontal gap is zero at that size because the

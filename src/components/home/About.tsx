@@ -43,9 +43,9 @@ export default function About() {
       section's py-32, 164px, which read as the logos having been pushed up
       against the sweep with the rest of the screen left empty.
 
-      The strip now owns the space on both of its sides, so the gap is 36px
-      above and 36px below at lg, 32px at every smaller width, and the row of
-      marks reads as one band rather than as the tail of the hero.
+      The strip now owns the space on both of its sides. If the gap around the
+      marks needs changing, change it there, in CredentialStrip's own py; there
+      is no second value here to keep in step with it.
     */
     <section data-bg="light" className="bg-white pb-24 text-navy lg:pb-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
