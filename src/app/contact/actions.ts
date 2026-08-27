@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { firm } from "@/lib/site";
+import { contactDelivery } from "@/lib/contact-delivery";
 
 /**
  * Contact form submission.
@@ -13,6 +14,10 @@ import { firm } from "@/lib/site";
  * goes nowhere. If Resend is not configured, this returns an explicit error
  * telling them to call, rather than a success message for a message nobody
  * received.
+ *
+ * WHETHER IT IS CONFIGURED IS NOT DECIDED HERE. It comes from
+ * src/lib/contact-delivery.ts, which the page's metadata and the sitemap read
+ * too, so "is the form live" has one answer rather than three that can drift.
  *
  * [NEEDS: verified Resend domain] SITE.md launch blocker.
  * [NEEDS: confirmed intake address] firm.email is a placeholder.
@@ -68,10 +73,9 @@ export async function submitContact(
     };
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const from = process.env.CONTACT_FROM_EMAIL;
+  const delivery = contactDelivery();
 
-  if (!apiKey || !from) {
+  if (!delivery) {
     // Not an exception. The user gets a usable next step, and the server log
     // says exactly what is missing.
     console.error(
@@ -84,9 +88,9 @@ export async function submitContact(
   }
 
   try {
-    const resend = new Resend(apiKey);
+    const resend = new Resend(delivery.apiKey);
     const { error } = await resend.emails.send({
-      from,
+      from: delivery.from,
       to: firm.email,
       replyTo: email || undefined,
       subject: `Website enquiry: ${name}`,

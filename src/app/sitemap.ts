@@ -11,6 +11,7 @@ import {
   silos,
   siteUrl,
 } from "@/lib/site";
+import { contactCanDeliver } from "@/lib/contact-delivery";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
@@ -20,6 +21,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
+    // /contact enters the sitemap exactly when its form can deliver, reading
+    // the same function its metadata reads for `noindex`. Listing a page here
+    // and telling Google not to index it is the mismatch the charge-page
+    // comment below warns about, and this is the same rule applied to a launch
+    // condition rather than to an editorial one: set RESEND_API_KEY and
+    // CONTACT_FROM_EMAIL and both signals flip together, with no code change.
+    ...(contactCanDeliver()
+      ? [
+          {
+            url: `${siteUrl}/contact`,
+            changeFrequency: "monthly" as const,
+            priority: 0.8,
+          },
+        ]
+      : []),
     // /about entered the sitemap 2026-08-27, when its noindex came off. It had
     // been excluded for the same reason the placeholder bios are: a page of
     // [NEEDS] markers costs E-E-A-T rather than building it. Two of its four
