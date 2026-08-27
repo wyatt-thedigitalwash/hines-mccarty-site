@@ -4,7 +4,7 @@ import { capabilities, charges, firm } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import CredentialStrip from "@/components/CredentialStrip";
 import PageHero from "@/components/PageHero";
-import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
+import { CRIMINAL_HUB_PHOTO } from "@/lib/hero-photos";
 import ChargeIndex from "@/components/cases/ChargeIndex";
 import CallToAction from "@/components/CallToAction";
 
@@ -25,7 +25,7 @@ export default function CasesWeDefendPage() {
           hero: it has to sit inside the navy and outside the padded wrapper. */}
       <PageHero
         title="Cases we defend."
-        photo={SITE_HERO_PHOTO}
+        photo={CRIMINAL_HUB_PHOTO}
         bleed={<CredentialStrip />}
       >
         <p>
