@@ -77,9 +77,19 @@ export function BioHeader({ attorney }: { attorney: Attorney }) {
 }
 
 /* Section 2. What this attorney handles and how they work a case. */
+/*
+  NO TOP PADDING: the credential strip immediately above is a WHITE band and
+  this section is white, so CLAUDE.md's rule applies and the second of two
+  same-coloured neighbours drops its top padding.
+
+  It was py-20 lg:py-28, which stacked 112px on top of the strip's own 72px and
+  left 184px of blank white between the marks and this heading. The strip now
+  owns the gap on both of its sides, 72px each at lg, so the row reads as its
+  own band rather than as something abandoned mid-page.
+*/
 export function BioOverview({ attorney }: { attorney: Attorney }) {
   return (
-    <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
+    <section data-bg="white" className="bg-white pb-20 text-navy lg:pb-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <h2 className="font-display text-4xl leading-tight sm:text-5xl">
           Overview
