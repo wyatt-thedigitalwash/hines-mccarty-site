@@ -256,17 +256,19 @@ export function BioCredentials({ attorney }: { attorney: Attorney }) {
             )}
           </Field>
 
-          <Field label="Prior roles">
-            {c?.priorRoles?.length ? (
+          {/* Prior roles render only when there are some, with no [NEEDS]
+              branch, the same rule as memberships and board certification: an
+              absent prior role is not a gap in the bio, it is a lawyer who went
+              straight into practice. See `priorRoles` in site.ts. */}
+          {c?.priorRoles?.length ? (
+            <Field label="Prior roles">
               <ul className="space-y-2">
                 {c.priorRoles.map((role) => (
                   <li key={role}>{role}</li>
                 ))}
               </ul>
-            ) : (
-              <Needs>prior roles</Needs>
-            )}
-          </Field>
+            </Field>
+          ) : null}
 
           {/* Memberships render only when confirmed. An unconfirmed membership
               is not a credential, and on a confirmed bio the section is omitted

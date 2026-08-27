@@ -166,6 +166,22 @@ export type AttorneyCredentials = {
   barAdmission?: { state: string; number?: string; admitted: string };
   courts?: string[];
   education?: AttorneyEducation[];
+  /**
+   * ABSENT MEANS NONE TO SHOW, NOT UNKNOWN. This used to render a visible
+   * [NEEDS: prior roles] whenever it was empty, which put scaffolding on David
+   * Hines's and Maria Pavlidis's bios for a field that is simply not part of
+   * their story: one went into private practice, the other has run her own firm
+   * since 2003.
+   *
+   * Same reasoning the board certification field already uses. Most lawyers are
+   * not board certified and most did not hold a prior role worth listing, so
+   * marking the absence implies something is MISSING rather than not
+   * applicable, which is a worse statement than saying nothing.
+   *
+   * The cost is real and accepted: a future attorney whose prior roles are
+   * genuinely unknown will render nothing rather than a marker. Memberships and
+   * board certifications already make that trade.
+   */
   priorRoles?: string[];
   /** Confirmed memberships only. An unconfirmed membership is not a credential. */
   memberships?: string[];
@@ -397,8 +413,19 @@ export const attorneys: Attorney[] = [
       ],
       // [NEEDS: the year she was first certified in Criminal Trial Law]
       boardCertifications: [{ area: "Criminal Trial Law" }],
-      // [NEEDS: education, school, degree, year] -- none was supplied.
-      // [NEEDS: prior roles] -- none was supplied.
+      // Client-supplied 2026-08-27. The school only: no degree year came with
+      // it, and she was admitted in 2003, so a J.D. year would be a guess with
+      // a plausible-looking number attached. `year` is optional and the field
+      // renders without it.
+      education: [
+        {
+          credential: "Juris Doctor",
+          school: "University of Florida, Fredric G. Levin College of Law",
+        },
+      ],
+      // NO prior roles. Client direction 2026-08-27 was to hide the field, so
+      // it is absent rather than empty. See the note on `priorRoles` in
+      // AttorneyCredentials for why absence renders nothing here.
       memberships: ["Hillsborough County Bar Association"],
     },
     ownFirmUrl: "https://pavlidislawfirm.com/",
