@@ -18,8 +18,15 @@ import { attorneys } from "@/lib/site";
  * showing the same four people in two different card designs is how a site
  * starts looking assembled rather than designed.
  *
- * Four across from lg, two by two from sm, one up on a phone. The `sizes` hint
- * matches those breakpoints so a phone does not fetch a 20rem portrait.
+ * Four across from lg, two by two everywhere below it, including a phone. There
+ * is no one-up breakpoint: a single column turned four attorneys into four
+ * full-width blocks and roughly three screens of scrolling, which buries the
+ * fourth and makes the point of the section (there are four of us) something
+ * you have to scroll to discover rather than see.
+ *
+ * Two columns on a 360px phone leaves each card near 160px wide, so the padding
+ * and type step down below sm. The `sizes` hint follows the same breakpoints so
+ * a phone fetches a half-width portrait rather than a 20rem one.
  */
 export default function About() {
   return (
@@ -44,36 +51,36 @@ export default function About() {
           </div>
         </div>
 
-        <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:mt-16 lg:grid-cols-4">
+        <ul className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 lg:mt-16 lg:grid-cols-4">
           {attorneys.map((attorney) => (
             <li key={attorney.slug}>
               <Link
                 href={`/attorneys/${attorney.slug}`}
-                className="group flex h-full flex-col border border-navy/20 p-6 transition-colors hover:border-navy"
+                className="group flex h-full flex-col border border-navy/20 p-4 transition-colors hover:border-navy sm:p-6"
               >
                 <Portrait
                   attorney={attorney}
                   className="aspect-4/5 w-full"
-                  sizes="(min-width: 1024px) 20rem, (min-width: 640px) 45vw, 90vw"
+                  sizes="(min-width: 1024px) 20rem, 45vw"
                 />
 
-                <h3 className="mt-6 font-display text-2xl leading-tight transition-colors group-hover:text-bronze lg:text-3xl">
+                <h3 className="mt-4 font-display text-xl leading-tight transition-colors group-hover:text-bronze sm:mt-6 sm:text-2xl lg:text-3xl">
                   {attorney.name}
                 </h3>
 
                 {/* No role label renders until the client confirms it, same
                     rule as the attorneys index. */}
-                <p className="mt-2 font-heading text-sm uppercase tracking-wide text-navy/50">
+                <p className="mt-2 font-heading text-xs uppercase tracking-wide text-navy/50 sm:text-sm">
                   {attorney.role ?? <Needs>role and title</Needs>}
                 </p>
 
-                <p className="mt-4 flex-1 text-sm leading-snug text-navy/65">
+                <p className="mt-3 flex-1 text-sm leading-snug text-navy/65 sm:mt-4">
                   {attorney.concentration ?? (
                     <Needs>one-line concentration</Needs>
                   )}
                 </p>
 
-                <span className="mt-6 inline-block font-heading text-sm font-medium text-navy underline decoration-1 underline-offset-4 transition-colors group-hover:text-bronze">
+                <span className="mt-4 inline-block font-heading text-sm font-medium text-navy underline decoration-1 underline-offset-4 transition-colors group-hover:text-bronze sm:mt-6">
                   Read bio
                 </span>
               </Link>
