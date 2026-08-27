@@ -44,6 +44,11 @@
  */
 import { readFileSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
+import {
+  attorneys,
+  attorneyMarks,
+  credentialMarks,
+} from "../src/lib/site.ts";
 
 const DECISIONS = "docs/build/DECISIONS.md";
 const HUNT_LIST = "docs/research/HUNT-LIST.md";
@@ -304,6 +309,104 @@ console.log("\nR3: cross-references resolve");
             `${[...new Set(suppressed)].join(", ")}. Printed, not silent: an exemption ` +
             `nobody can see is how a rail gets switched off one line at a time.`
           : ""),
+    );
+}
+
+/**
+ * R4: every attorney membership either resolves to a mark or is a declared
+ * exception.
+ *
+ * THE SILENT FAILURE THIS GUARDS. A bio's credential strip is derived by
+ * matching an attorney's membership strings against the marks' labels. Nothing
+ * about that match is visible: rewording "Hillsborough County Bar Association"
+ * on one attorney's record drops that attorney's mark from their bio, the page
+ * still builds, the strip still renders, and it renders one seal short. The
+ * page cannot tell you a credential is MISSING, which is this project's oldest
+ * defect shape.
+ *
+ * So the unmatched set is asserted to be exactly what it is known to be, rather
+ * than merely small. A rename moves a string into the unmatched set and fails
+ * here.
+ *
+ * THE ONE STANDING EXCEPTION is Lily McCarty's co-chair role in the Criminal
+ * Law Section OF THE HILLSBOROUGH COUNTY BAR ASSOCIATION. There is a Criminal
+ * Law Section mark on the strip, and it belongs to THE FLORIDA BAR, a different
+ * organisation. It must not resolve, and this records that it does not on
+ * purpose rather than by accident.
+ */
+console.log("\nR4: attorney memberships resolve to marks");
+{
+  const EXPECTED_UNMATCHED = [
+    "Criminal Law Section, Hillsborough County Bar Association, co-chair for the 2025-26 bar year",
+  ];
+
+  const unmatched: string[] = [];
+  let ambiguous = 0;
+  for (const a of attorneys) {
+    for (const held of a.credentials?.memberships ?? []) {
+      const hits = credentialMarks.filter((m) => {
+        const names = m.heldWhen ?? [m.label];
+        return names.some((n) => held === n || held.startsWith(`${n},`));
+      });
+      if (hits.length === 0) unmatched.push(held);
+      if (hits.length > 1) {
+        ambiguous++;
+        fail(`"${held}" resolves to ${hits.length} marks: ${hits.map((h) => h.label).join(", ")}`);
+      }
+    }
+  }
+
+  const unexpected = unmatched.filter((u) => !EXPECTED_UNMATCHED.includes(u));
+  const missing = EXPECTED_UNMATCHED.filter((e) => !unmatched.includes(e));
+  for (const u of unexpected)
+    fail(
+      `membership "${u}" matches no credential mark and is not a declared exception. ` +
+        `Either a label was reworded and a mark has silently vanished from that ` +
+        `attorney's bio, or this is a real organisation with no mark and belongs in ` +
+        `EXPECTED_UNMATCHED with a reason.`,
+    );
+  for (const m of missing)
+    fail(
+      `"${m}" was expected NOT to resolve and now does. If the Hillsborough County ` +
+        `Bar Association's Criminal Law Section now resolves to The Florida Bar's ` +
+        `mark, a bio is claiming membership of the wrong organisation.`,
+    );
+
+  // SELF-TESTS. Both directions, because a matcher that finds nothing passes
+  // the "no unexpected matches" half of this trivially.
+  const t = (name: string, cond: boolean) =>
+    cond ? console.log(`  ok    ${name}`) : fail(`SELF-TEST: ${name}`);
+
+  const bySlug = (slug: string) => attorneys.find((a) => a.slug === slug)!;
+  t("a plain membership resolves (Colton Trina holds 3 marks, not 0)",
+    attorneyMarks(bySlug("colton-trina")).length === 3);
+  t("a qualified membership resolves (Lily McCarty, HCACDL board of directors)",
+    attorneyMarks(bySlug("lily-mccarty")).some((m) =>
+      m.label === "Hillsborough County Association of Criminal Defense Lawyers"));
+  t("a reversed-order name resolves through heldWhen (David Hines, Florida Bar sections)",
+    attorneyMarks(bySlug("david-hines")).filter((m) => m.label.startsWith("The Florida Bar")).length === 2);
+  t("board certification resolves by certification, not membership (Maria Pavlidis)",
+    attorneyMarks(bySlug("maria-pavlidis")).some((m) => m.kind === "certification"));
+  t("an attorney WITHOUT a certification does not get the mark (Colton Trina)",
+    !attorneyMarks(bySlug("colton-trina")).some((m) => m.kind === "certification"));
+  t("nobody gets the whole firm strip on their bio",
+    attorneys.every((a) => attorneyMarks(a).length < credentialMarks.length));
+
+  if (!unexpected.length && !missing.length && !ambiguous)
+    console.log(
+      `  ok    every membership across ${attorneys.length} attorneys resolves to exactly ` +
+        `one mark, except ${EXPECTED_UNMATCHED.length} declared exception`,
+    );
+
+  // Marks nobody holds are REPORTED, not failed. A firm-wide strip may legitimately
+  // carry one; silence about it is the thing to avoid.
+  const held = new Set(attorneys.flatMap((a) => attorneyMarks(a).map((m) => m.label)));
+  const orphan = credentialMarks.filter((m) => !held.has(m.label));
+  if (orphan.length)
+    console.log(
+      `  ..    ${orphan.length} mark(s) on the firm strip belong to no attorney record: ` +
+        `${orphan.map((m) => m.label).join(", ")}. Either a membership is unrecorded or ` +
+        `the firm should not be showing the mark.`,
     );
 }
 

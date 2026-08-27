@@ -10,6 +10,7 @@ import Needs from "@/components/Needs";
 import Portrait from "./Portrait";
 import CallToAction from "@/components/CallToAction";
 import CredentialStrip from "@/components/CredentialStrip";
+import { attorneyMarks } from "@/lib/site";
 
 /**
  * The five sections of an attorney bio. One template drives all four bios; a
@@ -69,7 +70,8 @@ export function BioHeader({ attorney }: { attorney: Attorney }) {
       {/* Credential strip on the hero's bottom edge. Full bleed, so the bottom
           padding lives on the content wrapper above rather than on the section,
           which would inset the strip. */}
-      <CredentialStrip />
+      {/* This attorney's marks, not the firm's eight. See attorneyMarks. */}
+      <CredentialStrip marks={attorneyMarks(attorney)} />
     </section>
   );
 }

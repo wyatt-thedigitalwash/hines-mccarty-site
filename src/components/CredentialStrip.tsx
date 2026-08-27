@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { credentialMarks } from "@/lib/site";
+import { credentialMarks, type Credential } from "@/lib/site";
 
 /**
  * The credential strip on the bottom edge of a navy hero: home, the section
@@ -22,8 +22,27 @@ import { credentialMarks } from "@/lib/site";
  * full width without the page naming a certification or membership the firm has
  * not established. See `credentialMarks` in src/lib/site.ts.
  */
-export default function CredentialStrip() {
-  if (credentialMarks.length === 0) return null;
+/**
+ * `marks` defaults to the firm's whole set. A bio passes that attorney's own,
+ * via `attorneyMarks`, because eight marks under one person's photograph reads
+ * as eight credentials belonging to that person.
+ *
+ * SPREAD IS DERIVED, NOT PASSED. The full row is distributed edge to edge so it
+ * lines up with the cards above it, which is what it was built for. A subset
+ * distributed the same way is what the client saw on a bio: two or three marks
+ * flung to opposite ends of a 1,320px row with a third of a screen of white
+ * between them. So the row spreads only when it is the complete set, and
+ * otherwise centres on a real gap. Deriving it means a caller cannot get the
+ * combination wrong, and there is no third state to reason about.
+ */
+export default function CredentialStrip({
+  marks = credentialMarks,
+}: {
+  marks?: Credential[];
+}) {
+  if (marks.length === 0) return null;
+
+  const spread = marks.length === credentialMarks.length;
 
   return (
     /* White band, and no borders. It carried a bottom rule so it would not
@@ -57,13 +76,26 @@ export default function CredentialStrip() {
           the remaining space, which lands the real gaps near 70px. The floor
           only matters if a wider mark is ever added, where it stops two marks
           touching. */}
-      <ul className="mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-0 gap-y-8 px-6 lg:justify-between lg:gap-x-6 lg:px-10">
-        {credentialMarks.map((item, index) => (
+      <ul
+        className={
+          spread
+            ? "mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-0 gap-y-8 px-6 lg:justify-between lg:gap-x-6 lg:px-10"
+            : "mx-auto flex max-w-[1400px] flex-wrap items-center justify-center gap-x-10 gap-y-8 px-6 sm:gap-x-14 lg:gap-x-16 lg:px-10"
+        }
+      >
+        {marks.map((item, index) => (
           /* Keyed by index, NOT by label. React keys are serialised into the
              RSC flight payload embedded in the HTML, so a label key would put
              every unconfirmed organisation's name into the page even though
              nothing renders it. The list is static and never reorders. */
-          <li key={index} className="flex basis-1/4 justify-center lg:basis-auto">
+          <li
+            key={index}
+            className={
+              spread
+                ? "flex basis-1/4 justify-center lg:basis-auto"
+                : "flex justify-center"
+            }
+          >
             {/*
               Marks sit at one height so they match optically regardless of
               aspect ratio, and at full opacity: on white they are not

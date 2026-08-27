@@ -9322,6 +9322,21 @@ export type Credential = {
   label: string;
   kind: "court" | "certification" | "membership";
   /**
+   * Which membership strings on an attorney's record mean that attorney holds
+   * this mark. Defaults to `[label]`, matched exactly or up to a trailing
+   * qualifier, so "Hillsborough County Association of Criminal Defense
+   * Lawyers, board of directors" resolves.
+   *
+   * IT EXISTS FOR THE TWO FLORIDA BAR BODIES, whose marks are labelled "The
+   * Florida Bar Criminal Law Section" while the attorney records name them
+   * "Criminal Law Section, The Florida Bar". Same organisation, opposite word
+   * order, and no amount of substring cleverness distinguishes that from Lily
+   * McCarty's "Criminal Law Section, Hillsborough County Bar Association",
+   * which is a DIFFERENT body and must not resolve to the Florida Bar mark.
+   * An explicit list is the only version of this that cannot get that wrong.
+   */
+  heldWhen?: string[];
+  /**
    * Path under /public to the organization's mark. Renders instead of the
    * label when present, with the label as its alt text.
    *
@@ -9478,12 +9493,14 @@ export const credentials: Credential[] = [
     label: "The Florida Bar Criminal Law Section",
     kind: "membership",
     confirmed: true,
+    heldWhen: ["Criminal Law Section, The Florida Bar"],
     logo: "/logos/the-florida-bar-criminal-law-section.png",
   },
   {
     label: "The Florida Bar Young Lawyers Division",
     kind: "membership",
     confirmed: true,
+    heldWhen: ["Young Lawyers Division, The Florida Bar"],
     logo: "/logos/the-florida-bar-young-lawyers-division.png",
   },
 ];
@@ -9505,6 +9522,43 @@ export const credentials: Credential[] = [
  * written permission to use each mark) are both answered.
  */
 export const credentialMarks = credentials.filter((c) => c.logo);
+
+/**
+ * The marks ONE attorney holds, for their own bio page.
+ *
+ * The firm-wide strip on the home page, /attorneys and the practice hubs shows
+ * all eight, which is correct there: it is the firm's row. On a bio it was
+ * wrong, and quietly so. Eight marks under one person's photograph reads as
+ * eight credentials belonging to that person, and for three of the four that
+ * included a board certification they do not hold. Rule 4-7.14(a)(4) governs
+ * how a certification may be stated; showing someone else's under your own name
+ * is the same misstatement with no words in it.
+ *
+ * DERIVED FROM THE MEMBERSHIP RECORDS, not a second hand-written list. A second
+ * list is a second thing to keep true, and the one that goes stale is always
+ * the one nobody renders.
+ *
+ * A certification mark resolves through `boardCertifications` rather than
+ * through memberships, because that is where the fact lives.
+ *
+ * SOME MARKS RESOLVE TO NOBODY, and that is a finding rather than a bug in this
+ * function. The National Association of Criminal Defense Lawyers mark is on the
+ * firm-wide strip and no attorney record claims NACDL membership, so it appears
+ * on no bio. Either an attorney is a member and their record is incomplete, or
+ * the firm should not be showing the mark.
+ */
+export const attorneyHoldsMark = (a: Attorney, mark: Credential): boolean => {
+  if (mark.kind === "certification") {
+    return Boolean(a.credentials?.boardCertifications?.length);
+  }
+  const names = mark.heldWhen ?? [mark.label];
+  return (a.credentials?.memberships ?? []).some((held) =>
+    names.some((name) => held === name || held.startsWith(`${name},`)),
+  );
+};
+
+export const attorneyMarks = (a: Attorney): Credential[] =>
+  credentialMarks.filter((mark) => attorneyHoldsMark(a, mark));
 
 export const coreValues = [
   {
