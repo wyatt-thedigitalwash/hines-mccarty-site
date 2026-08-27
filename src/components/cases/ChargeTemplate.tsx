@@ -1,5 +1,6 @@
+import { Fragment } from "react";
 import Link from "next/link";
-import { type ChargePage, chargeHref, chargeTrail } from "@/lib/site";
+import { type ChargePage, chargeHref, chargeTrail, firm } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Needs from "@/components/Needs";
 import { PenaltyTable, SectionBody } from "./sections";
@@ -53,6 +54,38 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
               </Needs>
             )}
           </div>
+
+          {/*
+            A WAY OUT, IN THE HERO. Measured on /criminal-defense/dui-defense
+            before this existed: 10,495 words of the page's 10,548 came BEFORE
+            the first phone number or contact link. Every one of these pages is
+            written for someone who was arrested, or whose child was, and the
+            page made them read a statutory treatise to the end before offering
+            them a person. The reading is the asset and none of it is being cut;
+            it just no longer stands between the reader and the phone.
+
+            The confidentiality line is here rather than under the button
+            because it is the reason someone hesitates, and it is a statement
+            about the conversation rather than a claim about the firm.
+          */}
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
+            <a
+              href={firm.phoneHref}
+              className="inline-flex items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
+            >
+              Call {firm.phone}
+            </a>
+            <Link
+              href="/contact"
+              className="inline-flex items-center justify-center border border-linen/30 px-7 py-4 font-display text-lg text-linen transition-colors hover:border-linen"
+            >
+              Send a message
+            </Link>
+          </div>
+          <p className="mt-5 max-w-2xl text-sm leading-relaxed text-linen/55">
+            Consultations are confidential. You do not have to know what you are
+            charged with to call.
+          </p>
         </div>
       </section>
 
@@ -76,14 +109,79 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
         </section>
       )}
 
+      {/*
+        WHAT IS ON THIS PAGE, before the page starts.
+
+        The median charge page is 6,813 words and the longest is 13,087, which
+        is roughly a 28 and a 55 minute read. That length is deliberate and it
+        is the reason these pages are worth anything, but presented as one
+        undifferentiated scroll it reads as a wall rather than as a reference.
+        A reader who wants the 10-day licence deadline should not have to find
+        it by scrolling past the elements of the offence.
+
+        Rendered only where there are at least three sections to choose
+        between. Two links are not a contents list, they are two links.
+      */}
+      {useSections && sections.length >= 3 && (
+        <section data-bg="white" className="bg-white pt-20 text-navy lg:pt-28">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <div className="max-w-3xl border-l-2 border-bronze pl-6">
+              <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/50">
+                What this page covers
+              </h2>
+              <ol className="mt-5 space-y-3">
+                {sections.map((section) => (
+                  <li key={section.id}>
+                    <a
+                      href={`#${section.id}`}
+                      className="text-lg leading-snug text-navy underline decoration-navy/25 decoration-1 underline-offset-4 transition-colors hover:text-bronze hover:decoration-bronze"
+                    >
+                      {section.heading}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </div>
+        </section>
+      )}
+
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="max-w-3xl space-y-16">
             {useSections &&
-              sections.map((section) => (
-                <Block key={section.id} heading={section.heading}>
-                  <SectionBody section={section} />
-                </Block>
+              sections.map((section, index) => (
+                <Fragment key={section.id}>
+                  <Block id={section.id} heading={section.heading}>
+                    <SectionBody section={section} />
+                  </Block>
+                  {/*
+                    A SECOND WAY OUT, PART WAY DOWN. After the second section,
+                    which on every page written so far is past the part a reader
+                    came for and before the part they will not finish. One rail,
+                    not a repeating one: an offer to call that appears every
+                    screen stops reading as help and starts reading as pressure.
+                  */}
+                  {index === 1 && sections.length > 3 && (
+                    <div className="border border-navy/20 p-8">
+                      <p className="font-display text-2xl leading-tight">
+                        None of this is a substitute for asking about your own
+                        case.
+                      </p>
+                      <p className="mt-4 leading-relaxed text-charcoal">
+                        The rest of this page is the law in detail. If you would
+                        rather just ask someone what it means for you, that is
+                        what the call is for, and it costs nothing to have it.
+                      </p>
+                      <a
+                        href={firm.phoneHref}
+                        className="mt-6 inline-flex items-center border border-navy px-7 py-4 font-display text-lg transition-colors hover:border-bronze hover:text-bronze"
+                      >
+                        Call {firm.phone}
+                      </a>
+                    </div>
+                  )}
+                </Fragment>
               ))}
             {!useSections && !isOverview && (
               <>
@@ -275,14 +373,20 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
 }
 
 function Block({
+  id,
   heading,
   children,
 }: {
+  id?: string;
   heading: string;
   children: React.ReactNode;
 }) {
   return (
-    <div>
+    /* scroll-mt-28 clears the 77px fixed header, the same value /attorneys uses
+       on its anchor. Without it a jump from the contents list lands with the
+       heading it just took you to hidden behind the nav, which reads as a
+       broken link rather than a near miss. */
+    <div id={id} className="scroll-mt-28">
       <h2 className="font-display text-4xl leading-tight sm:text-5xl">
         {heading}
       </h2>
