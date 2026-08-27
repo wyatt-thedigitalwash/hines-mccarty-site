@@ -20,6 +20,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "monthly" as const,
       priority: 0.8,
     },
+    // /about entered the sitemap 2026-08-27, when its noindex came off. It had
+    // been excluded for the same reason the placeholder bios are: a page of
+    // [NEEDS] markers costs E-E-A-T rather than building it. Two of its four
+    // blocked sections were answered, so the reason expired. check:routes
+    // sweep B2 asserts nothing in this list is noindex, which is what keeps
+    // the two signals from drifting apart again.
+    {
+      url: `${siteUrl}/about`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    },
     // Placeholder bios are excluded until the client supplies their content.
     // They are also set to noindex in generateMetadata, because submitting a
     // page full of [NEEDS] markers costs E-E-A-T rather than building it.

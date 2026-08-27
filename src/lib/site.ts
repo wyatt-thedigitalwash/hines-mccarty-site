@@ -9530,8 +9530,13 @@ export const coreValues = [
 ] as const;
 
 // One-paragraph positioning statement that sits beside the section heading.
+//
+// "that kind of case", not "that kind of charge". This renders on the home page
+// and on /about, both of which now speak for two practices, and a person hurt
+// in a collision has not been charged with anything. One word, and it was the
+// only word in the sentence that assumed which half of the firm you needed.
 export const coreStatement =
-  "Hines & McCarty is built around a small number of commitments that do not change from case to case: discretion in how a matter is handled, preparation from the first meeting, advocacy that is ready for trial, and direct access to the attorney who already knows that kind of charge.";
+  "Hines & McCarty is built around a small number of commitments that do not change from case to case: discretion in how a matter is handled, preparation from the first meeting, advocacy that is ready for trial, and direct access to the attorney who already knows that kind of case.";
 
 // The firm's working process, shown as a numbered row of boxes.
 //
