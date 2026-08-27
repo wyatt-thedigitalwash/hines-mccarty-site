@@ -1057,3 +1057,72 @@ those are written against charge-page shape and would fail on a bio for reasons
 that are not defects.]
 Both need planted-violation self-tests built from the eight real sentences above.
 A gate with no self-test is instance 8 again.
+
+### Instance 20: a pointer field that points nowhere, on 24 of 28 pages, read by no gate
+
+Found 2026-08-27, while applying DECISIONS.md D40 to the DUI page. D40 makes the
+PLACEMENT of a page's C9 differentiator a checkable test rather than a
+preference, which meant reading the field that records where the differentiator
+lives. It records nothing.
+
+`C9Assertion.section` is documented by its own placeholder in `stub()`:
+`"[NEEDS: which template section carries it]"`. So the field's claim is that a
+named section of the page carries the differentiator. Measured across every
+written page by normalising both sides with the project's own
+`normalizeHeading`:
+
+    24 of 28 written pages name a c9.section that is not a heading on the page
+
+Four are not near misses. Several name headings the schema rewrite ABOLISHED and
+that `check:pages` would now fail on sight, because they are on the
+`GENERIC_HEADINGS` list:
+
+    /criminal-defense/grand-theft-defense      "Degrees and penalties"
+    /white-collar-defense/embezzlement         "What the state has to prove"
+    /white-collar-defense/securities-fraud     "Degrees, penalties and offense levels"
+    /white-collar-defense/wire-fraud           "Forum section: state charge or federal charge?"
+
+Those are the old fixed-template headings, preserved in a field nobody reads,
+after the template that rendered them was deleted. The DUI page's own entry read
+"The other case: the 10 days that run from the notice, not from a court date"
+against a page whose heading is "The 10 days run from the notice of suspension,
+not from the arrest". Close enough to look right in review, and not the same
+string, which is the shape that survives being read.
+
+**Why nothing caught it.** `check-c9.mts` is thorough about this record and
+checks four things on it: that every `CHARGE_C9` key resolves to a real charge,
+that the `statute` field parses as a citation, that exemptions match what the
+page holds, and that no two assertions collide. It never touches `section`.
+`src/lib/c9.ts` `substanceTokens` takes the assertion and the statute, so
+`section` is not even in the comparison. It is the one field of the three that
+asserts something about the PAGE rather than about the law, and it is the one
+field with no reader.
+
+This is instance 1's family reaching a new place, and it is closest to instance
+10: the field describing the WORK stood in for the fact. `check-c9.mts` was built
+after the grand theft and embezzlement collision, so it was built to answer "do
+two pages claim the same substance", and it answers that well. "Does this record
+still describe the page it is attached to" was never asked, so the record aged
+out of true on 24 pages while every C9 run printed green.
+
+**Why it matters more now than it did last week.** Under D40 the differentiator's
+placement is the one editorial decision on a charge page that is not fixed by the
+spine, and the test that decides it ("does it sit inside the spine question it
+answers, or above the spine because it carries a deadline") can only be reviewed
+against a record of where it actually sits. A placement rule whose only record is
+wrong on 86% of pages is a rule that cannot be audited.
+
+Fixed on the DUI page in the same change, and NOT fixed on the other 27,
+deliberately: correcting 23 more strings by hand is the shape of work that goes
+stale again the moment a heading is reworded.
+
+[NEEDS: a gate in check-c9.mts asserting that `c9.section` normalises to a
+heading that exists on its own page, for every written page. It needs the D40
+above-the-spine case to be expressible, so the field probably has to carry
+placement as well as the heading, and the gate has to fail on a heading that no
+longer exists rather than on one that was legitimately renamed. A planted-
+violation self-test built from the four abolished headings above, since those are
+real and are the exact state the gate exists to reject.]
+[NEEDS: the 23 remaining stale `c9.section` values corrected as each page is
+brought onto the spine, not in a sweep. A sweep would re-record 23 strings
+against 23 pages nobody is reading closely, which is how they went stale.]

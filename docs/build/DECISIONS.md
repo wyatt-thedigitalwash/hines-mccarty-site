@@ -1464,3 +1464,109 @@ something restored the trigger rather than found a real clone.
 
 **Applied to DUI only so far.** The remaining 27 follow once the shape is
 confirmed on screen.
+
+### D40. Charge pages are built on a spine of seven reader questions, with exactly one flexible piece whose placement is a test
+
+**2026-08-27. Client direction, recording a rule rather than an ordering.**
+**Supersedes the order-by-significance rule** recorded in the `ChargePage.sections`
+doc comment in src/lib/site.ts, and **restates D39** in a form that can be
+checked by someone who did not write the page.
+
+**Two failures, one cause.** The template has swung between them:
+
+- **A fixed order**, hardcoded as JSX in ChargeTemplate.tsx. Eight written pages,
+  one section sequence, one set of headings. Every page was the same document
+  with the nouns swapped, and the schema rewrite that produced `sections` exists
+  because that order could not be expressed any other way.
+- **Order by significance**, which replaced it. `ChargePage.sections` said "the
+  body, ordered by significance rather than by a fixed sequence". D39 recorded
+  what that produced on the DUI page: a statutory amendment first, because the
+  October 2025 refusal provision is the most consequential change in Florida DUI
+  law in years, and nobody's first question after an arrest.
+
+**The cause is the same in both, and it is not the order.** Neither version
+stated a REASON for the order, so neither could be argued with. A fixed order has
+no reason by construction. "Significance" names a judgment and not a criterion,
+so a writer could defend any sequence and a reviewer could refute none of them.
+D39 fixed the DUI page by ordering it around the reader's question, which was
+right, but it left the rule as a list of six questions rather than as a rule
+about what each position is for, and it still did not say where a page's own
+material goes.
+
+**THE SPINE.** Every charge page answers these seven questions, in this order,
+because it is the order a person in trouble asks them:
+
+1. **What am I actually charged with?** Plain language, first 40 words.
+2. **How bad is it?** Degree, penalties, offense level.
+3. **What has to be proven?**
+4. **What happens next, and when?**
+5. **How is a case like this defended?** Process only.
+6. **What does this do to my job, license, record, immigration status?**
+7. **Can it ever come off my record, or plainly no.**
+
+Then the FAQ, then the close.
+
+**The spine never varies. Headings do.** The question at each position is fixed;
+the words that head it are charge-specific and are still failed by
+check:pages for reuse and for genericness. Question 2 is "The theft ladder, from
+60 days to thirty years" on grand theft and "Weight, minimums, and fines" on
+trafficking. Those are the same question wearing different charges, which is the
+point: the reader gets the same seven answers everywhere and never the same page.
+
+**THE FLEXIBLE PIECE.** Each page has exactly one section placed by what it
+answers rather than by the spine: the charge's C9 differentiator. **Placement is
+a test, not a judgment call.**
+
+- It sits **inside whichever spine question it answers**.
+- It goes **above the spine only if it carries a deadline the reader can miss**.
+
+Worked, for the record:
+
+| page | differentiator | placement | why |
+| --- | --- | --- | --- |
+| grand theft | the value ladder | inside Q2 | it is the answer to how bad it is |
+| embezzlement | the position-of-trust element | inside Q3 | it is an element |
+| money laundering | the $300 floor | inside Q2 | it is what sets the degree |
+| PPP loan fraud | the conditional limitations answer | near the top | the reader's real question is whether they are still exposed |
+| DUI | the 10 day administrative review period | **above the spine** | it expires, and most people do not know it exists |
+
+**DUI is currently the only charge in the set where the above-the-spine branch is
+true**, and the test is what makes that a finding rather than a preference. If a
+second charge turns out to carry a missable deadline, it takes the same
+placement, and if the DUI deadline were ever repealed the section would move
+down into Q4 without anyone relitigating the shape of the page.
+
+**Why this is a real constraint and not a restatement of D39.** It changes three
+things about D39's ordering. D39's list was six questions ending in "who to
+call"; the spine ends at expungement and puts who-to-call in the close, which the
+template already renders on every page. D39 had no position for what has to be
+proven or for how a case is defended, so those sections floated. And D39 said
+nothing about where a page's differentiator goes, which is the only part of a
+charge page that is genuinely the page's own.
+
+**What is NOT relaxed.** Everything D39 left standing stays standing. An
+identical section id sequence, an identical kind sequence, heading reuse, generic
+headings, and verbatim prose duplication all still fail the build. The
+order-similarity trigger stays retired for the reason D39 gave, and now with a
+stronger one: under the spine, two charge pages sharing a section order is not
+evidence of a copy, it is the rule being followed. The CONTROL self-test in
+check-pages.mts that asserts a shared block succession must PASS is the test that
+keeps this buildable, and it is now load-bearing for D40 as well as D39.
+
+**Applied to.** `/criminal-defense/dui` only, 2026-08-27. The
+`ChargePage.sections` doc comment carries the change. The remaining 27 pages are
+still ordered as D39 left them and follow one at a time.
+
+**Recorded limits, so a later reader does not take the spine for more than it
+is.**
+
+- **Nothing enforces the spine.** There is no gate that reads a section's
+  position and asks which spine question it answers, because the schema records
+  `answers` against the six `READER_QUESTIONS`, which are not the spine's seven.
+  The spine is a review requirement today, exactly like the coverage check's own
+  printed limit that it reads declarations and never inspects the prose.
+- **Question 6 names immigration and no page in the set answers it.** That is not
+  an oversight and it is not a gap to be filled by research. What a Florida
+  conviction does to immigration status is a byline-class claim under
+  CASES-WE-DEFEND-PLAN.md C12-B, so it appears under an attorney's byline with
+  their own citation, or it does not appear. On the DUI page it does not appear.

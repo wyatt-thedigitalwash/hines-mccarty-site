@@ -4334,3 +4334,68 @@ because "they agree" is a conclusion and the reader is entitled to the working.*
 **The one contradiction found anywhere in this work was internal to the form's
 own publication history, and the January 2026 correction resolves it.** Recorded
 above under "What the January 2026 correction changed".
+
+---
+
+## 2026-08-27: F.S. 322.2615, re-read whole before the DUI page was reordered (D40)
+
+The DUI page was being rebuilt on the spine and its differentiator was moving to
+the top of the page, where the number it turns on is the first fact a reader
+meets. The instruction for that rewrite was that the number of days be taken
+from an allowlisted official source rather than from recall or from the page's
+own existing sentences, so the section was fetched again and read start to
+finish, and the operative subparagraph is recorded below whole.
+
+**The page already said 10 days and the fetch agrees.** Recording that matters
+as much as a correction would: this was a provenance question, not a suspected
+error, and the number now rests on a fetch performed at the moment the sentence
+was written rather than on a fetch performed in 2026-08-13 for a different
+purpose.
+
+READ-WHOLE: F.S. 322.2615
+https://www.flsenate.gov/Laws/Statutes/2025/322.2615
+
+Source: `F.S. 322.2615, Suspension of license; right to review, 2025 Florida Statutes, via https://www.flsenate.gov/Laws/Statutes/2025/322.2615, fetched with curl and de-tagged locally`.
+
+Second, independent path: `F.S. 322.2615 in the 2026 Florida Statutes, via Online Sunshine at http://www.leg.state.fl.us/statutes/index.cfm?App_mode=Display_Statute&URL=0300-0399/0322/Sections/0322.2615.html, fetched with curl and de-tagged locally`. Both are on the Section 10.3 allowlist. The two editions carry subsection (1) in identical words, so the 10 day period is not an artifact of the edition the page was built from.
+
+Method: curl -sL to a local file, then a python3 regex strip of script and style blocks and of tags with html.unescape, and the plain text read from the catchline through the History line. No summariser in the loop, because a summariser truncated (1)(b)3. mid-sentence on the first attempt and returned the period as "within 10 days after the date of issuance..." with the rest elided. That is the exact failure this project's fetch method exists to avoid, and it is why the record below is machine-extracted rather than model-reported.
+
+**F.S. 322.2615(1)(b), the flush words introducing subparagraphs 1. through 5.**
+
+> The suspension under paragraph (a) shall be pursuant to, and the notice of suspension shall inform the driver of, the following:
+
+**F.S. 322.2615(1)(b)2.**
+
+> The suspension period shall commence on the date of issuance of the notice of suspension.
+
+**F.S. 322.2615(1)(b)3., the administrative review request, recorded whole**
+
+> The driver may request a formal or informal review of the suspension by the department within 10 days after the date of issuance of the notice of suspension or may request a review of eligibility for a restricted driving privilege under s. 322.271(7).
+
+**F.S. 322.2615(1)(b)4.**
+
+> The temporary permit issued at the time of suspension expires at midnight of the 10th day following the date of issuance of the notice of suspension.
+
+**F.S. 322.2615(1)(b)5.**
+
+> The driver may submit to the department any materials relevant to the suspension.
+
+**F.S. 322.2615(4), the opening words that condition the informal review on a request**
+
+> If the person whose license was suspended requests an informal review pursuant to subparagraph (1)(b)3., the department shall conduct the informal review by a hearing officer designated by the department.
+
+**F.S. 322.2615(6)(a), the opening words that condition the formal review on a request**
+
+> If the person whose license was suspended requests a formal review, the department must schedule a hearing within 30 days after such request is received by the department and must notify the person of the date, time, and place of the hearing.
+
+**What it establishes.**
+
+- **The number is 10, and the period runs from the date of issuance of the notice of suspension.** Not from the arrest and not from a court date. The page said so already and continues to.
+
+- **The 10 days attach to the review clause only.** The subparagraph offers two things in one sentence and the period is written into the first: a formal or informal review "within 10 days after the date of issuance of the notice of suspension", then "or may request a review of eligibility for a restricted driving privilege under s. 322.271(7)" with no period of its own. The page's existing sentence saying exactly that is confirmed by the whole text rather than by the fragment.
+
+- **What happens if the 10 days pass is answered by the conditional openings of (4) and (6)(a).** Each begins with a request. Neither review exists without one, so the roadside suspension imposed under (1)(a) runs the period (1)(b)1. sets for it and the temporary permit ends under (1)(b)4. at midnight of the 10th day. That is the basis for the new opening paragraph of the DUI page's first section, and it is a reading of the statute's own conditional grammar rather than a prediction about a case.
+
+- **(1)(b)5. is on the page nowhere.** The driver may submit to the department any materials relevant to the suspension. It is a live right in the license case, it is not a deadline, and it is noted here as coverage rather than correction.
+
