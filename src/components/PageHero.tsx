@@ -21,10 +21,19 @@ import type { ReactNode } from "react";
  * right. Opaque at the left is what hides the seam; anything less and the
  * image's own left edge shows through as a vertical line.
  *
- * FROM lg ONLY. Below that the text takes the whole width, and an image behind
- * it would either sit under the copy, where it costs contrast on the one block
- * of text the page exists to deliver, or shrink to a strip too narrow to read
- * as a photograph.
+ * ON A PHONE IT MOVES INSTEAD OF DISAPPEARING. It was hidden below lg, which
+ * is the easy answer and the wrong one: the photograph is the only image on
+ * these pages, and dropping it left every hub hero on a phone as a navy
+ * rectangle of text. Below lg it becomes a full-bleed band under the copy,
+ * with the gradient turned to run down from the navy instead of across it, so
+ * the join is still a fade rather than a line.
+ *
+ * IT IS ONE ELEMENT IN BOTH LAYOUTS, not a desktop copy and a mobile copy. The
+ * wrapper is static and in flow on a phone, where DOM order after the content
+ * puts it below the copy, and absolutely positioned from lg, where being out of
+ * flow puts it on the right and DOM order stops mattering. Rendering it twice
+ * would have meant two <Image> tags, two srcsets, and one of them always the
+ * stale one.
  *
  * ALT IS EMPTY, DELIBERATELY. The photograph carries no information the copy
  * does not: it is a mood, not a fact. WCAG H67 is explicit that decorative
@@ -54,8 +63,6 @@ export const HERO_PHOTO: HeroPhoto = { src: "/backgrounds/yes3.jpg" };
 export type HeroPhoto = {
   /** Path under /public. */
   src: string;
-  /** How wide the image sits, as a percentage of the section. */
-  width?: string;
 };
 
 type Props = {
@@ -77,27 +84,6 @@ export default function PageHero({ title, children, photo, bleed }: Props) {
       data-hero
       className="relative isolate overflow-hidden bg-navy pt-36 lg:pt-44"
     >
-      {photo ? (
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute inset-y-0 right-0 hidden lg:block"
-          style={{ width: photo.width ?? "58%" }}
-          data-hero-photo
-        >
-          <Image
-            src={photo.src}
-            alt=""
-            fill
-            sizes="58vw"
-            className="object-cover"
-          />
-          {/* Left-to-right: opaque navy, then gone. The via stop keeps the
-              wash over the middle of the image, where the copy's right edge
-              can reach on a wide screen, without flattening the far side. */}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/70 to-transparent" />
-        </div>
-      ) : null}
-
       {/*
         lg:min-h-[380px] IS WHAT MAKES EVERY HERO THE SAME HEIGHT. Measured in
         the browser at 1024, 1280, 1440 and 1920, the seven heroes ran from
@@ -133,6 +119,32 @@ export default function PageHero({ title, children, photo, bleed }: Props) {
           {children}
         </div>
       </div>
+
+      {photo ? (
+        <div
+          aria-hidden="true"
+          data-hero-photo
+          className="pointer-events-none relative h-64 w-full sm:h-72 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[58%]"
+        >
+          <Image
+            src={photo.src}
+            alt=""
+            fill
+            sizes="(min-width: 1024px) 58vw, 100vw"
+            className="object-cover"
+          />
+          {/*
+            The fade changes axis with the layout, because the edge that needs
+            hiding moves. On a phone the band sits UNDER the copy, so the join
+            is its top edge and the wash runs down; the via stop is light
+            because there is no text over the image to keep legible, only a
+            seam to lose. From lg the image is BESIDE the copy, so the join is
+            its left edge and the wash runs across, heavier through the middle
+            where a wide screen lets the copy reach.
+          */}
+          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/20 to-transparent lg:bg-gradient-to-r lg:via-navy/70" />
+        </div>
+      ) : null}
 
       {bleed ? <div className="relative z-10">{bleed}</div> : null}
     </section>
