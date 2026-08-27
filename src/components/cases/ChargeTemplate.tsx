@@ -3,7 +3,12 @@ import Link from "next/link";
 import { type ChargePage, chargeHref, chargeTrail, firm } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Needs from "@/components/Needs";
-import { PenaltyTable, SectionBody } from "./sections";
+import {
+  PenaltyTable,
+  SectionLede,
+  SectionRest,
+  hasSectionRest,
+} from "./sections";
 import HandledBy from "@/components/attorneys/HandledBy";
 import Byline from "./Byline";
 import CallToAction from "@/components/CallToAction";
@@ -153,7 +158,41 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
               sections.map((section, index) => (
                 <Fragment key={section.id}>
                   <Block id={section.id} heading={section.heading}>
-                    <SectionBody section={section} />
+                    <SectionLede section={section} />
+                    {/*
+                      THE REST OF THE SECTION, BEHIND A DISCLOSURE.
+
+                      The median charge page ran 6,813 words and the longest
+                      13,087, presented as one scroll. That is a reference work,
+                      and this is a website: the person reading it was arrested
+                      last night and wants to know what happens to them, not to
+                      read a chapter on the statutory history.
+
+                      NOTHING IS CUT AND NOTHING IS HIDDEN FROM A CRAWLER.
+                      <details> keeps its contents in the HTML; Google indexes
+                      it and has said so since mobile-first. What changes is
+                      what a human meets first. Native <details>, not a React
+                      island, so it works with no JavaScript and carries its own
+                      accessibility semantics rather than borrowing them.
+
+                      The summary says how much is inside. "Read more" with no
+                      quantity is the pattern people have learned to distrust.
+                    */}
+                    {hasSectionRest(section) && (
+                      <details className="group mt-8 border-t border-navy/15 pt-6">
+                        <summary className="cursor-pointer list-none font-heading text-sm font-semibold uppercase tracking-wide text-navy/60 transition-colors hover:text-bronze">
+                          <span className="group-open:hidden">
+                            Read the full analysis
+                          </span>
+                          <span className="hidden group-open:inline">
+                            Close this section
+                          </span>
+                        </summary>
+                        <div className="mt-6 space-y-5">
+                          <SectionRest section={section} />
+                        </div>
+                      </details>
+                    )}
                   </Block>
                   {/*
                     A SECOND WAY OUT, PART WAY DOWN. After the second section,

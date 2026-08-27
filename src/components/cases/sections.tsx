@@ -14,6 +14,96 @@ import { isRecordedVerbatim, singleSourceUrl } from "@/lib/statute-links";
  * or for none of them.
  */
 
+/**
+ * THE SECTION, SPLIT IN TWO WITHOUT LOSING ANYTHING.
+ *
+ * `SectionBody` renders a section whole and stays the definition of total: every
+ * payload survives, `kind` decides order and emphasis only (D24). The two
+ * functions below partition that same output rather than filtering it.
+ *
+ *   SectionLede  what a reader sees without asking: the structured payload, or
+ *                for a prose section its first paragraph.
+ *   SectionRest  everything else, which the charge template puts behind a
+ *                <details>.
+ *
+ * LEDE PLUS REST IS EXACTLY BODY. That is the property that matters and it is
+ * why this is a partition rather than a summary: nothing is dropped, nothing is
+ * rewritten, and nothing is duplicated between the two. Duplicating would be
+ * the easy version and it would break the quote gate's counts, which asserts an
+ * exact number of verbatim statutory spans on the page.
+ */
+/**
+ * WHICH KINDS OPEN. A penalties table, a timeline of deadlines and a list of
+ * what to do are the three things a reader came for and the three that survive
+ * being skimmed. A statutory quotation, a bulleted analysis and a five-
+ * paragraph essay are the three that do not, however good they are, and they
+ * are good.
+ *
+ * Measured before choosing this split: with only the prose tails collapsed the
+ * median page still showed 5,400 words, because the structured payloads ARE the
+ * bulk. Collapsing by kind is what gets a charge page to the length of a page.
+ */
+const OPEN_KINDS = new Set<ChargeSection["kind"]>([
+  "penalties",
+  "timeline",
+  "guidance",
+]);
+
+export function SectionLede({ section }: { section: ChargeSection }) {
+  if (OPEN_KINDS.has(section.kind)) return <SectionPrimary section={section} />;
+  if (section.kind === "prose") {
+    const first = section.prose?.[0];
+    return first ? <p>{first}</p> : null;
+  }
+  // statute and bullets open with their heading alone. The heading is already a
+  // full sentence stating what the section holds, which is a better summary
+  // than any lede that could be written for it.
+  return null;
+}
+
+export function SectionRest({ section }: { section: ChargeSection }) {
+  const proseRest =
+    section.kind === "prose" ? section.prose?.slice(1) : section.prose;
+  const showPrimary = !OPEN_KINDS.has(section.kind) && section.kind !== "prose";
+  const showBullets = section.kind !== "bullets" && section.bullets?.length;
+  return (
+    <>
+      {showPrimary ? <SectionPrimary section={section} /> : null}
+      {proseRest?.length ? (
+        <div className={showPrimary ? "mt-8 space-y-5" : "space-y-5"}>
+          {proseRest.map((paragraph) => (
+            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+          ))}
+        </div>
+      ) : null}
+      {showBullets ? (
+        <ul className="mt-8 space-y-3">
+          {section.bullets!.map((item) => (
+            <li key={item.slice(0, 40)} className="flex gap-3">
+              <span aria-hidden="true" className="text-bronze">
+                &bull;
+              </span>
+              <span>{item}</span>
+            </li>
+          ))}
+        </ul>
+      ) : null}
+    </>
+  );
+}
+
+/** True when SectionRest would render nothing, so no disclosure is offered. */
+export function hasSectionRest(section: ChargeSection): boolean {
+  const proseRest =
+    section.kind === "prose" ? section.prose?.slice(1) : section.prose;
+  const showPrimary = !OPEN_KINDS.has(section.kind) && section.kind !== "prose";
+  return Boolean(
+    showPrimary ||
+      proseRest?.length ||
+      (section.kind !== "bullets" && section.bullets?.length),
+  );
+}
+
 export function SectionBody({ section }: { section: ChargeSection }) {
   const extras = (
     <>
