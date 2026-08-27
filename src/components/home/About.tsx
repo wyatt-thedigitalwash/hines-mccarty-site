@@ -30,7 +30,24 @@ import { attorneys } from "@/lib/site";
  */
 export default function About() {
   return (
-    <section data-bg="light" className="bg-white py-24 text-navy lg:py-32">
+    /*
+      NO TOP PADDING, ON PURPOSE. What sits above this on the home page is the
+      credential strip, which is white, on a hero section that is also white.
+      Three consecutive white bands, so the house rule in CLAUDE.md applies:
+      when two consecutive sections share a background, the second drops its
+      top padding rather than stacking a second gap on the first one.
+
+      It was py-24 lg:py-32, and the two gaps around the logos came out wildly
+      unequal because only one of them was a single value. Above the marks was
+      the strip's own py-9, 36px. Below them was the strip's py-9 plus this
+      section's py-32, 164px, which read as the logos having been pushed up
+      against the sweep with the rest of the screen left empty.
+
+      The strip now owns the space on both of its sides, so the gap is 36px
+      above and 36px below at lg, 32px at every smaller width, and the row of
+      marks reads as one band rather than as the tail of the hero.
+    */
+    <section data-bg="light" className="bg-white pb-24 text-navy lg:pb-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="max-w-3xl">
           <h2 className="font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
