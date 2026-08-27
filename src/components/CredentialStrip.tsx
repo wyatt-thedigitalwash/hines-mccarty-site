@@ -55,9 +55,13 @@ export default function CredentialStrip() {
               placeholder squares they were built for and is far too small for
               what replaced them. Every real mark is a detailed seal with an
               organisation's name set around its rim, and at 56px that lettering
-              is not legible, so the row read as eight grey circles. 64px, and
-              96px from lg. Eight at 96px plus the gaps measure about 1,160px
+              is not legible, so the row read as eight grey circles. 72px, and
+              104px from lg. Eight at 104px plus the gaps measure about 1,224px
               inside a 1,400px row, so they fit without crowding.
+
+              Arbitrary values rather than scale steps: Tailwind has no h-18 or
+              h-26, and rounding to h-16 or h-24 to stay on the scale would be
+              choosing the utility over the measurement.
 
               OPTIMIZED NOW, and the note that used to sit here explained why
               not: they were SVGs, and the optimizer would have meant enabling
@@ -72,8 +76,8 @@ export default function CredentialStrip() {
               alt={item.confirmed ? item.label : "Logo placeholder"}
               width={540}
               height={540}
-              sizes="(min-width: 1024px) 96px, 64px"
-              className="h-16 w-auto lg:h-24"
+              sizes="(min-width: 1024px) 104px, 72px"
+              className="h-[72px] w-auto lg:h-[104px]"
             />
           </li>
         ))}
