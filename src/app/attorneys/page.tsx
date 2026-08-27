@@ -40,7 +40,18 @@ export default function AttorneysPage() {
         </p>
       </PageHero>
 
-      <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
+      {/*
+        pt ONLY. The credential strip below is a child of THIS section, not of
+        the container above it, so this section's BOTTOM padding lands under the
+        marks rather than above them. Left as py-20 lg:py-28 that put 72px above
+        the row and 184px below it, which is the same doubled-gap defect as
+        everywhere else, one level further in: measured at 1728px, 72 above and
+        184 below.
+
+        The strip owns the gap on both sides now, 72px each, and the section
+        beneath already carries no top padding because it is white too.
+      */}
+      <section data-bg="white" className="bg-white pt-20 text-navy lg:pt-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {attorneys.map((attorney) => (
