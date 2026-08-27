@@ -10,7 +10,8 @@ import { pageMetadata } from "@/lib/metadata";
 import Needs from "@/components/Needs";
 import Portrait from "@/components/attorneys/Portrait";
 import CallToAction from "@/components/CallToAction";
-import PageHero, { HERO_PHOTO } from "@/components/PageHero";
+import PageHero from "@/components/PageHero";
+import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
 
 export const metadata: Metadata = pageMetadata({
   title: "Our Attorneys | Hines & McCarty, Criminal Defense in Tampa Bay",
@@ -28,7 +29,7 @@ export default function AttorneysPage() {
     <>
       <PageHero
         title="Four attorneys, four different concentrations."
-        photo={HERO_PHOTO}
+        photo={SITE_HERO_PHOTO}
       >
         <p>
           Each attorney at {firm.name} concentrates on a different part of

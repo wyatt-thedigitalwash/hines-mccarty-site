@@ -5,7 +5,8 @@ import { breadcrumbJsonLd } from "@/lib/schema";
 import CallToAction from "@/components/CallToAction";
 import HandledBy from "@/components/attorneys/HandledBy";
 import InjuryIndex from "@/components/injury/InjuryIndex";
-import PageHero, { HERO_PHOTO } from "@/components/PageHero";
+import PageHero from "@/components/PageHero";
+import { INJURY_HUB_PHOTO } from "@/lib/hero-photos";
 import {
   firm,
   injuryIsIndexable,
@@ -64,7 +65,7 @@ export default function PersonalInjuryHub() {
 
       <PageHero
         title="If someone else caused it, you should not be the one paying for it."
-        photo={HERO_PHOTO}
+        photo={INJURY_HUB_PHOTO}
       >
         <p>
           {firm.name} handles injury claims arising from car and commercial

@@ -12,6 +12,8 @@ import {
   injurySpokes,
   injuryTrail,
 } from "@/lib/site";
+import HeroPhotoLayer from "@/components/HeroPhotoLayer";
+import { injuryHeroPhoto } from "@/lib/hero-photos";
 
 /**
  * The injury page template, pillar and spoke.
@@ -31,8 +33,16 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
 
   return (
     <>
-      <section data-bg="navy" className="bg-navy pt-36 pb-16 lg:pt-44 lg:pb-20">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+      {/* Same photo treatment as the main-page heroes, through the same
+          component: right 58% from lg, full-bleed band under the copy below it.
+          `isolate` and the z-10 on the content are what keep the copy above the
+          image once the layer is absolutely positioned. */}
+      <section
+        data-bg="navy"
+        data-hero
+        className="relative isolate overflow-hidden bg-navy pt-36 pb-16 lg:pt-44 lg:pb-20"
+      >
+        <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10">
           <Breadcrumbs trail={injuryTrail(page)} tone="dark" />
           <h1 className="mt-8 max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
             {page.title}
@@ -46,6 +56,10 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
             </p>
           )}
         </div>
+
+        {/* After the content in the DOM, which is what puts it under the copy
+            on a phone. From lg it is absolute and the order stops mattering. */}
+        <HeroPhotoLayer photo={injuryHeroPhoto(page)} />
       </section>
 
       <section data-bg="white" className="bg-white py-16 lg:py-24">

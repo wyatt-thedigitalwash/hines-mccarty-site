@@ -1,5 +1,5 @@
-import Image from "next/image";
 import type { ReactNode } from "react";
+import HeroPhotoLayer, { type HeroPhoto } from "@/components/HeroPhotoLayer";
 
 /**
  * The navy hero at the top of a main page: heading, intro copy, and an optional
@@ -42,28 +42,6 @@ import type { ReactNode } from "react";
  * access. This is the one place the project's "every image needs alt text" rule
  * resolves to an empty string rather than a sentence.
  */
-
-/**
- * The photograph the main pages currently share.
- *
- * IT IS TAMPA, which is the whole reason it is the one being used. The other
- * four images in /public/backgrounds are a shelf of GERMAN statute books (NJW,
- * BGB, StGB, ZPO) and the gilded Justice on the Old Bailey in London, which are
- * stock photographs of somebody else's legal system. This one is the downtown
- * skyline from across the river: Rivergate Tower, Bank of America Plaza, 100 N
- * Tampa, the Sticks of Fire sculpture. It is still a stock photograph and it is
- * still the same picture on every page, but it is at least the city the firm
- * practises in.
- *
- * ONE CONSTANT RATHER THAN SEVEN LITERALS so that replacing it with real
- * photography, or splitting it per page, is one edit and not a search.
- */
-export const HERO_PHOTO: HeroPhoto = { src: "/backgrounds/yes3.jpg" };
-
-export type HeroPhoto = {
-  /** Path under /public. */
-  src: string;
-};
 
 type Props = {
   title: ReactNode;
@@ -120,31 +98,7 @@ export default function PageHero({ title, children, photo, bleed }: Props) {
         </div>
       </div>
 
-      {photo ? (
-        <div
-          aria-hidden="true"
-          data-hero-photo
-          className="pointer-events-none relative h-64 w-full sm:h-72 lg:absolute lg:inset-y-0 lg:right-0 lg:h-auto lg:w-[58%]"
-        >
-          <Image
-            src={photo.src}
-            alt=""
-            fill
-            sizes="(min-width: 1024px) 58vw, 100vw"
-            className="object-cover"
-          />
-          {/*
-            The fade changes axis with the layout, because the edge that needs
-            hiding moves. On a phone the band sits UNDER the copy, so the join
-            is its top edge and the wash runs down; the via stop is light
-            because there is no text over the image to keep legible, only a
-            seam to lose. From lg the image is BESIDE the copy, so the join is
-            its left edge and the wash runs across, heavier through the middle
-            where a wide screen lets the copy reach.
-          */}
-          <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/20 to-transparent lg:bg-gradient-to-r lg:via-navy/70" />
-        </div>
-      ) : null}
+      <HeroPhotoLayer photo={photo} />
 
       {bleed ? <div className="relative z-10">{bleed}</div> : null}
     </section>

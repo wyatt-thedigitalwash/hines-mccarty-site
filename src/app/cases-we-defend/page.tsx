@@ -3,7 +3,8 @@ import Link from "next/link";
 import { capabilities, charges, firm } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import CredentialStrip from "@/components/CredentialStrip";
-import PageHero, { HERO_PHOTO } from "@/components/PageHero";
+import PageHero from "@/components/PageHero";
+import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
 import ChargeIndex from "@/components/cases/ChargeIndex";
 import CallToAction from "@/components/CallToAction";
 
@@ -24,7 +25,7 @@ export default function CasesWeDefendPage() {
           hero: it has to sit inside the navy and outside the padded wrapper. */}
       <PageHero
         title="Cases we defend."
-        photo={HERO_PHOTO}
+        photo={SITE_HERO_PHOTO}
         bleed={<CredentialStrip />}
       >
         <p>

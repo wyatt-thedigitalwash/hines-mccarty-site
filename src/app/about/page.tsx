@@ -12,7 +12,8 @@ import {
 } from "@/lib/site";
 import { organizationJsonLd } from "@/lib/schema";
 import { pageMetadata } from "@/lib/metadata";
-import PageHero, { HERO_PHOTO } from "@/components/PageHero";
+import PageHero from "@/components/PageHero";
+import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
 import Needs from "@/components/Needs";
 import Byline from "@/components/cases/Byline";
 
@@ -79,7 +80,7 @@ export default function AboutPage() {
       {/* 1. Statement hero */}
       <PageHero
         title="A Brandon criminal defense firm built for the charges other firms refer out."
-        photo={HERO_PHOTO}
+        photo={SITE_HERO_PHOTO}
       >
         <p>
           {firm.name} is four attorneys who each concentrate on a different part

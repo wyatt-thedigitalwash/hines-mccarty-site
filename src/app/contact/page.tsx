@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { firm, publishedOffices } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
-import PageHero, { HERO_PHOTO } from "@/components/PageHero";
+import PageHero from "@/components/PageHero";
+import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
 import ContactForm from "@/components/contact/ContactForm";
 
 /**
@@ -29,7 +30,7 @@ export const metadata: Metadata = pageMetadata({
 export default function ContactPage() {
   return (
     <>
-      <PageHero title="Contact" photo={HERO_PHOTO}>
+      <PageHero title="Contact" photo={SITE_HERO_PHOTO}>
         <p>
           The fastest way to reach the firm is by phone. If you cannot speak
           freely right now, send a message and we will arrange a time.
