@@ -196,8 +196,18 @@ console.log("Route-resolution self-tests");
     resolves(chargeHref(charges.find((c) => c.sections?.length)!)));
   t("a real guide route resolves", resolves(guideHref(guides[0])));
   t("a redirect source resolves (/guides)", resolves("/guides"));
-  t("a public asset resolves (/logos/placeholder-1.svg)",
-    resolves("/logos/placeholder-1.svg"));
+  // DERIVED, NOT NAMED. This test used to assert /logos/placeholder-1.svg, and
+  // when those eight placeholder marks were deleted, correctly, because all
+  // eight credentials now have real logos, the gate went red for a reason that
+  // had nothing to do with routing. A fixture that names a live file is a
+  // second copy of the tree's contents, and the second copy is the one that
+  // rots. Take whatever the walk actually found, and prove the negative too so
+  // an empty or broken walk cannot pass this by resolving nothing.
+  const sampleAsset = [...assets][0];
+  t(`a public asset resolves (${sampleAsset ?? "NONE FOUND"})`,
+    Boolean(sampleAsset) && resolves(sampleAsset));
+  t("an absent public asset does NOT resolve",
+    !resolves("/logos/this-file-does-not-exist.svg"));
   t("an app-dir metadata file resolves (/favicon.ico)", resolves("/favicon.ico"));
   t("a cache-busted metadata href resolves (/favicon.ico?v=hash)",
     resolves("/favicon.ico?favicon.abc123.ico"));

@@ -4,7 +4,7 @@ import { articles, primaryNav, tools } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import CallToAction from "@/components/CallToAction";
 import PageHero from "@/components/PageHero";
-import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
+import { RESOURCES_PHOTO } from "@/lib/hero-photos";
 
 /**
  * The Layer 2 hub.
@@ -37,7 +37,7 @@ const RESOURCES = primaryNav.find((item) => item.href === "/resources");
 export default function ResourcesPage() {
   return (
     <>
-      <PageHero title="Resources" photo={SITE_HERO_PHOTO}>
+      <PageHero title="Resources" photo={RESOURCES_PHOTO}>
         <p>
           Plain-language explanations of how a case moves, what the terms on the
           paperwork mean, and what happens at each stage. Written for the moment

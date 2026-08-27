@@ -3,7 +3,7 @@ import { pageMetadata } from "@/lib/metadata";
 import CallToAction from "@/components/CallToAction";
 import EmptyState from "@/components/EmptyState";
 import PageHero from "@/components/PageHero";
-import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
+import { CASE_RESULTS_PHOTO } from "@/lib/hero-photos";
 
 /**
  * Case results. The highest-compliance-risk page on the site.
@@ -36,7 +36,7 @@ export const metadata: Metadata = pageMetadata({
 export default function ResultsPage() {
   return (
     <>
-      <PageHero title="Case results" photo={SITE_HERO_PHOTO}>
+      <PageHero title="Case results" photo={CASE_RESULTS_PHOTO}>
         <p>
           A matter appears on this page only when the client has given informed
           consent to publish it and the outcome can be described accurately.
