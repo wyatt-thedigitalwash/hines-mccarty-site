@@ -114,43 +114,6 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
         </section>
       )}
 
-      {/*
-        WHAT IS ON THIS PAGE, before the page starts.
-
-        The median charge page is 6,813 words and the longest is 13,087, which
-        is roughly a 28 and a 55 minute read. That length is deliberate and it
-        is the reason these pages are worth anything, but presented as one
-        undifferentiated scroll it reads as a wall rather than as a reference.
-        A reader who wants the 10-day licence deadline should not have to find
-        it by scrolling past the elements of the offence.
-
-        Rendered only where there are at least three sections to choose
-        between. Two links are not a contents list, they are two links.
-      */}
-      {useSections && sections.length >= 3 && (
-        <section data-bg="white" className="bg-white pt-20 text-navy lg:pt-28">
-          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="max-w-3xl border-l-2 border-bronze pl-6">
-              <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/50">
-                What this page covers
-              </h2>
-              <ol className="mt-5 space-y-3">
-                {sections.map((section) => (
-                  <li key={section.id}>
-                    <a
-                      href={`#${section.id}`}
-                      className="text-lg leading-snug text-navy underline decoration-navy/25 decoration-1 underline-offset-4 transition-colors hover:text-bronze hover:decoration-bronze"
-                    >
-                      {section.heading}
-                    </a>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </section>
-      )}
-
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="max-w-3xl space-y-16">
