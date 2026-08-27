@@ -145,12 +145,23 @@ export type AttorneyCertification = {
 
 export type AttorneyCredentials = {
   /**
-   * `number` is optional because The Florida Bar number was not supplied for
-   * three of the four attorneys, and an admission year alone is still a true
-   * and complete statement. The alternative was holding three finished bios out
-   * of the index over a field nobody reads, or inventing numbers, and a Bar
-   * number is the last thing on this site that may ever be guessed at: it
-   * resolves to a specific real person in a public registry.
+   * ALL FOUR ARE NOW KNOWN. Colton Trina's came with his entry; the other three
+   * arrived 2026-08-27 with their admission dates.
+   *
+   * `number` STAYS OPTIONAL ANYWAY, for whoever joins the firm next. A Bar
+   * number is the last field on this site that may ever be guessed at: it
+   * resolves to a specific real person in a public registry, so a wrong one
+   * does not read as a typo, it reads as a different lawyer. An optional field
+   * renders nothing when it is unknown. A required one invites a placeholder,
+   * and a placeholder Bar number is the worst possible version of this field.
+   */
+  /**
+   * `admitted` is the date as it should READ, not an ISO string, because that
+   * is the shape the file already used for Colton Trina and both renderers
+   * print it verbatim. Formatting an ISO date here would mean parsing it, and
+   * `new Date("2004-05-06")` is UTC midnight, which prints as May 5 in every
+   * US timezone. A date that is off by one day on a Bar admission is the kind
+   * of wrong that looks like a typo and is not.
    */
   barAdmission?: { state: string; number?: string; admitted: string };
   courts?: string[];
@@ -265,8 +276,12 @@ export const attorneys: Attorney[] = [
     // [NEEDS: which practice areas Lily McCarty leads] (WEBSITE-PLAN.md OQ 2)
     practiceAreaHrefs: ["/criminal-defense", "/federal-criminal-defense"],
     credentials: {
-      // [NEEDS: Florida Bar number]
-      barAdmission: { state: "Florida", admitted: "2004" },
+      // Client-supplied 2026-08-27.
+      barAdmission: {
+        state: "Florida",
+        number: "729701",
+        admitted: "May 6, 2004",
+      },
       // Florida state courts follow from Bar admission. Federal courts do NOT:
       // her practice-area line says state AND federal criminal defense, but no
       // federal court was listed, and appearing in the Middle District requires
@@ -370,8 +385,12 @@ export const attorneys: Attorney[] = [
     // [NEEDS: which practice areas Maria Pavlidis leads] (WEBSITE-PLAN.md OQ 2)
     practiceAreaHrefs: ["/criminal-defense", "/federal-criminal-defense"],
     credentials: {
-      // [NEEDS: Florida Bar number]
-      barAdmission: { state: "Florida", admitted: "2003" },
+      // Client-supplied 2026-08-27.
+      barAdmission: {
+        state: "Florida",
+        number: "684341",
+        admitted: "September 25, 2003",
+      },
       courts: [
         "Florida state courts",
         "U.S. District Court for the Middle District of Florida",
@@ -418,8 +437,12 @@ export const attorneys: Attorney[] = [
     // [NEEDS: which practice areas David Hines leads] (WEBSITE-PLAN.md OQ 2)
     practiceAreaHrefs: ["/criminal-defense"],
     credentials: {
-      // [NEEDS: Florida Bar number]
-      barAdmission: { state: "Florida", admitted: "2022" },
+      // Client-supplied 2026-08-27.
+      barAdmission: {
+        state: "Florida",
+        number: "1038894",
+        admitted: "September 21, 2022",
+      },
       // Client-supplied 2026-08-25: the Middle District. Florida state courts
       // follow from the Bar admission above, which is the same reasoning
       // applied to Lily McCarty's entry, so both render. Nothing beyond these

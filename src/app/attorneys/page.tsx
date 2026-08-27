@@ -183,8 +183,8 @@ export default function AttorneysPage() {
         because a bar admission is a credential and a placeholder in a
         credentials list reads as one.
 
-        [NEEDS: Florida Bar numbers and admission dates for Lily McCarty,
-        Maria Pavlidis, and David Hines]
+        Bar numbers and admission dates are now known for all four and are
+        recorded on their entries. The last three arrived 2026-08-27.
         [NEEDS: confirm federal court admissions, M.D. Fla. or otherwise, for
         each attorney] -- the firm-level Middle District statement below is
         established across the repo, but no individual admission is verified.
