@@ -10,6 +10,7 @@ import { pageMetadata } from "@/lib/metadata";
 import Needs from "@/components/Needs";
 import Portrait from "@/components/attorneys/Portrait";
 import CallToAction from "@/components/CallToAction";
+import CredentialStrip from "@/components/CredentialStrip";
 import PageHero from "@/components/PageHero";
 import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
 
@@ -79,6 +80,22 @@ export default function AttorneysPage() {
             ))}
           </ul>
         </div>
+
+        {/*
+          The credential marks, under the four of them.
+
+          FULL BLEED, so it sits outside the max-w-[1400px] wrapper above and
+          runs the width of the page, the same way it does on the hero of
+          /cases-we-defend and at the foot of each bio.
+
+          NO TOP PADDING ON THE STRIP'S OWN SECTION, because there is none to
+          add: the strip carries py-16 lg:py-18 of its own, and this section
+          already closes with py-20 lg:py-28. Those stack, which is the gap the
+          marks want here. On the home page the strip is the only thing between
+          two white bands and owns the whole gap; here it is the tail of a
+          section that has already ended.
+        */}
+        <CredentialStrip />
       </section>
 
       {/*
