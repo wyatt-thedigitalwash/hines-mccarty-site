@@ -50,42 +50,57 @@ export default function About() {
     <section data-bg="light" className="bg-white pb-24 text-navy lg:pb-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         {/*
-          FULL WIDTH AND CENTRED FROM md, LEFT-ALIGNED BELOW IT. The block was
-          max-w-3xl and left-aligned at every width, so on a desktop it sat in
-          the left half of a 1400px container with the right half empty. It now
-          takes the container's whole width, which at lg puts the heading on one
-          line instead of two.
+          THE SAME HEADER AS THE PRACTICES SECTION, on purpose, so the two
+          section openings on this page are one pattern rather than two: block
+          left in a max-w-2xl column, heading at text-4xl sm:text-5xl on a 1.05
+          line, copy at text-lg with mt-6. It briefly went full-width and
+          centred; matching Practices is what replaced that.
 
-          md is the 768px breakpoint CLAUDE.md names as this site's mobile line,
-          not a value picked for this component. Centring is a desktop move: a
-          phone has no width to centre within, so it buys nothing there and
-          costs the ragged left edge that makes wrapped body copy easy to read.
+          The two values that differ from Practices are colour, because that
+          section is on navy and this one is on white, and space-y-5, because
+          this copy is two paragraphs where that is one.
 
-          THE PARAGRAPHS KEEP A MEASURE, and it is the same max-w-3xl the whole
-          block used to have. That is the one place this does not go full
-          width: at 1320px the body would run near 150 characters a line, and
-          centred text is harder to track back than left-aligned text at the
-          same length, because the eye has no fixed left edge to return to. So
-          they are centred within the container rather than stretched across
-          it, which is what makes the block read as centred at all.
+          THE HEADING LOSES ITS lg:text-6xl. Practices tops out at sm:text-5xl,
+          and leaving this one a step larger is exactly the near-miss that makes
+          a page look assembled: not different enough to read as a hierarchy,
+          different enough to notice.
+
+          OUR FIRM SITS ON THE RIGHT, and goes to /about rather than to
+          /attorneys. That is a real distinction and not a second route to the
+          same place: /about is the firm, and the button under the cards below
+          still goes to /attorneys, the people. Aligned to the bottom of the
+          copy rather than centred against it, so it lands on the last line's
+          baseline instead of floating beside the middle of the block.
+
+          Below md it stacks under the copy and stays left, which is the same
+          rule the rest of this component follows.
         */}
-        <div className="text-left md:text-center">
-          <h2 className="font-display text-4xl leading-[1.08] tracking-tight sm:text-5xl lg:text-6xl">
-            A partnership, not a single name on the door.
-          </h2>
-          <div className="mx-auto mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-charcoal">
-            <p>
-              Hines &amp; McCarty is a Brandon firm built around four attorneys
-              who each concentrate on different areas. When a case comes in, it
-              goes to the person who knows that kind of case, not to whoever is
-              available.
-            </p>
-            <p>
-              That structure is why so much of the firm&apos;s work arrives by
-              referral, from former clients and from other lawyers who send the
-              matters they do not handle themselves.
-            </p>
+        <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-12">
+          <div className="max-w-2xl">
+            <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl">
+              A partnership, not a single name on the door.
+            </h2>
+            <div className="mt-6 space-y-5 text-lg leading-relaxed text-charcoal">
+              <p>
+                Hines &amp; McCarty is a Brandon firm built around four
+                attorneys who each concentrate on different areas. When a case
+                comes in, it goes to the person who knows that kind of case, not
+                to whoever is available.
+              </p>
+              <p>
+                That structure is why so much of the firm&apos;s work arrives by
+                referral, from former clients and from other lawyers who send
+                the matters they do not handle themselves.
+              </p>
+            </div>
           </div>
+
+          <Link
+            href="/about"
+            className="inline-flex shrink-0 items-center self-start border border-navy px-8 py-4 font-display text-lg transition-colors hover:border-bronze hover:text-bronze md:self-auto"
+          >
+            Our Firm
+          </Link>
         </div>
 
         <ul className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 lg:mt-16 lg:grid-cols-4">
