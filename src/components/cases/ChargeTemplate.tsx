@@ -536,10 +536,17 @@ function TieredBody({
       >
         {section.heading}
       </h2>
+      {/* TIER 2 PROSE IS NOT CAPPED. It used to inherit the 68ch measure, which
+          left the paragraphs under the penalty table stopping two thirds of the
+          way across while the table itself ran the full column: two different
+          left-aligned widths stacked on each other, which reads as a mistake
+          rather than as a measure. Tier 2 prose now matches the payload above
+          it. The cap still applies inside Tier 3, where there is no full-width
+          payload for prose to line up with. */}
       <div
         className={`mt-8 text-lg leading-relaxed ${
           dark ? "text-linen/75" : "text-charcoal"
-        } ${proseWidth}`}
+        }`}
       >
         <SectionBody section={section} />
       </div>

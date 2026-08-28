@@ -519,10 +519,30 @@ export function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
     ? ["Degree", "Statutory term", "Offense level"]
     : ["Degree", "Statutory term"];
   const span = headers.length;
+  /*
+    ONE TABLE, TWO LAYOUTS, NO DUPLICATED DOM.
+
+    Below md this used to be a real table inside overflow-x-auto, so a phone got
+    a three-column grid it had to drag sideways to read, with the note wrapping
+    to five or six lines in a third of the screen. That is the version that was
+    hard to read, and horizontal scroll is the reason.
+
+    Each record now stacks into a card on a phone and becomes a table row at md
+    and up. The switch is CSS only: the header group hides, the row turns into a
+    flex column, and the cells go from table-cell to block. Rendering two
+    separate trees instead would have put every penalty on the page twice for a
+    crawler and a screen reader.
+
+    ORDER FLIPS ON MOBILE, deliberately. In a table the degree column comes
+    first because that is how the header reads. On a card the sentence a person
+    actually wants is the term, so the flex order puts "Up to 5 years" on top
+    and drops the degree underneath it as a label.
+  */
+  const cardRow = "flex flex-col gap-1 px-5 pt-5 md:table-row md:gap-0 md:p-0";
   return (
-    <div className="overflow-x-auto border border-navy/15 bg-white">
+    <div className="border border-navy/15 bg-white">
       <table className="w-full border-collapse text-left">
-        <thead>
+        <thead className="hidden md:table-header-group">
           {/* "Statutory term" rather than "Statutory maximum". A reviewer found
               eleven rows on the federal weapons page whose value is a
               MANDATORY MINIMUM ("Not less than 15 years, with no suspended
@@ -546,20 +566,20 @@ export function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
             ))}
           </tr>
         </thead>
-        <tbody>
+        <tbody className="block md:table-row-group">
           {rows.map((row, i) => (
             <Fragment key={row.degree + row.maximum + i}>
-              <tr className={i % 2 ? "bg-linen/25" : "bg-white"}>
-                <td className="px-5 pt-4 align-top font-heading text-[15px] font-medium leading-snug text-navy/70">
+              <tr className={`${cardRow} ${i % 2 ? "bg-linen/25" : "bg-white"}`}>
+                <td className="order-2 block font-heading text-[15px] font-medium leading-snug text-navy/70 md:order-none md:table-cell md:px-5 md:pt-4 md:align-top">
                   {row.degree}
                 </td>
-                <td className="px-5 pt-4 align-top text-lg font-medium leading-snug text-navy">
+                <td className="order-1 block text-lg font-medium leading-snug text-navy md:order-none md:table-cell md:px-5 md:pt-4 md:align-top">
                   {row.maximum}
                 </td>
                 {hasLevels && (
-                  <td className="px-5 pt-4 align-top">
+                  <td className="order-3 block md:order-none md:table-cell md:px-5 md:pt-4 md:align-top">
                     {row.offenseLevel ? (
-                      <span className="inline-block border border-bronze/50 bg-bronze/10 px-2.5 py-1 font-heading text-sm font-medium text-navy/75">
+                      <span className="mt-1 inline-block border border-bronze/50 bg-bronze/10 px-2.5 py-1 font-heading text-sm font-medium text-navy/75 md:mt-0">
                         {row.offenseLevel}
                       </span>
                     ) : (
@@ -577,21 +597,14 @@ export function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
                   notes are where the value thresholds and the conditions on a
                   mandatory minimum are written, so losing them would have been a
                   far worse defect than the column that change removed. */}
-              {row.note && (
-                <tr className={i % 2 ? "bg-linen/25" : "bg-white"}>
-                  <td
-                    colSpan={span}
-                    className="border-b border-navy/10 px-5 pb-4 pt-2 text-[15px] leading-relaxed text-charcoal"
-                  >
-                    {row.note}
-                  </td>
-                </tr>
-              )}
-              {!row.note && (
-                <tr>
-                  <td colSpan={span} className="border-b border-navy/10 p-0" />
-                </tr>
-              )}
+              <tr className={`block md:table-row ${i % 2 ? "bg-linen/25" : "bg-white"}`}>
+                <td
+                  colSpan={span}
+                  className="block border-b border-navy/10 px-5 pb-5 pt-2 text-[15px] leading-relaxed text-charcoal md:table-cell md:pb-4"
+                >
+                  {row.note}
+                </td>
+              </tr>
             </Fragment>
           ))}
         </tbody>
