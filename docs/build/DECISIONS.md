@@ -1675,3 +1675,113 @@ is.**
   fetched from flsenate.gov and recorded before the blocks were written; the two
   1932 and 1933 records are marked PARTIAL, which under D26 supports a claim
   about what they contain and nothing about the rest of those sections.
+
+### D42. The charge-page hero is a per-page opt-in, and the DUI hero states its own phone number
+
+**2026-08-28. Client direction, given as exact copy.** The DUI page's top
+section was specified word for word: an H1, three sentences of body, one primary
+call to action, and a visual break before the rest of the page.
+
+**Why this is a schema change rather than an edit.** ChargeTemplate.tsx renders
+all 28 charge pages from one hero. Editing that hero in place would have applied
+the new copy's SHAPE to every charge page in the set, which the instruction
+excluded. So the hero is now a branch on a new optional field,
+`ChargePage.heroCta`. A page that sets it gets the stripped hero. A page that
+does not is rendered by the identical markup it had before, and 27 pages are
+byte-identical in the build output.
+
+**What the stripped hero drops, and it is not nothing.** The default hero
+carries a secondary "Send a message" link to /contact and a line reading
+"Consultations are confidential. You do not have to know what you are charged
+with to call." Both were removed from the DUI hero, because the brief was that
+the top section is exactly the four named elements. The confidentiality line in
+particular was added deliberately: it is a statement about the conversation
+rather than a claim about the firm, and it addresses the reason a person
+hesitates to call. It is still on the other 27 pages. Restoring it here is one
+field away and is the client's call.
+
+**The padding is load-bearing.** The stripped hero uses pt-28/pb-10 against the
+default pt-36/pb-20. At 390px under the 77px fixed header, the default padding
+pushed the call to action below the fold, which would have defeated the point of
+the section. Verified by rendering at 390px rather than by arithmetic.
+
+**THE PHONE NUMBER IS NOT `firm.phone`, AND NOTHING CHECKS IT.** The hero states
+813-333-8886. `firm.phone` in src/lib/site.ts is (813) 738-8650, and every other
+call-to-action on the site, including the one at the foot of this same page,
+renders that number. Two different numbers now ship on one page. This was
+recorded rather than reconciled because the number was given as exact copy and
+changing either one is a client decision, not a build decision.
+
+[NEEDS: the client to confirm which number is correct. If 813-333-8886 is the
+right one, `firm.phone` and `firm.phoneHref` should carry it and `heroCta`
+should derive from them, at which point the two cannot drift. If it is wrong, a
+wrong phone number is live on the charge page most likely to be read by someone
+who needs to call immediately.]
+
+[NEEDS: a gate asserting that every tel: href on a rendered page resolves to a
+number the site declares. There is none. check:routes sweeps internal hrefs and
+explicitly does not check external or tel: links, so nothing in the pipeline can
+see that a page publishes an undeclared number. This is the same shape as
+HUNT-LIST instance 19: every rail checks what is wired, and nothing checked what
+is not.]
+
+### D43. The charge page is three visual tiers, and two heading rules bend to make Tier 2 possible
+
+**2026-08-28. Client direction, given as a layout brief.** Layout and hierarchy
+only: no prose was rewritten and no fact changed. Every sentence on the page is
+the sentence D41 left there.
+
+**The tiers.**
+
+- **Tier 1**, the hero: H1, the 10 days paragraph, one CTA. No sources line, no
+  disclosure, no accordion. Opt-in per page via `heroCta` (D42).
+- **Tier 2**, three sections, always open, largest headings after the H1: the
+  penalty table, the timeline, and a four-item action list. Then the CTA repeats.
+- **Tier 3**, ONE accordion, every item closed, headings a size class smaller
+  and tighter spacing: seven items over nine sections plus the FAQ.
+- **Bottom**: one sources block for the whole page, then the final CTA.
+
+**Three schema additions**, all layout: `ChargeSection.tier`, `.group` (the
+accordion label a section renders under), and `.statutes` (plural).
+
+**Why `group` is separate from `heading`.** Seven accordion labels have to cover
+nine sections. Collapsing them into seven headings would have deleted two
+charge-specific headings and the differentiation they carry, so a group is a
+label ABOVE one or more sections, each of which keeps its own heading as a
+smaller heading inside the item.
+
+**Why `statutes` is plural.** Tier 2 renders no collapsed blocks, and its two
+sections had one each. Rather than drop them, they are re-homed onto the Tier 3
+section whose subject covers them: the plea bar to "What a conviction costs
+you", the 8-hour custody hold to "How a DUI case gets defended". Nothing was
+dropped to make the tiers fit.
+
+**TWO HEADING RULES BEND HERE, and both are recorded as weakenings.**
+
+1. **Tier 2 headings are exempt from the generic-heading rule.** "What happens
+   next." is on the generic list by construction, because that list was built to
+   stop exactly this phrasing. The rule was right for a page whose headings were
+   its only differentiation; it is wrong for Tier 2, where the heading is
+   navigation to a table and the charge-specific claim is the payload under it.
+2. **Tier 3 accordion labels are exempt too.** Two of the seven the client
+   specified are generic. An accordion label's job is wayfinding: a reader
+   scanning seven closed rows needs to know which one holds the elements.
+
+Both exemptions are PRINTED on every run (D22), and neither reaches the section
+headings inside an item, which are unchanged and still checked.
+
+**What still catches a clone:** heading reuse across pages, which does NOT
+exempt these; identical section id and kind sequences; and prose duplication.
+
+[NEEDS: the heading-reuse gate will FAIL the moment a second charge page adopts
+Tier 2, because "What you're facing." and the other two are identical on every
+tiered page by design. That is correct behaviour today and a blocker tomorrow.
+The fix is to scope heading-reuse to Tier 3 and section headings, leaving Tier 2
+labels out of it, and it should be made when the second page is converted rather
+than pre-emptively, so the change is made against a real second page.]
+
+[NEEDS: the mid-page "None of this is a substitute for asking about your own
+case" block does not render on a tiered page. It was a deliberate second way out
+for a reader part way down a long scroll. Tier 2 ends in a CTA, which covers the
+same ground, but the reassurance copy is gone and that was a considered piece of
+writing. Restore or retire it by decision rather than by omission.]

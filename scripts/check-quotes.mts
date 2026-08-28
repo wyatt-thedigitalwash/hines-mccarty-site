@@ -72,7 +72,10 @@ console.log("\nQ3: multi-source spans carry no cite, single-source ones do");
   const spans: string[] = [];
   for (const c of charges) {
     if (c.statute) spans.push(c.statute.citation);
-    for (const s of c.sections ?? []) if (s.statute) spans.push(s.statute.citation);
+    for (const s of c.sections ?? []) {
+      if (s.statute) spans.push(s.statute.citation);
+      for (const st of s.statutes ?? []) spans.push(st.citation);
+    }
   }
   let bad = 0, linked = 0, unlinked = 0;
   for (const s of spans) {
@@ -161,11 +164,18 @@ if (!existsSync(ROOT)) {
   // What the data says should render, computed independently of the pages.
   let expectVerbatim = 0, expectGloss = 0;
   for (const set of [charges, guides, injuryPages]) {
-    for (const c of set as { sections?: { statute?: { body: string } }[] }[]) {
+    for (const c of set as {
+      sections?: { statute?: { body: string }; statutes?: { body: string }[] }[];
+    }[]) {
       for (const sec of c.sections ?? []) {
-        if (!sec.statute) continue;
-        if (isRecordedVerbatim(sec.statute.body)) expectVerbatim++;
-        else expectGloss++;
+        // Every block the renderer emits, including the ones D43 re-homed from
+        // a Tier 2 section. Counting only `statute` here would have made the
+        // rendered total exceed the expected one and failed a correct page.
+        for (const st of [sec.statute, ...(sec.statutes ?? [])]) {
+          if (!st) continue;
+          if (isRecordedVerbatim(st.body)) expectVerbatim++;
+          else expectGloss++;
+        }
       }
     }
   }

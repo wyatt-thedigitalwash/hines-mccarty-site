@@ -1,11 +1,12 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import { type ChargePage, chargeHref, chargeTrail, firm } from "@/lib/site";
+import { type ChargePage, type ChargeSection, chargeHref, chargeTrail, firm } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Needs from "@/components/Needs";
 import {
   PenaltyTable,
   SectionLede,
+  SectionBody,
   SectionRest,
   SectionSources,
   hasSectionRest,
@@ -43,10 +44,60 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
   // sequence below until they are migrated.
   const sections = charge.sections ?? [];
   const useSections = sections.length > 0;
+  // D43: a page opts into the tiered layout by putting a tier on its sections.
+  const tiered = sections.some((sec) => sec.tier);
 
   return (
     <>
-      {/* 1. H1 and the direct answer */}
+      {/*
+        1. H1 and the direct answer.
+
+        TWO HEROES, and the branch is a page-level opt-in rather than a
+        replacement. This template renders all 28 charge pages, so editing the
+        hero in place would have edited every one of them, which is the thing
+        this change was told not to do.
+
+        THE STRIPPED HERO (charge.heroCta set) carries four things and nothing
+        else: breadcrumbs, the H1, the lead, one primary button, and a hard rule
+        closing the section. The secondary "Send a message" link and the
+        confidentiality line are deliberately absent from it. Both are good copy
+        and both were removed on instruction, because the brief was that the top
+        section is exactly those elements; they are still rendered on every
+        other charge page by the branch below.
+
+        The vertical padding is tighter than the default hero (pt-28 against
+        pt-36, pb-10 against pb-20). That is not taste: at 390px the four
+        elements have to clear the fold under a 77px fixed header, and the
+        default padding put the button below it.
+      */}
+      {charge.heroCta ? (
+        <section data-bg="navy" className="bg-navy pt-28 pb-10 lg:pt-44 lg:pb-16">
+          <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+            <Breadcrumbs trail={chargeTrail(charge)} />
+            <h1 className="mt-6 max-w-4xl font-display text-4xl leading-[1.05] tracking-tight text-linen sm:text-5xl lg:text-6xl">
+              {charge.title ?? charge.label}
+            </h1>
+            <div className="mt-6 max-w-2xl text-lg leading-relaxed text-linen/70">
+              {charge.lead ?? (
+                <Needs>
+                  opening answer, what this charge is, in the first 40 words
+                </Needs>
+              )}
+            </div>
+            <div className="mt-8">
+              <a
+                href={charge.heroCta.href}
+                className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+              >
+                {charge.heroCta.label}
+              </a>
+            </div>
+          </div>
+          {/* The visual break. A full-bleed bronze rule against the navy, so the
+              hero ends at a line rather than fading into the next section. */}
+          <div className="mt-10 h-1 w-full bg-bronze/70 lg:mt-14" aria-hidden="true" />
+        </section>
+      ) : (
       <section data-bg="navy" className="bg-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Breadcrumbs trail={chargeTrail(charge)} />
@@ -94,6 +145,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
           </p>
         </div>
       </section>
+      )}
 
       {/* 2. Forum cross-link, for state and federal overlap pages (Sec. 4.6) */}
       {charge.counterpart && (
@@ -115,6 +167,25 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
         </section>
       )}
 
+      {/*
+        THREE TIERS. D43.
+
+        Tier 1 is the hero above. Tier 2 is the three things a reader came for,
+        always open under the largest headings on the page after the H1. Tier 3
+        is everything else, in ONE accordion, closed, under headings that are
+        visibly smaller so the two tiers cannot read as peers.
+
+        The per-section sources line and the per-section "read the full
+        analysis" disclosure are both gone. Sources are now one block at the
+        foot of the page; the statute blocks live inside their Tier 3 item.
+
+        A page with no `tier` on any section falls through to the pre-D43
+        renderer below, which is what leaves the other 27 charge pages byte
+        identical.
+      */}
+      {tiered ? (
+        <TieredBody charge={charge} sections={sections} />
+      ) : (
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="max-w-3xl space-y-16">
@@ -123,25 +194,6 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                 <Fragment key={section.id}>
                   <Block id={section.id} heading={section.heading}>
                     <SectionLede section={section} />
-                    {/*
-                      THE REST OF THE SECTION, BEHIND A DISCLOSURE.
-
-                      The median charge page ran 6,813 words and the longest
-                      13,087, presented as one scroll. That is a reference work,
-                      and this is a website: the person reading it was arrested
-                      last night and wants to know what happens to them, not to
-                      read a chapter on the statutory history.
-
-                      NOTHING IS CUT AND NOTHING IS HIDDEN FROM A CRAWLER.
-                      <details> keeps its contents in the HTML; Google indexes
-                      it and has said so since mobile-first. What changes is
-                      what a human meets first. Native <details>, not a React
-                      island, so it works with no JavaScript and carries its own
-                      accessibility semantics rather than borrowing them.
-
-                      The summary says how much is inside. "Read more" with no
-                      quantity is the pattern people have learned to distrust.
-                    */}
                     {hasSectionRest(section) && (
                       <details className="group mt-8 border-t border-navy/15 pt-6">
                         <summary className="cursor-pointer list-none font-heading text-sm font-semibold uppercase tracking-wide text-navy/60 transition-colors hover:text-bronze">
@@ -157,16 +209,8 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                         </div>
                       </details>
                     )}
-                    {/* D41: the sources line, outside the disclosure. */}
                     <SectionSources section={section} />
                   </Block>
-                  {/*
-                    A SECOND WAY OUT, PART WAY DOWN. After the second section,
-                    which on every page written so far is past the part a reader
-                    came for and before the part they will not finish. One rail,
-                    not a repeating one: an offer to call that appears every
-                    screen stops reading as help and starts reading as pressure.
-                  */}
                   {index === 1 && sections.length > 3 && (
                     <div className="border border-navy/20 p-8">
                       <p className="font-display text-2xl leading-tight">
@@ -291,6 +335,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
           </div>
         </div>
       </section>
+      )}
 
       {/* 8. Handled by.
           Wired and currently empty. Keyed on the CHARGE href, not the silo
@@ -303,16 +348,21 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
 
       {/* 9. FAQ, emitted with FAQPage schema by the route.
           An overview with no FAQ renders no marker: the questions are not
-          missing there, they are not required. */}
+          missing there, they are not required.
+
+          D43: on a tiered page the FAQ is the seventh accordion item, rendered
+          by TieredBody, so this block drops to the related-guides and byline it
+          also carries. The FAQPage schema is emitted by the ROUTE from
+          charge.faq and is unaffected by which component renders the answers. */}
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          {(charge.faq?.length || !isOverview) && (
+          {!tiered && (charge.faq?.length || !isOverview) && (
             <h2 className="font-display text-4xl leading-tight sm:text-5xl">
               Common questions
             </h2>
           )}
-          <div className="mt-10 max-w-3xl">
-            {charge.faq?.length ? (
+          <div className={tiered ? "max-w-3xl" : "mt-10 max-w-3xl"}>
+            {tiered ? null : charge.faq?.length ? (
               <dl className="space-y-8">
                 {charge.faq.map((item) => (
                   <div
@@ -374,6 +424,158 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
         tone="white"
       />
     </>
+  );
+}
+
+/**
+ * The tiered body. D43.
+ *
+ * TIER 2 is three sections, always open, under the largest headings on the page
+ * after the H1. No disclosure, no sources line, no statute block: those three
+ * sections carry the table, the timeline and the action list, which is what the
+ * reader came for, and a wall of statute above them would bury it.
+ *
+ * TIER 3 is ONE accordion. Seven items over nine sections, because two labels
+ * cover two sections each. Every item is closed by default and every heading is
+ * deliberately a size class below Tier 2, so the two cannot be mistaken for
+ * peers. Native <details>, not a React island, so it works with no JavaScript
+ * and keeps its own accessibility semantics; the content stays in the HTML and
+ * a crawler still reads it.
+ *
+ * THE CTA REPEATS TWICE, after Tier 2 and at the foot. The hero carries the
+ * first. That is three on a page, which is the most this template has ever
+ * shown, and it is the client's call rather than a default.
+ */
+function TieredBody({
+  charge,
+  sections,
+}: {
+  charge: ChargePage;
+  sections: ChargeSection[];
+}) {
+  const tier2 = sections.filter((s) => s.tier === 2);
+  const tier3 = sections.filter((s) => s.tier === 3);
+
+  // Consecutive sections sharing a `group` collapse into one accordion item.
+  // Order is the data's order; nothing is sorted, so the item sequence is the
+  // sequence the writer chose.
+  const items: { label: string; sections: ChargeSection[] }[] = [];
+  for (const sec of tier3) {
+    const label = sec.group ?? sec.heading;
+    const last = items[items.length - 1];
+    if (last && last.label === label) last.sections.push(sec);
+    else items.push({ label, sections: [sec] });
+  }
+
+  // One sources block for the whole page, in section order, de-duplicated. A
+  // provision cited by three sections appears once.
+  const sources = [...new Set(sections.flatMap((s) => s.sources ?? []))];
+
+  const cta = charge.heroCta ?? {
+    label: `Call ${firm.phone}`,
+    href: firm.phoneHref,
+  };
+  const ctaButton = (
+    <a
+      href={cta.href}
+      className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+    >
+      {cta.label}
+    </a>
+  );
+
+  return (
+    <section data-bg="white" className="bg-white py-14 text-navy lg:py-20">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        {/* TIER 2 */}
+        <div className="max-w-3xl space-y-14 lg:space-y-20">
+          {tier2.map((section) => (
+            <div key={section.id} id={section.id} className="scroll-mt-28">
+              <h2 className="font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+                {section.heading}
+              </h2>
+              <div className="mt-6 text-lg leading-relaxed text-charcoal">
+                <SectionBody section={section} />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-14 max-w-3xl">{ctaButton}</div>
+
+        {/* TIER 3 */}
+        <div className="mt-16 max-w-3xl border-t border-navy/15">
+          {items.map((item) => (
+            <details key={item.label} className="group border-b border-navy/15">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-heading text-lg font-semibold leading-snug text-navy transition-colors hover:text-bronze sm:text-xl">
+                <span>{item.label}</span>
+                <span
+                  aria-hidden="true"
+                  className="shrink-0 text-bronze transition-transform group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+              <div className="space-y-8 pb-8 text-base leading-relaxed text-charcoal">
+                {item.sections.map((section) => (
+                  <div key={section.id} id={section.id} className="scroll-mt-28">
+                    {/* The section's own charge-specific heading, kept. The
+                        accordion label is wayfinding; this is the claim. */}
+                    <h3 className="font-heading text-base font-semibold leading-snug text-navy/70">
+                      {section.heading}
+                    </h3>
+                    <div className="mt-4 space-y-5">
+                      <SectionBody section={section} />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </details>
+          ))}
+
+          {/* The seventh item: the FAQ. */}
+          {charge.faq?.length ? (
+            <details className="group border-b border-navy/15">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-heading text-lg font-semibold leading-snug text-navy transition-colors hover:text-bronze sm:text-xl">
+                <span>Common questions</span>
+                <span
+                  aria-hidden="true"
+                  className="shrink-0 text-bronze transition-transform group-open:rotate-45"
+                >
+                  +
+                </span>
+              </summary>
+              <dl className="space-y-6 pb-8 text-base leading-relaxed text-charcoal">
+                {charge.faq.map((item) => (
+                  <div key={item.question}>
+                    <dt className="font-heading font-semibold text-navy/70">
+                      {item.question}
+                    </dt>
+                    <dd className="mt-2">{item.answer}</dd>
+                  </div>
+                ))}
+              </dl>
+            </details>
+          ) : null}
+        </div>
+
+        {/* ONE SOURCES BLOCK FOR THE PAGE */}
+        {sources.length ? (
+          <div className="mt-16 max-w-3xl border-t border-navy/15 pt-8">
+            <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/50">
+              Sources for this page
+            </h2>
+            <ul className="mt-4 space-y-1 font-heading text-sm leading-relaxed text-navy/55">
+              {sources.map((src) => (
+                <li key={src}>{src}</li>
+              ))}
+            </ul>
+          </div>
+        ) : null}
+
+        <div className="mt-12 max-w-3xl">{ctaButton}</div>
+      </div>
+    </section>
   );
 }
 

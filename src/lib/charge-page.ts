@@ -106,6 +106,30 @@ export type ChargeSection = {
    */
   heading: string;
   kind: ChargeSectionKind;
+  /**
+   * Visual tier. DECISIONS.md D43.
+   *
+   *   2  always open, large heading, no disclosure and no sources line. The
+   *      three things a reader came for.
+   *   3  inside the single page accordion, closed by default, small heading,
+   *      tight spacing. Everything else.
+   *
+   * Tier 1 is the hero and is not a section, so it never appears here. A
+   * section with no tier is rendered by the pre-D43 template, which is what
+   * keeps the other 27 charge pages unchanged.
+   */
+  tier?: 2 | 3;
+  /**
+   * The Tier 3 accordion item this section belongs to, by its visible label.
+   *
+   * Consecutive Tier 3 sections sharing a group render inside ONE `<details>`,
+   * with the group as the summary and each section's own `heading` as a smaller
+   * heading inside it. That is why the group is a separate field from `heading`
+   * rather than a replacement for it: seven accordion labels have to cover nine
+   * sections, and collapsing them into seven headings would have deleted two
+   * charge-specific headings and the differentiation they carry.
+   */
+  group?: string;
   /** Which reader questions this section answers. Drives the coverage check. */
   answers?: ReaderQuestion[];
   /**
@@ -129,6 +153,16 @@ export type ChargeSection = {
   bullets?: string[];
   penalties?: PenaltyRow[];
   statute?: { citation: string; body: string };
+  /**
+   * Further verified statutory text this section carries. D43.
+   *
+   * Exists because Tier 2 renders no collapsed blocks: its three sections are
+   * always open, so a block there would be a wall of statute above the fold.
+   * Their blocks are re-homed onto the Tier 3 section whose subject covers
+   * them, and a section can hold more than one. Nothing on the page was
+   * dropped to make the tiers fit; the two orphaned blocks moved.
+   */
+  statutes?: { citation: string; body: string }[];
   steps?: TimelineStep[];
   guidance?: Guidance[];
 };

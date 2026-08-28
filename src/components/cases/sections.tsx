@@ -156,6 +156,14 @@ export function SectionBody({ section }: { section: ChargeSection }) {
           <StatuteBlock section={section} />
         </div>
       ) : null}
+      {/* D43: blocks re-homed from a Tier 2 section, which renders none. */}
+      {section.statutes?.length ? (
+        <div className="mt-8 space-y-8">
+          {section.statutes.map((st) => (
+            <StatuteBlock key={st.citation} section={{ ...section, statute: st }} />
+          ))}
+        </div>
+      ) : null}
       {section.kind !== "prose" && section.prose?.length ? (
         <div className="mt-8 space-y-5">
           {section.prose.map((paragraph) => (

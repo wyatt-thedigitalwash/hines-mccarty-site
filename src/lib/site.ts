@@ -2289,6 +2289,22 @@ export type ChargePage = {
   metaDescription?: string;
   /** Template item 1, the direct answer in the first 40 words. */
   lead?: string;
+  /**
+   * The hero's single call to action, and the switch for the stripped hero.
+   *
+   * OPT-IN PER PAGE, because ChargeTemplate renders all 28 charge pages and a
+   * change to the shared hero is a change to every one of them. A page that
+   * sets this gets the stripped hero: breadcrumbs, H1, the lead, one primary
+   * button, and a hard visual break before the body. A page that does not is
+   * rendered exactly as before, with the two-button group and the
+   * confidentiality line.
+   *
+   * `label` is rendered verbatim. `href` is a tel: link and is NOT derived from
+   * `firm.phoneHref`: this hero states its own number, and the two are checked
+   * against each other by nothing, which is recorded in DECISIONS.md D42 as the
+   * cost of that choice.
+   */
+  heroCta?: { label: string; href: string };
   /** Template item 2. */
   statute?: { citation: string; body: string };
   /** Template item 3. Never links the calculator until it clears C1-C8. */
@@ -5806,85 +5822,17 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // an attorney's byline with their own citation or it does not appear.
   // ---------------------------------------------------------------------
   "state/dui-defense": {
-    title: "DUI charges in Hillsborough County",
+    title: "Arrested for DUI in Hillsborough County?",
     metaTitle: "Florida DUI Charges and Test Refusal After 1 October 2025 | Hines & McCarty",
     metaDescription: "Turning down a breath or urine test in Florida became a crime on the first refusal on 1 October 2025. What that changed, and the 10 days you have to answer the suspension of your license.",
-    lead: "A DUI arrest starts two cases, not one. You have 10 days to answer the one against your license. Since 1 October 2025, turning down a breath or urine test is also a crime the first time.",
+    lead: "You have 10 days to save your license. The clock started on the date printed on the paper the officer handed you, not on your arrest date. Miss it and the suspension just happens.",
+    heroCta: { label: "Call or Text 813-333-8886", href: "tel:+18133338886" },
     sections: [
       {
-        "id": "license-clock",
-        "heading": "You have 10 days to answer the case against your license",
-        "kind": "prose",
-        "answers": [
-          "now",
-          "next"
-        ],
-        "prose": [
-          "You have 10 days. They start from the date on the notice, not from your arrest. When you were arrested, the officer took your license and handed you a piece of paper. That paper is the notice of suspension, and the date on it starts the clock.",
-          "The same paper is your temporary permit. It lets you drive for 10 days, then it stops. If you have not asked for a hearing by then, there is no hearing to have.",
-          "Nobody had to charge you first. No judge signed anything. The officer suspended your license at the roadside, and that suspension runs whether you fight it or not.",
-          "Sometimes the paper comes later. If police took your blood, the lab result goes to the state first. The notice can then reach you by mail, weeks after the arrest. A mailed notice comes with no permit at all.",
-          "How long the suspension lasts depends on what happened. Turn down a test and it is a year, or 18 months if you turned one down before. Blow 0.08 or higher and it is six months, or a year if this has happened to you before."
-        ],
-        "sources": [
-          "F.S. 322.2615(1), (3), (4), (6)(a), (9) and (10)",
-          "F.S. 322.251"
-        ],
-        "statute": {
-          "citation": "Florida Statute 322.2615(1)(b)3., 2025 Florida Statutes",
-          "body": "The driver may request a formal or informal review of the suspension by the department within 10 days after the date of issuance of the notice of suspension or may request a review of eligibility for a restricted driving privilege under s. 322.271(7)."
-        }
-      },
-      {
-        "id": "two-cases",
-        "heading": "Two cases start at once, and neither one decides the other",
-        "kind": "prose",
-        "answers": [
-          "who",
-          "next"
-        ],
-        "prose": [
-          "One arrest, two cases. One is about your license. The other is about a crime. They run at the same time, in different places.",
-          "The license case is not in a courtroom. A hearing officer at the state driving agency decides it. You answer it by asking for a review inside those 10 days. This is the case with the deadline.",
-          "The criminal case is in court. The State Attorney for Hillsborough County brings it. A felony goes to circuit court, and a misdemeanor on its own goes to county court.",
-          "The clerk keeps criminal counters at two courthouses. One is the Edgecomb Courthouse in Tampa. The other is the Plant City Courthouse.",
-          "Winning one case does not end the other, with a single exception. If a jury finds you not guilty of the DUI, a suspension for a test result of 0.08 or higher is wiped out. A suspension for turning down a test is not. What is said at the license hearing also stays out of your criminal trial.",
-          "Bring the notice of suspension to your first call with a lawyer. The date on it is the one that matters. Hines & McCarty can be reached about a Hillsborough County DUI arrest and the license suspension that comes with it."
-        ],
-        "sources": [
-          "F.S. 322.2615(4), (6), (12), (13), (14) and (16)",
-          "F.S. 316.193(10)",
-          "F.S. 316.1939(2) and (3)",
-          "F.S. 26.012(2)(d) and F.S. 34.01(1)(a)"
-        ],
-        "statute": {
-          "citation": "Florida Statute 322.2615(4), 2025 Florida Statutes",
-          "body": "If the person whose license was suspended requests an informal review pursuant to subparagraph (1)(b)3., the department shall conduct the informal review by a hearing officer designated by the department."
-        }
-      },
-      {
-        "id": "what-is-charged",
-        "heading": "You do not have to blow 0.08 to be charged",
-        "kind": "statute",
-        "answers": [
-          "facing"
-        ],
-        "prose": [
-          "There are three ways to be charged, and only two of them use a number. The first is that drink or drugs left your normal faculties impaired. An officer can say that from how you looked, spoke and drove. No test result is needed for it.",
-          "The other two ways rest on a reading. One measures alcohol in your blood. The other measures it in your breath. For both, the line is 0.08."
-        ],
-        "sources": [
-          "F.S. 316.193(1)(a), (1)(b) and (1)(c)"
-        ],
-        "statute": {
-          "citation": "Florida Statute 316.193(1), 2025 Florida Statutes",
-          "body": "A person is guilty of the offense of driving under the influence and is subject to punishment as provided in subsection (2) if the person is driving or in actual physical control of a vehicle within this state and: (a) The person is under the influence of alcoholic beverages, any chemical substance set forth in s. 877.111, or any substance controlled under chapter 893, when affected to the extent that the person's normal faculties are impaired; (b) The person has a blood-alcohol level of 0.08 or more grams of alcohol per 100 milliliters of blood; or (c) The person has a breath-alcohol level of 0.08 or more grams of alcohol per 210 liters of breath."
-        }
-      },
-      {
         "id": "ladder",
-        "heading": "What a DUI carries, from a first arrest to a fourth",
+        "heading": "What you're facing.",
         "kind": "penalties",
+        "tier": 2,
         "answers": [
           "facing"
         ],
@@ -5970,65 +5918,13 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "F.S. 316.656(2)",
           "F.S. 775.082(3) and (4)",
           "F.S. 921.0022 and F.S. 921.0024"
-        ],
-        "statute": {
-          "citation": "Florida Statute 316.656(2)(a), 2025 Florida Statutes",
-          "body": "No trial judge may accept a plea of guilty to a lesser offense from a person charged under the provisions of this act who has been given a breath or blood test to determine blood or breath alcohol content, the results of which show a blood or breath alcohol content by weight of 0.15 percent or more."
-        }
-      },
-      {
-        "id": "refusal-2025",
-        "heading": "Turning down the test became a crime on 1 October 2025",
-        "kind": "statute",
-        "answers": [
-          "facing"
-        ],
-        "prose": [
-          "Turning down a breath or urine test used to cost you your license and nothing more. Since 1 October 2025 it is also a crime the first time you do it. Before that date, a first refusal was not a crime at all.",
-          "A first refusal is a second degree misdemeanor, carrying up to 60 days. A second refusal is a first degree misdemeanor, carrying up to a year. Either way it is a separate charge, stacked on the DUI.",
-          "The date decides which rule reaches you. A refusal on 30 September 2025 is judged by the old wording. A refusal a day later is judged by the new one.",
-          "This crime covers breath and urine tests. Blood sits outside it. Turning down a blood test still costs you your license, but it is not this charge."
-        ],
-        "sources": [
-          "F.S. 316.1939(1)",
-          "Ch. 2025-121, Laws of Florida (HB 687), s. 4, effective 1 October 2025",
-          "F.S. 775.082(4)(a) and (4)(b)",
-          "F.S. 322.2615(1)(b)1.a."
-        ],
-        "statute": {
-          "citation": "Florida Statute 316.1939(1), 2025 Florida Statutes, paragraphs (d) and (e) and the words closing the subsection",
-          "body": "A person who has refused to submit to a chemical or physical test of his or her breath or urine, as described in s. 316.1932, and: ... (d) Who was informed that a refusal to submit to a lawful test of his or her breath or urine is a misdemeanor of the second degree, punishable as provided in s. 775.082 or s. 775.083, or if his or her driving privilege has been previously suspended or if he or she has previously been fined under s. 327.35215 for a prior refusal to submit to a lawful test of his or her breath, urine, or blood as required under this chapter or chapter 327, that a refusal to submit to a lawful test of his or her breath or urine is a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083, in addition to any other penalties provided by law; and (e) Who, after having been so informed, refused to submit to any such test when requested to do so by a law enforcement officer or correctional officer commits a misdemeanor of the second degree for a first refusal or a misdemeanor of the first degree for a second or subsequent refusal, and is subject to punishment as provided in s. 775.082 or s. 775.083."
-        }
-      },
-      {
-        "id": "proof",
-        "heading": "What has to be true before a refusal counts against you",
-        "kind": "prose",
-        "answers": [
-          "facing"
-        ],
-        "prose": [
-          "A refusal charge has conditions attached, and they come before the refusal itself. The officer needed a real reason to think you were driving impaired. You had to be under arrest for DUI. And you had to be told, out loud, what saying no would cost you.",
-          "You had to be warned about both costs. One is losing your license. The other is being charged with a crime. Only after that warning does saying no count against you.",
-          "Saying no does not make it go away. The State can tell the jury that you refused. That holds for breath, urine and blood alike.",
-          "Blood is handled differently when someone is badly hurt or killed. An officer with good reason to believe an impaired driver caused it has to take blood. Your agreement is not needed, and you do not have to be under arrest first.",
-          "Badly hurt has a fixed meaning, set out below. It reaches an injury that risks death, permanent disfigurement, or lasting loss of the use of a body part. It counts even when the person hurt is you.",
-          "Some cases start in a hospital rather than at a traffic stop. If a blood test done for your treatment shows you over the limit, staff may tell police. They may pass on only your name, who drew the blood, the reading, and when it was taken."
-        ],
-        "sources": [
-          "F.S. 316.1939(1)(a) to (1)(e)",
-          "F.S. 316.1932(1)(a)1. and (1)(c)",
-          "F.S. 316.1933(1) and (2)(a)"
-        ],
-        "statute": {
-          "citation": "Florida Statute 316.1933(1)(b), 2025 Florida Statutes",
-          "body": "The term \"serious bodily injury\" means an injury to any person, including the driver, which consists of a physical condition that creates a substantial risk of death, serious personal disfigurement, or protracted loss or impairment of the function of any bodily member or organ."
-        }
+        ]
       },
       {
         "id": "clock-intervals",
-        "heading": "The dates that come at you, in the order they arrive",
+        "heading": "What happens next.",
         "kind": "timeline",
+        "tier": 2,
         "answers": [
           "next"
         ],
@@ -6074,43 +5970,161 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "F.S. 316.193(9)",
           "F.S. 322.2615(2)(a), (5), (6), (9) and (10)",
           "Fla. R. Crim. P. 3.130, 3.134 and 3.191"
-        ],
-        "statute": {
-          "citation": "Florida Statute 316.193(9), 2025 Florida Statutes",
-          "body": "A person who is arrested for a violation of this section may not be released from custody:(a) Until the person is no longer under the influence of alcoholic beverages, any chemical substance set forth in s. 877.111, or any substance controlled under chapter 893 and affected to the extent that his or her normal faculties are impaired;(b) Until the person’s blood-alcohol level or breath-alcohol level is less than 0.05; or (c) Until 8 hours have elapsed from the time the person was arrested."
-        }
+        ]
       },
       {
-        "id": "review-fork",
-        "heading": "Three ways to answer the license case, and one gives up the other two",
+        "id": "do-now",
+        "heading": "What to do right now.",
         "kind": "bullets",
+        "tier": 2,
         "answers": [
-          "now",
-          "consequences"
+          "now"
         ],
         "bullets": [
-          "Ask for a hearing. A hearing officer reads the paperwork, you can bring a lawyer, and the officer who arrested you can be called to attend. If that officer or the breath technician is called and does not turn up, your suspension is wiped out.",
-          "Or ask for a paper review. Nobody attends. The state reads what the officer sent and what you sent, then mails you an answer.",
-          "Or take a work-only license and give up both reviews. Taking it is the waiver, not asking about it. You cannot hold that license and still fight the suspension.",
-          "The work-only route is narrow. It is open only if you have never had this suspension before, have never been disqualified from driving, and have never been convicted of DUI. Drink driving convictions from other states count against you here.",
-          "Work-only means what it says. You can drive to and from work, on the job, to school, to church and to medical care. A narrower version covers only getting to work and driving while you are there.",
-          "Asking pauses nothing. Your suspension runs while you fight it. And if you ask to move your hearing date, you lose the permit that would have covered you until then.",
-          "A review can only settle a few questions. Did the officer have good reason to stop and arrest you. Were you over the limit, or did you say no to the test. On a refusal, were you told what saying no would cost.",
-          "Even on the work-only route you have to show you are enrolled in a DUI course. Two DUI convictions, or two refusal suspensions, shut that route for good."
+          "Keep the notice of suspension. The date printed on it starts every license deadline you have.",
+          "Keep the 10 day permit that came with it, if you got one. A notice sent by post comes without a permit.",
+          "Ask for the review inside those 10 days. Asking pauses nothing, and your suspension runs while you fight it.",
+          "Call a lawyer. Bring the notice of suspension to that first call, because the date on it is the one that matters."
         ],
         "sources": [
-          "F.S. 322.2615(1)(b)3., (4), (5), (6), (7), (9), (10) and (11)",
-          "F.S. 322.271(1)(c), (2)(a) and (7)"
+          "F.S. 322.2615(1)(b)3., (3) and (9)"
+        ]
+      },
+      {
+        "id": "license-clock",
+        "heading": "You have 10 days to answer the case against your license",
+        "kind": "prose",
+        "tier": 3,
+        "group": "Two cases, not one",
+        "answers": [
+          "now",
+          "next"
+        ],
+        "prose": [
+          "You have 10 days. They start from the date on the notice, not from your arrest. When you were arrested, the officer took your license and handed you a piece of paper. That paper is the notice of suspension, and the date on it starts the clock.",
+          "The same paper is your temporary permit. It lets you drive for 10 days, then it stops. If you have not asked for a hearing by then, there is no hearing to have.",
+          "Nobody had to charge you first. No judge signed anything. The officer suspended your license at the roadside, and that suspension runs whether you fight it or not.",
+          "Sometimes the paper comes later. If police took your blood, the lab result goes to the state first. The notice can then reach you by mail, weeks after the arrest. A mailed notice comes with no permit at all.",
+          "How long the suspension lasts depends on what happened. Turn down a test and it is a year, or 18 months if you turned one down before. Blow 0.08 or higher and it is six months, or a year if this has happened to you before."
         ],
         "statute": {
-          "citation": "Florida Statute 322.2615(10)(a), 2025 Florida Statutes",
-          "body": "If the suspension of the driver license of the person for failure to submit to a breath, urine, or blood test is sustained, the person is not eligible to receive a license for business or employment purposes only, pursuant to s. 322.271, until 90 days have elapsed after the expiration of the last temporary permit issued."
-        }
+          "citation": "Florida Statute 322.2615(1)(b)3., 2025 Florida Statutes",
+          "body": "The driver may request a formal or informal review of the suspension by the department within 10 days after the date of issuance of the notice of suspension or may request a review of eligibility for a restricted driving privilege under s. 322.271(7)."
+        },
+        "sources": [
+          "F.S. 322.2615(1), (3), (4), (6)(a), (9) and (10)",
+          "F.S. 322.251"
+        ]
+      },
+      {
+        "id": "two-cases",
+        "heading": "Two cases start at once, and neither one decides the other",
+        "kind": "prose",
+        "tier": 3,
+        "group": "Two cases, not one",
+        "answers": [
+          "who",
+          "next"
+        ],
+        "prose": [
+          "One arrest, two cases. One is about your license. The other is about a crime. They run at the same time, in different places.",
+          "The license case is not in a courtroom. A hearing officer at the state driving agency decides it. You answer it by asking for a review inside those 10 days. This is the case with the deadline.",
+          "The criminal case is in court. The State Attorney for Hillsborough County brings it. A felony goes to circuit court, and a misdemeanor on its own goes to county court.",
+          "The clerk keeps criminal counters at two courthouses. One is the Edgecomb Courthouse in Tampa. The other is the Plant City Courthouse.",
+          "Winning one case does not end the other, with a single exception. If a jury finds you not guilty of the DUI, a suspension for a test result of 0.08 or higher is wiped out. A suspension for turning down a test is not. What is said at the license hearing also stays out of your criminal trial.",
+          "Bring the notice of suspension to your first call with a lawyer. The date on it is the one that matters. Hines & McCarty can be reached about a Hillsborough County DUI arrest and the license suspension that comes with it."
+        ],
+        "statute": {
+          "citation": "Florida Statute 322.2615(4), 2025 Florida Statutes",
+          "body": "If the person whose license was suspended requests an informal review pursuant to subparagraph (1)(b)3., the department shall conduct the informal review by a hearing officer designated by the department."
+        },
+        "sources": [
+          "F.S. 322.2615(4), (6), (12), (13), (14) and (16)",
+          "F.S. 316.193(10)",
+          "F.S. 316.1939(2) and (3)",
+          "F.S. 26.012(2)(d) and F.S. 34.01(1)(a)"
+        ]
+      },
+      {
+        "id": "what-is-charged",
+        "heading": "You do not have to blow 0.08 to be charged",
+        "kind": "statute",
+        "tier": 3,
+        "group": "What the state has to prove",
+        "answers": [
+          "facing"
+        ],
+        "prose": [
+          "There are three ways to be charged, and only two of them use a number. The first is that drink or drugs left your normal faculties impaired. An officer can say that from how you looked, spoke and drove. No test result is needed for it.",
+          "The other two ways rest on a reading. One measures alcohol in your blood. The other measures it in your breath. For both, the line is 0.08."
+        ],
+        "statute": {
+          "citation": "Florida Statute 316.193(1), 2025 Florida Statutes",
+          "body": "A person is guilty of the offense of driving under the influence and is subject to punishment as provided in subsection (2) if the person is driving or in actual physical control of a vehicle within this state and: (a) The person is under the influence of alcoholic beverages, any chemical substance set forth in s. 877.111, or any substance controlled under chapter 893, when affected to the extent that the person's normal faculties are impaired; (b) The person has a blood-alcohol level of 0.08 or more grams of alcohol per 100 milliliters of blood; or (c) The person has a breath-alcohol level of 0.08 or more grams of alcohol per 210 liters of breath."
+        },
+        "sources": [
+          "F.S. 316.193(1)(a), (1)(b) and (1)(c)"
+        ]
+      },
+      {
+        "id": "proof",
+        "heading": "What has to be true before a refusal counts against you",
+        "kind": "prose",
+        "tier": 3,
+        "group": "What the state has to prove",
+        "answers": [
+          "facing"
+        ],
+        "prose": [
+          "A refusal charge has conditions attached, and they come before the refusal itself. The officer needed a real reason to think you were driving impaired. You had to be under arrest for DUI. And you had to be told, out loud, what saying no would cost you.",
+          "You had to be warned about both costs. One is losing your license. The other is being charged with a crime. Only after that warning does saying no count against you.",
+          "Saying no does not make it go away. The State can tell the jury that you refused. That holds for breath, urine and blood alike.",
+          "Blood is handled differently when someone is badly hurt or killed. An officer with good reason to believe an impaired driver caused it has to take blood. Your agreement is not needed, and you do not have to be under arrest first.",
+          "Badly hurt has a fixed meaning, set out below. It reaches an injury that risks death, permanent disfigurement, or lasting loss of the use of a body part. It counts even when the person hurt is you.",
+          "Some cases start in a hospital rather than at a traffic stop. If a blood test done for your treatment shows you over the limit, staff may tell police. They may pass on only your name, who drew the blood, the reading, and when it was taken."
+        ],
+        "statute": {
+          "citation": "Florida Statute 316.1933(1)(b), 2025 Florida Statutes",
+          "body": "The term \"serious bodily injury\" means an injury to any person, including the driver, which consists of a physical condition that creates a substantial risk of death, serious personal disfigurement, or protracted loss or impairment of the function of any bodily member or organ."
+        },
+        "sources": [
+          "F.S. 316.1939(1)(a) to (1)(e)",
+          "F.S. 316.1932(1)(a)1. and (1)(c)",
+          "F.S. 316.1933(1) and (2)(a)"
+        ]
+      },
+      {
+        "id": "refusal-2025",
+        "heading": "Turning down the test became a crime on 1 October 2025",
+        "kind": "statute",
+        "tier": 3,
+        "group": "If you turned down the test",
+        "answers": [
+          "facing"
+        ],
+        "prose": [
+          "Turning down a breath or urine test used to cost you your license and nothing more. Since 1 October 2025 it is also a crime the first time you do it. Before that date, a first refusal was not a crime at all.",
+          "A first refusal is a second degree misdemeanor, carrying up to 60 days. A second refusal is a first degree misdemeanor, carrying up to a year. Either way it is a separate charge, stacked on the DUI.",
+          "The date decides which rule reaches you. A refusal on 30 September 2025 is judged by the old wording. A refusal a day later is judged by the new one.",
+          "This crime covers breath and urine tests. Blood sits outside it. Turning down a blood test still costs you your license, but it is not this charge."
+        ],
+        "statute": {
+          "citation": "Florida Statute 316.1939(1), 2025 Florida Statutes, paragraphs (d) and (e) and the words closing the subsection",
+          "body": "A person who has refused to submit to a chemical or physical test of his or her breath or urine, as described in s. 316.1932, and: ... (d) Who was informed that a refusal to submit to a lawful test of his or her breath or urine is a misdemeanor of the second degree, punishable as provided in s. 775.082 or s. 775.083, or if his or her driving privilege has been previously suspended or if he or she has previously been fined under s. 327.35215 for a prior refusal to submit to a lawful test of his or her breath, urine, or blood as required under this chapter or chapter 327, that a refusal to submit to a lawful test of his or her breath or urine is a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083, in addition to any other penalties provided by law; and (e) Who, after having been so informed, refused to submit to any such test when requested to do so by a law enforcement officer or correctional officer commits a misdemeanor of the second degree for a first refusal or a misdemeanor of the first degree for a second or subsequent refusal, and is subject to punishment as provided in s. 775.082 or s. 775.083."
+        },
+        "sources": [
+          "F.S. 316.1939(1)",
+          "Ch. 2025-121, Laws of Florida (HB 687), s. 4, effective 1 October 2025",
+          "F.S. 775.082(4)(a) and (4)(b)",
+          "F.S. 322.2615(1)(b)1.a."
+        ]
       },
       {
         "id": "paperwork",
         "heading": "The paper and the records this case runs on",
         "kind": "guidance",
+        "tier": 3,
+        "group": "How a DUI case gets defended",
         "answers": [
           "now"
         ],
@@ -6141,22 +6155,59 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
             ]
           }
         ],
+        "statute": {
+          "citation": "Florida Statute 316.1932(1)(f)3., 2025 Florida Statutes, first sentence",
+          "body": "The person tested may, at his or her own expense, have a physician, registered nurse, other personnel authorized by a hospital to draw blood, or duly licensed clinical laboratory director, supervisor, technologist, or technician, or other person of his or her own choosing administer an independent test in addition to the test administered at the direction of the law enforcement officer for the purpose of determining the amount of alcohol in the person's blood or breath or the presence of chemical substances or controlled substances at the time alleged, as shown by chemical analysis of his or her blood or urine, or by chemical or physical test of his or her breath."
+        },
+        "statutes": [
+          {
+            "citation": "Florida Statute 316.193(9), 2025 Florida Statutes",
+            "body": "A person who is arrested for a violation of this section may not be released from custody:(a) Until the person is no longer under the influence of alcoholic beverages, any chemical substance set forth in s. 877.111, or any substance controlled under chapter 893 and affected to the extent that his or her normal faculties are impaired;(b) Until the person’s blood-alcohol level or breath-alcohol level is less than 0.05; or (c) Until 8 hours have elapsed from the time the person was arrested."
+          }
+        ],
         "sources": [
           "Fla. R. Crim. P. 3.130(b)(1)(B) and (c)",
           "F.S. 316.1932(1)(a)2., (1)(d) and (1)(f)",
           "F.S. 322.2615(2), (3) and (9)",
           "F.S. 322.271(7)(c)",
           "F.S. 316.1939(2) and (3)"
+        ]
+      },
+      {
+        "id": "review-fork",
+        "heading": "Three ways to answer the license case, and one gives up the other two",
+        "kind": "bullets",
+        "tier": 3,
+        "group": "How a DUI case gets defended",
+        "answers": [
+          "now",
+          "consequences"
+        ],
+        "bullets": [
+          "Ask for a hearing. A hearing officer reads the paperwork, you can bring a lawyer, and the officer who arrested you can be called to attend. If that officer or the breath technician is called and does not turn up, your suspension is wiped out.",
+          "Or ask for a paper review. Nobody attends. The state reads what the officer sent and what you sent, then mails you an answer.",
+          "Or take a work-only license and give up both reviews. Taking it is the waiver, not asking about it. You cannot hold that license and still fight the suspension.",
+          "The work-only route is narrow. It is open only if you have never had this suspension before, have never been disqualified from driving, and have never been convicted of DUI. Drink driving convictions from other states count against you here.",
+          "Work-only means what it says. You can drive to and from work, on the job, to school, to church and to medical care. A narrower version covers only getting to work and driving while you are there.",
+          "Asking pauses nothing. Your suspension runs while you fight it. And if you ask to move your hearing date, you lose the permit that would have covered you until then.",
+          "A review can only settle a few questions. Did the officer have good reason to stop and arrest you. Were you over the limit, or did you say no to the test. On a refusal, were you told what saying no would cost.",
+          "Even on the work-only route you have to show you are enrolled in a DUI course. Two DUI convictions, or two refusal suspensions, shut that route for good."
         ],
         "statute": {
-          "citation": "Florida Statute 316.1932(1)(f)3., 2025 Florida Statutes, first sentence",
-          "body": "The person tested may, at his or her own expense, have a physician, registered nurse, other personnel authorized by a hospital to draw blood, or duly licensed clinical laboratory director, supervisor, technologist, or technician, or other person of his or her own choosing administer an independent test in addition to the test administered at the direction of the law enforcement officer for the purpose of determining the amount of alcohol in the person's blood or breath or the presence of chemical substances or controlled substances at the time alleged, as shown by chemical analysis of his or her blood or urine, or by chemical or physical test of his or her breath."
-        }
+          "citation": "Florida Statute 322.2615(10)(a), 2025 Florida Statutes",
+          "body": "If the suspension of the driver license of the person for failure to submit to a breath, urine, or blood test is sustained, the person is not eligible to receive a license for business or employment purposes only, pursuant to s. 322.271, until 90 days have elapsed after the expiration of the last temporary permit issued."
+        },
+        "sources": [
+          "F.S. 322.2615(1)(b)3., (4), (5), (6), (7), (9), (10) and (11)",
+          "F.S. 322.271(1)(c), (2)(a) and (7)"
+        ]
       },
       {
         "id": "after-conviction",
         "heading": "What a conviction costs you after the case ends",
         "kind": "prose",
+        "tier": 3,
+        "group": "What a conviction costs you",
         "answers": [
           "consequences"
         ],
@@ -6169,20 +6220,28 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Two other things follow a conviction. You cannot hold a commercial license while your driving privilege is suspended or revoked. And being convicted does not stop anyone suing you over the same crash.",
           "You are warned about the license before the case is over. At your arraignment the clerk tells you that a conviction means the court will take your license, and that you should arrange a lift home."
         ],
+        "statute": {
+          "citation": "Florida Statute 316.193(5), 2025 Florida Statutes",
+          "body": "The court shall place all offenders convicted of violating this section on monthly reporting probation and shall require completion of a substance abuse course conducted by a DUI program licensed by the department under s. 322.292, which must include a psychosocial evaluation of the offender. If the DUI program refers the offender to an authorized substance abuse treatment provider for substance abuse treatment, in addition to any sentence or fine imposed under this section, completion of all such education, evaluation, and treatment is a condition of reporting probation. The offender shall assume reasonable costs for such education, evaluation, and treatment. The referral to treatment resulting from a psychosocial evaluation shall not be waived without a supporting independent psychosocial evaluation conducted by an authorized substance abuse treatment provider appointed by the court, which shall have access to the DUI program’s psychosocial evaluation before the independent psychosocial evaluation is conducted. The court shall review the results and recommendations of both evaluations before determining the request for waiver. The offender shall bear the full cost of this procedure. The term “substance abuse” means the abuse of alcohol or any substance named or described in Schedules I through V of s. 893.03. If an offender referred to treatment under this subsection fails to report for or complete such treatment or fails to complete the DUI program substance abuse education course and evaluation, the DUI program shall notify the court and the department of the failure. Upon receipt of the notice, the department shall cancel the offender’s driving privilege, notwithstanding the terms of the court order or any suspension or revocation of the driving privilege. The department may temporarily reinstate the driving privilege on a restricted basis upon verification from the DUI program that the offender is currently participating in treatment and the DUI education course and evaluation requirement has been completed. If the DUI program notifies the department of the second failure to complete treatment, the department shall reinstate the driving privilege only after notice of completion of treatment from the DUI program. The organization that conducts the substance abuse education and evaluation may not provide required substance abuse treatment unless a waiver has been granted to that organization by the department. A waiver may be granted only if the department determines, in accordance with its rules, that the service provider that conducts the substance abuse education and evaluation is the most appropriate service provider and is licensed under chapter 397 or is exempt from such licensure. A statistical referral report shall be submitted quarterly to the department by each organization authorized to provide services under this section."
+        },
+        "statutes": [
+          {
+            "citation": "Florida Statute 316.656(2)(a), 2025 Florida Statutes",
+            "body": "No trial judge may accept a plea of guilty to a lesser offense from a person charged under the provisions of this act who has been given a breath or blood test to determine blood or breath alcohol content, the results of which show a blood or breath alcohol content by weight of 0.15 percent or more."
+          }
+        ],
         "sources": [
           "F.S. 316.193(5), (6) and (7)",
           "F.S. 316.193(8)",
           "F.S. 322.271(6)"
-        ],
-        "statute": {
-          "citation": "Florida Statute 316.193(5), 2025 Florida Statutes",
-          "body": "The court shall place all offenders convicted of violating this section on monthly reporting probation and shall require completion of a substance abuse course conducted by a DUI program licensed by the department under s. 322.292, which must include a psychosocial evaluation of the offender. If the DUI program refers the offender to an authorized substance abuse treatment provider for substance abuse treatment, in addition to any sentence or fine imposed under this section, completion of all such education, evaluation, and treatment is a condition of reporting probation. The offender shall assume reasonable costs for such education, evaluation, and treatment. The referral to treatment resulting from a psychosocial evaluation shall not be waived without a supporting independent psychosocial evaluation conducted by an authorized substance abuse treatment provider appointed by the court, which shall have access to the DUI program’s psychosocial evaluation before the independent psychosocial evaluation is conducted. The court shall review the results and recommendations of both evaluations before determining the request for waiver. The offender shall bear the full cost of this procedure. The term “substance abuse” means the abuse of alcohol or any substance named or described in Schedules I through V of s. 893.03. If an offender referred to treatment under this subsection fails to report for or complete such treatment or fails to complete the DUI program substance abuse education course and evaluation, the DUI program shall notify the court and the department of the failure. Upon receipt of the notice, the department shall cancel the offender’s driving privilege, notwithstanding the terms of the court order or any suspension or revocation of the driving privilege. The department may temporarily reinstate the driving privilege on a restricted basis upon verification from the DUI program that the offender is currently participating in treatment and the DUI education course and evaluation requirement has been completed. If the DUI program notifies the department of the second failure to complete treatment, the department shall reinstate the driving privilege only after notice of completion of treatment from the DUI program. The organization that conducts the substance abuse education and evaluation may not provide required substance abuse treatment unless a waiver has been granted to that organization by the department. A waiver may be granted only if the department determines, in accordance with its rules, that the service provider that conducts the substance abuse education and evaluation is the most appropriate service provider and is licensed under chapter 397 or is exempt from such licensure. A statistical referral report shall be submitted quarterly to the department by each organization authorized to provide services under this section."
-        }
+        ]
       },
       {
         "id": "sealing",
         "heading": "A DUI conviction cannot be sealed, and one short rule is why",
         "kind": "prose",
+        "tier": 3,
+        "group": "Can it come off your record",
         "answers": [
           "sealing"
         ],
@@ -6193,15 +6252,15 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "A case that does not end in a conviction is different. If the charge was dropped, or you were found not guilty on every count, the state seals the record itself. You do not have to ask, and there is no limit on how often it can happen.",
           "Every count has to end that way. A refusal charge sitting next to the DUI has to be resolved the same way, or that route does not open."
         ],
+        "statute": {
+          "citation": "Florida Statute 316.656(1), 2025 Florida Statutes",
+          "body": "Notwithstanding the provisions of s. 948.01, no court may suspend, defer, or withhold adjudication of guilt or imposition of sentence for any violation of s. 316.193, for manslaughter resulting from the operation of a motor vehicle, or for vehicular homicide."
+        },
         "sources": [
           "F.S. 316.656(1)",
           "F.S. 943.059(1)(b) and (1)(c)",
           "F.S. 943.0595(2) and (3)(a)"
-        ],
-        "statute": {
-          "citation": "Florida Statute 316.656(1), 2025 Florida Statutes",
-          "body": "Notwithstanding the provisions of s. 948.01, no court may suspend, defer, or withhold adjudication of guilt or imposition of sentence for any violation of s. 316.193, for manslaughter resulting from the operation of a motor vehicle, or for vehicular homicide."
-        }
+        ]
       }
     ],
     faq: [

@@ -44,7 +44,7 @@ export const RENDERED_FIELDS = [
   "forum[]",
   "faq[].question|answer",
   "relatedGuides[].label",
-  "sections[].heading|prose|bullets|statute|penalties|steps|guidance|sources",
+  "sections[].heading|group|prose|bullets|statute|statutes|penalties|steps|guidance|sources",
   "readerNeeds{}",
   "owner",
   "lastReviewed",
@@ -101,6 +101,8 @@ export function pageCopy(c: ChargePage): string[] {
       ...(s.prose ?? []),
       ...(s.bullets ?? []),
       ...(s.statute ? [s.statute.citation, s.statute.body] : []),
+      ...(s.statutes ?? []).flatMap((st) => [st.citation, st.body]),
+      ...(s.group ? [s.group] : []),
       ...(s.penalties ?? []).map(penaltyRow),
       ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
       ...(s.sources ?? []),
@@ -160,6 +162,9 @@ export function bodyCopy(c: ChargePage): BodyChunk[] {
   };
   add("lead", false, [c.lead]);
   for (const s of c.sections ?? []) {
+    // The Tier 3 accordion label (D43) is rendered text a reader meets before
+    // anything inside the item, so it is body copy and is measured.
+    add(s.id, false, [s.group]);
     add(s.id, false, [s.heading]);
     // Only `prose` accumulates a run: bullets, tables, timelines and guidance
     // lists ARE the "heading, table, or list" that D41 says breaks one up.
@@ -187,7 +192,7 @@ export const GUIDE_RENDERED_FIELDS = [
   "lead",
   "faq[].question|answer",
   "relatedLinks[].label",
-  "sections[].heading|prose|bullets|statute|penalties|steps|guidance|sources",
+  "sections[].heading|group|prose|bullets|statute|statutes|penalties|steps|guidance|sources",
   "readerNeeds{}",
   "owner",
   "lastReviewed",
@@ -212,6 +217,8 @@ export function guideCopy(g: GuidePage): string[] {
       ...(s.prose ?? []),
       ...(s.bullets ?? []),
       ...(s.statute ? [s.statute.citation, s.statute.body] : []),
+      ...(s.statutes ?? []).flatMap((st) => [st.citation, st.body]),
+      ...(s.group ? [s.group] : []),
       ...(s.penalties ?? []).map(penaltyRow),
       ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
       ...(s.sources ?? []),
@@ -235,7 +242,7 @@ export const INJURY_RENDERED_FIELDS = [
   "lead",
   "faq[].question|answer",
   "relatedLinks[].label",
-  "sections[].heading|prose|bullets|statute|penalties|steps|guidance|sources",
+  "sections[].heading|group|prose|bullets|statute|statutes|penalties|steps|guidance|sources",
   "readerNeeds{}",
   "owner",
   "lastReviewed",
@@ -260,6 +267,8 @@ export function injuryCopy(p: InjuryPage): string[] {
       ...(s.prose ?? []),
       ...(s.bullets ?? []),
       ...(s.statute ? [s.statute.citation, s.statute.body] : []),
+      ...(s.statutes ?? []).flatMap((st) => [st.citation, st.body]),
+      ...(s.group ? [s.group] : []),
       ...(s.penalties ?? []).map(penaltyRow),
       ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
       ...(s.sources ?? []),

@@ -769,14 +769,70 @@ console.log("\nBanned terms, over extracted copy of every measured surface");
     );
 }
 
+/**
+ * TIER 3 ACCORDION LABELS ARE EXEMPT FROM THE GENERIC-HEADING RULE. D43.
+ *
+ * The rule exists because "a heading that would be equally true of another
+ * charge is the tell that the page is a form with the nouns swapped". That is
+ * true of a section HEADING, which is the page's claim about this charge. It is
+ * not true of an accordion label, whose whole job is wayfinding: a reader
+ * scanning seven closed rows needs to know which one holds the elements, and
+ * "What the state has to prove" is the plainest way to say so.
+ *
+ * THIS IS A REAL WEAKENING AND IS RECORDED AS ONE. Two of the seven labels the
+ * client specified are on the generic list. The differentiation claim now rests
+ * on the Tier 2 headings and on the section headings INSIDE each item, which are
+ * unchanged, still charge-specific, and still checked below. If a second page
+ * ever adopts the same labels, the heading-reuse gate further down does NOT
+ * exempt them and will fail, which is the backstop that keeps this from becoming
+ * a general escape hatch.
+ */
+const EXEMPT_GROUP_LABELS = new Set(
+  ["what the state has to prove", "common questions"].map(normalizeHeading),
+);
+
 console.log("\nGeneric headings");
 {
   let any = false;
+  let exempted = 0;
+  let exemptedTier2 = 0;
   for (const c of migrated) {
     for (const s of c.sections!) {
+      // Group labels are rendered text and are swept, not ignored. A label that
+      // is generic AND not on the exemption list fails exactly like a heading.
+      if (s.group && isGenericHeading(s.group)) {
+        if (EXEMPT_GROUP_LABELS.has(normalizeHeading(s.group))) exempted++;
+        else {
+          fail(`${chargeHref(c)} Tier 3 label is generic and not exempt: "${s.group}"`);
+          any = true;
+        }
+      }
       if (isGenericHeading(s.heading)) {
-        fail(`${chargeHref(c)} heading is generic: "${s.heading}"`);
-        any = true;
+        /*
+          TIER 2 HEADINGS ARE EXEMPT TOO, and this one is a genuine reversal
+          rather than a scoping nicety. D43 makes Tier 2 the three questions a
+          reader arrives with, named in the reader's words: "What you're
+          facing.", "What happens next.", "What to do right now." Two of those
+          are on the generic list by construction, because the list was built to
+          stop exactly this phrasing.
+
+          The rule it displaces was right for a page whose headings were its
+          only differentiation. It is wrong for Tier 2, where the heading is
+          navigation to the table, the timeline and the action list, and the
+          charge-specific claim lives in the payload under it and in the Tier 3
+          headings, all of which are still checked.
+
+          THE COST IS REAL AND IS NOT YET PAID. These three headings are
+          identical on every page that adopts tiers, so the heading-reuse gate
+          below will fail the moment a second charge page is converted. That is
+          the correct behaviour for today (nothing should silently share a
+          heading) and it is a blocker for tomorrow. See the [NEEDS] in D43.
+        */
+        if (s.tier === 2) exemptedTier2++;
+        else {
+          fail(`${chargeHref(c)} heading is generic: "${s.heading}"`);
+          any = true;
+        }
       }
     }
   }
@@ -796,6 +852,23 @@ console.log("\nGeneric headings");
         ? `  ok    every heading on ${migrated.length} migrated page(s) is charge-specific`
         : "  ..    no migrated pages yet",
     );
+  // D22: an exemption that is in force is printed on every run, never assumed.
+  console.log(
+    exemptedTier2
+      ? `  ..    ${exemptedTier2} Tier 2 heading(s) exempt from the generic rule by D43. ` +
+          `Tier 2 names the reader's question, so "What happens next." is intended rather ` +
+          `than lazy. The charge-specific claim is the payload under it and the Tier 3 ` +
+          `headings, both still checked.`
+      : "  ..    no Tier 2 heading exemptions in force",
+  );
+  console.log(
+    exempted
+      ? `  ..    ${exempted} Tier 3 accordion label(s) exempt from the generic rule by D43: ` +
+          `${[...EXEMPT_GROUP_LABELS].join(", ")}. Wayfinding labels, not claims. The ` +
+          `section headings inside each item are checked normally, and the heading-reuse ` +
+          `gate does NOT exempt these, so two pages sharing one still fails.`
+      : "  ..    no Tier 3 label exemptions in force",
+  );
 }
 
 console.log("\nHeading reuse across pages");
@@ -1083,12 +1156,14 @@ console.log("\nVerbatim duplication between pages");
  */
 console.log("\nSection payloads reach the page");
 {
-  const RENDERED = ["prose", "bullets", "penalties", "statute", "steps", "guidance", "sources"] as const;
+  const RENDERED = ["prose", "bullets", "penalties", "statute", "statutes", "steps", "guidance", "sources"] as const;
   let bad = 0;
   for (const c of charges) {
     for (const s of c.sections ?? []) {
       for (const key of Object.keys(s)) {
-        if (["id", "heading", "kind", "answers"].includes(key)) continue;
+        // `tier` and `group` are LAYOUT, not payload: they decide where a section
+        // renders, not what it says, so they carry no copy for a reader to lose.
+        if (["id", "heading", "kind", "answers", "tier", "group"].includes(key)) continue;
         const v = (s as Record<string, unknown>)[key];
         const empty = v == null || (Array.isArray(v) && v.length === 0);
         if (empty) continue;
