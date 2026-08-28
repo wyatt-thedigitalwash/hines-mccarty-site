@@ -366,41 +366,72 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
       // does not work that way. Each row states when, so the page never says
       // "soon" and never implies a duration it has not verified.
       return section.steps?.length ? (
-        <ol className="max-w-3xl border-l-2 border-bronze/50">
-          {section.steps.map((step) => (
-            <li key={step.when} className="py-6 first:pt-0 last:pb-0">
-              {/* THE MARKER ALIGNS ITSELF. It used to sit at a hardcoded
-                  top-[1.9rem] with a first:top-2 override, which is a guess at
-                  where the label's first line lands and was visibly wrong: the
-                  square floated above the text it was marking. Wrapping the
-                  label alone in a relative box makes that box exactly as tall as
-                  the label, so top-1/2 with a -translate-y-1/2 centres the marker
-                  on the label by construction, at any font size or line height. */}
-              <div className="relative pl-7">
-                <span
-                  aria-hidden="true"
-                  className="absolute left-0 top-1/2 h-2 w-2 -translate-x-[calc(50%+1px)] -translate-y-1/2 bg-bronze"
-                />
-                {/* Sentence case. The interval is already written as a phrase in
-                    the data ("Within 24 hours of arrest"); only CSS was shouting
-                    it. Uppercase with letter-spacing is an eyebrow, which
-                    CLAUDE.md bans outright.
+        <ol className="max-w-3xl">
+          {section.steps.map((step, i) => {
+            /* THE RAIL IS PER-ROW, so it can start and stop at a dot.
+               It used to be a border-l on the <ol>, which spans the whole list
+               box: that drew a stub above the first dot and carried the line
+               past the last one, down through the final row's body text.
 
-                    KNOWN CONTRAST FAILURE, client decision, flagged for the ADA
-                    audit (CLAUDE.md pre-launch item 3). Brand bronze #C5A059 on
-                    white measures 2.46:1. WCAG AA wants 4.5:1 for normal text
-                    and 3.0:1 for large; at 18px/600 this is normal text, so it
-                    misses both. The same colour on navy is 7.07:1 and is fine,
-                    which is why the rail, the dots and the CTA are unaffected.
-                    A darkened gold #9A7532 measures 4.23:1 and passes at every
-                    size if the audit rules this out. */}
-                <p className="font-heading text-lg font-semibold leading-snug text-bronze">
-                  {step.when}
-                </p>
-              </div>
-              <p className="mt-3 pl-7 text-charcoal">{step.what}</p>
-            </li>
-          ))}
+               Each row draws its own half-segments instead, one reaching up
+               from its dot and one reaching down, both clipped to the row by
+               overflow-hidden. The first row omits the upward half and the last
+               omits the downward half, so the rail begins and ends exactly on a
+               dot. Consecutive rows' segments meet because the gap lives in the
+               row's own bottom padding, inside the clip.
+
+               NO VERTICAL MAGIC NUMBERS. The segments anchor to the label
+               wrapper's centre, which is the dot's centre by construction, so
+               this holds at any font size or if a label wraps. The one fixed
+               value is horizontal: left-[5px] puts the 8px dot at x 1 to 9 and
+               the 2px rail at x 4 to 6, both clear of the row's left edge, so
+               overflow-hidden clips the segments vertically without shaving the
+               dot. */
+            const first = i === 0;
+            const last = i === section.steps!.length - 1;
+            return (
+              <li
+                key={step.when}
+                className="relative overflow-hidden pb-8 last:pb-0"
+              >
+                <div className="relative pl-7">
+                  {!first && (
+                    <span
+                      aria-hidden="true"
+                      className="absolute bottom-1/2 left-[5px] h-[1000px] w-0.5 -translate-x-1/2 bg-bronze/50"
+                    />
+                  )}
+                  {!last && (
+                    <span
+                      aria-hidden="true"
+                      className="absolute left-[5px] top-1/2 h-[1000px] w-0.5 -translate-x-1/2 bg-bronze/50"
+                    />
+                  )}
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-[5px] top-1/2 h-2 w-2 -translate-x-1/2 -translate-y-1/2 bg-bronze"
+                  />
+                  {/* Sentence case. The interval is already written as a phrase in
+                      the data ("Within 24 hours of arrest"); only CSS was shouting
+                      it. Uppercase with letter-spacing is an eyebrow, which
+                      CLAUDE.md bans outright.
+
+                      KNOWN CONTRAST FAILURE, client decision, flagged for the ADA
+                      audit (CLAUDE.md pre-launch item 3). Brand bronze #C5A059 on
+                      white measures 2.46:1. WCAG AA wants 4.5:1 for normal text
+                      and 3.0:1 for large; at 18px/600 this is normal text, so it
+                      misses both. The same colour on navy is 7.07:1 and is fine,
+                      which is why the rail, the dots and the CTA are unaffected.
+                      A darkened gold #9A7532 measures 4.23:1 and passes at every
+                      size if the audit rules this out. */}
+                  <p className="font-heading text-lg font-semibold leading-snug text-bronze">
+                    {step.when}
+                  </p>
+                </div>
+                <p className="mt-3 pl-7 text-charcoal">{step.what}</p>
+              </li>
+            );
+          })}
         </ol>
       ) : (
         <Needs>the sequence, with a real interval on each step</Needs>
