@@ -484,27 +484,54 @@ function TieredBody({
     </a>
   );
 
+  /*
+    WIDTH, and why there are two of them.
+
+    The body used to be `max-w-3xl` (768px) LEFT-ALIGNED inside a centred
+    1400px container, so on a desktop the page ran out of content two thirds of
+    the way across and left ~630px of white. That reads as a broken layout
+    rather than as a measure.
+
+    Two widths now do two jobs. The COLUMN is 1120px and centred: wide enough
+    that the page fills the screen, and it is what the table, the timeline and
+    the guidance cards span, all of which were being squeezed. PROSE inside it
+    is capped at 68 characters with an arbitrary variant on the paragraphs,
+    because a 1120px line of body text is unreadable no matter how good the page
+    looks. Structured payloads get the width; sentences do not.
+  */
+  const proseWidth = "[&_p]:max-w-[68ch] [&_li>span:last-child]:max-w-[64ch]";
   return (
     <section data-bg="white" className="bg-white py-14 text-navy lg:py-20">
-      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        {/* TIER 2 */}
-        <div className="max-w-3xl space-y-14 lg:space-y-20">
+      <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
+        {/*
+          TIER 2, and how three sections on one white page read as three things.
+
+          No tint on the page: the client wants it white. The separation is
+          structural instead. Each section opens on a full-width bronze hairline,
+          which is the only place that colour appears in the body, and the
+          heading sits directly under it. The payload beneath is the thing that
+          differs (a bordered table, a rail-and-dot timeline, a numbered list),
+          so the three sections look different because their CONTENT is shaped
+          differently rather than because a background colour says so.
+        */}
+        <div className="space-y-16 lg:space-y-24">
           {tier2.map((section) => (
             <div key={section.id} id={section.id} className="scroll-mt-28">
-              <h2 className="font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
+              <div className="h-px w-full bg-bronze/60" aria-hidden="true" />
+              <h2 className="mt-7 font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
                 {section.heading}
               </h2>
-              <div className="mt-6 text-lg leading-relaxed text-charcoal">
+              <div className={`mt-8 text-lg leading-relaxed text-charcoal ${proseWidth}`}>
                 <SectionBody section={section} />
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-14 max-w-3xl">{ctaButton}</div>
+        <div className="mt-16">{ctaButton}</div>
 
         {/* TIER 3 */}
-        <div className="mt-16 max-w-3xl border-t border-navy/15">
+        <div className="mt-20 border-t border-navy/15">
           {items.map((item) => (
             <details key={item.label} className="group border-b border-navy/15">
               <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-heading text-lg font-semibold leading-snug text-navy transition-colors hover:text-bronze sm:text-xl">
@@ -524,7 +551,7 @@ function TieredBody({
                     <h3 className="font-heading text-base font-semibold leading-snug text-navy/70">
                       {section.heading}
                     </h3>
-                    <div className="mt-4 space-y-5">
+                    <div className={`mt-4 space-y-5 ${proseWidth}`}>
                       <SectionBody section={section} />
                     </div>
                   </div>
@@ -545,7 +572,7 @@ function TieredBody({
                   +
                 </span>
               </summary>
-              <dl className="space-y-6 pb-8 text-base leading-relaxed text-charcoal">
+              <dl className="max-w-[68ch] space-y-6 pb-8 text-base leading-relaxed text-charcoal">
                 {charge.faq.map((item) => (
                   <div key={item.question}>
                     <dt className="font-heading font-semibold text-navy/70">
@@ -561,11 +588,11 @@ function TieredBody({
 
         {/* ONE SOURCES BLOCK FOR THE PAGE */}
         {sources.length ? (
-          <div className="mt-16 max-w-3xl border-t border-navy/15 pt-8">
-            <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/50">
+          <div className="mt-16 border border-navy/12 bg-linen/40 p-7">
+            <h2 className="font-heading text-xs font-semibold uppercase tracking-[0.1em] text-navy/50">
               Sources for this page
             </h2>
-            <ul className="mt-4 space-y-1 font-heading text-sm leading-relaxed text-navy/55">
+            <ul className="mt-4 grid gap-x-8 gap-y-1 font-heading text-sm leading-relaxed text-navy/60 sm:grid-cols-2">
               {sources.map((src) => (
                 <li key={src}>{src}</li>
               ))}
@@ -573,7 +600,7 @@ function TieredBody({
           </div>
         ) : null}
 
-        <div className="mt-12 max-w-3xl">{ctaButton}</div>
+        <div className="mt-12">{ctaButton}</div>
       </div>
     </section>
   );

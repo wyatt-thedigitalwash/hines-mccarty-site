@@ -1,3 +1,4 @@
+import { Fragment } from "react";
 import type { ChargeSection, PenaltyRow } from "@/lib/site";
 import Needs from "@/components/Needs";
 import { isRecordedVerbatim, singleSourceUrl } from "@/lib/statute-links";
@@ -261,6 +262,34 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
       );
 
     case "bullets":
+      /* A TIER 2 BULLET LIST IS AN ACTION LIST, and it is numbered.
+         The same `bullets` kind carries the Tier 3 review-fork analysis, which
+         is a set of parallel options and must stay unnumbered: numbering it
+         would assert an order the law does not put on it. Tier decides, so the
+         two never collide. */
+      if (section.tier === 2)
+        return section.bullets?.length ? (
+          <ol className="grid gap-4 sm:grid-cols-2">
+            {section.bullets.map((item, i) => (
+              <li
+                key={item.slice(0, 40)}
+                className="flex gap-4 border border-navy/12 bg-linen/40 p-5"
+              >
+                <span
+                  aria-hidden="true"
+                  className="shrink-0 font-display text-2xl leading-none text-bronze"
+                >
+                  {i + 1}
+                </span>
+                <span className="text-base leading-relaxed text-charcoal">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ol>
+        ) : (
+          <Needs>the steps to take now</Needs>
+        );
       return section.bullets?.length ? (
         <ul className="space-y-3">
           {section.bullets.map((item) => (
@@ -282,13 +311,17 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
       // does not work that way. Each row states when, so the page never says
       // "soon" and never implies a duration it has not verified.
       return section.steps?.length ? (
-        <ol className="space-y-6">
+        <ol className="max-w-3xl border-l-2 border-bronze/50">
           {section.steps.map((step) => (
-            <li key={step.when} className="border-l-2 border-bronze/40 pl-5">
-              <p className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
+            <li key={step.when} className="relative py-5 pl-7 first:pt-0 last:pb-0">
+              <span
+                aria-hidden="true"
+                className="absolute left-0 top-[1.9rem] h-2 w-2 -translate-x-[calc(50%+1px)] bg-bronze first:top-2"
+              />
+              <p className="font-heading text-sm font-semibold uppercase tracking-[0.08em] text-bronze">
                 {step.when}
               </p>
-              <p className="mt-2">{step.what}</p>
+              <p className="mt-2 text-charcoal">{step.what}</p>
             </li>
           ))}
         </ol>
@@ -298,10 +331,13 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
 
     case "guidance":
       return section.guidance?.length ? (
-        <div className="space-y-8">
+        <div className="grid gap-5 md:grid-cols-3">
           {section.guidance.map((group) => (
-            <div key={group.heading}>
-              <h3 className="font-display text-xl leading-snug">
+            <div
+              key={group.heading}
+              className="border border-navy/12 bg-linen/40 p-6"
+            >
+              <h3 className="font-display text-xl leading-snug text-navy">
                 {group.heading}
               </h3>
               <ul className="mt-4 space-y-3">
@@ -359,33 +395,43 @@ export function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
      compliant, every gate was green, and the defect existed only in the render:
      D24 again, the check that matters reads the page.
 
-     Where a table MIXES ranked and unranked rows the column stays and the empty
-     cells still read "Not applicable", which is correct for a misdemeanor row,
-     since the chart ranks felonies. Pages that want to say something more
-     precise already do it in the data, e.g. "Not carried in the Statute
-     921.0022 chart". */
+     THE NOTE IS ITS OWN ROW NOW, spanning the full width beneath the cells it
+     belongs to. It used to sit inside the last rendered cell, which put a
+     three-line sentence under a header reading "Offense level" and squeezed it
+     into a third of the table's width while the degree column wrapped "No
+     degree assigned by the statute" onto three lines beside it. Nothing was
+     wrong with the data; the table was asking one column to hold a label and a
+     paragraph at the same time.
+
+     A spanning row keeps the note visually inside its record, needs no header
+     of its own (so the table makes no new claim about what the note IS), and
+     lets each of the real columns size to its actual content. */
   const hasLevels = rows.some((r) => r.offenseLevel);
   const headers = hasLevels
     ? ["Degree", "Statutory term", "Offense level"]
     : ["Degree", "Statutory term"];
+  const span = headers.length;
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto border border-navy/15 bg-white">
       <table className="w-full border-collapse text-left">
         <thead>
-          <tr className="border-b border-navy/20">
-            {/* "Statutory term" rather than "Statutory maximum". A reviewer found
-                eleven rows on the federal weapons page whose value is a
-                MANDATORY MINIMUM ("Not less than 15 years, with no suspended
-                sentence and no probation") printed under a header promising a
-                maximum, which is a lie in the rendered table even though every
-                row was individually true. 34 rows across four pages carry a
-                range or a floor rather than a bare ceiling, because federal
-                sentencing routinely has both, so the header was the thing
-                that was wrong. D24: the check that matters reads the page. */}
-            {headers.map((h) => (
+          {/* "Statutory term" rather than "Statutory maximum". A reviewer found
+              eleven rows on the federal weapons page whose value is a
+              MANDATORY MINIMUM ("Not less than 15 years, with no suspended
+              sentence and no probation") printed under a header promising a
+              maximum, which is a lie in the rendered table even though every
+              row was individually true. 34 rows across four pages carry a
+              range or a floor rather than a bare ceiling, because federal
+              sentencing routinely has both, so the header was the thing
+              that was wrong. D24: the check that matters reads the page. */}
+          <tr className="border-b border-navy/15 bg-linen/60">
+            {headers.map((h, i) => (
               <th
                 key={h}
-                className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60"
+                className={
+                  "px-5 py-3 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-navy/55 " +
+                  (i === 0 ? "w-[30%]" : i === 1 ? "w-[38%]" : "w-[32%]")
+                }
               >
                 {h}
               </th>
@@ -393,35 +439,52 @@ export function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
           </tr>
         </thead>
         <tbody>
-          {rows.map((row) => (
-            <tr key={row.degree + row.maximum} className="border-b border-navy/10">
-              <td className="py-4 pr-6 align-top">{row.degree}</td>
-              {/* The note lives in the LAST rendered cell. It used to live in
-                  the offense-level cell unconditionally, so dropping that column
+          {rows.map((row, i) => (
+            <Fragment key={row.degree + row.maximum + i}>
+              <tr className={i % 2 ? "bg-linen/25" : "bg-white"}>
+                <td className="px-5 pt-4 align-top font-heading text-[15px] font-medium leading-snug text-navy/70">
+                  {row.degree}
+                </td>
+                <td className="px-5 pt-4 align-top text-lg font-medium leading-snug text-navy">
+                  {row.maximum}
+                </td>
+                {hasLevels && (
+                  <td className="px-5 pt-4 align-top">
+                    {row.offenseLevel ? (
+                      <span className="inline-block border border-bronze/50 bg-bronze/10 px-2.5 py-1 font-heading text-xs font-semibold uppercase tracking-wide text-navy/75">
+                        {row.offenseLevel}
+                      </span>
+                    ) : (
+                      <span className="font-heading text-sm text-navy/35">
+                        Not applicable
+                      </span>
+                    )}
+                  </td>
+                )}
+              </tr>
+              {/* The note lives in a spanning row. It used to live in the
+                  offense-level cell unconditionally, so dropping that column
                   would have silently deleted a note from every row of all twelve
                   level-less tables, and every one of those rows carries one. The
                   notes are where the value thresholds and the conditions on a
                   mandatory minimum are written, so losing them would have been a
-                  far worse defect than the column this change removes. */}
-              <td className={hasLevels ? "py-4 pr-6 align-top" : "py-4 align-top"}>
-                {row.maximum}
-                {!hasLevels && row.note && (
-                  <span className="mt-1 block text-sm text-navy/60">
+                  far worse defect than the column that change removed. */}
+              {row.note && (
+                <tr className={i % 2 ? "bg-linen/25" : "bg-white"}>
+                  <td
+                    colSpan={span}
+                    className="border-b border-navy/10 px-5 pb-4 pt-2 text-[15px] leading-relaxed text-charcoal"
+                  >
                     {row.note}
-                  </span>
-                )}
-              </td>
-              {hasLevels && (
-                <td className="py-4 align-top">
-                  {row.offenseLevel ?? "Not applicable"}
-                  {row.note && (
-                    <span className="mt-1 block text-sm text-navy/60">
-                      {row.note}
-                    </span>
-                  )}
-                </td>
+                  </td>
+                </tr>
               )}
-            </tr>
+              {!row.note && (
+                <tr>
+                  <td colSpan={span} className="border-b border-navy/10 p-0" />
+                </tr>
+              )}
+            </Fragment>
           ))}
         </tbody>
       </table>
