@@ -5977,6 +5977,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         "heading": "What to do right now.",
         "kind": "bullets",
         "tier": 2,
+        "background": "navy",
         "answers": [
           "now"
         ],

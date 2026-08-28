@@ -93,11 +93,17 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
               </a>
             </div>
           </div>
-          {/* The visual break. A full-bleed bronze rule against the navy, so the
-              hero ends at a line rather than fading into the next section. */}
-          <div className="mt-10 h-1 w-full bg-bronze/70 lg:mt-14" aria-hidden="true" />
         </section>
-      ) : (
+      ) : null}
+      {/* THE VISUAL BREAK, as the section's bottom EDGE rather than a stripe
+          floating above it. It used to sit inside the navy section, which still
+          had pb-16 beneath it, so the page rendered a gold line with 64px of
+          navy under it: not a break, a stray rule. A 4px band between the navy
+          hero and the white body is a break because there is nothing after it. */}
+      {charge.heroCta ? (
+        <div className="h-1 w-full bg-bronze/70" aria-hidden="true" />
+      ) : null}
+      {charge.heroCta ? null : (
       <section data-bg="navy" className="bg-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Breadcrumbs trail={chargeTrail(charge)} />
@@ -500,36 +506,81 @@ function TieredBody({
     looks. Structured payloads get the width; sentences do not.
   */
   const proseWidth = "[&_p]:max-w-[68ch] [&_li>span:last-child]:max-w-[64ch]";
-  return (
-    <section data-bg="white" className="bg-white py-14 text-navy lg:py-20">
-      <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
-        {/*
-          TIER 2, and how three sections on one white page read as three things.
 
-          No tint on the page: the client wants it white. The separation is
-          structural instead. Each section opens on a full-width bronze hairline,
-          which is the only place that colour appears in the body, and the
-          heading sits directly under it. The payload beneath is the thing that
-          differs (a bordered table, a rail-and-dot timeline, a numbered list),
-          so the three sections look different because their CONTENT is shaped
-          differently rather than because a background colour says so.
-        */}
-        <div className="space-y-16 lg:space-y-24">
-          {tier2.map((section) => (
-            <div key={section.id} id={section.id} className="scroll-mt-28">
-              <div className="h-px w-full bg-bronze/60" aria-hidden="true" />
-              <h2 className="mt-7 font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl">
-                {section.heading}
-              </h2>
-              <div className={`mt-8 text-lg leading-relaxed text-charcoal ${proseWidth}`}>
-                <SectionBody section={section} />
+  /*
+    TIER 2 IS SPLIT INTO BANDS, not rendered as one run of divs.
+
+    A section marked `background: "navy"` becomes its own top-level
+    `<section data-bg="navy">` sibling. Nesting it inside the white section
+    would have produced a navy BOX stopping at the 1120px content column
+    instead of a band, and globals.css keys the Section Spacing Rule on
+    data-bg adjacency between siblings, which cannot see a nested element.
+
+    Consecutive sections sharing a background stay in one band, so the order
+    the writer chose survives and two navy sections in a row would not produce
+    two navy bands with a seam between them.
+  */
+  const bands: { background?: "navy"; sections: ChargeSection[] }[] = [];
+  for (const sec of tier2) {
+    const last = bands[bands.length - 1];
+    if (last && last.background === sec.background) last.sections.push(sec);
+    else bands.push({ background: sec.background, sections: [sec] });
+  }
+
+  const sectionBlock = (section: ChargeSection, dark: boolean) => (
+    <div key={section.id} id={section.id} className="scroll-mt-28">
+      <h2
+        className={`font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl ${
+          dark ? "text-linen" : ""
+        }`}
+      >
+        {section.heading}
+      </h2>
+      <div
+        className={`mt-8 text-lg leading-relaxed ${
+          dark ? "text-linen/75" : "text-charcoal"
+        } ${proseWidth}`}
+      >
+        <SectionBody section={section} />
+      </div>
+    </div>
+  );
+
+  return (
+    <>
+      {bands.map((band, i) =>
+        band.background === "navy" ? (
+          <section
+            key={i}
+            data-bg="navy"
+            className="bg-navy py-16 text-linen lg:py-24"
+          >
+            <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
+              <div className="space-y-16">
+                {band.sections.map((sec) => sectionBlock(sec, true))}
+              </div>
+              {/* The CTA that follows Tier 2 lives in the band, where the
+                  bronze button sits on navy exactly as it does in the hero. */}
+              <div className="mt-12">{ctaButton}</div>
+            </div>
+          </section>
+        ) : (
+          <section
+            key={i}
+            data-bg="white"
+            className="bg-white py-14 text-navy lg:py-20"
+          >
+            <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
+              <div className="space-y-16 lg:space-y-24">
+                {band.sections.map((sec) => sectionBlock(sec, false))}
               </div>
             </div>
-          ))}
-        </div>
+          </section>
+        ),
+      )}
 
-        <div className="mt-16">{ctaButton}</div>
-
+      <section data-bg="white" className="bg-white py-14 text-navy lg:py-20">
+        <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
         {/* TIER 3 */}
         <div className="mt-20 border-t border-navy/15">
           {items.map((item) => (
@@ -602,7 +653,8 @@ function TieredBody({
 
         <div className="mt-12">{ctaButton}</div>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
 

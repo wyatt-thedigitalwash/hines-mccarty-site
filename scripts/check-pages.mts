@@ -1163,7 +1163,8 @@ console.log("\nSection payloads reach the page");
       for (const key of Object.keys(s)) {
         // `tier` and `group` are LAYOUT, not payload: they decide where a section
         // renders, not what it says, so they carry no copy for a reader to lose.
-        if (["id", "heading", "kind", "answers", "tier", "group"].includes(key)) continue;
+        if (["id", "heading", "kind", "answers", "tier", "group", "background"].includes(key))
+          continue;
         const v = (s as Record<string, unknown>)[key];
         const empty = v == null || (Array.isArray(v) && v.length === 0);
         if (empty) continue;

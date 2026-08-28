@@ -130,6 +130,20 @@ export type ChargeSection = {
    * charge-specific headings and the differentiation they carry.
    */
   group?: string;
+  /**
+   * Render this Tier 2 section as its own full-bleed band on the navy canvas.
+   *
+   * LAYOUT ONLY, and it emits a real top-level `<section data-bg="navy">`
+   * rather than a tinted div inside the white one. That matters for two
+   * reasons: globals.css keys the Section Spacing Rule on `data-bg` ADJACENCY
+   * between siblings, so a nested band would be invisible to it and would
+   * double-stack its padding; and a background that stops at the content column
+   * is not a band, it is a box.
+   *
+   * Only Tier 2 honours this. A Tier 3 section lives inside the accordion and
+   * has no band of its own to be.
+   */
+  background?: "navy";
   /** Which reader questions this section answers. Drives the coverage check. */
   answers?: ReaderQuestion[];
   /**

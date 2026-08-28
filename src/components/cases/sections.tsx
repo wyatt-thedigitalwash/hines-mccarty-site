@@ -269,6 +269,55 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
          two never collide. */
       if (section.tier === 2)
         return section.bullets?.length ? (
+          <ol className="grid gap-6 sm:grid-cols-2">
+            {section.bullets.map((item, i) => {
+              /* THE FIRST SENTENCE IS THE CARD'S HEADING, and this is a split
+                 for the eye only: the string is unchanged, nothing is rewritten,
+                 and the readability gate measures the DATA, so it still sees one
+                 sentence followed by another.
+
+                 It works because of how these items are written. Every one opens
+                 on a short imperative ("Keep the notice of suspension.") and then
+                 explains it, which is the same shape as the card this is modelled
+                 on: a display heading over body copy.
+
+                 GUARDED, because the shape is a property of this copy rather than
+                 of the type. A first sentence longer than 64 characters, or an
+                 item with no sentence break at all, renders whole as body text
+                 instead of being chopped into a heading it was never written to
+                 be. */
+              const m = item.match(/^([\s\S]{1,64}?[.!?])\s+([\s\S]*)$/);
+              const head = m ? m[1] : null;
+              const body = m ? m[2] : item;
+              return (
+                <li key={item.slice(0, 40)} className="bg-white p-8 lg:p-10">
+                  <span
+                    aria-hidden="true"
+                    className="font-heading text-xs font-semibold uppercase tracking-[0.14em] text-bronze"
+                  >
+                    Step {i + 1}
+                  </span>
+                  {head && (
+                    <p className="mt-4 font-display text-2xl leading-snug text-navy lg:text-[1.75rem]">
+                      {head}
+                    </p>
+                  )}
+                  <p
+                    className={
+                      "text-base leading-relaxed text-charcoal " +
+                      (head ? "mt-4" : "mt-4 font-display text-2xl text-navy")
+                    }
+                  >
+                    {body}
+                  </p>
+                </li>
+              );
+            })}
+          </ol>
+        ) : (
+          <Needs>the steps to take now</Needs>
+        );
+      return section.bullets?.length ? (
           <ol className="grid gap-4 sm:grid-cols-2">
             {section.bullets.map((item, i) => (
               <li
@@ -292,7 +341,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
         );
       return section.bullets?.length ? (
         <ul className="space-y-3">
-          {section.bullets.map((item) => (
+          {section.bullets!.map((item) => (
             <li key={item.slice(0, 40)} className="flex gap-3">
               <span aria-hidden="true" className="text-bronze">
                 &bull;
