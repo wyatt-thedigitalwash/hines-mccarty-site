@@ -585,8 +585,10 @@ function TieredBody({
         <div className="mt-20 border-t border-navy/15">
           {items.map((item) => (
             <details key={item.label} className="group border-b border-navy/15">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-heading text-lg font-semibold leading-snug text-navy transition-colors hover:text-bronze sm:text-xl">
-                <span>{item.label}</span>
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 transition-colors hover:text-bronze">
+                <h2 className="font-heading text-lg font-semibold leading-snug text-navy sm:text-xl">
+                  {item.label}
+                </h2>
                 <span
                   aria-hidden="true"
                   className="shrink-0 text-bronze transition-transform group-open:rotate-45"
@@ -614,8 +616,10 @@ function TieredBody({
           {/* The seventh item: the FAQ. */}
           {charge.faq?.length ? (
             <details className="group border-b border-navy/15">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-heading text-lg font-semibold leading-snug text-navy transition-colors hover:text-bronze sm:text-xl">
-                <span>Common questions</span>
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 transition-colors hover:text-bronze">
+                <h2 className="font-heading text-lg font-semibold leading-snug text-navy sm:text-xl">
+                  Common questions
+                </h2>
                 <span
                   aria-hidden="true"
                   className="shrink-0 text-bronze transition-transform group-open:rotate-45"

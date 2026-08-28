@@ -300,7 +300,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
                       so a screen reader announces the position, and the grid
                       reads left to right. */}
                   {head && (
-                    <p className="font-display text-2xl leading-snug text-navy lg:text-[1.75rem]">
+                    <p className="font-heading text-lg font-semibold leading-snug text-bronze">
                       {head}
                     </p>
                   )}
@@ -380,8 +380,17 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
                 {/* Sentence case. The interval is already written as a phrase in
                     the data ("Within 24 hours of arrest"); only CSS was shouting
                     it. Uppercase with letter-spacing is an eyebrow, which
-                    CLAUDE.md bans outright. */}
-                <p className="font-display text-2xl leading-snug text-navy">
+                    CLAUDE.md bans outright.
+
+                    KNOWN CONTRAST FAILURE, client decision, flagged for the ADA
+                    audit (CLAUDE.md pre-launch item 3). Brand bronze #C5A059 on
+                    white measures 2.46:1. WCAG AA wants 4.5:1 for normal text
+                    and 3.0:1 for large; at 18px/600 this is normal text, so it
+                    misses both. The same colour on navy is 7.07:1 and is fine,
+                    which is why the rail, the dots and the CTA are unaffected.
+                    A darkened gold #9A7532 measures 4.23:1 and passes at every
+                    size if the audit rules this out. */}
+                <p className="font-heading text-lg font-semibold leading-snug text-bronze">
                   {step.when}
                 </p>
               </div>
@@ -401,9 +410,9 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
               key={group.heading}
               className="border border-navy/12 bg-linen/40 p-6"
             >
-              <h3 className="font-display text-xl leading-snug text-navy">
+              <h4 className="font-display text-xl leading-snug text-navy">
                 {group.heading}
-              </h3>
+              </h4>
               <ul className="mt-4 space-y-3">
                 {group.items.map((item) => (
                   <li key={item.slice(0, 40)} className="flex gap-3">
