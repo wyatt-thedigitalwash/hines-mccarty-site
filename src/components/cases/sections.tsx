@@ -210,7 +210,7 @@ export function StatuteBlock({ section }: { section: ChargeSection }) {
     return <Needs>statute citation and what it says</Needs>;
   return isRecordedVerbatim(section.statute.body) ? (
     <figure className="m-0" data-statute-quote>
-      <figcaption className="font-heading text-sm uppercase tracking-wide text-navy/50">
+      <figcaption className="font-heading text-sm font-medium text-navy/50">
         <cite className="not-italic">{section.statute.citation}</cite>
       </figcaption>
       <blockquote
@@ -222,7 +222,7 @@ export function StatuteBlock({ section }: { section: ChargeSection }) {
     </figure>
   ) : (
     <div data-statute-gloss>
-      <p className="font-heading text-sm uppercase tracking-wide text-navy/50">
+      <p className="font-heading text-sm font-medium text-navy/50">
         <cite className="not-italic">{section.statute.citation}</cite>
       </p>
       <p className="mt-3">{section.statute.body}</p>
@@ -270,7 +270,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
       if (section.tier === 2)
         return section.bullets?.length ? (
           <ol className="grid gap-6 sm:grid-cols-2">
-            {section.bullets.map((item, i) => {
+            {section.bullets.map((item) => {
               /* THE FIRST SENTENCE IS THE CARD'S HEADING, and this is a split
                  for the eye only: the string is unchanged, nothing is rewritten,
                  and the readability gate measures the DATA, so it still sees one
@@ -291,14 +291,16 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
               const body = m ? m[2] : item;
               return (
                 <li key={item.slice(0, 40)} className="bg-white p-8 lg:p-10">
-                  <span
-                    aria-hidden="true"
-                    className="font-heading text-xs font-semibold uppercase tracking-[0.14em] text-bronze"
-                  >
-                    Step {i + 1}
-                  </span>
+                  {/* NO "STEP 1" LABEL. It was an uppercase, letter-spaced
+                      eyebrow, which is both a house rule (CLAUDE.md bans eyebrow
+                      labels) and the single most generic thing a card can wear.
+                      The card this is modelled on has no number either.
+
+                      The ORDER still survives where it has to: this is an <ol>,
+                      so a screen reader announces the position, and the grid
+                      reads left to right. */}
                   {head && (
-                    <p className="mt-4 font-display text-2xl leading-snug text-navy lg:text-[1.75rem]">
+                    <p className="font-display text-2xl leading-snug text-navy lg:text-[1.75rem]">
                       {head}
                     </p>
                   )}
@@ -362,15 +364,28 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
       return section.steps?.length ? (
         <ol className="max-w-3xl border-l-2 border-bronze/50">
           {section.steps.map((step) => (
-            <li key={step.when} className="relative py-5 pl-7 first:pt-0 last:pb-0">
-              <span
-                aria-hidden="true"
-                className="absolute left-0 top-[1.9rem] h-2 w-2 -translate-x-[calc(50%+1px)] bg-bronze first:top-2"
-              />
-              <p className="font-heading text-sm font-semibold uppercase tracking-[0.08em] text-bronze">
-                {step.when}
-              </p>
-              <p className="mt-2 text-charcoal">{step.what}</p>
+            <li key={step.when} className="py-6 first:pt-0 last:pb-0">
+              {/* THE MARKER ALIGNS ITSELF. It used to sit at a hardcoded
+                  top-[1.9rem] with a first:top-2 override, which is a guess at
+                  where the label's first line lands and was visibly wrong: the
+                  square floated above the text it was marking. Wrapping the
+                  label alone in a relative box makes that box exactly as tall as
+                  the label, so top-1/2 with a -translate-y-1/2 centres the marker
+                  on the label by construction, at any font size or line height. */}
+              <div className="relative pl-7">
+                <span
+                  aria-hidden="true"
+                  className="absolute left-0 top-1/2 h-2 w-2 -translate-x-[calc(50%+1px)] -translate-y-1/2 bg-bronze"
+                />
+                {/* Sentence case. The interval is already written as a phrase in
+                    the data ("Within 24 hours of arrest"); only CSS was shouting
+                    it. Uppercase with letter-spacing is an eyebrow, which
+                    CLAUDE.md bans outright. */}
+                <p className="font-display text-2xl leading-snug text-navy">
+                  {step.when}
+                </p>
+              </div>
+              <p className="mt-3 pl-7 text-charcoal">{step.what}</p>
             </li>
           ))}
         </ol>
@@ -478,7 +493,7 @@ export function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
               <th
                 key={h}
                 className={
-                  "px-5 py-3 font-heading text-xs font-semibold uppercase tracking-[0.08em] text-navy/55 " +
+                  "px-5 py-3 font-heading text-sm font-semibold text-navy/55 " +
                   (i === 0 ? "w-[30%]" : i === 1 ? "w-[38%]" : "w-[32%]")
                 }
               >
@@ -500,7 +515,7 @@ export function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
                 {hasLevels && (
                   <td className="px-5 pt-4 align-top">
                     {row.offenseLevel ? (
-                      <span className="inline-block border border-bronze/50 bg-bronze/10 px-2.5 py-1 font-heading text-xs font-semibold uppercase tracking-wide text-navy/75">
+                      <span className="inline-block border border-bronze/50 bg-bronze/10 px-2.5 py-1 font-heading text-sm font-medium text-navy/75">
                         {row.offenseLevel}
                       </span>
                     ) : (

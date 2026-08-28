@@ -640,7 +640,7 @@ function TieredBody({
         {/* ONE SOURCES BLOCK FOR THE PAGE */}
         {sources.length ? (
           <div className="mt-16 border border-navy/12 bg-linen/40 p-7">
-            <h2 className="font-heading text-xs font-semibold uppercase tracking-[0.1em] text-navy/50">
+            <h2 className="font-heading text-sm font-semibold text-navy/55">
               Sources for this page
             </h2>
             <ul className="mt-4 grid gap-x-8 gap-y-1 font-heading text-sm leading-relaxed text-navy/60 sm:grid-cols-2">
