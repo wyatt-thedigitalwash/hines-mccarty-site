@@ -1570,3 +1570,108 @@ is.**
   conviction does to immigration status is a byline-class claim under
   CASES-WE-DEFEND-PLAN.md C12-B, so it appears under an attorney's byline with
   their own citation, or it does not appear. On the DUI page it does not appear.
+
+### D41. The statute lives in the source layer, not the sentence layer, and readability is gated
+
+**2026-08-27. Client direction, after reading a charge page as a reader.**
+Supersedes nothing; it adds a layer the template never had and a gate the
+project never had.
+
+**What went wrong, and it was not anyone writing badly.** C12 requires every
+statutory claim to rest on a fetched official source. Nothing said where the
+citation had to APPEAR, so writers made traceability visible in the sentence
+itself, which is the obvious way to make a claim checkable by eye. Repeated a
+few hundred times per page it produces this, from the DUI page the day before
+this decision:
+
+> Statute 322.2615(1)(b)3. provides that the driver may request a formal or
+> informal review of the suspension by the department within 10 days after the
+> date of issuance of the notice of suspension...
+
+Measured across that page's body copy: **grade 13.2, average sentence 26.7
+words, 217 statute numbers, one paragraph of 11 sentences, one unbroken run of
+873 words.** Every gate was green. Eleven gates checked whether the page was
+true and whether it was compliant, and not one asked whether a frightened person
+could read it, so the pages got harder to read in the direction the rails
+pushed and nothing registered it.
+
+**The two properties were never in tension.** They were being asked to live in
+the same sentence. D41 separates them by LAYER.
+
+**THE RULE.**
+
+- **Body copy states the fact in plain words.** No subsection numbers, no
+  "Statute X provides that", no statutory phrasing quoted inside a sentence.
+- **Each section ends with a compact sources line** naming the provisions it
+  rests on. Citations live there. New field, `ChargeSection.sources`.
+- **Verified statutory text stays available in a collapsed block per section**,
+  for the reader who wants it and for the provenance gates.
+- **Provenance is unchanged.** Every claim still traces to a fetched record.
+  Only its presentation moves.
+
+**THE READABILITY STANDARD**, enforced by `check:readability` over `bodyCopy`,
+which excludes the sources line and the statute block by construction:
+
+| | limit |
+| --- | --- |
+| R1 | Flesch-Kincaid grade 8.0 or lower per page, 9.5 per section |
+| R2 | average sentence under 20 words |
+| R3 | second person: every section addresses the reader as "you" |
+| R4 | no run of prose over 300 words before a heading, table, or list |
+| R5 | no block over 4 sentences |
+| R6 | zero subsection numbers and zero statute-voice constructions in body copy |
+
+**Applied to `/criminal-defense/dui` only.** Grade 13.2 to 3.9, average sentence
+26.7 words to 11.3, 217 statute numbers to zero. Section order, the
+above-the-spine placement of the 10 day differentiator (D40), every verified
+fact and every source record are unchanged. The prose is entirely new.
+
+**THE BASELINE, and why the gate is not simply on.** Twenty-seven written pages
+do not meet this standard and converting them is a page at a time. A gate that
+failed all 28 on the day it shipped would have been switched off on the same
+day, which is D21's rule about a gate that cannot be satisfied getting routed
+around. So `docs/build/readability-baseline.json` records which pages are
+converted and, for the rest, the scores they had when the gate was built. Those
+scores may only improve. **A page in neither list FAILS**, so a new page is
+written to the standard or it is not written. Same ratchet and the same
+fail-closed handling of a missing file as the legacy baseline in
+check-pages.mts.
+
+**Two defects this turned up, both fixed here.**
+
+- **The renderer dropped statute blocks on eight of eleven kinds.** `SectionRest`
+  showed the `statute` payload only when it was the section's primary, so a
+  block on a prose, penalties, timeline or guidance section rendered NOWHERE
+  while every gate read it. That is D24's failure inside the file whose header
+  says the renderer is total, and check-pages' payload gate could not see it: it
+  asserts a payload KEY is one the module renders, not that it renders for the
+  kind it sits on. It went unnoticed because no section outside the two
+  `statute`-kind ones carried a block. D41 puts one on every section, so the
+  hole would have swallowed nine of eleven blocks on the first page converted.
+- **R5 read "paragraph" too narrowly at first.** Scoped to prose, it would have
+  missed the pre-D41 page's longest single block of text, an eleven-sentence
+  BULLET, and its nine-sentence FAQ answers. A list item is a paragraph wearing
+  different markup, so the rule now reaches every block.
+
+**Recorded limits, so a later reader does not take the gate for more than it
+is.**
+
+- **A formula cannot read.** Flesch-Kincaid rewards short sentences and short
+  words and cannot tell whether a sentence means anything, so copy can be
+  chopped into fragments that pass. The syllable count is a heuristic, so the
+  grade is a proxy rather than an authority on what an eighth grader can read.
+  The human read is still the check; this gate stops the page from drifting
+  back.
+- **R3 is weak on purpose.** It asserts that "you" appears in a section, not
+  that the section is written in second person throughout. A stronger version
+  would need to parse voice, and a gate that guesses is worse than one whose
+  limit is stated.
+- **R6's voice half is a word list**, defeatable by ordinary paraphrase, exactly
+  as check-pages says of its own banned-term rail. Its citation half is
+  mechanical and is the half that does real work.
+- **Three provisions had no verified text to collapse.** F.S. 316.656,
+  316.1932(1)(f)3. and 316.1933(1)(b) assign no degree, so the statute-table
+  workflow never covered them and the project held no verbatim record. They were
+  fetched from flsenate.gov and recorded before the blocks were written; the two
+  1932 and 1933 records are marked PARTIAL, which under D26 supports a claim
+  about what they contain and nothing about the rest of those sections.

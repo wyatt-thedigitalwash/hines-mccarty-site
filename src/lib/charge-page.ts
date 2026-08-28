@@ -108,6 +108,23 @@ export type ChargeSection = {
   kind: ChargeSectionKind;
   /** Which reader questions this section answers. Drives the coverage check. */
   answers?: ReaderQuestion[];
+  /**
+   * The provisions this section rests on. THE SOURCE LAYER (DECISIONS.md D41).
+   *
+   * Rendered as one compact line at the foot of the section. This is where
+   * citations live, and it is the ONLY place in a section, besides the
+   * collapsed `statute` block, where a subsection number may appear.
+   *
+   * Body copy states the fact in plain words. That split is the whole of D41:
+   * a page that cites in every sentence is provably sourced and practically
+   * unreadable, and the two properties were never actually in tension. This
+   * field and `statute` carry the provenance; `prose`, `bullets`, `steps`,
+   * `guidance` and `penalties[].note` carry the meaning.
+   *
+   * scripts/check-readability.mts excludes this field and `statute` from the
+   * copy it measures, and fails any body-copy string that carries a citation.
+   */
+  sources?: string[];
   prose?: string[];
   bullets?: string[];
   penalties?: PenaltyRow[];

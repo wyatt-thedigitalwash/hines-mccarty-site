@@ -1,0 +1,115 @@
+{
+  "converted": [
+    "/criminal-defense/dui-defense"
+  ],
+  "pending": {
+    "/criminal-defense/battery-defense": {
+      "grade": 12.3,
+      "asl": 24.4
+    },
+    "/criminal-defense/computer-crimes-defense": {
+      "grade": 11.6,
+      "asl": 21.4
+    },
+    "/criminal-defense/domestic-violence-defense": {
+      "grade": 12.1,
+      "asl": 22.5
+    },
+    "/criminal-defense/drug-possession-defense": {
+      "grade": 12.1,
+      "asl": 24.3
+    },
+    "/criminal-defense/drug-trafficking-defense": {
+      "grade": 10.1,
+      "asl": 19.2
+    },
+    "/criminal-defense/grand-theft-defense": {
+      "grade": 9.8,
+      "asl": 20.7
+    },
+    "/criminal-defense/gun-crimes-defense": {
+      "grade": 12.5,
+      "asl": 25.1
+    },
+    "/criminal-defense/homicide-defense": {
+      "grade": 12.1,
+      "asl": 23.8
+    },
+    "/criminal-defense/sex-crimes-defense": {
+      "grade": 13.4,
+      "asl": 26.4
+    },
+    "/criminal-defense/sexual-battery-defense": {
+      "grade": 11.8,
+      "asl": 23.9
+    },
+    "/federal-criminal-defense/computer-internet-crimes": {
+      "grade": 12.3,
+      "asl": 25.4
+    },
+    "/federal-criminal-defense/conspiracy-charges": {
+      "grade": 10.1,
+      "asl": 21.2
+    },
+    "/federal-criminal-defense/csam-defense": {
+      "grade": 10.2,
+      "asl": 19.7
+    },
+    "/federal-criminal-defense/drug-trafficking": {
+      "grade": 12.4,
+      "asl": 25.3
+    },
+    "/federal-criminal-defense/healthcare-fraud": {
+      "grade": 11.2,
+      "asl": 22.5
+    },
+    "/federal-criminal-defense/money-laundering": {
+      "grade": 11.7,
+      "asl": 21.9
+    },
+    "/federal-criminal-defense/target-letter-defense": {
+      "grade": 12.5,
+      "asl": 23.9
+    },
+    "/federal-criminal-defense/weapons-gun-offenses": {
+      "grade": 12.2,
+      "asl": 24.8
+    },
+    "/federal-criminal-defense/wire-mail-fraud": {
+      "grade": 10.5,
+      "asl": 22
+    },
+    "/white-collar-defense/bank-fraud": {
+      "grade": 10.4,
+      "asl": 21.3
+    },
+    "/white-collar-defense/embezzlement": {
+      "grade": 10.6,
+      "asl": 22.2
+    },
+    "/white-collar-defense/healthcare-fraud": {
+      "grade": 13.5,
+      "asl": 26.3
+    },
+    "/white-collar-defense/identity-theft": {
+      "grade": 13.9,
+      "asl": 27.8
+    },
+    "/white-collar-defense/money-laundering": {
+      "grade": 12.2,
+      "asl": 24.6
+    },
+    "/white-collar-defense/securities-fraud": {
+      "grade": 13.1,
+      "asl": 26
+    },
+    "/white-collar-defense/tax-evasion": {
+      "grade": 8.8,
+      "asl": 18.8
+    },
+    "/white-collar-defense/wire-fraud": {
+      "grade": 12,
+      "asl": 23.7
+    }
+  }
+}

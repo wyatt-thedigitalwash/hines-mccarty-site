@@ -44,7 +44,7 @@ export const RENDERED_FIELDS = [
   "forum[]",
   "faq[].question|answer",
   "relatedGuides[].label",
-  "sections[].heading|prose|bullets|statute|penalties|steps|guidance",
+  "sections[].heading|prose|bullets|statute|penalties|steps|guidance|sources",
   "readerNeeds{}",
   "owner",
   "lastReviewed",
@@ -103,10 +103,74 @@ export function pageCopy(c: ChargePage): string[] {
       ...(s.statute ? [s.statute.citation, s.statute.body] : []),
       ...(s.penalties ?? []).map(penaltyRow),
       ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
+      ...(s.sources ?? []),
       ...(s.guidance ?? []).flatMap((g) => [g.heading, ...g.items]),
     ]),
   ];
   return out.filter((x): x is string => typeof x === "string" && x.length > 0);
+}
+
+/**
+ * BODY COPY: the prose a human actually reads, and nothing else. D41.
+ *
+ * `pageCopy` above answers "what does this page say", which is the right
+ * question for the compliance and provenance gates: they must see the sources
+ * line and the statutory text, because a banned term or an unverified citation
+ * hidden in either would still be published.
+ *
+ * `bodyCopy` answers a different question, "what does this page ask a frightened
+ * person to read", and the two answers must differ or D41 is unenforceable. The
+ * whole point of D41 is that statutory text and citations move OUT of the
+ * sentences and into a source layer. Measuring readability over a corpus that
+ * includes that layer would score the page on exactly the material the rule
+ * exempts, and no page could ever pass.
+ *
+ * WHAT IS EXCLUDED, and why each is not body copy:
+ *   statute.body, statute.citation   the collapsed block. Verbatim law. A writer
+ *                                    cannot simplify it and must not try.
+ *   sources[]                        the sources line. Citations by design.
+ *   label, description, metaTitle,   card, nav and <head> strings. Fragments
+ *   metaDescription, title           rather than sentences; scoring them as
+ *                                    prose measures nothing.
+ *   penalties[].degree|maximum       table cells. "Third degree felony" is a
+ *                                    label, not a sentence.
+ *   steps[].when                     the interval label on a timeline row.
+ *   owner, lastReviewed              the byline.
+ *
+ * WHAT IS INCLUDED is everything a reader meets as prose: the lead, every
+ * section heading, prose, bullets, penalty-row notes, timeline row bodies,
+ * guidance headings and items, and both halves of every FAQ entry. A penalty
+ * note is included deliberately: it is where this project's charge pages put
+ * their densest sentences, and exempting it would leave the worst copy on the
+ * page unmeasured.
+ */
+export type BodyChunk = {
+  /** Section id, "lead", or "faq". Lets the gate report a failure by location. */
+  where: string;
+  /** "prose" chunks form the runs the 300-word rule measures. */
+  run: boolean;
+  text: string;
+};
+
+export function bodyCopy(c: ChargePage): BodyChunk[] {
+  const out: BodyChunk[] = [];
+  const add = (where: string, run: boolean, texts: (string | undefined)[]) => {
+    for (const t of texts)
+      if (typeof t === "string" && t.trim().length) out.push({ where, run, text: t });
+  };
+  add("lead", false, [c.lead]);
+  for (const s of c.sections ?? []) {
+    add(s.id, false, [s.heading]);
+    // Only `prose` accumulates a run: bullets, tables, timelines and guidance
+    // lists ARE the "heading, table, or list" that D41 says breaks one up.
+    add(s.id, true, s.prose ?? []);
+    add(s.id, false, s.bullets ?? []);
+    add(s.id, false, (s.penalties ?? []).map((p) => p.note));
+    add(s.id, false, (s.steps ?? []).map((t) => t.what));
+    add(s.id, false, (s.guidance ?? []).flatMap((g) => [g.heading, ...g.items]));
+  }
+  add("faq", false, (c.faq ?? []).flatMap((f) => [f.question, f.answer]));
+  return out;
 }
 
 /**
@@ -123,7 +187,7 @@ export const GUIDE_RENDERED_FIELDS = [
   "lead",
   "faq[].question|answer",
   "relatedLinks[].label",
-  "sections[].heading|prose|bullets|statute|penalties|steps|guidance",
+  "sections[].heading|prose|bullets|statute|penalties|steps|guidance|sources",
   "readerNeeds{}",
   "owner",
   "lastReviewed",
@@ -150,6 +214,7 @@ export function guideCopy(g: GuidePage): string[] {
       ...(s.statute ? [s.statute.citation, s.statute.body] : []),
       ...(s.penalties ?? []).map(penaltyRow),
       ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
+      ...(s.sources ?? []),
       ...(s.guidance ?? []).flatMap((gr) => [gr.heading, ...gr.items]),
     ]),
   ];
@@ -170,7 +235,7 @@ export const INJURY_RENDERED_FIELDS = [
   "lead",
   "faq[].question|answer",
   "relatedLinks[].label",
-  "sections[].heading|prose|bullets|statute|penalties|steps|guidance",
+  "sections[].heading|prose|bullets|statute|penalties|steps|guidance|sources",
   "readerNeeds{}",
   "owner",
   "lastReviewed",
@@ -197,6 +262,7 @@ export function injuryCopy(p: InjuryPage): string[] {
       ...(s.statute ? [s.statute.citation, s.statute.body] : []),
       ...(s.penalties ?? []).map(penaltyRow),
       ...(s.steps ?? []).flatMap((t) => [t.when, t.what]),
+      ...(s.sources ?? []),
       ...(s.guidance ?? []).flatMap((g) => [g.heading, ...g.items]),
     ]),
   ];

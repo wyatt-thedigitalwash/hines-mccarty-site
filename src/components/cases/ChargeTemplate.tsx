@@ -7,6 +7,7 @@ import {
   PenaltyTable,
   SectionLede,
   SectionRest,
+  SectionSources,
   hasSectionRest,
 } from "./sections";
 import HandledBy from "@/components/attorneys/HandledBy";
@@ -156,6 +157,8 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                         </div>
                       </details>
                     )}
+                    {/* D41: the sources line, outside the disclosure. */}
+                    <SectionSources section={section} />
                   </Block>
                   {/*
                     A SECOND WAY OUT, PART WAY DOWN. After the second section,

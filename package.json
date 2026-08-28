@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "check:c9": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-c9.mts",
-    "prebuild": "npm run check:registries && npm run check:dormant && npm run check:c9 && npm run check:pages && npm run check:unverified && npm run check:claims && npm run check:provenance && npm run check:charge-lookup && npm run check:worksheet && npm run check:routes",
+    "prebuild": "npm run check:registries && npm run check:dormant && npm run check:c9 && npm run check:pages && npm run check:unverified && npm run check:claims && npm run check:provenance && npm run check:charge-lookup && npm run check:worksheet && npm run check:readability && npm run check:routes",
     "check:pages": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-pages.mts",
     "check:unverified": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-unverified.mts",
     "prewrite": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-unverified.mts",
@@ -27,7 +27,8 @@
     "check:dormant": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-dormant.mts",
     "check:seal-expunge": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-seal-expunge.mts",
     "check:quotes": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-quotes.mts",
-    "verify": "NEXT_DIST_DIR=.next-verify npm run build"
+    "verify": "NEXT_DIST_DIR=.next-verify npm run build",
+    "check:readability": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-readability.mts"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",

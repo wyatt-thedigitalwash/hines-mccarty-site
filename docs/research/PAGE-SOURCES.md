@@ -4399,3 +4399,55 @@ Method: curl -sL to a local file, then a python3 regex strip of script and style
 
 - **(1)(b)5. is on the page nowhere.** The driver may submit to the department any materials relevant to the suspension. It is a live right in the license case, it is not a deadline, and it is noted here as coverage rather than correction.
 
+
+---
+
+## 2026-08-27: three provisions the DUI page rests on that no audited table covers (D41)
+
+D41 puts a collapsed block of VERIFIED statutory text on every section of a
+charge page. Three sections of the DUI page rest on statutes that assign no
+degree of offense, so the statute-table workflow never built a table for them
+and the project held no verbatim record of their words. A block cannot be
+written from a paraphrase, so they were fetched.
+
+Fetched from flsenate.gov (Section 10.3 allowlist) with curl and de-tagged
+locally with a python3 regex strip and html.unescape. No summariser in the loop,
+for the reason recorded in the F.S. 322.2615 entry above.
+
+READ-WHOLE: F.S. 316.656
+https://www.flsenate.gov/Laws/Statutes/2025/316.656
+
+**F.S. 316.656(1), mandatory adjudication, recorded whole**
+
+> Notwithstanding the provisions of s. 948.01, no court may suspend, defer, or withhold adjudication of guilt or imposition of sentence for any violation of s. 316.193, for manslaughter resulting from the operation of a motor vehicle, or for vehicular homicide.
+
+**F.S. 316.656(2)(a), the plea bar at 0.15**
+
+> No trial judge may accept a plea of guilty to a lesser offense from a person charged under the provisions of this act who has been given a breath or blood test to determine blood or breath alcohol content, the results of which show a blood or breath alcohol content by weight of 0.15 percent or more.
+
+**F.S. 316.656(2)(b), the same bar on the injury and death tiers**
+
+> No trial judge may accept a plea of guilty to a lesser offense from a person charged with a violation of s. 316.193(3), manslaughter resulting from the operation of a motor vehicle, or vehicular homicide.
+
+PARTIAL: F.S. 316.1932(1)(f)3.
+https://www.flsenate.gov/Laws/Statutes/2025/316.1932
+
+**F.S. 316.1932(1)(f)3., first sentence, the independent test at your own expense**
+
+> The person tested may, at his or her own expense, have a physician, registered nurse, other personnel authorized by a hospital to draw blood, or duly licensed clinical laboratory director, supervisor, technologist, or technician, or other person of his or her own choosing administer an independent test in addition to the test administered at the direction of the law enforcement officer for the purpose of determining the amount of alcohol in the person's blood or breath or the presence of chemical substances or controlled substances at the time alleged, as shown by chemical analysis of his or her blood or urine, or by chemical or physical test of his or her breath.
+
+PARTIAL: F.S. 316.1933(1)(b)
+https://www.flsenate.gov/Laws/Statutes/2025/316.1933
+
+**F.S. 316.1933(1)(b), what serious bodily injury means**
+
+> The term "serious bodily injury" means an injury to any person, including the driver, which consists of a physical condition that creates a substantial risk of death, serious personal disfigurement, or protracted loss or impairment of the function of any bodily member or organ.
+
+**What these establish, and the two limits on them.**
+
+- **316.656 is recorded whole.** It is four sentences long and all four are above. It is the provision the sealing section turns on, and it is why a DUI conviction cannot be sealed: the adjudication the sealing statute asks about is one no Florida court has authority to withhold.
+
+- **The other two records are PARTIAL, and marked so.** Only the provisions the page rests on were transcribed, not the whole of 316.1932 or 316.1933. Under D26 a partial record supports a claim about what it contains and supports nothing about what the rest of the section says. The DUI page makes no claim about either section beyond these two passages, and a future page that wants one fetches the section whole first.
+
+- **The 316.1932(1)(f)3. record is the FIRST SENTENCE only.** The subparagraph continues past it with the non-interference duty and the burden on the person tested, which the page states in plain words and which are not transcribed here. A page sentence resting on that continuation would need this record extended.
+

@@ -1083,7 +1083,7 @@ console.log("\nVerbatim duplication between pages");
  */
 console.log("\nSection payloads reach the page");
 {
-  const RENDERED = ["prose", "bullets", "penalties", "statute", "steps", "guidance"] as const;
+  const RENDERED = ["prose", "bullets", "penalties", "statute", "steps", "guidance", "sources"] as const;
   let bad = 0;
   for (const c of charges) {
     for (const s of c.sections ?? []) {

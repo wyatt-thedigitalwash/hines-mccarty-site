@@ -5808,201 +5808,433 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   "state/dui-defense": {
     title: "DUI charges in Hillsborough County",
     metaTitle: "Florida DUI Charges and Test Refusal After 1 October 2025 | Hines & McCarty",
-    metaDescription: "Refusing a breath or urine test in Florida became a crime on the first refusal on 1 October 2025. What Statute 316.1939 now says, and the 10 days Statute 322.2615 gives to answer the license suspension.",
-    lead: "A Florida DUI arrest starts two cases. Since 1 October 2025 refusing a breath or urine test is also a separate crime on the first refusal, and Statute 322.2615 gives 10 days to answer the license case.",
+    metaDescription: "Turning down a breath or urine test in Florida became a crime on the first refusal on 1 October 2025. What that changed, and the 10 days you have to answer the suspension of your license.",
+    lead: "A DUI arrest starts two cases, not one. You have 10 days to answer the one against your license. Since 1 October 2025, turning down a breath or urine test is also a crime the first time.",
     sections: [
       {
-        id: "license-clock",
-        heading: "The 10 days run from the notice of suspension, not from the arrest",
-        kind: "prose",
-        answers: ["now", "next"],
-        prose: [
-          "The deadline is 10 days, it belongs to the license case rather than to the criminal one, and it is usually printed on paper handed over at the roadside. Statute 322.2615(1)(b)3. provides that the driver may request a formal or informal review of the suspension by the department within 10 days after the date of issuance of the notice of suspension or may request a review of eligibility for a restricted driving privilege under Statute 322.271(7). Subparagraph 2. of the same paragraph provides that the suspension period shall commence on the date of issuance of the notice of suspension, and subparagraph 4. provides that the temporary permit issued at the time of suspension expires at midnight of the 10th day following the date of issuance of the notice of suspension. Both periods are measured from the notice, so the date printed on it is the date to count from. If no request is made inside the 10 days there is no review to hold: Statute 322.2615(4) opens if the person whose license was suspended requests an informal review pursuant to subparagraph (1)(b)3., and Statute 322.2615(6)(a) opens if the person whose license was suspended requests a formal review. The suspension the officer imposed then runs the period Statute 322.2615(1)(b)1. sets for it, the temporary permit ends with the 10th day, and the waiting periods in Statute 322.2615(10) start from the expiration of that permit.",
-          "Statute 322.2615(1)(a) puts the license suspension in the officer's hands at the roadside. The officer shall, on behalf of the department, suspend the driving privilege of a person driving or in actual physical control of a motor vehicle with an unlawful blood-alcohol level or breath-alcohol level of 0.08 or higher, or of a person who has refused a urine test or a test of breath-alcohol or blood-alcohol level. The officer takes the person's driver license, issues a notice of suspension, and issues a 10-day temporary permit if the person is otherwise eligible for the driving privilege. Nothing in that sequence waits for a prosecutor, a charging document, or a judge.",
-          "The date of issuance of the notice and the date of the arrest are commonly the same day, and in one class of case they are not. Statute 322.2615(1)(a) provides that if a blood test has been administered, the officer or the employing agency transmits the results to the department within 5 days after receipt of the results, and if the department then determines the level was 0.08 or higher, the department suspends the license under subsection (3). Subsection (3) has the department issue the notice of suspension and, unless the notice is mailed pursuant to s. 322.251, a temporary permit that expires 10 days after the date of issuance if the driver is otherwise eligible. So in a blood case the notice can issue well after the arrest, and where it is mailed under Statute 322.251 no temporary permit comes with it. The date printed on the notice is the date the 10 days run from.",
-          "The suspension does not pause while it is contested. Statute 322.2615(9) provides that a request for a formal review hearing or an informal review hearing shall not stay the suspension of the person's driver license. The same subsection cuts the other way as well: if the department fails to schedule the formal review hearing within 30 days after receipt of the request, the department shall invalidate the suspension. Where a scheduled hearing is continued at the department's initiative, or where the driver enforces a subpoena as provided in subsection (6), the department issues a temporary driving permit valid until the hearing is conducted if the person is otherwise eligible, and that permit authorizes driving for business or employment use only. Subsection (9) also provides that such a permit may not be issued to a person who sought and obtained a continuance of the hearing.",
-          "The length of the suspension depends on which kind it is. Statute 322.2615(1)(b)1.a. sets 1 year for a first refusal, or 18 months where the driving privilege has been previously suspended as a result of a refusal to submit to such a test. Statute 322.2615(1)(b)1.b. sets 6 months for a first offense at a level of 0.08 or higher, or 1 year where the driving privilege has been previously suspended under that section. If the suspension is sustained, Statute 322.2615(10)(a) provides that a person suspended for failure to submit to a breath, urine, or blood test is not eligible for a business or employment purposes license until 90 days have elapsed after the expiration of the last temporary permit issued, and Statute 322.2615(10)(b) sets 30 days for a suspension relating to an unlawful level of 0.08 or higher.",
+        "id": "license-clock",
+        "heading": "You have 10 days to answer the case against your license",
+        "kind": "prose",
+        "answers": [
+          "now",
+          "next"
         ],
+        "prose": [
+          "You have 10 days. They start from the date on the notice, not from your arrest. When you were arrested, the officer took your license and handed you a piece of paper. That paper is the notice of suspension, and the date on it starts the clock.",
+          "The same paper is your temporary permit. It lets you drive for 10 days, then it stops. If you have not asked for a hearing by then, there is no hearing to have.",
+          "Nobody had to charge you first. No judge signed anything. The officer suspended your license at the roadside, and that suspension runs whether you fight it or not.",
+          "Sometimes the paper comes later. If police took your blood, the lab result goes to the state first. The notice can then reach you by mail, weeks after the arrest. A mailed notice comes with no permit at all.",
+          "How long the suspension lasts depends on what happened. Turn down a test and it is a year, or 18 months if you turned one down before. Blow 0.08 or higher and it is six months, or a year if this has happened to you before."
+        ],
+        "sources": [
+          "F.S. 322.2615(1), (3), (4), (6)(a), (9) and (10)",
+          "F.S. 322.251"
+        ],
+        "statute": {
+          "citation": "Florida Statute 322.2615(1)(b)3., 2025 Florida Statutes",
+          "body": "The driver may request a formal or informal review of the suspension by the department within 10 days after the date of issuance of the notice of suspension or may request a review of eligibility for a restricted driving privilege under s. 322.271(7)."
+        }
       },
       {
-        id: "two-cases",
-        heading: "Two cases open from one arrest, and the one with the deadline is not the one in court",
-        kind: "prose",
-        answers: ["who", "next"],
-        prose: [
-          "One arrest opens two proceedings and they run at the same time on different clocks. The license case is opened by the officer under Statute 322.2615, is decided by a hearing officer designated by the department, and carries the 10 day period set out above. The criminal case is brought under Statute 316.193, and under Statute 316.1939 where a refusal is charged as well, is prosecuted by the State Attorney, and is heard in court on the periods the Florida Rules of Criminal Procedure set. Different bodies decide them, different filings answer them, and the sections below follow that division: what the charge is, how the statute grades it, what has to be shown, what happens and when, what the file is built from, what a conviction attaches, and what can be sealed.",
-          "The criminal case in Hillsborough County is prosecuted by the Office of the State Attorney for the Thirteenth Judicial Circuit. Which court hears it depends on the tier. Statute 26.012(2)(d) gives circuit courts exclusive original jurisdiction of all felonies and of all misdemeanors arising out of the same circumstances as a felony which is also charged, so the felony tiers of Statute 316.193 are circuit court matters, and so is a misdemeanor count charged out of the same circumstances as one of them. Statute 34.01(1)(a) gives county courts original jurisdiction in all misdemeanor cases not cognizable by the circuit courts. Statute 316.193(3)(c)1. is written as a misdemeanor of the first degree, the words closing Statute 316.1939(1) set misdemeanor degrees for a refusal count, and Statute 316.193(2)(a) and Statute 316.193(2)(b)2. assign no degree at all and prescribe terms of not more than 6 months, not more than 9 months, and not more than 12 months, within the term of imprisonment not in excess of 1 year by which Statute 775.08(2) defines a misdemeanor. Where no felony arises out of the same circumstances as one of those counts, that is the county court side of the split. The Hillsborough County Clerk lists circuit criminal services at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, in Tampa, and criminal court services at the Plant City Courthouse, 301 North Michigan Avenue, Room 1071. The clerk lists county criminal alongside circuit criminal at its courthouse locations.",
-          "The license case is not heard at either address, because it is not a court proceeding. Statute 322.2615(4) has the informal review conducted by a hearing officer designated by the department, on the papers. Statute 322.2615(6)(b) has the formal review held before a hearing officer designated by the department, who may conduct hearings using communications technology. Statute 322.2615(12) provides that both the formal review hearing and the informal review hearing are exempt from the provisions of chapter 120. The request under Statute 322.2615(1)(b)3. is made to the department, and under Statute 322.2615(6)(a) it is the department that notifies the person of the date, time and place.",
-          "Statute 322.2615(13) sets the route after the department sustains a suspension: a petition for writ of certiorari to the circuit court in the county where the person resides or where a formal or informal review was conducted, pursuant to Statute 322.31. The same subsection provides that an appeal shall not stay the suspension, that a law enforcement agency may likewise seek certiorari review of a decision invalidating a suspension, and that the subsection is not to be construed to provide for a de novo review.",
-          "Statute 322.2615(14)(a) is written about what the criminal trial may consider. It provides that the department's decision, or any circuit court review of it, may not be considered in any trial for a violation of Statute 316.193, and that a written statement submitted in a request for departmental review may not be admitted into evidence against the person in such a trial. Statute 316.193(10) states the same rule from the criminal side and adds a qualification the administrative statute does not carry: testimony or evidence from the administrative proceedings, or any written statement submitted in a request for administrative review, is inadmissible in any criminal proceeding unless timely disclosed in criminal discovery pursuant to Rule 3.220, Florida Rules of Criminal Procedure. Statute 316.1939(2) and (3) provide that the disposition of the administrative proceeding does not affect the criminal refusal action, and that the disposition of the criminal refusal action does not affect the administrative proceeding. Statute 322.2615(14)(b) provides that the disposition of any related criminal proceedings does not affect a suspension for refusal to submit to a blood, breath, or urine test imposed under that section. Statute 322.2615(16) provides that the department shall invalidate a suspension for driving with an unlawful blood-alcohol level or breath-alcohol level imposed under that section if the suspended person is acquitted of an underlying violation of Statute 316.193 at trial.",
-          "Both clocks are already running when the phone call is made, and they are answered in different places by different filings. The first call is to a defense lawyer, and the first thing to have in front of you is the notice of suspension, because the date printed on it is the date the 10 days in Statute 322.2615(1)(b)3. are counted from. Hines & McCarty can be reached about a Hillsborough County DUI arrest and about the license suspension that comes with it.",
+        "id": "two-cases",
+        "heading": "Two cases start at once, and neither one decides the other",
+        "kind": "prose",
+        "answers": [
+          "who",
+          "next"
         ],
+        "prose": [
+          "One arrest, two cases. One is about your license. The other is about a crime. They run at the same time, in different places.",
+          "The license case is not in a courtroom. A hearing officer at the state driving agency decides it. You answer it by asking for a review inside those 10 days. This is the case with the deadline.",
+          "The criminal case is in court. The State Attorney for Hillsborough County brings it. A felony goes to circuit court, and a misdemeanor on its own goes to county court.",
+          "The clerk keeps criminal counters at two courthouses. One is the Edgecomb Courthouse in Tampa. The other is the Plant City Courthouse.",
+          "Winning one case does not end the other, with a single exception. If a jury finds you not guilty of the DUI, a suspension for a test result of 0.08 or higher is wiped out. A suspension for turning down a test is not. What is said at the license hearing also stays out of your criminal trial.",
+          "Bring the notice of suspension to your first call with a lawyer. The date on it is the one that matters. Hines & McCarty can be reached about a Hillsborough County DUI arrest and the license suspension that comes with it."
+        ],
+        "sources": [
+          "F.S. 322.2615(4), (6), (12), (13), (14) and (16)",
+          "F.S. 316.193(10)",
+          "F.S. 316.1939(2) and (3)",
+          "F.S. 26.012(2)(d) and F.S. 34.01(1)(a)"
+        ],
+        "statute": {
+          "citation": "Florida Statute 322.2615(4), 2025 Florida Statutes",
+          "body": "If the person whose license was suspended requests an informal review pursuant to subparagraph (1)(b)3., the department shall conduct the informal review by a hearing officer designated by the department."
+        }
       },
       {
-        id: "what-is-charged",
-        heading: "What the State says you did: impairment, or 0.08 by breath or blood",
-        kind: "statute",
-        answers: ["facing"],
-        prose: [
-          "Paragraph (a) has no number in it. A prosecution can proceed on impairment of normal faculties without a blood or breath result at all, which is why the 0.08 figure that dominates most published summaries of this charge answers only part of the question. Paragraphs (b) and (c) are separate routes with their own measurements, one per 100 milliliters of blood and one per 210 liters of breath.",
+        "id": "what-is-charged",
+        "heading": "You do not have to blow 0.08 to be charged",
+        "kind": "statute",
+        "answers": [
+          "facing"
         ],
-        statute: {
-          citation: "Florida Statute 316.193(1), 2025 Florida Statutes",
-          body: "A person is guilty of the offense of driving under the influence and is subject to punishment as provided in subsection (2) if the person is driving or in actual physical control of a vehicle within this state and: (a) The person is under the influence of alcoholic beverages, any chemical substance set forth in s. 877.111, or any substance controlled under chapter 893, when affected to the extent that the person's normal faculties are impaired; (b) The person has a blood-alcohol level of 0.08 or more grams of alcohol per 100 milliliters of blood; or (c) The person has a breath-alcohol level of 0.08 or more grams of alcohol per 210 liters of breath.",
-        },
+        "prose": [
+          "There are three ways to be charged, and only two of them use a number. The first is that drink or drugs left your normal faculties impaired. An officer can say that from how you looked, spoke and drove. No test result is needed for it.",
+          "The other two ways rest on a reading. One measures alcohol in your blood. The other measures it in your breath. For both, the line is 0.08."
+        ],
+        "sources": [
+          "F.S. 316.193(1)(a), (1)(b) and (1)(c)"
+        ],
+        "statute": {
+          "citation": "Florida Statute 316.193(1), 2025 Florida Statutes",
+          "body": "A person is guilty of the offense of driving under the influence and is subject to punishment as provided in subsection (2) if the person is driving or in actual physical control of a vehicle within this state and: (a) The person is under the influence of alcoholic beverages, any chemical substance set forth in s. 877.111, or any substance controlled under chapter 893, when affected to the extent that the person's normal faculties are impaired; (b) The person has a blood-alcohol level of 0.08 or more grams of alcohol per 100 milliliters of blood; or (c) The person has a breath-alcohol level of 0.08 or more grams of alcohol per 210 liters of breath."
+        }
       },
       {
-        id: "ladder",
-        heading: "The DUI ladder, and the two felonies that share a maximum but not a level",
-        kind: "penalties",
-        answers: ["facing"],
-        prose: [
-          "Two rows on that table come from the same paragraph, carry the same degree, and carry the same 5 year statutory maximum, and they are ranked three levels apart. A third violation within 10 years after a prior conviction is level 3 on the Statute 921.0022 chart. A fourth or subsequent violation is level 6. The statutory maximum does not move between them and the scoresheet input does: the Criminal Punishment Code worksheet in Statute 921.0024(1)(a) assigns 16 sentence points to a level 3 primary offense and 36 to a level 6 primary offense. The primary offense is one input among several the worksheet totals, so those figures are not a sentence. Statute 921.0024(2) provides that the lowest permissible sentence is any nonstate prison sanction where the total sentence points equals or is less than 44 points, unless the court determines within its discretion that a prison sentence is appropriate, and that where the total exceeds 44 points the lowest permissible sentence in prison months is calculated by subtracting 28 points from the total and decreasing the remainder by 25 percent.",
-          "What counts as a prior conviction on this ladder is broader than a Florida DUI. The flush language closing Statute 316.193(6) provides that any conviction for a violation of Statute 327.35, which is the boating offense, a previous conviction of former Statute 316.1931, former Statute 860.01, or former Statute 316.028, or a previous conviction outside this state for driving under the influence, driving while intoxicated, driving with an unlawful blood-alcohol level, driving with an unlawful breath-alcohol level, or any other similar alcohol-related or drug-related traffic offense, is also considered a previous conviction for a violation of the section. Statute 316.193(12) adds that department records showing a previous DUI conviction are sufficient by themselves to establish it, and that the evidence may be contradicted or rebutted and the presumption weighed against whatever else is presented.",
-          "Statute 316.193(4) sets a higher range on two triggers, and it states them in one sentence: a person convicted of a violation of subsection (1) who has a blood-alcohol level or breath-alcohol level of 0.15 or higher, or who at the time of the offense was accompanied in the vehicle by a person under the age of 18 years. The fines are $1,000 to $2,000 for a first conviction, $2,000 to $4,000 for a second, and not less than $4,000 for a third or subsequent. The terms of imprisonment are not more than 9 months for a first conviction and not more than 12 months for a second. The flush language closing the subsection carries a qualifier worth reading: for the purposes of this subsection, only the instant offense is required to be a violation of subsection (1) by a person who has a blood-alcohol level or breath-alcohol level of 0.15 or higher. That sentence is written about the 0.15 trigger and does not mention the minor passenger trigger.",
-          "The ignition interlock provision changes from permissive to mandatory across the same two paragraphs. Statute 316.193(2)(c) provides that the court may order placement of an approved interlock device for at least 6 continuous months where at the time of the offense the person had a level of .08 or higher. Statute 316.193(4)(c) provides that the court shall order it for not less than 6 continuous months for a first offense and not less than 2 continuous years for a second offense. Same device, same starting period, discretionary in one paragraph and required in the next.",
-          "A 0.15 result also closes a door in a different chapter. Statute 316.656(2)(a) provides that no trial judge may accept a plea of guilty to a lesser offense from a person charged under the provisions of this act who has been given a breath or blood test to determine blood or breath alcohol content, the results of which show a blood or breath alcohol content by weight of 0.15 percent or more. Statute 316.656(2)(b) applies the same bar to a person charged with a violation of Statute 316.193(3), with manslaughter resulting from the operation of a motor vehicle, or with vehicular homicide.",
+        "id": "ladder",
+        "heading": "What a DUI carries, from a first arrest to a fourth",
+        "kind": "penalties",
+        "answers": [
+          "facing"
         ],
-        penalties: [
-          { degree: "No degree assigned by the statute", maximum: "Up to 6 months, fine $500 to $1,000", note: "Statute 316.193(2)(a), first conviction. The paragraph opens except as provided in paragraph (b), subsection (3), or subsection (4), and it prescribes the fine and the term of imprisonment directly rather than assigning a misdemeanor degree." },
-          { degree: "No degree assigned by the statute", maximum: "Up to 9 months, fine $1,000 to $2,000", note: "Statute 316.193(2)(a), second conviction. Subparagraph 3. also requires mandatory placement, for at least 1 year and at the convicted person's sole expense, of an approved ignition interlock device upon all vehicles individually or jointly leased or owned and routinely operated by that person, when he or she qualifies for a permanent or restricted license." },
-          { degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 3", note: "Statute 316.193(2)(b)1., a third violation for an offense that occurs within 10 years after a prior conviction for a violation of the section. The statute measures from a prior conviction rather than from the second one. The offense severity ranking chart in Statute 921.0022 carries this at level 3, described as Felony DUI, 3rd conviction. The paragraph also requires an interlock device for not less than 2 years." },
-          { degree: "No degree assigned by the statute", maximum: "Up to 12 months, fine $2,000 to $5,000", note: "Statute 316.193(2)(b)2., a third violation for an offense that occurs more than 10 years after the date of a prior conviction. The paragraph also requires an interlock device for at least 2 years." },
-          { degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 6", note: "Statute 316.193(2)(b)3., a fourth or subsequent violation, regardless of when any prior conviction occurred. The chart in Statute 921.0022 carries this at level 6, described as Felony DUI, 4th or subsequent conviction. The paragraph provides that the fine imposed may be not less than $2,000." },
-          { degree: "First degree misdemeanor", maximum: "Up to 1 year", note: "Statute 316.193(3)(c)1., where a person in violation of subsection (1) operates a vehicle and by reason of that operation causes or contributes to causing damage to the property or person of another. Maximum from Statute 775.082(4)(a)." },
-          { degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 7", note: "Statute 316.193(3)(c)2., serious bodily injury to another as defined in Statute 316.1933. The chart describes this row as DUI resulting in serious bodily injury." },
-          { degree: "Second degree felony", maximum: "Up to 15 years", offenseLevel: "Level 8", note: "Statute 316.193(3)(c)3.a., DUI manslaughter. The flush language closing subsection (3) provides that a person who is convicted of DUI manslaughter shall be sentenced to a mandatory minimum term of imprisonment of 4 years." },
-          { degree: "First degree felony", maximum: "Up to 30 years", offenseLevel: "Level 9", note: "Statute 316.193(3)(c)3.b., DUI manslaughter where at the time of the crash the person knew, or should have known, that the crash occurred, and failed to give information and render aid as required by Statute 316.062." },
-          { degree: "First degree felony", maximum: "Up to 30 years", offenseLevel: "Level 9", note: "Statute 316.193(3)(c)3.c., which applies if the person has a prior conviction under this subparagraph, s. 327.35(3)(a)3.c., s. 782.071, or s. 782.072. Sub-subparagraph c. sits inside subparagraph 3., so the words this subparagraph reach a prior conviction under subparagraph (3)(c)3. rather than under sub-subparagraph c. alone. The chart in Statute 921.0022 describes this row as DUI manslaughter; prior conviction for DUI manslaughter, BUI manslaughter, vehicular homicide, or vessel homicide." },
-          { degree: "Second degree misdemeanor", maximum: "Up to 60 days", note: "Statute 316.1939(1), a first refusal of a lawful test of breath or urine. The degree is set by the words closing subsection (1) after paragraph (e), as amended by chapter 2025-121 effective 1 October 2025. This is a separate offense from the DUI itself. Maximum from Statute 775.082(4)(b)." },
-          { degree: "First degree misdemeanor", maximum: "Up to 1 year", note: "Statute 316.1939(1), a second or subsequent refusal, under the same words closing subsection (1) after paragraph (e). Maximum from Statute 775.082(4)(a)." },
+        "prose": [
+          "Two rows above are both third degree felonies with the same five year top end. They are not scored the same. A third DUI counts 16 points on the sentencing worksheet. A fourth counts 36.",
+          "Points matter because Florida adds them up. At 44 points or under, the judge does not have to send you to prison. Above 44, the worksheet turns your total into a number of months. Your record and any other counts add points too, so no page can give you your total.",
+          "Old cases count, and some of them were not DUIs. A boating case counts. So does a drink driving conviction from another state.",
+          "Two things push the range up. One is a reading of 0.15 or higher. The other is a passenger under 18 in the car. Either one raises the fine and can raise the jail term.",
+          "A reading of 0.15 or higher also shuts a door. A judge cannot take your plea to a lesser charge. The same bar applies if someone was hurt or killed.",
+          "The breath lock on your car goes from optional to required. At 0.08 a judge may order one for six months. At 0.15, or with a child in the car, the judge has to."
         ],
-      },
-      {
-        id: "refusal-2025",
-        heading: "Since 1 October 2025 a first refusal is its own criminal charge",
-        kind: "statute",
-        answers: ["facing"],
-        prose: [
-          "That text is new. It was put in place by chapter 2025-121, House Bill 687, which the Florida Legislature's own 2025 Regular Session chapter number and effective date report lists as effective 10/01/2025 under the subject heading Driving and Boating Offenses. The history line of Statute 316.1939 records the amendment as section 4 of that chapter. Before it, the opening limb of subsection (1) carried a predicate that is now gone. It reached a person who had refused and whose driving privilege was previously suspended, or who was previously fined under Statute 327.35215, for a prior refusal to submit to a lawful test of his or her breath, urine, or blood required under chapter 316 or chapter 327, and the words closing the subsection after paragraph (e) read commits a misdemeanor of the first degree. Chapter 2025-121 amended subsection (1) as a whole, striking that prior-refusal predicate from the opening limb and rewriting those closing words into the first refusal and second or subsequent refusal split quoted here, so before 1 October 2025 a first refusal was not an offense under this section at all. The date is therefore part of the answer rather than background to it: a refusal on 30 September 2025 and a refusal on 1 October 2025 are governed by different text.",
-          "The degrees carry the terms set in Statute 775.082. A misdemeanor of the second degree is a definite term of imprisonment not exceeding 60 days under Statute 775.082(4)(b), and a misdemeanor of the first degree is a definite term not exceeding 1 year under Statute 775.082(4)(a). A refusal count is separate from the DUI count and is charged under a separate statute.",
-          "Read the opening words of subsection (1) closely, because the scope is narrower than the shorthand. The offense limb reaches a chemical or physical test of his or her breath or urine, as described in s. 316.1932. Blood appears in paragraph (d)'s description of the prior refusal that raises the degree, and blood refusals carry license consequences under Statute 322.2615, but the offense limb of this section names breath and urine.",
-        ],
-        statute: {
-          citation: "Florida Statute 316.1939(1), 2025 Florida Statutes, paragraphs (d) and (e) and the words closing the subsection",
-          body: "A person who has refused to submit to a chemical or physical test of his or her breath or urine, as described in s. 316.1932, and: ... (d) Who was informed that a refusal to submit to a lawful test of his or her breath or urine is a misdemeanor of the second degree, punishable as provided in s. 775.082 or s. 775.083, or if his or her driving privilege has been previously suspended or if he or she has previously been fined under s. 327.35215 for a prior refusal to submit to a lawful test of his or her breath, urine, or blood as required under this chapter or chapter 327, that a refusal to submit to a lawful test of his or her breath or urine is a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083, in addition to any other penalties provided by law; and (e) Who, after having been so informed, refused to submit to any such test when requested to do so by a law enforcement officer or correctional officer commits a misdemeanor of the second degree for a first refusal or a misdemeanor of the first degree for a second or subsequent refusal, and is subject to punishment as provided in s. 775.082 or s. 775.083.",
-        },
-      },
-      {
-        id: "proof",
-        heading: "How a breath result, a blood draw, or a refusal gets into the case",
-        kind: "prose",
-        answers: ["facing"],
-        prose: [
-          "Statute 316.1939(1) is written as a chain of conditions running from paragraph (a) through paragraph (e), and the warning is one of them. Paragraph (a) requires that the arresting officer had probable cause to believe the person was driving or in actual physical control of a motor vehicle while under the influence. Paragraph (b) requires that the person was placed under lawful arrest for a violation of Statute 316.193, and it carries its own exception, written as unless such test was requested pursuant to s. 316.1932(1)(c). Paragraph (c) requires that the person was informed of the suspension consequence, and paragraph (d), quoted above, requires that the person was informed of the criminal one. Only then does paragraph (e) reach the refusal itself.",
-          "Refusing does not remove the refusal from the case. Statute 316.1932(1)(a)1.a. provides that the refusal to submit to a chemical or physical breath test upon the request of a law enforcement officer as provided in this section is admissible into evidence in any criminal proceeding, and Statute 316.1932(1)(a)1.b. says the same of a urine test. Statute 316.1932(1)(c) says it of a blood test. Statute 316.1939(3) also provides that the department's records showing a prior suspension for refusal are admissible and create a rebuttable presumption of that suspension.",
-          "Where injury or death is alleged, the definition that decides the felony tier lives in a different section again. Statute 316.1933(1)(b) provides that the term serious bodily injury means an injury to any person, including the driver, which consists of a physical condition that creates a substantial risk of death, serious personal disfigurement, or protracted loss or impairment of the function of any bodily member or organ. The words including the driver are in the statute. Statute 316.1933(1)(a) also removes the consent question entirely in these cases: where an officer has probable cause to believe that a motor vehicle driven by or in the actual physical control of a person under the influence has caused the death or serious bodily injury of a human being, the officer shall require a blood test, may use reasonable force if necessary, and, notwithstanding Statute 316.1932, the testing required by that paragraph need not be incidental to a lawful arrest of the person.",
-          "There is also a route by which one of these cases begins without a traffic stop. Statute 316.1933(2)(a)1. provides that where a health care provider giving medical care in a health care facility to a person injured in a motor vehicle crash becomes aware, as a result of a blood test performed in the course of that treatment, that the person's blood-alcohol level meets or exceeds the level specified in Statute 316.193(1)(b), the provider may notify a law enforcement officer or agency. Subparagraph 2. limits that notice to the name of the person being treated, the name of the person who drew the blood, the blood-alcohol level indicated by the test, and the date and time of the test.",
-        ],
-      },
-      {
-        id: "clock-intervals",
-        heading: "The 8 hours that can bar release, the 10th day, and the 30 days the department has",
-        kind: "timeline",
-        answers: ["next"],
-        steps: [
-          { when: "Until no longer impaired, until under 0.05, or until 8 hours have elapsed, whichever of the three comes first", what: "Statute 316.193(9) provides that a person arrested for a violation of that section may not be released from custody until the person is no longer under the influence and affected to the extent that normal faculties are impaired, until the person's blood-alcohol level or breath-alcohol level is less than 0.05, or until 8 hours have elapsed from the time the person was arrested. Paragraphs (a), (b) and (c) are joined by the word or, so the subsection stops barring release once any one of them is satisfied, and a person under 0.05 can be released before 8 hours have run. Families calling about release in the first hours of a DUI arrest are running into this subsection." },
-          { when: "Within 24 hours of arrest", what: "First appearance. Rule 3.130(a) of the Florida Rules of Criminal Procedure provides that except when previously released in a lawful manner, every arrested person must be taken before a judge, either in person or by audio-video communication technology in the discretion of the court, within 24 hours of arrest. Rule 3.130(c)(1) provides that when the judge determines that the defendant is entitled to court-appointed counsel and desires counsel, the judge must immediately appoint counsel. Rule 3.130(d) has the judge proceed to determine pretrial detention or conditions of release under rule 3.132 or rule 3.131." },
-          { when: "Within 5 days after the notice of suspension is issued", what: "Except as provided in paragraph (1)(a), which is the roadside suspension paragraph and sets a separate 5 day period running from receipt of blood test results, Statute 322.2615(2)(a) requires the officer to forward to the department the driver license, an affidavit stating the grounds for belief that the person was driving or in actual physical control while under the influence, the results of any breath or blood test or an affidavit that a test was requested and refused, the officer's description of any field sobriety test, and the notice of suspension. The same paragraph provides that failure to submit those materials within the 5 day period does not affect the department's ability to consider evidence submitted at or prior to the hearing." },
-          { when: "Within 10 days after the date of issuance of the notice of suspension", what: "The window in Statute 322.2615(1)(b)3. to request a formal or informal review of the suspension by the department. The same subparagraph also allows a request for a review of eligibility for a restricted driving privilege under Statute 322.271(7), and the 10 day phrase sits in the review clause rather than in that one. Under subparagraph 4. the temporary permit expires at midnight of the 10th day following the date of issuance of the notice." },
-          { when: "Within 30 days after the department receives a request for formal review", what: "Statute 322.2615(6)(a) requires the department to schedule the hearing and notify the person of the date, time, and place. Statute 322.2615(9) provides that if the department fails to schedule the formal review hearing within 30 days after receipt of the request, the department shall invalidate the suspension." },
-          { when: "Within 7 working days after a formal review hearing, or within 21 days after the temporary permit expires on an informal review", what: "Statute 322.2615(6)(d) sets the 7 working day period for notice of the hearing officer's decision on a formal review. Statute 322.2615(5) sets the 21 day period for notice of the department's decision after an informal review, mailed to the person at the last known address shown on the department's records or to the address in the officer's report." },
-          { when: "Within 30 days of arrest for someone in custody, or 60 days for someone on pretrial release", what: "Rule 3.134 governs the filing of formal charges, and custody decides which track applies. Under 3.134(a) the state must file formal charges on defendants in custody within 30 days, and on the 30th day, with notice to the state, the court must order automatic release on recognizance on the 33rd day unless the state files formal charges by that date, or, if good cause is shown by the state, on the 40th day unless the state files formal charges by that date. Under 3.134(b)(1) the period for defendants on pretrial release is 60 days, and the court must order that the defendants automatically be released on their own recognizance on the 63rd day unless the state files formal charges by that date, or, if good cause is shown by the state, may continue the defendant on pretrial release for up to an additional 30 days. Release from all requirements of bail and all conditions of pretrial release is a separate step: Rule 3.134(b)(2) provides for it on the expiration of that period and on motion with notice to the state, rather than automatically. Anyone who bonded out is on the 60 and 63 day track." },
-          { when: "Within 90 days for a misdemeanor or 175 days for a felony, running from the formal charge", what: "Rule 3.191(a) sets the speedy trial periods without demand, and Rule 3.191(d) provides that a person is formally charged by information, or by indictment, or in the case of alleged misdemeanors by whatever documents constitute a formal charge. The period runs from that charging document rather than from the arrest, and Rule 3.191(a) directs the reader to the recapture procedure in subdivision (o) rather than to automatic discharge. Rule 3.191(b) allows a defendant to file a demand for speedy trial and require trial within 60 days." },
-          { when: "30 days or 90 days after the last temporary permit expires, if the suspension is sustained", what: "Statute 322.2615(10)(b) provides that a person whose suspension for an unlawful level of 0.08 or higher is sustained is not eligible for a business or employment purposes license under Statute 322.271 until 30 days have elapsed after expiration of the last temporary permit issued. Statute 322.2615(10)(a) sets 90 days where the sustained suspension is for failure to submit to a breath, urine, or blood test. Both paragraphs also provide that where no 10 day permit was issued because the driver was ineligible for one, the period runs from the date of the suspension." },
-        ],
-      },
-      {
-        id: "review-fork",
-        heading: "Formal review, informal review, or the business purposes trade",
-        kind: "bullets",
-        answers: ["now", "consequences"],
-        bullets: [
-          "Statute 322.2615(1)(b)3. names three things a driver may request, and the 10 days are written into only part of it: a formal review of the suspension by the department, an informal review, or a review of eligibility for a restricted driving privilege under Statute 322.271(7). The subparagraph reads that the driver may request a formal or informal review of the suspension by the department within 10 days after the date of issuance of the notice of suspension or may request a review of eligibility for a restricted driving privilege under Statute 322.271(7), so the period is attached to the review clause and the restricted-privilege clause carries none of its own. They are different proceedings with different consequences, and the third one forecloses the first two.",
-          "The informal review is a paper proceeding. Statute 322.2615(4) provides that it is conducted by a hearing officer designated by the department and shall consist solely of an examination by the department of the materials submitted by a law enforcement officer or correctional officer and by the person whose license was suspended, and the presence of an officer or witness is not required. Under Statute 322.2615(5), notice of the decision must be mailed within 21 days after the expiration of the temporary permit.",
-          "The formal review is a hearing. Statute 322.2615(6)(a) requires the department to schedule it within 30 days after the request is received and to notify the person of the date, time, and place. Under Statute 322.2615(6)(b) the hearing officer is authorized to administer oaths, examine witnesses and take testimony, receive relevant evidence, issue subpoenas for the officers and witnesses identified in documents provided under paragraph (2)(a), regulate the course and conduct of the hearing, question witnesses, and make a ruling on the suspension. The same paragraph provides that if the person who requested the hearing fails to appear and the hearing officer finds the failure to be without just cause, the right to a formal hearing is waived and the suspension shall be sustained. Under Statute 322.2615(6)(d) the department must send notice of the decision within 7 working days after the hearing.",
-          "Two provisions about a witness who does not appear sit in the same section and have to be read together. Statute 322.2615(11) provides that if the arresting officer or the breath technician fails to appear pursuant to a subpoena as provided in subsection (6), the department shall invalidate the suspension. Statute 322.2615(6)(c) provides that the failure of a subpoenaed witness to appear at the formal review hearing is not grounds to invalidate the suspension, and sets out an enforcement route instead: a party may file a petition for enforcement in the circuit court of the judicial circuit where the person failing to comply resides, or a motion for enforcement in any criminal court case resulting from the driving or actual physical control that gave rise to the suspension.",
-          "What the review can decide is fixed by statute. Statute 322.2615(7) provides that the hearing officer shall determine by a preponderance of the evidence whether sufficient cause exists to sustain, amend, or invalidate the suspension, and that the scope of the review shall be limited to the following issues. On a suspension for an unlawful level of 0.08 or higher, paragraph (7)(a) lists whether the officer had probable cause to believe the person was driving or in actual physical control while under the influence, and whether the person had an unlawful level of 0.08 or higher as provided in Statute 316.193. On a refusal suspension, paragraph (7)(b) lists those two probable cause and refusal questions and adds whether the person was told that a refusal would suspend the privilege to operate a motor vehicle for 1 year, or 18 months in the case of a second or subsequent refusal.",
-          "The third request is a trade with conditions attached. Statute 322.271(7) provides that, notwithstanding Statute 322.2615(10)(a) and (b), a person who has never previously had a driver license suspended under Statute 322.2615, has never been disqualified under Statute 322.64, has never been convicted of a violation of Statute 316.193, and whose driving privilege is now suspended under Statute 322.2615 is eligible for a restricted driving privilege pursuant to a hearing under subsection (2). Paragraph (7)(a) counts an out-of-state conviction for driving under the influence, driving while intoxicated, driving with an unlawful blood-alcohol level, or any other similar alcohol-related or drug-related traffic offense, and a conviction of former Statute 316.028, 316.1931 or 860.01, as a previous conviction of Statute 316.193 for this purpose.",
-          "Paragraph (7)(c) is the part the shorthand drops: acceptance of the reinstated driving privilege as provided in this subsection is deemed a waiver of the right to formal and informal review under Statute 322.2615, and the waiver may not be used as evidence in any other proceeding. Paragraph (7)(b) restricts the reinstatement to business purposes only for the duration of the suspension imposed under Statute 322.2615.",
-          "Statute 322.271(1)(c)1. defines a driving privilege restricted to business purposes only as a driving privilege limited to any driving necessary to maintain livelihood, including driving to and from work, necessary on-the-job driving, driving for educational purposes, and driving for church and for medical purposes. Statute 322.271(1)(c)2. defines the narrower employment purposes only privilege as driving to and from work and any necessary on-the-job driving required by an employer or occupation.",
-          "Statute 322.2615(10) makes the business or employment purposes license available only if the person is otherwise eligible for the driving privilege pursuant to Statute 322.271, and Statute 322.271(2)(a) provides that where a license has been suspended under Statute 322.2615 the department shall require proof of enrollment in the applicable approved driver training course or licensed DUI program substance abuse education course, including evaluation and treatment if referred. The same paragraph contains a bar, written to begin except as provided in paragraph (c): the privilege of driving on a limited or restricted basis for business or employment use may not be granted to a person whose license is revoked pursuant to Statute 322.28 or suspended pursuant to Statute 322.2615 and who has been convicted of a violation of Statute 316.193 two or more times, or whose license has been suspended two or more times for refusal to submit to a test pursuant to Statute 322.2615 or former Statute 322.261.",
-        ],
-      },
-      {
-        id: "paperwork",
-        heading: "The notice of suspension, the breath instrument records, and the test you can pay for yourself",
-        kind: "guidance",
-        answers: ["now"],
-        guidance: [
+        "penalties": [
           {
-            heading: "Rights that are in place from the arrest onward",
-            items: [
-              "Rule 3.130(b)(1)(B) requires the judge at first appearance to advise an unrepresented defendant of the right to counsel and that counsel will be appointed if the defendant is financially unable to afford counsel. Rule 3.130(c)(1) requires the judge to appoint counsel immediately once entitlement and a desire for counsel are determined, and Rule 3.130(c)(2) requires the judge to allow a defendant a reasonable time to send for retained counsel and, if necessary, to postpone the first appearance hearing for that purpose.",
-              "Statute 316.1932(1)(f)3. provides that the person tested may, at his or her own expense, have a physician, registered nurse, other personnel authorized by a hospital to draw blood, a duly licensed clinical laboratory director, supervisor, technologist or technician, or another person of his or her own choosing administer an independent test in addition to the one taken at the officer's direction. The same subparagraph provides that the law enforcement officer shall not interfere with the person's opportunity to obtain the independent test and shall provide the person with timely telephone access to secure it, and that the burden is on the person to arrange and secure the test at his or her own expense.",
-              "Statute 316.1932(1)(d) provides that where the arresting officer does not request a breath test, the arrested person may request the officer to have a test made of breath, urine or blood, and if so requested the arresting officer shall have the test performed.",
-            ],
+            "degree": "No degree assigned by the statute",
+            "maximum": "Up to 6 months, fine $500 to $1,000",
+            "note": "A first DUI. The law sets the fine and the jail term straight out, without naming a misdemeanor degree."
           },
           {
-            heading: "Documents this case runs on, and the dates printed on them",
-            items: [
-              "The notice of suspension carries the date the whole license timetable is measured from, under Statute 322.2615(1)(b)2., (1)(b)3. and (1)(b)4. Keep the notice and the 10 day temporary permit issued with it, and note that under Statute 322.2615(3) a notice mailed pursuant to Statute 322.251 is not accompanied by a temporary permit.",
-              "Statute 316.1932(1)(f)4. provides that upon the request of the person tested, full information concerning the results of the test taken at the officer's direction shall be made available to the person or his or her attorney, and it defines full information as limited to the type of test administered and the procedures followed, the time of collection of the blood or breath sample analyzed, the numerical results indicating alcohol content of blood and breath, the type and status of any permit issued by the Department of Law Enforcement held by the person who performed the test, and, if a breath testing instrument was used, the date of performance of the most recent required inspection of that instrument. The same subparagraph provides that full information does not include manuals, schematics or software of the instrument, or material not in the actual possession of the state.",
-              "Statute 316.1932(1)(a)2. places the Alcohol Testing Program within the Department of Law Enforcement in charge of the operation, inspection and registration of breath test instruments used under these provisions, and of permitting and disciplining the breath test operators, agency inspectors, instructors and blood analysts who use them. Records of that kind exist independently of the arrest report.",
-              "Statute 322.2615(2)(a), which opens except as provided in paragraph (1)(a), lists what the officer sends the department, and Statute 322.2615(2)(b) provides that the officer may also submit a copy of the crash report and a copy of a video recording of the field sobriety test or the attempt to administer it. That paragraph provides that materials submitted by a law enforcement or correctional agency are self-authenticating and are in the record for the hearing officer, and that notwithstanding Statute 316.066(4) the crash report shall be considered by the hearing officer.",
-            ],
+            "degree": "No degree assigned by the statute",
+            "maximum": "Up to 9 months, fine $1,000 to $2,000",
+            "note": "A second DUI. A breath lock also goes on every car you drive, for at least a year, at your own cost."
           },
           {
-            heading: "Choices in the license case that are not reversible",
-            items: [
-              "The waiver is the irreversible step, not the request. Statute 322.271(7)(c) provides that acceptance of the reinstated restricted driving privilege is deemed a waiver of the right to formal and informal review under Statute 322.2615, so the third route closes the other two.",
-              "Statute 322.2615(9) provides that a temporary permit valid until the hearing may not be issued to a person who sought and obtained a continuance of the hearing, so a request to move a hearing date has a consequence attached to it in the statute.",
-              "A refusal already given is in the case under the admissibility sentences in Statute 316.1932(1)(a)1.a., (1)(a)1.b. and (1)(c), and a refusal is chargeable as a separate count under Statute 316.1939 where the conditions in paragraphs (a) through (e) of subsection (1) are met, the warning about the criminal consequence in paragraph (d) among them. Statute 316.1939(2) and (3) keep the criminal count and the administrative suspension on separate tracks, so a result on one does not dispose of the other.",
-            ],
+            "degree": "Third degree felony",
+            "maximum": "Up to 5 years",
+            "offenseLevel": "Level 3",
+            "note": "A third DUI, where the last one was within 10 years. The law counts from the earlier conviction, not from your second case. A breath lock is required for at least two years."
           },
+          {
+            "degree": "No degree assigned by the statute",
+            "maximum": "Up to 12 months, fine $2,000 to $5,000",
+            "note": "A third DUI, where more than 10 years have passed since the last one. Not a felony, and the breath lock still applies for at least two years."
+          },
+          {
+            "degree": "Third degree felony",
+            "maximum": "Up to 5 years",
+            "offenseLevel": "Level 6",
+            "note": "A fourth DUI. It is a felony however long ago the others were."
+          },
+          {
+            "degree": "First degree misdemeanor",
+            "maximum": "Up to 1 year",
+            "note": "A DUI where you damaged property or hurt someone."
+          },
+          {
+            "degree": "Third degree felony",
+            "maximum": "Up to 5 years",
+            "offenseLevel": "Level 7",
+            "note": "A DUI where someone was badly hurt. What counts as badly hurt is set out below."
+          },
+          {
+            "degree": "Second degree felony",
+            "maximum": "Up to 15 years",
+            "offenseLevel": "Level 8",
+            "note": "A DUI where someone died. The judge has to give at least four years in prison."
+          },
+          {
+            "degree": "First degree felony",
+            "maximum": "Up to 30 years",
+            "offenseLevel": "Level 9",
+            "note": "A DUI death where you knew, or should have known, about the crash and left without giving your details or helping."
+          },
+          {
+            "degree": "First degree felony",
+            "maximum": "Up to 30 years",
+            "offenseLevel": "Level 9",
+            "note": "A DUI death where you already have a conviction for causing a death this way, on the road or on the water."
+          },
+          {
+            "degree": "Second degree misdemeanor",
+            "maximum": "Up to 60 days",
+            "note": "Turning down a breath or urine test, the first time. This is a charge of its own, separate from the DUI."
+          },
+          {
+            "degree": "First degree misdemeanor",
+            "maximum": "Up to 1 year",
+            "note": "Turning down a breath or urine test again, after an earlier refusal."
+          }
         ],
+        "sources": [
+          "F.S. 316.193(2), (3)(c), (4) and (6)",
+          "F.S. 316.1939(1)",
+          "F.S. 316.656(2)",
+          "F.S. 775.082(3) and (4)",
+          "F.S. 921.0022 and F.S. 921.0024"
+        ],
+        "statute": {
+          "citation": "Florida Statute 316.656(2)(a), 2025 Florida Statutes",
+          "body": "No trial judge may accept a plea of guilty to a lesser offense from a person charged under the provisions of this act who has been given a breath or blood test to determine blood or breath alcohol content, the results of which show a blood or breath alcohol content by weight of 0.15 percent or more."
+        }
       },
       {
-        id: "after-conviction",
-        heading: "What a conviction does to the license, the vehicle, and the year that follows",
-        kind: "prose",
-        answers: ["consequences"],
-        prose: [
-          "Statute 316.193(5) requires the court to place all offenders convicted of violating the section on monthly reporting probation and to require completion of a substance abuse course conducted by a DUI program licensed under Statute 322.292, which must include a psychosocial evaluation. Where the program refers the offender to a treatment provider, completion of the education, evaluation and treatment is a condition of reporting probation, and the offender assumes the reasonable costs. If an offender fails to report for or complete treatment or the education course and evaluation, the program notifies the court and the department, and upon receipt of that notice the department shall cancel the driving privilege notwithstanding the terms of the court order or of any suspension or revocation.",
-          "The vehicle is reached separately from the person. Under Statute 316.193(6)(a), on a first conviction the court places the defendant on probation for a period not to exceed 1 year, orders a minimum of 50 hours of public service or a community work project as a condition, and orders impoundment or immobilization of the vehicle operated by or in the actual control of the defendant, or any one vehicle registered in the defendant's name, for 10 days. The total period of probation and incarceration may not exceed 1 year, and the impoundment must not occur concurrently with incarceration. Under (6)(b), a second conviction for an offense occurring within 5 years after the date of a prior conviction carries imprisonment of not less than 10 days with at least 48 hours of confinement consecutive, and impoundment or immobilization of all vehicles owned by the defendant for 30 days. Under (6)(c), a third or subsequent conviction for an offense within 10 years after the date of a prior conviction carries not less than 30 days and 90 days of impoundment. The scope changes at the second conviction from one vehicle to all vehicles the defendant owns.",
-          "Statute 316.193(6)(i) provides that the court may dismiss the impoundment or immobilization order if the defendant provides proof to the court's satisfaction that a functioning, certified ignition interlock device has been installed upon all vehicles individually or jointly leased or owned and routinely operated by the person. Statute 322.271(6) provides that a person may not be issued a commercial driver license during a period in which the person is disqualified from operating commercial motor vehicles or the driving privilege is suspended, revoked, or canceled. And Statute 316.193(7) states plainly that a conviction under the section does not bar any civil suit for damages against the person convicted, so a civil claim can run alongside everything else.",
-          "The license consequence is announced before the case is over. Statute 316.193(8) requires the clerk, at arraignment or with the notice of arraignment, to give a person charged under the section notice that upon conviction the court shall suspend or revoke the driver license and that the offender should make arrangements for transportation at any proceeding where the court may take such action. Failure to give that notice does not affect the suspension or revocation.",
+        "id": "refusal-2025",
+        "heading": "Turning down the test became a crime on 1 October 2025",
+        "kind": "statute",
+        "answers": [
+          "facing"
         ],
+        "prose": [
+          "Turning down a breath or urine test used to cost you your license and nothing more. Since 1 October 2025 it is also a crime the first time you do it. Before that date, a first refusal was not a crime at all.",
+          "A first refusal is a second degree misdemeanor, carrying up to 60 days. A second refusal is a first degree misdemeanor, carrying up to a year. Either way it is a separate charge, stacked on the DUI.",
+          "The date decides which rule reaches you. A refusal on 30 September 2025 is judged by the old wording. A refusal a day later is judged by the new one.",
+          "This crime covers breath and urine tests. Blood sits outside it. Turning down a blood test still costs you your license, but it is not this charge."
+        ],
+        "sources": [
+          "F.S. 316.1939(1)",
+          "Ch. 2025-121, Laws of Florida (HB 687), s. 4, effective 1 October 2025",
+          "F.S. 775.082(4)(a) and (4)(b)",
+          "F.S. 322.2615(1)(b)1.a."
+        ],
+        "statute": {
+          "citation": "Florida Statute 316.1939(1), 2025 Florida Statutes, paragraphs (d) and (e) and the words closing the subsection",
+          "body": "A person who has refused to submit to a chemical or physical test of his or her breath or urine, as described in s. 316.1932, and: ... (d) Who was informed that a refusal to submit to a lawful test of his or her breath or urine is a misdemeanor of the second degree, punishable as provided in s. 775.082 or s. 775.083, or if his or her driving privilege has been previously suspended or if he or she has previously been fined under s. 327.35215 for a prior refusal to submit to a lawful test of his or her breath, urine, or blood as required under this chapter or chapter 327, that a refusal to submit to a lawful test of his or her breath or urine is a misdemeanor of the first degree, punishable as provided in s. 775.082 or s. 775.083, in addition to any other penalties provided by law; and (e) Who, after having been so informed, refused to submit to any such test when requested to do so by a law enforcement officer or correctional officer commits a misdemeanor of the second degree for a first refusal or a misdemeanor of the first degree for a second or subsequent refusal, and is subject to punishment as provided in s. 775.082 or s. 775.083."
+        }
       },
       {
-        id: "sealing",
-        heading: "Florida forbids a withheld adjudication on a DUI, and that is what settles the sealing question",
-        kind: "prose",
-        answers: ["sealing"],
-        prose: [
-          "Statute 316.656(1) is short and it decides more than it appears to. Notwithstanding the provisions of s. 948.01, no court may suspend, defer, or withhold adjudication of guilt or imposition of sentence for any violation of s. 316.193, for manslaughter resulting from the operation of a motor vehicle, or for vehicular homicide. A conviction on the DUI count therefore comes with an adjudication of guilt, because the court has no authority to withhold one.",
-          "That connects directly to the sealing statute. Statute 943.059(1)(c) makes a person eligible to petition to seal only where the person has not been adjudicated guilty of, or adjudicated delinquent for committing, any of the acts stemming from the arrest or alleged criminal activity to which the petition to seal pertains. Because Statute 316.656(1) makes adjudication mandatory on a Statute 316.193 violation, a DUI conviction closes the court-ordered sealing route for the arrest that produced it. Statute 943.059(1)(b) is separate and looks backward instead: it requires that the person has never, before the date the application for a certificate of eligibility is filed, been adjudicated guilty in this state of a criminal offense, so a DUI adjudication also affects the sealing of any other Florida record afterward.",
-          "Where a case does not end in a conviction, a different section can operate without any petition. Statute 943.0595(2)(a) directs the department to automatically seal a criminal history record that does not result from an indictment, information, or other charging document for a forcible felony as defined in Statute 776.08 or for an offense enumerated in Statute 943.0435(1)(h)1.a.(I), where one of the events in its subparagraphs occurred: no charging document was filed or issued in the case; a charging document was filed but was dismissed or nolle prosequi as to all counts, other than a dismissal pursuant to Statute 916.145 or 985.19; the defendant was acquitted by the verdict as to all counts, other than by a verdict of not guilty by reason of insanity; or a judgment of acquittal was rendered as to all counts. Statute 943.0595(3)(a) then has the clerk of the court transmit a certified copy of the disposition to the department, which shall seal the record upon receipt. The words as to all counts do real work where a refusal count is charged alongside the DUI count, and Statute 943.0595(2)(b) provides there is no limitation on the number of times a person may obtain an automatic sealing under that paragraph.",
+        "id": "proof",
+        "heading": "What has to be true before a refusal counts against you",
+        "kind": "prose",
+        "answers": [
+          "facing"
         ],
+        "prose": [
+          "A refusal charge has conditions attached, and they come before the refusal itself. The officer needed a real reason to think you were driving impaired. You had to be under arrest for DUI. And you had to be told, out loud, what saying no would cost you.",
+          "You had to be warned about both costs. One is losing your license. The other is being charged with a crime. Only after that warning does saying no count against you.",
+          "Saying no does not make it go away. The State can tell the jury that you refused. That holds for breath, urine and blood alike.",
+          "Blood is handled differently when someone is badly hurt or killed. An officer with good reason to believe an impaired driver caused it has to take blood. Your agreement is not needed, and you do not have to be under arrest first.",
+          "Badly hurt has a fixed meaning, set out below. It reaches an injury that risks death, permanent disfigurement, or lasting loss of the use of a body part. It counts even when the person hurt is you.",
+          "Some cases start in a hospital rather than at a traffic stop. If a blood test done for your treatment shows you over the limit, staff may tell police. They may pass on only your name, who drew the blood, the reading, and when it was taken."
+        ],
+        "sources": [
+          "F.S. 316.1939(1)(a) to (1)(e)",
+          "F.S. 316.1932(1)(a)1. and (1)(c)",
+          "F.S. 316.1933(1) and (2)(a)"
+        ],
+        "statute": {
+          "citation": "Florida Statute 316.1933(1)(b), 2025 Florida Statutes",
+          "body": "The term \"serious bodily injury\" means an injury to any person, including the driver, which consists of a physical condition that creates a substantial risk of death, serious personal disfigurement, or protracted loss or impairment of the function of any bodily member or organ."
+        }
       },
+      {
+        "id": "clock-intervals",
+        "heading": "The dates that come at you, in the order they arrive",
+        "kind": "timeline",
+        "answers": [
+          "next"
+        ],
+        "steps": [
+          {
+            "when": "The first 8 hours",
+            "what": "You can be held until you are no longer impaired, or until your reading drops below 0.05, or until 8 hours have passed. Whichever of those comes first ends the hold. This is the rule families hit when they call about getting someone out."
+          },
+          {
+            "when": "Within 24 hours of arrest",
+            "what": "You go before a judge. If you cannot afford a lawyer, the judge appoints one there and then. The judge also sets the terms of your release."
+          },
+          {
+            "when": "Within 5 days",
+            "what": "The officer sends your license and the paperwork to the state. Sending it late does not undo your suspension."
+          },
+          {
+            "when": "Within 10 days of the notice",
+            "what": "This is your deadline. Ask for a review of the license suspension, or lose the chance to have one."
+          },
+          {
+            "when": "Within 30 days of your request",
+            "what": "The state has to schedule your hearing. If it fails to, your suspension is wiped out."
+          },
+          {
+            "when": "7 working days, or 21 days",
+            "what": "You get the decision. After a hearing it comes within 7 working days. After a paper review it comes within 21 days of your permit running out."
+          },
+          {
+            "when": "30 days in custody, 60 days out",
+            "what": "The State decides whether to file the charge. Locked up, the clock is 30 days. Out on bond, it is 60. Miss it and the court orders you released on your own word."
+          },
+          {
+            "when": "90 days, or 175 days",
+            "what": "The speedy trial clock. It is 90 days for a misdemeanor and 175 days for a felony. It starts when the State files the charge, not when you were arrested."
+          },
+          {
+            "when": "30 or 90 days after your permit ends",
+            "what": "If your suspension stands, this is the wait before you can ask for a work-only license. It is 30 days after a test result and 90 days after a refusal."
+          }
+        ],
+        "sources": [
+          "F.S. 316.193(9)",
+          "F.S. 322.2615(2)(a), (5), (6), (9) and (10)",
+          "Fla. R. Crim. P. 3.130, 3.134 and 3.191"
+        ],
+        "statute": {
+          "citation": "Florida Statute 316.193(9), 2025 Florida Statutes",
+          "body": "A person who is arrested for a violation of this section may not be released from custody:(a) Until the person is no longer under the influence of alcoholic beverages, any chemical substance set forth in s. 877.111, or any substance controlled under chapter 893 and affected to the extent that his or her normal faculties are impaired;(b) Until the person’s blood-alcohol level or breath-alcohol level is less than 0.05; or (c) Until 8 hours have elapsed from the time the person was arrested."
+        }
+      },
+      {
+        "id": "review-fork",
+        "heading": "Three ways to answer the license case, and one gives up the other two",
+        "kind": "bullets",
+        "answers": [
+          "now",
+          "consequences"
+        ],
+        "bullets": [
+          "Ask for a hearing. A hearing officer reads the paperwork, you can bring a lawyer, and the officer who arrested you can be called to attend. If that officer or the breath technician is called and does not turn up, your suspension is wiped out.",
+          "Or ask for a paper review. Nobody attends. The state reads what the officer sent and what you sent, then mails you an answer.",
+          "Or take a work-only license and give up both reviews. Taking it is the waiver, not asking about it. You cannot hold that license and still fight the suspension.",
+          "The work-only route is narrow. It is open only if you have never had this suspension before, have never been disqualified from driving, and have never been convicted of DUI. Drink driving convictions from other states count against you here.",
+          "Work-only means what it says. You can drive to and from work, on the job, to school, to church and to medical care. A narrower version covers only getting to work and driving while you are there.",
+          "Asking pauses nothing. Your suspension runs while you fight it. And if you ask to move your hearing date, you lose the permit that would have covered you until then.",
+          "A review can only settle a few questions. Did the officer have good reason to stop and arrest you. Were you over the limit, or did you say no to the test. On a refusal, were you told what saying no would cost.",
+          "Even on the work-only route you have to show you are enrolled in a DUI course. Two DUI convictions, or two refusal suspensions, shut that route for good."
+        ],
+        "sources": [
+          "F.S. 322.2615(1)(b)3., (4), (5), (6), (7), (9), (10) and (11)",
+          "F.S. 322.271(1)(c), (2)(a) and (7)"
+        ],
+        "statute": {
+          "citation": "Florida Statute 322.2615(10)(a), 2025 Florida Statutes",
+          "body": "If the suspension of the driver license of the person for failure to submit to a breath, urine, or blood test is sustained, the person is not eligible to receive a license for business or employment purposes only, pursuant to s. 322.271, until 90 days have elapsed after the expiration of the last temporary permit issued."
+        }
+      },
+      {
+        "id": "paperwork",
+        "heading": "The paper and the records this case runs on",
+        "kind": "guidance",
+        "answers": [
+          "now"
+        ],
+        "guidance": [
+          {
+            "heading": "What you are owed from the start",
+            "items": [
+              "A lawyer. If you cannot afford one, the judge appoints one at your first appearance. You can also ask for time to hire your own.",
+              "Your own test. You can pay a doctor, a nurse or another person you choose to test you as well. The officer cannot get in the way and has to let you make the call. Arranging it and paying for it is on you.",
+              "A test on request. If the officer never asks you to take one, you can ask, and the officer then has to have it done."
+            ]
+          },
+          {
+            "heading": "Paper worth keeping",
+            "items": [
+              "The notice of suspension. The date printed on it starts every license deadline you have.",
+              "The 10 day permit that came with it, if you got one. A notice sent by post comes without a permit.",
+              "The test result. On request you are owed the type of test, how it was run, when your sample was taken, the reading, who was licensed to run it, and the date the machine was last inspected.",
+              "What the officer sent the state. That is your license, a sworn account of why you were stopped, the reading or a note that you said no, and any roadside test notes. A crash report and video can go in too."
+            ]
+          },
+          {
+            "heading": "Choices you cannot take back",
+            "items": [
+              "Taking the work-only license. Asking about it changes nothing, but accepting it gives up both reviews for good.",
+              "Moving your hearing date. Ask for that and you lose the permit that would have let you drive until the hearing.",
+              "Saying no to the test. It stays in the case, and the two sides are decided apart, so winning one does not end the other."
+            ]
+          }
+        ],
+        "sources": [
+          "Fla. R. Crim. P. 3.130(b)(1)(B) and (c)",
+          "F.S. 316.1932(1)(a)2., (1)(d) and (1)(f)",
+          "F.S. 322.2615(2), (3) and (9)",
+          "F.S. 322.271(7)(c)",
+          "F.S. 316.1939(2) and (3)"
+        ],
+        "statute": {
+          "citation": "Florida Statute 316.1932(1)(f)3., 2025 Florida Statutes, first sentence",
+          "body": "The person tested may, at his or her own expense, have a physician, registered nurse, other personnel authorized by a hospital to draw blood, or duly licensed clinical laboratory director, supervisor, technologist, or technician, or other person of his or her own choosing administer an independent test in addition to the test administered at the direction of the law enforcement officer for the purpose of determining the amount of alcohol in the person's blood or breath or the presence of chemical substances or controlled substances at the time alleged, as shown by chemical analysis of his or her blood or urine, or by chemical or physical test of his or her breath."
+        }
+      },
+      {
+        "id": "after-conviction",
+        "heading": "What a conviction costs you after the case ends",
+        "kind": "prose",
+        "answers": [
+          "consequences"
+        ],
+        "prose": [
+          "A conviction puts you on reporting probation every time. You have to finish a licensed DUI course, and it includes an assessment. If the course sends you on to treatment, finishing that becomes part of your probation, at your cost.",
+          "Skip it and the state cancels your license. That happens on the course's word to the state, whatever your court order says.",
+          "Your car is dealt with apart from you. On a first conviction the court takes one car off the road for 10 days. It also puts you on probation for up to a year, with at least 50 hours of community service.",
+          "It widens after that. A second conviction inside five years means at least 10 days in jail and 30 days off the road for every car you own. A third inside ten years means at least 30 days in jail and 90 days off the road.",
+          "You can get the car released. Show the court that every car you drive has a working, certified breath lock fitted.",
+          "Two other things follow a conviction. You cannot hold a commercial license while your driving privilege is suspended or revoked. And being convicted does not stop anyone suing you over the same crash.",
+          "You are warned about the license before the case is over. At your arraignment the clerk tells you that a conviction means the court will take your license, and that you should arrange a lift home."
+        ],
+        "sources": [
+          "F.S. 316.193(5), (6) and (7)",
+          "F.S. 316.193(8)",
+          "F.S. 322.271(6)"
+        ],
+        "statute": {
+          "citation": "Florida Statute 316.193(5), 2025 Florida Statutes",
+          "body": "The court shall place all offenders convicted of violating this section on monthly reporting probation and shall require completion of a substance abuse course conducted by a DUI program licensed by the department under s. 322.292, which must include a psychosocial evaluation of the offender. If the DUI program refers the offender to an authorized substance abuse treatment provider for substance abuse treatment, in addition to any sentence or fine imposed under this section, completion of all such education, evaluation, and treatment is a condition of reporting probation. The offender shall assume reasonable costs for such education, evaluation, and treatment. The referral to treatment resulting from a psychosocial evaluation shall not be waived without a supporting independent psychosocial evaluation conducted by an authorized substance abuse treatment provider appointed by the court, which shall have access to the DUI program’s psychosocial evaluation before the independent psychosocial evaluation is conducted. The court shall review the results and recommendations of both evaluations before determining the request for waiver. The offender shall bear the full cost of this procedure. The term “substance abuse” means the abuse of alcohol or any substance named or described in Schedules I through V of s. 893.03. If an offender referred to treatment under this subsection fails to report for or complete such treatment or fails to complete the DUI program substance abuse education course and evaluation, the DUI program shall notify the court and the department of the failure. Upon receipt of the notice, the department shall cancel the offender’s driving privilege, notwithstanding the terms of the court order or any suspension or revocation of the driving privilege. The department may temporarily reinstate the driving privilege on a restricted basis upon verification from the DUI program that the offender is currently participating in treatment and the DUI education course and evaluation requirement has been completed. If the DUI program notifies the department of the second failure to complete treatment, the department shall reinstate the driving privilege only after notice of completion of treatment from the DUI program. The organization that conducts the substance abuse education and evaluation may not provide required substance abuse treatment unless a waiver has been granted to that organization by the department. A waiver may be granted only if the department determines, in accordance with its rules, that the service provider that conducts the substance abuse education and evaluation is the most appropriate service provider and is licensed under chapter 397 or is exempt from such licensure. A statistical referral report shall be submitted quarterly to the department by each organization authorized to provide services under this section."
+        }
+      },
+      {
+        "id": "sealing",
+        "heading": "A DUI conviction cannot be sealed, and one short rule is why",
+        "kind": "prose",
+        "answers": [
+          "sealing"
+        ],
+        "prose": [
+          "A Florida judge cannot withhold a finding of guilt on a DUI. On most charges a judge can decide the facts against you and still stop short of a conviction. On a DUI that option does not exist.",
+          "That is what closes sealing. To seal a record you must not have been found guilty of the charge behind it. A DUI conviction always carries that finding, so the record stays.",
+          "It reaches forward as well. Once you have been found guilty of a crime in Florida, you cannot seal any other Florida record later.",
+          "A case that does not end in a conviction is different. If the charge was dropped, or you were found not guilty on every count, the state seals the record itself. You do not have to ask, and there is no limit on how often it can happen.",
+          "Every count has to end that way. A refusal charge sitting next to the DUI has to be resolved the same way, or that route does not open."
+        ],
+        "sources": [
+          "F.S. 316.656(1)",
+          "F.S. 943.059(1)(b) and (1)(c)",
+          "F.S. 943.0595(2) and (3)(a)"
+        ],
+        "statute": {
+          "citation": "Florida Statute 316.656(1), 2025 Florida Statutes",
+          "body": "Notwithstanding the provisions of s. 948.01, no court may suspend, defer, or withhold adjudication of guilt or imposition of sentence for any violation of s. 316.193, for manslaughter resulting from the operation of a motor vehicle, or for vehicular homicide."
+        }
+      }
     ],
     faq: [
-      { question: "What is the 10 day rule for DUI in Florida?", source: "PAA", answer: "It is the window for answering the license side of a Florida DUI arrest. Statute 322.2615(1)(b)3. provides that the driver may request a formal or informal review of the suspension by the department within 10 days after the date of issuance of the notice of suspension, or may request a review of eligibility for a restricted driving privilege under Statute 322.271(7). Subparagraph 2. of the same paragraph provides that the suspension period commences on that same date of issuance, and subparagraph 4. provides that the temporary permit issued at the time of suspension expires at midnight of the 10th day following it. Under Statute 322.2615(1)(a) the officer takes the driver license and issues a 10 day temporary permit only if the person is otherwise eligible for the driving privilege. The 10 days run from the notice rather than from the arrest, and the two are not always the same day: where a blood test was administered, Statute 322.2615(1)(a) and (3) allow the department to issue the notice later, with a temporary permit that expires 10 days after the date of issuance unless the notice is mailed pursuant to Statute 322.251, in which case no permit is issued with it." },
-      { question: "Is refusing a breath test a crime in Florida?", source: "ST-04", answer: "Since 1 October 2025, yes, including on a first refusal. Statute 316.1939(1) provides that a person who, after having been so informed, refused to submit to any such test when requested to do so by a law enforcement officer or correctional officer commits a misdemeanor of the second degree for a first refusal or a misdemeanor of the first degree for a second or subsequent refusal. That text came from chapter 2025-121, House Bill 687, which the Florida Legislature's 2025 Regular Session chapter number and effective date report lists as effective 10/01/2025. Before that date the offense was written differently. The opening limb of Statute 316.1939(1) reached only a person who had refused and whose driving privilege was previously suspended, or who was previously fined under Statute 327.35215, for a prior refusal to submit to a lawful test of his or her breath, urine, or blood required under chapter 316 or chapter 327, and the words closing that subsection read commits a misdemeanor of the first degree. Chapter 2025-121 struck the prior-refusal predicate from the opening limb and replaced those closing words with the first refusal and second or subsequent refusal split set out at the start of this answer. Statute 775.082(4)(b) sets a misdemeanor of the second degree at a term not exceeding 60 days and Statute 775.082(4)(a) sets a misdemeanor of the first degree at a term not exceeding 1 year. The offense limb of Statute 316.1939(1) is written about a chemical or physical test of breath or urine, and the section also requires probable cause under paragraph (a), a lawful arrest for a violation of Statute 316.193 under paragraph (b) unless the test was requested pursuant to Statute 316.1932(1)(c), and that the person was informed of both the suspension consequence and the criminal consequence under paragraphs (c) and (d) before the refusal in paragraph (e)." },
-      { question: "If I am found not guilty, does the license suspension go away?", source: "drafted", answer: "It depends which suspension it is, and the two are treated in opposite ways. Statute 322.2615(16) provides that the department shall invalidate a suspension for driving with an unlawful blood-alcohol level or breath-alcohol level imposed under that section if the suspended person is found not guilty at trial of an underlying violation of Statute 316.193. Statute 322.2615(14)(b) provides that the disposition of any related criminal proceedings does not affect a suspension for refusal to submit to a blood, breath, or urine test imposed under that section. Statute 316.1939(2) and (3) carry the same separation for the criminal refusal charge in both directions: the disposition of the administrative proceeding does not affect the criminal action, and the disposition of the criminal action does not affect the administrative proceeding. Statute 322.2615(14)(a) also keeps the department's decision, and any written statement submitted in a request for departmental review, out of a trial for a violation of Statute 316.193." },
-      { question: "Is every DUI a felony in Florida?", source: "People Also Ask", answer: "No. Statute 316.193(2)(a) punishes a first conviction by a fine of not less than $500 or more than $1,000 and imprisonment of not more than 6 months, and a second conviction by a fine of $1,000 to $2,000 and imprisonment of not more than 9 months, without assigning either a felony degree. The felony routes are elsewhere in the section. Statute 316.193(2)(b)1. makes a third violation a felony of the third degree where the offense occurs within 10 years after a prior conviction for a violation of the section, and Statute 316.193(2)(b)3. makes a fourth or subsequent violation a felony of the third degree regardless of when any prior conviction occurred. Statute 316.193(2)(b)2. covers a third violation for an offense occurring more than 10 years after the date of a prior conviction, and punishes it by a fine of not less than $2,000 or more than $5,000 and imprisonment of not more than 12 months rather than as a felony. Subsection (3)(c) carries separate tiers where the offense causes serious bodily injury or death, and paragraph (2)(a) itself opens with the words except as provided in paragraph (b), subsection (3), or subsection (4)." },
-      { question: "Is jail time mandatory on a second DUI in Florida?", source: "People Also Ask", answer: "Not on every second conviction, because the provision that carries the minimum is conditional. Statute 316.193(6)(b) applies to a second conviction for an offense that occurs within a period of 5 years after the date of a prior conviction for a violation of the section, and where it applies the court shall order imprisonment for not less than 10 days, of which at least 48 hours of confinement must be consecutive. The same paragraph requires, as a condition of probation, impoundment or immobilization of all vehicles owned by the defendant for 30 days, and provides that the impoundment must not occur concurrently with the incarceration. Where a second conviction falls outside that 5 year measure, Statute 316.193(6)(b) is not the paragraph that governs, and the term for a second conviction is the one in Statute 316.193(2)(a), imprisonment for not more than 9 months, subject to the exceptions that paragraph names in paragraph (b), subsection (3) and subsection (4)." },
-      { question: "Can I get a business purposes license and still fight the suspension?", source: "drafted", answer: "Not on the route in Statute 322.271(7), because that statute makes the two mutually exclusive. Paragraph (7)(c) provides that acceptance of the reinstated driving privilege as provided in that subsection is deemed a waiver of the right to formal and informal review under Statute 322.2615, and that the waiver may not be used as evidence in any other proceeding. The eligibility conditions are also narrower than the shorthand suggests: subsection (7) reaches a person who has never previously had a driver license suspended under Statute 322.2615, has never been disqualified under Statute 322.64, has never been convicted of a violation of Statute 316.193, and whose driving privilege is now suspended under Statute 322.2615. Paragraph (7)(a) counts an out-of-state conviction for driving under the influence, driving while intoxicated, driving with an unlawful blood-alcohol level, or any other similar alcohol-related or drug-related traffic offense, and a conviction under former Statute 316.028, 316.1931 or 860.01, as a previous conviction of Statute 316.193 for this purpose. Paragraph (7)(b) restricts the reinstatement to business purposes only for the duration of the suspension imposed under Statute 322.2615." },
+      {
+        "question": "What is the 10 day rule for DUI in Florida?",
+        "source": "PAA",
+        "answer": "It is the deadline for answering the license side of a DUI arrest. You have 10 days from the date on the notice of suspension to ask for a review. The temporary permit that came with that notice ends at midnight on the 10th day. In a blood case the notice can reach you later by post, so count from the date printed on it."
+      },
+      {
+        "question": "Is refusing a breath test a crime in Florida?",
+        "source": "ST-04",
+        "answer": "Since 1 October 2025, yes, even the first time. A first refusal is a second degree misdemeanor and carries up to 60 days. A second refusal is a first degree misdemeanor and carries up to a year. Before that date a first refusal was not a crime at all."
+      },
+      {
+        "question": "If I am found not guilty, does the license suspension go away?",
+        "source": "drafted",
+        "answer": "It depends which suspension it is. If you were suspended over a reading of 0.08 or higher and a jury finds you not guilty, the state has to wipe the suspension out. If you were suspended for turning down a test, the criminal result does not touch it. The two run apart in both directions."
+      },
+      {
+        "question": "Is every DUI a felony in Florida?",
+        "source": "People Also Ask",
+        "answer": "No. A first or second DUI carries a fine and a jail term without being called a felony. A third is a felony if the last one was within 10 years, and is not if more time has passed. A fourth is a felony however long ago the others were."
+      },
+      {
+        "question": "Is jail time mandatory on a second DUI in Florida?",
+        "source": "People Also Ask",
+        "answer": "Only where the second one falls inside five years of the first. Then the court has to order at least 10 days, and 48 hours of that has to be served back to back. Outside those five years that rule does not apply, and the term is up to 9 months."
+      },
+      {
+        "question": "Can I get a business purposes license and still fight the suspension?",
+        "source": "drafted",
+        "answer": "No. Taking the work-only license gives up your right to both reviews. It is also narrow. It is open only if you have never had this suspension before, have never been disqualified from driving, and have never been convicted of DUI."
+      }
     ],
     relatedGuides: [{ label: "Tools and guides", href: "/resources/tools-and-guides" }],
   },

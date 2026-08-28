@@ -66,9 +66,30 @@ export function SectionRest({ section }: { section: ChargeSection }) {
     section.kind === "prose" ? section.prose?.slice(1) : section.prose;
   const showPrimary = !OPEN_KINDS.has(section.kind) && section.kind !== "prose";
   const showBullets = section.kind !== "bullets" && section.bullets?.length;
+  /**
+   * THE COLLAPSED STATUTE BLOCK, on every kind. D41.
+   *
+   * This was a hole rather than a design. `showPrimary` is false for the three
+   * OPEN_KINDS and for prose, so a `statute` payload on a penalties, timeline,
+   * guidance or prose section rendered NOWHERE, while `pageCopy` extracted it
+   * and every gate read it. That is D24's failure exactly, in the file whose own
+   * header says the renderer must be total, and check-pages' payload gate could
+   * not see it: that gate asserts the KEY is one this module renders, not that
+   * it renders for the kind it is on.
+   *
+   * It went unnoticed because no section outside the two `statute`-kind ones
+   * carried a statute block. D41 puts one on every section, so the hole would
+   * have swallowed nine of eleven blocks on the first page converted.
+   */
+  const showStatuteBlock = section.statute && section.kind !== "statute";
   return (
     <>
       {showPrimary ? <SectionPrimary section={section} /> : null}
+      {showStatuteBlock ? (
+        <div className={showPrimary ? "mt-8" : undefined}>
+          <StatuteBlock section={section} />
+        </div>
+      ) : null}
       {proseRest?.length ? (
         <div className={showPrimary ? "mt-8 space-y-5" : "space-y-5"}>
           {proseRest.map((paragraph) => (
@@ -99,14 +120,42 @@ export function hasSectionRest(section: ChargeSection): boolean {
   const showPrimary = !OPEN_KINDS.has(section.kind) && section.kind !== "prose";
   return Boolean(
     showPrimary ||
+      (section.statute && section.kind !== "statute") ||
       proseRest?.length ||
       (section.kind !== "bullets" && section.bullets?.length),
+  );
+}
+
+/**
+ * The sources line. D41.
+ *
+ * Deliberately NOT inside the disclosure. A reader who never opens the
+ * statutory text should still be able to see what the section rests on, and a
+ * page whose citations are all hidden behind a toggle is making the same
+ * mistake as a page whose citations are in every sentence: it is deciding for
+ * the reader how much law they want to see.
+ */
+export function SectionSources({ section }: { section: ChargeSection }) {
+  if (!section.sources?.length) return null;
+  return (
+    <p className="mt-8 border-t border-navy/10 pt-4 font-heading text-sm leading-relaxed text-navy/55">
+      <span className="uppercase tracking-wide text-navy/40">Sources</span>{" "}
+      {section.sources.join("; ")}
+    </p>
   );
 }
 
 export function SectionBody({ section }: { section: ChargeSection }) {
   const extras = (
     <>
+      {/* D41: the statute block survives on every kind, same reason as in
+          SectionRest. This function is the definition of total, so a payload it
+          drops is the D24 defect in the definition itself. */}
+      {section.statute && section.kind !== "statute" ? (
+        <div className="mt-8">
+          <StatuteBlock section={section} />
+        </div>
+      ) : null}
       {section.kind !== "prose" && section.prose?.length ? (
         <div className="mt-8 space-y-5">
           {section.prose.map((paragraph) => (
@@ -136,6 +185,42 @@ export function SectionBody({ section }: { section: ChargeSection }) {
   );
 }
 
+/**
+ * The verified statutory text, wherever it appears.
+ *
+ * EXTRACTED from the `statute` arm of SectionPrimary for D41, which puts a
+ * statute block on every section rather than only on `statute`-kind ones. Two
+ * call sites now render it and they must render it identically, because
+ * `check:quotes` counts `data-statute-quote` and `data-statute-gloss` across
+ * the built HTML and compares those counts against what the DATA says should
+ * exist. A second, drifting copy of this markup would make that count a
+ * coincidence rather than a check.
+ */
+export function StatuteBlock({ section }: { section: ChargeSection }) {
+  if (!section.statute)
+    return <Needs>statute citation and what it says</Needs>;
+  return isRecordedVerbatim(section.statute.body) ? (
+    <figure className="m-0" data-statute-quote>
+      <figcaption className="font-heading text-sm uppercase tracking-wide text-navy/50">
+        <cite className="not-italic">{section.statute.citation}</cite>
+      </figcaption>
+      <blockquote
+        className="m-0 mt-3"
+        cite={singleSourceUrl(section.statute.citation)}
+      >
+        {section.statute.body}
+      </blockquote>
+    </figure>
+  ) : (
+    <div data-statute-gloss>
+      <p className="font-heading text-sm uppercase tracking-wide text-navy/50">
+        <cite className="not-italic">{section.statute.citation}</cite>
+      </p>
+      <p className="mt-3">{section.statute.body}</p>
+    </div>
+  );
+}
+
 export function SectionPrimary({ section }: { section: ChargeSection }) {
   switch (section.kind) {
     case "statute":
@@ -158,30 +243,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
         The citation still renders in both cases. What changes is whether the
         page claims the words are the statute's.
       */
-      return section.statute ? (
-        isRecordedVerbatim(section.statute.body) ? (
-          <figure className="m-0" data-statute-quote>
-            <figcaption className="font-heading text-sm uppercase tracking-wide text-navy/50">
-              <cite className="not-italic">{section.statute.citation}</cite>
-            </figcaption>
-            <blockquote
-              className="m-0 mt-3"
-              cite={singleSourceUrl(section.statute.citation)}
-            >
-              {section.statute.body}
-            </blockquote>
-          </figure>
-        ) : (
-          <div data-statute-gloss>
-            <p className="font-heading text-sm uppercase tracking-wide text-navy/50">
-              <cite className="not-italic">{section.statute.citation}</cite>
-            </p>
-            <p className="mt-3">{section.statute.body}</p>
-          </div>
-        )
-      ) : (
-        <Needs>statute citation and what it says</Needs>
-      );
+      return <StatuteBlock section={section} />;
 
     case "penalties":
       return section.penalties?.length ? (
