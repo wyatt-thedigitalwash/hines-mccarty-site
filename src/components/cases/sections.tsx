@@ -299,8 +299,12 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
                       The ORDER still survives where it has to: this is an <ol>,
                       so a screen reader announces the position, and the grid
                       reads left to right. */}
+                  {/* Navy, not bronze. These sit on white cards inside the navy
+                      band, where navy is 17.37:1. The timeline intervals stay
+                      bronze by the same client decision that the note there
+                      records; this surface went back to dark on sight. */}
                   {head && (
-                    <p className="font-heading text-lg font-semibold leading-snug text-bronze">
+                    <p className="font-heading text-lg font-semibold leading-snug text-navy">
                       {head}
                     </p>
                   )}
