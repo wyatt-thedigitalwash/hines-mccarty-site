@@ -262,14 +262,22 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
       );
 
     case "bullets":
-      /* A TIER 2 BULLET LIST IS AN ACTION LIST, and it is numbered.
-         The same `bullets` kind carries the Tier 3 review-fork analysis, which
-         is a set of parallel options and must stay unnumbered: numbering it
-         would assert an order the law does not put on it. Tier decides, so the
-         two never collide. */
+      /* TWO BULLET LAYOUTS, AND A DEAD BRANCH THAT SAT BETWEEN THEM.
+
+         Tier 2 renders cards; everything else renders a plain list. When the
+         cards were rebuilt, the previous numbered-card version was left in
+         place BELOW the tier-2 branch and above the generic one, so it caught
+         every non-tier-2 bullets section and the plain list underneath it was
+         unreachable. The Tier 3 review-fork list therefore rendered as numbered
+         cards, which is exactly what the comment here used to promise could
+         not happen: those three routes are parallel options and numbering them
+         asserts an order the statute does not put on them.
+
+         It survived review because Tier 3 items are closed by default, so it
+         never appeared in a screenshot. Deleted. */
       if (section.tier === 2)
         return section.bullets?.length ? (
-          <ol className="grid gap-6 sm:grid-cols-2">
+          <ul className="grid gap-6 sm:grid-cols-2">
             {section.bullets.map((item) => {
               /* THE FIRST SENTENCE IS THE CARD'S HEADING, and this is a split
                  for the eye only: the string is unchanged, nothing is rewritten,
@@ -291,14 +299,24 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
               const body = m ? m[2] : item;
               return (
                 <li key={item.slice(0, 40)} className="bg-white p-8 lg:p-10">
-                  {/* NO "STEP 1" LABEL. It was an uppercase, letter-spaced
-                      eyebrow, which is both a house rule (CLAUDE.md bans eyebrow
-                      labels) and the single most generic thing a card can wear.
-                      The card this is modelled on has no number either.
+                  {/* NO LABEL, AND NO ORDER CLAIM.
 
-                      The ORDER still survives where it has to: this is an <ol>,
-                      so a screen reader announces the position, and the grid
-                      reads left to right. */}
+                      The "STEP 1" eyebrow went first: uppercase and
+                      letter-spaced, which CLAUDE.md bans outright.
+
+                      The <ol> went second, and the reason it survived the first
+                      pass is recorded here because it was wrong: "the order
+                      still survives because this is an <ol>". Read the four
+                      items and there is no sequence. Two are "hold onto this
+                      piece of paper" and are parallel to each other, one is a
+                      deadline, one is "call a lawyer". Nothing waits on
+                      anything.
+
+                      An <ol> announces "item 1 of 4" to a screen reader, so it
+                      asserts that sequence audibly with the numerals gone, and
+                      on the card that matters most it would have said calling a
+                      lawyer is step four of four. A <ul> is the honest element:
+                      four things that all matter, in no required order. */}
                   {/* Navy, not bronze. These sit on white cards inside the navy
                       band, where navy is 17.37:1. The timeline intervals stay
                       bronze by the same client decision that the note there
@@ -319,29 +337,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
                 </li>
               );
             })}
-          </ol>
-        ) : (
-          <Needs>the steps to take now</Needs>
-        );
-      return section.bullets?.length ? (
-          <ol className="grid gap-4 sm:grid-cols-2">
-            {section.bullets.map((item, i) => (
-              <li
-                key={item.slice(0, 40)}
-                className="flex gap-4 border border-navy/12 bg-linen/40 p-5"
-              >
-                <span
-                  aria-hidden="true"
-                  className="shrink-0 font-display text-2xl leading-none text-bronze"
-                >
-                  {i + 1}
-                </span>
-                <span className="text-base leading-relaxed text-charcoal">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ol>
+          </ul>
         ) : (
           <Needs>the steps to take now</Needs>
         );
