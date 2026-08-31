@@ -304,27 +304,30 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
               return (
                 <li
                   key={item.slice(0, 40)}
-                  className="flex items-start gap-5 bg-white p-6 sm:gap-6 sm:p-8"
+                  className="flex items-start gap-5 border border-linen/40 p-6 sm:gap-6 sm:p-8"
                 >
-                  {/* Bronze fill with a navy numeral, which is 7.07:1 and
-                      passes AA. Bronze numerals ON white would have been 2.46:1
-                      and would have added a second instance of the contrast
-                      failure already flagged on the timeline. */}
+                  {/* GOLD AS TEXT, not as a fill, now that the card is an
+                      outline. Bronze on navy is 7.07:1 and passes AA, which is
+                      the opposite of bronze on white (2.46:1, the failure still
+                      flagged on the timeline): the dark canvas is what makes
+                      gold type safe here. The square keeps its bronze outline so
+                      the numeral still reads as a marker rather than as part of
+                      the sentence. */}
                   <span
                     aria-hidden="true"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center bg-bronze font-heading text-lg font-semibold text-navy"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center border border-bronze/60 font-heading text-lg font-semibold text-bronze"
                   >
                     {i + 1}
                   </span>
                   <div>
                     {head && (
-                      <p className="font-heading text-lg font-semibold leading-snug text-navy">
+                      <p className="font-heading text-lg font-semibold leading-snug text-linen">
                         {head}
                       </p>
                     )}
                     <p
                       className={
-                        "text-base leading-relaxed text-charcoal " +
+                        "text-base leading-relaxed text-linen/70 " +
                         (head ? "mt-2" : "")
                       }
                     >
