@@ -277,6 +277,68 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
          never appeared in a screenshot. Deleted. */
       if (section.tier === 2)
         return section.bullets?.length ? (
+          /* A NUMBERED VERTICAL LIST, and the <ol> is correct THIS time.
+
+             It was a <ul> in a 2x2 grid, for a reason recorded here that was
+             right about that content: those four items had no sequence, two of
+             them were both "hold onto this piece of paper", and the fourth was
+             "call a lawyer", which an <ol> would have announced as step four of
+             four on a page built to get that call made.
+
+             The content changed. There are three steps now and they run toward
+             one deadline: keep the notice that starts the clock, keep the permit
+             that expires when it runs out, ask for the review before it does.
+             That is a progression, so the element says so, and the grid is gone
+             because a 2x2 grid gives no reliable reading order for numbers. */
+          <ol className="space-y-4">
+            {section.bullets.map((item, i) => {
+              /* THE FIRST SENTENCE IS THE STEP'S HEADING, a split for the eye
+                 only: the string is unchanged and the readability gate measures
+                 the DATA, so it still sees one sentence after another. Guarded,
+                 because the shape belongs to this copy rather than to the type.
+                 A first sentence over 64 characters, or an item with no sentence
+                 break, renders whole as body text. */
+              const m = item.match(/^([\s\S]{1,64}?[.!?])\s+([\s\S]*)$/);
+              const head = m ? m[1] : null;
+              const body = m ? m[2] : item;
+              return (
+                <li
+                  key={item.slice(0, 40)}
+                  className="flex items-start gap-5 bg-white p-6 sm:gap-6 sm:p-8"
+                >
+                  {/* Bronze fill with a navy numeral, which is 7.07:1 and
+                      passes AA. Bronze numerals ON white would have been 2.46:1
+                      and would have added a second instance of the contrast
+                      failure already flagged on the timeline. */}
+                  <span
+                    aria-hidden="true"
+                    className="flex h-10 w-10 shrink-0 items-center justify-center bg-bronze font-heading text-lg font-semibold text-navy"
+                  >
+                    {i + 1}
+                  </span>
+                  <div>
+                    {head && (
+                      <p className="font-heading text-lg font-semibold leading-snug text-navy">
+                        {head}
+                      </p>
+                    )}
+                    <p
+                      className={
+                        "text-base leading-relaxed text-charcoal " +
+                        (head ? "mt-2" : "")
+                      }
+                    >
+                      {body}
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
+          </ol>
+        ) : (
+          <Needs>the steps to take now</Needs>
+        );
+      return section.bullets?.length ? (
           <ul className="grid gap-6 sm:grid-cols-2">
             {section.bullets.map((item) => {
               /* THE FIRST SENTENCE IS THE CARD'S HEADING, and this is a split

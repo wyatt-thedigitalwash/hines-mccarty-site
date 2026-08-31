@@ -648,18 +648,40 @@ function TieredBody({
           ) : null}
         </div>
 
-        {/* ONE SOURCES BLOCK FOR THE PAGE */}
+        {/* ONE SOURCES BLOCK FOR THE PAGE, CLOSED BY DEFAULT.
+
+            D41 put the per-section sources line OUTSIDE the disclosure on the
+            reasoning that hiding every citation behind a toggle decides for the
+            reader how much law they want to see. That reasoning was about a
+            four-item line under a section. This is 34 statute citations in a
+            block taller than most of the sections above it, and it is apparatus:
+            almost nobody reads it, and the people who do are looking for it.
+
+            Nothing is hidden from a crawler or from anyone who wants it, because
+            <details> keeps its contents in the HTML and the summary says how
+            many are inside. */}
         {sources.length ? (
-          <div className="mt-16 border border-navy/12 bg-linen/40 p-7">
-            <h2 className="font-heading text-sm font-semibold text-navy/55">
-              Sources for this page
-            </h2>
-            <ul className="mt-4 grid gap-x-8 gap-y-1 font-heading text-sm leading-relaxed text-navy/60 sm:grid-cols-2">
+          <details className="group mt-16 border border-navy/12 bg-linen/40">
+            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 transition-colors hover:text-bronze">
+              <h2 className="font-heading text-sm font-semibold text-navy/55">
+                Sources for this page{" "}
+                <span className="font-normal text-navy/40">
+                  ({sources.length} provisions)
+                </span>
+              </h2>
+              <span
+                aria-hidden="true"
+                className="shrink-0 text-bronze transition-transform group-open:rotate-45"
+              >
+                +
+              </span>
+            </summary>
+            <ul className="grid gap-x-8 gap-y-1 px-6 pb-6 font-heading text-sm leading-relaxed text-navy/60 sm:grid-cols-2">
               {sources.map((src) => (
                 <li key={src}>{src}</li>
               ))}
             </ul>
-          </div>
+          </details>
         ) : null}
 
         <div className="mt-12">{ctaButton}</div>
