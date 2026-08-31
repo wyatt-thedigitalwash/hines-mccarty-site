@@ -5982,12 +5982,13 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "now"
         ],
         "bullets": [
-          "Keep the notice of suspension. The date on it starts your 10 days.",
-          "Keep the temporary permit. It lets you drive until midnight on the 10th day.",
-          "Ask for the review before the 10 days run out. Asking pauses nothing. Your suspension runs while you fight it."
+          "Keep the notice of suspension. The date printed on it starts every license deadline you have.",
+          "Keep the 10 day permit that came with it, if you got one. A notice sent by post comes without a permit.",
+          "Ask for the review inside those 10 days. Asking pauses nothing, and your suspension runs while you fight it.",
+          "Call a lawyer. Bring the notice of suspension to that first call, because the date on it is the one that matters."
         ],
         "sources": [
-          "F.S. 322.2615(1)(b)3., (1)(b)4., (3) and (9)"
+          "F.S. 322.2615(1)(b)3., (3) and (9)"
         ]
       },
       {

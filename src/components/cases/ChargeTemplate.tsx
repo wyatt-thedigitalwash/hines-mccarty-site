@@ -567,7 +567,8 @@ function TieredBody({
                 {band.sections.map((sec) => sectionBlock(sec, true))}
               </div>
               {/* The CTA that follows Tier 2 lives in the band, where the
-                  bronze button sits on navy exactly as it does in the hero. */}
+                  bronze button sits on navy exactly as it does in the hero.
+*/}
               <div className="mt-12">{ctaButton}</div>
             </div>
           </section>
