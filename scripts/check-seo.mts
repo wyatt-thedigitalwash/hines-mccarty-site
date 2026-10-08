@@ -9,8 +9,9 @@
  *   P5  the row's topic appears in the <title> and in the H1
  *   P6  sibling pages link to each other from the page body
  *   P7  repeated text. Each content page's body is split into overlapping
- *       8-word runs. Runs found on a quarter or more of all pages are the
- *       template (header labels, the call band) and are set aside. Then:
+ *       8-word runs. Runs found on a quarter or more of all pages, or on 6
+ *       or more, are the template (header labels, the call band, a section's
+ *       shared blocks) and are set aside. Then:
  *         - at least 60% of a content page's runs appear on no other page
  *         - no two pages share more than 30% of the smaller page's runs
  *       Shared layout does not hurt a page in search; pages that read the same
@@ -39,6 +40,7 @@ const DESC_MIN = 70;
 const DESC_MAX = 160;
 const RUN = 8;
 const TEMPLATE_SHARE = 0.25;
+const TEMPLATE_PAGES = 6;
 const UNIQUE_MIN = 0.6;
 const PAIR_MAX = 0.3;
 const MIN_WORDS = 500;
@@ -104,7 +106,11 @@ function audit(pages: Page[], rows: Map<string, SearchTarget>): Map<string, stri
   const runs = new Map(pages.map((p) => [p.href, runsOf(wordsOf(p.main))]));
   const count = new Map<string, number>();
   for (const set of runs.values()) for (const r of set) count.set(r, (count.get(r) ?? 0) + 1);
-  const templateAt = Math.max(3, Math.ceil(pages.length * TEMPLATE_SHARE));
+  // A section of the site has its own template: the nine injury pages share an
+// attorney block, a call band and a FAQ intro that appear nowhere else, so a
+// quarter of the whole site never reached them and they read as copying
+// (D72). Text on TEMPLATE_PAGES pages counts as template too.
+const templateAt = Math.max(3, Math.min(TEMPLATE_PAGES, Math.ceil(pages.length * TEMPLATE_SHARE)));
   const own = new Map<string, Set<string>>();
   for (const [href, set] of runs) own.set(href, new Set([...set].filter((r) => count.get(r)! < templateAt)));
   const content = pages.filter((p) => {

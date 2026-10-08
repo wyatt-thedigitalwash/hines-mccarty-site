@@ -133,3 +133,14 @@ Pages are listed in silo order (state, federal, white-collar). Pages with nothin
 ---
 
 83 informational flags (the writer explaining a choice, citation housekeeping, or a wording preference) are not listed.
+
+## Personal injury (from the D72 rebuild)
+
+### /personal-injury/car-accidents and /personal-injury/car-accidents/compensation
+
+- **Fee terms are not on the site.** The old pages carried an unfinished
+  placeholder asking for the firm's contingency fee terms and whether a client
+  is responsible for costs if the case does not recover. The rebuild removed
+  the placeholder, so the pages say nothing about fees. If the firm wants fee
+  terms on the site, it needs to supply them; any fee statement is attorney
+  advertising and must meet the Florida Bar's rules on fees.

@@ -2724,3 +2724,17 @@ whole, not deleted.
   link count now counts only links a reader can see.
 - **Checks** that read built tool and guide pages, or that expect guide
   routes to be built, report the hidden state instead of failing.
+
+**Outcome (D72, same day).** All nine injury pages are on the standard. Each
+was written by Opus and checked by Fable up to four times; the last round
+caught, among others, PIP's sixty percent losing "of gross income" (so a
+reader would assume take-home pay), a rideshare FAQ implying the company's
+insurance cannot pay on the lower tier, and two verbatim statute passages
+on the semi-truck page altered character by character. The car accidents
+page and its insurance claims spoke shared 59% of their text; the pillar now
+summarizes uninsured motorist coverage and links to the spoke, which keeps
+the full statute (P7 passes). check:seo now treats text on six or more pages
+as template, because the injury pages share an attorney block, a call band
+and a FAQ intro that a quarter of the whole site never reached. The firm's
+fee terms, an unfinished placeholder on the old pages, are on the attorney
+list (ATTORNEY-FLAGS.md) rather than on the site.

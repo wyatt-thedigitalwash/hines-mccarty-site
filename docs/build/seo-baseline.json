@@ -16,33 +16,5 @@
   ],
   "/personal-injury": [
     "P5 topic not in H1"
-  ],
-  "/personal-injury/car-accidents": [
-    "P3 description not 70 to 160",
-    "P7 under 60% unique text",
-    "P7 shares over 30% of its text with /personal-injury/car-accidents/insurance-claims"
-  ],
-  "/personal-injury/car-accidents/catastrophic-injuries": [
-    "P3 description not 70 to 160"
-  ],
-  "/personal-injury/car-accidents/insurance-claims": [
-    "P3 description not 70 to 160",
-    "P7 under 60% unique text",
-    "P7 shares over 30% of its text with /personal-injury/car-accidents"
-  ],
-  "/personal-injury/car-accidents/types-of-car-accidents": [
-    "P3 description not 70 to 160"
-  ],
-  "/personal-injury/truck-accidents": [
-    "P3 description not 70 to 160"
-  ],
-  "/personal-injury/truck-accidents/delivery-and-box-truck": [
-    "P3 description not 70 to 160"
-  ],
-  "/personal-injury/truck-accidents/fmcsa-violations": [
-    "P3 description not 70 to 160"
-  ],
-  "/personal-injury/truck-accidents/semi-truck-collisions": [
-    "P3 description not 70 to 160"
   ]
 }

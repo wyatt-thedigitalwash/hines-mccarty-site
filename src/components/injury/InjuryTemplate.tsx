@@ -93,7 +93,7 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
       {spokes.length ? (
         <section data-bg="white" className="bg-white py-24 lg:py-32 text-navy">
           <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
-            <h2 className={`${type.sectionHeading} ${color.heading}`}>{page.label}, in more depth.</h2>
+            <h2 className={`${type.sectionHeading} ${color.heading}`}>{page.label.charAt(0)}{page.label.slice(1).toLowerCase()}, in more depth.</h2>
             <p className={`${space.afterHeading} max-w-2xl ${type.lead} ${color.body}`}>
               Each page takes one part of these claims further.
             </p>
