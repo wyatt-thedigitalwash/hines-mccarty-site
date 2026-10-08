@@ -44,9 +44,9 @@ import ContactForm from "@/components/contact/ContactForm";
  * the form can deliver. See src/app/contact/actions.ts.
  */
 export const metadata: Metadata = pageMetadata({
-  title: "Contact | Hines & McCarty, Brandon FL",
+  title: "Contact | Hines McCarty Pavlidis, Brandon FL",
   description:
-    "Reach Hines & McCarty in Brandon, Florida. Call (813) 738-8650 or send a message and we will arrange a confidential conversation.",
+    "Reach Hines McCarty Pavlidis in Brandon, Florida. Call (813) 738-8650 or send a message and we will arrange a confidential conversation.",
   path: "/contact",
   // Derived, not declared. A contact page whose form cannot deliver should not
   // be the result someone lands on from a search, but the condition is now a
@@ -61,7 +61,7 @@ const contactJsonLd = {
   url: `${siteUrl}/contact`,
   name: "Contact",
   description:
-    "Reach Hines & McCarty in Brandon, Florida, by phone or by message.",
+    "Reach Hines McCarty Pavlidis in Brandon, Florida, by phone or by message.",
   // The same LegalService entity /about wraps, by the same reasoning: the
   // address, phone and areas served are asserted once, in one place, and every
   // page that needs them references that rather than restating them.

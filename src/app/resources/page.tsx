@@ -24,7 +24,7 @@ import { RESOURCES_PHOTO } from "@/lib/hero-photos";
  * would be the one thing that gate exists to prevent.
  */
 export const metadata: Metadata = pageMetadata({
-  title: "Resources | Hines & McCarty",
+  title: "Resources | Hines McCarty Pavlidis",
   description:
     "Tools, guides, and articles explaining how a criminal case moves through the state courts of Hillsborough County and the Middle District of Florida.",
   path: "/resources",

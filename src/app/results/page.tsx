@@ -25,9 +25,9 @@ import { CASE_RESULTS_PHOTO } from "@/lib/hero-photos";
  * results, because two results on a page reads as weakness rather than proof.
  */
 export const metadata: Metadata = pageMetadata({
-  title: "Case Results | Hines & McCarty",
+  title: "Case Results | Hines McCarty Pavlidis",
   description:
-    "How Hines & McCarty publishes case results: only with client consent, described accurately, and never as a prediction of any future outcome.",
+    "How Hines McCarty Pavlidis publishes case results: only with client consent, described accurately, and never as a prediction of any future outcome.",
   path: "/results",
   // Nothing published yet.
   noindex: true,

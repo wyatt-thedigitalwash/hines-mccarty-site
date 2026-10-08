@@ -82,7 +82,7 @@ export default function Hero() {
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/80">
               If you have been arrested, are under investigation, or have been
               hurt in a collision, you need straight answers before anything
-              else. Hines &amp; McCarty defends state charges in Hillsborough
+              else. Hines McCarty Pavlidis defends state charges in Hillsborough
               County and federal cases in the Middle District of Florida, and
               handles injury claims on the other side of the same courthouse.
               We prepare every case as if it will be tried, because the other

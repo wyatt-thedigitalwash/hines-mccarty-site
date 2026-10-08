@@ -37,7 +37,7 @@ export default function HandledBy({
         <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
           <h2 className={`${type.sectionHeading} ${color.heading}`}>Who handles these cases.</h2>
           <p className={`${space.afterHeading} max-w-2xl ${type.lead} ${color.body}`}>
-            The attorneys at Hines &amp; McCarty who defend this charge.
+            The attorneys at Hines McCarty Pavlidis who defend this charge.
           </p>
           <ul className={`${space.beforeContent} grid gap-4 sm:grid-cols-2 lg:grid-cols-3`}>
             {matched.map((attorney) => (

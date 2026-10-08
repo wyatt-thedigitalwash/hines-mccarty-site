@@ -14,7 +14,7 @@ import EmptyState from "@/components/EmptyState";
  * done-criteria C1 through C8.
  */
 export const metadata: Metadata = pageMetadata({
-  title: "Tools and Guides | Hines & McCarty",
+  title: "Tools and Guides | Hines McCarty Pavlidis",
   description: "Calculators, estimators, and step-by-step walkthroughs of the criminal process in Hillsborough County and the Middle District of Florida.",
   path: "/resources/tools-and-guides",
   // Nothing published yet.

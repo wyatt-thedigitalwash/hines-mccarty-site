@@ -9,9 +9,9 @@ import ChargeIndex from "@/components/cases/ChargeIndex";
 import CallToAction from "@/components/CallToAction";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Cases We Defend | Hines & McCarty, Criminal Defense in Tampa Bay",
+  title: "Cases We Defend | Hines McCarty Pavlidis, Criminal Defense in Tampa Bay",
   description:
-    "The state and federal charges Hines & McCarty defends in Hillsborough County and in the Middle District of Florida.",
+    "The state and federal charges Hines McCarty Pavlidis defends in Hillsborough County and in the Middle District of Florida.",
   path: "/cases-we-defend",
   // Draft copy that has not had its C12 verification pass or attorney read.
   noindex: true,

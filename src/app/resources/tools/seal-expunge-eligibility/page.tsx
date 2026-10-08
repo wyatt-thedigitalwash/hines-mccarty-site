@@ -26,7 +26,7 @@ import * as C from "@/lib/tools/seal-expunge/copy";
  * and the email step offers a written copy rather than withholding anything.
  */
 export const metadata: Metadata = pageMetadata({
-  title: "Can This Record Be Sealed? Florida Sealing Checker | Hines & McCarty",
+  title: "Can This Record Be Sealed? Florida Sealing Checker | Hines McCarty Pavlidis",
   description:
     "Answer five short questions and see which of the five conditions in Florida Statute 943.059 your answers satisfy, which they do not, and which need a lawyer to check.",
   path: "/resources/tools/seal-expunge-eligibility",

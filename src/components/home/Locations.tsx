@@ -7,7 +7,7 @@ import LocationsMap from "./LocationsMap";
  *
  * THE HEADING IS NOT "OUR LOCATIONS", AND THAT IS DELIBERATE. The reference
  * design this was modelled on is a locations section for a firm with seven
- * offices. Hines & McCarty has one. Under Rule 4-7.12 a firm may not advertise
+ * offices. Hines McCarty Pavlidis has one. Under Rule 4-7.12 a firm may not advertise
  * a place as an office unless it is a bona fide office, so this section is
  * about where cases are handled, and the single office is stated separately and
  * plainly. See docs/build/LOCATIONS-MAP-PLAN.md Section 2.

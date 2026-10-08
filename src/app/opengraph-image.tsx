@@ -42,8 +42,10 @@ export default async function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div style={{ display: "flex", fontSize: 68, color: LINEN }}>
             <span>Hines</span>
-            <span style={{ color: BRONZE, margin: "0 16px" }}>&</span>
+            <span style={{ color: BRONZE, margin: "0 16px" }}>·</span>
             <span>McCarty</span>
+            <span style={{ color: BRONZE, margin: "0 16px" }}>·</span>
+            <span>Pavlidis</span>
           </div>
           <div
             style={{

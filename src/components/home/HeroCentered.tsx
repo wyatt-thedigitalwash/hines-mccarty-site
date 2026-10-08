@@ -59,7 +59,7 @@ export default function HeroCentered() {
             <p className="text-lg leading-relaxed text-linen/70">
               If you or someone you love has been arrested or is under
               investigation, you need straight answers before anything else.
-              Hines &amp; McCarty defends state charges in Hillsborough County
+              Hines McCarty Pavlidis defends state charges in Hillsborough County
               and federal cases in the Middle District of Florida, and we
               prepare every case as if it will be tried, because prosecutors
               treat a firm differently when they know it will.

@@ -74,7 +74,7 @@ export const NO_PAGE_NOTE =
 
 /** C4. Op. 24-1 and Bartholomew: this reader is the one the rule turns on. */
 export const NO_RELATIONSHIP =
-  "This page is educational information about what Florida and federal statutes say. It is not legal advice, it is not about your case, and using it does not create an attorney-client relationship with Hines & McCarty. Every case is different. Speak to a lawyer about yours.";
+  "This page is educational information about what Florida and federal statutes say. It is not legal advice, it is not about your case, and using it does not create an attorney-client relationship with Hines McCarty Pavlidis. Every case is different. Speak to a lawyer about yours.";
 
 /** What the tool refuses to do, said plainly. Section 4, what it is NOT. */
 /**

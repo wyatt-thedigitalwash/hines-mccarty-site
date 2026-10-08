@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Wordmark from "@/components/Wordmark";
 import {
   firm,
   formatOffice,
@@ -21,7 +22,7 @@ export default function Footer() {
               href="/"
               className="font-display text-3xl font-extrabold tracking-tight"
             >
-              Hines <span className="text-bronze">&amp;</span> McCarty
+              <Wordmark />
             </Link>
             <p className="mt-5 max-w-sm text-linen/60">
               A Brandon firm handling serious state and federal criminal

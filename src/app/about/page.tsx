@@ -69,7 +69,7 @@ import Byline from "@/components/cases/Byline";
  * what Rule 4-7.14(a)(4) requires and the reason they may be stated at all.
  */
 export const metadata: Metadata = pageMetadata({
-  title: "Our Firm | Hines & McCarty, Brandon FL",
+  title: "Our Firm | Hines McCarty Pavlidis, Brandon FL",
   description:
     "A Brandon firm of four attorneys, each concentrating in a different area, handling criminal defense and personal injury in Hillsborough County and the Middle District of Florida.",
   path: "/about",
@@ -86,7 +86,7 @@ const aboutJsonLd = {
   // The plan asks for AboutPage wrapping LegalService, which this does. It
   // asks for `employee` links to the four bios as well, and those are NOT
   // emitted: Maria Pavlidis operates a separate firm and her relationship to
-  // Hines & McCarty is unconfirmed (WEBSITE-PLAN Open Question 2a). An
+  // Hines McCarty Pavlidis is unconfirmed (WEBSITE-PLAN Open Question 2a). An
   // employee assertion is a factual claim about a person, and this project
   // does not make one from an unanswered question.
   mainEntity: organizationJsonLd(),

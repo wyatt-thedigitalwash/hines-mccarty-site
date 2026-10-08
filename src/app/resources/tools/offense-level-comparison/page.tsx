@@ -51,7 +51,7 @@ import {
  */
 export const metadata: Metadata = pageMetadata({
   title:
-    "How Florida Ranks Offenses: Degree Compared to Offense Level | Hines & McCarty",
+    "How Florida Ranks Offenses: Degree Compared to Offense Level | Hines McCarty Pavlidis",
   description:
     "See how Florida's offense severity ranking chart scores a charge, and why the degree written on a charging document does not tell you the offense level.",
   path: "/resources/tools/offense-level-comparison",

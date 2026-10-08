@@ -666,7 +666,7 @@ function SituationTable({ rows }: { rows: PenaltyRow[] }) {
                   {row.situation}
                 </span>
                 {row.note ? (
-                  <span className="mt-1 block text-[15px] leading-relaxed text-charcoal">
+                  <span className="mt-1 hidden text-[15px] leading-relaxed text-charcoal md:block">
                     {row.note}
                   </span>
                 ) : null}
@@ -677,6 +677,16 @@ function SituationTable({ rows }: { rows: PenaltyRow[] }) {
               <td className="block font-heading text-[15px] font-medium leading-snug text-navy/60 md:table-cell md:px-5 md:py-4 md:align-top">
                 {row.degree}
               </td>
+              {/* D67: on a phone the note comes after the penalty it qualifies
+                  ("Up to 10 years after a prior..." read before the base
+                  penalty, out of order). On desktop it stays under the
+                  situation, beside the penalty. Only one copy is displayed at a
+                  time, so assistive technology meets it once. */}
+              {row.note ? (
+                <td className="mt-1 block text-[15px] leading-relaxed text-charcoal md:hidden">
+                  {row.note}
+                </td>
+              ) : null}
             </tr>
           ))}
         </tbody>

@@ -25,10 +25,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!charge) return {};
 
   return pageMetadata({
-    title: charge.metaTitle ?? `${charge.label} Charges | Hines & McCarty`,
+    title: charge.metaTitle ?? `${charge.label} Charges | Hines McCarty Pavlidis`,
     description:
       charge.metaDescription ??
-      `${charge.label} defense at Hines & McCarty, ${silo.label.toLowerCase()} in Tampa Bay.`,
+      `${charge.label} defense at Hines McCarty Pavlidis, ${silo.label.toLowerCase()} in Tampa Bay.`,
     path: `${silo.href}/${charge.slug}`,
     // Unwritten pages stay out of the index. A page of [NEEDS] markers costs
     // E-E-A-T rather than building it.

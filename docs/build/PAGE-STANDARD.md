@@ -35,7 +35,7 @@ Fixed for every charge page. Section ids, kinds and fields are the ones in
 | 2 | **Jump links** | automatic | Renders from the Tier 2 headings plus "The details" and "Common questions". |
 | 3 | **What you're facing.** | Tier 2, `kind: "penalties"` | See section 4. |
 | 4 | **What happens next.** | Tier 2, `kind: "timeline"` | Real intervals from the rules, in order. 3 to 6 steps. Every `when` is a real time ("Within 24 hours of arrest"), never "soon". |
-| 5 | **What to do right now.** | Tier 2, `kind: "bullets"`, `background: "navy"` | 3 to 5 bullets. Each is one action and the reason for it, in two or three short sentences. Specific to this charge (a no-contact order on violence charges, the 10-day license deadline on DUI, preserving records on fraud). |
+| 5 | **What to do right now.** | Tier 2, `kind: "bullets"`, `background: "navy"` | 3 to 5 bullets. Each is one action and the reason for it, in two or three short sentences. The first sentence is the card's headline: a short instruction of 64 characters or fewer ("Keep every paper you were given."); a longer one renders the card with no headline. Specific to this charge (a no-contact order on violence charges, the 10-day license deadline on DUI, preserving records on fraud). |
 | 6 | **The details.** | Tier 3 sections, `detailsLayout: "grid"` | See section 5. |
 | 7 | **Common questions** | `faq` | See section 6. |
 | 8 | **Who handles these cases.** | automatic | From `handlesChargeHrefs` (D65). |
@@ -55,8 +55,8 @@ law and the brief, not from the sexual battery page.
 
 | Shape | Applies to | What changes |
 |---|---|---|
-| **Degree ladder** | State charges whose penalty steps by Florida degree (sexual battery, battery, homicide, grand theft, drug trafficking, gun crimes, domestic violence, computer access, sex crimes, embezzlement, Medicaid fraud, Florida money laundering, identity theft, Florida wire fraud) | `display: "ladder"` on the penalties section. Rows run lightest to heaviest. Each row's `situation` is what the person did or had, in their words. |
-| **Federal ranges** | Federal pages | Florida degrees do not exist here. Penalty rows give the statutory maximum and any mandatory minimum by the facts that trigger them (drug type and amount, gun use, loss amount). Do not use a ladder unless the rows genuinely group by a shared maximum. Say plainly that the Sentencing Guidelines, not the statute alone, drive the actual sentence. |
+| **Florida degrees** | State charges, and the Florida rows on mixed pages | Each row's `degree` is the Florida degree, so the ladder groups rows into one card per degree. Rows run lightest to heaviest. Each row's `situation` is what the person did or had, in their words. |
+| **Federal ranges** | Federal pages, and the federal rows on mixed pages | Florida degrees do not exist here. Each row's `degree` is a short label for its tier or class ("Federal, base tier", "Federal felony"), so the ladder gives each its own card. Rows give the statutory maximum and any mandatory minimum by the facts that trigger them (drug type and amount, gun use, loss amount). Say plainly that the Sentencing Guidelines, not the statute alone, drive the actual sentence. |
 | **Before a charge** | Target letter, and white-collar pages where readers are usually under investigation (tax evasion, securities, bank fraud, PPP, healthcare) | "What happens next" starts at the investigation (letter, subpoena, agent visit), not at arrest. "What to do right now" leads with not talking to agents and preserving records. |
 | **Two clocks** | DUI | The 10-day license deadline is the first bullet of "What to do right now" and the first timeline step. The license case and the criminal case are explained as two separate tracks. DUI manslaughter belongs on this page (D67); the homicide page links to it. |
 | **Overview** | Sex crimes, corporate fraud | An overview page introduces the group and routes to the specific pages; it does not answer the specific pages' questions. Corporate fraud stays a short overview (D12, D67). |
@@ -64,6 +64,13 @@ law and the brief, not from the sexual battery page.
 ---
 
 ## 4. "What you're facing."
+
+- **Always the ladder** (`display: "ladder"`), on every page: one outlined
+  card per penalty level, the penalty as the card's heading, the situations
+  listed under it. One look for this section on every page (D67; the older
+  three-column table is retired from pages on the standard).
+- Write penalty headings in plain words: "Up to 20 years", "5 to 40 years",
+  "10 years to life", not "not less than 5 years and not more than 40 years".
 
 - A reader must be able to find their situation in one scan. Group by penalty
   (ladder) when rows share penalties; one row per distinct situation.
@@ -170,8 +177,14 @@ on these pages produced about 340 of them. So:
 
 - One row in `src/lib/search-map.ts` naming the page's primary query from its
   brief, its topic, and its siblings [check:search-map, D66].
-- `metaTitle` 60 characters or fewer, unique, with the topic. `metaDescription`
-  70 to 160 characters, unique [check:seo].
+- `metaTitle`: "[Charge] Lawyer in Tampa | Hines McCarty Pavlidis". If that is
+  over 60 characters, drop the firm name: "[Charge] Lawyer in Tampa,
+  Florida". The search words always win; the firm name is shown above every
+  result anyway, from the site-name markup on the home page (D69). Unique,
+  with the topic [check:seo, check:search-map].
+- `metaDescription`: 70 to 160 characters, unique, and it names Tampa (state
+  pages: "in Tampa or elsewhere in Hillsborough County"), because the searches
+  these pages target say Tampa [check:seo].
 - The topic appears in the H1 and the meta title [check:search-map S6].
 - Sibling pages (same subject, different law or court) link to each other
   once, from the topic that explains the difference [check:seo P6].

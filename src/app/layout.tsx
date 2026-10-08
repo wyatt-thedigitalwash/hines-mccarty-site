@@ -26,9 +26,9 @@ const lora = Lora({
   display: "swap",
 });
 
-const DEFAULT_TITLE = "Hines & McCarty | Criminal Defense Attorneys in Tampa Bay";
+const DEFAULT_TITLE = "Hines McCarty Pavlidis | Criminal Defense Attorneys in Tampa Bay";
 const DEFAULT_DESCRIPTION =
-  "Hines & McCarty is a Brandon, Florida criminal defense firm handling serious state and federal charges across Greater Tampa Bay.";
+  "Hines McCarty Pavlidis is a Brandon, Florida criminal defense firm handling serious state and federal charges across Greater Tampa Bay.";
 
 export const metadata: Metadata = {
   /**
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: DEFAULT_TITLE,
-    template: "%s | Hines & McCarty",
+    template: "%s | Hines McCarty Pavlidis",
   },
   description: DEFAULT_DESCRIPTION,
   alternates: { canonical: "/" },

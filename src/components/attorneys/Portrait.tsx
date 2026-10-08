@@ -42,7 +42,7 @@ export default function Portrait({
     <div className={`relative overflow-hidden bg-navy-700 ${className}`}>
       <Image
         src={attorney.portrait}
-        alt={`${attorney.name}, criminal defense attorney at Hines & McCarty`}
+        alt={`${attorney.name}, criminal defense attorney at Hines McCarty Pavlidis`}
         fill
         sizes={sizes ?? "(min-width: 1024px) 24rem, 100vw"}
         priority={priority}

@@ -55,7 +55,7 @@ import {
  * becomes a live question the day the first charge page publishes.
  */
 export const metadata: Metadata = pageMetadata({
-  title: "What Does That Statute Number Mean? | Hines & McCarty",
+  title: "What Does That Statute Number Mean? | Hines McCarty Pavlidis",
   description:
     "Type the statute number from a charging document, booking sheet, or indictment and see what that paragraph of Florida or federal law actually says.",
   path: "/resources/tools/charge-lookup",

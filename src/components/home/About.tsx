@@ -90,7 +90,7 @@ export default function About() {
           </h2>
           <div className="mt-6 space-y-5 text-lg leading-relaxed text-charcoal">
             <p>
-              Hines &amp; McCarty is a Brandon firm built around four attorneys
+              Hines McCarty Pavlidis is a Brandon firm built around four attorneys
               who each concentrate on different areas. When a case comes in, it
               goes to the person who knows that kind of case, not to whoever is
               available.

@@ -40,7 +40,7 @@ import {
  */
 export const metadata: Metadata = pageMetadata({
   title:
-    "The Florida Sentencing Worksheet, Mostly Empty | Hines & McCarty",
+    "The Florida Sentencing Worksheet, Mostly Empty | Hines McCarty Pavlidis",
   description:
     "See the Criminal Punishment Code worksheet a Florida court computes a sentencing score on, with only the cells a charge selection determines filled in.",
   path: "/resources/tools/sentencing-worksheet",

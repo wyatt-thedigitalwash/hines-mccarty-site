@@ -2545,3 +2545,72 @@ Not changed: the ladder and the box layout stay opt-in per page
 The ladder only fits penalties that step by Florida degree, so making it the
 default would have reshaped federal pages before anyone decided their shape.
 The standard requires the grid on every page and the ladder where it fits.
+
+### D68. What the pilot changed: one penalty design, and the rollout setup
+
+**2026-10-08. Client direction, from reviewing the pilot** (gun crimes,
+federal drug trafficking, tax evasion, rebuilt to D67).
+
+- **The ladder on every page.** The client noticed "What you're facing" was
+  the only section that looked different between pages: the ladder on degree
+  charges, the older three-column table on federal and mixed pages. The ladder
+  groups rows by each row's `degree` label, so it works for federal rows too
+  (one card per tier or class). Every page on the standard now uses it, the
+  check enforces it, and the table is retired from those pages. Federal drug
+  trafficking and tax evasion were switched and reviewed in screenshots.
+- **Outlined cards.** The ladder cards were a linen/25 tint, 1.03:1 against
+  the white page, and did not read. Of two options shown (solid linen, or a
+  white card with a navy/15 outline), the client chose the outline: the same
+  frame as the detail boxes and attorney cards on the same page.
+- **Plain penalty headings**: "5 to 40 years", "10 years to life", not "not
+  less than 5 years and not more than 40 years". Same law, plainer words.
+- **Do-now card headlines.** A card's first sentence is its headline only when
+  it is 64 characters or fewer, so four cards rendered without one. The
+  standard and the check now require a short opening instruction.
+- **Phone tables** (pages not yet rebuilt): each row's note now follows the
+  penalty it qualifies instead of preceding it.
+- **Rollout setup, from the pilot's blind comparison.** Opus and Fable each
+  drafted all three pages; two judges scored them blind. Opus won federal drug
+  trafficking and tax evasion on both judges' votes with far fewer serious
+  accuracy issues (1 against 6, 1 against 4); Fable narrowly won gun crimes
+  (2 against 1). The rollout uses Opus to write, Fable to check accuracy, and
+  a fresh final accuracy check after fixes, because that final check still
+  found dropped "if death or serious injury results" and "no probation"
+  conditions in penalty rows after two earlier rounds. The accuracy guard now
+  counts those conditions row by row and flags any that disappear.
+
+### D69. The firm is Hines McCarty Pavlidis, and how page titles carry it
+
+**2026-10-08. Client direction.** The firm's name is changing to Hines McCarty
+Pavlidis; the registered entity is Hines McCarty Pavlidis, PLLC.
+
+- **The name** is replaced everywhere it appeared in the source (94 places in
+  36 files). `firm.name` is "Hines McCarty Pavlidis" and `firm.legalName` is
+  "Hines McCarty Pavlidis, PLLC". The domain (tampa-litigation.com) and the
+  intake email are unchanged until the client says otherwise. Image file names
+  keep "HinesMcCarty" (not visible to readers).
+- **Wordmark.** Header, footer and the social share image read "Hines ·
+  McCarty · Pavlidis" with bronze dots, echoing the bullets in the firm's
+  logo as the bronze ampersand did before (`src/components/Wordmark.tsx`; the
+  dots are hidden from screen readers). To be replaced by the logo artwork
+  when supplied.
+- **Titles (client chose option A of three).** The longer name took 25 of a
+  title's 60 characters and pushed 20 titles over. Charge pages now read
+  "[Charge] Lawyer in Tampa | Hines McCarty Pavlidis"; where that is over 60,
+  the firm name is dropped ("Federal Health Care Fraud Lawyer in Tampa,
+  Florida"). The search words always win. 21 of 29 charge titles keep the
+  firm name. This also puts "Tampa", the word in every target search, into
+  the state page titles, which said only "Hillsborough County". Bios read
+  "[Name], Attorney in Tampa | Hines McCarty Pavlidis", which also stops
+  calling Colton Trina, who handles injury cases, a criminal defense attorney.
+  Not chosen: the firm name on every title (long charge names lose "Lawyer"
+  or "Tampa"), or the firm name on the home page only.
+- **Site name in search results.** The home page now carries WebSite markup
+  naming the site "Hines McCarty Pavlidis", the way Google sets the site name
+  it shows above every result, so a title without the firm name is still
+  branded there. The LegalService markup's `name` is the firm name, with the
+  registered entity as `legalName`.
+- **Descriptions** on pages built to the standard name Tampa (D67 section 9).
+
+Before launch, the firm should confirm the new name meets the Florida Bar's
+rules on firm names.

@@ -39,9 +39,9 @@ import {
  * pages carry them.
  */
 export const metadata: Metadata = pageMetadata({
-  title: "Personal Injury | Hines & McCarty, Brandon FL",
+  title: "Personal Injury | Hines McCarty Pavlidis, Brandon FL",
   description:
-    "The personal injury side of Hines & McCarty: car and truck collision claims in Hillsborough County and across Tampa Bay.",
+    "The personal injury side of Hines McCarty Pavlidis: car and truck collision claims in Hillsborough County and across Tampa Bay.",
   path: "/personal-injury",
   // The hub follows its own spokes. Indexable once at least one page beneath
   // it is, which waits on the attorney review along with the rest.

@@ -15,9 +15,9 @@ import PageHero from "@/components/PageHero";
 import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Our Attorneys | Hines & McCarty, Criminal Defense in Tampa Bay",
+  title: "Our Attorneys in Tampa | Hines McCarty Pavlidis",
   description:
-    "The attorneys of Hines & McCarty, a Brandon criminal defense firm practicing in the state courts of Hillsborough County and in the Middle District of Florida.",
+    "The attorneys of Hines McCarty Pavlidis, a Brandon firm practicing in the Hillsborough County state courts and the Middle District of Florida.",
   path: "/attorneys",
 });
 

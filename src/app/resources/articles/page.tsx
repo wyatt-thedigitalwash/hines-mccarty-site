@@ -10,7 +10,7 @@ import EmptyState from "@/components/EmptyState";
  * [PENDING: Layer 2 content] Layer 3 in WEBSITE-PLAN.md Section 2. Nothing publishes here until the money pages exist for it to link up to.
  */
 export const metadata: Metadata = pageMetadata({
-  title: "Articles | Hines & McCarty",
+  title: "Articles | Hines McCarty Pavlidis",
   description: "Explainers on charges, courts, and sentencing in Hillsborough County and the Middle District of Florida.",
   path: "/resources/articles",
   // Nothing published yet.

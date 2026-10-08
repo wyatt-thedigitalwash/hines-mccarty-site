@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { organizationJsonLd } from "@/lib/schema";
+import { organizationJsonLd, websiteJsonLd } from "@/lib/schema";
 import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
 import Practices from "@/components/home/Practices";
@@ -14,7 +14,7 @@ import CTA from "@/components/home/CTA";
 export const metadata: Metadata = {
   title: "Criminal Defense and Personal Injury Attorneys in Tampa Bay",
   description:
-    "Hines & McCarty is a Brandon, Florida firm handling serious state and federal criminal charges and personal injury claims across Greater Tampa Bay.",
+    "Hines McCarty Pavlidis is a Brandon, Florida firm handling serious state and federal criminal charges and personal injury claims across Greater Tampa Bay.",
 };
 
 export default function Home() {
@@ -38,7 +38,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{
           __html: JSON.stringify({
             "@context": "https://schema.org",
-            ...organizationJsonLd(),
+            "@graph": [organizationJsonLd(), websiteJsonLd()],
           }),
         }}
       />

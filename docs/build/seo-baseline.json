@@ -5,27 +5,16 @@
   "/about": [
     "P3 description not 70 to 160"
   ],
-  "/attorneys": [
-    "P2 title over 60"
-  ],
   "/cases-we-defend": [
     "P2 title over 60"
   ],
   "/criminal-defense": [
     "P2 title over 60"
   ],
-  "/criminal-defense/computer-crimes-defense": [
-    "P2 title over 60"
-  ],
-  "/criminal-defense/drug-possession-defense": [
-    "P2 title over 60"
-  ],
   "/criminal-defense/drug-trafficking-defense": [
-    "P2 title over 60",
     "P6 no link to sibling /criminal-defense/drug-possession-defense"
   ],
   "/criminal-defense/dui-defense": [
-    "P2 title over 60",
     "P3 description not 70 to 160"
   ],
   "/criminal-defense/sex-crimes-defense": [
@@ -95,9 +84,6 @@
   ],
   "/white-collar-defense/bank-fraud": [
     "P6 no link to sibling /white-collar-defense/ppp-loan-fraud"
-  ],
-  "/white-collar-defense/healthcare-fraud": [
-    "P2 title over 60"
   ],
   "/white-collar-defense/ppp-loan-fraud": [
     "P6 no link to sibling /white-collar-defense/bank-fraud",

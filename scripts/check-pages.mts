@@ -171,7 +171,7 @@ const copyOf = pageCopy;
 const SUPERIORITY_WORD =
   /\b(best|top[-\s]?rated|expert|experts|expertise|specialist|specialists|premier|renowned|elite|unmatched|unparalleled|leading|number one|#1|most successful|highest[-\s]rated)\b/i;
 const FIRM_REFERENCE =
-  /\b(we|we're|us|our|ours|the firm|this firm|our firm|this office|Hines|McCarty)\b/i;
+  /\b(we|we're|us|our|ours|the firm|this firm|our firm|this office|Hines|McCarty|Pavlidis)\b/i;
 const SUPERIORITY_OF_SERVICES =
   /\b(best|top[-\s]?rated|expert|experts|premier|renowned|elite|unmatched|unparalleled|leading|number one|#1|most successful|highest[-\s]rated)\s+(criminal\s+)?(defen[cs]e\s+)?(attorney|attorneys|lawyer|lawyers|firm|counsel|representation|practice|team|defen[cs]e)\b/i;
 const SUPERIORITY = {
@@ -1262,7 +1262,12 @@ console.log("\nReader-question coverage");
 // and reviewed, and from then on these rules hold for it. Pages not yet
 // rebuilt are not held to them, so the rollout can go one batch at a time.
 console.log("\nService page standard (D67), pages rebuilt to it");
-const STANDARD_PAGES = ["/criminal-defense/sexual-battery-defense"];
+const STANDARD_PAGES = [
+  "/criminal-defense/gun-crimes-defense",
+  "/criminal-defense/sexual-battery-defense",
+  "/federal-criminal-defense/drug-trafficking",
+  "/white-collar-defense/tax-evasion",
+];
 /** Office holders by name: the standard names offices, because names go stale. */
 const OFFICE_HOLDERS = /Susan S\. Lopez|Victor Crist|Christopher C\. Sabella|Lisa B\. McLean|Chad Chronister/;
 const TIER2 = ["What you're facing.", "What happens next.", "What to do right now."];
@@ -1277,9 +1282,18 @@ function standardProblems(c: ChargePage): string[] {
   if (doNow && doNow.background !== "navy") out.push(`"What to do right now." must be the navy band`);
   if (doNow?.bullets && (doNow.bullets.length < 3 || doNow.bullets.length > 5))
     out.push(`"What to do right now." has ${doNow.bullets.length} bullets; the standard is 3 to 5`);
+  // Each do-now card's headline is its first sentence, shown as a heading only
+  // when it is 64 characters or fewer (sections.tsx). A longer one renders
+  // the card with no headline, which reads as a broken card beside the others.
+  for (const b of doNow?.bullets ?? []) {
+    if (!/^[\s\S]{1,64}?[.!?]\s/.test(b))
+      out.push(`do-now bullet needs a first sentence of 64 characters or fewer, its card headline: "${b.slice(0, 70)}..."`);
+  }
   const steps = secs.find((s) => s.tier === 2 && s.kind === "timeline")?.steps ?? [];
   if (steps.length < 3 || steps.length > 6) out.push(`the timeline has ${steps.length} steps; the standard is 3 to 6`);
   if (c.detailsLayout !== "grid") out.push(`detailsLayout must be "grid"`);
+  const facing = secs.find((s) => s.tier === 2 && s.kind === "penalties");
+  if (facing && facing.display !== "ladder") out.push(`"What you're facing." must use display: "ladder"`);
   const groups: string[] = [];
   for (const s of secs.filter((s) => s.tier === 3)) {
     if (!s.group) { out.push(`Tier 3 section ${s.id} has no group`); continue; }

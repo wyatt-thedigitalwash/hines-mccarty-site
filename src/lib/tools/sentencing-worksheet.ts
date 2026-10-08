@@ -388,7 +388,7 @@ export const FEDERAL_NOTE =
   "The Criminal Punishment Code ranks Florida offenses. It does not apply to federal cases, so nothing on this page speaks to a charge in federal court.";
 
 export const NO_RELATIONSHIP =
-  "This page is educational information about how Florida computes a sentencing score. It is not legal advice, it is not about any particular case, and reading it does not create an attorney-client relationship with Hines & McCarty. Every case is different. Speak to a Florida lawyer about yours.";
+  "This page is educational information about how Florida computes a sentencing score. It is not legal advice, it is not about any particular case, and reading it does not create an attorney-client relationship with Hines McCarty Pavlidis. Every case is different. Speak to a Florida lawyer about yours.";
 
 export const NO_JS_NOTE =
   "The offense picker needs JavaScript. The blank form and the explanation below are the whole of what this page asserts, and they render without it.";

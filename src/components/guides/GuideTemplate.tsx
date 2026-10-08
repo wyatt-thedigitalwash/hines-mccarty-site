@@ -91,7 +91,7 @@ export default function GuideTemplate({ guide }: { guide: GuidePage }) {
             <p className="border-t border-navy/15 pt-8 text-sm leading-relaxed text-navy/70">
               This guide explains process and rights in general terms. It is not
               legal advice, it is not about your case, and reading it does not
-              create an attorney-client relationship with Hines &amp; McCarty.
+              create an attorney-client relationship with Hines McCarty Pavlidis.
               Every case is different. Speak to a Florida lawyer about yours.
             </p>
 

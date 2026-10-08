@@ -2,7 +2,8 @@ import type { PenaltyRow } from "@/lib/charge-page";
 import { card, color, space, type } from "./ui";
 
 /**
- * The penalty ladder, D50. Opt-in per section via `display: "ladder"`.
+ * The penalty ladder, D50. Set per section with `display: "ladder"`; every
+ * page on the service page standard uses it (D67).
  *
  * WHY NOT THE TABLE. On sexual battery the table ran 17 rows for 6 penalty
  * levels, so the reader re-read the same penalty and degree down the page to
@@ -61,7 +62,10 @@ export default function PenaltyLadder({ rows }: { rows: PenaltyRow[] }) {
       {levels.map((level) => {
         const max = headline(level.rows);
         return (
-          <div key={level.degree} className={`bg-linen/25 ${card}`}>
+          /* An outlined white card, the same frame as the detail boxes and the
+             attorney cards on the page (D67). The earlier linen/25 tint was
+             1.03:1 against the white page and the cards did not read. */
+          <div key={level.degree} className={`border border-navy/15 bg-white ${card}`}>
             {/* The penalty is a header across the block, not a left column:
                 the column left a tall empty space under one short line and
                 squeezed the situations into wrapping. D50. */}

@@ -21,7 +21,7 @@ export const CANNOT_KNOW = {
 };
 
 export const NO_RELATIONSHIP =
-  "Using this page does not make Hines & McCarty your lawyers, and it does not create an attorney-client relationship. Do not send details of what happened through this page. If you want advice about your own record, speak to a Florida lawyer.";
+  "Using this page does not make Hines McCarty Pavlidis your lawyers, and it does not create an attorney-client relationship. Do not send details of what happened through this page. If you want advice about your own record, speak to a Florida lawyer.";
 
 export const PRIVACY_NOTE =
   "This page asks about the status of a record, not about what happened. It has no field for the facts of a case, on purpose. If you ask for a copy of your summary we store nothing here: the answers travel with that one email and nowhere else.";

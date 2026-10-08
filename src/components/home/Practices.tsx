@@ -57,7 +57,7 @@ export default function Practices() {
             What we handle.
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-linen/70">
-            Hines &amp; McCarty defends people accused of crimes and represents
+            Hines McCarty Pavlidis defends people accused of crimes and represents
             people injured by someone else, in the 13th Judicial Circuit and in
             the Middle District of Florida, Tampa Division.
           </p>

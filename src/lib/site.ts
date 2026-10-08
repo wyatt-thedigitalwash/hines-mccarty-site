@@ -41,8 +41,8 @@ export const absoluteUrl = (path: string) =>
   `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
 
 export const firm = {
-  name: "Hines & McCarty",
-  legalName: "Hines & McCarty, PLLC",
+  name: "Hines McCarty Pavlidis",
+  legalName: "Hines McCarty Pavlidis, PLLC",
   // Covers both practices as of 2026-08-26. It read "Criminal Defense, State
   // and Federal" while the firm also takes injury work, which understated it.
   tagline: "Criminal Defense and Personal Injury",
@@ -321,7 +321,7 @@ export const attorneys: Attorney[] = [
     //
     // CONFLICT, unresolved. The client bio opens "Lily McCarty is in private
     // practice at the Law Office of Lily McCarty," which does not square with
-    // "Partner" at Hines & McCarty on the same roster. Both cannot describe the
+    // "Partner" at Hines McCarty Pavlidis on the same roster. Both cannot describe the
     // present tense. The roster line is used here per the client's answer, and
     // the sentence about a separate solo practice is NOT rendered, because
     // naming a second firm on a partner's bio without an accurate label is the
@@ -335,7 +335,7 @@ export const attorneys: Attorney[] = [
     // never needs editing. [NEEDS: confirm 2004 is the admission year, since
     // the J.D. is dated 2003]
     overview: [
-      "Lily McCarty is a partner at Hines & McCarty. She has practiced criminal defense since 2004 and represents people charged with offenses in the state and federal courts of the Tampa Bay area.",
+      "Lily McCarty is a partner at Hines McCarty Pavlidis. She has practiced criminal defense since 2004 and represents people charged with offenses in the state and federal courts of the Tampa Bay area.",
       "She began her career as a public defender in the 13th Judicial Circuit, which covers Hillsborough County.",
       "The Florida Bar certified her in Criminal Trial Law in 2015. She co-chairs the Criminal Law Section of the Hillsborough County Bar Association for the 2025-26 bar year and sits on the board of directors of the Hillsborough County Association of Criminal Defense Lawyers.",
     ],
@@ -445,7 +445,7 @@ export const attorneys: Attorney[] = [
     // where she is admitted, and what she is certified in.
     // ---------------------------------------------------------------------
     overview: [
-      "Maria Pavlidis is a partner at Hines & McCarty. She has practiced criminal defense since 2003 and represents people charged with state and federal offenses.",
+      "Maria Pavlidis is a partner at Hines McCarty Pavlidis. She has practiced criminal defense since 2003 and represents people charged with state and federal offenses.",
       "Her work spans misdemeanor, traffic, and juvenile matters through felonies punishable by life, including homicide cases.",
       "She is admitted in the Florida state courts and in the United States District Court for the Middle District of Florida, and The Florida Bar has certified her in Criminal Trial Law.",
     ],
@@ -619,7 +619,7 @@ export const attorneys: Attorney[] = [
     // brief asks for a "how they work a case" paragraph and no verified
     // material exists for one, so none is invented.
     overview: [
-      "Colton Trina is an attorney at Hines & McCarty. He practices criminal defense in the state courts of Hillsborough County, in the 13th Judicial Circuit, and handles the firm's personal injury matters.",
+      "Colton Trina is an attorney at Hines McCarty Pavlidis. He practices criminal defense in the state courts of Hillsborough County, in the 13th Judicial Circuit, and handles the firm's personal injury matters.",
       "Before entering private practice, he spent approximately two years as a public defender, representing clients in misdemeanor and felony matters and trying cases to juries.",
       "He studied criminal law and litigation at Southern Illinois University Simmons Law School, where he served on the Moot Court Board, and holds an engineering degree from Southern Illinois University Carbondale.",
     ],
@@ -2020,12 +2020,12 @@ export const silos: Silo[] = [
     label: "State Criminal Defense",
     h1: "State criminal defense in Hillsborough County",
     metaTitle:
-      "State Criminal Defense in Hillsborough County | Hines & McCarty",
+      "State Criminal Defense in Hillsborough County | Hines McCarty Pavlidis",
     metaDescription:
       "Felony and misdemeanor defense in the 13th Judicial Circuit, Hillsborough County, from first appearance through trial.",
     intro: [
       "A state criminal case in Hillsborough County is brought by the State Attorney for the 13th Judicial Circuit and heard in the circuit or county court, depending on whether the charge is a felony or a misdemeanor.",
-      "Hines & McCarty defends the full range of state charges, including the serious felonies that many firms refer out. Select a charge below to read what it involves and how the defense is built.",
+      "Hines McCarty Pavlidis defends the full range of state charges, including the serious felonies that many firms refer out. Select a charge below to read what it involves and how the defense is built.",
     ],
     forumHeading: "What is different about a state case",
     forumBody: [
@@ -2074,12 +2074,12 @@ export const silos: Silo[] = [
     label: "Federal Criminal Defense",
     h1: "Federal criminal defense in the Middle District of Florida",
     metaTitle:
-      "Federal Criminal Defense, Middle District of Florida | Hines & McCarty",
+      "Federal Criminal Defense, Middle District of Florida | Hines McCarty Pavlidis",
     metaDescription:
       "Defense in the Middle District of Florida, Tampa Division, from investigation and target letters through indictment, trial, and sentencing.",
     intro: [
       "A federal case in the Tampa Division of the Middle District of Florida is prosecuted by the United States Attorney's Office and investigated by federal agencies, often for a long time before anyone is charged.",
-      "Hines & McCarty represents clients in federal matters from the investigative stage forward. Select a charge below to read what it involves and how the defense is built.",
+      "Hines McCarty Pavlidis represents clients in federal matters from the investigative stage forward. Select a charge below to read what it involves and how the defense is built.",
     ],
     forumHeading: "What is different about a federal case",
     forumBody: [
@@ -2244,12 +2244,12 @@ export const silos: Silo[] = [
     href: "/white-collar-defense",
     label: "White-Collar Defense",
     h1: "White-collar and fraud defense",
-    metaTitle: "White-Collar and Fraud Defense | Hines & McCarty",
+    metaTitle: "White-Collar and Fraud Defense | Hines McCarty Pavlidis",
     metaDescription:
       "Fraud and financial-crime defense for professionals and businesses under state or federal scrutiny in Tampa Bay.",
     intro: [
       "White-collar matters often arrive before any charge does: an audit, a subpoena, a letter, a call from an investigator, or a regulator asking questions. What happens in that window shapes everything after it.",
-      "Hines & McCarty represents professionals and businesses in fraud and financial-crime matters. Select a charge below to read what it involves and how the defense is built.",
+      "Hines McCarty Pavlidis represents professionals and businesses in fraud and financial-crime matters. Select a charge below to read what it involves and how the defense is built.",
     ],
     forumHeading: "What is different about a white-collar case",
     forumBody: [
@@ -3138,7 +3138,7 @@ const CHARGE_FAQ: Record<string, FaqItem[]> = {
 const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   "state/domestic-violence-defense": {
     title: "Charged with domestic violence in Hillsborough County?",
-    metaTitle: "Hillsborough Domestic Violence Charges | Hines & McCarty",
+    metaTitle: "Domestic Violence Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with domestic violence in Florida? What you face, what happens next, the no contact order, and why the record cannot be sealed.",
     lead: "Domestic violence is not its own crime in Florida. You are charged with an act, like battery. If you are found guilty or plead, the relationship can add jail minimums, probation, and, for assault or battery, a record that can never be sealed. Strangulation is a felony with up to 5 years.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -3416,7 +3416,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "federal/csam-defense": {
     title: "Charged with a federal child pornography crime in Tampa federal court?",
-    metaTitle: "Federal Child Pornography Charges, Tampa | Hines & McCarty",
+    metaTitle: "Federal Child Pornography Lawyer in Tampa, Florida",
     metaDescription: "Facing a federal child pornography charge in Tampa? What decides the prison range, what happens next, and what to do right now.",
     lead: "A federal child pornography charge can carry up to 10, 15, 20, or 40 years in prison, or life for some charges, and many carry a mandatory minimum. The exact charge on your papers sets the range, not the number of images. A listed past conviction raises it.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -3734,7 +3734,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "state/computer-crimes-defense": {
     title: "Charged with a computer crime in Hillsborough County?",
-    metaTitle: "Computer Crime Charges in Hillsborough County | Hines & McCarty",
+    metaTitle: "Computer Crime Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with getting into a computer or account without permission in Florida? What you face, what happens next, and what to do now.",
     lead: "Getting into a computer or device on purpose, knowing you have no permission or are going past the permission you had, can be charged as a third degree felony in Florida, with up to 5 years. Nothing has to be taken or broken. What can raise it is the kind of harm the State says the access caused.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -3974,7 +3974,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "state/sex-crimes-defense": {
     title: "Charged with a sex crime in Hillsborough County?",
-    metaTitle: "Sex Crime Charges in Hillsborough County | Hines & McCarty",
+    metaTitle: "Sex Crimes Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Facing a sex crime charge in Tampa or Hillsborough County? The penalties, the registry deadlines, your record, and the first steps to take.",
     lead: "Sex crime charges in Florida run from a misdemeanor to a life felony. The exact charge the State files, and the ages of the child and of you, set the range. Many of these charges also bring sex offender registration.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -4326,7 +4326,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "state/sexual-battery-defense": {
     title: "Charged with sexual battery in Hillsborough County?",
-    metaTitle: "Sexual Battery Lawyer, Hillsborough County | Hines & McCarty",
+    metaTitle: "Sexual Battery Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with sexual battery in Florida? What you face, what happens next, what to do now, and how the ages, force, and your record decide it.",
     lead: "Sexual battery in Florida ranges from a third degree to a capital felony. It turns on your age, their age, and whether force is alleged. A past conviction, facts like drugging or threats, or a family or caretaker role can also change it.",
     detailsLayout: "grid",
@@ -4650,7 +4650,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "state/homicide-defense": {
     title: "Charged with homicide in Hillsborough County?",
-    metaTitle: "Homicide Charges in Hillsborough County | Hines & McCarty",
+    metaTitle: "Homicide Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with murder or manslaughter in Florida? What you face, what happens next, what to do now, and how the death penalty and self-defense work.",
     lead: "A homicide charge in Florida runs from a second degree felony with up to 15 years to a capital felony with death or life without parole. Which one you face comes from the exact charge the State files.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -4949,7 +4949,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // ---------------------------------------------------------------------
   "white-collar/corporate-fraud": {
     title: "Corporate fraud",
-    metaTitle: "Corporate Fraud Defense | Hines & McCarty",
+    metaTitle: "Corporate Fraud Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription:
       "Corporate fraud is a description rather than a charge. The offenses actually filed, and where each one is explained.",
     lead: "Corporate fraud is a description of a situation rather than the name of an offense. Neither Florida law nor federal law contains a crime called corporate fraud, so a case described that way is always filed under something more specific.",
@@ -4985,7 +4985,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // ---------------------------------------------------------------------
   "state/grand-theft-defense": {
     title: "Charged with grand theft in Hillsborough County?",
-    metaTitle: "Grand Theft Charges in Hillsborough County | Hines & McCarty",
+    metaTitle: "Grand Theft Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with theft in Florida? How value, the item, where it was taken, and prior convictions set the charge, what happens next, and sealing.",
     lead: "Grand theft is a felony. In most cases it starts at $750, with up to 5 years in prison. But the item taken, where it came from, and your prior record can make it a felony at a lower value.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -5260,7 +5260,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // ---------------------------------------------------------------------
   "white-collar/embezzlement": {
     title: "Accused of embezzlement in Hillsborough County?",
-    metaTitle: "Embezzlement Charges in Florida | Hines & McCarty",
+    metaTitle: "Embezzlement Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Accused of taking money from work in Florida? How theft and organized fraud charges differ, what happens next, and why sealing can depend on it.",
     lead: "Embezzlement is charged in Florida as theft or as organized fraud. As organized fraud it is a felony at any amount. As theft, $750 is the usual felony line. Felonies carry up to 5, 15, or 30 years, set by the amount and the charge.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -5518,7 +5518,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // ---------------------------------------------------------------------
   "white-collar/money-laundering": {
     title: "Charged with money laundering in Hillsborough County?",
-    metaTitle: "Florida Money Laundering Charges | Hines & McCarty",
+    metaTitle: "Money Laundering Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with money laundering in Florida? What you face, what happens next, what to do now, frozen accounts, and whether the record can be sealed.",
     lead: "Money laundering in Florida is a felony once the total passes $300. The total is added up across any 12 months. That total sets the degree, from up to 5 years to up to 30.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -5853,7 +5853,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // ---------------------------------------------------------------------
   "federal/money-laundering": {
     title: "Charged with money laundering in the Middle District of Florida?",
-    metaTitle: "Federal Money Laundering Charges in Tampa | Hines & McCarty",
+    metaTitle: "Federal Money Laundering Lawyer in Tampa, Florida",
     metaDescription: "Charged with federal money laundering? What you face, what happens next, what to do now, and what happens to frozen accounts.",
     lead: "Most federal money laundering counts under 1956 carry up to 20 years in prison. A count under 1956 has no minimum dollar amount. The case turns on where the money came from, and the court can freeze your accounts before trial.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -6154,7 +6154,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // ---------------------------------------------------------------------
   "state/dui-defense": {
     title: "Arrested for DUI in Hillsborough County?",
-    metaTitle: "Florida DUI Charges and Test Refusal After 1 October 2025 | Hines & McCarty",
+    metaTitle: "DUI Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Turning down a breath or urine test in Florida became a crime on the first refusal on 1 October 2025. What that changed, and the 10 days you have to answer the suspension of your license.",
     lead: "You have 10 days to save your license. The clock started on the date printed on the paper the officer handed you, not on your arrest date. Miss it and the suspension just happens.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -6375,7 +6375,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "The criminal case is in court. The State Attorney for Hillsborough County brings it. A felony goes to circuit court, and a misdemeanor on its own goes to county court.",
           "The clerk keeps criminal counters at two courthouses. One is the Edgecomb Courthouse in Tampa. The other is the Plant City Courthouse.",
           "Winning one case does not end the other, with a single exception. If a jury finds you not guilty of the DUI, a suspension for a test result of 0.08 or higher is wiped out. A suspension for turning down a test is not. What is said at the license hearing also stays out of your criminal trial.",
-          "Bring the notice of suspension to your first call with a lawyer. The date on it is the one that matters. Hines & McCarty can be reached about a Hillsborough County DUI arrest and the license suspension that comes with it."
+          "Bring the notice of suspension to your first call with a lawyer. The date on it is the one that matters. Hines McCarty Pavlidis can be reached about a Hillsborough County DUI arrest and the license suspension that comes with it."
         ],
         "statute": {
           "citation": "Florida Statute 322.2615(4), 2025 Florida Statutes",
@@ -6667,7 +6667,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // ---------------------------------------------------------------------
   "state/drug-trafficking-defense": {
     title: "Charged with drug trafficking in Hillsborough County?",
-    metaTitle: "Drug Trafficking Charges in Hillsborough County | Hines & McCarty",
+    metaTitle: "Drug Trafficking Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Florida trafficking turns on weight, not selling. Each drug has its own weight line, mandatory minimum, and fine, and a conviction cannot be sealed.",
     lead: "Florida trafficking charges are first degree felonies, most with up to 30 years in prison, and the largest amounts carry life. The drug and its weight set a mandatory minimum and a fixed fine. You do not have to have sold anything.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -6960,9 +6960,10 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // ---------------------------------------------------------------------
   "state/gun-crimes-defense": {
     title: "Charged with a gun crime in Hillsborough County?",
-    metaTitle: "Gun Charges in Hillsborough County | Hines & McCarty",
-    metaDescription: "Charged with a gun crime in Florida? What you face, what happens next, what to do now, and how minimum terms, your rights, and sealing work.",
-    lead: "Florida has no single gun charge. Carrying a hidden gun when you do not meet the license rules can bring up to 5 years. A felon with a gun or even one bullet faces up to 15. A minimum prison term can also apply.",
+    metaTitle: "Gun Charge Lawyer in Tampa | Hines McCarty Pavlidis",
+    metaDescription: "Charged with a gun crime in Florida? What you face, what happens next, what to do now, and how 10-20-Life, your past record, and sealing work.",
+    lead: "Florida has no single gun charge. Carrying a hidden gun without meeting the license rules can bring up to 5 years, and a felon with a gun, or even one bullet, faces up to 15. A separate law, often called 10-20-Life, can add a minimum prison term.",
+    detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
       href: "/federal-criminal-defense/weapons-gun-offenses",
@@ -6974,24 +6975,23 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "ladder",
         heading: "What you're facing.",
         kind: "penalties",
+        display: "ladder",
         tier: 2,
         answers: ["facing"],
         penalties: [
-          { situation: "Carrying a hidden weapon, or a stun gun or other electric weapon, without meeting the rules for a license", degree: "First degree misdemeanor", maximum: "Up to 1 year", note: "No offense level. The sentencing worksheet has no row for a misdemeanor." },
-          { situation: "Telling someone else to fire a gun from a vehicle", degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 3", note: "Counts 16 points on the worksheet." },
-          { situation: "Carrying a hidden gun without meeting the rules for a license", degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 5", note: "Counts 28 points on the worksheet." },
-          { situation: "Stealing a gun", degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 6", note: "Charged as theft. It is a felony whatever the gun was worth. Counts 36 points." },
+          { situation: "Carrying a hidden weapon, or a stun gun or other electric weapon, without meeting the rules for a license", degree: "First degree misdemeanor", maximum: "Up to 1 year" },
+          { situation: "Telling someone else to fire a gun from a vehicle", degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 3" },
+          { situation: "Carrying a hidden gun without meeting the rules for a license", degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 5", note: "The State must prove you had no license and could not get one." },
           { situation: "Having a gun, ammunition, or an electric weapon after a felony conviction", degree: "Second degree felony", maximum: "Up to 15 years", offenseLevel: "Level 5", note: "Owning it counts, not only holding it. A minimum term of 3 years can apply." },
           { situation: "Having a short-barreled shotgun or a machine gun", degree: "Second degree felony", maximum: "Up to 15 years", offenseLevel: "Level 5" },
-          { situation: "Stealing a gun again, after a past conviction for stealing a gun", degree: "Second degree felony", maximum: "Up to 15 years", offenseLevel: "Level 7" },
           { situation: "Certain weapon crimes after a past conviction for the same kind of crime, or firing a machine gun in certain settings", degree: "First degree felony", maximum: "Up to 30 years", offenseLevel: "Level 7" },
           { situation: "A felon with a gun who qualifies, now or in the past, for the extra gang penalties", degree: "First degree felony punishable by life", maximum: "Up to life (a term of years not exceeding life)", offenseLevel: "Level 7", note: "This is its own category, with a life ceiling instead of the usual 30 year cap." },
+          { situation: "Stealing a gun", degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 6", related: true, note: "Charged as theft. It is a felony whatever the gun was worth." },
+          { situation: "Stealing a gun again, after a past conviction for stealing a gun", degree: "Second degree felony", maximum: "Up to 15 years", offenseLevel: "Level 7", related: true, note: "Charged as theft." },
         ],
         prose: [
-          "Florida adds up points on a worksheet to set the lowest sentence a judge can give. Rows with the same 5 year cap still score very differently. At 44 points or less, prison is not required, though the judge can still choose it.",
-          "A separate law, often called 10-20-Life, sets minimum prison terms. When it applies, the minimum wins over the worksheet.",
-          "If you are convicted as a felon who had a gun, the minimum is 3 years. Ammunition alone or a stun gun does not trigger it. One past conviction of the right kind raises it to 10.",
-          "A gun can also push a different felony, like a robbery, up one degree. The law does this when you carried, showed, or used a weapon during the crime. The details are in the minimum terms topic below.",
+          "A separate law, often called 10-20-Life, sets minimum prison terms. When it applies, the minimum wins over the sentencing worksheet.",
+          "A gun can also push a different felony, like a robbery, up one degree. The law does this when you carried, showed, or used a weapon during the crime. Both rules are under \"Is there a mandatory minimum, and what is 10-20-Life?\" below.",
         ],
         sources: [
           "F.S. 790.01(2) and (3)",
@@ -7010,14 +7010,14 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         tier: 2,
         answers: ["next"],
         steps: [
-          { when: "Within 24 hours of arrest", what: "You go before a judge, in person or by video. The judge decides whether you stay in jail or sets the terms of your release." },
+          { when: "Within 24 hours of arrest", what: "You go before a judge, in person or by video, who decides whether you stay in jail or sets the terms of your release. At this hearing, you can ask for a free lawyer if you cannot afford one. If you plan to hire your own, say so. The judge must give you a reasonable time to reach that lawyer, and must postpone the hearing if that is needed." },
           { when: "30 days, if you are still in jail", what: "The State has 30 days to file a formal charge. If it has not, the court orders you released on your own word on day 33, or on day 40 if the State shows good cause. Either way, the release happens only if no charge is filed by then. You cannot be held past 40 days without a formal charge." },
           { when: "60 days, if you are out on bond", what: "The State has 60 days to file a formal charge, counted from the arrest or from when you were served. If it has not, the court orders you released on your own word on day 63, unless the State files by then, though with good cause the court can give the State up to 30 more days. After the 60 days, your lawyer can also ask the court to end your bond and release conditions if no charge has been filed. Neither step is a dismissal." },
-          { when: "90 or 175 days after the formal charge", what: "The speedy trial clock. It is 90 days for a misdemeanor and 175 days for a felony. You can also demand a trial within 60 days. When time runs out, the case does not end by itself, and a set process follows." },
+          { when: "90 or 175 days after the formal charge", what: "The speedy trial clock. It is 90 days for a misdemeanor and 175 days for a felony, and you can also demand a trial within 60 days. When time runs out, the case does not end by itself, and a set process follows." },
           { when: "At sentencing, if a minimum term applies", what: "The judge cannot withhold adjudication (the formal entry of guilt), or suspend or put off the sentence. You must serve the minimum before any early release, except by pardon, clemency, or medical release. Each qualifying felony gets its own minimum, served one after another." },
         ],
         sources: [
-          "Fla. R. Crim. P. 3.130(a) and (d)",
+          "Fla. R. Crim. P. 3.130(a), (b)(1)(B), (c)(1), (c)(2) and (d)",
           "Fla. R. Crim. P. 3.134(a) and (b)",
           "Fla. R. Crim. P. 3.191(a), (b) and (d)",
           "F.S. 775.087(2)(b) and (2)(d)",
@@ -7033,23 +7033,37 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         bullets: [
           "Do not answer questions about the gun. Whose it is, who has a key, who was driving, and where it is kept are the questions a gun case is built from. You can decline at every stage, and you never have to say why.",
           "You do not have to agree to a search. The officer's request and your answer both go into the police report, and a court can decide later whether the search was legal.",
-          "Do not arrange for a gun, ammunition, or a stun gun to be moved, sold, or held by someone else. The law reaches owning, not only holding. How the plan is described later becomes part of the record.",
-          "Ask for a lawyer at the jail, and call one before your first hearing within 24 hours. If a minimum term applies, the law takes away the withhold and early release. Those choices shape the case from day one.",
+          "Do not hand off the gun. Do not arrange for a gun, ammunition, or a stun gun to be moved, sold, or held by someone else. The law reaches owning, not only holding. How the plan is described later becomes part of the record.",
+          "Ask for a lawyer at the jail. Call one before your first hearing, which comes within 24 hours. If a minimum term applies, the law takes away the withhold and early release. Those choices shape the case from day one.",
         ],
         sources: ["Fla. R. Crim. P. 3.111(a) and (c)", "Fla. R. Crim. P. 3.130", "F.S. 790.23(1)", "F.S. 775.087(2)(b)"],
       },
       {
         id: "gun-which-charge",
-        heading: "No single gun charge, and two possible courts",
+        heading: "Several gun crimes, and the one the State picks",
         kind: "prose",
         tier: 3,
-        group: "Which charge you actually have",
-        groupSummary: "Florida has several gun crimes, and the federal government has its own.",
+        group: "Which gun charge am I facing?",
+        groupSummary: "The charges Florida files, from a hidden weapon to a felon with a gun, and where a stolen gun fits.",
         answers: ["facing"],
         prose: [
           "Florida has no crime called a gun charge. It has several, from carrying a hidden weapon to a felon having a gun. The State picks which one to file, and that sets the range you face.",
-          "A gun case from Hillsborough County can be filed by the State of Florida or by the federal government. You do not get to choose. A state case goes to circuit court, and a federal case goes to the Middle District of Florida, in Tampa. This page covers the state case.",
-          "The two ban lists are not the same. Florida's ban rests on five kinds of past record. The federal ban rests on a past conviction for a crime that could carry more than one year in prison. A yes or no under one law does not answer the other.",
+          "Stealing a gun is charged as theft. It is a felony whatever the gun was worth. If you have a past conviction for stealing a gun, stealing another one is a second degree felony.",
+        ],
+        link: { label: "How a Florida theft charge is graded: grand theft", href: "/criminal-defense/grand-theft-defense" },
+        sources: ["F.S. 790.01 and 790.23(1)", "F.S. 812.014(2)(c)5. and (2)(g)"],
+      },
+      {
+        id: "gun-forum",
+        heading: "The same gun, two possible courts",
+        kind: "prose",
+        tier: 3,
+        group: "Is my case in state court or federal court?",
+        groupSummary: "Why the same gun can be a Florida case or a federal one, and how the two bans differ.",
+        answers: ["facing"],
+        prose: [
+          "A gun case from Hillsborough County can be filed by the State of Florida or by the federal government. You do not get to choose. A state case goes to circuit court, and this page covers it. A federal case goes to the Middle District of Florida, Tampa Division, at 801 North Florida Avenue.",
+          "The two ban lists are not the same. Florida's ban rests on five kinds of past record. The federal ban rests on a past conviction for a crime that could carry more than one year in prison. A yes or no under one law does not answer the other, and the federal ban does not lift when Florida's does.",
           "The federal ban also covers eight groups Florida's ban does not. These include a fugitive, a drug user, someone under certain domestic violence orders, and someone convicted of a domestic violence misdemeanor. Florida's point system does not apply in federal court.",
         ],
         link: { label: "Federal gun and weapons charges", href: "/federal-criminal-defense/weapons-gun-offenses" },
@@ -7060,8 +7074,8 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "Owning, holding, and the past record behind a felon-with-a-gun charge",
         kind: "bullets",
         tier: 3,
-        group: "What the State has to prove",
-        groupSummary: "The State must tie the item to you and prove your past record.",
+        group: "What does the State have to prove?",
+        groupSummary: "What the State must tie to you, the past record behind a felon-with-a-gun charge, and what a hidden carry charge needs.",
         answers: ["facing"],
         bullets: [
           "Owning it or controlling it. The ban covers a gun you own or have in your care or control, not only one you carry. In a shared car or home, the case turns on what the State can tie to you.",
@@ -7082,8 +7096,8 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "How 10-20-Life and the other minimum terms work",
         kind: "bullets",
         tier: 3,
-        group: "Minimum prison terms",
-        groupSummary: "A gun during certain felonies brings a 3 to 25 year minimum, or up to life.",
+        group: "Is there a mandatory minimum, and what is 10-20-Life?",
+        groupSummary: "The 3, 10, 15, 20 and 25 year to life minimums, when a gun moves another felony up a degree, and how the worksheet sets the lowest sentence a judge can give.",
         answers: ["facing"],
         bullets: [
           "10 years. This applies if you actually had a gun or explosive device during one of a set list of felonies, even when using a weapon is already part of the crime. The list includes murder, sexual battery, robbery, burglary, kidnapping, aggravated battery, carjacking, drug trafficking, and human trafficking. An attempt counts too.",
@@ -7100,7 +7114,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "When a gun moves a different felony up a degree",
         kind: "prose",
         tier: 3,
-        group: "Minimum prison terms",
+        group: "Is there a mandatory minimum, and what is 10-20-Life?",
         answers: ["facing"],
         prose: [
           "If you carried, showed, used, or threatened to use a weapon during a felony, the felony moves up one degree. A third degree becomes a second, a second becomes a first, and a first becomes a life felony. This also happens if you committed an aggravated battery during the felony. It does not apply when a weapon is already part of the crime.",
@@ -7110,20 +7124,34 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         sources: ["F.S. 775.087(1)(a) to (c)", "F.S. 775.087(2)(c) to (e)", "F.S. 775.087(5)", "F.S. 921.0022 and 921.0023"],
       },
       {
+        id: "gun-worksheet",
+        heading: "Why two charges with a 5 year cap can score so differently",
+        kind: "prose",
+        tier: 3,
+        group: "Is there a mandatory minimum, and what is 10-20-Life?",
+        answers: ["facing"],
+        prose: [
+          "Florida adds up points on a worksheet to set the lowest sentence a judge can give you. Charges with the same 5 year cap still score very differently. Telling someone else to fire a gun from a vehicle counts 16 points, carrying a hidden gun counts 28, and stealing a gun counts 36. The misdemeanor hidden weapon charge has no row on the worksheet.",
+          "At 44 points or less, prison is not required, though the judge can still choose it. When a minimum term applies, it wins over the worksheet.",
+        ],
+        link: { label: "Estimate a Florida sentencing score", href: "/resources/tools/sentencing-worksheet" },
+        sources: ["F.S. 921.0022 and 921.0024(1)(a) and (2)", "F.S. 775.087(2)(a)1."],
+      },
+      {
         id: "gun-defense",
         heading: "Your rights in a gun case, and what your lawyer will look at",
         kind: "guidance",
         tier: 3,
-        group: "How a gun case is defended",
-        groupSummary: "You can stay silent, refuse a search, and get a lawyer from the start.",
+        group: "What are my rights, and what will my lawyer look at?",
+        groupSummary: "Your rights from the jail on, and the facts a lawyer checks first in a gun case.",
         guidance: [
           {
             heading: "Your rights from the start",
             items: [
               "You do not have to answer questions, at any stage, and you do not have to explain why.",
               "You do not have to agree to a search of your car, bag, locker, or home. Whether a search was legal is a question for a court later.",
-              "If you qualify for a court-appointed lawyer, one must be appointed at the earliest of three points: when you are formally charged, soon after you are taken into custody, or at your first hearing.",
               "At the jail, the booking officer must tell you right away that you can have a free lawyer. If you ask, the officer must put you in touch with the public defender.",
+              "If you qualify for a court-appointed lawyer, one must be appointed at the earliest of three points: when you are formally charged, soon after you are taken into custody, or at your first hearing.",
               "On the misdemeanor hidden weapon charge, a judge can decline to appoint a lawyer. To do that, the judge must rule out jail in writing at least 15 days before trial.",
               "Before naming a public defender, the court tells you a lien may be placed for the cost. It asks about your finances under oath and has you sign a form saying you cannot pay.",
               "You are entitled to see the State's evidence. In a gun case that includes the receipt for each item taken and the report of where each one was found.",
@@ -7140,6 +7168,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
             ],
           },
         ],
+        link: { label: "The first 24 hours after a Hillsborough arrest", href: "/resources/guides/after-an-arrest" },
         sources: ["Fla. R. Crim. P. 3.111(a), (b)(1), (b)(5) and (c)", "F.S. 790.01(2) and (4)", "F.S. 790.23(1) and (2)"],
       },
       {
@@ -7147,32 +7176,32 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "A felony conviction becomes the next gun ban",
         kind: "prose",
         tier: 3,
-        group: "What a conviction costs you",
-        groupSummary: "A felony conviction bars you from owning a gun or ammunition, unless your civil rights and gun rights are both restored or the record is expunged under one specific rule.",
+        group: "What does a felony conviction do to my gun rights?",
+        groupSummary: "The ban that follows a felony conviction, the two ways out of it, and how the old and new records sit together.",
         answers: ["consequences"],
         prose: [
-          "A felony conviction does more than show up on a background check. It puts you inside Florida's ban. From then on you cannot own or control a gun, ammunition (even one bullet), or an electric weapon, or carry a hidden weapon. The only exceptions are having your civil rights and gun rights both restored, or having the record expunged under one specific rule.",
-          "On a felon-with-a-gun charge, your past record is part of the case. So the old conviction and the new charge sit on the same record, and anyone who pulls it reads them together.",
-          "The federal ban is separate. It does not lift when Florida's does, because it rests on a different test. You should ask a lawyer about it on its own.",
+          "A felony conviction does more than show up on a background check. It puts you inside Florida's ban. From then on you cannot own or control a gun, ammunition (even one bullet), or an electric weapon, or carry a hidden weapon.",
+          "The ban names only two ways out. One is having both your civil rights and your gun rights restored, which is a clemency matter. The other is having your record expunged under one specific Florida expunction rule, so ask a lawyer whether it applies to you.",
+          "On a felon-with-a-gun charge, your past record is part of the case. So the old conviction and the new charge sit on the same record, and anyone who pulls it reads them together. The federal ban rests on its own test, so ask a lawyer about it on its own.",
         ],
-        sources: ["F.S. 790.23(1)(a)", "18 U.S.C. 922(g)(1)"],
+        sources: ["F.S. 790.23(1)(a) and (2)", "F.S. 943.0515(1)(b)", "18 U.S.C. 922(g)(1)"],
       },
       {
         id: "gun-record",
-        heading: "Sealing a gun record, and the two ways out of the ban",
+        heading: "Sealing a gun record, and why the ban is a separate question",
         kind: "prose",
         tier: 3,
-        group: "Can it come off your record",
-        groupSummary: "Weapon possession and carry charges are not barred from sealing, but your record may be.",
+        group: "Can it ever come off my record?",
+        groupSummary: "Whether a gun record can be sealed, and the past records that block it.",
         answers: ["sealing"],
         prose: [
-          "Florida's ban names two ways out. One is having both your civil rights and your gun rights restored, which is a clemency matter. The other is having your record expunged under one specific Florida expunction rule, so ask a lawyer whether it applies to you. Court-ordered sealing is not one of the two.",
-          "No weapon possession or carry charge is on Florida's list of crimes that can never be sealed. Not being barred still does not mean you qualify.",
+          "No weapon possession or carry charge is on Florida's list of crimes that can never be sealed. Not being barred still does not mean you qualify. Court-ordered sealing is also not one of the two ways out of Florida's gun ban.",
           "To seal a record, a court must never have formally entered a conviction against you in Florida (adjudicated guilty). The same goes for anything from this arrest. A withheld adjudication is not an adjudication of guilt for this test.",
+          "If a minimum term applies, though, the judge cannot withhold adjudication (the formal entry of guilt), or suspend or put off the sentence. That shuts off one path that helps on other charges.",
           "There is also a juvenile bar. You must never have been formally adjudicated delinquent in Florida for a felony or certain misdemeanors, unless that record was expunged. Five gun offenses are on that list: hidden carry, open carry, guns at school, bombs, and a minor with a gun. Adjudications outside Florida do not count here.",
           "Your juvenile record can matter twice. It can be the basis for a felon-with-a-gun charge if you are under 24, and it can block sealing. Ask a lawyer how both rules apply to you.",
-          "If a minimum term applies, the judge cannot withhold adjudication (the formal entry of guilt), or suspend or put off the sentence. That shuts off one path that helps on other charges.",
         ],
+        link: { label: "Can this record be sealed? Florida sealing checker", href: "/resources/tools/seal-expunge-eligibility" },
         sources: ["F.S. 790.23(2)", "F.S. 943.0515(1)(b)", "F.S. 943.0584(1) and (2)", "F.S. 943.059(1)(b) and (c)", "F.S. 775.087(2)(b)"],
       },
       {
@@ -7180,24 +7209,21 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "The offices on a Hillsborough gun case",
         kind: "prose",
         tier: 3,
-        group: "Who decides what",
-        groupSummary: "Three offices already have your file, and the judge must give you time to reach your lawyer.",
+        group: "Who decides what happens in my case?",
+        groupSummary: "The offices already holding your file, and who picks the charge.",
         answers: ["who"],
         prose: [
           "The police agency wrote the report and holds the receipt for what was taken. The State Attorney for the Thirteenth Judicial Circuit decides whether to file and which charge.",
           "The Hillsborough County Clerk keeps the court file. Circuit criminal services are in Room 101 of the Edgecomb Courthouse, 800 E. Twiggs Street. Criminal court services are in Room 1071 of the Plant City Courthouse, 301 North Michigan Avenue.",
-          "A federal case goes to the Middle District of Florida, Tampa Division, at 801 North Florida Avenue.",
-          "At your first hearing, you can ask for a free lawyer if you cannot afford one. If you plan to hire your own, say so. The judge must give you a reasonable time to reach that lawyer, and must postpone the hearing if that is needed.",
-          "That is why you should call early. If a minimum term applies, the law, not the worksheet, sets the sentence floor. It also removes the withhold and early release that shape most other cases.",
         ],
-        sources: ["Fla. R. Crim. P. 3.130(b)(1)(B), (c)(1) and (c)(2)", "F.S. 775.087(2)(b)"],
+        sources: ["Fla. R. Crim. P. 3.130(b)(1)(B), (c)(1) and (c)(2)"],
       },
     ],
     faq: [
-      { question: "How much is a gun charge in Florida?", source: "People Also Ask, Tampa-geolocated, observed 2026-08-13", answer: "It depends on the charge, because Florida has no single gun charge. Carrying a hidden weapon or stun gun without meeting the license rules is a misdemeanor with up to 1 year. Carrying a hidden gun the same way is a felony with up to 5 years. A felon with a gun, ammunition, or electric weapon faces up to 15 years, or up to life if the gang penalties apply, and a separate law can add a minimum prison term." },
+      { question: "How much is a gun charge in Florida?", source: "People Also Ask, Tampa-geolocated, observed 2026-08-13", answer: "It depends on the charge, because Florida has no single gun charge. Carrying a hidden weapon or stun gun without meeting the license rules is a misdemeanor with up to 1 year, and carrying a hidden gun the same way is a felony with up to 5 years. A felon with a gun, ammunition, or electric weapon faces up to 15 years, or up to life if the gang penalties apply. A separate law can add a minimum prison term, and each charge is listed under What you're facing." },
       { question: "What is 10-20-Life in Florida?", source: "drafted", answer: "It is the common name for Florida's minimum prison terms for guns. Having a gun during certain felonies means at least 10 years, and firing it means at least 20. If the shot kills or badly hurts someone, it is 25 years to life. The same law sets 3 years for a felon with a gun, and 15 years for some high-capacity or machine gun cases." },
       { question: "If I had a gun but never fired it, does a mandatory minimum still apply?", source: "drafted", answer: "It can. The 10 year minimum is about having the gun during certain felonies, not firing it. Having it means carrying it on you, or having it within easy reach and meaning to use it. A felon with a gun gets a 3 year minimum instead, unless a certain kind of past conviction raises it back to 10." },
-      { question: "Is it a felony to carry a concealed firearm without a permit in Florida?", source: "drafted", answer: "Not always. You may carry a hidden gun if you have a license, or if you meet the rules to get one. If you do not meet those rules, carrying a hidden gun is a third degree felony, and a hidden weapon or stun gun is a misdemeanor. The State must prove you had no license and could not get one, and carrying a gun you may lawfully have while leaving under an evacuation order, or carrying defense spray or a stun gun for self-defense, is allowed." },
+      { question: "Is it a felony to carry a concealed firearm without a permit in Florida?", source: "drafted", answer: "Not always: you may carry a hidden gun if you have a license, or if you meet the rules to get one. If you do not meet those rules, carrying a hidden gun is a third degree felony, and a hidden weapon or stun gun is a misdemeanor. The State must prove you had no license and could not get one. Carrying a gun you may lawfully have while leaving under an evacuation order, or carrying defense spray or a stun gun for self-defense, is allowed." },
       { question: "How long before a convicted felon can own a gun in Florida?", source: "People Also Ask, Tampa-geolocated, observed 2026-08-13", answer: "Florida sets no waiting period, and an adult felony conviction keeps the ban in place with no time limit. A juvenile finding counts only until you turn 24. For a felony conviction, Florida's ban does not apply if your civil rights and gun rights are both restored, or your record is expunged under one specific rule, so ask a lawyer whether that rule applies to you. The federal ban is a separate question." },
       { question: "Does it matter that the gun was unloaded, or that it belonged to someone else in the house?", source: "drafted", answer: "Not for whether the law covers it. The ban treats loaded and unloaded guns the same, and it also covers ammunition. It reaches anything you own or control, not only what you carry. Someone else owning it does matter for what the State can tie to you, which it has to prove." },
     ],
@@ -7222,7 +7248,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // ---------------------------------------------------------------------
   "white-collar/identity-theft": {
     title: "Charged with identity theft in Hillsborough County?",
-    metaTitle: "Identity Theft Charges in Hillsborough | Hines & McCarty",
+    metaTitle: "Identity Theft Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with identity theft in Florida? How dollars, the number of people, and who they were set the charge, the prison minimums, and sealing.",
     lead: "The basic identity theft charge in Florida is a felony, even if no money changed hands. The charge climbs with the dollar amount, the number of people, and who they were. Higher levels carry prison minimums of 3, 5 or 10 years.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -7514,7 +7540,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // ===================================================================
   "federal/computer-internet-crimes": {
     title: "Charged with a federal computer crime in the Middle District of Florida?",
-    metaTitle: "Federal Computer Crime Charges in Tampa | Hines & McCarty",
+    metaTitle: "Federal Computer Crime Lawyer in Tampa, Florida",
     metaDescription: "Charged under the federal computer crime law? What you face, what happens next, what to do now, and what a conviction can cost you.",
     lead: "A federal computer crime charge carries a maximum from 1 year up to life in prison. Which crime is charged, what harm the government claims, and whether you have a past computer crime conviction set the limit.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -7760,7 +7786,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "federal/conspiracy-charges": {
     title: "Charged with conspiracy in Tampa federal court?",
-    metaTitle: "Federal Conspiracy Charges in Tampa | Hines & McCarty",
+    metaTitle: "Federal Conspiracy Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with federal conspiracy in Tampa? What you face, what happens next, what to do now, and why the section number on the count matters.",
     lead: "Federal conspiracy is not one crime. The section number printed on the count sets your maximum. One kind tops out at 5 years. Drug and fraud conspiracies carry the same penalties as the crime itself.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -7968,9 +7994,10 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "federal/drug-trafficking": {
     title: "Charged with drug trafficking in the Middle District of Florida?",
-    metaTitle: "Federal Drug Trafficking Charges in Tampa | Hines & McCarty",
-    metaDescription: "Charged with federal drug trafficking in Tampa? What you face, how the amount sets the minimum, what happens next, and what to do now.",
-    lead: "A federal drug case does not need a sale or a set amount. The drug and the amount charged decide the range, from no minimum up to 10 years to life. A bail hearing can come at your first court date.",
+    metaTitle: "Federal Drug Trafficking Lawyer in Tampa, Florida",
+    metaDescription: "Charged with federal drug trafficking in Tampa? Ranges and mandatory minimums by drug and amount, what happens next, and what to do now.",
+    lead: "The drug and the amount charged decide your range, from no mandatory minimum up to 10 years to life. A death or serious injury, or a past drug conviction, can raise it. A federal drug case does not need a sale or a set amount.",
+    detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
       href: "/criminal-defense/drug-trafficking-defense",
@@ -7982,25 +8009,26 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "ladder",
         heading: "What you're facing.",
         kind: "penalties",
+        display: "ladder",
         tier: 2,
         answers: ["facing"],
         penalties: [
-          { situation: "Giving away a small amount of marijuana for no pay", degree: "No Florida degree", maximum: "Handled under the federal possession law (21 U.S.C. 844) and the special probation provision at 18 U.S.C. 3607, not this table", note: "The law puts no number on what a small amount is." },
-          { situation: "A schedule V drug, any amount", degree: "No Florida degree", maximum: "Up to 1 year", note: "Up to 4 years after a prior felony drug conviction has become final. Fine up to $100,000." },
-          { situation: "A schedule IV drug, any amount", degree: "No Florida degree", maximum: "Up to 5 years", note: "Up to 10 years after a prior felony drug conviction has become final. Fine up to $250,000." },
-          { situation: "Less than 50 kilograms of marijuana, less than 50 plants, less than 10 kilograms of hashish, or less than 1 kilogram of hashish oil", degree: "No Florida degree", maximum: "Up to 5 years, with no mandatory minimum", note: "Up to 10 years after a prior felony drug conviction has become final. Fine up to $250,000." },
-          { situation: "A schedule III drug, any amount", degree: "No Florida degree", maximum: "Up to 10 years, with no mandatory minimum", note: "Up to 15 years if death or serious injury results. After a prior felony drug conviction has become final, up to 20 years, or 30 if death or serious injury results." },
-          { situation: "A schedule I or II drug below the middle and top amounts further down this table, other than the smaller marijuana and hashish amounts in the marijuana row, such as heroin, cocaine, fentanyl or meth", degree: "No Florida degree", maximum: "Up to 20 years, with no mandatory minimum in the base case", note: "Not less than 20 years and up to life if death or serious injury results. Up to 30 years after a prior felony drug conviction has become final, and life if death or serious injury results after that prior. Fine up to $1,000,000." },
-          { situation: "Slipping a drug to someone without their knowledge, meaning to commit a violent crime against them", degree: "No Florida degree", maximum: "Up to 20 years", note: "No amount is needed." },
-          { situation: "The middle amounts, such as 100 grams of heroin, 500 grams of cocaine, 28 grams of cocaine base, or 40 grams of fentanyl", degree: "No Florida degree", maximum: "Not less than 5 years and not more than 40 years", note: "Not less than 20 years and up to life if death or serious injury results. With one qualifying prior that has become final, not less than 10 years and up to life, and life if death or serious injury results. No probation, no suspended sentence, no parole. Fine up to $5,000,000." },
-          { situation: "The top amounts, such as 1 kilogram of heroin, 5 kilograms of cocaine, 280 grams of cocaine base, or 400 grams of fentanyl", degree: "No Florida degree", maximum: "Not less than 10 years and not more than life", note: "Not less than 20 years and up to life if death or serious injury results. One qualifying prior that has become final: not less than 15 years, and life if death or serious injury results; 2 or more final priors: not less than 25 years. No probation, no suspended sentence, no parole. Fine up to $10,000,000." },
-          { situation: "A conspiracy or an attempt to commit any of the crimes above", degree: "No Florida degree", maximum: "The same penalties as the crime that was planned", note: "Mandatory minimum included. The conspiracy law sets no number of its own." },
+          
+          { situation: "A schedule V drug, any amount", degree: "Federal, schedule V", maximum: "Up to 1 year, fine up to $100,000", note: "Up to 4 years after a prior felony drug conviction has become final." },
+          { situation: "A schedule IV drug, any amount", degree: "Federal, schedule IV", maximum: "Up to 5 years, fine up to $250,000", note: "Up to 10 years after a prior felony drug conviction has become final." },
+          { situation: "Less than 50 kilograms of marijuana, less than 50 plants, less than 10 kilograms of hashish, or less than 1 kilogram of hashish oil", degree: "Federal, marijuana tier", maximum: "Up to 5 years, no mandatory minimum, fine up to $250,000", note: "Up to 10 years after a prior felony drug conviction has become final." },
+          { situation: "A schedule III drug, any amount", degree: "Federal, schedule III", maximum: "Up to 10 years, no mandatory minimum, fine up to $500,000", note: "Up to 15 years if death or serious injury results. After a prior felony drug conviction has become final, up to 20 years, or 30 if death or serious injury results." },
+          { situation: "A schedule I or II drug, such as heroin, cocaine, fentanyl or meth, below the middle amounts (smaller marijuana and hashish amounts are in their own row)", degree: "Federal, base tier", maximum: "Up to 20 years, no mandatory minimum in the base case, fine up to $1,000,000", note: "No amount has to be charged for this tier. Not less than 20 years and up to life if death or serious injury results. Up to 30 years after a prior felony drug conviction has become final, and life if death or serious injury results after that prior." },
+          { situation: "The middle amounts, such as 100 grams of heroin, 500 grams of cocaine, 28 grams of cocaine base, or 40 grams of fentanyl", degree: "Federal, middle tier", maximum: "5 to 40 years, fine up to $5,000,000", note: "Not less than 20 years and up to life if death or serious injury results. With one qualifying prior that has become final, not less than 10 years and up to life, and life if death or serious injury results. No probation, no suspended sentence, no parole." },
+          { situation: "The top amounts, such as 1 kilogram of heroin, 5 kilograms of cocaine, 280 grams of cocaine base, or 400 grams of fentanyl", degree: "Federal, top tier", maximum: "10 years to life, fine up to $10,000,000", note: "Not less than 20 years and up to life if death or serious injury results. One qualifying prior that has become final: not less than 15 years, and life if death or serious injury results. 2 or more final priors: not less than 25 years. No probation, no suspended sentence, no parole." },
+          { situation: "Giving away a small amount of marijuana for no pay", degree: "Federal possession law", maximum: "Handled under the federal possession law and a separate special probation rule, not these penalties", note: "The law puts no number on what a small amount is.", related: true },
+          { situation: "Slipping a drug to someone without their knowledge, meaning to commit a violent crime against them", degree: "Federal, related crime", maximum: "Up to 20 years", note: "No amount is needed.", related: true },
+          { situation: "A conspiracy or an attempt to commit any of the crimes above", degree: "Federal, related crime", maximum: "The same penalties as the crime that was planned", note: "Mandatory minimum included. The conspiracy law sets no number of its own.", related: true },
         ],
         prose: [
-          "Two things set your range. One is the kind of drug. The other is the amount charged on the count. The full list of amounts is under \"How the amount is counted\" below.",
-          "Every amount is written as \"or more.\" More than a top tier amount still counts for the middle tier. The amounts set a floor, not a ceiling.",
-          "A prior drug conviction can raise the range. It only does if the prosecutor files a written notice before trial or before a guilty plea.",
-          "Inside that range, the federal sentencing guidelines produce the number that gets argued about. A federal crime has no Florida degree and is not scored on a Florida worksheet.",
+          "The kind of drug and the amount charged on the count set your range. Every amount is written as \"or more,\" so it sets a floor, not a ceiling. More than a top tier amount still counts for the middle tier.",
+          "If death or serious injury results from a schedule I or II drug, the base, middle and top tiers all carry not less than 20 years and up to life. A prior drug conviction raises the range only if the prosecutor files a written notice before trial or before a guilty plea.",
+          "Inside that range, the federal sentencing guidelines produce the number that gets argued about. In the middle and top tiers, the judge cannot give probation or suspend the sentence, and there is no parole. In the base tier, that bar applies only when death or serious injury results. A federal crime has no Florida degree and is not scored on a Florida worksheet.",
         ],
         sources: [
           "21 U.S.C. 841(b)(1)(A), (B), (C), (D) and (E)",
@@ -8024,8 +8052,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           { when: "Within 30 days of arrest", what: "The government has to file the formal charge. If no grand jury has met in the district in that time, it gets 30 more days." },
           { when: "Before trial or a guilty plea", what: "If the prosecutor wants a prior conviction to raise your sentence, it has to file a written notice naming it by then. Without that notice, the prior cannot raise the sentence." },
           { when: "Within 70 days of the charge or your first court date, whichever is later", what: "Your trial has to start. The drug has to be identified and the amount shown, because those are facts the government has to prove." },
-          { when: "After a conviction, before the sentence", what: "If a prior was filed, the judge asks if you admit it. You have to raise any challenge to it before the sentence, or you lose it." },
-          { when: "No later than the sentencing hearing", what: "This is the deadline to give truthful information if you seek one route below a mandatory minimum. Whether to do that is a decision for you and your lawyer." },
+          { when: "After a conviction, up to the sentencing hearing", what: "If a prior was filed, the judge asks if you admit it. You have to raise any challenge to it before the sentence, or you lose it. The sentencing hearing is also the deadline to give truthful information if you seek one route below a mandatory minimum. Whether to do that is a decision for you and your lawyer." },
         ],
         sources: [
           "18 U.S.C. 3142(e)(3)(A) and (f)(1)(C)",
@@ -8054,8 +8081,8 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "Federal court or Florida court",
         kind: "prose",
         tier: 3,
-        group: "Which charge you actually have",
-        groupSummary: "Check the court named on your paperwork first. It decides which rules apply.",
+        group: "Is my case in federal court or Florida court?",
+        groupSummary: "How to tell from your paperwork, and why a gram figure you were given may not apply.",
         answers: ["facing", "who"],
         prose: [
           "Look at two things on the first page of your charge. One is the law it cites. The other is who signed it. In a Tampa federal case, that is the United States Attorney's Office for the Middle District of Florida.",
@@ -8071,39 +8098,22 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "Why a gram number from jail may not mean what you think",
         kind: "prose",
         tier: 3,
-        group: "Which charge you actually have",
+        group: "Is my case in federal court or Florida court?",
         answers: ["facing"],
         prose: [
-          "Most people show up with a weight in grams. Someone at the jail, a relative, or a web page gave it to you.",
+          "Most people show up with a weight in grams from someone at the jail, a relative, or a web page.",
           "In Florida court, the weight is what makes the crime. Federal law does not work that way. The federal crime names no amount at all. The amount only sets the floor on your sentence.",
           "So a small amount is still the same federal crime. It can only move you to a lower tier.",
         ],
         sources: ["21 U.S.C. 841(a)(1) and 841(b)"],
       },
       {
-        id: "fdt-other-acts",
-        heading: "Other acts the same drug law covers",
-        kind: "bullets",
-        tier: 3,
-        group: "Which charge you actually have",
-        answers: ["facing"],
-        bullets: [
-          "Fake drugs. Making or selling a counterfeit drug is covered too.",
-          "Chemicals. Having a listed chemical, meaning to make a drug with it, is a separate crime.",
-          "Online sales. Delivering drugs over the internet is covered, and it uses the same penalty ladder as the table above.",
-          "Growing on federal land. Growing or making drugs on federal property raises the fine.",
-          "Poison on federal land. Knowingly or intentionally using a poison or other hazardous substance there carries a separate maximum of 5 years if it creates a serious hazard to people or animals, harms the environment or natural resources, or pollutes water.",
-          "Some other laws can replace the penalty ladder for certain cases. This page does not cover what those laws say.",
-        ],
-        sources: ["21 U.S.C. 841(a)(2), (b)(5), (b)(6), (c) and (h)(4)", "21 U.S.C. 841(b), referring to 21 U.S.C. 849, 859, 860 and 861"],
-      },
-      {
         id: "fdt-proof",
         heading: "No sale, no buyer, and no amount needed for the crime",
         kind: "statute",
         tier: 3,
-        group: "What makes it a federal drug crime",
-        groupSummary: "Having drugs you meant to pass on is enough. A higher minimum needs a proven amount.",
+        group: "What does the government have to prove?",
+        groupSummary: "The state of mind the law requires, how a conspiracy is proved, and other acts the same law covers.",
         answers: ["facing"],
         prose: [
           "The crime is knowingly making, selling, or handing out a controlled drug. Having it and meaning to hand it out or sell it also counts. So a case can be federal with no sale, buyer, or price at all.",
@@ -8114,15 +8124,33 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           citation: "21 U.S.C. 841(a)(1), 841(b) introductory text, 841(b)(1)(C) and 841(b)(1)(D), and 21 U.S.C. 802(44) and 802(58), text in effect on August 13, 2026",
           body: "Section 841 is built in two halves, and the line between them is the whole of this page. Subsection (a) creates the offense. It opens except as authorized by this subchapter, and provides that it shall be unlawful for any person knowingly or intentionally, and then paragraph (1) completes it: to manufacture, distribute, or dispense, or possess with intent to manufacture, distribute, or dispense, a controlled substance. There is no number in that sentence. No weight, no dosage count, no dollar figure. What it requires is a state of mind, knowingly or intentionally, together with one of the acts it names, the last of which is possession with intent to do one of the first three. That last route is why a case can be federal without a sale, a buyer, a price or a transaction of any kind. The same subsection also reaches counterfeit substances at 841(a)(2), and section 841 carries further prohibitions further down, including possession of a listed chemical with intent to manufacture at subsection (c) and delivery by means of the Internet at subsection (h), which 841(h)(4) sends back to the same sentencing ladder rather than giving it a cap of its own. Subsection (b) is where the numbers live, and it says what it is in its opening words: except as otherwise provided in section 849, 859, 860, or 861 of this title, any person who violates subsection (a) of this section shall be sentenced as follows. Sentenced, not charged. Everything about grams and kilograms in this statute sits inside a sentencing provision. The clearest proof of that is subparagraph 841(b)(1)(C). In the case of a controlled substance in schedule I or II, gamma hydroxybutyric acid (including when scheduled as an approved drug product for purposes of section 3(a)(1)(B) of the Hillory J. Farias and Samantha Reid Date-Rape Drug Prohibition Act of 2000), or 1 gram of flunitrazepam, except as provided in subparagraphs (A), (B), and (D), such person shall be sentenced to a term of imprisonment of not more than 20 years. Read the exception, because it is doing real work: (C) is the tier that applies where (A), (B) and (D) do not. For a substance in schedule I or II, no quantity appears in it. The words that create the offense in subsection (a) state no quantity either, so a small amount does not put conduct outside that offense. What a small amount can do is move the count to a different tier of subsection (b). Subparagraph (D) is written to less than 50 kilograms of marihuana, except in the case of 50 or more marihuana plants regardless of weight, 10 kilograms of hashish, or one kilogram of hashish oil, and it provides that such person shall, except as provided in paragraphs (4) and (5) of this subsection, be sentenced to a term of imprisonment of not more than 5 years. That 5 year term is the term (D) sets where paragraphs (4) and (5) do not otherwise provide. Subparagraph (D) goes on to provide that a person who commits such a violation after a prior conviction for a felony drug offense has become final shall be sentenced to a term of imprisonment of not more than 10 years. A schedule I or II substance that subparagraphs (A), (B) and (D) do not reach is sentenced under (C), which sets a term of imprisonment of not more than 20 years. Two further things sit inside that same subparagraph and both change the picture. Where death or serious bodily injury results from the use of such substance, a tier with no mandatory minimum becomes one requiring not less than twenty years and permitting up to life, still with no quantity term anywhere in it. And where the person commits the violation after a prior conviction for a felony drug offense has become final, the ceiling rises to thirty years. Note the words used there. The prior conviction that raises the (C) ceiling is one for a felony drug offense, which 21 U.S.C. 802(44) defines as an offense that is punishable by imprisonment for more than one year under any law of the United States or of a State or foreign country that prohibits or restricts conduct relating to narcotic drugs, marihuana, anabolic steroids, or depressant or stimulant substances. Subparagraphs (A) and (B) write their own enhancements to a prior conviction for a serious drug felony or serious violent felony instead. Serious drug felony is defined at 21 U.S.C. 802(58) as an offense described in section 924(e)(2) of title 18 for which the offender served a term of imprisonment of more than 12 months and the offender's release from any term of imprisonment was within 15 years of the commencement of the instant offense. So the qualifying prior is not described at (C) the way it is described at (A) and (B). What quantity does, then, is raise a floor. Subparagraphs (A) and (B) attach mandatory minimums to stated amounts, and the table below sets out what each of them says.",
         },
+        link: { label: "How federal conspiracy charges work", href: "/federal-criminal-defense/conspiracy-charges" },
         sources: ["21 U.S.C. 841(a)(1)", "21 U.S.C. 846", "U.S. Sentencing Commission, Primer on Drug Offenses (June 2026)"],
+      },
+      {
+        id: "fdt-other-acts",
+        heading: "Other acts the same drug law covers",
+        kind: "bullets",
+        tier: 3,
+        group: "What does the government have to prove?",
+        answers: ["facing"],
+        bullets: [
+          "Fake drugs. Making or selling a counterfeit drug is covered too.",
+          "Chemicals. Having a listed chemical, meaning to make a drug with it, is a separate crime.",
+          "Online sales. Delivering drugs over the internet is covered, and it uses the same penalties as the table above.",
+          "Growing on federal land. Growing or making drugs on federal property raises the fine.",
+          "Poison on federal land. Knowingly or intentionally using a poison or other hazardous substance there carries a separate maximum of 5 years if it creates a serious hazard to people or animals, harms the environment or natural resources, or pollutes water.",
+          "Some other laws can replace these penalties for certain cases. This page does not cover what those laws say, so ask your lawyer which law your count cites.",
+        ],
+        sources: ["21 U.S.C. 841(a)(2), (b)(5), (b)(6), (c) and (h)(4)", "21 U.S.C. 841(b), referring to 21 U.S.C. 849, 859, 860 and 861"],
       },
       {
         id: "fdt-amounts",
         heading: "The amounts that trigger 5 and 10 year minimums",
         kind: "bullets",
         tier: 3,
-        group: "How the amount is counted",
-        groupSummary: "The minimum and the guideline range count drugs in different ways.",
+        group: "Which amounts trigger a 5 or 10 year minimum?",
+        groupSummary: "The drug-by-drug amounts that bring each minimum, and how a mix is counted.",
         answers: ["facing"],
         bullets: [
           "Heroin. If you are charged with 100 grams or more of a mix, that triggers 5 years. 1 kilogram or more triggers 10.",
@@ -8142,12 +8170,13 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "Two different numbers from the same drugs",
         kind: "prose",
         tier: 3,
-        group: "How the amount is counted",
+        group: "What decides my actual number, the law or the guidelines?",
+        groupSummary: "The two systems a federal drug sentence runs through, how amounts add up, and when drugs other people moved count against you.",
         answers: ["facing"],
         prose: [
           "If someone gave you a number, ask which system it came from. A federal drug sentence runs through two.",
           "The first is the law itself. It sets the mandatory minimum, if any, and the maximum. That is the outer frame.",
-          "The second is the federal sentencing guidelines. They produce the number argued about inside that frame. Their drug table has 17 base levels, from level 6 up to level 38, in steps of 2.", "The level turns mainly on the drug and the amount. That table applies in the large majority of drug cases.",
+          "The second is the federal sentencing guidelines. They produce the number argued about inside that frame. Their drug table has 17 base levels, from level 6 up to level 38, in steps of 2. The level turns mainly on the drug and the amount, and that table applies in the large majority of drug cases.",
           "This page does not print that table. Which level your amount gives is a question for a lawyer with the current manual open. A guideline level is also not a Florida offense level. The two systems are unrelated.",
         ],
         sources: ["U.S. Sentencing Commission, Primer on Drug Offenses (June 2026)", "U.S.S.G. 2D1.1(a)(5)", "F.S. 921.0022"],
@@ -8157,7 +8186,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "When amounts get added together",
         kind: "bullets",
         tier: 3,
-        group: "How the amount is counted",
+        group: "What decides my actual number, the law or the guidelines?",
         answers: ["facing"],
         bullets: [
           "If you are convicted of several separate counts (not one conspiracy), the amounts are not added together for a mandatory minimum.",
@@ -8172,7 +8201,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "Drugs other people moved, and where that stops",
         kind: "bullets",
         tier: 3,
-        group: "How the amount is counted",
+        group: "What decides my actual number, the law or the guidelines?",
         answers: ["facing"],
         bullets: [
           "At sentencing, you can be held responsible for drugs you never touched. That can happen if you took part in a joint plan with others.",
@@ -8189,8 +8218,8 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "A court route below the mandatory minimum",
         kind: "bullets",
         tier: 3,
-        group: "Getting below a mandatory minimum",
-        groupSummary: "If the judge finds five things are true, the minimum does not apply.",
+        group: "Can I get below a mandatory minimum?",
+        groupSummary: "The five things a judge must find at sentencing for the minimum not to apply.",
         answers: ["facing"],
         bullets: [
           "This route turns on what the judge finds at sentencing. It does not need a motion from the government, though the government gets to make a recommendation. It is described here as a process, not a prediction for any case.",
@@ -8205,40 +8234,40 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "fdt-priors",
-        heading: "How a past conviction can raise the range",
+        heading: "Which past convictions count, and the notice that has to come first",
         kind: "bullets",
         tier: 3,
-        group: "How a past conviction raises the range",
-        groupSummary: "A prior raises your sentence only if the prosecutor files a notice in time.",
+        group: "Does a past conviction raise my sentence?",
+        groupSummary: "Which priors count, the notice the prosecutor must file, and how you can challenge it.",
         answers: ["facing"],
         bullets: [
           "In the base tier, the marijuana tier, and the schedule III, IV and V rows, the prior that counts is a final conviction for a felony drug offense. That means a drug crime punishable by more than 1 year under any U.S., state or foreign law.",
           "In the top and middle tiers, the prior that counts is a final conviction for a serious drug felony or a serious violent felony. A serious drug felony is a serious drug offense of the kind listed in the federal armed career criminal law, where you served more than 12 months and were released within 15 years before this offense began.",
+          "With a final prior, if death or serious injury results, schedule III carries up to 30 years. In the base, middle and top tiers, the sentence is life.",
           "A prior does not raise your sentence by itself. The prosecutor has to file and serve a written notice naming it, before trial or before a guilty plea.",
           "If the higher sentence could be more than 3 years, the notice is allowed only if you were charged by a grand jury, or gave up that right.",
           "You can deny the prior or say it is invalid, in a written response. The court then holds a hearing, and the government must prove the facts beyond a reasonable doubt.",
           "A claim that a prior was unconstitutional must be spelled out in detail. If a prior conviction happened more than 5 years before the notice was filed, you cannot challenge whether it was valid.",
         ],
-        sources: ["21 U.S.C. 802(44) and 802(58)", "18 U.S.C. 924(e)(2)", "21 U.S.C. 851(a)(1), (a)(2), (b), (c)(1), (c)(2) and (e)"],
+        sources: ["21 U.S.C. 802(44) and 802(58)", "18 U.S.C. 924(e)(2)", "21 U.S.C. 851(a)(1), (a)(2), (b), (c)(1), (c)(2) and (e)", "21 U.S.C. 841(b)(1)(A) through (C)"],
       },
       {
         id: "fdt-cost",
-        heading: "Prison, then supervised release, and the fines by tier",
+        heading: "Supervised release after prison, and the fines for a company",
         kind: "bullets",
         tier: 3,
-        group: "What a conviction costs you",
-        groupSummary: "Most tiers add a required supervised release term after prison, and some bar probation.",
+        group: "What does a conviction cost beyond prison?",
+        groupSummary: "The supervised release that follows prison, fines for a company, and effects on work and immigration.",
         answers: ["consequences"],
         bullets: [
           "Supervised release comes after prison, on top of it. Every tier except schedule V requires a minimum term, and it goes up with a qualifying prior.",
-          "Top tier: at least 5 years, or 10 with a prior. Fine up to $10,000,000, or $50,000,000 for a company.",
-          "Middle tier: at least 4 years, or 8 with a prior. Fine up to $5,000,000, or $25,000,000 for a company.",
-          "Base tier: at least 3 years, or 6 with a prior. Fine up to $1,000,000, or $5,000,000 for a company.",
-          "Schedule III: at least 2 years, or 4 with a prior. Fine up to $500,000, or $2,500,000 for a company.",
-          "Marijuana tier: at least 2 years, or 4 with a prior. Fine up to $250,000, or $1,000,000 for a company. Schedule IV: at least 1 year, or 2 with a prior, with the same fines.",
-          "Schedule V: the judge may add up to 1 year, and only if you have a prior. Fine up to $100,000, or $250,000 for a company.",
-          "In the top and middle tiers, the judge cannot give probation or suspend the sentence, and there is no parole. In the base tier, that bar applies only when death or serious injury results.",
-          "Each fine is the higher of that figure or the general federal fine amount.",
+          "Top tier: at least 5 years, or 10 with a prior.",
+          "Middle tier: at least 4 years, or 8 with a prior.",
+          "Base tier: at least 3 years, or 6 with a prior.",
+          "Schedule III and the marijuana tier: at least 2 years, or 4 with a prior. Schedule IV: at least 1 year, or 2 with a prior.",
+          "Schedule V: the judge may add up to 1 year, and only if you have a prior.",
+          "A company faces higher fines: up to $50,000,000 in the top tier, $25,000,000 in the middle tier, $5,000,000 in the base tier, $2,500,000 for schedule III, $1,000,000 for the marijuana tier and schedule IV, and $250,000 for schedule V.",
+          "Each fine, for a person or a company, is the higher of that figure or the general federal fine amount.",
         ],
         sources: ["21 U.S.C. 841(b)(1)(A) through (E), (b)(2) and (b)(3)", "18 U.S.C. 3583"],
       },
@@ -8247,7 +8276,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "Your job, your license, and immigration",
         kind: "prose",
         tier: 3,
-        group: "What a conviction costs you",
+        group: "What does a conviction cost beyond prison?",
         answers: ["consequences"],
         prose: [
           "A federal case leaves a federal court record. What a licensing board does with a conviction depends on that board's own rules.",
@@ -8260,15 +8289,14 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "Why Florida sealing does not reach a federal drug case",
         kind: "prose",
         tier: 3,
-        group: "Can it come off your record",
-        groupSummary: "Florida sealing does not reach a federal judgment. Ask a lawyer about other relief.",
+        group: "Can it ever come off my record?",
+        groupSummary: "Why the Florida sealing routes do not reach a federal judgment, and who to ask about other relief.",
         answers: ["sealing"],
         prose: [
           "Florida sealing works on a Florida record. A Florida department issues the eligibility certificate, a Florida court orders the sealing, and a Florida clerk sends it on.",
           "A judgment from federal court goes through none of those offices. So the Florida routes do not reach it.",
           "Whether any relief exists for a federal record is a question for your lawyer. Nothing here says how your case will end.",
         ],
-        link: { label: "Florida drug trafficking charges in Hillsborough County", href: "/criminal-defense/drug-trafficking-defense" },
         sources: [],
       },
       {
@@ -8276,29 +8304,29 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "The prosecutors, the judges, and the Tampa courthouse",
         kind: "prose",
         tier: 3,
-        group: "Who decides what",
-        groupSummary: "The U.S. Attorney picks the tier, which decides if a minimum applies.",
+        group: "Who decides what happens in my case?",
+        groupSummary: "The prosecutor's choice of tier, the court that hears the case, and your rights from the start.",
         answers: ["who"],
         prose: [
           "The United States Attorney's Office for the Middle District of Florida decides what to charge. It also picks which tier the count charges. That choice decides whether a mandatory minimum is in your case, and it is made before a judge sees the file.",
-          "The court is the United States District Court for the Middle District of Florida, Tampa Division. The clerk's office can be reached at (813) 301-5400.",
-          "Federal agencies, and task forces of federal and local officers, investigate these cases. This page names no agency, because none has been checked for it.",
+          "The court is the United States District Court for the Middle District of Florida, Tampa Division. The clerk's office can be reached at (813) 301-5400. Federal agencies, and task forces of federal and local officers, investigate these cases.",
           "You can hire a lawyer at any point, before any charge. You can refuse to agree to a search. If you cannot afford one, the court addresses that at your first appearance.",
           "You are normally entitled to see the evidence the government relies on. In a drug case, that includes how the drug was identified and how the amount was worked out.",
         ],
+        link: { label: "How a federal case moves from arrest to sentencing", href: "/resources/guides/federal-criminal-process-timeline" },
         sources: ["18 U.S.C. 3142(f)"],
       },
     ],
     faq: [
-      { question: "Can I be charged federally if I never actually sold anything?", source: "brief FED-03, assistant question 2", answer: "Yes. Having drugs and meaning to hand them out or sell them is a crime on its own, with no sale, buyer or price needed. A conspiracy, meaning an agreement, can also carry the same penalties as the finished crime, even if you never sold a drug. Whether that fits your case is a question for a lawyer with your file." },
-      { question: "Do they have to prove a specific amount at all?", source: "brief FED-03, assistant question 4", answer: "Not to prove the crime itself, which names no amount. For heroin, cocaine, fentanyl, meth and other schedule I or II drugs, the base tier has no amount and a 20 year maximum, with no minimum, unless death or serious injury results, which brings a minimum of 20 years. To seek a 5 or 10 year minimum, the government has to write the amount in the charge and prove it beyond a reasonable doubt. The amount also drives the guideline range, which counts it in its own way." },
-      { question: "Can I be held responsible for drugs other people in the case sold?", source: "brief FED-03, assistant question 5", answer: "At sentencing, sometimes. If you took part in a joint plan, drugs others moved can count if they were within the plan, moved to carry it out, and foreseeable. The limit is what you agreed to. Acts outside your agreement do not count, even if you knew about them, and a charged conspiracy is often bigger than any one person's agreement." },
+      { question: "Can I be charged federally if I never actually sold anything?", source: "brief FED-03, assistant question 2", answer: "Yes. Having drugs and meaning to hand them out or sell them is a crime on its own, with no sale, buyer or price needed. A conspiracy, meaning an agreement, can also carry the same penalties as the finished crime, even if you never sold a drug." },
+      { question: "Do they have to prove a specific amount at all?", source: "brief FED-03, assistant question 4", answer: "Not to prove the crime itself, which names no amount. To seek a 5 or 10 year minimum, the government has to write the amount in the charge and prove it beyond a reasonable doubt. Without that, for heroin, cocaine, fentanyl, meth and other schedule I or II drugs, the base tier has no amount and no minimum, unless death or serious injury results, which brings a minimum of 20 years. The amount also drives the guideline range, which counts it in its own way." },
+      { question: "Can I be held responsible for drugs other people in the case sold?", source: "brief FED-03, assistant question 5", answer: "At sentencing, sometimes. If you took part in a joint plan, drugs others moved can count if they were within the plan, moved to carry it out, and foreseeable. Acts outside your own agreement do not count, even if you knew about them." },
       { question: "Is there any way to get below a mandatory minimum without cooperating against other people?", source: "brief FED-03, assistant question 6", answer: "There is one route that depends on what the judge finds, not on a government motion. The judge must find five things, including a limited record, no violence or weapon, no death or serious injury, and no leadership role. The last is that by sentencing you truthfully told the government what you know about your own offense. That is not the same as helping against someone else, and nothing here says it fits any particular case." },
     ],
   },
   "federal/healthcare-fraud": {
     title: "Charged with health care fraud in Tampa federal court?",
-    metaTitle: "Federal Health Care Fraud Charges in Tampa | Hines & McCarty",
+    metaTitle: "Federal Health Care Fraud Lawyer in Tampa, Florida",
     metaDescription: "Facing federal health care fraud in Tampa? What you face, what happens next, what to do now, and why a private insurer counts too.",
     lead: "Federal health care fraud has no dollar minimum. It covers a scheme against any public or private health plan that affects commerce. The top penalty is 10 years, rising to 20 years if someone is seriously injured, or life if someone dies.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -8532,7 +8560,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "federal/target-letter-defense": {
     title: "Got a federal target letter in the Middle District of Florida?",
-    metaTitle: "Federal Target Letter Defense in Tampa | Hines & McCarty",
+    metaTitle: "Federal Target Letter Lawyer in Tampa, Florida",
     metaDescription: "Got a federal target letter in Tampa? It is not a charge. What it means, what happens next, and what to do right now.",
     lead: "A target letter is not a charge. It means a federal prosecutor sees you as a likely defendant. What you say, and what you do with your records from here, can matter as much as the letter itself.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -8784,7 +8812,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "federal/weapons-gun-offenses": {
     title: "Charged with a federal gun crime in the Middle District of Florida?",
-    metaTitle: "Federal Gun Charges in Tampa | Hines & McCarty",
+    metaTitle: "Federal Gun Charge Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Facing a federal gun charge in Tampa? What the law allows, what happens at your first hearing, and what to do right now.",
     lead: "A federal gun charge for a banned person carries up to 15 years. Three earlier convictions for a violent felony or a serious drug offense, on different occasions, can turn that 15 years into a minimum. A gun tied to another crime adds a separate term on top.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -9063,7 +9091,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "federal/wire-mail-fraud": {
     title: "Charged with wire or mail fraud in the Middle District of Florida?",
-    metaTitle: "Federal Wire and Mail Fraud in Tampa | Hines & McCarty",
+    metaTitle: "Federal Wire and Mail Fraud Lawyer in Tampa, Florida",
     metaDescription: "Charged with federal wire or mail fraud in Tampa? What you face, what happens next, what to do now, and what raises 20 years to 30.",
     lead: "Federal wire fraud and mail fraud each carry up to 20 years in prison. That rises to 30 years and a $1,000,000 fine if the fraud affects a financial institution, or involves a benefit tied to a major disaster or emergency the President declared. Neither charge needs a set dollar amount.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -9294,7 +9322,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // ===================================================================
   "white-collar/healthcare-fraud": {
     title: "Charged with Medicaid fraud in Hillsborough County?",
-    metaTitle: "Medicaid Fraud Charges in Hillsborough County | Hines & McCarty",
+    metaTitle: "Medicaid Fraud Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Accused of Medicaid provider fraud in Florida? What you face, what happens next, what to do now, and what it means for your provider number.",
     lead: "Medicaid provider fraud is a felony in Florida at every dollar amount, with up to 5, 15, or 30 years. The amount you got or tried to get sets the degree. A large fine is added on top of any sentence.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -9544,7 +9572,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "white-collar/bank-fraud": {
     title: "Charged with bank fraud in the Middle District of Florida?",
-    metaTitle: "Federal Bank Fraud Charges in Tampa | Hines & McCarty",
+    metaTitle: "Bank Fraud Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with bank fraud in Tampa? What you face, what comes next, what to do now, and how a conviction or diversion deal can bar you from bank work.",
     lead: "Bank fraud is a federal crime with a top penalty of 30 years and a $1,000,000 fine. No dollar amount is needed, and a try counts the same as a finished scheme. Whether it fits can turn on which company your paperwork names.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -9752,7 +9780,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "white-collar/securities-fraud": {
     title: "Charged with securities fraud in Hillsborough County or Tampa federal court?",
-    metaTitle: "Securities Fraud Charges in Tampa | Hines & McCarty",
+    metaTitle: "Securities Fraud Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Accused of securities fraud in Tampa? What you face in state or federal court, what happens next, and what to do now.",
     lead: "Securities fraud can be a Florida felony or a federal one. The Florida charge runs from up to 5 years to up to 30 years. What decides it is which court filed it, how much money, and how many people.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -10009,7 +10037,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "white-collar/wire-fraud": {
     title: "Charged with wire fraud in Hillsborough County?",
-    metaTitle: "Wire Fraud Charges in Florida | Hines & McCarty",
+    metaTitle: "Wire Fraud Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Accused of fraud by email, phone, or transfer in Florida? How state communications fraud is graded, what happens next, and what to do now.",
     lead: "Wire fraud is a federal charge, but Florida has its own law for fraud by email, phone, or text. Each message can be its own charge. The dollar amount and who the victim was set how serious it is.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -10269,33 +10297,35 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     ],
   },
   "white-collar/tax-evasion": {
-    title: "Facing a tax evasion charge in Tampa or Hillsborough County?",
-    metaTitle: "Tax Evasion Charges in Tampa | Hines & McCarty",
-    metaDescription: "Facing a federal or Florida tax charge? The penalties, what happens next, and what to do before you answer questions about a return or sales tax.",
-    lead: "Tax evasion can be a federal charge or a Florida one. The federal evasion charge carries up to 5 years. In Florida, keeping sales tax you collected from customers, meaning to deprive or cheat the state of it or of its use or benefit, is charged as theft. The dollar amount sets the level.",
+    title: "Under investigation or charged with tax evasion in Tampa?",
+    metaTitle: "Tax Evasion Lawyer in Tampa | Hines McCarty Pavlidis",
+    metaDescription: "Under investigation for tax evasion or a Florida sales tax charge? What you face, what happens next, and what to do before you answer questions.",
+    lead: "Tax evasion can be a federal charge or a Florida one. The federal evasion charge carries up to 5 years. In Florida, keeping sales tax you collected from customers, meaning to deprive or cheat the state of it or its use or benefit, is charged as theft, and the dollar amount sets the level.",
+    detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     sections: [
       {
         id: "ladder",
         heading: "What you're facing.",
         kind: "penalties",
+        display: "ladder",
         tier: 2,
         answers: ["facing"],
         penalties: [
+          { situation: "Willfully not filing a federal return or not paying federal tax on time", degree: "Federal misdemeanor", maximum: "Up to 1 year", note: "For estimated tax, this law does not apply if no addition to tax is owed for the missed payment." },
+          { situation: "Willfully signing a return or other paper under penalty of perjury that you do not believe is true on every important point, or hiding property from an IRS levy to evade or defeat collection of a tax", degree: "Federal felony", maximum: "Up to 3 years" },
+          { situation: "Willfully trying to evade or defeat a federal tax, in any way", degree: "Federal felony", maximum: "Up to 5 years", note: "No dollar amount has to be reached." },
+          { situation: "A willful violation of the federal rule on reporting cash payments a business receives", degree: "Federal felony", maximum: "Up to 5 years", note: "The failure-to-file law makes this a felony with up to 5 years, not a misdemeanor." },
           { situation: "Keeping under $1,000 of sales tax you collected, with no prior conviction for it", degree: "Second degree misdemeanor", maximum: "Up to 60 days", note: "Florida charges this as theft of state funds." },
           { situation: "Keeping under $1,000 of collected sales tax, with one prior conviction for it", degree: "First degree misdemeanor", maximum: "Up to 1 year" },
-          { situation: "Willfully not filing a federal return or not paying federal tax on time", degree: "Federal misdemeanor", maximum: "Imprisonment not more than 1 year", note: "The tax law states a fine up to $25,000 ($100,000 for a company), plus costs. A separate federal law can raise it, up to twice the gain or loss. For estimated tax, this law does not apply if no addition to tax is owed for the missed payment. A willful violation of the federal rule on reporting cash payments a business receives makes this a felony with up to 5 years." },
-          { situation: "Willfully signing a return or other paper under penalty of perjury that you do not believe is true on every important point, or hiding property from an IRS levy to evade or defeat collection of a tax", degree: "Federal felony", maximum: "Imprisonment not more than 3 years", note: "The tax law states a fine up to $100,000 ($500,000 for a company), plus costs. A separate federal law can raise it, up to $250,000 for an individual felony or twice the gain or loss." },
           { situation: "Keeping under $1,000 of collected sales tax, with two or more prior convictions for it", degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 1", note: "The same small amount that is a 60 day misdemeanor without a prior conviction." },
           { situation: "Keeping $1,000 to under $20,000 of collected sales tax", degree: "Third degree felony", maximum: "Up to 5 years", offenseLevel: "Level 1" },
-          { situation: "Willfully trying to evade or defeat a federal tax, in any way", degree: "Federal felony", maximum: "Imprisonment not more than 5 years", note: "The tax law states a fine up to $100,000 ($500,000 for a company), plus costs. A separate federal law can raise it, up to $250,000 for an individual felony or twice the gain or loss." },
           { situation: "Keeping $20,000 to under $100,000 of collected sales tax", degree: "Second degree felony", maximum: "Up to 15 years", offenseLevel: "Level 4" },
           { situation: "Keeping $100,000 or more of collected sales tax", degree: "First degree felony", maximum: "Up to 30 years", offenseLevel: "Level 7" },
         ],
         prose: [
+          "A federal charge has no Florida degree or offense level. Those only apply to Florida charges. Fines can come on top of prison time. A maximum is a ceiling, not a forecast.",
           "In Florida, with one narrow exception in the law, sales tax you collect belongs to the state the moment the customer pays it. Keeping it is charged as theft if you meant to deprive or cheat the state of the money, or of its use or benefit. Amounts kept may be added together to set the level.",
-          "The federal evasion law names no dollar amount you must reach. It covers any willful attempt, by any method, to evade a tax or the payment of it.",
-          "A federal charge has no Florida degree or offense level. Those only apply to Florida charges. A maximum is a ceiling, not a forecast.",
         ],
         sources: [
           "F.S. 212.15(1) and (2)",
@@ -10315,15 +10345,14 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         tier: 2,
         answers: ["next"],
         steps: [
-          { when: "The 1st, then the 21st of the next month", what: "Florida sales tax is due on the 1st of the next month and late on the 21st. A return mailed after the 20th is late. Being late is not the crime by itself. The crime is keeping the money meaning to deprive the state of it or of its use or benefit." },
-          { when: "Before any charge, 2 to 6 years", what: "The state and federal governments each have a time limit to bring a charge. For a Florida sales tax theft, it is 2 years for a misdemeanor and 5 for a felony. For federal evasion, it is 6 years." },
+          { when: "Before any charge, 2 to 6 years", what: "If you have been contacted but not charged, no court clock has started yet. The state and federal governments each have a time limit to bring a charge. For a Florida sales tax theft, it is 2 years for a misdemeanor and 5 for a felony. For federal evasion, it is 6 years." },
           { when: "Within 24 hours of a Florida arrest", what: "Unless you were already lawfully released, you go before a judge for your first appearance. The judge decides whether you are released and on what terms, or held." },
           { when: "30 days in custody, 60 days out", what: "The State has this long to file a formal charge, counted from your arrest. If it has not, the court orders you released on day 33 or day 63. With good cause, the State can get more time, up to day 40 in custody or 30 more days out. No one stays in custody past day 40 without a charge." },
           { when: "30 days from a federal arrest or summons", what: "The government must file its formal charge within this time." },
           { when: "70 days from the federal charge", what: "Trial must start within 70 days. The count begins when the charge is filed and made public, or at your first court appearance, whichever is later." },
         ],
         sources: [
-          "F.S. 212.15(1) and (3)",
+          "F.S. 212.15(3)",
           "26 U.S.C. 6531",
           "Fla. R. Crim. P. 3.130(a) and (d)",
           "Fla. R. Crim. P. 3.134(a) and (b)",
@@ -10338,10 +10367,10 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         background: "navy",
         answers: ["now"],
         bullets: [
-          "Do not explain a shortfall to anyone without a lawyer. That includes an auditor, a bookkeeper, an accountant, a franchisor, or a partner. What you meant is the heart of a tax charge, and it is what people describe loosely.",
-          "Do not amend, file late, or pay before you get advice. Each one changes the paper record. Paying reduces the Florida double penalty. The theft charge is a separate law about intent, so decide the timing of any payment with a lawyer.",
+          "Do not explain a shortfall without a lawyer. The same goes for questions about a return, from anyone: an auditor, a bookkeeper, an accountant, a franchisor, or a partner. What you meant is the heart of a tax charge, and it is what people describe loosely.",
           "Keep your records just as they are. Returns, bank deposits, and register reports were made before anyone accused you. They can be checked against what is claimed.",
-          "Call a lawyer before you answer any question about a return or a sales tax payment. No court gives you a lawyer until you are charged or arrested, so at this stage you would hire one.",
+          "Do not amend, file late, or pay before you get advice. Each one changes the paper record. Paying reduces the Florida double penalty, but the theft charge is a separate law about intent, so decide the timing of any payment with a lawyer.",
+          "Hire a lawyer now. Do it before you answer any question about a return or a sales tax payment. No court gives you a lawyer until you are charged or arrested, so at this stage you would hire one.",
         ],
         sources: ["F.S. 212.15(2)", "F.S. 213.29", "26 U.S.C. 7201", "Fla. R. Crim. P. 3.111(a)", "18 U.S.C. 3006A(a)(1)(A)"],
       },
@@ -10349,13 +10378,15 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "tax-which-law",
         heading: "Federal income tax or Florida sales tax: two different charges",
         kind: "prose",
+        link: { label: "Look up the Florida statute named on your charging papers", href: "/resources/tools/charge-lookup" },
         tier: 3,
-        group: "Which charge you actually have",
-        groupSummary: "Your charging papers name the law, and each one rests on different facts.",
+        group: "Which charge am I facing?",
+        groupSummary: "How the federal and Florida tax crimes differ, and the other Florida sales tax crimes.",
         answers: ["facing"],
         prose: [
           "If you were contacted about a federal return you did not file, or one that was false, you are dealing with federal tax law. If your Florida business collected sales tax and did not send it in, you are dealing with Florida theft of state funds.",
           "These are not the same. The federal law covers trying to evade a tax. The Florida theft law covers money a customer already paid you for the state. It is not about a tax your business owed on its own account.",
+          "Florida sales tax is due on the 1st of the next month and late on the 21st. A return mailed after the 20th is late. Being late is not the crime by itself. The crime is keeping the money meaning to deprive the state of it or of its use or benefit.",
           "Florida also has its own evasion crimes for sales tax and related fees. They are shown below. Your charging papers name the exact law, so start there.",
         ],
         sources: ["F.S. 212.15(1) and (2)", "F.S. 212.12(2)(c), (2)(d) and (2)(e)", "26 U.S.C. 7201"],
@@ -10364,8 +10395,9 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "tax-fl-other",
         heading: "Florida sales tax returns, false exemption papers, and records",
         kind: "penalties",
+        link: { label: "How Florida ranks offenses: degree compared to offense level", href: "/resources/tools/offense-level-comparison" },
         tier: 3,
-        group: "Which charge you actually have",
+        group: "Which charge am I facing?",
         answers: ["facing"],
         penalties: [
           { situation: "A false sales tax return to evade under $300, a first time", degree: "Second degree misdemeanor", maximum: "Up to 60 days" },
@@ -10401,8 +10433,8 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "Willful is the word every tax charge turns on",
         kind: "bullets",
         tier: 3,
-        group: "Proving you meant to evade",
-        groupSummary: "The size of the shortfall is not enough. They must prove what you meant.",
+        group: "What does the government have to prove?",
+        groupSummary: "Why what you knew and meant matters more than the size of the shortfall.",
         answers: ["facing"],
         bullets: [
           "Willfully. Each federal tax crime on this page requires willfulness or an intent to evade, and so do the Florida evasion laws. The case starts with what you knew and meant, not with how much was short.",
@@ -10430,8 +10462,8 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "How long the government has to bring a tax charge",
         kind: "prose",
         tier: 3,
-        group: "How long they have to charge you",
-        groupSummary: "Federal evasion has a 6 year limit, Florida sales tax theft 2 or 5.",
+        group: "Is there a deadline to charge me?",
+        groupSummary: "The federal and Florida time limits, and what time does not count.",
         answers: ["next"],
         prose: [
           "For federal tax crimes, the general limit is 3 years. The law lists offenses that get 6 years instead, including trying to evade a tax and signing a false return.",
@@ -10445,9 +10477,10 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "tax-defense",
         heading: "Your rights, and the records that already exist",
         kind: "guidance",
+        link: { label: "Got a federal target letter? What it means", href: "/federal-criminal-defense/target-letter-defense" },
         tier: 3,
-        group: "How a tax case is defended",
-        groupSummary: "The records were made before any accusation and can be checked.",
+        group: "What are my rights, and what will my lawyer look at?",
+        groupSummary: "Your right not to answer, when a lawyer is appointed, and what the dated records can show.",
         answers: ["now"],
         guidance: [
           {
@@ -10471,33 +10504,20 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         sources: ["Fla. R. Crim. P. 3.111(a) and (b)(1)", "18 U.S.C. 3006A(a)(1)(A)", "F.S. 212.15(1), (2) and (4)", "F.S. 213.29"],
       },
       {
-        id: "tax-lien",
-        heading: "A tax warrant that becomes a lien on your property",
-        kind: "prose",
-        tier: 3,
-        group: "What a conviction costs you",
-        groupSummary: "Fines, a recorded lien, and collection can all hit alongside the case.",
-        answers: ["consequences"],
-        prose: [
-          "When sales tax is late or at risk, the Department of Revenue must issue a warrant. It covers the tax, interest, penalties, and the cost of collection. The clerk in any county where you own property records it.",
-          "Once recorded, it is a lien on your property, like a court judgment. It is a public county record. The department can also send a sheriff to collect or take money others owe your business.",
-          "When it is paid, the department must clear the lien within 30 days. All of this comes from the tax side, not from a criminal conviction.",
-        ],
-        sources: ["F.S. 212.15(4)", "F.S. 213.732"],
-      },
-      {
         id: "tax-fines",
         heading: "Fines on top of prison time, state and federal",
         kind: "bullets",
         tier: 3,
-        group: "What a conviction costs you",
+        group: "What can this cost me besides prison?",
+        groupSummary: "Fines, what national federal sentencing numbers show, and a tax lien on your property.",
         answers: ["consequences"],
         bullets: [
-          "Florida fine caps: $5,000 for a third degree felony, $10,000 for a first or second degree felony, $1,000 for a first degree misdemeanor, and $500 for a second degree misdemeanor.",
-          "A Florida fine can go higher, to double what you gained or double what the victim lost, or to any higher amount another law specifically allows. Court costs add $50 for a felony and $20 for other crimes.",
-          "Federal fine figures in the tax laws are not the final cap. For an individual felony, the fine can reach $250,000. For a company felony, it can reach $500,000.",
+          "The federal tax laws state a fine up to $100,000 ($500,000 for a company) for evasion, a false return, or hiding property from an IRS levy, and up to $25,000 ($100,000 for a company) for not filing or paying. Each also adds the costs of prosecution.",
+          "Those federal figures are not the final cap. For an individual felony, the fine can reach $250,000. For a company felony, it can reach $500,000.",
           "A federal fine can also reach twice the gain or twice the loss, unless that would make sentencing too complex or long.",
           "For a federal failure-to-file count, which fine cap applies depends on whether the count is a misdemeanor or a felony.",
+          "Florida fine caps: $5,000 for a third degree felony, $10,000 for a first or second degree felony, $1,000 for a first degree misdemeanor, and $500 for a second degree misdemeanor.",
+          "A Florida fine can go higher, to double what you gained or double what the victim lost, or to any higher amount another law specifically allows. Court costs add $50 for a felony and $20 for other crimes.",
         ],
         sources: ["F.S. 775.083(1) and (2)", "18 U.S.C. 3571(b), (c), (d) and (e)", "18 U.S.C. 3559(a)", "26 U.S.C. 7201", "26 U.S.C. 7203", "26 U.S.C. 7206"],
       },
@@ -10506,7 +10526,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         heading: "What national federal tax numbers describe",
         kind: "prose",
         tier: 3,
-        group: "What a conviction costs you",
+        group: "What can this cost me besides prison?",
         answers: ["consequences"],
         prose: [
           "The United States Sentencing Commission reports that of 66,662 federal cases in fiscal year 2025, 324 involved tax fraud. Of those, 68% were sentenced to prison. The average sentence was 17 months.",
@@ -10516,12 +10536,27 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         sources: ["U.S. Sentencing Commission, Quick Facts: Tax Fraud, fiscal year 2025", "USSG 2T1.1 and 2T1.4"],
       },
       {
+        id: "tax-lien",
+        heading: "A tax warrant that becomes a lien on your property",
+        kind: "prose",
+        tier: 3,
+        group: "What can this cost me besides prison?",
+        answers: ["consequences"],
+        prose: [
+          "When sales tax is late or at risk, the Department of Revenue must issue a warrant. It covers the tax, interest, penalties, and the cost of collection. The clerk in any county where you own property records it.",
+          "Once recorded, it is a lien on your property, like a court judgment. It is a public county record. The department can also send a sheriff to collect or take money others owe your business.",
+          "When it is paid, the department must clear the lien within 30 days. All of this comes from the tax side, not from a criminal conviction.",
+        ],
+        sources: ["F.S. 212.15(4)", "F.S. 213.732"],
+      },
+      {
         id: "tax-sealing",
         heading: "Sealing a Florida sales tax case, and what Florida sealing does not reach",
         kind: "prose",
+        link: { label: "Can this record be sealed? Florida sealing checker", href: "/resources/tools/seal-expunge-eligibility" },
         tier: 3,
-        group: "Can it come off your record",
-        groupSummary: "Florida sales tax theft can be sealed in some cases. Florida's sealing laws do not reach a federal conviction.",
+        group: "Can it ever come off my record?",
+        groupSummary: "When a Florida sales tax case can be sealed, and why a federal conviction is different.",
         answers: ["sealing"],
         prose: [
           "Florida keeps a list of convictions that can never be sealed or expunged. Sales tax theft is not on it. A plea of guilty or no contest counts as a conviction for that list, even if the judge withholds adjudication.",
@@ -10536,29 +10571,30 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "tax-who",
         heading: "Federal court in Tampa, circuit court in Hillsborough, and the tax agency",
         kind: "prose",
+        link: { label: "How a federal case moves from investigation to sentencing", href: "/resources/guides/federal-criminal-process-timeline" },
         tier: 3,
-        group: "Who decides what",
-        groupSummary: "Federal tax crimes are prosecuted in federal court in Tampa. A Florida sales tax theft felony is heard in circuit court in Hillsborough.",
+        group: "Who decides what happens in my case?",
+        groupSummary: "The federal court in Tampa, the circuit court in Hillsborough, and the tax agency that can settle the money penalty.",
         answers: ["who"],
         prose: [
           "A federal tax case here is filed in the United States District Court for the Middle District of Florida, Tampa Division. The court is the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue, Tampa. The United States Attorney's Office for the Middle District of Florida brings the case.",
           "The Tampa Division covers Hardee, Hillsborough, Manatee, Pasco, Pinellas, Polk and Sarasota counties.",
           "A Florida sales tax theft felony in this county is heard in circuit court in the Thirteenth Judicial Circuit. The clerk's criminal counters are at the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and the Plant City Courthouse, 301 North Michigan Avenue, Room 1071.",
-          "On the tax side, the head of the Florida Department of Revenue can settle the double money penalty. If you have been contacted but not charged, no court clock has started yet. That is when to call a criminal defense lawyer.",
+          "If you face the double money penalty on the tax side, the head of the Florida Department of Revenue can settle it.",
         ],
         sources: ["F.S. 213.29", "F.S. 213.21"],
       },
     ],
     faq: [
       { question: "Is tax evasion a Florida crime or a federal one?", source: "brief WC-04, Section 3 question 1, which absorbs PAA question 2 and assistant question 2", answer: "It can be either, and your charging papers say which. Federal evasion is a felony with up to 5 years. Florida has its own crimes, including trying to evade sales tax, a third degree felony, and false sales tax returns, graded by amount. Keeping sales tax you collected is charged as theft of state funds, from a second degree misdemeanor under $1,000 up to a first degree felony at $100,000 or more." },
-      { question: "What is the difference between not filing a tax return and tax evasion?", source: "brief WC-04, Section 3 question 3", answer: "Not filing is a misdemeanor, and trying to evade a tax is a felony with up to 5 years. Willfully not filing or paying on time carries up to 1 year, and the tax law states a fine up to $25,000 ($100,000 for a company) that a separate federal law can raise. For estimated tax, the failure-to-pay rule does not apply if no addition to tax is owed for it. For a willful violation of the federal rule on reporting cash payments a business receives, not filing becomes a felony with up to 5 years." },
-      { question: "Am I charged with tax evasion or with filing a false return, and does the difference matter?", source: "brief WC-04, Section 3 question 8", answer: "Your charging papers say which, and yes, it matters. Evasion carries up to 5 years, and signing a false return up to 3 years. For both, the tax law states a fine up to $100,000 ($500,000 for a company), which a separate federal law can raise to $250,000 for an individual felony or twice the gain or loss. Both have a 6 year limit to bring the charge." },
-      { question: "How common is it to go to jail for tax evasion?", source: "PAA, question 4 on the primary query, observed 2026-08-13", answer: "In fiscal year 2025, 68% of federal tax fraud cases were sentenced to prison, nationally. The average sentence was 17 months, across 324 cases. These are national federal numbers for cases already sentenced. They do not predict any one case, and they do not describe a Florida sales tax charge." },
+      { question: "What is the difference between not filing a tax return and tax evasion?", source: "brief WC-04, Section 3 question 3", answer: "Not filing is a misdemeanor, and trying to evade a tax is a felony. Willfully not filing or paying on time carries up to 1 year, and evasion up to 5 years. For a willful violation of the federal rule on reporting cash payments a business receives, not filing also becomes a felony with up to 5 years." },
+      { question: "Am I charged with tax evasion or with filing a false return, and does the difference matter?", source: "brief WC-04, Section 3 question 8", answer: "Your charging papers say which, and yes, it matters. Evasion carries up to 5 years, and signing a false return up to 3 years. The two share the same fine amounts in the tax law and the same 6 year limit to bring the charge." },
+      { question: "How common is it to go to jail for tax evasion?", source: "PAA, question 4 on the primary query, observed 2026-08-13", answer: "Nationally, 68% of federal tax fraud cases sentenced in fiscal year 2025 went to prison, with an average sentence of 17 months. These are national federal numbers for cases already sentenced. They do not predict any one case, and they do not describe a Florida sales tax charge." },
     ],
   },
   "state/drug-possession-defense": {
     title: "Charged with drug possession in Hillsborough County?",
-    metaTitle: "Drug Possession Charges in Hillsborough County, Florida | Hines & McCarty",
+    metaTitle: "Drug Possession Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with drug possession in Florida? What you face, what happens next, what to do now, and how drug court, your license, and sealing work.",
     lead: "The basic drug possession charge in Florida is a third degree felony, with up to 5 years in prison. Some are misdemeanors. Which one you face comes from the charge the State files, not from what the police report says was found.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -10790,7 +10826,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   },
   "state/battery-defense": {
     title: "Charged with battery in Hillsborough County?",
-    metaTitle: "Battery Charges in Hillsborough County | Hines & McCarty",
+    metaTitle: "Battery Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with battery in Florida? What you face, what happens next, what to do now, and what decides if it stays a misdemeanor or becomes a felony.",
     lead: "A simple battery in Florida is a first degree misdemeanor, with up to 1 year in jail. The same touching can become a felony because of your record, who the other person was, or their age.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
@@ -11166,7 +11202,7 @@ export const guides: GuidePage[] = [
     title: "First 24 Hours After a Hillsborough Arrest",
     description:
       "What happens after a Hillsborough arrest, and how the release decision actually works.",
-    metaTitle: "After an Arrest in Hillsborough County | The First 24 Hours | Hines & McCarty",
+    metaTitle: "After an Arrest in Hillsborough County | The First 24 Hours | Hines McCarty Pavlidis",
     metaDescription:
       "What the first day after a Hillsborough County arrest involves under the Florida rules: the 24-hour first appearance, counsel, the release decision, and the charging clocks, each quoted from the recorded text.",
     // Written 2026-08-20, Phase 3; release-decision core added the same day
@@ -11369,7 +11405,7 @@ export const guides: GuidePage[] = [
     title: "Federal Case Timeline, Tampa Division",
     description:
       "How a federal case moves from target letter through indictment, trial, and sentencing.",
-    metaTitle: "Federal Case Timeline | How a Federal Criminal Case Moves | Hines & McCarty",
+    metaTitle: "Federal Case Timeline | How a Federal Criminal Case Moves | Hines McCarty Pavlidis",
     metaDescription:
       "The stages of a federal criminal case in order, from initial appearance under Rule 5 through sentencing under Rule 32, with the governing rule or statute quoted at each stage.",
     // Written 2026-08-20, Phase 2. Every statutory claim traces to a Phase 1
@@ -12010,7 +12046,7 @@ export const coreValues = [
 // in a collision has not been charged with anything. One word, and it was the
 // only word in the sentence that assumed which half of the firm you needed.
 export const coreStatement =
-  "Hines & McCarty is built around a small number of commitments that do not change from case to case: discretion in how a matter is handled, preparation from the first meeting, advocacy that is ready for trial, and direct access to the attorney who already knows that kind of case.";
+  "Hines McCarty Pavlidis is built around a small number of commitments that do not change from case to case: discretion in how a matter is handled, preparation from the first meeting, advocacy that is ready for trial, and direct access to the attorney who already knows that kind of case.";
 
 // The firm's working process, shown as a numbered row of boxes.
 //

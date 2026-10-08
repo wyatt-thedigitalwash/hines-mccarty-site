@@ -43,7 +43,10 @@ const postalAddress = (office: (typeof publishedOffices)[number]) => ({
 export const organizationJsonLd = () => ({
   "@type": "LegalService",
   "@id": organizationId,
-  name: firm.legalName,
+  // The name people know the firm by, and the registered entity separately
+  // (D69). Google reads `name` as the business name.
+  name: firm.name,
+  legalName: firm.legalName,
   url: siteUrl,
   telephone: firm.phone,
   address: publishedOffices.map(postalAddress),
@@ -54,6 +57,20 @@ export const organizationJsonLd = () => ({
       name: `${area.label}, FL`,
     })),
   ],
+});
+
+/**
+ * WebSite, on the home page only (D69). This is how Google learns the site
+ * name it shows above every result ("Hines McCarty Pavlidis"), which is what
+ * lets a long page title drop the firm name and still be branded in results.
+ */
+export const websiteJsonLd = () => ({
+  "@type": "WebSite",
+  "@id": `${siteUrl}/#website`,
+  name: firm.name,
+  alternateName: firm.legalName,
+  url: siteUrl,
+  publisher: { "@id": organizationId },
 });
 
 /**

@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!guide) return {};
 
   return pageMetadata({
-    title: guide.metaTitle ?? `${guide.title} | Hines & McCarty`,
+    title: guide.metaTitle ?? `${guide.title} | Hines McCarty Pavlidis`,
     description: guide.metaDescription ?? guide.description,
     path: `/resources/guides/${guide.slug}`,
     // Unwritten guides stay out of the index, same rule as the charge pages.

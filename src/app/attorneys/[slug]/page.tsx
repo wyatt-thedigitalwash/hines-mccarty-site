@@ -23,10 +23,10 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!attorney) return {};
 
   return pageMetadata({
-    title: `${attorney.name}, Criminal Defense Attorney | Hines & McCarty`,
+    title: `${attorney.name}, Attorney in Tampa | Hines McCarty Pavlidis`,
     description: attorney.concentration
-      ? `${attorney.name} is a criminal defense attorney at Hines & McCarty. ${attorney.concentration}.`
-      : `${attorney.name} is an attorney at Hines & McCarty, a criminal defense firm in Brandon, Florida.`,
+      ? `${attorney.name} is a criminal defense attorney at Hines McCarty Pavlidis. ${attorney.concentration}.`
+      : `${attorney.name} is an attorney at Hines McCarty Pavlidis, a criminal defense firm in Brandon, Florida.`,
     path: `/attorneys/${attorney.slug}`,
     // A half-written bio costs more E-E-A-T than it earns, so placeholder pages
     // stay out of the index until the client fills them in. They stay

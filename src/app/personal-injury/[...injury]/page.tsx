@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const page = injuryBySlug(injury);
   if (!page) return {};
   return pageMetadata({
-    title: page.metaTitle ?? `${page.title} | Hines & McCarty`,
+    title: page.metaTitle ?? `${page.title} | Hines McCarty Pavlidis`,
     description: page.metaDescription ?? page.description,
     path: injuryHref(page),
     /*

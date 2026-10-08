@@ -239,7 +239,7 @@ export const DESCRIPTION_NOTE_UNRENDERED =
   "Descriptions are the chart's own wording. Statute 921.0022(2) provides that the language in the right column of the chart is provided solely for descriptive purposes, so it describes the row rather than stating what the offense is.";
 
 export const NO_RELATIONSHIP =
-  "This page is educational information about how Florida classifies offenses. It is not legal advice, it is not about your case, and reading it does not create an attorney-client relationship with Hines & McCarty. Every case is different. Speak to a Florida lawyer about yours.";
+  "This page is educational information about how Florida classifies offenses. It is not legal advice, it is not about your case, and reading it does not create an attorney-client relationship with Hines McCarty Pavlidis. Every case is different. Speak to a Florida lawyer about yours.";
 
 /**
  * C6, with the scope correction the concept document requires.
