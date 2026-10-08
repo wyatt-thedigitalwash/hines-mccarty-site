@@ -166,7 +166,7 @@ function Field({
 }) {
   return (
     <div>
-      <dt className="eyebrow text-navy/50">{label}</dt>
+      <dt className="eyebrow text-navy/70">{label}</dt>
       <dd className="mt-3 leading-relaxed text-charcoal">{children}</dd>
     </div>
   );

@@ -2738,3 +2738,40 @@ as template, because the injury pages share an attorney block, a call band
 and a FAQ intro that a quarter of the whole site never reached. The firm's
 fee terms, an unfinished placeholder on the old pages, are on the attorney
 list (ATTORNEY-FLAGS.md) rather than on the site.
+
+### D74. Articles visible at launch, and the site-wide cleanup
+
+**2026-10-08. Client direction.** Articles and Results stay visible at launch
+(content follows soon after); tools and guides stay hidden (D73).
+
+- **The switch is now `TOOLS_LIVE`** and covers tools and guides only. The 404
+  moved from the whole `/resources` segment to `/resources/tools`,
+  `/resources/guides`, `/resources/tools-and-guides` and the `/resources`
+  hub; `/resources/articles` is live. With Resources holding only Articles,
+  the menu shows **Articles** as its own item instead of a one-entry
+  dropdown. Results stays in the menu.
+- **Headlines that name the subject.** The home page and the injury hub had
+  taglines as their H1. Each now has a short bronze H1 above the tagline
+  ("Criminal Defense and Personal Injury Attorneys in Tampa Bay"; "Personal
+  Injury Attorneys in Tampa"); the tagline keeps its look as a paragraph.
+  `PageHero` takes an optional `eyebrow` for this.
+- **Titles and descriptions** (D69 rule): "Criminal Defense Lawyer in Tampa |
+  Hines McCarty Pavlidis", "Federal Criminal Defense Lawyer in Tampa,
+  Florida", "Cases We Defend | Hines McCarty Pavlidis"; About's description
+  trimmed to 137 characters.
+- **Contrast.** Navy text at 30 to 60 percent opacity used for labels, tabs,
+  hints and table headers, and bronze labels on white, fail WCAG AA; they are
+  navy at 70 percent now.
+- **Nothing unfinished reaches a visitor.** `Needs` placeholders render only
+  in development; the review byline renders only with a real reviewer and
+  date (D65); hub FAQs show only answered questions; the map panel shows no
+  setup note without its token; About's internal notes are development only,
+  its unopened Tampa office card is gone, and its note that the attorney to
+  practice question was unanswered is removed (answered in D65). The
+  attorneys page shows "Handled by" from the D65 mapping.
+
+Content still owed by the firm, now hidden rather than shown as placeholders:
+David Hines's bio overview; written permission from each organisation whose
+mark appears in the credential strip (the marks still display); a
+substantiated firm-wide trial count if wanted; Tampa office details; hub FAQ
+answers; the Mapbox token for the map.

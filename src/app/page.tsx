@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/schema";
-import { RESOURCES_LIVE } from "@/lib/site";
+import { TOOLS_LIVE } from "@/lib/site";
 import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
 import Practices from "@/components/home/Practices";
@@ -48,11 +48,11 @@ export default function Home() {
       <Practices />
       <PracticeAreas />
       {/* D73: the tools carousel returns with Resources. */}
-      {RESOURCES_LIVE ? <Tools /> : null}
+      {TOOLS_LIVE ? <Tools /> : null}
       <CoreValues />
       <Locations />
       {/* D73: the insights section links to the articles, hidden with Resources. */}
-      {RESOURCES_LIVE ? <MattersAndInsights /> : null}
+      {TOOLS_LIVE ? <MattersAndInsights /> : null}
       <Testimonials />
       <CTA />
     </>

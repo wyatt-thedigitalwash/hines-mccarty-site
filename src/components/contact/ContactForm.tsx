@@ -101,7 +101,7 @@ export default function ContactForm() {
           className="block font-heading text-sm font-medium text-navy"
         >
           How can we help?{" "}
-          <span className="font-normal text-navy/50">
+          <span className="font-normal text-navy/70">
             Optional, and no case details
           </span>
         </label>
@@ -153,7 +153,7 @@ function Field({
         className="block font-heading text-sm font-medium text-navy"
       >
         {label}
-        {hint && <span className="font-normal text-navy/50"> {hint}</span>}
+        {hint && <span className="font-normal text-navy/70"> {hint}</span>}
       </label>
       <input
         id={name}

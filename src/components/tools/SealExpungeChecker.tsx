@@ -57,7 +57,7 @@ export default function SealExpungeChecker() {
     const q = questions[step];
     return (
       <div className="border border-navy/20 bg-white p-8 lg:p-10" data-checker>
-        <p className="font-heading text-xs uppercase tracking-wide text-navy/50">
+        <p className="font-heading text-xs uppercase tracking-wide text-navy/70">
           {C.STEP_LABEL} {step + 1} of {questions.length}
         </p>
         <div className="mt-2 h-1 w-full bg-navy/10" aria-hidden="true">
@@ -124,7 +124,7 @@ export default function SealExpungeChecker() {
           </p>
         )}
 
-        <h3 className="mt-9 font-heading text-sm uppercase tracking-wide text-navy/50">
+        <h3 className="mt-9 font-heading text-sm uppercase tracking-wide text-navy/70">
           {C.RESULT_INTRO}
         </h3>
         <ul className="mt-4 grid gap-4">
@@ -142,7 +142,7 @@ export default function SealExpungeChecker() {
                       ? "text-bronze"
                       : c.verdict === "failed"
                         ? "text-navy"
-                        : "text-navy/50"
+                        : "text-navy/70"
                   }`}
                 >
                   {c.verdict === "met"
@@ -151,7 +151,7 @@ export default function SealExpungeChecker() {
                       ? "Not met"
                       : "Needs checking"}
                 </span>
-                <span className="text-sm text-navy/50">{c.condition.cite}</span>
+                <span className="text-sm text-navy/70">{c.condition.cite}</span>
               </p>
               <p className="mt-1 text-navy">{c.condition.plain}</p>
               <p className="mt-1 text-sm text-navy/70">{c.because}</p>

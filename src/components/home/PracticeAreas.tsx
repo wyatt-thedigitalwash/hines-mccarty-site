@@ -78,7 +78,7 @@ function ItemRow({ item }: { item: Item }) {
           {description}
         </span>
       </span>
-      <ArrowUpRight className="h-5 w-5 shrink-0 text-navy/50 transition-colors group-hover:text-bronze" />
+      <ArrowUpRight className="h-5 w-5 shrink-0 text-navy/70 transition-colors group-hover:text-bronze" />
     </Link>
   );
 }
@@ -160,7 +160,7 @@ export default function PracticeAreas() {
                     className={`border-b-2 pb-2 transition-colors ${
                       isActive
                         ? "border-navy text-navy"
-                        : "border-transparent text-navy/30 hover:border-navy/40 hover:text-navy"
+                        : "border-transparent text-navy/70 hover:border-navy/40 hover:text-navy"
                     }`}
                   >
                     {cap.short}

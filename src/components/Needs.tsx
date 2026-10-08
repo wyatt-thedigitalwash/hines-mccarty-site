@@ -4,6 +4,10 @@
  * Only unconfirmed attorney entries render these. A confirmed bio omits the
  * section entirely rather than showing a marker, so nothing half-written ever
  * appears on a page meant to publish.
+ *
+ * D74: development only. A production build renders nothing in its place, so
+ * an unfinished field can never reach a visitor; the gap stays visible while
+ * the site is being built, and the content list in DECISIONS D74 tracks it.
  */
 export default function Needs({
   children,
@@ -12,6 +16,7 @@ export default function Needs({
   children: string;
   className?: string;
 }) {
+  if (process.env.NODE_ENV === "production") return null;
   return (
     <span
       data-needs

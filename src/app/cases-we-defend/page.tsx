@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { capabilities, charges, firm } from "@/lib/site";
-import { RESOURCES_LIVE } from "@/lib/site";
+import { TOOLS_LIVE } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import CredentialStrip from "@/components/CredentialStrip";
 import PageHero from "@/components/PageHero";
@@ -10,7 +10,7 @@ import ChargeIndex from "@/components/cases/ChargeIndex";
 import CallToAction from "@/components/CallToAction";
 
 export const metadata: Metadata = pageMetadata({
-  title: "Cases We Defend | Hines McCarty Pavlidis, Criminal Defense in Tampa Bay",
+  title: "Cases We Defend | Hines McCarty Pavlidis",
   description:
     "The state and federal charges Hines McCarty Pavlidis defends in Hillsborough County and in the Middle District of Florida.",
   path: "/cases-we-defend",
@@ -98,7 +98,7 @@ export default function CasesWeDefendPage() {
         (CASES-WE-DEFEND-PLAN.md Section 5.6).
       */}
       {/* D73: this row points to Resources, hidden at launch. */}
-      {RESOURCES_LIVE ? (
+      {TOOLS_LIVE ? (
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="flex flex-col gap-6 border border-navy/20 p-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-10">
@@ -145,7 +145,7 @@ export default function CasesWeDefendPage() {
               </p>
             </div>
           </div>
-          <p className="mt-8 text-sm text-navy/55">
+          <p className="mt-8 text-sm text-navy/70">
             {charges.length} charge pages are planned across the three areas
             above.
           </p>

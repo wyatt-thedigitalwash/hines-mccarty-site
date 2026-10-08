@@ -73,7 +73,7 @@ export default function AttorneysPage() {
                   {/* No role label renders until the client confirms it. For
                       Maria Pavlidis that is gated on her relationship to the
                       firm (WEBSITE-PLAN.md Open Question 2a). */}
-                  <p className="mt-2 font-heading text-sm uppercase tracking-wide text-navy/50">
+                  <p className="mt-2 font-heading text-sm uppercase tracking-wide text-navy/70">
                     {attorney.role ?? <Needs>role and title</Needs>}
                   </p>
 
@@ -152,7 +152,14 @@ export default function AttorneysPage() {
 
           <ul className="mt-12 grid gap-6 lg:grid-cols-3">
             {capabilities.map((cap) => {
-              const leads = attorneysLeadingPractice(cap.href);
+              // D74: the attorneys who handle this area's charge pages, from the
+              // client's D65 mapping (Lily McCarty and Maria Pavlidis on every
+              // state, federal and white-collar charge, David Hines on state).
+              // A lead set on the area itself still takes precedence.
+              const led = attorneysLeadingPractice(cap.href);
+              const leads = led.length
+                ? led
+                : attorneys.filter((a) => a.handlesChargeHrefs?.some((h) => h.startsWith(`${cap.href}/`)));
               return (
                 <li key={cap.key} className="flex">
                   <div className="flex h-full w-full flex-col border border-navy/20 bg-white p-8">
@@ -170,7 +177,7 @@ export default function AttorneysPage() {
                     <p className="mt-8 border-t border-navy/15 pt-5 leading-relaxed">
                       {leads.length ? (
                         <>
-                          Led by{" "}
+                          Handled by{" "}
                           {leads.map((attorney, index) => (
                             <span key={attorney.slug}>
                               {index > 0 && ", "}
@@ -183,9 +190,7 @@ export default function AttorneysPage() {
                             </span>
                           ))}
                         </>
-                      ) : (
-                        <Needs>which attorney leads this area</Needs>
-                      )}
+                      ) : null}
                     </p>
                   </div>
                 </li>
@@ -218,7 +223,7 @@ export default function AttorneysPage() {
 
           <dl className="mt-10 grid max-w-4xl gap-8 sm:grid-cols-2">
             <div>
-              <dt className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/50">
+              <dt className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/70">
                 State
               </dt>
               <dd className="mt-3 text-lg leading-relaxed text-charcoal">
@@ -226,7 +231,7 @@ export default function AttorneysPage() {
               </dd>
             </div>
             <div>
-              <dt className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/50">
+              <dt className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/70">
                 Federal
               </dt>
               <dd className="mt-3 text-lg leading-relaxed text-charcoal">

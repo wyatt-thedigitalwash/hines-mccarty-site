@@ -54,14 +54,14 @@ function CellView({ cell }: { cell: Cell }) {
     return (
       <div data-cell="filled">
         <span className="font-medium text-navy">{cell.value}</span>
-        <span className="mt-1 block text-xs text-navy/50">from {cell.source}</span>
+        <span className="mt-1 block text-xs text-navy/70">from {cell.source}</span>
       </div>
     );
   }
   if (cell.state === "na") {
     return (
       <div data-cell="na">
-        <span className="inline-block rounded border border-navy/20 bg-navy/[0.03] px-3 py-1 text-xs uppercase tracking-wide text-navy/50">
+        <span className="inline-block rounded border border-navy/20 bg-navy/[0.03] px-3 py-1 text-xs uppercase tracking-wide text-navy/70">
           Not applicable
         </span>
         <span className="mt-1 block text-xs text-navy/60">{cell.why}</span>
@@ -157,11 +157,11 @@ export default function SentencingWorksheet() {
         {blocks.map((b) => (
           <section key={b.numeral} className="border-b border-navy/15 px-6 py-6">
             <h3 className="font-heading text-lg text-navy">
-              <span className="mr-2 text-navy/50">{b.numeral}.</span>
+              <span className="mr-2 text-navy/70">{b.numeral}.</span>
               {b.heading}
             </h3>
             {b.printedGrid ? (
-              <p className="mt-1 font-mono text-xs text-navy/55">{b.printedGrid}</p>
+              <p className="mt-1 font-mono text-xs text-navy/70">{b.printedGrid}</p>
             ) : null}
             <div className="mt-3">
               {b.rows.map((r, i) => (

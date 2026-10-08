@@ -44,6 +44,8 @@ import HeroPhotoLayer, { type HeroPhoto } from "@/components/HeroPhotoLayer";
  */
 
 type Props = {
+  /** D74: a short line naming the page's subject; becomes the H1 and the title a tagline. */
+  eyebrow?: string;
   title: ReactNode;
   /** Intro copy, and anything that belongs under it such as a call button. */
   children: ReactNode;
@@ -55,7 +57,7 @@ type Props = {
   bleed?: ReactNode;
 };
 
-export default function PageHero({ title, children, photo, bleed }: Props) {
+export default function PageHero({ title, eyebrow, children, photo, bleed }: Props) {
   return (
     <section
       data-bg="navy"
@@ -90,9 +92,22 @@ export default function PageHero({ title, children, photo, bleed }: Props) {
         credential strip on its bottom edge, which no other hero does.
       */}
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 pb-20 lg:min-h-[380px] lg:px-10 lg:pb-24">
-        <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
-          {title}
-        </h1>
+        {/* D74: with an eyebrow, the eyebrow is the H1 (it names the subject)
+            and the title keeps its look as a tagline. */}
+        {eyebrow ? (
+          <>
+            <h1 className="mb-5 font-heading text-sm font-medium uppercase tracking-[0.12em] text-bronze">
+              {eyebrow}
+            </h1>
+            <p className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
+              {title}
+            </p>
+          </>
+        ) : (
+          <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
+            {title}
+          </h1>
+        )}
         <div className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/70">
           {children}
         </div>

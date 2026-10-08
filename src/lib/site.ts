@@ -2331,17 +2331,19 @@ export const injuryPractices: InjuryPractice[] = injuryPillars.map((p) => ({
 export const publishedInjuryPractices = injuryPractices.filter((p) => p.published);
 
 /**
- * Resources (tools, guides and articles) are not live at launch, D73. The
- * client is launching without them and will add them later. Everything stays
- * in the codebase; this switch hides it: the menu item, the home page's tools
- * and insights sections, the routes (they return not found), the sitemap, and
- * every link to a `/resources` page from another page's content (the link
- * stays in the data and reappears when the switch is turned back on).
+ * Tools and guides are not live at launch, D73; articles are (D74). The client
+ * is launching without tools and guides and will add them later. Everything
+ * stays in the codebase; this switch hides it: the home page's tools section,
+ * the routes under /resources/tools, /resources/guides, /resources/tools-and-
+ * guides and the /resources hub (they return not found), the sitemap, and
+ * every link to them from another page's content (the link stays in the data
+ * and reappears when the switch is turned back on).
  */
-export const RESOURCES_LIVE = false;
+export const TOOLS_LIVE = false;
 
-/** False for a link that points into a hidden part of the site (D73). */
-export const isLiveHref = (href: string) => RESOURCES_LIVE || !href.startsWith("/resources");
+/** False for a link into the hidden tools and guides (D73). Articles are live (D74). */
+export const isLiveHref = (href: string) =>
+  TOOLS_LIVE || !href.startsWith("/resources") || href.startsWith("/resources/articles");
 
 export const primaryNav: NavItem[] = [
   {
@@ -2392,8 +2394,10 @@ export const primaryNav: NavItem[] = [
       .filter((c) => c.published)
       .map((c) => ({ label: c.label, href: `/results/${c.slug}` })),
   },
-  // D73: present only while RESOURCES_LIVE is on.
-  ...(RESOURCES_LIVE ? [{
+  // D73, D74: with tools and guides hidden, Resources would hold only
+  // Articles, so Articles is its own item instead of a one-entry dropdown.
+  ...(!TOOLS_LIVE ? [{ label: "Articles", href: "/resources/articles" }] : []),
+  ...(TOOLS_LIVE ? [{
     label: "Resources",
     href: "/resources",
     children: [
@@ -2512,7 +2516,7 @@ export const silos: Silo[] = [
     label: "State Criminal Defense",
     h1: "State criminal defense in Hillsborough County",
     metaTitle:
-      "State Criminal Defense in Hillsborough County | Hines McCarty Pavlidis",
+      "Criminal Defense Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription:
       "Felony and misdemeanor defense in the 13th Judicial Circuit, Hillsborough County, from first appearance through trial.",
     intro: [
@@ -2566,7 +2570,7 @@ export const silos: Silo[] = [
     label: "Federal Criminal Defense",
     h1: "Federal criminal defense in the Middle District of Florida",
     metaTitle:
-      "Federal Criminal Defense, Middle District of Florida | Hines McCarty Pavlidis",
+      "Federal Criminal Defense Lawyer in Tampa, Florida",
     metaDescription:
       "Defense in the Middle District of Florida, Tampa Division, from investigation and target letters through indictment, trial, and sentencing.",
     intro: [

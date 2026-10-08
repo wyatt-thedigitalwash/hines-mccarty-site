@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { articles, primaryNav, tools } from "@/lib/site";
+import { notFound } from "next/navigation";
+import { TOOLS_LIVE, articles, primaryNav, tools } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import CallToAction from "@/components/CallToAction";
 import PageHero from "@/components/PageHero";
@@ -35,6 +36,9 @@ export const metadata: Metadata = pageMetadata({
 const RESOURCES = primaryNav.find((item) => item.href === "/resources");
 
 export default function ResourcesPage() {
+  // D73, D74: the hub mostly lists tools and guides; with them hidden, the
+  // menu goes straight to Articles and this page is not found.
+  if (!TOOLS_LIVE) notFound();
   return (
     <>
       <PageHero title="Resources" photo={RESOURCES_PHOTO}>
@@ -96,7 +100,7 @@ export default function ResourcesPage() {
             {tools.map((tool) => {
               const inner = (
                 <>
-                  <span className="font-heading text-xs font-semibold uppercase tracking-wide text-navy/50">
+                  <span className="font-heading text-xs font-semibold uppercase tracking-wide text-navy/70">
                     {tool.kind}
                   </span>
                   <span className="mt-4 block font-display text-2xl leading-tight">
@@ -105,7 +109,7 @@ export default function ResourcesPage() {
                   <span className="mt-3 block flex-1 leading-relaxed text-charcoal">
                     {tool.description}
                   </span>
-                  <span className="mt-6 inline-block text-sm text-navy/55">
+                  <span className="mt-6 inline-block text-sm text-navy/70">
                     {tool.published ? "Open" : "In progress"}
                   </span>
                 </>

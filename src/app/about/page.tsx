@@ -71,7 +71,7 @@ import Byline from "@/components/cases/Byline";
 export const metadata: Metadata = pageMetadata({
   title: "Our Firm | Hines McCarty Pavlidis, Brandon FL",
   description:
-    "A Brandon firm of four attorneys, each concentrating in a different area, handling criminal defense and personal injury in Hillsborough County and the Middle District of Florida.",
+    "A Brandon firm of four attorneys handling criminal defense and personal injury in Hillsborough County and the Middle District of Florida.",
   path: "/about",
 });
 
@@ -106,7 +106,7 @@ export default function AboutPage() {
         photo={ABOUT_PHOTO}
       >
         <p>
-          {firm.name} is four attorneys who each concentrate on a different area,
+          {firm.name}{" "}is four attorneys who each concentrate on a different area,
           practicing in the state courts of Hillsborough County and in the Middle
           District of Florida. The firm defends people accused of crimes and
           represents people injured by someone else, and it was built so that a
@@ -129,7 +129,7 @@ export default function AboutPage() {
                 before, and then the client either gets referred out or does not.
               </p>
               <p>
-                {firm.name} is structured the other way around. Each attorney
+                {firm.name}{" "}is structured the other way around. Each attorney
                 concentrates in a different area, so when a case comes in it goes
                 to the person who already knows that kind of case rather than to
                 whoever has room. Cases get worked in front of the other three,
@@ -164,6 +164,8 @@ export default function AboutPage() {
               </Link>
             </div>
 
+            {/* D74: an internal note, shown in development only. */}
+            {process.env.NODE_ENV !== "production" ? (
             <p className="mt-10 text-sm leading-relaxed text-navy/60">
               <Needs>
                 firm-wide trial count, substantiated and correctly attributed
@@ -172,6 +174,7 @@ export default function AboutPage() {
               statement available to the page and it stays off until it is
               verifiable, because verifiability is exactly what makes it lawful.
             </p>
+            ) : null}
           </div>
         </div>
       </section>
@@ -191,7 +194,7 @@ export default function AboutPage() {
           <ol className="mt-14 grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
             {caseProcess.map((step) => (
               <li key={step.number}>
-                <span className="font-heading text-sm font-semibold tracking-wide text-bronze">
+                <span className="font-heading text-sm font-semibold tracking-wide text-navy/70">
                   {step.number}
                 </span>
                 <h3 className="mt-3 font-display text-2xl leading-snug">
@@ -277,12 +280,6 @@ export default function AboutPage() {
             ))}
           </ul>
 
-          <p className="mt-10 max-w-3xl text-sm leading-relaxed text-linen/55">
-            Which attorney leads which practice area is Open Question 2 and is
-            still unanswered. The cards state what each attorney concentrates on,
-            which is a fact on file, rather than who leads a practice, which is
-            not.
-          </p>
         </div>
       </section>
 
@@ -370,6 +367,8 @@ export default function AboutPage() {
               organisation and the area of law, which is the only form in which
               it may be stated.
             </p>
+            {/* D74: an internal note, shown in development only. */}
+            {process.env.NODE_ENV !== "production" ? (
             <p className="mt-8 text-sm leading-relaxed text-navy/60">
               <Needs>
                 written permission from each organisation to display its mark
@@ -377,6 +376,7 @@ export default function AboutPage() {
               Open Question 8. The marks render site-wide already, so this is
               recorded once here rather than repeated beside every strip.
             </p>
+            ) : null}
           </div>
         </div>
 
@@ -421,7 +421,9 @@ export default function AboutPage() {
                 address, because a second address block would imply an office
                 the firm does not yet have, which is the Rule 4-7.12 line. */}
             <div className="space-y-10">
-              {offices.map((office) => (
+              {/* D74: only offices that are open render. An unopened office card
+                  with "not open yet" still reads as an office claim. */}
+              {offices.filter((office) => office.published).map((office) => (
                 <div
                   key={office.key}
                   className="border-t border-white/15 pt-8 first:border-t-0 first:pt-0"

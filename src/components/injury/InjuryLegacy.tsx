@@ -107,7 +107,7 @@ export default function InjuryLegacy({ page }: { page: InjuryPage }) {
                       </Link>
                     ) : (
                       <div>
-                        <span className="font-display text-xl text-navy/55">
+                        <span className="font-display text-xl text-navy/70">
                           {s.title}
                         </span>
                         <span className="mt-1 block leading-relaxed text-charcoal/60">

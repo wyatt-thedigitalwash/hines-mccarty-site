@@ -289,7 +289,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
             <Block heading="What the statute says">
               {charge.statute ? (
                 <>
-                  <p className="font-heading text-sm uppercase tracking-wide text-navy/50">
+                  <p className="font-heading text-sm uppercase tracking-wide text-navy/70">
                     {charge.statute.citation}
                   </p>
                   <p className="mt-3">{charge.statute.body}</p>

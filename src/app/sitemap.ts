@@ -10,7 +10,7 @@ import {
   injuryPages,
   silos,
   siteUrl,
-  RESOURCES_LIVE,
+  TOOLS_LIVE,
 } from "@/lib/site";
 import { contactCanDeliver } from "@/lib/contact-delivery";
 
@@ -86,7 +86,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // mismatch the comment above this file's charge filter warns about.
     // D73: no guide is listed while Resources is hidden.
     ...guides
-      .filter((g) => g.published && RESOURCES_LIVE)
+      .filter((g) => g.published && TOOLS_LIVE)
       .map((g) => ({
         url: `${siteUrl}${guideHref(g)}`,
         changeFrequency: "monthly" as const,

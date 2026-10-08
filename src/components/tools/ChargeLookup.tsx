@@ -179,14 +179,14 @@ function ResultPanel({ panel }: { panel: Panel }) {
           */}
           {row.degree !== undefined ? (
             <p className="mt-2 text-navy/80">
-              <span className="text-navy/55">Degree: </span>
+              <span className="text-navy/70">Degree: </span>
               {row.degree}
             </p>
           ) : null}
 
           {row.term !== undefined ? (
             <p className="mt-2 text-navy/80" data-term>
-              <span className="text-navy/55">The term this paragraph states: </span>
+              <span className="text-navy/70">The term this paragraph states: </span>
               <q>{row.term}</q>
             </p>
           ) : null}
@@ -195,7 +195,7 @@ function ResultPanel({ panel }: { panel: Panel }) {
             {row.quote}
           </blockquote>
 
-          <p className="mt-2 text-sm text-navy/55">
+          <p className="mt-2 text-sm text-navy/70">
             {row.source.citation}, recorded {row.source.fetched}.{" "}
             <a href={row.source.url} rel="nofollow noopener" target="_blank">
               Source

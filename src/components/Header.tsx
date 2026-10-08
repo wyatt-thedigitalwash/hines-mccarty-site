@@ -182,7 +182,7 @@ export default function Header() {
           }`}
         >
           <div className="flex items-center justify-between">
-            <span className="eyebrow text-navy/50">Menu</span>
+            <span className="eyebrow text-navy/70">Menu</span>
             <button
               type="button"
               onClick={() => setMenuOpen(false)}

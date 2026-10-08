@@ -124,7 +124,7 @@ export default function ToolsCarousel() {
                 className={
                   tool.published
                     ? "link-arrow mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-navy transition-colors group-hover:text-bronze"
-                    : "mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-navy/55"
+                    : "mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-navy/70"
                 }
               >
                 {tool.published ? "Open" : "In progress"}

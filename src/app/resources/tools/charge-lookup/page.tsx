@@ -114,7 +114,7 @@ export default function ChargeLookupPage() {
             {VERSION.tables.map((t) => (
               <li key={t.cite} data-section={t.cite}>
                 {t.cite}
-                <span className="text-navy/50">
+                <span className="text-navy/70">
                   {t.completeness === "partial"
                     ? ", read in part, recorded "
                     : ", read in full, recorded "}

@@ -37,10 +37,14 @@ export default function LocationsMap({
         aria-hidden="true"
         className="flex h-full w-full items-center justify-center bg-navy/[0.04] px-6"
       >
-        <p className="max-w-xs text-center font-heading text-sm leading-relaxed text-navy/45">
-          [NEEDS: MAPBOX_TOKEN] Add the token to .env.local and the map renders
-          here.
-        </p>
+        {/* D74: the hint shows in development only. A live page without the
+            token shows a plain panel, never a setup note to a visitor. */}
+        {process.env.NODE_ENV !== "production" ? (
+          <p className="max-w-xs text-center font-heading text-sm leading-relaxed text-navy/70">
+            [NEEDS: MAPBOX_TOKEN] Add the token to .env.local and the map renders
+            here.
+          </p>
+        ) : null}
       </div>
     );
   }

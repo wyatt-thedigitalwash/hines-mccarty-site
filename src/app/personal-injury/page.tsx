@@ -64,14 +64,15 @@ export default function PersonalInjuryHub() {
       />
 
       <PageHero
+        eyebrow="Personal Injury Attorneys in Tampa"
         title="If someone else caused it, you should not be the one paying for it."
         photo={INJURY_HUB_PHOTO}
       >
+        {/* One string, so the space after the firm name cannot be lost. The
+            claim pages lead with who pays and what to do first now (D72), so
+            this no longer promises the statute's own words. */}
         <p>
-          {firm.name} handles injury claims arising from car and commercial
-          vehicle collisions in Hillsborough County and across Tampa Bay. Select
-          a claim type to read what the law actually says about it, in the
-          statute&apos;s own words.
+          {`${firm.name} handles injury claims arising from car and commercial vehicle collisions in Hillsborough County and across Tampa Bay. Select a claim type to see who pays, the deadlines, and what to do first.`}
         </p>
       </PageHero>
 

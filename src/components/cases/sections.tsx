@@ -141,7 +141,7 @@ export function hasSectionRest(section: ChargeSection): boolean {
 export function SectionSources({ section }: { section: ChargeSection }) {
   if (!section.sources?.length) return null;
   return (
-    <p className="mt-8 border-t border-navy/10 pt-4 font-heading text-sm leading-relaxed text-navy/55">
+    <p className="mt-8 border-t border-navy/10 pt-4 font-heading text-sm leading-relaxed text-navy/70">
       <span className="uppercase tracking-wide text-navy/40">Sources</span>{" "}
       {section.sources.join("; ")}
     </p>

@@ -20,7 +20,7 @@ export default function Breadcrumbs({
 }) {
   if (trail.length < 3) return null;
 
-  const muted = tone === "dark" ? "text-linen/55" : "text-navy/55";
+  const muted = tone === "dark" ? "text-linen/55" : "text-navy/70";
   const current = tone === "dark" ? "text-linen/85" : "text-navy/85";
 
   return (

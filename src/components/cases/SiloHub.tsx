@@ -144,10 +144,10 @@ export default function SiloHub({ silo }: { silo: Silo }) {
                   <table className="w-full border-collapse text-left">
                     <thead>
                       <tr className="border-b border-navy/20">
-                        <th className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
+                        <th className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/70">
                           Division
                         </th>
-                        <th className="py-3 font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
+                        <th className="py-3 font-heading text-sm font-semibold uppercase tracking-wide text-navy/70">
                           Counties
                         </th>
                       </tr>
@@ -161,7 +161,7 @@ export default function SiloHub({ silo }: { silo: Silo }) {
                           <td className="py-4 pr-6 font-medium">
                             <span className="whitespace-nowrap">{row.name}</span>
                             {row.isLocal && (
-                              <span className="mt-1 block font-heading text-xs uppercase leading-snug tracking-wide text-bronze">
+                              <span className="mt-1 block font-heading text-xs uppercase leading-snug tracking-wide text-navy/70">
                                 Hillsborough
                               </span>
                             )}
@@ -204,7 +204,7 @@ export default function SiloHub({ silo }: { silo: Silo }) {
                           key={row.label}
                           className="border-t border-navy/12 pt-4 sm:flex sm:gap-8"
                         >
-                          <dt className="font-heading text-sm uppercase tracking-wide text-navy/55 sm:w-56 sm:shrink-0">
+                          <dt className="font-heading text-sm uppercase tracking-wide text-navy/70 sm:w-56 sm:shrink-0">
                             {row.label}
                           </dt>
                           <dd className="mt-1 leading-relaxed text-charcoal sm:mt-0">
@@ -234,7 +234,7 @@ export default function SiloHub({ silo }: { silo: Silo }) {
                       key={item.name}
                       className="border border-navy/20 bg-white p-8"
                     >
-                      <p className="font-heading text-sm uppercase tracking-wide text-navy/55">
+                      <p className="font-heading text-sm uppercase tracking-wide text-navy/70">
                         {item.role}
                       </p>
                       <p className="mt-3 font-display text-xl leading-snug">
@@ -277,14 +277,16 @@ export default function SiloHub({ silo }: { silo: Silo }) {
         verification pass and an attorney read, so unanswered ones render a
         marker and the FAQPage schema omits them.
       */}
-      {!!silo.faq?.length && (
+      {/* D74: only answered questions are shown; an unanswered one used to
+          render a [NEEDS] marker on a live page. */}
+      {!!silo.faq?.some((item) => item.answer) && (
         <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <h2 className="font-display text-4xl leading-tight sm:text-5xl">
               Common questions
             </h2>
             <dl className="mt-10 max-w-3xl space-y-8">
-              {silo.faq.map((item) => (
+              {silo.faq.filter((item) => item.answer).map((item) => (
                 <div
                   key={item.question}
                   className="border-t border-navy/15 pt-6"
