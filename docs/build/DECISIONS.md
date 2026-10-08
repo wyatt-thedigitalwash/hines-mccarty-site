@@ -2675,3 +2675,25 @@ attorney can settle, by page, with the current page text quoted; 83
 informational notes are counted, not listed. Two are dated: the CSAM page's
 reference to the 1 November 2025 sentencing rules (check after 1 November
 2026) and battery's bond schedule (expires 31 December 2026).
+
+### D72. Personal injury pages on the service page standard
+
+**2026-10-08. Client direction.** The nine injury pages move to the same
+standard as the charge pages, with two choices the client made from options:
+
+- **Full pillars, focused spokes.** Car accidents and truck accidents carry
+  the full spine (Who pays, What happens next, What to do right now). The
+  seven spokes open on "The short answer." and go straight to their topics,
+  linking back to their pillar for the deadlines and steps, so the same
+  content is not repeated on nine pages. Not chosen: the full spine on every
+  page (repetitive, and the duplicate-text gate would catch it), or restyling
+  the existing articles (statute-first, unlike the charge pages).
+- **The hero keeps its photo**, rather than matching the plain charge hero.
+
+Built for it: the tiered body is now a shared component (`TieredBody`, out of
+ChargeTemplate) with the template sentences that name the kind of page passed
+in, so injury pages say "claim" where charge pages say "charge";
+`InjuryTemplate` renders tiered injury pages and falls back to
+`InjuryLegacy` (the old template) for any page not yet rebuilt; Colton Trina
+is mapped to every injury page for "Who handles these cases"; and
+`check:injury` holds rebuilt injury pages to PAGE-STANDARD section 13.

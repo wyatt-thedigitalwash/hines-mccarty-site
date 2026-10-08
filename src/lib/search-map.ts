@@ -518,7 +518,7 @@ export const searchMap: SearchTarget[] = [
     kind: "injury",
     intent: "hire",
     primary: null,
-    topic: "car accident claim can cover",
+    topic: "compensation",
     source: "src/lib/site.ts injuryPages (client PI keyword architecture, 2026-08-26)",
     note: "The client's PI keyword architecture is not in the repo, so no primary query is recorded. Add them before the injury rebuild.",
   },

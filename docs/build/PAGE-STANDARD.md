@@ -228,3 +228,47 @@ it, and the audit proves it per page.
    above that a script can measure hold from then on.
 
 Attorney review comes after, on the finished page. Publishing waits for it.
+
+---
+
+## 13. Personal injury pages (D72)
+
+The same standard, adapted for a reader who was hurt in a crash rather than
+charged with a crime. Their questions: who pays my bills, what can I recover,
+how long do I have, what do I do now. Enforced by `check:injury`.
+
+**Pillars** (`/personal-injury/car-accidents`, `/personal-injury/truck-accidents`)
+carry the full spine:
+
+| Block | Data | Rule |
+|---|---|---|
+| Hero | `title`, `lead`, photo | H1 is the reader's situation with the topic: "Hurt in a car accident in Tampa?" The lead is 2 or 3 sentences on what decides the claim. The hero keeps its photo (client direction). |
+| **Who pays.** | Tier 2, `kind: "penalties"`, `display: "ladder"` | One card per source of payment, in the order Florida law makes them pay (your own coverage first on a car claim; on a truck claim, each party that can be responsible). `degree` is the card label ("Pays first", "The driver's employer"); `maximum` is the card heading; `situation` and `note` say what it covers and its conditions. |
+| **What happens next.** | Tier 2 timeline, 3 to 6 steps | Real deadlines: the 14-day treatment window, filing limits, evidence windows. |
+| **What to do right now.** | navy, 3 to 5 bullets | Each opens with a short instruction of 64 characters or fewer. |
+| The details | `detailsLayout: "grid"`, 5 to 9 topics | Topics as the reader's questions, each with a one-line summary. |
+| Common questions | 4 to 6, each with a source | |
+| In more depth | automatic | The pillar's spokes as boxes. |
+| Who handles these cases | automatic | Colton Trina (`handlesChargeHrefs`). |
+
+**Spokes** (the seven pages under the pillars) go deeper on one subject and do
+not repeat the pillar's spine:
+
+| Block | Rule |
+|---|---|
+| Hero | H1 names the subject ("Car accident insurance claims in Tampa"). |
+| **The short answer.** | Tier 2 prose, 1 or 2 short paragraphs: the direct answer to the page's question. |
+| The details | 3 to 6 topics as questions, with summaries. |
+| Common questions | 3 to 5, each with a source. |
+| Links | 1 to 4, one of them back to the pillar (for the deadlines and the steps to take now). |
+
+Everything else in sections 7 to 11 applies unchanged: plain English at grade
+8, no citations in body copy, no fact added or changed in a rewrite, every
+qualifier kept, Florida Bar rules, no em dashes. Scope disclaimers ("What
+this page does not cover") are not sections. A pillar and its spokes must not
+repeat each other: the pillar summarises and links; the spoke holds the full
+treatment (check:seo P7 measures it).
+
+**Titles**: "[Subject] Lawyer in Tampa | Hines McCarty Pavlidis" for the
+pillars; "[Subject] in Tampa | Hines McCarty Pavlidis" for spokes, dropping the
+firm name when over 60 characters (D69).

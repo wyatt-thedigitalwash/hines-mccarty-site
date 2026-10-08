@@ -1,139 +1,122 @@
 import Link from "next/link";
-import { SectionBody } from "@/components/cases/sections";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import Byline from "@/components/cases/Byline";
 import CallToAction from "@/components/CallToAction";
 import HandledBy from "@/components/attorneys/HandledBy";
-import Needs from "@/components/Needs";
-import EmptyState from "@/components/EmptyState";
-import {
-  type InjuryPage,
-  injuryHref,
-  injurySpokes,
-  injuryTrail,
-} from "@/lib/site";
 import HeroPhotoLayer from "@/components/HeroPhotoLayer";
+import QuickNav from "@/components/cases/QuickNav";
+import TieredBody, { type TieredCopy } from "@/components/cases/TieredBody";
+import { card, color, space, type } from "@/components/cases/ui";
+import { type InjuryPage, firm, injuryHref, injurySpokes, injuryTrail } from "@/lib/site";
 import { injuryHeroPhoto } from "@/lib/hero-photos";
+import InjuryLegacy from "./InjuryLegacy";
 
 /**
- * The injury page template, pillar and spoke.
+ * The injury page template, D72. Pillars (car accidents, truck accidents) and
+ * their spokes, on the same body as the charge pages (`TieredBody`): the
+ * Tier 2 sections, the detail boxes, the FAQ, "Who handles these cases" and
+ * the call band, with injury wording where the template names the kind of
+ * page. What differs, on client direction:
  *
- * REUSES SectionBody, the same primitive the charge and guide templates use, so
- * an injury page written later renders its statute spans as cited blockquotes
- * and its lists as real lists with no further work. That reuse is the point of
- * giving InjuryPage the same section grammar.
+ *   - The hero keeps its photo, which suits injury work.
+ *   - Pillars carry the full spine (who pays, what happens next, what to do
+ *     right now). Spokes open on a short answer and go straight to their
+ *     topics, so the same deadlines and steps are not repeated on nine pages.
+ *   - A pillar lists its spokes as boxes after the FAQ.
  *
- * AN UNWRITTEN PAGE SAYS SO. It renders the empty state rather than a thin
- * imitation of a real page, because scaffolding that looks like content is
- * worse for a reader and for E-E-A-T than an honest gap.
+ * A page whose sections carry no tier still renders through InjuryLegacy.
  */
+const INJURY_COPY: TieredCopy = {
+  facingIntro:
+    "Florida law decides who pays after a crash, and in what order. Each card is one source of payment and what it covers.",
+  timelineIntro:
+    "These are the deadlines that shape a claim, in the order they usually come. A lawyer can tell you which ones are already running for you.",
+  doNowIntro: "These steps protect your claim in the first days after a crash.",
+  faqIntro: "Short answers to the questions people ask about this kind of claim.",
+};
+
 export default function InjuryTemplate({ page }: { page: InjuryPage }) {
-  const spokes = page.parent ? [] : injurySpokes(page.slug);
-  const written = Boolean(page.lead || page.sections?.length);
+  const sections = page.sections ?? [];
+  if (!sections.some((s) => s.tier)) return <InjuryLegacy page={page} />;
+
+  const spokes = page.parent ? [] : injurySpokes(page.slug).filter((s) => s.published);
+  const cta = page.heroCta ?? { label: `Call ${firm.phone}`, href: firm.phoneHref };
+  const quickNav = [
+    ...sections
+      .filter((s) => s.tier === 2)
+      .map((s) => ({ id: s.id, label: s.heading.replace(/\.$/, "") })),
+    ...(sections.some((s) => s.tier === 3) ? [{ id: "details", label: "The details" }] : []),
+    ...(page.faq?.length ? [{ id: "common-questions", label: "Common questions" }] : []),
+  ];
 
   return (
     <>
-      {/* Same photo treatment as the main-page heroes, through the same
-          component: right 58% from lg, full-bleed band under the copy below it.
-          `isolate` and the z-10 on the content are what keep the copy above the
-          image once the layer is absolutely positioned. */}
+      {/* The photo hero, as before D72: right 58% from lg, a full-bleed band
+          under the copy on a phone. `isolate` and z-10 keep the copy above the
+          absolutely positioned image. */}
       <section
         data-bg="navy"
         data-hero
-        className="relative isolate overflow-hidden bg-navy pt-36 pb-16 lg:pt-44 lg:pb-20"
+        className="relative isolate overflow-hidden bg-navy pt-28 pb-12 lg:pt-44 lg:pb-20"
       >
         <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10">
           <Breadcrumbs trail={injuryTrail(page)} tone="dark" />
-          <h1 className="mt-8 max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
-            {page.title}
-          </h1>
-          <p className="mt-6 max-w-[68ch] text-lg leading-relaxed text-linen/75">
-            {page.description}
-          </p>
-          {page.lead && (
-            <p className="mt-5 max-w-[68ch] text-lg leading-relaxed text-linen/75">
-              {page.lead}
-            </p>
-          )}
+          <h1 className={`mt-6 max-w-2xl ${type.pageTitle} ${color.onDarkHeading}`}>{page.title}</h1>
+          {page.lead ? (
+            <p className={`mt-6 max-w-xl ${type.lead} ${color.onDarkBody}`}>{page.lead}</p>
+          ) : null}
+          <div className="mt-8">
+            <a
+              href={cta.href}
+              className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+            >
+              {cta.label}
+            </a>
+          </div>
         </div>
-
-        {/* After the content in the DOM, which is what puts it under the copy
-            on a phone. From lg it is absolute and the order stops mattering. */}
         <HeroPhotoLayer photo={injuryHeroPhoto(page)} />
       </section>
 
-      <section data-bg="white" className="bg-white py-16 lg:py-24">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          {written ? (
-            <div className="max-w-3xl">
-              {(page.sections ?? []).map((section) => (
-                <div key={section.id} className="mt-12 first:mt-0">
-                  <h2 className="font-display text-2xl leading-tight text-navy sm:text-3xl">
-                    {section.heading}
-                  </h2>
-                  <div className="mt-4 space-y-4 leading-relaxed text-charcoal">
-                    <SectionBody section={section} />
-                  </div>
-                </div>
-              ))}
+      {/* The jump links, as the band that closes the charge hero (D52). Its own
+          strip under the photo hero, so the image is not cut by it. */}
+      {quickNav.length > 1 ? (
+        <div data-bg="navy" className="bg-navy">
+          <div className="bg-linen/[0.06]">
+            <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+              <QuickNav items={quickNav} />
             </div>
-          ) : (
-            <EmptyState
-              heading="This page is not written yet"
-              body="The law it will rest on is recorded and verified, and the page will quote it rather than paraphrase. Until it is written there is nothing here worth reading, so there is nothing here."
-              linkHref="/contact"
-              linkLabel="Talk to an attorney instead"
-            />
-          )}
-
-          {spokes.length > 0 && (
-            <div className="mt-16 max-w-3xl">
-              <h2 className="font-display text-2xl leading-tight text-navy">
-                In this section
-              </h2>
-              <ul className="mt-6 divide-y divide-navy/10 border-t border-navy/10">
-                {spokes.map((s) => (
-                  <li key={s.slug} className="py-5">
-                    {s.published ? (
-                      <Link href={injuryHref(s)} className="group block">
-                        <span className="font-display text-xl text-navy transition-colors group-hover:text-bronze">
-                          {s.title}
-                        </span>
-                        <span className="mt-1 block leading-relaxed text-charcoal/80">
-                          {s.description}
-                        </span>
-                      </Link>
-                    ) : (
-                      <div>
-                        <span className="font-display text-xl text-navy/55">
-                          {s.title}
-                        </span>
-                        <span className="mt-1 block leading-relaxed text-charcoal/60">
-                          {s.description}
-                        </span>
-                        <span className="mt-2 inline-block font-heading text-xs uppercase tracking-wide text-navy/40">
-                          In progress
-                        </span>
-                      </div>
-                    )}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
-
-          <div className="max-w-3xl">
-            <p className="mt-14 text-sm text-navy/60">
-              <Needs>
-                attorney review of this page against its cited sources
-              </Needs>
-            </p>
-            <Byline owner={page.owner} lastReviewed={page.lastReviewed} />
           </div>
         </div>
-      </section>
+      ) : null}
 
-      <HandledBy href="/personal-injury" />
+      <TieredBody charge={page} sections={sections} copy={INJURY_COPY} />
+
+      {spokes.length ? (
+        <section data-bg="white" className="bg-white py-24 lg:py-32 text-navy">
+          <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
+            <h2 className={`${type.sectionHeading} ${color.heading}`}>{page.label}, in more depth.</h2>
+            <p className={`${space.afterHeading} max-w-2xl ${type.lead} ${color.body}`}>
+              Each page takes one part of these claims further.
+            </p>
+            <ul className={`${space.beforeContent} ${space.items}`}>
+              {spokes.map((s) => (
+                <li key={s.slug}>
+                  <Link
+                    href={injuryHref(s)}
+                    className={`group block border border-navy/15 bg-white transition-colors hover:border-bronze hover:bg-linen/15 ${card}`}
+                  >
+                    <span className={`block ${type.subheading} ${color.heading} transition-colors group-hover:text-bronze`}>
+                      {s.title}
+                    </span>
+                    <span className={`${space.inItem} block ${type.body} ${color.body}`}>{s.description}</span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </section>
+      ) : null}
+
+      <HandledBy href={injuryHref(page)} charge intro="The attorney at Hines McCarty Pavlidis who handles these claims." />
 
       <CallToAction
         heading="Talk to an attorney about your injury claim."

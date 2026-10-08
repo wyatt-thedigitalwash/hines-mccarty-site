@@ -18,6 +18,7 @@ import { color, space, type } from "@/components/cases/ui";
 export default function HandledBy({
   href,
   charge = false,
+  intro = "The attorneys at Hines McCarty Pavlidis who defend this charge.",
 }: {
   href: string;
   /**
@@ -27,6 +28,8 @@ export default function HandledBy({
    * as before.
    */
   charge?: boolean;
+  /** The line under the heading in charge styling. Injury pages pass their own (D72). */
+  intro?: string;
 }) {
   const matched = charge ? attorneysHandlingCharge(href) : attorneysLeadingPractice(href);
   if (matched.length === 0) return null;
@@ -37,7 +40,7 @@ export default function HandledBy({
         <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
           <h2 className={`${type.sectionHeading} ${color.heading}`}>Who handles these cases.</h2>
           <p className={`${space.afterHeading} max-w-2xl ${type.lead} ${color.body}`}>
-            The attorneys at Hines McCarty Pavlidis who defend this charge.
+            {intro}
           </p>
           <ul className={`${space.beforeContent} grid gap-4 sm:grid-cols-2 lg:grid-cols-3`}>
             {matched.map((attorney) => (

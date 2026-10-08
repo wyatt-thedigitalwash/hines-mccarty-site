@@ -648,6 +648,19 @@ export const attorneys: Attorney[] = [
     // attorney leads which criminal area and is still unanswered; answering one
     // practice does not answer the other.
     leadsPracticeHrefs: ["/personal-injury"],
+    // D72: the injury pillars and spokes, for the "Who handles these cases"
+    // block on each injury page (D65 mapped Colton Trina to injury).
+    handlesChargeHrefs: [
+      "/personal-injury/car-accidents",
+      "/personal-injury/car-accidents/types-of-car-accidents",
+      "/personal-injury/car-accidents/compensation",
+      "/personal-injury/car-accidents/insurance-claims",
+      "/personal-injury/car-accidents/catastrophic-injuries",
+      "/personal-injury/truck-accidents",
+      "/personal-injury/truck-accidents/semi-truck-collisions",
+      "/personal-injury/truck-accidents/fmcsa-violations",
+      "/personal-injury/truck-accidents/delivery-and-box-truck",
+    ],
     credentials: {
       barAdmission: {
         state: "Florida",
@@ -809,6 +822,10 @@ export type InjuryPage = {
   lead?: string;
   /** The body, same section grammar as charges and guides. */
   sections?: ChargeSection[];
+  /** D72: the hero's call button; defaults to the firm phone. */
+  heroCta?: { label: string; href: string };
+  /** D72: detail topics as boxes, as on the charge pages. */
+  detailsLayout?: "grid";
   faq?: FaqItem[];
   relatedLinks?: RelatedLink[];
   readerNeeds?: Partial<Record<ReaderQuestion, string>>;
@@ -832,7 +849,7 @@ export const injuryPages: InjuryPage[] = [
     label: "Car Accidents",
     title: "Car Accident Claims in Hillsborough County",
     description: "Crashes on Hillsborough roads and across Tampa Bay",
-    metaTitle: "Florida Car Accident Claims: PIP, Uninsured Motorists, and the 2023 Changes",
+    metaTitle: "Car Accident Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "What Florida law actually says after a car accident: the 14-day PIP deadline, uninsured motorist coverage, the 50 percent fault bar, and which limitations period applies to your claim.",
     lead: "Most of what decides a Florida car accident claim happens in the first two weeks, before anyone has talked about who was at fault. This page sets out the four provisions that do most of the deciding, in the statute's own words.",
     sections: [
@@ -941,7 +958,7 @@ export const injuryPages: InjuryPage[] = [
     label: "Types of Car Accidents",
     title: "Types of Car Accident Claims",
     description: "Rear end, hit and run, rideshare, and impaired drivers",
-    metaTitle: "Types of Florida Car Accident Claims: Rear End, Hit and Run, Rideshare",
+    metaTitle: "Types of Car Accident Claims in Tampa, Florida",
     metaDescription: "How the type of crash changes the claim: what a rear-end collision does and does not settle, where coverage comes from in a hit and run, and the two rideshare insurance tiers.",
     lead: "The kind of crash matters less for what it says about fault than for where the money to pay a claim comes from. Four common types, and what changes about the claim in each.",
     sections: [
@@ -1044,9 +1061,9 @@ export const injuryPages: InjuryPage[] = [
     slug: "compensation",
     parent: "car-accidents",
     label: "Compensation",
-    title: "What a Car Accident Claim Can Cover",
+    title: "Car accident compensation in Tampa",
     description: "The categories of loss Florida law recognizes",
-    metaTitle: "What a Florida Car Accident Claim Can Cover",
+    metaTitle: "Car Accident Compensation in Tampa | Hines McCarty Pavlidis",
     metaDescription: "The categories of loss Florida law recognises after a crash, how contributory fault reduces a recovery, and why no page can tell you what a claim is worth.",
     lead: "There is a difference between what the law lets you claim and what any particular claim is worth. This page covers the first. Nothing on this site covers the second, because it cannot be known without the file.",
     sections: [
@@ -1133,7 +1150,7 @@ export const injuryPages: InjuryPage[] = [
     label: "Insurance Claims",
     title: "Car Accident Insurance Claims in Florida",
     description: "PIP, uninsured motorist coverage, and total loss",
-    metaTitle: "Florida Car Accident Insurance Claims: PIP, UM Coverage, and What Each Pays",
+    metaTitle: "Car Accident Insurance Claims in Tampa, Florida",
     metaDescription: "How Florida's no-fault benefits work, what personal injury protection pays and does not, and why uninsured motorist coverage is often the only real source of recovery.",
     lead: "Two policies usually matter after a Florida crash, and neither of them is the at-fault driver's. This page covers what your own coverage is required to provide and where the rest has to come from.",
     sections: [
@@ -1220,7 +1237,7 @@ export const injuryPages: InjuryPage[] = [
     label: "Catastrophic Injuries",
     title: "Catastrophic Injury Claims",
     description: "Spinal cord and traumatic brain injury claims",
-    metaTitle: "Florida Catastrophic Injury Claims: Why the Arithmetic Changes",
+    metaTitle: "Catastrophic Injury Claims in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Why a catastrophic injury claim runs past no-fault benefits immediately, how Florida limits evidence of medical damages, and what a fatal injury changes about who may recover.",
     lead: "A catastrophic injury changes the shape of a claim rather than its size. Benefits that cover an ordinary crash are exhausted in days, and the questions that decide the case become future cost and available coverage rather than fault alone.",
     sections: [
@@ -1315,7 +1332,7 @@ export const injuryPages: InjuryPage[] = [
     label: "Truck Accidents",
     title: "Truck and Commercial Vehicle Claims",
     description: "Semi-truck, delivery and commercial vehicle collisions",
-    metaTitle: "Florida Truck Accident Claims: Who Answers, and What Evidence Disappears",
+    metaTitle: "Truck Accident Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Commercial vehicle crashes in Hillsborough County: how Florida apportions fault among a driver, a carrier and a broker, the nonparty rule, and the records that cycle out before a claim is filed.",
     lead: "A commercial crash differs from a car crash in two ways that matter from the first week: more than one company may answer for it, and the records that prove what happened are held by the company you would be making a claim against.",
     sections: [
@@ -1436,7 +1453,7 @@ export const injuryPages: InjuryPage[] = [
     label: "Semi-Truck Collisions",
     title: "18-Wheeler and Semi-Truck Collisions",
     description: "Jackknife and underride collisions",
-    metaTitle: "Florida 18-Wheeler and Semi-Truck Collision Claims",
+    metaTitle: "Semi-Truck Collisions in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Why a semi-truck claim reaches past the driver, how Florida defines the accident being apportioned, and what a defendant must do to put an absent company on the verdict form.",
     lead: "An eighty-thousand-pound vehicle fails differently from a car, and the claim that follows is built differently too. The difference is not severity alone. It is that the events being judged start well before the impact.",
     sections: [
@@ -1522,7 +1539,7 @@ export const injuryPages: InjuryPage[] = [
     label: "FMCSA Violations",
     title: "Federal Trucking Rules and FMCSA Violations",
     description: "Hours of service, records, and federal trucking rules",
-    metaTitle: "FMCSA Hours of Service and Record Retention After a Florida Truck Crash",
+    metaTitle: "FMCSA Violations After a Truck Crash in Tampa, Florida",
     metaDescription: "The federal driving limits a commercial driver runs on, how long a carrier must keep the logs, maintenance records and driver qualification file, and why a preservation letter goes out first.",
     lead: "A commercial driver runs on three clocks set by federal regulation, and the records that prove which one was exceeded are kept for as little as six months. This page sets out both, in the regulation's own words.",
     sections: [
@@ -1642,7 +1659,7 @@ export const injuryPages: InjuryPage[] = [
     label: "Delivery and Box Trucks",
     title: "Delivery and Commercial Box Truck Crashes",
     description: "Delivery vans, box trucks, and who is responsible",
-    metaTitle: "Florida Delivery Van and Box Truck Crashes: Which Rules Actually Apply",
+    metaTitle: "Delivery and Box Truck Crashes in Tampa, Florida",
     metaDescription: "Why the federal trucking rules may not reach the delivery van that hit you, how the commercial motor vehicle threshold works, and why who employed the driver is the question that decides the claim.",
     lead: "Two assumptions do most of the damage in a delivery vehicle case. The first is that the federal trucking rules automatically apply. The second is that the name on the van is the company you have a claim against. Both are often wrong, and each is a question rather than an answer.",
     sections: [
