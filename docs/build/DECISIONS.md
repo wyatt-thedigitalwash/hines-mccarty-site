@@ -2837,3 +2837,10 @@ have consented to publish, with the disclaimer the rules require.
 - **Search closes more easily:** a large "Close ×" in the panel's top
   corner, where the header's buttons sit, on every screen size; tapping the
   darkened page below still closes it, and so does Escape.
+
+### D78. Photo hero on the two injury pillars only
+
+**2026-10-08. Client direction.** Car accidents and truck accidents keep the
+photo hero they had before D77; the seven spokes keep the plain navy hero.
+The pillars' jump links follow the photo hero as their own strip, so the
+image is not cut by them.

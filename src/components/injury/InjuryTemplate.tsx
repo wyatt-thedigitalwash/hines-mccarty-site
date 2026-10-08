@@ -2,10 +2,12 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CallToAction from "@/components/CallToAction";
 import HandledBy from "@/components/attorneys/HandledBy";
+import HeroPhotoLayer from "@/components/HeroPhotoLayer";
 import QuickNav from "@/components/cases/QuickNav";
 import TieredBody, { type TieredCopy } from "@/components/cases/TieredBody";
 import { card, color, space, type } from "@/components/cases/ui";
 import { type InjuryPage, firm, injuryHref, injurySpokes, injuryTrail } from "@/lib/site";
+import { injuryHeroPhoto } from "@/lib/hero-photos";
 import InjuryLegacy from "./InjuryLegacy";
 
 /**
@@ -15,8 +17,8 @@ import InjuryLegacy from "./InjuryLegacy";
  * the call band, with injury wording where the template names the kind of
  * page. What differs, on client direction:
  *
- *   - The hero is the charge pages' plain navy hero (D77; it carried a
- *     photo until the client asked for it to go).
+ *   - The pillars keep a photo hero; the spokes use the charge pages' plain
+ *     navy hero (D77, D78).
  *   - Pillars carry the full spine (who pays, what happens next, what to do
  *     right now). Spokes open on a short answer and go straight to their
  *     topics, so the same deadlines and steps are not repeated on nine pages.
@@ -37,6 +39,7 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
   const sections = page.sections ?? [];
   if (!sections.some((s) => s.tier)) return <InjuryLegacy page={page} />;
 
+  const pillar = !page.parent;
   const spokes = page.parent ? [] : injurySpokes(page.slug).filter((s) => s.published);
   const cta = page.heroCta ?? { label: `Call ${firm.phone}`, href: firm.phoneHref };
   const quickNav = [
@@ -49,8 +52,48 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
 
   return (
     <>
+      {/* D78: the two pillars keep the photo hero (client direction); the
+          spokes use the plain hero below. Right 58% from lg, a full-bleed
+          band under the copy on a phone; isolate and z-10 keep the copy above
+          the image. The jump links follow as their own strip. */}
+      {pillar ? (
+        <>
+          <section
+            data-bg="navy"
+            data-hero
+            className="relative isolate overflow-hidden bg-navy pt-28 pb-12 lg:pt-44 lg:pb-20"
+          >
+            <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10">
+              <Breadcrumbs trail={injuryTrail(page)} tone="dark" />
+              <h1 className={`mt-6 max-w-2xl ${type.pageTitle} ${color.onDarkHeading}`}>{page.title}</h1>
+              {page.lead ? (
+                <p className={`mt-6 max-w-xl ${type.lead} ${color.onDarkBody}`}>{page.lead}</p>
+              ) : null}
+              <div className="mt-8">
+                <a
+                  href={cta.href}
+                  className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+                >
+                  {cta.label}
+                </a>
+              </div>
+            </div>
+            <HeroPhotoLayer photo={injuryHeroPhoto(page)} />
+          </section>
+          {quickNav.length > 1 ? (
+            <div data-bg="navy" className="bg-navy">
+              <div className="bg-linen/[0.06]">
+                <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+                  <QuickNav items={quickNav} />
+                </div>
+              </div>
+            </div>
+          ) : null}
+        </>
+      ) : (
+        <>
       {/* The charge pages' hero (D77, client direction: no photo on the
-          injury pages): breadcrumbs, H1, lead, the call button, and the jump
+          spokes): breadcrumbs, H1, lead, the call button, and the jump
           links as the band that closes it (D52). */}
       <section data-bg="navy" className={`bg-navy pt-28 lg:pt-44 ${quickNav.length > 1 ? "" : "pb-10 lg:pb-16"}`}>
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -76,6 +119,9 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
           </div>
         ) : null}
       </section>
+
+        </>
+      )}
 
       <TieredBody charge={page} sections={sections} copy={INJURY_COPY} />
 
