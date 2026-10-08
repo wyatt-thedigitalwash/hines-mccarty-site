@@ -2852,3 +2852,11 @@ the three criminal areas in a row of three. It now lists all four practice
 areas from `practiceAreaIndex` (personal injury included, handled by Colton
 Trina through his existing mapping) as a 2x2 grid, and its intro says "see
 what it covers" rather than "the charges it covers".
+
+### D80. David Hines handles federal cases too
+
+**2026-10-08. Client direction.** David Hines is added to the federal charge
+pages (`handlesChargeHrefs` now state and federal), so he appears under
+"Who handles these cases" on all nine federal pages and on the Federal
+Criminal Defense card in "Who handles what"; his bio's practice areas list
+Federal Criminal Defense as well. Updates the D65 mapping (state only).

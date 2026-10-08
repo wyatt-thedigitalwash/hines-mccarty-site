@@ -262,7 +262,7 @@ export type Attorney = {
  * Which attorney handles which charge, as shown in each charge page's attorney
  * block (D65). Confirmed by the client 2026-10-08: Lily McCarty and Maria
  * Pavlidis handle every state, federal and white-collar charge page; David
- * Hines handles the state pages (his bio lists state criminal defense only).
+ * Hines handles the state and federal pages (D80).
  * Written out, not derived, because `charges` is defined further down this file
  * and because each entry is a claim about who handles a case.
  */
@@ -515,8 +515,9 @@ export const attorneys: Attorney[] = [
     // practice pages, or whether the firm presents as criminal-only and his bio
     // states the civil work in prose instead]
     // [NEEDS: which practice areas David Hines leads] (WEBSITE-PLAN.md OQ 2)
-    practiceAreaHrefs: ["/criminal-defense"],
-    handlesChargeHrefs: STATE_CHARGE_HREFS,
+    practiceAreaHrefs: ["/criminal-defense", "/federal-criminal-defense"],
+    // D80: state and federal, on client direction.
+    handlesChargeHrefs: [...STATE_CHARGE_HREFS, ...FEDERAL_CHARGE_HREFS],
     credentials: {
       // Client-supplied 2026-08-27.
       barAdmission: {
