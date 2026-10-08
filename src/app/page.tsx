@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/schema";
-import { TOOLS_LIVE } from "@/lib/site";
+import { TESTIMONIALS_REAL, TOOLS_LIVE } from "@/lib/site";
 import Hero from "@/components/home/Hero";
 import About from "@/components/home/About";
 import Practices from "@/components/home/Practices";
@@ -53,7 +53,8 @@ export default function Home() {
       <Locations />
       {/* D73: the insights section links to the articles, hidden with Resources. */}
       {TOOLS_LIVE ? <MattersAndInsights /> : null}
-      <Testimonials />
+      {/* D75: placeholder reviews never render; see TESTIMONIALS_REAL. */}
+      {TESTIMONIALS_REAL ? <Testimonials /> : null}
       <CTA />
     </>
   );

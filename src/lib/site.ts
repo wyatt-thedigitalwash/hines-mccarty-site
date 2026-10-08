@@ -12950,6 +12950,13 @@ export const insightsPreview = [
 
 // Placeholder testimonials. Replace with real, client-consented reviews and a
 // results-may-vary disclaimer before launch (Fla. Bar R. 4-7.13).
+//
+// D75: hidden until real. Invented quotes labelled "Google Review" are a
+// fabricated endorsement (Bar rules and FTC guidance alike), so the home page
+// shows the section only when TESTIMONIALS_REAL is true. Set it once these are
+// replaced with real reviews the clients have consented to publish.
+export const TESTIMONIALS_REAL = false;
+
 export const testimonials = [
   {
     quote:

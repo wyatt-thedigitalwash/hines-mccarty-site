@@ -2775,3 +2775,14 @@ David Hines's bio overview; written permission from each organisation whose
 mark appears in the credential strip (the marks still display); a
 substantiated firm-wide trial count if wanted; Tampa office details; hub FAQ
 answers; the Mapbox token for the map.
+
+### D75. Placeholder testimonials hidden
+
+**2026-10-08.** The home page's "What clients say" showed two invented
+quotes attributed to "Google Review"; the data was marked as placeholders to
+replace before launch. Published as written, they would be fabricated
+testimonials in attorney advertising (Florida Bar rules 4-7.13 and 4-7.14
+require testimonials to be real and properly qualified) and fake reviews
+under FTC guidance. The section now renders only when `TESTIMONIALS_REAL` is
+set in site.ts, after the quotes are replaced with real reviews the clients
+have consented to publish, with the disclaimer the rules require.
