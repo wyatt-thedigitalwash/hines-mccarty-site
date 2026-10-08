@@ -176,7 +176,7 @@ export default function SiteSearch({ open, onNavigate }: { open: boolean; onNavi
             <p>Nothing on the site matches &ldquo;{query.trim()}&rdquo;.</p>
             <p className="mt-2 text-sm text-linen/70">
               Try the charge as it is written on your paperwork, or{" "}
-              <Link href="/cases-we-defend" onClick={onNavigate} className="underline underline-offset-4 hover:text-bronze">
+              <Link href="/criminal-defense" onClick={onNavigate} className="underline underline-offset-4 hover:text-bronze">
                 see every charge we defend
               </Link>
               . Or call{" "}

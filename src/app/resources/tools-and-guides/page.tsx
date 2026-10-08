@@ -52,8 +52,8 @@ export default function Page() {
       <EmptyState
         heading="Nothing is published here yet"
         body="The tools and guides are being built. The first of them explain how sentencing is calculated and what the first day after an arrest actually involves, including how release is decided."
-        linkHref="/cases-we-defend"
-        linkLabel="Cases we defend"
+        linkHref="/criminal-defense"
+        linkLabel="Criminal defense charges"
       />
 
       <CallToAction heading="Talk to an attorney about your case." tone="navy" />

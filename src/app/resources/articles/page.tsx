@@ -45,8 +45,8 @@ export default function Page() {
       <EmptyState
         heading="No articles are published yet"
         body="Articles are the last layer to go up, because each one is written to link back to a charge page that explains the offence in full. Those come first."
-        linkHref="/cases-we-defend"
-        linkLabel="Cases we defend"
+        linkHref="/criminal-defense"
+        linkLabel="Criminal defense charges"
       />
 
       <CallToAction heading="Talk to an attorney about your case." tone="navy" />

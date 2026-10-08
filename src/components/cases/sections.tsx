@@ -504,7 +504,7 @@ export function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
      tells the reader nothing and invites the inference that a level was looked
      for and not found.
 
-     On /criminal-defense/computer-crimes-defense it was a false statement of
+     On /criminal-defense/state/computer-crimes it was a false statement of
      law AND a breach of DECISIONS.md D14, which says that page carries no
      offense-level column on any row under any heading. F.S. 815.06 has no row
      in the chart, but F.S. 921.0023 assigns a severity level to a felony the

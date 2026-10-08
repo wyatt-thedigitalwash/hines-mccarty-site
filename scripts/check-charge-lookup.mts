@@ -530,7 +530,7 @@ console.log("Charge-lookup gate self-tests");
   t("the island's closure does NOT reach site.ts", t12(importClosure(ISLAND)).length === 0);
 
   t("PLANTED: T7 fires on an unbuilt destination",
-    t7(["/criminal-defense/not-a-real-charge"], () => false).length > 0);
+    t7(["/criminal-defense/state/not-a-real-charge"], () => false).length > 0);
 
   // T8 and T9 fire on broken HTML.
   t("PLANTED: T8 fires when a table is named without its date",

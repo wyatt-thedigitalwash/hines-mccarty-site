@@ -16,7 +16,7 @@
  * Not part of `npm run build`, because it needs a browser. Run it after
  * `npm run verify`:
  *   npm run audit:pages                       every mapped page
- *   npm run audit:pages -- /criminal-defense/dui-defense
+ *   npm run audit:pages -- /criminal-defense/state/dui
  */
 import { spawn } from "node:child_process";
 import { mkdirSync, writeFileSync, readFileSync } from "node:fs";

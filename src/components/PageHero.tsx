@@ -6,7 +6,7 @@ import HeroPhotoLayer, { type HeroPhoto } from "@/components/HeroPhotoLayer";
  * photograph bled into the right side of the field.
  *
  * WHAT THIS REPLACED. The same twenty lines of markup copied into seven page
- * files. They had already drifted: /cases-we-defend carried its padding on the
+ * files. They had already drifted: /criminal-defense carried its padding on the
  * content wrapper rather than the section so the credential strip beneath it
  * could run full bleed, /about used lg:pb-28 where the rest used lg:pb-24, and
  * a change to the hero meant seven edits and a memory of which files had one.
@@ -86,7 +86,7 @@ export default function PageHero({ title, children, photo, bleed }: Props) {
         lg ONLY. A phone hero is as tall as its copy, because there the height
         is the copy and padding a short one out would just be scroll.
 
-        /cases-we-defend is taller than 556 and correctly so: it carries the
+        /criminal-defense is taller than 556 and correctly so: it carries the
         credential strip on its bottom edge, which no other hero does.
       */}
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 pb-20 lg:min-h-[380px] lg:px-10 lg:pb-24">

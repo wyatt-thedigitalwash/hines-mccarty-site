@@ -711,7 +711,7 @@ console.log("\nSection 11 assertions");
     const ROUTE = "/resources/tools/sentencing-worksheet";
     const offenders = measuredPages.filter(
       (m) =>
-        m.href.startsWith("/federal-criminal-defense") &&
+        m.href.startsWith("/criminal-defense/federal") &&
         JSON.stringify(m).includes(ROUTE),
     );
     if (offenders.length)
@@ -719,7 +719,7 @@ console.log("\nSection 11 assertions");
         `T7: ${offenders.length} federal page(s) reference the worksheet route. ` +
           `The Criminal Punishment Code does not apply to federal cases.`,
       );
-    else ok("T7: no page under /federal-criminal-defense references the route");
+    else ok("T7: no page under /criminal-defense/federal references the route");
   }
 
   // ---- T9 and the rendered-HTML assertions, only with --rendered.

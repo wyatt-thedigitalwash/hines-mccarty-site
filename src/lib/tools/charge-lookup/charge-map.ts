@@ -15,8 +15,8 @@
  * TWO THINGS IT DOES NOT DO, both of them Section 10 applied to links.
  *
  * 1. IT DOES NOT PICK. F.S. 812.014 is the recorded statute of BOTH
- *    /criminal-defense/grand-theft-defense and
- *    /white-collar-defense/embezzlement, which is not an accident: C9's own
+ *    /criminal-defense/state/grand-theft and
+ *    /criminal-defense/white-collar/embezzlement, which is not an accident: C9's own
  *    header records that exact pair as the collision that made the C9 checker
  *    exist. A reader who resolves 812.014(2)(c)1. is shown both pages, because
  *    choosing one would be the tool making a judgement about their case.

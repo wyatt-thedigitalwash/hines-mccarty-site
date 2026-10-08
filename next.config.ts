@@ -24,9 +24,34 @@ const nextConfig: NextConfig = {
         // than competing, so nothing that pointed at it breaks.
         // See CASES-WE-DEFEND-PLAN.md Section 11.3.
         source: "/guides",
-        destination: "/resources",
+        destination: "/resources/articles",
         permanent: true,
       },
+      // D81: every criminal defense page moved under /criminal-defense, and
+      // the state charge pages lost their "-defense" suffix. Nothing was
+      // published at the old addresses, so these are a safety net for links
+      // made during development. The state pages are listed one by one so
+      // they cannot catch the new /criminal-defense/state, /federal and
+      // /white-collar routes. Redirects from the previous website are added
+      // before launch (CLAUDE.md audit 6).
+      { source: "/cases-we-defend", destination: "/criminal-defense", permanent: true },
+      { source: "/criminal-defense/battery-defense", destination: "/criminal-defense/state/battery", permanent: true },
+      { source: "/criminal-defense/computer-crimes-defense", destination: "/criminal-defense/state/computer-crimes", permanent: true },
+      { source: "/criminal-defense/domestic-violence-defense", destination: "/criminal-defense/state/domestic-violence", permanent: true },
+      { source: "/criminal-defense/drug-possession-defense", destination: "/criminal-defense/state/drug-possession", permanent: true },
+      { source: "/criminal-defense/drug-trafficking-defense", destination: "/criminal-defense/state/drug-trafficking", permanent: true },
+      { source: "/criminal-defense/dui-defense", destination: "/criminal-defense/state/dui", permanent: true },
+      { source: "/criminal-defense/grand-theft-defense", destination: "/criminal-defense/state/grand-theft", permanent: true },
+      { source: "/criminal-defense/gun-crimes-defense", destination: "/criminal-defense/state/gun-crimes", permanent: true },
+      { source: "/criminal-defense/homicide-defense", destination: "/criminal-defense/state/homicide", permanent: true },
+      { source: "/criminal-defense/sex-crimes-defense", destination: "/criminal-defense/state/sex-crimes", permanent: true },
+      { source: "/criminal-defense/sexual-battery-defense", destination: "/criminal-defense/state/sexual-battery", permanent: true },
+      { source: "/federal-criminal-defense", destination: "/criminal-defense/federal", permanent: true },
+      { source: "/federal-criminal-defense/csam-defense", destination: "/criminal-defense/federal/csam", permanent: true },
+      { source: "/federal-criminal-defense/target-letter-defense", destination: "/criminal-defense/federal/target-letter", permanent: true },
+      { source: "/federal-criminal-defense/:slug", destination: "/criminal-defense/federal/:slug", permanent: true },
+      { source: "/white-collar-defense", destination: "/criminal-defense/white-collar", permanent: true },
+      { source: "/white-collar-defense/:slug", destination: "/criminal-defense/white-collar/:slug", permanent: true },
     ];
   },
   async headers() {

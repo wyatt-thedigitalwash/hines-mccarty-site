@@ -267,39 +267,39 @@ export type Attorney = {
  * and because each entry is a claim about who handles a case.
  */
 const STATE_CHARGE_HREFS = [
-  "/criminal-defense/sexual-battery-defense",
-  "/criminal-defense/drug-trafficking-defense",
-  "/criminal-defense/drug-possession-defense",
-  "/criminal-defense/gun-crimes-defense",
-  "/criminal-defense/sex-crimes-defense",
-  "/criminal-defense/battery-defense",
-  "/criminal-defense/domestic-violence-defense",
-  "/criminal-defense/computer-crimes-defense",
-  "/criminal-defense/grand-theft-defense",
-  "/criminal-defense/homicide-defense",
-  "/criminal-defense/dui-defense",
+  "/criminal-defense/state/sexual-battery",
+  "/criminal-defense/state/drug-trafficking",
+  "/criminal-defense/state/drug-possession",
+  "/criminal-defense/state/gun-crimes",
+  "/criminal-defense/state/sex-crimes",
+  "/criminal-defense/state/battery",
+  "/criminal-defense/state/domestic-violence",
+  "/criminal-defense/state/computer-crimes",
+  "/criminal-defense/state/grand-theft",
+  "/criminal-defense/state/homicide",
+  "/criminal-defense/state/dui",
 ];
 const FEDERAL_CHARGE_HREFS = [
-  "/federal-criminal-defense/drug-trafficking",
-  "/federal-criminal-defense/healthcare-fraud",
-  "/federal-criminal-defense/wire-mail-fraud",
-  "/federal-criminal-defense/conspiracy-charges",
-  "/federal-criminal-defense/weapons-gun-offenses",
-  "/federal-criminal-defense/csam-defense",
-  "/federal-criminal-defense/money-laundering",
-  "/federal-criminal-defense/computer-internet-crimes",
-  "/federal-criminal-defense/target-letter-defense",
+  "/criminal-defense/federal/drug-trafficking",
+  "/criminal-defense/federal/healthcare-fraud",
+  "/criminal-defense/federal/wire-mail-fraud",
+  "/criminal-defense/federal/conspiracy-charges",
+  "/criminal-defense/federal/weapons-gun-offenses",
+  "/criminal-defense/federal/csam",
+  "/criminal-defense/federal/money-laundering",
+  "/criminal-defense/federal/computer-internet-crimes",
+  "/criminal-defense/federal/target-letter",
 ];
 const WHITE_COLLAR_CHARGE_HREFS = [
-  "/white-collar-defense/healthcare-fraud",
-  "/white-collar-defense/bank-fraud",
-  "/white-collar-defense/embezzlement",
-  "/white-collar-defense/securities-fraud",
-  "/white-collar-defense/wire-fraud",
-  "/white-collar-defense/tax-evasion",
-  "/white-collar-defense/identity-theft",
-  "/white-collar-defense/money-laundering",
-  "/white-collar-defense/ppp-loan-fraud",
+  "/criminal-defense/white-collar/healthcare-fraud",
+  "/criminal-defense/white-collar/bank-fraud",
+  "/criminal-defense/white-collar/embezzlement",
+  "/criminal-defense/white-collar/securities-fraud",
+  "/criminal-defense/white-collar/wire-fraud",
+  "/criminal-defense/white-collar/tax-evasion",
+  "/criminal-defense/white-collar/identity-theft",
+  "/criminal-defense/white-collar/money-laundering",
+  "/criminal-defense/white-collar/ppp-loan-fraud",
 ];
 
 export const attorneys: Attorney[] = [
@@ -341,7 +341,7 @@ export const attorneys: Attorney[] = [
       "The Florida Bar certified her in Criminal Trial Law in 2015. She co-chairs the Criminal Law Section of the Hillsborough County Bar Association for the 2025-26 bar year and sits on the board of directors of the Hillsborough County Association of Criminal Defense Lawyers.",
     ],
     // [NEEDS: which practice areas Lily McCarty leads] (WEBSITE-PLAN.md OQ 2)
-    practiceAreaHrefs: ["/criminal-defense", "/federal-criminal-defense"],
+    practiceAreaHrefs: ["/criminal-defense/state", "/criminal-defense/federal"],
     handlesChargeHrefs: [...STATE_CHARGE_HREFS, ...FEDERAL_CHARGE_HREFS, ...WHITE_COLLAR_CHARGE_HREFS],
     credentials: {
       // Client-supplied 2026-08-27.
@@ -451,7 +451,7 @@ export const attorneys: Attorney[] = [
       "She is admitted in the Florida state courts and in the United States District Court for the Middle District of Florida, and The Florida Bar has certified her in Criminal Trial Law.",
     ],
     // [NEEDS: which practice areas Maria Pavlidis leads] (WEBSITE-PLAN.md OQ 2)
-    practiceAreaHrefs: ["/criminal-defense", "/federal-criminal-defense"],
+    practiceAreaHrefs: ["/criminal-defense/state", "/criminal-defense/federal"],
     handlesChargeHrefs: [...STATE_CHARGE_HREFS, ...FEDERAL_CHARGE_HREFS, ...WHITE_COLLAR_CHARGE_HREFS],
     credentials: {
       // Client-supplied 2026-08-27.
@@ -515,7 +515,7 @@ export const attorneys: Attorney[] = [
     // practice pages, or whether the firm presents as criminal-only and his bio
     // states the civil work in prose instead]
     // [NEEDS: which practice areas David Hines leads] (WEBSITE-PLAN.md OQ 2)
-    practiceAreaHrefs: ["/criminal-defense", "/federal-criminal-defense"],
+    practiceAreaHrefs: ["/criminal-defense/state", "/criminal-defense/federal"],
     // D80: state and federal, on client direction.
     handlesChargeHrefs: [...STATE_CHARGE_HREFS, ...FEDERAL_CHARGE_HREFS],
     credentials: {
@@ -630,7 +630,7 @@ export const attorneys: Attorney[] = [
     // [NEEDS: which practice areas Colton Trina leads] (WEBSITE-PLAN.md OQ 2)
     //
     // The client lists his areas as Personal Injury, DUI, and Criminal Defense.
-    // DUI is already covered here: /criminal-defense/dui-defense sits under
+    // DUI is already covered here: /criminal-defense/state/dui sits under
     // this capability, so it needs no separate href. Personal injury does not
     // exist anywhere on the site, and his Florida Justice Association
     // membership, a plaintiff-side organization, is consistent with him doing
@@ -639,7 +639,7 @@ export const attorneys: Attorney[] = [
     // [NEEDS: decide whether personal injury is a practice the site presents]
     // -- until then his concentration line and this list stay criminal-only,
     // which is accurate but narrower than what he actually practices.
-    practiceAreaHrefs: ["/criminal-defense", "/personal-injury"],
+    practiceAreaHrefs: ["/criminal-defense/state", "/personal-injury"],
     // THE FIRST POPULATED `leadsPracticeHrefs` ON THIS SITE, and only for the
     // injury practice. The client answered 2026-08-26 that Colton handles all
     // personal injury work, which is exactly the claim this field makes: this
@@ -759,7 +759,7 @@ export const capabilities = [
     key: "state",
     short: "State",
     title: "State Criminal Defense",
-    href: "/criminal-defense",
+    href: "/criminal-defense/state",
     summary:
       "Serious felony and misdemeanor defense in the 13th Judicial Circuit and across Tampa Bay.",
   },
@@ -767,7 +767,7 @@ export const capabilities = [
     key: "federal",
     short: "Federal",
     title: "Federal Criminal Defense",
-    href: "/federal-criminal-defense",
+    href: "/criminal-defense/federal",
     summary:
       "Representation in the Middle District of Florida, Tampa Division, from investigation through sentencing.",
   },
@@ -775,7 +775,7 @@ export const capabilities = [
     key: "white-collar",
     short: "White-Collar",
     title: "White-Collar Defense",
-    href: "/white-collar-defense",
+    href: "/criminal-defense/white-collar",
     summary:
       "Fraud and financial-crime defense for professionals and businesses under state or federal scrutiny.",
   },
@@ -2370,7 +2370,7 @@ export const primaryNav: NavItem[] = [
     // unchanged; the LABEL changed because the firm now has a second practice
     // and "Cases We Defend" is the criminal one, not the site.
     label: "Criminal Defense",
-    href: "/cases-we-defend",
+    href: "/criminal-defense",
     children: capabilities.map((c) => ({
       label: c.title,
       href: c.href,
@@ -2513,11 +2513,11 @@ export type Silo = {
 export const silos: Silo[] = [
   {
     key: "state",
-    href: "/criminal-defense",
+    href: "/criminal-defense/state",
     label: "State Criminal Defense",
     h1: "State criminal defense in Hillsborough County",
     metaTitle:
-      "Criminal Defense Lawyer in Tampa | Hines McCarty Pavlidis",
+      "State Criminal Defense Lawyer in Tampa, Florida",
     metaDescription:
       "Felony and misdemeanor defense in the 13th Judicial Circuit, Hillsborough County, from first appearance through trial.",
     intro: [
@@ -2567,7 +2567,7 @@ export const silos: Silo[] = [
   },
   {
     key: "federal",
-    href: "/federal-criminal-defense",
+    href: "/criminal-defense/federal",
     label: "Federal Criminal Defense",
     h1: "Federal criminal defense in the Middle District of Florida",
     metaTitle:
@@ -2696,7 +2696,7 @@ export const silos: Silo[] = [
     // live in the white-collar silo, so this points there rather than holding a
     // card that rests on no statute.
     crossSilo: {
-      href: "/white-collar-defense",
+      href: "/criminal-defense/white-collar",
       label: "White-collar and fraud defense",
       note: "Many federal prosecutions in this district are white-collar matters. The offenses themselves, including bank fraud, securities fraud, embezzlement, wire fraud, tax evasion, and Medicaid provider fraud, are covered in the white-collar section rather than duplicated here.",
     },
@@ -2738,7 +2738,7 @@ export const silos: Silo[] = [
   },
   {
     key: "white-collar",
-    href: "/white-collar-defense",
+    href: "/criminal-defense/white-collar",
     label: "White-Collar Defense",
     h1: "White-collar and fraud defense",
     metaTitle: "White-Collar and Fraud Defense | Hines McCarty Pavlidis",
@@ -2946,37 +2946,37 @@ export type ChargePage = {
 
 const stateCharges: ChargeSeed[] = [
   [
-    "sexual-battery-defense",
+    "sexual-battery",
     "Sexual Battery",
     "Charges involving alleged non-consensual sexual acts",
   ],
   [
-    "drug-trafficking-defense",
+    "drug-trafficking",
     "Drug Trafficking",
     "Drug charges based on large amounts",
   ],
   [
-    "drug-possession-defense",
+    "drug-possession",
     "Drug Possession",
     "Charges for having drugs on you",
   ],
   [
-    "gun-crimes-defense",
+    "gun-crimes",
     "Gun Crimes",
     "Charges for carrying, using, or owning firearms",
   ],
   [
-    "sex-crimes-defense",
+    "sex-crimes",
     "Sex Crimes",
     "Charges involving alleged sexual conduct or contact",
   ],
   [
-    "battery-defense",
+    "battery",
     "Battery",
     "Charges for allegedly hitting or touching someone",
   ],
   [
-    "domestic-violence-defense",
+    "domestic-violence",
     "Domestic Violence",
     "Charges involving a partner or family member",
   ],
@@ -2987,21 +2987,21 @@ const stateCharges: ChargeSeed[] = [
   // The label also steers away from "internet crimes", which in this market
   // pulls child pornography defence into the same SERP.
   [
-    "computer-crimes-defense",
+    "computer-crimes",
     "Unauthorized Computer Access",
     "Florida charges for accessing computers without authorization",
   ],
   [
-    "grand-theft-defense",
+    "grand-theft",
     "Grand Theft",
     "Theft charges above a set dollar amount",
   ],
   [
-    "homicide-defense",
+    "homicide",
     "Homicide",
     "Charges involving someone's death, including murder",
   ],
-  ["dui-defense", "DUI", "Driving charges involving alcohol or drugs"],
+  ["dui", "DUI", "Driving charges involving alcohol or drugs"],
 ];
 
 const federalCharges: ChargeSeed[] = [
@@ -3015,7 +3015,7 @@ const federalCharges: ChargeSeed[] = [
   // rested on no statute: there is no corporate fraud offence in the United
   // States Code. Its name also duplicated an entire silo, and every chargeable
   // offence it would have covered already has its own page. The federal silo
-  // hub carries one cross-silo row to /white-collar-defense instead, which is
+  // hub carries one cross-silo row to /criminal-defense/white-collar instead, which is
   // the treatment mail fraud received under D4.
   [
     "healthcare-fraud",
@@ -3039,7 +3039,7 @@ const federalCharges: ChargeSeed[] = [
     "Gun charges prosecuted in federal court",
   ],
   [
-    "csam-defense",
+    "csam",
     "Child Sex Abuse Material",
     "Federal charges involving illegal images of minors",
   ],
@@ -3054,7 +3054,7 @@ const federalCharges: ChargeSeed[] = [
     "Charges involving computers, networks, or online activity",
   ],
   [
-    "target-letter-defense",
+    "target-letter",
     "Target Letter Defense",
     "A letter saying you are under federal investigation",
   ],
@@ -3079,7 +3079,7 @@ const whiteCollarCharges: ChargeSeed[] = [
   // opening clause, a 20-year maximum, and a word-for-word identical
   // enhancement sentence, differing only in the jurisdictional means. The
   // `mail fraud attorney Tampa` query is targeted by an H2 within
-  // /federal-criminal-defense/wire-mail-fraud, whose slug already names both.
+  // /criminal-defense/federal/wire-mail-fraud, whose slug already names both.
   [
     "bank-fraud",
     "Bank Fraud",
@@ -3154,7 +3154,7 @@ type ChargeSeed = [string, string, string];
  * took the position-of-trust pattern.
  */
 const CHARGE_C9: Record<string, C9Assertion> = {
-  "state/grand-theft-defense": {
+  "state/grand-theft": {
     statute: "F.S. 812.014",
     section: "Degrees and penalties",
     assertion:
@@ -3166,19 +3166,19 @@ const CHARGE_C9: Record<string, C9Assertion> = {
     assertion:
       "Possession was lawful and authorized when it began, so the contested element is intent to deprive rather than the taking.",
   },
-  "state/drug-trafficking-defense": {
+  "state/drug-trafficking": {
     statute: "F.S. 893.135",
     section: "Weight, mandatory minimum, fine and offense level",
     assertion:
       "Substance-specific weight tiers, each tied to a mandatory minimum term and a fixed fine, with no tier ranked below offense level 7.",
   },
-  "state/gun-crimes-defense": {
+  "state/gun-crimes": {
     statute: "F.S. 775.087",
     section: "If a firearm was involved",
     assertion:
       "Possession of a firearm by a felon and burglary of a conveyance carry a three-year minimum under 10-20-Life, not the ten years every other enumerated felony draws.",
   },
-  "state/domestic-violence-defense": {
+  "state/domestic-violence": {
     statute: "F.S. 741.2901",
     section: "Why the case continues if the complainant recants",
     assertion:
@@ -3200,7 +3200,7 @@ const CHARGE_C9: Record<string, C9Assertion> = {
   // the page has verified substance and is excused from the statute-parse check
   // only. An empty C9 here would mean the page is claiming an exemption it has
   // not earned, and scripts/check-c9.mts fails the build on exactly that.
-  "federal/target-letter-defense": {
+  "federal/target-letter": {
     statute: "JM 9-11.151",
     section: "Target and subject, the only two statuses JM 9-11.151 defines, and the Advice of Rights text it publishes",
     assertion:
@@ -3210,30 +3210,30 @@ const CHARGE_C9: Record<string, C9Assertion> = {
   // W4, recorded 2026-08-13. Barrier ran over 27 assertions: 351 pairwise
   // comparisons with statute ignored, max similarity 0.196 against the 0.34
   // threshold, and no same-statute pair beyond the ruled 812.014 one.
-  // /criminal-defense/sex-crimes-defense is recorded with a populated C9
+  // /criminal-defense/state/sex-crimes is recorded with a populated C9
   // deliberately. W4-02 recommends classifying it a category overview that is
   // still checked, which is a third state this file does not yet model. It is
   // NOT c9Exempt: D12's condition for exemption is that no statute exists, and
   // this page rests on five. Pending decision.
-  "state/sexual-battery-defense": {
+  "state/sexual-battery": {
     statute: "F.S. 794.011(5) and (6), read with F.S. 794.005",
     section: "The basic charge, and what force adds to it",
     assertion:
       "Florida's basic sexual battery charge is the one with no force in it: each paragraph of F.S. 794.011(5) is committed where the person does not use physical force and violence likely to cause serious personal injury, F.S. 794.011(6) makes those paragraphs necessarily included offences of the charges under (3) and (4), and F.S. 794.005 records the Legislature's finding that (5) was never intended to require any force or violence beyond the force and violence inherent in the accomplishment of penetration or union.",
   },
-  "state/sex-crimes-defense": {
+  "state/sex-crimes": {
     statute: "F.S. 943.0435",
     section: "Registration: what the statute requires, and when",
     assertion:
       "Registration runs on a 48-hour clock rather than a calendar and the offence it creates is an offence of omission: F.S. 943.0435(9)(a) makes any failure to report a third degree felony, ranked at level 7 on the F.S. 921.0022 chart, and makes each separate instance a separate offence, and F.S. 943.0435(9)(b) requires a mandatory minimum term of community control with electronic monitoring of 6 months, 1 year, or 2 years by offence count wherever the court imposes no prison sentence, while two narrower failures are graded a full degree higher to a second degree felony, reporting an intent to vacate a residence and then remaining under F.S. 943.0435(4)(c), and reporting an intent to leave the state and then remaining in Florida under F.S. 943.0435(8).",
   },
-  "state/homicide-defense": {
+  "state/homicide": {
     statute: "F.S. 782.04",
     section: "The same felony, two degrees: who caused the death",
     assertion:
       "Florida's felony murder provisions send the same underlying felony to two different degrees depending on who caused the death: under F.S. 782.04(1)(a)2 a death caused by a participant during one of nineteen enumerated felonies is first degree murder and a capital felony, while under F.S. 782.04(3) a death caused during those same felonies by a person other than a participant makes the participant guilty of second degree murder, a first degree felony ranked at level 9 rather than the level 10 that ordinary second degree murder carries, and the two enumerated lists are not identical, because human trafficking appears in the first degree list and in neither the second nor the third degree list.",
   },
-  "federal/csam-defense": {
+  "federal/csam": {
     statute: "18 U.S.C. 2252",
     section: "Which paragraph of 18 U.S.C. 2252(a) you are charged under",
     assertion:
@@ -3244,13 +3244,13 @@ const CHARGE_C9: Record<string, C9Assertion> = {
   // pairwise with statute ignored, max similarity 0.196 against the 0.34
   // threshold. The only same-statute pair is the ruled grand theft and
   // embezzlement pair on F.S. 812.014, at 0.000 substance similarity.
-  "state/drug-possession-defense": {
+  "state/drug-possession": {
     statute: "F.S. 893.13(6)",
     section: "Degrees, penalties and offense levels",
     assertion:
       "One paragraph of the possession statute is ranked twice in the F.S. 921.0022 chart at two different severity levels, level 1 for felony possession of cannabis and level 3 for possession of any other controlled substance, so two third degree felonies carrying the identical five-year maximum score 4 primary offense points and 16, while 893.13(6)(c) possession of more than 10 grams of a substance named in s. 893.03(1)(a), (1)(b) or (2)(b) is a first degree felony at level 8 and 74 points, above the 44-point threshold on the primary offense alone.",
   },
-  "state/battery-defense": {
+  "state/battery": {
     statute: "F.S. 784.03",
     section: "What raises a battery without changing what happened",
     assertion:
@@ -3261,7 +3261,7 @@ const CHARGE_C9: Record<string, C9Assertion> = {
   // (HUNT-LIST instance 20). Under D40 the field also records PLACEMENT: this
   // section sits ABOVE the spine, because it carries a deadline the reader can
   // miss, and DUI is the only charge in the set where that is true.
-  "state/dui-defense": {
+  "state/dui": {
     statute: "F.S. 322.2615",
     section: "The 10 days run from the notice of suspension, not from the arrest",
     assertion:
@@ -3307,7 +3307,7 @@ const CHARGE_C9: Record<string, C9Assertion> = {
     assertion:
       "Section 371 names an act to effect the object of the conspiracy on the face of its text and caps the sentence at five years whatever the object offense was, while the conspiracy provisions at 21 U.S.C. 846 and 18 U.S.C. 1349 name only the agreement and carry the same penalties as the completed offense.",
   },
-  "state/computer-crimes-defense": {
+  "state/computer-crimes": {
     statute: "F.S. 815.06",
     section: "What turns a third degree charge into a second or first degree charge",
     assertion:
@@ -3392,7 +3392,7 @@ export const CHARGE_C9_KEYS = Object.keys(CHARGE_C9);
 /**
  * Entries that are not charge pages, excused from C9 on the record.
  *
- * DECISIONS.md D12. `/white-collar-defense/corporate-fraud` is kept, but it is
+ * DECISIONS.md D12. `/criminal-defense/white-collar/corporate-fraud` is kept, but it is
  * reclassified: it is a category overview that links down to the pages that do
  * rest on statutes. It is not a charge page and must not be written as one.
  *
@@ -3407,7 +3407,7 @@ const CHARGE_C9_EXEMPT: Record<string, C9Exemption> = {
     reason:
       "Category overview, not a charge page. No corporate fraud offence exists in Florida or federal law, so there is no statute for a differentiator to rest on. Kept because the term carries client-side search value, and it links down to securities fraud, bank fraud, embezzlement, and wire fraud, which do rest on statutes. DECISIONS.md D12.",
   },
-  "federal/target-letter-defense": {
+  "federal/target-letter": {
     type: "policy-governed",
     reason:
       "A procedure page with verified substance, not an empty category. No statute creates a target letter or defines \"target\" and \"subject\": those terms exist only in DOJ charging policy at JM 9-11.151, which also publishes the Advice of Rights text verbatim, and the phrase \"target letter\" appears nowhere in the Justice Manual's grand jury chapter. The differentiator IS that absence, so the statute-parse flag is correct and is excused rather than engineered away. Substituting 18 U.S.C. 3282 or 1519 into the statute field was rejected: the differentiator does not rest on either, and a field that says otherwise makes the checker pass by lying to it. Widening isStatuteCitation to accept Justice Manual citations was rejected because it would let any later page rest on policy without anyone deciding that it should. DECISIONS.md D15.",
@@ -3421,7 +3421,7 @@ const CHARGE_C9_EXEMPT: Record<string, C9Exemption> = {
  * field records what they are, not permission to skip anything.
  */
 const CHARGE_C9_CATEGORY: Record<string, C9Category> = {
-  "state/sex-crimes-defense": {
+  "state/sex-crimes": {
     reason:
       "Category overview spanning F.S. 800.04, 847.0135, 800.03, 943.0435 and 775.21, sitting in a charge silo under a category name. It fails D12's condition for exemption, which is that no statute exists: this page rests on five, and Florida law enumerates the category itself twice, at F.S. 943.0435(1)(h)1.a and F.S. 775.21(4)(a)1. Its C9 rests on the registration scheme at 943.0435. Exempting it would delete a 30-row penalties table that is both its strongest asset and its referral asset. DECISIONS.md D16.",
   },
@@ -3507,7 +3507,7 @@ const templatePreview: Partial<ChargePage> = {
     "TEMPLATE PREVIEW. Which court hears this charge and what to expect there, at courthouse-level specificity.",
   ],
   counterpart: {
-    href: "/federal-criminal-defense/drug-trafficking",
+    href: "/criminal-defense/federal/drug-trafficking",
     label: "Federal drug trafficking charges",
     note: "TEMPLATE PREVIEW. The forum section for an overlap page: how to tell whether a case is being prosecuted in state or federal court, and what changes if it is federal. Body copy is never shared between the two pages.",
   },
@@ -3549,7 +3549,7 @@ const templatePreview: Partial<ChargePage> = {
  * invented. A thin FAQ beats a padded one.
  */
 const CHARGE_FAQ: Record<string, FaqItem[]> = {
-  "state/grand-theft-defense": [
+  "state/grand-theft": [
     {
       question:
         "How much does the property have to be worth for a theft to be grand theft?",
@@ -3557,7 +3557,7 @@ const CHARGE_FAQ: Record<string, FaqItem[]> = {
       grade: "6-12mo",
     },
   ],
-  "state/domestic-violence-defense": [
+  "state/domestic-violence": [
     {
       question:
         "Can the alleged victim drop domestic violence charges in Hillsborough County?",
@@ -3565,7 +3565,7 @@ const CHARGE_FAQ: Record<string, FaqItem[]> = {
       grade: "6-12mo",
     },
   ],
-  "federal/target-letter-defense": [
+  "federal/target-letter": [
     {
       question: "What happens after a federal target letter?",
       source: "keywords.md",
@@ -3633,7 +3633,7 @@ const CHARGE_FAQ: Record<string, FaqItem[]> = {
  * or record, and the defense sections describe process only.
  */
 const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
-  "state/domestic-violence-defense": {
+  "state/domestic-violence": {
     title: "Charged with domestic violence in Hillsborough County?",
     metaTitle: "Domestic Violence Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with domestic violence in Tampa or elsewhere in Hillsborough County? What you face, the no contact order, who decides, and sealing.",
@@ -3704,7 +3704,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "dv-relationship",
-        link: { label: "Sexual battery charges, which can also count as domestic violence", href: "/criminal-defense/sexual-battery-defense" },
+        link: { label: "Sexual battery charges, which can also count as domestic violence", href: "/criminal-defense/state/sexual-battery" },
         heading: "Who counts as family or household",
         kind: "bullets",
         tier: 3,
@@ -3738,7 +3738,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "A shared home, for most people. Unless you share a child, the State has to show you lived together in the same single dwelling unit, now or in the past.",
           "For spouses, former spouses, and relatives, the law sets no time limit and no degree of kinship. The fight in those cases is usually about the shared home, not the label.",
         ],
-        link: { label: "How battery charges are graded", href: "/criminal-defense/battery-defense" },
+        link: { label: "How battery charges are graded", href: "/criminal-defense/state/battery" },
         sources: ["F.S. 741.28(2) and (3)", "F.S. 784.041(2)"],
       },
       {
@@ -3844,7 +3844,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "On a felony, Florida adds up sentencing points on a worksheet. If a related child under 16 was there, part of your points total (the subtotal) is multiplied by 1.5. Your record and other charges change your number, so this page cannot give it to you.",
           "Other costs run on their own rules. A licensing board decides what a record means for your license. Immigration is federal, so ask an immigration lawyer. Firearm rights are set by other laws, so ask a lawyer who has your record.",
         ],
-        link: { label: "Florida gun charges and who cannot have a gun", href: "/criminal-defense/gun-crimes-defense" },
+        link: { label: "Florida gun charges and who cannot have a gun", href: "/criminal-defense/state/gun-crimes" },
         sources: ["F.S. 741.281", "F.S. 741.283(1) and (2)", "F.S. 921.0024(1)(b) and (7)"],
       },
       {
@@ -3909,12 +3909,12 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
     ],
     counterpart: {
-      href: "/criminal-defense/battery-defense",
+      href: "/criminal-defense/state/battery",
       label: "Battery charges and how they are graded",
       note: "The grading of the underlying act, including what turns a misdemeanor battery into a felony, is set by chapter 784 and is covered on the companion page. This page covers what the domestic relationship adds on top of whatever grading that act already carries.",
     },
   },
-  "federal/csam-defense": {
+  "federal/csam": {
     title: "Charged with a federal child pornography crime in Tampa federal court?",
     metaTitle: "Federal Child Pornography Lawyer in Tampa, Florida",
     metaDescription: "Charged with a federal child pornography crime in Tampa? Ranges by exact charge, what happens next, and what to do right now.",
@@ -4002,7 +4002,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "A Florida charge is a separate case, brought by the State Attorney in the Thirteenth Judicial Circuit. Those cases go through the Edgecomb Courthouse, 800 E. Twiggs Street, Room 101, and the Plant City Courthouse, 301 North Michigan Avenue, Room 1071. A federal case does not.",
           "Florida's own law on child images says a charge under it does not stop the state from charging you under other Florida laws, including ones with higher penalties. If your papers cite Florida law, see our Florida page.",
         ],
-        link: { label: "Florida sex offense charges", href: "/criminal-defense/sex-crimes-defense" },
+        link: { label: "Florida sex offense charges", href: "/criminal-defense/state/sex-crimes" },
         sources: ["18 U.S.C. 2252 and 2252A", "M.D. Fla. Local Rule 2.01", "F.S. 827.071(6)"],
       },
       {
@@ -4079,7 +4079,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "The law does not make a provider watch its users or scan their files. The duty starts when the provider actually knows.",
           "The report is treated as a request to save its contents for 1 year. Police may share the report with you or your lawyer if it relates to a charge you face, under the evidence rule in the next topic.",
         ],
-        link: { label: "What to do if you get a federal target letter", href: "/federal-criminal-defense/target-letter-defense" },
+        link: { label: "What to do if you get a federal target letter", href: "/criminal-defense/federal/target-letter" },
         sources: ["18 U.S.C. 2258A(a), (f), (g)(2)(A)(v) and (h)(1)"],
       },
       {
@@ -4231,12 +4231,12 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       }
     ],
     counterpart: {
-      href: "/criminal-defense/sex-crimes-defense",
+      href: "/criminal-defense/state/sex-crimes",
       label: "Florida sex offense charges, including F.S. 827.071",
       note: "This page covers the federal charge. Where the charging document cites a Florida section number rather than a section of the United States Code, the Florida offense that covers this subject matter is F.S. 827.071, and the companion page covers it along with the other Florida offenses in that group. The two are separate prosecutions under separate statutes, and one does not decide the other."
     },
   },
-  "state/computer-crimes-defense": {
+  "state/computer-crimes": {
     title: "Charged with a computer crime in Hillsborough County?",
     metaTitle: "Computer Crime Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with unauthorized computer access in Tampa or elsewhere in Hillsborough County? What you face, what happens next, and what to do now.",
@@ -4319,7 +4319,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Look at the law named on your paperwork. A Florida charge names a Florida law and is filed by a state prosecutor. A felony goes to circuit court, which here is the Thirteenth Judicial Circuit. The misdemeanor for changing computer gear, charged on its own, goes to county court.",
           "A federal charge names the United States Code and is filed by a United States Attorney. It is heard in the Middle District of Florida, Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue, Tampa. Our federal page covers that charge.",
         ],
-        link: { label: "Federal computer and internet crime charges", href: "/federal-criminal-defense/computer-internet-crimes" },
+        link: { label: "Federal computer and internet crime charges", href: "/criminal-defense/federal/computer-internet-crimes" },
         sources: ["18 U.S.C. 1030"],
       },
       {
@@ -4341,7 +4341,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "cc-proof",
-        link: { label: "Identity theft charges when personal information is taken", href: "/white-collar-defense/identity-theft" },
+        link: { label: "Identity theft charges when personal information is taken", href: "/criminal-defense/white-collar/identity-theft" },
         heading: "Six ways to break this law, from logins to hidden cameras",
         kind: "bullets",
         tier: 3,
@@ -4487,12 +4487,12 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       }
     ],
     counterpart: {
-      href: "/federal-criminal-defense/computer-internet-crimes",
+      href: "/criminal-defense/federal/computer-internet-crimes",
       label: "Federal computer and internet crime charges",
       note: "This page covers the Florida charge under Statute 815.06, whose degree ladder turns on the kind of harm alleged rather than on an amount. 18 U.S.C. 1030, titled Fraud and related activity in connection with computers, is built on a different plan, and the companion page covers it. If the charging document in your case cites a section of the United States Code rather than a Florida section number, that is the page to read."
     }
   },
-  "state/sex-crimes-defense": {
+  "state/sex-crimes": {
     title: "Charged with a sex crime in Hillsborough County?",
     metaTitle: "Sex Crimes Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with a sex crime in Tampa or elsewhere in Hillsborough County? Which law applies, the penalties, registration deadlines, and what to do now.",
@@ -4599,7 +4599,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Sexual predator rules. A judge makes this finding at sentencing.",
           "Sexual battery is a separate law, covered on its own page. If your paperwork names it, start there.",
         ],
-        link: { label: "Sexual battery charges", href: "/criminal-defense/sexual-battery-defense" },
+        link: { label: "Sexual battery charges", href: "/criminal-defense/state/sexual-battery" },
         sources: ["F.S. 800.04", "F.S. 847.0135", "F.S. 800.03", "F.S. 943.0435(1)(h)1. and (5)", "F.S. 775.21(4)(a)1."],
       },
       {
@@ -4612,7 +4612,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         prose: [
           "A federal case runs on federal law, and Florida's point system does not apply to it. If you are charged federally, your case is heard in the Middle District of Florida, Tampa Division, at 801 North Florida Avenue, Tampa.",
         ],
-        link: { label: "Federal child pornography charges in Tampa federal court", href: "/federal-criminal-defense/csam-defense" },
+        link: { label: "Federal child pornography charges in Tampa federal court", href: "/criminal-defense/federal/csam" },
         sources: ["F.S. 800.04", "F.S. 847.0135"],
       },
       {
@@ -4859,12 +4859,12 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
     ],
     counterpart: {
-      href: "/criminal-defense/sexual-battery-defense",
+      href: "/criminal-defense/state/sexual-battery",
       label: "Sexual battery charges under Statute 794.011",
       note: "This page is an overview of a category that spans several chapters, written so a reader can find which statute their paperwork names. Where that statute is Statute 794.011, the companion page covers that offense on its own, including how the statute grades it by the ages involved."
     },
   },
-  "state/sexual-battery-defense": {
+  "state/sexual-battery": {
     title: "Charged with sexual battery in Hillsborough County?",
     metaTitle: "Sexual Battery Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with sexual battery in Florida? What you face, what happens next, what to do now, and how the ages, force, and your record decide it.",
@@ -4994,7 +4994,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "sbat-proof",
         heading: "What the act is, what counts as consent, and why force is not required",
         kind: "prose",
-        link: { label: "Battery charges that do not involve a sexual act", href: "/criminal-defense/battery-defense" },
+        link: { label: "Battery charges that do not involve a sexual act", href: "/criminal-defense/state/battery" },
         tier: 3,
         group: "What does the State have to prove?",
         groupSummary: "What the act is, what counts as consent, and why force is not required.",
@@ -5034,7 +5034,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "sbat-minimum",
-        link: { label: "When a weapon is involved: Florida gun charges and 10-20-Life", href: "/criminal-defense/gun-crimes-defense" },
+        link: { label: "When a weapon is involved: Florida gun charges and 10-20-Life", href: "/criminal-defense/state/gun-crimes" },
         heading: "The 25 year and 50 year mandatory minimums",
         kind: "bullets",
         tier: 3,
@@ -5118,7 +5118,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "A young person can be required to register too. That applies if, on or after July 1, 2007, a juvenile court formally found them delinquent for this charge, and they were 14 or older when it happened.",
           "Some people are labeled a sexual predator instead, under a separate law with its own rules. Under either law, failing to register is itself a crime. For a sex offender, failing to register or report a change is, except where the law provides otherwise, a third degree felony, and each failure is a separate charge.",
         ],
-        link: { label: "Other Florida sex offense charges", href: "/criminal-defense/sex-crimes-defense" },
+        link: { label: "Other Florida sex offense charges", href: "/criminal-defense/state/sex-crimes" },
         sources: ["F.S. 794.011(7)", "F.S. 943.0435(1)(h), (5) and (9)(a)", "F.S. 775.21"],
       },
       {
@@ -5184,12 +5184,12 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
     ],
     counterpart: {
-      href: "/criminal-defense/sex-crimes-defense",
+      href: "/criminal-defense/state/sex-crimes",
       label: "Other Florida sex offense charges",
       note: "This page covers the offense at Statute 794.011. Where the charging document names a different section, the companion page sets out the other Florida offenses in this group, what each one reaches, and the registration statutes that run alongside them.",
     },
   },
-  "state/homicide-defense": {
+  "state/homicide": {
     title: "Charged with homicide in Hillsborough County?",
     metaTitle: "Homicide Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with murder or manslaughter in Tampa or elsewhere in Hillsborough County? What you face, what happens next, and how death penalty cases work.",
@@ -5285,7 +5285,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "hom-felony-list",
-        link: { label: "Florida drug trafficking charges", href: "/criminal-defense/drug-trafficking-defense" },
+        link: { label: "Florida drug trafficking charges", href: "/criminal-defense/state/drug-trafficking" },
         heading: "When someone else caused the death during a felony",
         kind: "bullets",
         tier: 3,
@@ -5314,7 +5314,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Each law lists a prior conviction for the other among its priors. A prior DUI manslaughter conviction raises vehicular homicide to a first degree felony.",
           "The vehicular homicide law itself sets no mandatory minimum prison term. Your worksheet can still set a lowest sentence.",
         ],
-        link: { label: "DUI charges, including DUI manslaughter", href: "/criminal-defense/dui-defense" },
+        link: { label: "DUI charges, including DUI manslaughter", href: "/criminal-defense/state/dui" },
         sources: ["F.S. 782.07(1) to (4)", "F.S. 782.071(1), (3) and (4)", "F.S. 316.193(3)(c)3.", "F.S. 921.0024"],
       },
       {
@@ -5510,11 +5510,11 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     relatedGuides: [
       {
         label: "Securities fraud",
-        href: "/white-collar-defense/securities-fraud",
+        href: "/criminal-defense/white-collar/securities-fraud",
       },
-      { label: "Bank fraud", href: "/white-collar-defense/bank-fraud" },
-      { label: "Embezzlement", href: "/white-collar-defense/embezzlement" },
-      { label: "Wire fraud", href: "/white-collar-defense/wire-fraud" },
+      { label: "Bank fraud", href: "/criminal-defense/white-collar/bank-fraud" },
+      { label: "Embezzlement", href: "/criminal-defense/white-collar/embezzlement" },
+      { label: "Wire fraud", href: "/criminal-defense/white-collar/wire-fraud" },
     ],
   },
 
@@ -5533,7 +5533,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // date, it was route existence, and `check:routes` is what turned that from
   // a note into something enforced.
   // ---------------------------------------------------------------------
-  "state/grand-theft-defense": {
+  "state/grand-theft": {
     title: "Charged with grand theft in Hillsborough County?",
     metaTitle: "Grand Theft Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with grand theft in Tampa? How value, the item, where it was taken, and your record set the degree, and what to do now.",
@@ -5619,7 +5619,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "gt-listed-items",
-        link: { label: "Florida gun charges, and where a stolen gun fits", href: "/criminal-defense/gun-crimes-defense" },
+        link: { label: "Florida gun charges, and where a stolen gun fits", href: "/criminal-defense/state/gun-crimes" },
         heading: "Items that are a felony at any value",
         kind: "bullets",
         tier: 3,
@@ -5665,7 +5665,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "gt-proof",
-        link: { label: "Theft by someone trusted with the money: embezzlement", href: "/white-collar-defense/embezzlement" },
+        link: { label: "Theft by someone trusted with the money: embezzlement", href: "/criminal-defense/white-collar/embezzlement" },
         heading: "Four things behind every theft charge",
         kind: "bullets",
         tier: 3,
@@ -5933,7 +5933,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "emb-adding-up",
         heading: "How many small amounts become one big total",
         kind: "bullets",
-        link: { label: "Grand theft in Florida: how the amount sets the degree", href: "/criminal-defense/grand-theft-defense" },
+        link: { label: "Grand theft in Florida: how the amount sets the degree", href: "/criminal-defense/state/grand-theft" },
         tier: 3,
         group: "Which charge am I facing?",
         answers: ["facing"],
@@ -5947,7 +5947,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "emb-proof",
-        link: { label: "Florida wire fraud, for fraud by email, phone, or text", href: "/white-collar-defense/wire-fraud" },
+        link: { label: "Florida wire fraud, for fraud by email, phone, or text", href: "/criminal-defense/white-collar/wire-fraud" },
         heading: "You were allowed to handle the money, so intent is the fight",
         kind: "bullets",
         tier: 3,
@@ -6107,7 +6107,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
-      href: "/federal-criminal-defense/money-laundering",
+      href: "/criminal-defense/federal/money-laundering",
       label: "Federal money laundering charges",
       note: "This page covers the Florida charge: the dollar bands in Statute 896.101(5), the 12-month aggregation window, the Florida offense levels those bands carry, and the state sentencing scoresheet they feed. None of that machinery exists on the federal side, which is calculated a different way under different statutes. If your case is being prosecuted in federal court, the companion page covers it.",
     },
@@ -6184,7 +6184,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "A freeze on your accounts is a separate civil case. It can be filed in any circuit court where the money sits. A federal agency can be the one asking for it. So the court on a freeze order may not match the court on your charge.",
           "Everything on this page is about the Florida charge. If your case is in federal court, our federal page covers it.",
         ],
-        link: { label: "Federal money laundering charges", href: "/federal-criminal-defense/money-laundering" },
+        link: { label: "Federal money laundering charges", href: "/criminal-defense/federal/money-laundering" },
         sources: ["F.S. 896.101(2)(g) and (8)(a)", "F.S. 896.104(2) and (3)"],
       },
       {
@@ -6208,7 +6208,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "flml-proof",
-        link: { label: "Florida drug trafficking charges, when drug money is the alleged source", href: "/criminal-defense/drug-trafficking-defense" },
+        link: { label: "Florida drug trafficking charges, when drug money is the alleged source", href: "/criminal-defense/state/drug-trafficking" },
         heading: "Knowing, the source, and the purpose",
         kind: "bullets",
         tier: 3,
@@ -6258,7 +6258,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "flml-points",
         heading: "Its own line on the points sheet, next to the drug or fraud count",
         kind: "prose",
-        link: { label: "Embezzlement charged as theft, and how it is ranked", href: "/white-collar-defense/embezzlement" },
+        link: { label: "Embezzlement charged as theft, and how it is ranked", href: "/criminal-defense/white-collar/embezzlement" },
         tier: 3,
         group: "Why does a laundering count add so much to my sentence?",
         groupSummary: "Each laundering count adds its own points, how that compares to theft, and where the 44-point line falls.",
@@ -6443,7 +6443,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     lead: "Most federal money laundering counts under 1956 carry up to 20 years in prison. A count under 1956 has no minimum dollar amount. The case turns on where the money came from, and the court can freeze your accounts before trial.",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
-      href: "/white-collar-defense/money-laundering",
+      href: "/criminal-defense/white-collar/money-laundering",
       label: "Money laundering charges under Florida law",
       note: "Florida prosecutes money laundering under its own statute, and the two charges are not two versions of one case. The Florida offense is graded by the amount of the transactions, and it carries a Florida offense level that feeds a state sentencing scoresheet. A charge under 18 U.S.C. 1956 has no amount element, carries no Florida offense level because F.S. 921.0022 does not rank federal statutes, and is heard in the United States District Court rather than in a Florida circuit court. The statute number and the court named on the charging document tell you which of the two you are reading about.",
     },
@@ -6523,7 +6523,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "A federal case is heard in the United States District Court. Hillsborough County is in the Middle District of Florida, Tampa Division. That court is at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue.",
           "The Tampa Division covers Hardee, Hillsborough, Manatee, Pasco, Pinellas, Polk, and Sarasota counties. If your paperwork names a Florida circuit court instead, you have a state case. Our Florida page covers that one.",
         ],
-        link: { label: "Money laundering charges under Florida law", href: "/white-collar-defense/money-laundering" },
+        link: { label: "Money laundering charges under Florida law", href: "/criminal-defense/white-collar/money-laundering" },
         sources: ["F.S. 921.0022"],
       },
       {
@@ -6538,7 +6538,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "You can also be charged where the crime behind the money could be charged, if you helped move the money out of that district. A wire transfer counts as one deal that runs from start to finish. Anyone who handles any part of it can be charged in any district it passes through.",
           "An attempt or an agreement can be charged where the finished crime could be, or anywhere a step was taken to carry it out.",
         ],
-        link: { label: "How federal conspiracy charges work", href: "/federal-criminal-defense/conspiracy-charges" },
+        link: { label: "How federal conspiracy charges work", href: "/criminal-defense/federal/conspiracy-charges" },
         sources: ["18 U.S.C. 1956(i)(1), (i)(2) and (i)(3)"],
       },
       {
@@ -6621,7 +6621,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
             ],
           },
         ],
-        link: { label: "What to do if you get a federal target letter", href: "/federal-criminal-defense/target-letter-defense" },
+        link: { label: "What to do if you get a federal target letter", href: "/criminal-defense/federal/target-letter" },
         sources: ["18 U.S.C. 1956(a)(1) and (c)(7)", "18 U.S.C. 1957(a)", "18 U.S.C. 3006A(a), (b) and (c)"],
       },
       {
@@ -6739,7 +6739,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // byline-class claim under CASES-WE-DEFEND-PLAN.md C12-B, so it appears under
   // an attorney's byline with their own citation or it does not appear.
   // ---------------------------------------------------------------------
-  "state/dui-defense": {
+  "state/dui": {
     title: "Arrested for DUI in Hillsborough County?",
     metaTitle: "DUI Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Arrested for DUI in Tampa or elsewhere in Hillsborough County? The 10 days to save your license, the 2025 test refusal crime, and what you face.",
@@ -6927,7 +6927,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "what-is-charged",
-        link: { label: "Drug possession charges when drugs are found in the car", href: "/criminal-defense/drug-possession-defense" },
+        link: { label: "Drug possession charges when drugs are found in the car", href: "/criminal-defense/state/drug-possession" },
         heading: "You do not have to blow 0.08 to be charged",
         kind: "statute",
         tier: 3,
@@ -6952,7 +6952,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         tier: 3,
         group: "What if someone was hurt or killed?",
         groupSummary: "What counts as badly hurt, and the blood draw that needs no agreement from you.",
-        link: { label: "Homicide charges", href: "/criminal-defense/homicide-defense" },
+        link: { label: "Homicide charges", href: "/criminal-defense/state/homicide" },
         answers: ["facing"],
         prose: [
           "The charge climbs with the harm, from a third degree felony when someone is badly hurt to a first degree felony in the worst death cases. Each level is in the list under What you're facing.",
@@ -7124,7 +7124,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // it from the brief; it was removed on merge. It stays out of copy pending
   // attorney confirmation.
   // ---------------------------------------------------------------------
-  "state/drug-trafficking-defense": {
+  "state/drug-trafficking": {
     title: "Charged with drug trafficking in Hillsborough County?",
     metaTitle: "Drug Trafficking Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with drug trafficking in Tampa or elsewhere in Hillsborough County? Mandatory minimums by drug and weight, what happens next, and what to do now.",
@@ -7132,7 +7132,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
-      href: "/federal-criminal-defense/drug-trafficking",
+      href: "/criminal-defense/federal/drug-trafficking",
       label: "Federal drug trafficking charges",
       note: "Trafficking is prosecuted in both systems and the two are not versions of one case. Everything on this page, the Statute 893.135 weight tiers, the mandatory minimums attached to them, the Florida offense levels and the state scoresheet, belongs to the Florida track. A federal prosecution is calculated a different way, and that page covers it.",
     },
@@ -7223,7 +7223,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "A state case is filed by the State Attorney for the Thirteenth Judicial Circuit and heard in Hillsborough County circuit court. A federal case is filed by a United States Attorney in the Middle District of Florida, Tampa Division. It is heard at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue, in Tampa.",
           "The weight tiers, minimums, and points on this page apply only to state cases. A federal sentence is figured a different way. Look at your charging papers for the name of the office. Read on only if it says Thirteenth Judicial Circuit.",
         ],
-        link: { label: "Federal drug trafficking charges", href: "/federal-criminal-defense/drug-trafficking" },
+        link: { label: "Federal drug trafficking charges", href: "/criminal-defense/federal/drug-trafficking" },
         sources: ["F.S. 893.135", "F.S. 921.0022 and 921.0024"],
       },
       {
@@ -7245,7 +7245,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           citation: "Florida Statute 893.135, with Florida Statute 893.03(3)(c), the 2025 Florida Statutes",
           body: "Subsection (1) opens by setting itself apart from the ordinary drug offenses. It applies except as authorized in this chapter or in chapter 499 and notwithstanding the provisions of Statute 893.13, which is the possession, sale and delivery statute. Trafficking is therefore not a heavier version of a possession charge. It is a separate scheme, and its trigger is quantity. Each paragraph of subsection (1) reaches a person who knowingly sells, purchases, manufactures, delivers, or brings into this state, or who is knowingly in actual or constructive possession of, a stated amount. Possession stands on its own in that list, and constructive possession is inside it, so the possession route does not name a sale, a buyer, a price, or an intent to sell among the things it requires. That is the single most common misunderstanding a person arrives with, and it is the reason a quantity someone describes as personal use can still be charged as trafficking. Subsection (2) then defines the mental element in a way that surprises people: a person acts knowingly under subsection (1) if that person intends to sell, purchase, manufacture, deliver, or bring into this state, or to actually or constructively possess, any of the controlled substances listed in subsection (1), regardless of which controlled substance listed in subsection (1) is in fact sold, purchased, manufactured, delivered, brought into this state, or possessed. What gets weighed is the second thing people get wrong, and it is answered in the statute rather than left to argument. Subsection (6) provides that a mixture, as defined in Statute 893.02, containing any controlled substance described in the section includes a solution or a dosage unit, including a gelatin capsule, pill, or tablet, containing a controlled substance; that for the purpose of clarifying legislative intent regarding the weighing of a mixture, the weight of the controlled substance is the total weight of the mixture, including the controlled substance and any other substance in the mixture; and that if there is more than one mixture containing the same controlled substance, the weight is calculated by aggregating the total weight of each mixture. Statute 893.03(3)(c) says the same thing from the other direction for certain hydrocodone preparations: for the purpose of charging a violation of Statute 893.135, the controlled substance remains a Schedule III substance but the weight per milliliter or per dosage unit is not relevant to the charging, and the weight is determined under Statute 893.135(6). In a pill case that is the whole ballgame, because the tablet is weighed rather than the milligrams of the controlled substance inside it. The units are not uniform across the statute and are worth reading twice. Cannabis is measured in pounds, or in cannabis plants counted individually. Cocaine, the opioids, the amphetamines and most of the rest are measured in grams and kilograms. The fines are dollars, and a dollar figure in this statute is never a threshold: no provision of Statute 893.135 is triggered by the value of anything. Finally, the six substances in the table below are a selection and not the whole section. Subsection (1) also sets tiers for hydrocodone and codeine at (1)(c)2., phencyclidine at (1)(d), methaqualone at (1)(e), flunitrazepam at (1)(g), gamma-hydroxybutyric acid at (1)(h), gamma-butyrolactone at (1)(i), 1,4-Butanediol at (1)(j), phenethylamines at (1)(k), lysergic acid diethylamide at (1)(l), synthetic cannabinoids at (1)(m), and n-benzyl phenethylamines at (1)(n). Above the ladders sit separate provisions: 150 kilograms or more of cocaine under (1)(b)2., and 30 kilograms or more of the (1)(c) opioids under (1)(c)5., are each punished by life imprisonment with ineligibility for any form of discretionary early release except pardon or executive clemency or conditional medical release under Statute 947.149.",
         },
-        link: { label: "How a smaller amount is charged: Florida drug possession", href: "/criminal-defense/drug-possession-defense" },
+        link: { label: "How a smaller amount is charged: Florida drug possession", href: "/criminal-defense/state/drug-possession" },
         sources: ["F.S. 893.135(1), (2) and (6)", "F.S. 893.03(3)(c)", "F.S. 893.02"],
       },
       {
@@ -7297,7 +7297,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "traf-gun",
-        link: { label: "Florida gun charges and the 10-20-Life minimums", href: "/criminal-defense/gun-crimes-defense" },
+        link: { label: "Florida gun charges and the 10-20-Life minimums", href: "/criminal-defense/state/gun-crimes" },
         heading: "When there was a gun in the car",
         kind: "bullets",
         tier: 3,
@@ -7409,7 +7409,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // Verified in fs-775-087.ts.
   //
   // Overlap page under Section 4.6 and C10: forum section opens the body,
-  // exactly one cross-link to /federal-criminal-defense/weapons-gun-offenses.
+  // exactly one cross-link to /criminal-defense/federal/weapons-gun-offenses.
   //
   // F.S. 790.01 is not in the statute-table set and the brief recorded it
   // UNVERIFIED, yet the legacy page asserted the permitless-carry scheme from
@@ -7420,7 +7420,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
   // Rights restoration PROCESS stays unwritten by design; only the statutory
   // exceptions in 790.23(2) are stated.
   // ---------------------------------------------------------------------
-  "state/gun-crimes-defense": {
+  "state/gun-crimes": {
     title: "Charged with a gun crime in Hillsborough County?",
     metaTitle: "Gun Charge Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with a gun crime in Florida? What you face, what happens next, what to do now, and how 10-20-Life, your past record, and sealing work.",
@@ -7428,7 +7428,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
-      href: "/federal-criminal-defense/weapons-gun-offenses",
+      href: "/criminal-defense/federal/weapons-gun-offenses",
       label: "Federal gun and weapons charges",
       note: "If the case is being prosecuted in federal court, see the federal page. A federal firearm case is brought under the United States Code in the Middle District of Florida rather than under the Florida 790 series in circuit court, the federal prohibition at 18 U.S.C. 922(g) rests on a conviction punishable by imprisonment for a term exceeding one year rather than on Florida's five predicate categories, and the Florida offense levels and the Criminal Punishment Code scoresheet have no application there. Which sovereign files is not the defendant's choice.",
     },
@@ -7512,7 +7512,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Florida has no crime called a gun charge. It has several, from carrying a hidden weapon to a felon having a gun. The State picks which one to file, and that sets the range you face.",
           "Stealing a gun is charged as theft. It is a felony whatever the gun was worth. If you have a past conviction for stealing a gun, stealing another one is a second degree felony.",
         ],
-        link: { label: "How a Florida theft charge is graded: grand theft", href: "/criminal-defense/grand-theft-defense" },
+        link: { label: "How a Florida theft charge is graded: grand theft", href: "/criminal-defense/state/grand-theft" },
         sources: ["F.S. 790.01 and 790.23(1)", "F.S. 812.014(2)(c)5. and (2)(g)"],
       },
       {
@@ -7528,7 +7528,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "The two ban lists are not the same. Florida's ban rests on five kinds of past record. The federal ban rests on a past conviction for a crime that could carry more than one year in prison. A yes or no under one law does not answer the other, and the federal ban does not lift when Florida's does.",
           "The federal ban also covers eight groups Florida's ban does not. These include a fugitive, a drug user, someone under certain domestic violence orders, and someone convicted of a domestic violence misdemeanor. Florida's point system does not apply in federal court.",
         ],
-        link: { label: "Federal gun and weapons charges", href: "/federal-criminal-defense/weapons-gun-offenses" },
+        link: { label: "Federal gun and weapons charges", href: "/criminal-defense/federal/weapons-gun-offenses" },
         sources: ["F.S. 790.01 and 790.23(1)", "18 U.S.C. 922(g)", "F.S. 921.0022 and 921.0024"],
       },
       {
@@ -7555,7 +7555,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "gun-minimums",
-        link: { label: "Florida drug trafficking charges and their minimums", href: "/criminal-defense/drug-trafficking-defense" },
+        link: { label: "Florida drug trafficking charges and their minimums", href: "/criminal-defense/state/drug-trafficking" },
         heading: "How 10-20-Life and the other minimum terms work",
         kind: "bullets",
         tier: 3,
@@ -7811,7 +7811,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "idt-other-charges",
-        link: { label: "Fraud by phone, email, or text: Florida communications fraud", href: "/white-collar-defense/wire-fraud" },
+        link: { label: "Fraud by phone, email, or text: Florida communications fraud", href: "/criminal-defense/white-collar/wire-fraud" },
         heading: "Fake identities, the dead, harassment, and posing as a banker",
         kind: "bullets",
         tier: 3,
@@ -7827,7 +7827,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "idt-proof",
-        link: { label: "Bank fraud charges, when a bank or lender is the target", href: "/white-collar-defense/bank-fraud" },
+        link: { label: "Bank fraud charges, when a bank or lender is the target", href: "/criminal-defense/white-collar/bank-fraud" },
         heading: "What makes information personal, and why holding it can be enough",
         kind: "bullets",
         tier: 3,
@@ -8098,7 +8098,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Computer fraud. You knowingly got into a protected computer without permission, or went past your access. You meant to cheat someone. The access moved the fraud forward, and you got something of value.",
           "Computer damage, in three forms, none with a dollar amount. One, you knowingly sent a program, code, or command, and as a result caused damage on purpose, without permission, to a protected computer. Two, you got in without permission and recklessly caused damage. Three, you got in without permission and caused damage and loss.",
         ],
-        link: { label: "How federal conspiracy charges work", href: "/federal-criminal-defense/conspiracy-charges" },
+        link: { label: "How federal conspiracy charges work", href: "/criminal-defense/federal/conspiracy-charges" },
         sources: ["18 U.S.C. 1030(a)(1), (a)(4) and (a)(5)"],
       },
       {
@@ -8164,7 +8164,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
             ],
           },
         ],
-        link: { label: "What a federal target letter means and what to do", href: "/federal-criminal-defense/target-letter-defense" },
+        link: { label: "What a federal target letter means and what to do", href: "/criminal-defense/federal/target-letter" },
         sources: ["18 U.S.C. 3006A(a), (b) and (c)", "18 U.S.C. 1030(e)(11)"],
       },
       {
@@ -8266,7 +8266,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Your case is brought by the United States Attorney's Office for the Middle District of Florida. It is heard in the federal court for that district. For a Hillsborough County case, that is the Tampa Division, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue.",
           "If your papers name a Florida circuit court or a state prosecutor, you are in a different system. Florida has its own computer crime law. Under it, damage or loss of at least $5,000 makes the crime a second degree felony. That is a different case, under different rules.",
         ],
-        link: { label: "Florida computer crime charges in Hillsborough County", href: "/criminal-defense/computer-crimes-defense" },
+        link: { label: "Florida computer crime charges in Hillsborough County", href: "/criminal-defense/state/computer-crimes" },
         sources: ["F.S. 815.06(3)(b)1."],
       },
     ],
@@ -8363,7 +8363,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "The defraud branch of 371 does not name another crime. So a count on that branch is not built around a separate offense.",
           "A count citing 846. A drug conspiracy. It reaches the federal drug crimes, like knowingly or intentionally making, selling, or having drugs to sell, without legal authority.",
         ],
-        link: { label: "Federal drug penalties by drug and amount", href: "/federal-criminal-defense/drug-trafficking" },
+        link: { label: "Federal drug penalties by drug and amount", href: "/criminal-defense/federal/drug-trafficking" },
         sources: ["Fed. R. Crim. P. 7(c)(1)", "18 U.S.C. 371", "21 U.S.C. 846 and 841(a)"],
       },
       {
@@ -8378,7 +8378,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "A money laundering conspiracy. It sits inside the money laundering law itself.",
           "A conspiracy count is a separate count. You can face it on the same charge as a count for the crime itself.",
         ],
-        link: { label: "What a federal money laundering charge carries", href: "/federal-criminal-defense/money-laundering" },
+        link: { label: "What a federal money laundering charge carries", href: "/criminal-defense/federal/money-laundering" },
         sources: ["Fed. R. Crim. P. 8(a)", "18 U.S.C. 1349", "18 U.S.C. 1956(h)"],
       },
       {
@@ -8445,7 +8445,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
             ],
           },
         ],
-        link: { label: "What to do if you get a federal target letter", href: "/federal-criminal-defense/target-letter-defense" },
+        link: { label: "What to do if you get a federal target letter", href: "/criminal-defense/federal/target-letter" },
         sources: ["18 U.S.C. 3006A(a)(1)", "18 U.S.C. 3006A(a)(1)(A)", "Fed. R. Crim. P. 7(c)(1), 7(f), 8(b) and 14", "18 U.S.C. 3237(a)"],
       },
       {
@@ -8509,7 +8509,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
-      href: "/criminal-defense/drug-trafficking-defense",
+      href: "/criminal-defense/state/drug-trafficking",
       label: "Florida drug trafficking charges in Hillsborough County",
       note: "If the charging document names a Florida circuit court, the case is on the state track and that page is the one to read. It carries the Florida weight tiers, the mandatory minimum and fixed fine attached to each of them, the Florida offense levels and the state scoresheet. None of that machinery exists in a case under 21 U.S.C. 841, and nothing on this page is a federal version of it. Which sovereign files is not the defendant's choice, and it changes the statute, the prosecutor, the courthouse and the way a sentence is calculated.",
     },
@@ -8599,7 +8599,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "The same arrest, in the same parking lot, can end up at either one. You do not get to choose. That choice decides whether anything on this page applies to you.",
           "The Tampa Division covers Hardee, Hillsborough, Manatee, Pasco, Pinellas, Polk and Sarasota counties. If your paperwork names a Florida circuit court, read our state page instead.",
         ],
-        link: { label: "Florida drug trafficking charges in Hillsborough County", href: "/criminal-defense/drug-trafficking-defense" },
+        link: { label: "Florida drug trafficking charges in Hillsborough County", href: "/criminal-defense/state/drug-trafficking" },
         sources: ["21 U.S.C. 841", "21 U.S.C. 846"],
       },
       {
@@ -8633,7 +8633,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           citation: "21 U.S.C. 841(a)(1), 841(b) introductory text, 841(b)(1)(C) and 841(b)(1)(D), and 21 U.S.C. 802(44) and 802(58), text in effect on August 13, 2026",
           body: "Section 841 is built in two halves, and the line between them is the whole of this page. Subsection (a) creates the offense. It opens except as authorized by this subchapter, and provides that it shall be unlawful for any person knowingly or intentionally, and then paragraph (1) completes it: to manufacture, distribute, or dispense, or possess with intent to manufacture, distribute, or dispense, a controlled substance. There is no number in that sentence. No weight, no dosage count, no dollar figure. What it requires is a state of mind, knowingly or intentionally, together with one of the acts it names, the last of which is possession with intent to do one of the first three. That last route is why a case can be federal without a sale, a buyer, a price or a transaction of any kind. The same subsection also reaches counterfeit substances at 841(a)(2), and section 841 carries further prohibitions further down, including possession of a listed chemical with intent to manufacture at subsection (c) and delivery by means of the Internet at subsection (h), which 841(h)(4) sends back to the same sentencing ladder rather than giving it a cap of its own. Subsection (b) is where the numbers live, and it says what it is in its opening words: except as otherwise provided in section 849, 859, 860, or 861 of this title, any person who violates subsection (a) of this section shall be sentenced as follows. Sentenced, not charged. Everything about grams and kilograms in this statute sits inside a sentencing provision. The clearest proof of that is subparagraph 841(b)(1)(C). In the case of a controlled substance in schedule I or II, gamma hydroxybutyric acid (including when scheduled as an approved drug product for purposes of section 3(a)(1)(B) of the Hillory J. Farias and Samantha Reid Date-Rape Drug Prohibition Act of 2000), or 1 gram of flunitrazepam, except as provided in subparagraphs (A), (B), and (D), such person shall be sentenced to a term of imprisonment of not more than 20 years. Read the exception, because it is doing real work: (C) is the tier that applies where (A), (B) and (D) do not. For a substance in schedule I or II, no quantity appears in it. The words that create the offense in subsection (a) state no quantity either, so a small amount does not put conduct outside that offense. What a small amount can do is move the count to a different tier of subsection (b). Subparagraph (D) is written to less than 50 kilograms of marihuana, except in the case of 50 or more marihuana plants regardless of weight, 10 kilograms of hashish, or one kilogram of hashish oil, and it provides that such person shall, except as provided in paragraphs (4) and (5) of this subsection, be sentenced to a term of imprisonment of not more than 5 years. That 5 year term is the term (D) sets where paragraphs (4) and (5) do not otherwise provide. Subparagraph (D) goes on to provide that a person who commits such a violation after a prior conviction for a felony drug offense has become final shall be sentenced to a term of imprisonment of not more than 10 years. A schedule I or II substance that subparagraphs (A), (B) and (D) do not reach is sentenced under (C), which sets a term of imprisonment of not more than 20 years. Two further things sit inside that same subparagraph and both change the picture. Where death or serious bodily injury results from the use of such substance, a tier with no mandatory minimum becomes one requiring not less than twenty years and permitting up to life, still with no quantity term anywhere in it. And where the person commits the violation after a prior conviction for a felony drug offense has become final, the ceiling rises to thirty years. Note the words used there. The prior conviction that raises the (C) ceiling is one for a felony drug offense, which 21 U.S.C. 802(44) defines as an offense that is punishable by imprisonment for more than one year under any law of the United States or of a State or foreign country that prohibits or restricts conduct relating to narcotic drugs, marihuana, anabolic steroids, or depressant or stimulant substances. Subparagraphs (A) and (B) write their own enhancements to a prior conviction for a serious drug felony or serious violent felony instead. Serious drug felony is defined at 21 U.S.C. 802(58) as an offense described in section 924(e)(2) of title 18 for which the offender served a term of imprisonment of more than 12 months and the offender's release from any term of imprisonment was within 15 years of the commencement of the instant offense. So the qualifying prior is not described at (C) the way it is described at (A) and (B). What quantity does, then, is raise a floor. Subparagraphs (A) and (B) attach mandatory minimums to stated amounts, and the table below sets out what each of them says.",
         },
-        link: { label: "How federal conspiracy charges work", href: "/federal-criminal-defense/conspiracy-charges" },
+        link: { label: "How federal conspiracy charges work", href: "/criminal-defense/federal/conspiracy-charges" },
         sources: ["21 U.S.C. 841(a)(1)", "21 U.S.C. 846", "U.S. Sentencing Commission, Primer on Drug Offenses (June 2026)"],
       },
       {
@@ -8724,7 +8724,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "fdt-safety-valve",
-        link: { label: "Federal gun charges added to a drug case", href: "/federal-criminal-defense/weapons-gun-offenses" },
+        link: { label: "Federal gun charges added to a drug case", href: "/criminal-defense/federal/weapons-gun-offenses" },
         heading: "A court route below the mandatory minimum",
         kind: "bullets",
         tier: 3,
@@ -8842,7 +8842,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
-      href: "/white-collar-defense/healthcare-fraud",
+      href: "/criminal-defense/white-collar/healthcare-fraud",
       label: "Florida Medicaid provider fraud, F.S. 409.920",
       note: "Florida prosecutes Medicaid provider fraud under its own statute, in a state circuit court, and that page covers it. The two are not two versions of one case: this page is about a scheme against any health care benefit program under federal law, and the Florida statute is written to claims submitted into the Florida Medicaid program. This page does not restate what the Florida statute requires or what it carries.",
     },
@@ -8924,7 +8924,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Two different charges both get called health care fraud here. Your paperwork tells you which one you have.",
           "A federal case is brought by the U.S. Attorney in federal district court. Florida brings its own Medicaid provider fraud cases, under a state law, in a state circuit court. That state charge is covered on a separate page, not this one.",
         ],
-        link: { label: "Charged in state court? Florida Medicaid provider fraud", href: "/white-collar-defense/healthcare-fraud" },
+        link: { label: "Charged in state court? Florida Medicaid provider fraud", href: "/criminal-defense/white-collar/healthcare-fraud" },
         sources: ["18 U.S.C. 1347", "F.S. 409.920"],
       },
       {
@@ -8953,7 +8953,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         tier: 3,
         group: "What other counts can come with it?",
         groupSummary: "Why one billing claim can become many counts, each aimed at a different act, plus forfeiture.",
-        link: { label: "How a federal conspiracy charge works", href: "/federal-criminal-defense/conspiracy-charges" },
+        link: { label: "How a federal conspiracy charge works", href: "/criminal-defense/federal/conspiracy-charges" },
         answers: ["facing", "consequences"],
         bullets: [
           "Conspiracy or attempt. It carries the same penalties as the fraud itself, not a smaller set, as the ladder above shows.",
@@ -8988,7 +8988,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         tier: 3,
         group: "What if records were demanded from me?",
         groupSummary: "You can talk to a lawyer and challenge the demand, but only before its return date, and what to avoid.",
-        link: { label: "Got a federal target letter? What it means", href: "/federal-criminal-defense/target-letter-defense" },
+        link: { label: "Got a federal target letter? What it means", href: "/criminal-defense/federal/target-letter" },
         answers: ["now", "next"],
         guidance: [
           {
@@ -9071,7 +9071,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       { question: "What is the federal health care fraud law?", source: "brief FED-04, Section 1 secondary query \"18 usc 1347\", 20 searches per month in Florida", answer: "It makes it a crime to knowingly and willfully cheat any health plan, or to get its money by lies, in connection with care. The limit is 10 years, 20 if someone is seriously injured, and life if someone dies." },
     ],
   },
-  "federal/target-letter-defense": {
+  "federal/target-letter": {
     title: "Got a federal target letter in the Middle District of Florida?",
     metaTitle: "Federal Target Letter Lawyer in Tampa, Florida",
     metaDescription: "Got a federal target letter in Tampa? What it means, what could follow, what happens next, and what to do before you answer questions.",
@@ -9144,7 +9144,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "tlet-words",
         heading: "Target or subject: the two words on your letter",
         kind: "bullets",
-        link: { label: "Investigated over business or financial dealings? The white-collar charges we defend", href: "/white-collar-defense" },
+        link: { label: "Investigated over business or financial dealings? The white-collar charges we defend", href: "/criminal-defense/white-collar" },
         tier: 3,
         group: "What does my letter mean?",
         groupSummary: "What target and subject mean, and the rights form the government publishes.",
@@ -9273,7 +9273,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "tlet-cost",
         heading: "What this can cost you, even with no court case",
         kind: "prose",
-        link: { label: "The federal charges we defend in Tampa", href: "/federal-criminal-defense" },
+        link: { label: "The federal charges we defend in Tampa", href: "/criminal-defense/federal" },
         tier: 3,
         group: "What can this cost me besides a charge?",
         groupSummary: "Civil cases, debarment, forfeiture, and licensing boards the government can turn to instead.",
@@ -9302,7 +9302,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "tlet-who",
-        link: { label: "Florida state charges we defend", href: "/criminal-defense" },
+        link: { label: "Florida state charges we defend", href: "/criminal-defense/state" },
         heading: "The office that sent it, and the court behind it",
         kind: "prose",
         tier: 3,
@@ -9334,7 +9334,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
-      href: "/criminal-defense/gun-crimes-defense",
+      href: "/criminal-defense/state/gun-crimes",
       label: "Gun and firearm charges under Florida law",
       note: "If the charging document names a Florida statute and a Florida circuit court, the case is on the state track and the Florida page covers it. The two tracks are not two versions of one case. The federal prohibition at 18 U.S.C. 922(g)(1) is written in terms of a conviction for a crime punishable by imprisonment for a term exceeding one year, which is not how the Florida prohibition is written, and the two do not reach identical groups of people. Nothing in the Florida sentencing scheme applies in the United States District Court, and the penalty provisions described on this page apply only to the federal charge. Which government brings the charge is not something the person charged selects.",
     },
@@ -9422,7 +9422,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "A federal case from Hillsborough County is heard in the Middle District of Florida, Tampa Division. Court is at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue, Tampa. The Tampa Division covers Hardee, Hillsborough, Manatee, Pasco, Pinellas, Polk, and Sarasota counties, and the clerk's office is at (813) 301-5400.",
           "The United States Attorney's Office for the Middle District of Florida prosecutes the case. This page names no investigating agency, because none has been checked from the agency's own source. If your paperwork names a Florida circuit court and the Hillsborough County Clerk, you are on the state track.",
         ],
-        link: { label: "Gun and firearm charges under Florida law", href: "/criminal-defense/gun-crimes-defense" },
+        link: { label: "Gun and firearm charges under Florida law", href: "/criminal-defense/state/gun-crimes" },
         sources: ["18 U.S.C. 922(g)", "18 U.S.C. 921(a)(20)", "18 U.S.C. 3006A"],
       },
       {
@@ -9480,7 +9480,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "A drug trafficking crime means any felony under the federal drug laws. A crime of violence is a felony that has, as part of its legal definition, using, trying, or threatening physical force against another person or another's property. It also covers a felony that by its nature carries a substantial risk that force against a person or property may be used while committing it.",
           "How each part of that fits your case is argued case by case. Your lawyer will need your indictment to answer it.",
         ],
-        link: { label: "Federal drug trafficking charges and their minimums", href: "/federal-criminal-defense/drug-trafficking" },
+        link: { label: "Federal drug trafficking charges and their minimums", href: "/criminal-defense/federal/drug-trafficking" },
         sources: ["18 U.S.C. 924(c)(1)(A)", "18 U.S.C. 924(c)(1)(D)(i) and (ii)", "18 U.S.C. 924(c)(2) and (3)"],
       },
       {
@@ -9562,7 +9562,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "fedgun-dv-misdemeanor",
-        link: { label: "Florida domestic violence charges", href: "/criminal-defense/domestic-violence-defense" },
+        link: { label: "Florida domestic violence charges", href: "/criminal-defense/state/domestic-violence" },
         heading: "Clearing a domestic violence misdemeanor for gun purposes",
         kind: "bullets",
         tier: 3,
@@ -9615,7 +9615,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
-      href: "/white-collar-defense/wire-fraud",
+      href: "/criminal-defense/white-collar/wire-fraud",
       label: "Wire fraud under Florida law",
       note: "No Florida offense carries the name wire fraud. The state analogue is the Florida Communications Fraud Act, and that page covers it, including its per-communication offense and its aggregate-value tiers. A prosecution under 18 U.S.C. 1343 or 18 U.S.C. 1341 is a different statute in a different court, and this page does not restate the Florida one.",
     },
@@ -9691,7 +9691,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "There is no Florida circuit judge and no county clerk file. If your paperwork names a Florida statute and a Florida circuit court, you have a state case under different laws.",
           "This page does not name an investigating agency. Which agency handles a given fraud case has not been checked from an official source.",
         ],
-        link: { label: "Wire fraud under Florida law", href: "/white-collar-defense/wire-fraud" },
+        link: { label: "Wire fraud under Florida law", href: "/criminal-defense/white-collar/wire-fraud" },
       },
       {
         id: "wfm-two-laws",
@@ -9742,7 +9742,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Financial institution has a set legal meaning. It includes a bank with federal deposit insurance and a credit union with federally insured accounts. It includes a Federal Reserve bank or member bank, and a branch or agency of a foreign bank.",
           "It also includes a mortgage lending business, or anyone who makes a federally related mortgage loan. The list goes on beyond these. Whether a certain business is on it is a question for your lawyer.",
         ],
-        link: { label: "How federal bank fraud charges work", href: "/white-collar-defense/bank-fraud" },
+        link: { label: "How federal bank fraud charges work", href: "/criminal-defense/white-collar/bank-fraud" },
         sources: ["18 U.S.C. 1341", "18 U.S.C. 1343", "18 U.S.C. 20"],
       },
       {
@@ -9755,7 +9755,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         prose: [
           "The disaster rule means disaster and emergency relief programs are treated like banks. You can face the 30 year cap even if you never dealt with a bank.",
         ],
-        link: { label: "How PPP and relief loan fraud charges work", href: "/white-collar-defense/ppp-loan-fraud" },
+        link: { label: "How PPP and relief loan fraud charges work", href: "/criminal-defense/white-collar/ppp-loan-fraud" },
         sources: ["18 U.S.C. 1341", "18 U.S.C. 1343", "42 U.S.C. 5122"],
       },
       {
@@ -9860,7 +9860,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
-      href: "/federal-criminal-defense/healthcare-fraud",
+      href: "/criminal-defense/federal/healthcare-fraud",
       label: "Federal health care fraud, 18 U.S.C. 1347",
       note: "If the case is being prosecuted in federal court, that page covers 18 U.S.C. 1347. This page does not describe what that section requires or what it carries.",
     },
@@ -9934,7 +9934,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "That means claims sent to the Agency for Health Care Administration, to the company it hires to process claims, or to a managed care plan. A plan counts if it has a contract with Medicaid. Being an insurer alone is not enough.",
           "If your case is in federal court, or a federal subpoena is the paper in your hand, read our federal health care fraud page instead. It is a different law with different penalties.",
         ],
-        link: { label: "Federal health care fraud: when the case is in federal court", href: "/federal-criminal-defense/healthcare-fraud" },
+        link: { label: "Federal health care fraud: when the case is in federal court", href: "/criminal-defense/federal/healthcare-fraud" },
         sources: ["F.S. 409.920(1)(a), (1)(b), (1)(e) and (2)(a)1."],
       },
       {
@@ -9972,7 +9972,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "hcf-proof",
-        link: { label: "Federal conspiracy charges in health care fraud cases", href: "/federal-criminal-defense/conspiracy-charges" },
+        link: { label: "Federal conspiracy charges in health care fraud cases", href: "/criminal-defense/federal/conspiracy-charges" },
         heading: "A knowing lie, not a billing mistake",
         kind: "prose",
         tier: 3,
@@ -10175,7 +10175,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "bankfraud-which",
         heading: "Bank fraud, wire fraud, or a state case",
         kind: "bullets",
-        link: { label: "Federal wire and mail fraud charges explained", href: "/federal-criminal-defense/wire-mail-fraud" },
+        link: { label: "Federal wire and mail fraud charges explained", href: "/criminal-defense/federal/wire-mail-fraud" },
         tier: 3,
         group: "Is this bank fraud, a false loan statement, or wire fraud?",
         groupSummary: "How the two bank fraud routes, a false loan statement, wire fraud, and a state case differ.",
@@ -10192,7 +10192,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "bankfraud-loan-statement",
         heading: "A false statement on a loan application is its own charge",
         kind: "prose",
-        link: { label: "PPP and pandemic loan fraud charges", href: "/white-collar-defense/ppp-loan-fraud" },
+        link: { label: "PPP and pandemic loan fraud charges", href: "/criminal-defense/white-collar/ppp-loan-fraud" },
         tier: 3,
         group: "Is this bank fraud, a false loan statement, or wire fraud?",
         answers: ["facing"],
@@ -10239,7 +10239,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "bankfraud-defense",
         heading: "Bank fraud rights and the loan file review",
         kind: "guidance",
-        link: { label: "Got a federal target letter? What it means", href: "/federal-criminal-defense/target-letter-defense" },
+        link: { label: "Got a federal target letter? What it means", href: "/criminal-defense/federal/target-letter" },
         tier: 3,
         group: "What are my rights, and what will my lawyer look at?",
         groupSummary: "Your right not to answer, when a lawyer is appointed, and what gets checked in the loan file.",
@@ -10399,7 +10399,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "secfraud-which",
         heading: "A Florida charge and a federal charge are not the same case",
         kind: "prose",
-        link: { label: "Corporate fraud: which charge a case like this is filed under", href: "/white-collar-defense/corporate-fraud" },
+        link: { label: "Corporate fraud: which charge a case like this is filed under", href: "/criminal-defense/white-collar/corporate-fraud" },
         tier: 3,
         group: "Is this a Florida charge or a federal one?",
         groupSummary: "How to tell from your papers, and why one deal can fit Florida's law but not the federal one.",
@@ -10428,7 +10428,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "secfraud-proof",
-        link: { label: "Federal wire and mail fraud charges", href: "/federal-criminal-defense/wire-mail-fraud" },
+        link: { label: "Federal wire and mail fraud charges", href: "/criminal-defense/federal/wire-mail-fraud" },
         heading: "Three kinds of fraud under Florida law, and one federal plan",
         kind: "bullets",
         tier: 3,
@@ -10500,7 +10500,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "secfraud-defense",
         heading: "Your rights, and what your lawyer will look at",
         kind: "guidance",
-        link: { label: "Got a federal target letter? What it means", href: "/federal-criminal-defense/target-letter-defense" },
+        link: { label: "Got a federal target letter? What it means", href: "/criminal-defense/federal/target-letter" },
         tier: 3,
         group: "What are my rights, and what will my lawyer look at?",
         groupSummary: "Your rights before and after a charge, and the documents your lawyer checks.",
@@ -10608,7 +10608,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
     detailsLayout: "grid",
     heroCta: { label: `Call ${firm.phone}`, href: firm.phoneHref },
     counterpart: {
-      href: "/federal-criminal-defense/wire-mail-fraud",
+      href: "/criminal-defense/federal/wire-mail-fraud",
       label: "Federal wire fraud and mail fraud charges",
       note: "This page covers the Florida side: the Florida Communications Fraud Act at Statute 817.034, its scheme-to-defraud definition, its per-communication offense in paragraph (4)(b), the aggregate-value tiers in paragraph (4)(a), the Florida offense levels those tiers carry, and Florida sealing law. A prosecution under 18 U.S.C. 1343 or 18 U.S.C. 1341 is a different statute in a different court, with no Florida degree and no Florida offense level, and the companion page covers those sections. The statute number and the court named on the charging document tell you which of the two you are reading about.",
     },
@@ -10683,7 +10683,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "wf-two-laws",
         heading: "Federal wire fraud or Florida communications fraud",
         kind: "prose",
-        link: { label: "Federal wire fraud and mail fraud charges", href: "/federal-criminal-defense/wire-mail-fraud" },
+        link: { label: "Federal wire fraud and mail fraud charges", href: "/criminal-defense/federal/wire-mail-fraud" },
         tier: 3,
         group: "Which charge am I facing?",
         groupSummary: "Federal wire fraud or Florida communications fraud, and why one plan can mean many counts.",
@@ -10750,7 +10750,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "wf-vulnerable",
-        link: { label: "Identity theft charges, which also rise when the victim is older or a minor", href: "/white-collar-defense/identity-theft" },
+        link: { label: "Identity theft charges, which also rise when the victim is older or a minor", href: "/criminal-defense/white-collar/identity-theft" },
         heading: "When the victim was 65 or older, a minor, or disabled",
         kind: "prose",
         tier: 3,
@@ -10844,7 +10844,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "wf-who",
         heading: "The State Attorney picks the counts, and which courthouse hears them",
         kind: "prose",
-        link: { label: "PPP loan fraud charges", href: "/white-collar-defense/ppp-loan-fraud" },
+        link: { label: "PPP loan fraud charges", href: "/criminal-defense/white-collar/ppp-loan-fraud" },
         tier: 3,
         group: "Who decides what happens in my case?",
         groupSummary: "The office that picks the counts, and where state and federal cases are heard.",
@@ -11029,7 +11029,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "tax-time-limit",
-        link: { label: "Federal criminal defense in Tampa, and how federal investigations run", href: "/federal-criminal-defense" },
+        link: { label: "Federal criminal defense in Tampa, and how federal investigations run", href: "/criminal-defense/federal" },
         heading: "How long the government has to bring a tax charge",
         kind: "prose",
         tier: 3,
@@ -11048,7 +11048,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "tax-defense",
         heading: "Your rights, and the records that already exist",
         kind: "guidance",
-        link: { label: "Got a federal target letter? What it means", href: "/federal-criminal-defense/target-letter-defense" },
+        link: { label: "Got a federal target letter? What it means", href: "/criminal-defense/federal/target-letter" },
         tier: 3,
         group: "What are my rights, and what will my lawyer look at?",
         groupSummary: "Your right not to answer, when a lawyer is appointed, and what the dated records can show.",
@@ -11163,7 +11163,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       { question: "How common is it to go to jail for tax evasion?", source: "PAA, question 4 on the primary query, observed 2026-08-13", answer: "Nationally, 68% of federal tax fraud cases sentenced in fiscal year 2025 went to prison, with an average sentence of 17 months. These are national federal numbers for cases already sentenced. They do not predict any one case, and they do not describe a Florida sales tax charge." },
     ],
   },
-  "state/drug-possession-defense": {
+  "state/drug-possession": {
     title: "Charged with drug possession in Hillsborough County?",
     metaTitle: "Drug Possession Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with drug possession in Tampa or elsewhere in Hillsborough County? What you face, what happens next, and how drug court, your license, and sealing work.",
@@ -11263,12 +11263,12 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Trafficking is a separate law, not a bigger version of possession. It has its own rules, covered on our drug trafficking page.",
           "Read the charge on your paperwork with a lawyer.",
         ],
-        link: { label: "When the amount makes it trafficking: Florida drug trafficking", href: "/criminal-defense/drug-trafficking-defense" },
+        link: { label: "When the amount makes it trafficking: Florida drug trafficking", href: "/criminal-defense/state/drug-trafficking" },
         sources: ["F.S. 893.135(1)"],
       },
       {
         id: "proof",
-        link: { label: "When a gun is found with the drugs: Florida gun charges", href: "/criminal-defense/gun-crimes-defense" },
+        link: { label: "When a gun is found with the drugs: Florida gun charges", href: "/criminal-defense/state/gun-crimes" },
         heading: "Having it, knowing it, and the prescription question",
         kind: "prose",
         tier: 3,
@@ -11424,7 +11424,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       { question: "Can a Florida drug possession charge be sealed?", source: "drafted from F.S. 943.0584, F.S. 943.059, F.S. 943.0595 and F.S. 948.08(6), each fetched for this page", answer: "In some cases, yes. Possession is not on Florida's list of crimes that can never be sealed. You generally must never have been adjudicated guilty of a crime in Florida, including in this case, and a withheld adjudication does not count against you here. Finishing the pretrial drug treatment program can lead to a dismissal and a chance to expunge the arrest." },
     ],
   },
-  "state/battery-defense": {
+  "state/battery": {
     title: "Charged with battery in Hillsborough County?",
     metaTitle: "Battery Lawyer in Tampa | Hines McCarty Pavlidis",
     metaDescription: "Charged with battery in Tampa or elsewhere in Hillsborough County? What you face, bond, next steps, and what makes a battery a felony.",
@@ -11552,12 +11552,12 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Assault is a threat, not a touching. It means an intentional, unlawful threat by word or act to do violence, with the apparent ability to do it, plus some act that gives the other person a well-founded fear that it is about to happen.",
           "Domestic battery is not a separate charge under the battery law. It is a battery between family or household members. That relationship can change how your case is handled, and our domestic violence page covers it.",
         ],
-        link: { label: "Domestic violence charges", href: "/criminal-defense/domestic-violence-defense" },
+        link: { label: "Domestic violence charges", href: "/criminal-defense/state/domestic-violence" },
         sources: ["F.S. 784.041(1) to (3)", "F.S. 784.031", "F.S. 784.011", "F.S. 784.07(2)(a)", "F.S. 784.08(2)(d)", "F.S. 741.28(3)", "F.S. 775.082(4)(b)"],
       },
       {
         id: "battery-proof",
-        link: { label: "Sexual battery, a separate charge when the act is sexual", href: "/criminal-defense/sexual-battery-defense" },
+        link: { label: "Sexual battery, a separate charge when the act is sexual", href: "/criminal-defense/state/sexual-battery" },
         heading: "What the State has to show for each battery charge",
         kind: "bullets",
         tier: 3,
@@ -11603,11 +11603,11 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
           "Prison releasee reoffender rules can apply if the new crime came within 3 years after release from a correctional facility. They cover aggravated battery and any felony using or threatening force. Whether a particular battery charge counts as a felony involving force is a question for your lawyer, and the State Attorney's office decides whether to seek it.",
           "If the State proves it, the sentence is a flat 5 years for a third degree felony or 15 years for a second degree felony. You must serve all of it.",
         ],
-        link: { label: "Gun crime charges and the 10 year minimum", href: "/criminal-defense/gun-crimes-defense" },
+        link: { label: "Gun crime charges and the 10 year minimum", href: "/criminal-defense/state/gun-crimes" },
         sources: ["F.S. 775.087(2)(a)1.f.", "F.S. 775.082(9) and (10)", "F.S. 776.08"],
       },
       {
-        id: "battery-defense",
+        id: "battery",
         heading: "Your rights, and what a battery file is made of",
         kind: "guidance",
         tier: 3,
@@ -11696,7 +11696,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       { question: "How much is bail for a battery charge in Florida?", source: "PAA, florida battery charge, Tampa-geolocated 2026-08-13", answer: "In Hillsborough County the bond schedule sets $1,000 for a first degree misdemeanor involving any force or threat of force, and $5,000 for a third degree felony involving any force or threat of force. Those figures bind only the booking officer. For several battery charges, no bond schedule applies, and you cannot be released before seeing a judge. The list is under What happens next." },
     ],
     counterpart: {
-      href: "/criminal-defense/domestic-violence-defense",
+      href: "/criminal-defense/state/domestic-violence",
       label: "Domestic violence charges and what the relationship adds",
       note: "This page covers how a battery is graded and what raises it. Where the people involved are one family or household member and another as Statute 741.28(3) defines that term, further statutes apply on top of that grading, and the companion page covers what they require."
     },
@@ -11761,7 +11761,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "ppp-which-laws",
         heading: "Wire fraud, and the disaster clause in it",
         kind: "prose",
-        link: { label: "Wire fraud charges in Tampa, state and federal", href: "/white-collar-defense/wire-fraud" },
+        link: { label: "Wire fraud charges in Tampa, state and federal", href: "/criminal-defense/white-collar/wire-fraud" },
         tier: 3,
         group: "Is PPP loan fraud its own crime?",
         groupSummary: "Why PPP cases are charged under wire fraud, mail fraud, and bank fraud, and how those laws differ.",
@@ -11778,7 +11778,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "ppp-bank-fraud",
         heading: "Bank fraud, and a false statement on a loan application",
         kind: "prose",
-        link: { label: "Bank fraud charges explained", href: "/white-collar-defense/bank-fraud" },
+        link: { label: "Bank fraud charges explained", href: "/criminal-defense/white-collar/bank-fraud" },
         tier: 3,
         group: "Is PPP loan fraud its own crime?",
         answers: ["facing"],
@@ -11826,7 +11826,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "ppp-proof",
         heading: "A plan to cheat, and what you knew",
         kind: "prose",
-        link: { label: "Federal wire and mail fraud charges", href: "/federal-criminal-defense/wire-mail-fraud" },
+        link: { label: "Federal wire and mail fraud charges", href: "/criminal-defense/federal/wire-mail-fraud" },
         tier: 3,
         group: "What does the government have to prove?",
         groupSummary: "A plan to cheat, the word knowingly, and why a mistake on a form is not the same thing.",
@@ -11842,7 +11842,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
         id: "ppp-arrivals",
         heading: "An audit request, a subpoena, or a target letter",
         kind: "bullets",
-        link: { label: "What a federal target letter means for you", href: "/federal-criminal-defense/target-letter-defense" },
+        link: { label: "What a federal target letter means for you", href: "/criminal-defense/federal/target-letter" },
         tier: 3,
         group: "I got a letter about my loan. What kind is it?",
         groupSummary: "The three papers PPP borrowers get, and the step that is the same for all three.",
@@ -11933,7 +11933,7 @@ export const charges: ChargePage[] = [
 ].map((charge) => {
   const key = `${charge.silo}/${charge.slug}`;
   const withPreview =
-    charge.silo === "state" && charge.slug === "drug-trafficking-defense"
+    charge.silo === "state" && charge.slug === "drug-trafficking"
       ? { ...charge, ...templatePreview }
       : charge;
 
@@ -11973,7 +11973,7 @@ export type Crumb = { name: string; href?: string };
  */
 export const siloTrail = (silo: Silo): Crumb[] => [
   { name: "Home", href: "/" },
-  { name: "Cases We Defend", href: "/cases-we-defend" },
+  { name: "Criminal Defense", href: "/criminal-defense" },
   { name: silo.label },
 ];
 
@@ -11981,7 +11981,7 @@ export const chargeTrail = (charge: ChargePage): Crumb[] => {
   const silo = siloByKey(charge.silo);
   return [
     { name: "Home", href: "/" },
-    { name: "Cases We Defend", href: "/cases-we-defend" },
+    { name: "Criminal Defense", href: "/criminal-defense" },
     ...(silo ? [{ name: silo.label, href: silo.href }] : []),
     { name: charge.label },
   ];
@@ -12230,11 +12230,11 @@ export const guides: GuidePage[] = [
     relatedLinks: [
       {
         label: "How the bond schedule reaches a battery charge",
-        href: "/criminal-defense/battery-defense",
+        href: "/criminal-defense/state/battery",
       },
       {
         label: "The domestic violence custody hold, in charge context",
-        href: "/criminal-defense/domestic-violence-defense",
+        href: "/criminal-defense/state/domestic-violence",
       },
       {
         label: "The federal counterpart: a federal case, start to finish",
@@ -12424,7 +12424,7 @@ export const guides: GuidePage[] = [
     relatedLinks: [
       {
         label: "Target letters and the grand jury, in depth",
-        href: "/federal-criminal-defense/target-letter-defense",
+        href: "/criminal-defense/federal/target-letter",
       },
     ],
     published: true,

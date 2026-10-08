@@ -47,8 +47,8 @@ export default function ResultsPage() {
       <EmptyState
         heading="No results are published yet"
         body="Rather than list outcomes we cannot describe accurately or have not been given permission to share, this page stays empty until there is something to put on it. If you want to know how the firm has handled a matter like yours, ask during a consultation."
-        linkHref="/cases-we-defend"
-        linkLabel="Cases we defend"
+        linkHref="/criminal-defense"
+        linkLabel="Criminal defense charges"
       />
 
       {/*

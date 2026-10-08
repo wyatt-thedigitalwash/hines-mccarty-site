@@ -151,7 +151,7 @@ export default function AboutPage() {
             */}
             <div className="mt-10 flex flex-wrap gap-4">
               <Link
-                href="/cases-we-defend"
+                href="/criminal-defense"
                 className="inline-flex items-center border border-navy px-7 py-4 font-display text-lg transition-colors hover:border-bronze hover:text-bronze"
               >
                 Criminal defense

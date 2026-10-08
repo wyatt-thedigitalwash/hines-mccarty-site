@@ -2860,3 +2860,35 @@ pages (`handlesChargeHrefs` now state and federal), so he appears under
 "Who handles these cases" on all nine federal pages and on the Federal
 Criminal Defense card in "Who handles what"; his bio's practice areas list
 Federal Criminal Defense as well. Updates the D65 mapping (state only).
+
+### D81. Every criminal defense page lives under /criminal-defense
+
+**2026-10-08. Client direction.** The criminal defense addresses now mirror
+the menu, as /personal-injury/... already did:
+
+| Was | Now |
+|---|---|
+| /cases-we-defend (the charge list) | /criminal-defense (the criminal defense overview) |
+| /criminal-defense (state hub) | /criminal-defense/state |
+| /criminal-defense/dui-defense | /criminal-defense/state/dui |
+| /federal-criminal-defense/... | /criminal-defense/federal/... |
+| /white-collar-defense/... | /criminal-defense/white-collar/... |
+
+- **Shorter page names**, client approved: the "-defense" suffix is dropped
+  where the folder already says it (eleven state pages, plus federal
+  `csam-defense` to `csam` and `target-letter-defense` to `target-letter`).
+  Data keys follow (`state/dui-defense` to `state/dui`), in the code, the
+  checks, PAGE-SOURCES.md and the baselines. DECISIONS.md and the research
+  briefs keep the old names as the historical record.
+- **Done before launch on purpose**: nothing was indexed at the old
+  addresses, so no ranking is lost. One old-to-new map was applied in a
+  single pass across every file, so nothing was renamed by hand or twice.
+- **The overview is the criminal defense page now**: H1 "Criminal defense.",
+  title "Criminal Defense Lawyer in Tampa | Hines McCarty Pavlidis", and the
+  search map's primary query "criminal defense attorney Tampa" (keywords.md,
+  never assigned to a page before). The state hub's title is "State Criminal
+  Defense Lawyer in Tampa, Florida". Breadcrumbs read Home > Criminal
+  Defense > State Criminal Defense > the charge.
+- **Redirects** from every old address to its new one, as a safety net for
+  links made during development. Redirects from the previous website are
+  added before launch (CLAUDE.md audit 6).

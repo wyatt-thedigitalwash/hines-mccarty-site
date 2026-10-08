@@ -147,10 +147,10 @@ export type C9Exemption = { type: C9ExemptionType; reason: string };
  * would.
  *
  * - `no-statute`: no offence exists, so there is no element a differentiator
- *   could be false about. /white-collar-defense/corporate-fraud. D12.
+ *   could be false about. /criminal-defense/white-collar/corporate-fraud. D12.
  * - `policy-governed`: a real page with verified substance whose governing
  *   source is agency policy rather than a statute, and whose differentiator is
- *   precisely that absence. /federal-criminal-defense/target-letter-defense,
+ *   precisely that absence. /criminal-defense/federal/target-letter,
  *   which rests on JM 9-11.151. D15.
  *
  * The two carry OPPOSITE invariants, enforced in scripts/check-c9.mts. A
@@ -169,7 +169,7 @@ export type C9ExemptionType = "no-statute" | "policy-governed";
  *
  * D12 exempted corporate fraud on the ground that no statute existed. That
  * condition does not travel to every category page.
- * /criminal-defense/sex-crimes-defense is a category resting on five statutes,
+ * /criminal-defense/state/sex-crimes is a category resting on five statutes,
  * so it fails D12's condition and stays in the comparison set. Modelling it as
  * either a plain charge page or as exempt would state something untrue: it is
  * not one charge, and it is not excused.

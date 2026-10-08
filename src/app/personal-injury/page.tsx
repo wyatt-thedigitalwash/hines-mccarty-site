@@ -15,7 +15,7 @@ import {
 } from "@/lib/site";
 
 /**
- * The personal injury hub, built on the same shape as /cases-we-defend.
+ * The personal injury hub, built on the same shape as /criminal-defense.
  *
  * WHY IT MIRRORS THAT PAGE NOW. It is the same kind of page doing the same
  * job: a practice hub that routes a reader to a specific page and carries
@@ -29,7 +29,7 @@ import {
  *      the section's SEO payload, which is why it precedes the row below it.
  *   3. One row out, to a human.
  *
- * WHY IT IS STILL A SEPARATE HUB FROM /cases-we-defend. That one is criminal
+ * WHY IT IS STILL A SEPARATE HUB FROM /criminal-defense. That one is criminal
  * defence and its reader is accused; this reader was injured. Same firm,
  * opposite posture, and one hub cannot address both without one of them
  * reading as an afterthought.

@@ -80,13 +80,13 @@ const DYNAMIC: Record<string, string[]> = {
   // Catch-all: one entry covers both pillars and spokes, because injuryHref is
   // the same function generateStaticParams builds its params from.
   "/personal-injury/[...injury]": injuryPages.map((p) => injuryHref(p)),
-  "/criminal-defense/[charge]": charges
+  "/criminal-defense/state/[charge]": charges
     .filter((c) => c.silo === "state")
     .map((c) => chargeHref(c)),
-  "/federal-criminal-defense/[charge]": charges
+  "/criminal-defense/federal/[charge]": charges
     .filter((c) => c.silo === "federal")
     .map((c) => chargeHref(c)),
-  "/white-collar-defense/[charge]": charges
+  "/criminal-defense/white-collar/[charge]": charges
     .filter((c) => c.silo === "white-collar")
     .map((c) => chargeHref(c)),
 };
@@ -165,7 +165,7 @@ const assets = new Set(publicFiles());
 const FORBIDDEN_EDGES: { to: string; fromPrefix: string; why: string }[] = [
   {
     to: "/resources/tools/offense-level-comparison",
-    fromPrefix: "/federal-criminal-defense",
+    fromPrefix: "/criminal-defense/federal",
     why:
       "the Criminal Punishment Code applies to Florida offenses only, so the " +
       "offense-level instrument speaks to nothing on a federal charge page. " +
@@ -221,7 +221,7 @@ console.log("Route-resolution self-tests");
     !resolves("/sentencing/florida-criminal-punishment-code"));
   t("PLANTED: a typo in a real route FAILS (/attorney)", !resolves("/attorney"));
   t("PLANTED: a charge slug that does not exist FAILS",
-    !resolves("/criminal-defense/not-a-real-charge"));
+    !resolves("/criminal-defense/state/not-a-real-charge"));
 
   // The published/unpublished split in sweep A is a real branch, so it gets a
   // test rather than an assumption: a PUBLISHED tool pointing at an unbuilt
@@ -243,11 +243,11 @@ console.log("Route-resolution self-tests");
       FORBIDDEN_EDGES.some((e) => href === e.to && from.startsWith(e.fromPrefix));
     const TOOL = "/resources/tools/offense-level-comparison";
     t("PLANTED: a federal charge page linking the offense-level tool FAILS",
-      violates("/federal-criminal-defense/wire-fraud", TOOL));
+      violates("/criminal-defense/federal/wire-fraud", TOOL));
     t("a STATE charge page linking the same tool is allowed",
-      !violates("/criminal-defense/grand-theft-defense", TOOL));
+      !violates("/criminal-defense/state/grand-theft", TOOL));
     t("a federal page linking something else is allowed",
-      !violates("/federal-criminal-defense/wire-fraud", "/contact"));
+      !violates("/criminal-defense/federal/wire-fraud", "/contact"));
   }
 
   if (!ok) {

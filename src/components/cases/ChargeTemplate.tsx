@@ -161,7 +161,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
           </div>
 
           {/*
-            A WAY OUT, IN THE HERO. Measured on /criminal-defense/dui-defense
+            A WAY OUT, IN THE HERO. Measured on /criminal-defense/state/dui
             before this existed: 10,495 words of the page's 10,548 came BEFORE
             the first phone number or contact link. Every one of these pages is
             written for someone who was arrested, or whose child was, and the
@@ -389,7 +389,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
       )}
 
       {/* 8. Who handles these cases. Keyed on the CHARGE href, not the silo
-          href, deliberately: an attorney mapped to /criminal-defense would be
+          href, deliberately: an attorney mapped to /criminal-defense/state would be
           claimed for every state charge. The charge-level mapping was confirmed
           by the client 2026-10-08 (D65). Charge-page styling on tiered pages. */}
       <HandledBy href={chargeHref(charge)} charge={tiered} />

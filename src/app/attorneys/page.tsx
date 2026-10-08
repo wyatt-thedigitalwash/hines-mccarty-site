@@ -97,7 +97,7 @@ export default function AttorneysPage() {
 
           FULL BLEED, so it sits outside the max-w-[1400px] wrapper above and
           runs the width of the page, the same way it does on the hero of
-          /cases-we-defend and at the foot of each bio.
+          /criminal-defense and at the foot of each bio.
 
           NO TOP PADDING ON THE STRIP'S OWN SECTION, because there is none to
           add: the strip carries py-16 lg:py-18 of its own, and this section

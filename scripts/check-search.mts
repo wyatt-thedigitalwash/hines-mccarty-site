@@ -18,17 +18,17 @@ if (bytes > 400_000) fail(`the index is ${(bytes / 1024).toFixed(0)} KB; keep it
 
 // [query, a URL (prefix) that must appear in the top N, N]
 const CASES: [string, string, number][] = [
-  ["dui", "/criminal-defense/dui-defense", 1],
-  ["drunk driving", "/criminal-defense/dui-defense", 2],
-  ["weed", "/criminal-defense/drug-possession-defense", 3],
-  ["trafficking", "/criminal-defense/drug-trafficking-defense", 3],
-  ["traff", "/criminal-defense/drug-trafficking-defense", 3],
-  ["trafficing", "/criminal-defense/drug-trafficking-defense", 3],
-  ["federal drug trafficking", "/federal-criminal-defense/drug-trafficking", 1],
-  ["893.13", "/criminal-defense/drug-possession-defense", 3],
-  ["sexual battery", "/criminal-defense/sexual-battery-defense", 1],
-  ["domestic violence", "/criminal-defense/domestic-violence-defense", 1],
-  ["target letter", "/federal-criminal-defense/target-letter-defense", 1],
+  ["dui", "/criminal-defense/state/dui", 1],
+  ["drunk driving", "/criminal-defense/state/dui", 2],
+  ["weed", "/criminal-defense/state/drug-possession", 3],
+  ["trafficking", "/criminal-defense/state/drug-trafficking", 3],
+  ["traff", "/criminal-defense/state/drug-trafficking", 3],
+  ["trafficing", "/criminal-defense/state/drug-trafficking", 3],
+  ["federal drug trafficking", "/criminal-defense/federal/drug-trafficking", 1],
+  ["893.13", "/criminal-defense/state/drug-possession", 3],
+  ["sexual battery", "/criminal-defense/state/sexual-battery", 1],
+  ["domestic violence", "/criminal-defense/state/domestic-violence", 1],
+  ["target letter", "/criminal-defense/federal/target-letter", 1],
   ["car accident", "/personal-injury/car-accidents", 2],
   ["uber", "/personal-injury/car-accidents/types-of-car-accidents", 3],
   ["18 wheeler", "/personal-injury/truck-accidents", 3],
@@ -36,7 +36,7 @@ const CASES: [string, string, number][] = [
   ["lily", "/attorneys/lily-mccarty", 1],
   ["maria pavlidis", "/attorneys/maria-pavlidis", 1],
   ["phone number", "/contact", 2],
-  ["ppp loan", "/white-collar-defense/ppp-loan-fraud", 1],
+  ["ppp loan", "/criminal-defense/white-collar/ppp-loan-fraud", 1],
   ["how long does the state have to charge me", "#topic-", 5],
 ];
 for (const [q, want, n] of CASES) {

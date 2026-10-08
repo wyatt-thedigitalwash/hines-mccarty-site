@@ -7,13 +7,13 @@ import { color, space, type } from "@/components/cases/ui";
  * The reciprocal of the practice-areas list on a bio page: the attorneys who
  * handle a given practice area, linking back to their bios.
  *
- * Drop this into each practice page (`/criminal-defense`,
- * `/federal-criminal-defense`, `/white-collar-defense`) once those pages exist.
+ * Drop this into each practice page (`/criminal-defense/state`,
+ * `/criminal-defense/federal`, `/criminal-defense/white-collar`) once those pages exist.
  * It renders nothing when no attorney is mapped to the href, so it is safe to
  * place before the attorney-to-practice mapping is confirmed
  * (WEBSITE-PLAN.md Open Question 2).
  *
- * Usage: <HandledBy href="/criminal-defense" />
+ * Usage: <HandledBy href="/criminal-defense/state" />
  */
 export default function HandledBy({
   href,

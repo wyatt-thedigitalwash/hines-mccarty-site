@@ -27,13 +27,13 @@ import type { InjuryPage } from "@/lib/site";
 export const SITE_HERO_PHOTO: HeroPhoto = { src: "/backgrounds/yes3.jpg" };
 
 /**
- * The criminal defence hub at /cases-we-defend.
+ * The criminal defence hub at /criminal-defense.
  *
  * WHICH PAGE THIS IS. The file arrived named CriminalTrial and no route on the
  * site is called that, so this is the reading rather than a certainty: it is
  * the criminal counterpart to the personal injury hub, which is the page that
  * had just been given its own photograph. If the state silo at
- * /criminal-defense was meant instead, moving it is this one constant.
+ * /criminal-defense/state was meant instead, moving it is this one constant.
  */
 export const CRIMINAL_HUB_PHOTO: HeroPhoto = {
   src: "/criminal-trial/HinesMcCarty_CriminalTrial.jpg",

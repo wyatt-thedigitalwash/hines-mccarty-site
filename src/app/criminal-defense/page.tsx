@@ -1,33 +1,158 @@
 import type { Metadata } from "next";
-import { siloByKey, siloTrail } from "@/lib/site";
-import { breadcrumbJsonLd, faqJsonLd } from "@/lib/schema";
+import Link from "next/link";
+import { capabilities, charges, firm } from "@/lib/site";
+import { TOOLS_LIVE } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
-import SiloHub from "@/components/cases/SiloHub";
-
-const silo = siloByKey("state")!;
+import CredentialStrip from "@/components/CredentialStrip";
+import PageHero from "@/components/PageHero";
+import { CRIMINAL_HUB_PHOTO } from "@/lib/hero-photos";
+import ChargeIndex from "@/components/cases/ChargeIndex";
+import CallToAction from "@/components/CallToAction";
 
 export const metadata: Metadata = pageMetadata({
-  title: silo.metaTitle,
-  description: silo.metaDescription,
-  path: silo.href,
-  // Draft copy pending the C12 verification pass and an attorney read.
-  noindex: !silo.published,
+  title: "Criminal Defense Lawyer in Tampa | Hines McCarty Pavlidis",
+  description:
+    "The state and federal charges Hines McCarty Pavlidis defends in Hillsborough County and in the Middle District of Florida.",
+  path: "/criminal-defense",
+  // Draft copy that has not had its C12 verification pass or attorney read.
+  noindex: true,
 });
 
-export default function SiloPage() {
+export default function CriminalDefensePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(
-            [breadcrumbJsonLd(siloTrail(silo)), faqJsonLd(silo.faq)].filter(
-              Boolean,
-            ),
-          ),
-        }}
-      />
-      <SiloHub silo={silo} />
+      {/* The credential strip rides the hero's bottom edge, full bleed, which
+          is why it goes through `bleed` rather than being placed after the
+          hero: it has to sit inside the navy and outside the padded wrapper. */}
+      <PageHero
+        title="Criminal defense."
+        photo={CRIMINAL_HUB_PHOTO}
+        bleed={<CredentialStrip />}
+      >
+        {/* One string, so the space after the firm name cannot be lost (D74).
+            The charge pages lead with what you face, what happens next and
+            what to do first now (D67). */}
+        <p>
+          {`${firm.name} handles serious state and federal charges in Hillsborough County and in the Middle District of Florida, including the matters many firms refer out. Select a charge to see what you face, what happens next, and what to do first.`}
+        </p>
+      </PageHero>
+
+      {/*
+        Same card structure as the home Capabilities grid: min-h-[380px]
+        lg:min-h-[440px], p-10 lg:p-12, display heading at text-3xl lg:text-4xl,
+        body at mt-6 text-lg, action at mt-8 text-base. Matching those keeps the
+        two grids reading as one system rather than as two near-misses.
+
+        Different ground, though. The home grid is a white fill on navy, where
+        the fill alone carries the card. Service pages run white between the
+        navy hero and the navy close, so here the outline is what draws the
+        card. The white fill is kept so the card still reads correctly if it is
+        ever placed on a tinted section.
+      */}
+      {/*
+        NO TOP PADDING: the credential strip immediately above is a WHITE band
+        and this section is white, so CLAUDE.md's rule applies and the second of
+        two same-coloured neighbours drops its top padding.
+
+        It was py-20 lg:py-28, which stacked 112px on top of the strip's own
+        72px and left 184px of blank white between the marks and this heading.
+        The strip now owns the gap on both of its sides, 72px each at lg, so the
+        row reads as its own band rather than as something abandoned mid-page.
+      */}
+      <section data-bg="white" className="bg-white pb-20 text-navy lg:pb-28">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <ul className="grid gap-6 md:grid-cols-3">
+            {capabilities.map((cap) => (
+              <li key={cap.key}>
+                <Link
+                  href={cap.href}
+                  className="group flex h-full min-h-[380px] flex-col border border-navy/20 bg-white p-10 transition-colors hover:border-navy lg:min-h-[440px] lg:p-12"
+                >
+                  <h2 className="font-display text-3xl font-medium leading-tight transition-colors group-hover:text-bronze lg:text-4xl">
+                    {cap.title}
+                  </h2>
+                  <p className="mt-6 flex-1 text-lg leading-relaxed text-charcoal">
+                    {cap.summary}
+                  </p>
+                  <span className="mt-8 inline-block text-base underline decoration-1 underline-offset-4 transition-colors group-hover:text-bronze">
+                    View charges
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* The full index. Every charge, server-rendered, no interaction. */}
+      <ChargeIndex heading="Every charge we defend" />
+
+      {/*
+        One row to the Layer 2 hub, placed after the full index on purpose. The
+        index is this page's SEO payload and has to come first in the DOM.
+
+        Links to the hub only, never to an individual tool or guide. Per-asset
+        links belong on the charge pages, where the reader already has a
+        specific next question. The sentencing calculator is not linked from
+        here or anywhere else until it clears done-criteria C1 through C8
+        (CASES-WE-DEFEND-PLAN.md Section 5.6).
+      */}
+      {/* D73: this row points to Resources, hidden at launch. */}
+      {TOOLS_LIVE ? (
+      <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div className="flex flex-col gap-6 border border-navy/20 p-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-10">
+            <div className="max-w-2xl">
+              <h2 className="font-display text-2xl leading-tight lg:text-3xl">
+                Not sure what you are facing?
+              </h2>
+              <p className="mt-4 leading-relaxed text-charcoal">
+                The charge written on the paperwork is not always the word
+                people use for it. The guides and tools explain how a case
+                moves through each court, what the terms mean, and what happens
+                at each stage.
+              </p>
+            </div>
+            <Link
+              href="/resources"
+              className="link-arrow shrink-0 text-base underline decoration-1 underline-offset-4 transition-colors hover:text-bronze"
+            >
+              Browse the resources
+            </Link>
+          </div>
+        </div>
+      </section>
+      ) : null}
+
+      <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+          <h2 className="font-display text-4xl leading-tight sm:text-5xl">
+            Where these cases are heard
+          </h2>
+          <div className="mt-8 grid max-w-4xl gap-8 sm:grid-cols-2">
+            <div>
+              <h3 className="font-display text-xl">State</h3>
+              <p className="mt-3 leading-relaxed text-charcoal">
+                The 13th Judicial Circuit in Hillsborough County, with matters
+                throughout Tampa Bay.
+              </p>
+            </div>
+            <div>
+              <h3 className="font-display text-xl">Federal</h3>
+              <p className="mt-3 leading-relaxed text-charcoal">
+                The Middle District of Florida, including the Tampa, Orlando,
+                and Fort Myers divisions.
+              </p>
+            </div>
+          </div>
+          <p className="mt-8 text-sm text-navy/70">
+            {charges.length} charge pages are planned across the three areas
+            above.
+          </p>
+        </div>
+      </section>
+
+      <CallToAction heading="Talk to an attorney about your case." tone="navy" />
     </>
   );
 }

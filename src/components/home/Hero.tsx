@@ -102,7 +102,7 @@ export default function Hero() {
         Credential strip sitting flush on the hero's bottom edge, replacing the
         three navigation blocks that used to sit here. Those links all exist in
         the header and the footer, so nothing became unreachable, but the home
-        page did lose three internal links to /attorneys, /cases-we-defend, and
+        page did lose three internal links to /attorneys, /criminal-defense, and
         /resources.
       */}
       <CredentialStrip />
