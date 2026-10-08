@@ -1,4 +1,6 @@
 import { Fragment } from "react";
+import PenaltyLadder from "./PenaltyLadder";
+import { card, color, space, type } from "./ui";
 import type { ChargeSection, PenaltyRow } from "@/lib/site";
 import Needs from "@/components/Needs";
 import { isRecordedVerbatim, singleSourceUrl } from "@/lib/statute-links";
@@ -166,7 +168,7 @@ export function SectionBody({ section }: { section: ChargeSection }) {
         </div>
       ) : null}
       {section.kind !== "prose" && section.prose?.length ? (
-        <div className="mt-8 space-y-5">
+        <div className={`mt-8 ${space.paragraphs}`}>
           {section.prose.map((paragraph) => (
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
@@ -210,7 +212,7 @@ export function StatuteBlock({ section }: { section: ChargeSection }) {
     return <Needs>statute citation and what it says</Needs>;
   return isRecordedVerbatim(section.statute.body) ? (
     <figure className="m-0" data-statute-quote>
-      <figcaption className="font-heading text-sm font-medium text-navy/50">
+      <figcaption className={`${type.label} ${color.muted}`}>
         <cite className="not-italic">{section.statute.citation}</cite>
       </figcaption>
       <blockquote
@@ -222,7 +224,7 @@ export function StatuteBlock({ section }: { section: ChargeSection }) {
     </figure>
   ) : (
     <div data-statute-gloss>
-      <p className="font-heading text-sm font-medium text-navy/50">
+      <p className={`${type.label} ${color.muted}`}>
         <cite className="not-italic">{section.statute.citation}</cite>
       </p>
       <p className="mt-3">{section.statute.body}</p>
@@ -256,7 +258,11 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
 
     case "penalties":
       return section.penalties?.length ? (
-        <PenaltyTable rows={section.penalties} />
+        section.display === "ladder" ? (
+          <PenaltyLadder rows={section.penalties} />
+        ) : (
+          <PenaltyTable rows={section.penalties} />
+        )
       ) : (
         <Needs>degrees, statutory maximums, and offense levels</Needs>
       );
@@ -290,50 +296,43 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
              that expires when it runs out, ask for the review before it does.
              That is a progression, so the element says so, and the grid is gone
              because a 2x2 grid gives no reliable reading order for numbers. */
-          <ol className="space-y-4">
+          /* A 2x2 GRID OF CARDS, D48. The four steps had been full-width
+             outlined rows with a small boxed numeral, which read as a form.
+             Each step is now a filled card with a large serif numeral, the
+             step as a serif headline, and the reason under it. The reading
+             order is carried by the "01" to "04" numerals (left to right, then
+             down) and by the <ol>; a phone gets one column. */
+          <ol className="grid gap-4 md:grid-cols-2">
             {section.bullets.map((item, i) => {
               /* THE FIRST SENTENCE IS THE STEP'S HEADING, a split for the eye
                  only: the string is unchanged and the readability gate measures
-                 the DATA, so it still sees one sentence after another. Guarded,
-                 because the shape belongs to this copy rather than to the type.
-                 A first sentence over 64 characters, or an item with no sentence
-                 break, renders whole as body text. */
+                 the DATA. A first sentence over 64 characters, or an item with
+                 no sentence break, renders whole as body text. */
               const m = item.match(/^([\s\S]{1,64}?[.!?])\s+([\s\S]*)$/);
               const head = m ? m[1] : null;
               const body = m ? m[2] : item;
               return (
                 <li
                   key={item.slice(0, 40)}
-                  className="flex items-start gap-5 border border-linen/40 p-6 sm:gap-6 sm:p-8"
+                  className={`flex flex-col bg-linen/[0.06] ${card}`}
                 >
-                  {/* GOLD AS TEXT, not as a fill, now that the card is an
-                      outline. Bronze on navy is 7.07:1 and passes AA, which is
-                      the opposite of bronze on white (2.46:1, the failure still
-                      flagged on the timeline): the dark canvas is what makes
-                      gold type safe here. The square keeps its bronze outline so
-                      the numeral still reads as a marker rather than as part of
-                      the sentence. */}
+                  {/* Bronze on navy is 7.07:1, so gold type is safe here. */}
                   <span
                     aria-hidden="true"
-                    className="flex h-10 w-10 shrink-0 items-center justify-center border border-bronze/60 font-heading text-lg font-semibold text-bronze"
+                    className={`${type.numeral} ${color.accent}`}
                   >
-                    {i + 1}
+                    {String(i + 1).padStart(2, "0")}
                   </span>
-                  <div>
-                    {head && (
-                      <p className="font-heading text-lg font-semibold leading-snug text-linen">
-                        {head}
-                      </p>
-                    )}
-                    <p
-                      className={
-                        "text-base leading-relaxed text-linen/70 " +
-                        (head ? "mt-2" : "")
-                      }
-                    >
-                      {body}
-                    </p>
-                  </div>
+                  {head && (
+                    <h3 className={`mt-6 ${type.subheading} ${color.onDarkHeading}`}>
+                      {head}
+                    </h3>
+                  )}
+                  <p
+                    className={`${type.body} ${color.onDarkBody} ${head ? space.inItem : "mt-6"}`}
+                  >
+                    {body}
+                  </p>
                 </li>
               );
             })}
@@ -342,7 +341,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
           <Needs>the steps to take now</Needs>
         );
       return section.bullets?.length ? (
-        <ul className="space-y-3">
+        <ul className={space.list}>
           {section.bullets!.map((item) => (
             <li key={item.slice(0, 40)} className="flex gap-3">
               <span aria-hidden="true" className="text-bronze">
@@ -362,7 +361,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
       // does not work that way. Each row states when, so the page never says
       // "soon" and never implies a duration it has not verified.
       return section.steps?.length ? (
-        <ol className="max-w-3xl">
+        <ol>
           {section.steps.map((step, i) => {
             /* THE RAIL IS PER-ROW, so it can start and stop at a dot.
                It used to be a border-l on the <ol>, which spans the whole list
@@ -388,7 +387,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
             return (
               <li
                 key={step.when}
-                className="relative overflow-hidden pb-8 last:pb-0"
+                className="relative overflow-hidden pb-10 last:pb-0"
               >
                 <div className="relative pl-7">
                   {!first && (
@@ -420,11 +419,11 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
                       which is why the rail, the dots and the CTA are unaffected.
                       A darkened gold #9A7532 measures 4.23:1 and passes at every
                       size if the audit rules this out. */}
-                  <p className="font-heading text-lg font-semibold leading-snug text-bronze">
+                  <h3 className={`${type.subheading} ${color.heading}`}>
                     {step.when}
-                  </p>
+                  </h3>
                 </div>
-                <p className="mt-3 pl-7 text-charcoal">{step.what}</p>
+                <p className={`${space.inItem} pl-7 ${type.body} ${color.body}`}>{step.what}</p>
               </li>
             );
           })}
@@ -435,16 +434,29 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
 
     case "guidance":
       return section.guidance?.length ? (
-        <div className="grid gap-5 md:grid-cols-3">
+        /* D56: as many columns as cards (up to three), so two cards never sit
+           beside an empty third; white cards with a hairline, which read on
+           both a white page and the linen of an open topic; and the card
+           heading in the sans semibold, so it ranks BELOW the topic section
+           heading above it (it was a 20px serif, outranking its parent). */
+        <div
+          className={`grid gap-4 ${
+            section.guidance.length >= 3
+              ? "md:grid-cols-3"
+              : section.guidance.length === 2
+                ? "md:grid-cols-2"
+                : ""
+          }`}
+        >
           {section.guidance.map((group) => (
             <div
               key={group.heading}
-              className="border border-navy/12 bg-linen/40 p-6"
+              className={`border border-navy/10 bg-white ${card}`}
             >
-              <h4 className="font-display text-xl leading-snug text-navy">
+              <h5 className={`${type.itemHeading} ${color.heading}`}>
                 {group.heading}
-              </h4>
-              <ul className="mt-4 space-y-3">
+              </h5>
+              <ul className={`mt-4 ${space.list}`}>
                 {group.items.map((item) => (
                   <li key={item.slice(0, 40)} className="flex gap-3">
                     <span aria-hidden="true" className="text-bronze">
@@ -464,7 +476,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
     case "prose":
     default:
       return section.prose?.length ? (
-        <div className="space-y-5">
+        <div className={space.paragraphs}>
           {section.prose.map((paragraph) => (
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
@@ -480,6 +492,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
    that sentence outside the scroll container. overflow-x-auto stays as a floor
    for very narrow screens. */
 export function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
+  if (rows.length && rows.every((r) => r.situation)) return <SituationTable rows={rows} />;
   /* THE OFFENSE LEVEL COLUMN IS RENDERED ONLY WHERE A ROW ACTUALLY CARRIES ONE.
      It used to render always, printing "Not applicable" for every empty cell,
      and that was wrong in two different directions on twelve tables.
@@ -602,6 +615,69 @@ export function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
                 </td>
               </tr>
             </Fragment>
+          ))}
+        </tbody>
+      </table>
+    </div>
+  );
+}
+
+/**
+ * The reader-first penalty table. D45.
+ *
+ * Each row leads with what the person had or did, because that is how a
+ * visitor finds their row. The degree follows as a label and the offense
+ * level is left out: it only means something on the sentencing worksheet, and
+ * the prose under the table explains the points in words. Rows render in data
+ * order, which on a converted page runs lightest to heaviest.
+ *
+ * Same stacking approach as PenaltyTable: a card on a phone, a table row at md.
+ */
+function SituationTable({ rows }: { rows: PenaltyRow[] }) {
+  const headers = ["What you had", "Penalty", "Charged as"];
+  return (
+    <div className="border border-navy/15 bg-white">
+      <table className="w-full border-collapse text-left">
+        <thead className="hidden md:table-header-group">
+          <tr className="border-b border-navy/15 bg-linen/60">
+            {headers.map((h, i) => (
+              <th
+                key={h}
+                className={
+                  "px-5 py-3 font-heading text-sm font-semibold text-navy/55 " +
+                  (i === 0 ? "w-[42%]" : i === 1 ? "w-[30%]" : "w-[28%]")
+                }
+              >
+                {h}
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody className="block md:table-row-group">
+          {rows.map((row, i) => (
+            <tr
+              key={row.situation! + i}
+              className={`flex flex-col gap-1 border-b border-navy/10 px-5 py-5 md:table-row md:p-0 ${
+                i % 2 ? "bg-linen/25" : "bg-white"
+              }`}
+            >
+              <td className="block md:table-cell md:px-5 md:py-4 md:align-top">
+                <span className="block text-lg font-medium leading-snug text-navy">
+                  {row.situation}
+                </span>
+                {row.note ? (
+                  <span className="mt-1 block text-[15px] leading-relaxed text-charcoal">
+                    {row.note}
+                  </span>
+                ) : null}
+              </td>
+              <td className="mt-2 block text-lg font-medium leading-snug text-navy md:mt-0 md:table-cell md:px-5 md:py-4 md:align-top">
+                {row.maximum}
+              </td>
+              <td className="block font-heading text-[15px] font-medium leading-snug text-navy/60 md:table-cell md:px-5 md:py-4 md:align-top">
+                {row.degree}
+              </td>
+            </tr>
           ))}
         </tbody>
       </table>

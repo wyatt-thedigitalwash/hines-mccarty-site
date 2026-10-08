@@ -269,6 +269,9 @@ console.log("\nA. Hrefs in the page data");
   for (const c of charges) {
     for (const g of c.relatedGuides ?? [])
       refs.push({ from: chargeHref(c), shape: "relatedGuides", label: g.label, href: g.href });
+    for (const s of c.sections ?? [])
+      if (s.link)
+        refs.push({ from: chargeHref(c), shape: "section link", label: s.link.label, href: s.link.href });
     if (c.counterpart)
       refs.push({ from: chargeHref(c), shape: "counterpart", label: c.counterpart.label, href: c.counterpart.href });
   }

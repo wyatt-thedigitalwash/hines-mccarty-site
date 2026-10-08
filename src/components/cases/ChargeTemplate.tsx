@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import { type ChargePage, type ChargeSection, chargeHref, chargeTrail, firm } from "@/lib/site";
+import { type ChargePage, type ChargeSection, attorneys, chargeHref, chargeTrail, firm } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Needs from "@/components/Needs";
 import {
@@ -14,6 +14,9 @@ import {
 import HandledBy from "@/components/attorneys/HandledBy";
 import Byline from "./Byline";
 import CallToAction from "@/components/CallToAction";
+import DetailsGrid from "./DetailsGrid";
+import QuickNav from "./QuickNav";
+import { color, space, type } from "./ui";
 
 /**
  * The level 3 charge page template. Ten sections, per
@@ -46,6 +49,20 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
   const useSections = sections.length > 0;
   // D43: a page opts into the tiered layout by putting a tier on its sections.
   const tiered = sections.some((sec) => sec.tier);
+  // D52: the hero's "On this page" links. Tier 2 sections by their own
+  // headings (minus the closing period), then the details and the FAQ, each
+  // only when the page has them.
+  const quickNav = tiered
+    ? [
+        ...sections
+          .filter((sec) => sec.tier === 2)
+          .map((sec) => ({ id: sec.id, label: sec.heading.replace(/\.$/, "") })),
+        ...(sections.some((sec) => sec.tier === 3)
+          ? [{ id: "details", label: "The details" }]
+          : []),
+        ...(charge.faq?.length ? [{ id: "common-questions", label: "Common questions" }] : []),
+      ]
+    : [];
 
   return (
     <>
@@ -58,8 +75,8 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
         this change was told not to do.
 
         THE STRIPPED HERO (charge.heroCta set) carries four things and nothing
-        else: breadcrumbs, the H1, the lead, one primary button, and a hard rule
-        closing the section. The secondary "Send a message" link and the
+        else: breadcrumbs, the H1, the lead, and one primary button. (The gold
+        band that closed it was removed by D46.) The secondary "Send a message" link and the
         confidentiality line are deliberately absent from it. Both are good copy
         and both were removed on instruction, because the brief was that the top
         section is exactly those elements; they are still rendered on every
@@ -71,19 +88,41 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
         default padding put the button below it.
       */}
       {charge.heroCta ? (
-        <section data-bg="navy" className="bg-navy pt-28 pb-10 lg:pt-44 lg:pb-16">
+        <section
+          data-bg="navy"
+          className={`bg-navy pt-28 lg:pt-44 ${quickNav.length ? "" : "pb-10 lg:pb-16"}`}
+        >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Breadcrumbs trail={chargeTrail(charge)} />
-            <h1 className="mt-6 max-w-4xl font-display text-4xl leading-[1.05] tracking-tight text-linen sm:text-5xl lg:text-6xl">
+            <h1 className={`mt-6 max-w-4xl ${type.pageTitle} ${color.onDarkHeading}`}>
               {charge.title ?? charge.label}
             </h1>
-            <div className="mt-6 max-w-2xl text-lg leading-relaxed text-linen/70">
+            <div className={`mt-6 max-w-2xl ${type.lead} ${color.onDarkBody}`}>
               {charge.lead ?? (
                 <Needs>
                   opening answer, what this charge is, in the first 40 words
                 </Needs>
               )}
             </div>
+            {/* D65: who reviewed the page and when, linked to the attorney's
+                bio. Renders only with BOTH an owner and a real review date. */}
+            {charge.owner && charge.lastReviewed ? (
+              <p className={`mt-4 ${type.label} ${color.onDarkMuted}`}>
+                Reviewed by{" "}
+                {(() => {
+                  const a = attorneys.find((x) => x.name === charge.owner);
+                  return a ? (
+                    <Link href={`/attorneys/${a.slug}`} className="text-linen/85 underline decoration-1 underline-offset-4 hover:text-bronze">
+                      {charge.owner}
+                    </Link>
+                  ) : (
+                    charge.owner
+                  );
+                })()}
+                {" · "}
+                {new Date(`${charge.lastReviewed}T12:00:00`).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
+              </p>
+            ) : null}
             <div className="mt-8">
               <a
                 href={charge.heroCta.href}
@@ -93,15 +132,19 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
               </a>
             </div>
           </div>
+          {/* The page's own menu as a full-width band closing the hero, a shade
+              lighter than the navy (a background, not a rule), D52. A row of
+              links on desktop; on a phone a single "Jump to a section" row
+              that expands (see QuickNav). It closes the section, so the hero
+              carries no bottom padding of its own when it is present. */}
+          {quickNav.length ? (
+            <div className="mt-10 bg-linen/[0.06] lg:mt-20">
+              <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+                <QuickNav items={quickNav} />
+              </div>
+            </div>
+          ) : null}
         </section>
-      ) : null}
-      {/* THE VISUAL BREAK, as the section's bottom EDGE rather than a stripe
-          floating above it. It used to sit inside the navy section, which still
-          had pb-16 beneath it, so the page rendered a gold line with 64px of
-          navy under it: not a break, a stray rule. A 4px band between the navy
-          hero and the white body is a break because there is nothing after it. */}
-      {charge.heroCta ? (
-        <div className="h-1 w-full bg-bronze/70" aria-hidden="true" />
       ) : null}
       {charge.heroCta ? null : (
       <section data-bg="navy" className="bg-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
@@ -153,8 +196,11 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
       </section>
       )}
 
-      {/* 2. Forum cross-link, for state and federal overlap pages (Sec. 4.6) */}
-      {charge.counterpart && (
+      {/* 2. Forum cross-link, for state and federal overlap pages (Sec. 4.6).
+          Not rendered on a tiered page (D51): between the hero and "What
+          you're facing" it read as an interruption, in statute language. The
+          `counterpart` data stays. */}
+      {charge.counterpart && !tiered && (
         <section data-bg="white" className="bg-white py-14 text-navy">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <h2 className="font-display text-2xl leading-tight sm:text-3xl">
@@ -182,8 +228,8 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
         visibly smaller so the two tiers cannot read as peers.
 
         The per-section sources line and the per-section "read the full
-        analysis" disclosure are both gone. Sources are now one block at the
-        foot of the page; the statute blocks live inside their Tier 3 item.
+        analysis" disclosure are both gone, and so is the page-level sources
+        block (D46); the statute blocks live inside their Tier 3 item.
 
         A page with no `tier` on any section falls through to the pre-D43
         renderer below, which is what leaves the other 27 charge pages byte
@@ -343,32 +389,30 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
       </section>
       )}
 
-      {/* 8. Handled by.
-          Wired and currently empty. Keyed on the CHARGE href, not the silo
-          href, deliberately: an attorney mapped to /criminal-defense is mapped
-          to the silo, and rendering that here would claim they handle all ten
-          state charges including homicide and sexual battery. Which attorney
-          leads which charge is WEBSITE-PLAN.md Open Question 2 and is not
-          answered, so this returns null until charge-level mappings exist. */}
-      <HandledBy href={chargeHref(charge)} />
+      {/* 8. Who handles these cases. Keyed on the CHARGE href, not the silo
+          href, deliberately: an attorney mapped to /criminal-defense would be
+          claimed for every state charge. The charge-level mapping was confirmed
+          by the client 2026-10-08 (D65). Charge-page styling on tiered pages. */}
+      <HandledBy href={chargeHref(charge)} charge={tiered} />
 
       {/* 9. FAQ, emitted with FAQPage schema by the route.
           An overview with no FAQ renders no marker: the questions are not
           missing there, they are not required.
 
-          D43: on a tiered page the FAQ is the seventh accordion item, rendered
-          by TieredBody, so this block drops to the related-guides and byline it
-          also carries. The FAQPage schema is emitted by the ROUTE from
-          charge.faq and is unaffected by which component renders the answers. */}
+          The FAQPage schema is emitted by the ROUTE from charge.faq and is
+          unaffected by which component renders the answers. */}
+      {/* D46: a tiered page renders none of this. Its FAQ and byline live in
+          TieredBody, and its links sit inside the sections they belong to. */}
+      {!tiered && (
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          {!tiered && (charge.faq?.length || !isOverview) && (
+          {(charge.faq?.length || !isOverview) && (
             <h2 className="font-display text-4xl leading-tight sm:text-5xl">
               Common questions
             </h2>
           )}
-          <div className={tiered ? "max-w-3xl" : "mt-10 max-w-3xl"}>
-            {tiered ? null : charge.faq?.length ? (
+          <div className="mt-10 max-w-3xl">
+            {charge.faq?.length ? (
               <dl className="space-y-8">
                 {charge.faq.map((item) => (
                   <div
@@ -420,6 +464,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
           </div>
         </div>
       </section>
+      )}
 
       <CallToAction
         heading={
@@ -465,17 +510,16 @@ function TieredBody({
   // Consecutive sections sharing a `group` collapse into one accordion item.
   // Order is the data's order; nothing is sorted, so the item sequence is the
   // sequence the writer chose.
-  const items: { label: string; sections: ChargeSection[] }[] = [];
+  const items: { label: string; summary?: string; sections: ChargeSection[] }[] = [];
   for (const sec of tier3) {
     const label = sec.group ?? sec.heading;
     const last = items[items.length - 1];
-    if (last && last.label === label) last.sections.push(sec);
-    else items.push({ label, sections: [sec] });
+    if (last && last.label === label) {
+      last.sections.push(sec);
+      last.summary ??= sec.groupSummary;
+    } else items.push({ label, summary: sec.groupSummary, sections: [sec] });
   }
 
-  // One sources block for the whole page, in section order, de-duplicated. A
-  // provision cited by three sections appears once.
-  const sources = [...new Set(sections.flatMap((s) => s.sources ?? []))];
 
   const cta = charge.heroCta ?? {
     label: `Call ${firm.phone}`,
@@ -498,14 +542,12 @@ function TieredBody({
     the way across and left ~630px of white. That reads as a broken layout
     rather than as a measure.
 
-    Two widths now do two jobs. The COLUMN is 1120px and centred: wide enough
-    that the page fills the screen, and it is what the table, the timeline and
-    the guidance cards span, all of which were being squeezed. PROSE inside it
-    is capped at 68 characters with an arbitrary variant on the paragraphs,
-    because a 1120px line of body text is unreadable no matter how good the page
-    looks. Structured payloads get the width; sentences do not.
+    The COLUMN is 1120px and centred. Widening it to the site's 1400px
+    container to align with the hero was tried and rejected (D46).
+    Prose inside the details used to be capped at 68 characters, which
+    left the right third of every open topic empty; on client direction (D46)
+    it now spans the column like everything else.
   */
-  const proseWidth = "[&_p]:max-w-[68ch] [&_li>span:last-child]:max-w-[64ch]";
 
   /*
     TIER 2 IS SPLIT INTO BANDS, not rendered as one run of divs.
@@ -527,15 +569,67 @@ function TieredBody({
     else bands.push({ background: sec.background, sections: [sec] });
   }
 
-  const sectionBlock = (section: ChargeSection, dark: boolean) => (
+  // One topic's sections: each keeps its own charge-specific heading (the
+  // label is wayfinding; the heading is the claim), its body, and its link.
+  // Shared by the accordion and the box grid (D47).
+  const topicBody = (secs: ChargeSection[]) =>
+    secs.map((section) => (
+      <div key={section.id} id={section.id} className="scroll-mt-28">
+        <h4 className={`${type.itemHeading} ${color.heading}`}>{section.heading}</h4>
+        <div className={`${space.inItem} ${space.paragraphs}`}>
+          <SectionBody section={section} />
+        </div>
+        {section.link ? (
+          <Link
+            href={section.link.href}
+            className={`link-arrow mt-4 inline-block ${type.label} ${color.heading} underline decoration-1 underline-offset-4 transition-colors hover:text-bronze`}
+          >
+            {section.link.label}
+          </Link>
+        ) : null}
+      </div>
+    ));
+
+  /*
+    ONE SPACING UNIT. D46. Every section below pads py-24 lg:py-32 (96px, 128px
+    on desktop) and Tier 2 sections sharing a band are spaced by the same unit.
+    Two white sections in a row lose the second's top padding under the Section
+    Spacing Rule, so the gap is one unit; at a navy/white edge each side gets
+    one unit. Mixing sizes made some joins look loose and others cramped.
+  */
+  /* A one-line intro under a Tier 2 heading, by section kind. Template copy,
+     so each has to hold on every page, state and federal. Penalties (D51): "the
+     penalty the law sets", not "the most you can get", because some rows are
+     mandatory minimums. Timeline (D55): worded to hold on a target letter page,
+     where no one has been charged yet. */
+  const tier2Intro: Partial<Record<ChargeSection["kind"], string>> = {
+    penalties:
+      "What you face depends on the facts in the charge. Find the situation closest to yours to see the penalty the law sets for it.",
+    timeline:
+      "These are the deadlines that shape a case, in the order they usually come. A lawyer can tell you which ones are already running for you.",
+  };
+
+  const sectionBlock = (section: ChargeSection, dark: boolean) => {
+    const intro = tier2Intro[section.kind];
+    const heading = (
+      <div>
+        <h2
+          className={`${type.sectionHeading} ${dark ? color.onDarkHeading : color.heading}`}
+        >
+          {section.heading}
+        </h2>
+        {intro ? (
+          <p
+            className={`${space.afterHeading} max-w-2xl ${type.lead} ${dark ? color.onDarkBody : color.body}`}
+          >
+            {intro}
+          </p>
+        ) : null}
+      </div>
+    );
+    return (
     <div key={section.id} id={section.id} className="scroll-mt-28">
-      <h2
-        className={`font-display text-3xl leading-tight tracking-tight sm:text-4xl lg:text-5xl ${
-          dark ? "text-linen" : ""
-        }`}
-      >
-        {section.heading}
-      </h2>
+      {heading}
       {/* TIER 2 PROSE IS NOT CAPPED. It used to inherit the 68ch measure, which
           left the paragraphs under the penalty table stopping two thirds of the
           way across while the table itself ran the full column: two different
@@ -544,14 +638,13 @@ function TieredBody({
           it. The cap still applies inside Tier 3, where there is no full-width
           payload for prose to line up with. */}
       <div
-        className={`mt-8 text-lg leading-relaxed ${
-          dark ? "text-linen/75" : "text-charcoal"
-        }`}
+        className={`${space.beforeContent} ${type.body} ${dark ? color.onDarkBody : color.body}`}
       >
         <SectionBody section={section} />
       </div>
     </div>
-  );
+    );
+  };
 
   return (
     <>
@@ -560,26 +653,53 @@ function TieredBody({
           <section
             key={i}
             data-bg="navy"
-            className="bg-navy py-16 text-linen lg:py-24"
+            className="bg-navy py-24 lg:py-32 text-linen"
           >
             <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
-              <div className="space-y-16">
-                {band.sections.map((sec) => sectionBlock(sec, true))}
-              </div>
-              {/* The CTA that follows Tier 2 lives in the band, where the
-                  bronze button sits on navy exactly as it does in the hero.
-*/}
-              <div className="mt-12">{ctaButton}</div>
+              {band.sections.length === 1 ? (
+                /* One section in the band (the action list): its heading and
+                   the call button share a header row, as on Common questions,
+                   instead of the button trailing under the list. D48. */
+                <div id={band.sections[0].id} className="scroll-mt-28">
+                  <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-16">
+                    <div className="max-w-2xl">
+                      <h2 className={`${type.sectionHeading} ${color.onDarkHeading}`}>
+                        {band.sections[0].heading}
+                      </h2>
+                      {/* Template copy, so it has to hold for every charge,
+                          including a target letter where no one is arrested.
+                          Process only, no outcome claim. */}
+                      <p className={`${space.afterHeading} ${type.lead} ${color.onDarkBody}`}>
+                        These steps protect your rights in the first days of a
+                        case, while it is still taking shape.
+                      </p>
+                    </div>
+                    <div className="shrink-0">{ctaButton}</div>
+                  </div>
+                  <div className={`${space.beforeContent} ${type.body} ${color.onDarkBody}`}>
+                    <SectionBody section={band.sections[0]} />
+                  </div>
+                </div>
+              ) : (
+                <>
+                  <div className="space-y-24 lg:space-y-32">
+                    {band.sections.map((sec) => sectionBlock(sec, true))}
+                  </div>
+                  {/* The CTA that follows Tier 2 lives in the band, where the
+                      bronze button sits on navy exactly as it does in the hero. */}
+                  <div className="mt-12">{ctaButton}</div>
+                </>
+              )}
             </div>
           </section>
         ) : (
           <section
             key={i}
             data-bg="white"
-            className="bg-white py-14 text-navy lg:py-20"
+            className="bg-white py-24 lg:py-32 text-navy"
           >
             <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
-              <div className="space-y-16 lg:space-y-24">
+              <div className="space-y-24 lg:space-y-32">
                 {band.sections.map((sec) => sectionBlock(sec, false))}
               </div>
             </div>
@@ -587,107 +707,115 @@ function TieredBody({
         ),
       )}
 
-      <section data-bg="white" className="bg-white py-14 text-navy lg:py-20">
+      {/* TIER 3, THE DETAILS. D46.
+
+          Each topic carries a one-line summary while closed, so a reader knows
+          what is inside before opening it. Not numbered, on client direction.
+          The label, summary, and plus sign are direct children of the
+          <summary> on a grid, because <summary> takes phrasing and heading
+          content and not wrapper blocks. */}
+      <section data-bg="white" className="bg-white py-24 lg:py-32 text-navy">
         <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
-        {/* TIER 3 */}
-        <div className="mt-20 border-t border-navy/15">
-          {items.map((item) => (
-            <details key={item.label} className="group border-b border-navy/15">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 transition-colors hover:text-bronze">
-                <h2 className="font-heading text-lg font-semibold leading-snug text-navy sm:text-xl">
-                  {item.label}
-                </h2>
-                <span
-                  aria-hidden="true"
-                  className="shrink-0 text-bronze transition-transform group-open:rotate-45"
-                >
-                  +
-                </span>
-              </summary>
-              <div className="space-y-8 pb-8 text-base leading-relaxed text-charcoal">
-                {item.sections.map((section) => (
-                  <div key={section.id} id={section.id} className="scroll-mt-28">
-                    {/* The section's own charge-specific heading, kept. The
-                        accordion label is wayfinding; this is the claim. */}
-                    <h3 className="font-heading text-base font-semibold leading-snug text-navy/70">
-                      {section.heading}
+          <h2 id="details" className={`scroll-mt-28 ${type.sectionHeading} ${color.heading}`}>
+            The details.
+          </h2>
+          <p className={`${space.afterHeading} max-w-2xl ${type.lead} ${color.body}`}>
+            Each topic goes deeper on one part of your case. Open the ones that
+            matter to you.
+          </p>
+          {charge.detailsLayout === "grid" ? (
+            <div className={space.beforeContent}>
+              <DetailsGrid
+                items={items.map((item) => ({
+                  id: `topic-${item.sections[0].id}`,
+                  label: item.label,
+                  summary: item.summary,
+                  content: topicBody(item.sections),
+                }))}
+              />
+            </div>
+          ) : (
+            <div className={`${space.beforeContent} border-t border-navy/15`}>
+              {items.map((item) => (
+                <details key={item.label} className="group border-b border-navy/15">
+                  <summary className="grid cursor-pointer list-none grid-cols-[minmax(0,1fr)_auto] items-baseline gap-x-4 py-6 [&::-webkit-details-marker]:hidden">
+                    <h3 className={`${type.subheading} ${color.heading} transition-colors group-hover:text-bronze`}>
+                      {item.label}
                     </h3>
-                    <div className={`mt-4 space-y-5 ${proseWidth}`}>
-                      <SectionBody section={section} />
-                    </div>
+                    <span
+                      aria-hidden="true"
+                      className="text-xl leading-none text-bronze transition-transform group-open:rotate-45"
+                    >
+                      +
+                    </span>
+                    {item.summary ? (
+                      <span className={`col-start-1 ${space.inItem} block ${type.body} ${color.body}`}>
+                        {item.summary}
+                      </span>
+                    ) : null}
+                  </summary>
+                  <div className={`space-y-8 pb-8 ${type.body} ${color.body}`}>
+                    {topicBody(item.sections)}
                   </div>
-                ))}
-              </div>
-            </details>
-          ))}
-
-          {/* The seventh item: the FAQ. */}
-          {charge.faq?.length ? (
-            <details className="group border-b border-navy/15">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 py-4 transition-colors hover:text-bronze">
-                <h2 className="font-heading text-lg font-semibold leading-snug text-navy sm:text-xl">
-                  Common questions
-                </h2>
-                <span
-                  aria-hidden="true"
-                  className="shrink-0 text-bronze transition-transform group-open:rotate-45"
-                >
-                  +
-                </span>
-              </summary>
-              <dl className="max-w-[68ch] space-y-6 pb-8 text-base leading-relaxed text-charcoal">
-                {charge.faq.map((item) => (
-                  <div key={item.question}>
-                    <dt className="font-heading font-semibold text-navy/70">
-                      {item.question}
-                    </dt>
-                    <dd className="mt-2">{item.answer}</dd>
-                  </div>
-                ))}
-              </dl>
-            </details>
-          ) : null}
-        </div>
-
-        {/* ONE SOURCES BLOCK FOR THE PAGE, CLOSED BY DEFAULT.
-
-            D41 put the per-section sources line OUTSIDE the disclosure on the
-            reasoning that hiding every citation behind a toggle decides for the
-            reader how much law they want to see. That reasoning was about a
-            four-item line under a section. This is 34 statute citations in a
-            block taller than most of the sections above it, and it is apparatus:
-            almost nobody reads it, and the people who do are looking for it.
-
-            Nothing is hidden from a crawler or from anyone who wants it, because
-            <details> keeps its contents in the HTML and the summary says how
-            many are inside. */}
-        {sources.length ? (
-          <details className="group mt-16 border border-navy/12 bg-linen/40">
-            <summary className="flex cursor-pointer list-none items-center justify-between gap-4 p-6 transition-colors hover:text-bronze">
-              <h2 className="font-heading text-sm font-semibold text-navy/55">
-                Sources for this page{" "}
-                <span className="font-normal text-navy/40">
-                  ({sources.length} provisions)
-                </span>
-              </h2>
-              <span
-                aria-hidden="true"
-                className="shrink-0 text-bronze transition-transform group-open:rotate-45"
-              >
-                +
-              </span>
-            </summary>
-            <ul className="grid gap-x-8 gap-y-1 px-6 pb-6 font-heading text-sm leading-relaxed text-navy/60 sm:grid-cols-2">
-              {sources.map((src) => (
-                <li key={src}>{src}</li>
+                </details>
               ))}
-            </ul>
-          </details>
-        ) : null}
-
-        <div className="mt-12">{ctaButton}</div>
-      </div>
+            </div>
+          )}
+        </div>
       </section>
+
+      {/* COMMON QUESTIONS. D46.
+
+          Styled apart from the details on purpose: the details are reading
+          material, these are quick answers. A header row (heading and
+          description on the left, "Don't see yours?" and the call button on
+          the right), then the questions full width below it; stacked on a
+          phone. White background, on client direction. Same 1120px column as
+          the rest of the tiered body. The FAQPage schema is emitted by the
+          route from charge.faq, so this markup does not affect it. */}
+      {charge.faq?.length ? (
+        <section data-bg="white" className="bg-white py-24 lg:py-32 text-navy">
+          <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
+            <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-16">
+              <div className="max-w-2xl">
+                <h2 id="common-questions" className={`scroll-mt-28 ${type.sectionHeading} ${color.heading}`}>
+                  Common questions.
+                </h2>
+                <p className={`${space.afterHeading} ${type.lead} ${color.body}`}>
+                  Short answers to the questions people ask about this charge.
+                </p>
+              </div>
+              <div className="shrink-0 md:text-right">
+                {ctaButton}
+              </div>
+            </div>
+            <div className={`${space.beforeContent} border-t border-navy/15`}>
+              {charge.faq.map((item) => (
+                <details key={item.question} className="group border-b border-navy/15">
+                  <summary className="flex cursor-pointer list-none items-baseline justify-between gap-4 py-5 [&::-webkit-details-marker]:hidden">
+                    <h3 className={`${type.itemHeading} ${color.heading} transition-colors group-hover:text-bronze`}>
+                      {item.question}
+                    </h3>
+                    <span
+                      aria-hidden="true"
+                      className="shrink-0 text-xl leading-none text-bronze transition-transform group-open:rotate-45"
+                    >
+                      +
+                    </span>
+                  </summary>
+                  <p className={`pb-6 ${type.body} ${color.body}`}>
+                    {item.answer}
+                  </p>
+                </details>
+              ))}
+            </div>
+          </div>
+        </section>
+      ) : null}
+
+      {/* D46: no sources block and no reviewer line on a tiered page, on
+          client direction. Citations stay in the data and in each topic's
+          collapsed statute text; owner and lastReviewed stay in the data. */}
     </>
   );
 }

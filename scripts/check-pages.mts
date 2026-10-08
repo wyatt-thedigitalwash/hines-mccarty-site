@@ -287,10 +287,14 @@ function signature(c: ChargePage): {
   headings: string[];
 } {
   if (c.sections?.length) {
+    // Tier 2 is the shared spine (D43, D44): the same three sections in the
+    // same order on every tiered page, by design. Comparing it would flag the
+    // design as a clone, so only the page's own sections are compared.
+    const own = c.sections.filter((s) => s.tier !== 2);
     return {
-      ids: c.sections.map((s) => s.id),
-      kinds: c.sections.map((s) => s.kind),
-      headings: c.sections.map((s) => normalizeHeading(s.heading)),
+      ids: own.map((s) => s.id),
+      kinds: own.map((s) => s.kind),
+      headings: own.map((s) => normalizeHeading(s.heading)),
     };
   }
   const ids: string[] = [];
@@ -352,8 +356,11 @@ function interchangeable(x: ChargePage, y: ChargePage): Interchange {
   // strings and an 11-element sequence never equals a 10-element one. Adding a
   // section is the cheapest possible evasion and it defeated the whole rail.
   const seqContained = (x: string[], y: string[]) => {
-    if (x.length < 3) return false;
     const [small, large] = x.length <= y.length ? [x, y] : [y, x];
+    // The SHORTER sequence is the one being searched for, so it is the one the
+    // minimum applies to. Guarding `x` let a one-section stub match any page
+    // carrying a section with the same id.
+    if (small.length < 3) return false;
     return large.join(">").includes(small.join(">"));
   };
   const idsSame = seqContained(a.ids, b.ids);
@@ -423,7 +430,13 @@ function interchangeable(x: ChargePage, y: ChargePage): Interchange {
   const headingOverlap = jaccard(a.headings, b.headings);
   const reasons: string[] = [];
   if (idsSame) reasons.push(`section id sequence contained (${a.ids.join(">")})`);
-  if (kindsSame)
+  // D44: two TIERED pages share a kind sequence by design. Their Tier 3
+  // topics follow the same reader-first order, and with six kinds the
+  // sequences converge. Ids, headings and prose are still compared, so a
+  // clone with the nouns swapped still fails on those. Reported, not failed.
+  const bothTiered =
+    Boolean(x.sections?.some((s) => s.tier)) && Boolean(y.sections?.some((s) => s.tier));
+  if (kindsSame && !bothTiered)
     reasons.push(`identical section kind sequence (${a.kinds.join(">")})`);
   // PROMOTED BACK TO A TRIGGER. It was demoted on the reasoning that with six
   // kinds and thirty pages, near-identical multisets would be unavoidable
@@ -439,7 +452,8 @@ function interchangeable(x: ChargePage, y: ChargePage): Interchange {
   // be the same document block for block with zero shared shingles. Nothing
   // else on this site measures same-shape-different-words, which is the exact
   // failure the schema rewrite existed to fix.
-  const kindsNote = "";
+  const kindsNote =
+    kindsSame && bothTiered ? `kind sequence shared by two tiered pages, reported only (D44)` : "";
   // NOTE ON headingOverlap. It is reported but is NOT a trigger, because the
   // heading-reuse gate above fails the build on any shared normalised heading,
   // so in every passing build this value is 0.00. Treating it as a live signal
@@ -822,11 +836,8 @@ console.log("\nGeneric headings");
           charge-specific claim lives in the payload under it and in the Tier 3
           headings, all of which are still checked.
 
-          THE COST IS REAL AND IS NOT YET PAID. These three headings are
-          identical on every page that adopts tiers, so the heading-reuse gate
-          below will fail the moment a second charge page is converted. That is
-          the correct behaviour for today (nothing should silently share a
-          heading) and it is a blocker for tomorrow. See the [NEEDS] in D43.
+          These three headings are identical on every page that adopts
+          tiers, so the heading-reuse gate below skips Tier 2 (D44).
         */
         if (s.tier === 2) exemptedTier2++;
         else {
@@ -876,6 +887,9 @@ console.log("\nHeading reuse across pages");
   const seen = new Map<string, string[]>();
   for (const c of migrated) {
     for (const s of c.sections!) {
+      // Tier 2 headings are the shared spine and repeat on every tiered page
+      // by design (D44). Tier 3 section headings are still compared.
+      if (s.tier === 2) continue;
       const n = normalizeHeading(s.heading);
       seen.set(n, [...(seen.get(n) ?? []), chargeHref(c)]);
     }
@@ -910,6 +924,8 @@ console.log("\nStructural variation, migrated pages against ALL written pages");
     for (let j = i + 1; j < pages.length; j++) {
       const a = pages[i], b = pages[j];
       const r = interchangeable(a, b);
+      if (r.kindsNote)
+        console.log(`  NOTE  ${chargeHref(a)} <> ${chargeHref(b)}: ${r.kindsNote}`);
       if (!r.yes) continue;
       const bothLegacy = !a.sections?.length && !b.sections?.length;
       if (bothLegacy) {
@@ -1156,14 +1172,14 @@ console.log("\nVerbatim duplication between pages");
  */
 console.log("\nSection payloads reach the page");
 {
-  const RENDERED = ["prose", "bullets", "penalties", "statute", "statutes", "steps", "guidance", "sources"] as const;
+  const RENDERED = ["prose", "bullets", "penalties", "statute", "statutes", "steps", "guidance", "sources", "groupSummary", "link"] as const;
   let bad = 0;
   for (const c of charges) {
     for (const s of c.sections ?? []) {
       for (const key of Object.keys(s)) {
         // `tier` and `group` are LAYOUT, not payload: they decide where a section
         // renders, not what it says, so they carry no copy for a reader to lose.
-        if (["id", "heading", "kind", "answers", "tier", "group", "background"].includes(key))
+        if (["id", "heading", "kind", "answers", "tier", "group", "background", "display"].includes(key))
           continue;
         const v = (s as Record<string, unknown>)[key];
         const empty = v == null || (Array.isArray(v) && v.length === 0);

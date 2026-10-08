@@ -136,13 +136,28 @@ function legislationCitations(spanCitations: string[]) {
     .map((r) => ({ "@type": "Legislation" as const, name: r.cite, url: r.url }));
 }
 
+/**
+ * Every provision a page's sections rest on: verbatim statute blocks (singular
+ * and plural) and the per-section `sources` lines. D63. Citations used to come
+ * from `statute` alone, so a page whose quotes sat in `statutes` (sexual
+ * battery) emitted none, and every page omitted the provisions it names only in
+ * its sources lines, which is most of them.
+ */
+function sectionCitations(sections: { statute?: { citation: string }; statutes?: { citation: string }[]; sources?: string[] }[] = []) {
+  return sections.flatMap((x) => [
+    ...(x.statute ? [x.statute.citation] : []),
+    ...(x.statutes ?? []).map((t) => t.citation),
+    ...(x.sources ?? []),
+  ]);
+}
+
 export const chargeJsonLd = (charge: ChargePage) => {
   const url = `${siteUrl}${chargeHref(charge)}`;
   const silo = siloByKey(charge.silo);
 
   const citations = legislationCitations([
     ...(charge.statute ? [charge.statute.citation] : []),
-    ...(charge.sections ?? []).flatMap((x) => (x.statute ? [x.statute.citation] : [])),
+    ...sectionCitations(charge.sections),
   ]);
 
   return {
@@ -162,7 +177,9 @@ export const chargeJsonLd = (charge: ChargePage) => {
     ...(charge.lastReviewed ? { dateModified: charge.lastReviewed } : {}),
     ...(citations.length ? { citation: citations } : {}),
     publisher: organizationJsonLd(),
-    ...(silo ? { about: silo.label } : {}),
+    // D63: what the page is about is the charge, not the silo it sits in.
+    about: { "@type": "Thing", name: charge.label },
+    ...(silo ? { isPartOf: { "@type": "WebPage", name: silo.label, url: `${siteUrl}${silo.href}` } } : {}),
   };
 };
 
@@ -182,7 +199,7 @@ export const chargeJsonLd = (charge: ChargePage) => {
 export const guideJsonLd = (guide: GuidePage) => {
   const url = `${siteUrl}${guideHref(guide)}`;
   const citations = legislationCitations(
-    (guide.sections ?? []).flatMap((x) => (x.statute ? [x.statute.citation] : [])),
+    sectionCitations(guide.sections),
   );
 
   return {
@@ -209,7 +226,7 @@ export const guideJsonLd = (guide: GuidePage) => {
 export const injuryJsonLd = (page: InjuryPage) => {
   const url = `${siteUrl}${injuryHref(page)}`;
   const citations = legislationCitations(
-    (page.sections ?? []).flatMap((x) => (x.statute ? [x.statute.citation] : [])),
+    sectionCitations(page.sections),
   );
 
   return {

@@ -117,7 +117,7 @@ export default function Footer() {
               &copy; {year} {firm.legalName}. All rights reserved.
             </p>
           </div>
-          <p className="mt-6 max-w-3xl text-xs leading-relaxed text-linen/40">
+          <p className="mt-6 max-w-3xl text-xs leading-relaxed text-linen/60">
             The information on this website is for general purposes only and is
             not legal advice. Contacting the firm does not create an
             attorney-client relationship. Every case is different and prior

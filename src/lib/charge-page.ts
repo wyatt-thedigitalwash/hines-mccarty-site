@@ -26,6 +26,20 @@
 
 /** Template item 3, one row of the degrees and penalties table. */
 export type PenaltyRow = {
+  /**
+   * What the person had or did, in their words: "A first DUI", "20 grams of
+   * cannabis or less". D45. When every row of a table carries this, the table
+   * leads with it and drops the offense-level column, because a visitor finds
+   * their row by their situation, not by a degree. Tables without it render
+   * the older degree-first layout unchanged.
+   */
+  situation?: string;
+  /**
+   * A different offense written into the same statute (for example, falsely
+   * accusing an official under the sexual battery law). D50. The ladder lists
+   * these in a closing "Related charges" block instead of among the levels.
+   */
+  related?: boolean;
   degree: string;
   maximum: string;
   offenseLevel?: string;
@@ -63,6 +77,7 @@ export type TimelineStep = {
   /** What happens. */
   what: string;
 };
+
 
 /**
  * Do and do-not guidance.
@@ -131,6 +146,18 @@ export type ChargeSection = {
    */
   group?: string;
   /**
+   * One line shown under the accordion label while the item is closed, so a
+   * reader knows what is inside before opening it. D46. Set on the FIRST
+   * section of a group; later sections of the same group leave it unset.
+   */
+  groupSummary?: string;
+  /**
+   * One link rendered at the foot of the section, where the text points to
+   * another page. D46. Replaces the page-level related-guides list on tiered
+   * pages, which put links in a footer with no context. check:routes resolves it.
+   */
+  link?: { label: string; href: string };
+  /**
    * Render this Tier 2 section as its own full-bleed band on the navy canvas.
    *
    * LAYOUT ONLY, and it emits a real top-level `<section data-bg="navy">`
@@ -144,6 +171,11 @@ export type ChargeSection = {
    * has no band of its own to be.
    */
   background?: "navy";
+  /**
+   * Alternate rendering for a `penalties` section. "ladder" groups the rows by
+   * degree and shows each penalty once (D50). Layout only; no payload.
+   */
+  display?: "ladder";
   /** Which reader questions this section answers. Drives the coverage check. */
   answers?: ReaderQuestion[];
   /**

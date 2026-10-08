@@ -1,3 +1,4 @@
+import { firm } from "@/lib/site";
 // Second hero layout exploration: contained centered media (a plain
 // rectangle, not full-bleed) with the H1 overlapping its top-left corner and
 // the description + CTA overlapping its bottom-right corner. Same copy, same
@@ -65,10 +66,10 @@ export default function HeroCentered() {
             </p>
             {/* [NEEDS: confirm this number receives SMS] */}
             <a
-              href="tel:8133338886"
+              href={firm.phoneHref}
               className="mt-8 inline-flex items-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
             >
-              Call or Text 813-333-8886
+              Call {firm.phone}
             </a>
           </div>
         </div>

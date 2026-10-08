@@ -1,3 +1,4 @@
+import { firm } from "@/lib/site";
 import Link from "next/link";
 import ParallaxVideoBanner from "./ParallaxVideoBanner";
 
@@ -47,10 +48,10 @@ export default function HeroCenteredBanner() {
           <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
             {/* [NEEDS: confirm this number receives SMS] */}
             <a
-              href="tel:8133338886"
+              href={firm.phoneHref}
               className="inline-flex items-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
             >
-              Call or Text 813-333-8886
+              Call {firm.phone}
             </a>
             <Link
               href="/attorneys"

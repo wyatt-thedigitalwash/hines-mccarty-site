@@ -59,10 +59,10 @@ export default function Header() {
         lines up with nothing in particular by design: it is anchored to the
         window rather than to the content column.
       */}
-      <div className="flex w-full items-center justify-between px-6 py-5 lg:px-10">
+      <div className="flex w-full items-center justify-between gap-4 px-6 py-5 lg:px-10">
         <Link
           href="/"
-          className="font-display text-2xl font-extrabold tracking-tight text-linen lg:text-[1.75rem]"
+          className="shrink-0 whitespace-nowrap font-display text-xl font-extrabold tracking-tight text-linen sm:text-2xl lg:text-[1.75rem]"
           aria-label={`${firm.name} home`}
         >
           Hines <span className="text-bronze">&amp;</span> McCarty
@@ -146,7 +146,12 @@ export default function Header() {
         Slide-in site menu. This is where the site's depth lives: every top-level
         item with its children shown expanded, so one open reveals the whole map.
       */}
+      {/* Closed, the overlay is inert: nothing inside it (the scrollable
+          panel, the search field, the links) can take focus or be read by a
+          screen reader. Without it, tabbing past the header walked keyboard
+          users into an invisible menu (WCAG 2.4.3, 2.4.7). */}
       <div
+        inert={!menuOpen}
         className={`fixed inset-0 z-50 transition-opacity duration-300 ${
           menuOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
@@ -230,8 +235,10 @@ export default function Header() {
         </aside>
       </div>
 
-      {/* Search overlay */}
+      {/* Search overlay. Inert while closed, for the same reason as the menu:
+          its field was reachable by Tab while invisible. */}
       <div
+        inert={!searchOpen}
         className={`fixed inset-0 z-50 transition-opacity duration-300 ${
           searchOpen ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
@@ -247,13 +254,14 @@ export default function Header() {
           <div className="mx-auto max-w-[1400px]">
             <span className="eyebrow text-bronze">Search</span>
             <form
-              className="mt-4 flex items-center gap-4 border-b border-white/20 pb-4"
+              className="mt-4 flex items-center gap-4 border-b border-white/20 pb-4 transition-colors focus-within:border-bronze"
               onSubmit={(e) => e.preventDefault()}
             >
               <SearchIcon className="h-6 w-6 text-linen/60" />
               <input
                 autoFocus={searchOpen}
                 type="search"
+                aria-label="Search the site"
                 placeholder="Search charges, guides, and attorneys"
                 className="w-full bg-transparent font-display text-2xl font-medium text-linen placeholder:text-linen/40 focus:outline-none sm:text-4xl"
               />

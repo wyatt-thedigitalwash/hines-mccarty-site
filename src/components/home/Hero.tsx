@@ -1,4 +1,5 @@
 import CredentialStrip from "@/components/CredentialStrip";
+import { firm } from "@/lib/site";
 
 /**
  * Home hero.
@@ -87,17 +88,11 @@ export default function Hero() {
               We prepare every case as if it will be tried, because the other
               side treats a firm differently when they know it will.
             </p>
-            {/* [NEEDS: confirm this number receives SMS, and whether it is a
-                tracking number] 813-333-8886 came from the original brief and
-                does NOT match firm.phone, the confirmed (813) 738-8650 in
-                SITE.md that the header and every other CTA now use. Left as-is
-                through this rewrite because changing it is the client's call,
-                but the site currently shows two different numbers. */}
             <a
-              href="tel:8133338886"
+              href={firm.phoneHref}
               className="mt-10 inline-flex items-center self-start bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
             >
-              Call or Text 813-333-8886
+              Call {firm.phone}
             </a>
           </div>
         </div>

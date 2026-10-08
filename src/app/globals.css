@@ -1,6 +1,19 @@
 @import "tailwindcss";
 
 /*
+ * Tailwind v4 dropped the pointer cursor its preflight used to give buttons, so
+ * every <button> on the site showed the plain arrow on hover and did not read
+ * as clickable. Restored for all enabled buttons, per Tailwind's own upgrade
+ * guidance, rather than patched one component at a time.
+ */
+@layer base {
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/*
  * Hines & McCarty design system
  * Palette: Prussian Blue (navy), Linen, Charcoal Blue, Golden Bronze, White
  * Type: EB Garamond (display, 800) / Lora (subheaders all-caps + body)
@@ -60,10 +73,29 @@ body {
   font-family: var(--font-display), Georgia, serif;
 }
 
-/* h1 and h2 render at regular (400) weight, overriding any bold utility */
-h1,
+/*
+ * h1 renders at medium (500) and h2 at regular (400), overriding any weight
+ * utility: these rules are unlayered, so they beat every Tailwind class. h1
+ * moved from 400 to 500 on client direction, 2026-10-08 (D53).
+ */
+h1 {
+  font-weight: 500;
+}
+
 h2 {
   font-weight: 400;
+}
+
+/*
+ * The one deliberate exception to the rule above: the five section headings on
+ * charge pages ("What you're facing." through "Common questions."), D53. They
+ * render at 500 so they outrank the content under them; at 400 in this
+ * hairline serif they read no heavier than the body. More specific than the
+ * h2 rule, so it wins for these headings only. A weight utility on the element
+ * would NOT work: the rule above is unlayered and beats every Tailwind utility.
+ */
+h2.section-heading {
+  font-weight: 500;
 }
 
 /* h3 and smaller headings use Poppins */

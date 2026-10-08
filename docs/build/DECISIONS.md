@@ -1785,3 +1785,723 @@ case" block does not render on a tiered page. It was a deliberate second way out
 for a reader part way down a long scroll. Tier 2 ends in a CTA, which covers the
 same ground, but the reassurance copy is gone and that was a considered piece of
 writing. Restore or retire it by decision rather than by omission.]
+
+### D44. Every charge page moves to the DUI layout, and Tier 2 is exempt from the clone gates
+
+**2026-09-28. Client direction.** The client read the subservice pages as a
+visitor would and found none of them readable: the information was right and
+the order and wording were a statute treatise. The DUI page (D40, D41, D43) is
+the model, and every charge page is converted to it.
+
+**What each converted page has.** A stripped hero with a plain-language lead
+and one call button. Tier 2: "What you're facing." (penalty table),
+"What happens next." (timeline), "What to do right now." (four actions). Tier 3:
+one closed accordion with plain labels. Body copy meets check:readability (D41),
+and each converted page moves from `pending` to `converted` in
+readability-baseline.json. No fact is added or dropped in conversion; statute
+numbers move to `sources` lines and verbatim law to collapsed statute blocks.
+
+**Gate changes.** This resolves the [NEEDS] in D43. Tier 2 headings and Tier 2
+sections are left out of the heading-reuse gate and the structural-signature
+comparison, because they are the shared spine and repeat on every converted
+page by design. Tier 3 section headings, id and kind sequences, and prose
+duplication are still compared.
+
+**Kind-sequence identity no longer fails between two tiered pages.** With
+all 28 pages converted, five pairs shared a Tier 3 kind sequence (for example
+prose>bullets>prose>guidance>prose>prose>prose) while sharing no section id, no
+heading, and no prose. D39 retired order-similarity for the same reason: once
+the reader-first spine is the design, two pages sharing its shape is the rule
+being followed. Section-id containment, heading reuse and prose duplication
+still fail, so a page cloned with the nouns swapped is still caught. The
+identity is printed, not hidden.
+
+**Bug fixed in passing.** The id-sequence containment test guarded the length
+of its first argument instead of the shorter sequence, so a one-section legacy
+stub (corporate-fraud, `defense`) "matched" any page with a section of that id.
+The minimum of 3 now applies to the shorter sequence.
+
+**Applied to.** `/criminal-defense/drug-possession-defense` first, as the pilot,
+then on 2026-10-07 to every charge page with content: all 28 (11 state, 9
+federal, 8 white-collar). The corporate-fraud and PPP loan fraud signposts are
+not charge pages and keep their own shape.
+
+**How the rollout was done, and what it does NOT establish.** Each page was
+converted by an agent working only from that page's own existing content, then
+reviewed three times by independent agents against the pre-conversion text
+(git HEAD): a general review, a second accuracy review, and a sweep for changes
+in legal meaning only. Each finding was fixed and the fix independently
+confirmed. Counts of real errors found and fixed: 74 high-severity in round 1,
+56 in round 2, 163 legal-meaning changes in round 3. The third count rose
+because that reviewer was narrower and stricter, which is the finding worth
+recording: plain-English conversion at grade 8 keeps dropping qualifiers that
+carry legal meaning ("intentional", "or threat of force", "adjudicated" vs
+"found guilty", "shall" vs "may"), and more automated rounds did not converge.
+A fourth, MECHANICAL pass followed: a scan counted legal qualifier words
+(adjudicated, withheld, intentional, knowingly, willfully, unless/except,
+shall/must, may, otherwise qualified, regardless, prior conviction, at
+least/more than, automatically, during/in furtherance, and others) in each
+page's reading text before and after conversion, and listed every original
+sentence behind each drop. Agents judged about 1,400 flagged sentences: 50 were
+real lost qualifiers and were restored (for example "willfully" on computer
+crimes, "when you know or should know" on paraphernalia delivery, "unless you
+were already lawfully released" on first appearance), each confirmed by a
+second agent; the rest were noise, mostly because the old pages quoted statute
+text inline. The scan still flags pages after repair for that same reason;
+its count is a candidate list, not an error count.
+Automated review is therefore NOT a substitute for the C11 attorney review.
+Every converted page stays `published: false` until an attorney has read it
+against its sources. The pre-conversion text is in git for that comparison.
+
+### D45. The penalty table leads with the reader's situation, not the degree
+
+**2026-09-29. Client direction.** Asked whether the degree-first table was the
+easiest to grasp, the answer was no: the row a visitor recognizes ("I had some
+pills") was the small grey note, the first column was a legal degree, the
+offense-level column meant nothing outside the sentencing worksheet, and rows
+were in no order.
+
+**The change.** `PenaltyRow.situation` is new and optional. When every row of a
+table carries it, `PenaltyTable` renders "What you had" / "Penalty" /
+"Charged as", with the note as fine print under the situation, and leaves the
+offense level out (the data keeps it; the prose under the table explains the
+points in words). Rows on converted pages run lightest to heaviest. Tables
+without `situation` render the old layout unchanged, so unconverted pages are
+untouched.
+
+`situation` is body copy: it is measured by check:readability and joined into
+the penalty row that check:claims reads.
+
+**Applied to.** DUI and drug possession.
+
+### D46. The details and the common questions look different, and the page footer goes
+
+**2026-09-29. Client direction.** The two closing sections of a tiered page were
+styled identically, so they read as two FAQs in a row, and the page ended in a
+related-guides list and a reviewer line the client called useless and random.
+
+- **The details** are not numbered (a numbered first version was rejected),
+  and their prose spans the full column rather than a 68ch measure. Each topic
+  shows a one-line summary while closed (`ChargeSection.groupSummary`, on the first section of a group). The
+  summary is body copy and is measured by check:readability.
+- **Common questions** have a header row (heading and intro on the left,
+  "Don't see yours?" and the call button on the right) with the questions full
+  width below, each opening its own answer. (First version: heading and button
+  in a left column, questions in a right column; replaced 2026-10-08 on client
+  direction.)
+  Stacked on a phone. White background and a static (not sticky) left column,
+  on client direction after a first version on linen with a sticky column.
+- **The page footer is removed on tiered pages.** A link a section points to
+  now sits inside that section (`ChargeSection.link`, resolved by check:routes).
+  Generic "Tools and guides" links are dropped.
+- **The sources block and the attorney review line are removed on tiered
+  pages**, on client direction. Nothing is deleted from the data: `sources`
+  stay on each section, the verbatim law stays in each topic's collapsed
+  statute block, and `owner` / `lastReviewed` stay on the page. The C11
+  review requirement is unchanged; it is no longer displayed.
+- **Section gaps: one unit.** Every section on a tiered page pads 96px on a
+  phone and 128px on desktop, and Tier 2 sections sharing a band are spaced by
+  the same unit. White-on-white joins read as one unit (the Section Spacing
+  Rule drops the second's top padding); a navy/white edge gets one unit on each
+  side. No dividing rules, on client direction. A first attempt enlarged only
+  the white-on-white gaps to 160px and made the page inconsistent.
+- **Container width stays 1120px.** Moving the tiered body to the site's
+  1400px container, so its left edge would align with the hero and
+  CallToAction, was tried and rejected by the client on sight.
+  Common questions briefly used the 1400px container to line up with the
+  CallToAction below it; after its header-row redesign the client moved it back
+  to 1120px to match the sections above, so the whole body is one width.
+- The 4px gold band under the stripped hero (D43's "visual break") is
+  removed, on client direction. The hero's navy meets the white body directly.
+- The CTA button that followed the sources block is removed: the FAQ carries
+  one, and the CallToAction section follows immediately.
+
+**Applied to.** DUI and drug possession. Unconverted pages render the old footer.
+
+### D47. "The details" as a grid of boxes, trialled on sexual battery
+
+**2026-10-08. Client direction.** On `/criminal-defense/sexual-battery-defense`
+the client asked for the nine detail topics as a 3x3 grid of boxes instead of
+the accordion, and chose, of three options, a full-width panel that opens under
+the clicked box's row (over a pop-up window, and over boxes that jump to
+sections written out below). Scope: this page only, until the client has seen
+it.
+
+- `ChargePage.detailsLayout: "grid"` opts a page in. Every other page keeps the
+  accordion, unchanged.
+- `DetailsGrid` is a client component (it holds which box is open). The topic
+  content is still rendered on the server and passed in, and every panel is in
+  the HTML with only the open one shown, so crawlers and check:rendered see all
+  of it, exactly as with the closed accordion.
+- Each panel sits after its own box in the DOM and is moved by CSS `order` to
+  after the last box of its row from md up, so nothing renders twice. One
+  column on a phone, where the panel opens directly under the tapped box.
+- On this page the topic labels are the reader's questions ("Can it ever come
+  off my record?") and each `groupSummary` describes what the topic covers
+  rather than stating its conclusion; the box shows it under the title, and the
+  panel does not repeat it. A conclusion-style summary had read oddly and risked
+  oversimplifying the law in one line.
+- Box: the topic label in the display serif, balanced wrapping, and a navy
+  "Read more" with a bronze chevron ("Close" when open). Every box has the same
+  minimum height so "Read more" lines up across rows; titles wrapping to one
+  line in some rows and two in others had made the rows uneven. The one-line summary is NOT in the box; the client found it crowded
+  the box, and a bare plus read as odd. The open box and its panel share a linen
+  background so they read as one piece. Panel: the topic label as a heading, a
+  Close button, the summary as a one-line lead, then the same section headings,
+  bodies and links the accordion shows.
+
+**Revised the same day: one box per row.** After seeing the 3x3 grid the client
+moved it to a single column of full-width boxes: the question and its
+description on the left, "Read more" on the right, and the topic opening
+directly under its box on the same linen, with no repeated heading, no separate
+close button, and no dividing rule. With one column the CSS `order` placement
+above is no longer needed and was removed. `detailsLayout: "grid"` keeps its
+name so the page flag does not churn.
+"Read more" is medium weight in a softer navy so the question, not the action,
+is what the eye lands on first, and a closed box takes a faint linen tint on
+hover so the whole box reads as clickable.
+The open box uses `bg-linen/25`, the penalty table's striped-row shade, on
+client direction; the hover tint is lighter (`bg-linen/15`) so hovering never
+looks more active than open.
+
+### D48. "What to do right now" as a 2x2 grid of filled cards, CTA in the header
+
+**2026-10-08. Client direction ("drastically improve this section").** The
+navy action band had four full-width outlined rows, each with a small boxed
+numeral, and the call button trailing under the list. It read as a form.
+
+- The four steps are a 2x2 grid of filled cards (`bg-linen/[0.06]` on the navy,
+  no outline). Each card leads with a large serif numeral in bronze ("01" to
+  "04"), then the step's first sentence as a serif headline in linen, then the
+  reason in softer linen. One column on a phone.
+- The grid's reading order is carried by the numerals and the `<ol>`. An
+  earlier version moved this list OFF a 2x2 grid because a grid gives no
+  reliable reading order for numbers; with large "01" to "04" numerals and a
+  left-to-right, top-to-bottom flow that concern is met on the page itself.
+- When the navy band holds one section, its heading and the call button share
+  a header row (heading left, button right), matching Common questions, and the
+  trailing button is gone. A band with several sections keeps the old shape.
+- A one-line description sits under the heading: "These steps protect your
+  rights in the first days of a case, while it is still taking shape." It is
+  template copy, so it is worded to hold for every charge, including a target
+  letter where no one has been arrested, and it makes no outcome claim.
+- Applies to every tiered page (all 28 converted charge pages).
+
+### D49. "What happens next" as a staged timeline, trialled on sexual battery
+
+**2026-10-08. Client direction:** make it feel like a timeline that helps.
+
+The plain rail listed intervals counted from different starting points (the
+arrest, the charge, the offense, a notice), with nothing saying where the
+reader is, and nothing separating the State's deadlines, which protect the
+reader, from the reader's own, which they can miss.
+
+- `TimelineStep.stage` groups consecutive steps under a stage marker on the
+  rail, in the reader's terms ("Arrest and first day", "Charging",
+  "Before trial"). `TimelineStep.actor` tags who acts: "you" (shown as
+  "Your move"), "judge", "prosecutor", or "court". "Prosecutor" rather than
+  "the State" so the tag holds on federal pages.
+- Data-driven: a timeline switches to the staged version only when its steps
+  carry a stage or an actor, so untagged pages are unchanged. Tags classify the
+  existing steps; no step's `when` or `what` text changed. `stage` is body copy
+  and is measured by check:readability.
+- Applied to sexual battery: 24 hours (judge), 30/60 days (prosecutor), 45 days
+  after arraignment (prosecutor), 175 days (court), 60 day demand (you).
+
+**Revised the same day: the first version was rejected as much harder to read.**
+It gave every row a marker, a serif time column, a who-acts tag and the text,
+under serif stage headings, and split time from text into two columns. The
+shipped version is the plain rail, row for row (time above text, one column,
+same type, same spacing, bronze time label), plus only two things: a small
+stage label above each group of steps, and a "Your move" tag beside the time
+on the reader's own steps. Judge, prosecutor and court steps carry no tag; the
+`actor` stays in the data. The navy time label went with the first version, so
+the bronze contrast flag for the ADA audit stands.
+
+**Reverted the same day.** The pared-back version (plain rail plus small stage
+labels and a "Your move" tag) split the steps into per-stage groups, and with
+most stages holding one step, each group had no rail: it read as a bulleted
+list, not a timeline. Both versions were removed: `StagedTimeline`, the
+`stage` and `actor` fields, and the sexual battery tags. The timeline is the
+plain rail again, as before D49. What the two attempts showed is that the
+styling was not the main problem: the step text is. Several steps carry
+four-sentence paragraphs of day counts and conditions, which no layout makes
+easy to scan.
+
+### D50. "What you're facing" as a severity ladder, trialled on sexual battery
+
+**2026-10-08. Client direction:** is the table really the clearest way?
+
+On sexual battery it was not. 17 rows covered 6 penalty levels, so the same
+penalty and degree repeated down the page; sorted lightest first, the first row
+was a different offense written into the same statute (its own note said "This
+is not a sexual battery charge"); and the "What you had" header, written for
+drug possession, made no sense for most charges.
+
+- `PenaltyLadder` groups the rows by degree in the data's order (lightest
+  first) and shows each level's penalty once, large, with the situations that
+  reach it listed under it on the linen tint. A row whose maximum differs from
+  its level's usual one shows its own maximum on the row, so no figure is lost.
+  No column headers.
+- `PenaltyRow.related` marks a different offense in the same statute; the ladder
+  lists those in a closing "Related charges in the same law" block. On sexual
+  battery only the false-accusation row is marked, because its own note says it
+  is not a sexual battery charge.
+- `ChargeSection.display: "ladder"` opts a penalties section in. Every other
+  page keeps the situation table. Offense levels stay in the data, unshown, as
+  in the table.
+
+**Revised the same day.** The penalty is a header across the top of each level
+(it was a left column that left a tall empty space and squeezed the
+situations); situations are one size smaller and notes lighter, so each block
+reads penalty, then situation, then detail. The attempt row ("Set by the
+general attempt law") is marked `related` and moves to the closing block,
+renamed "Attempts and related charges": it is not a penalty a reader can read
+off and it sat between 30 years and life. Its note's "the under 12 rows below"
+became "above" to match its new position; no other legal wording changed. A
+stale cross-reference to the renamed topic ("Which charge you actually have")
+was corrected to "Which charge am I facing?".
+
+**Tried and rejected the same day:** grouping the ladder by penalty instead of
+degree (so the two "Up to life" levels became one, with each row labelled with
+its own degree), and showing each row's conditions as tags ("You: under 18",
+"No consent") instead of a sentence. Both were removed; the ladder is back to
+grouping by degree with the situation sentences.
+
+The degree and penalty are stacked, degree first as a small label and the
+penalty below it in the display serif, on client direction.
+The penalty line uses lining figures (`lining-nums`): Cormorant Garamond's
+default old-style digits sit below the baseline and read small, and the
+numbers are the point of that line. The font's Latin file carries `lnum`
+(checked with fontTools against the built woff2).
+
+### D51. No "State charge or federal charge?" block on tiered pages; an intro under "What you're facing"
+
+**2026-10-08. Client direction.**
+
+- The forum cross-link block (Plan Sec. 4.6) is not rendered on tiered pages.
+  Sitting between the hero and "What you're facing", it read as an
+  interruption, in statute language ("This page covers the offense at Statute
+  794.011..."). The `counterpart` data is unchanged and still checked by
+  check:routes; untiered pages still render the block. This removes the
+  visible one-cross-link-per-overlap-page that C10 asked for on the 28
+  converted pages; if that link is wanted, it belongs in a Tier 3 topic as a
+  section `link`.
+- "What you're facing." gets a one-line intro on every page: "What you face
+  depends on the facts in the charge. Find the situation closest to yours to
+  see the penalty the law sets for it." Worded to hold on state and federal
+  pages and on rows that are mandatory minimums, so it never says "maximum".
+
+### D52. "On this page" links in the charge-page hero
+
+**2026-10-08. Client direction.** Every converted page has the same five
+sections, and different readers want different ones first (someone arrested
+last night wants "What to do right now"; a family member wants "What happens
+next"). The hero's right half was empty on desktop.
+
+- `QuickNav` lists the Tier 2 sections by their own headings (closing period
+  dropped), then "The details" and "Common questions" when the page has them.
+  A full-width band closing the hero, a shade lighter than the navy (a
+  background, not a rule), with the five links spread evenly across the 1400px
+  container and a bronze chevron on each. No visible label; the nav keeps
+  aria-label="On this page". Below lg the band is one collapsed row, "Jump to a
+  section", that slides open to the five links, each indented with a down arrow;
+  choosing a link closes it. Weights: all three (the desktop links, the phone
+  "Jump to a section" row in full linen, and the phone links) are regular (400),
+  on client direction; they had inherited the body's light 300, which read thin
+  on the navy. It is a button driving a grid-rows height
+  transition rather than a native <details>, which cannot animate its opening in
+  every browser; closed, the list is `inert`; reduced motion opens instantly. Two always-open phone versions, a sideways-scrolling row and a
+  two-column grid, were rejected first: five links after the call button cost
+  about as much space as the hero text. (Earlier the same day: a column in the hero's
+  right half, then a loose row under the button with an "On this page" label
+  and text arrows; the client moved it and then asked for it to feel less
+  loose.)
+- Plain in-page anchors, so they work without JavaScript. With it, the click
+  scrolls smoothly and updates the hash. Smoothness is scoped to these links,
+  not set globally, for the reason globals.css records (a global smooth scroll
+  animated every route change); reduced-motion users get an instant jump.
+- New anchors: `id="details"` on "The details." and `id="common-questions"` on
+  "Common questions.", each with `scroll-mt-28` so it lands below the fixed
+  header. Verified on the built HTML of all 28 pages: every link has exactly
+  one target.
+- Not sticky. On a page this long a following bar gets in the way, especially
+  on a phone.
+
+### D53. Section headings on tiered pages: weight 500, larger on phones
+
+**2026-10-08. Client direction.** The five section H2s ("What you're facing."
+through "Common questions.") set no weight and inherited the body's light 300,
+and were 30px on a phone. They are now weight 600 and 34px on a phone
+(`text-[2.125rem]`), unchanged at 36px from sm and 48px from lg. Cormorant
+Garamond ships as one variable file (wght 300 to 700) that every weight's
+@font-face points to, so 600 is rendered from the axis, not synthesized. 500
+was tried first and, though real, barely read heavier than 300 in this
+high-contrast hairline face; 600 is the first step that visibly thickens.
+The closing CallToAction heading is a separate shared component and is not
+part of this change.
+
+On a phone the ladder's penalty lines (30px serif) sat within 4px of the 34px
+section heading in the same face, so heading and content read as one level.
+Penalty lines are now 24px below md (30px from md) and the level blocks pad
+20px below md, so the heading clearly outranks them and the situations wrap
+less. (D50 ladder, adjusted alongside D53.)
+
+**Correction, same day.** The weight utilities (`font-medium`, then
+`font-semibold`) never took effect. globals.css has an unlayered
+`h1, h2 { font-weight: 400 }` ("overriding any bold utility"), and unlayered
+CSS beats every Tailwind utility, so every H1 and H2 on the site renders at 400
+whatever its class. The font check above was right about the files and wrong
+to conclude the headings rendered at 500: the cascade decides the weight, not
+the font. The fix keeps the site-wide rule and adds one narrower exception,
+`h2.section-heading { font-weight: 600 }`, for these five headings only. The
+CallToAction heading's `font-extrabold` is likewise inert under that rule.
+
+**Settled weights, same day, on client direction.** The five section headings
+are 500 (`h2.section-heading`), and every H1 on the site is 500: the global
+rule is split into `h1 { font-weight: 500 }` and `h2 { font-weight: 400 }`.
+That makes the H1 change site-wide (every page's main heading), not only
+charge pages. All other H2s stay at 400.
+
+### D54. A callout for the must-not-miss fact; the penalty section's side material moves to the details
+
+**2026-10-08. Client direction, on sexual battery.** Under the ladder, three
+paragraphs of very different weight sat in plain body text, and below them an
+"Attempts and related charges" block.
+
+- `ChargeSection.callout` renders one short passage as a navy callout between a
+  Tier 2 section's intro and its payload. On sexual battery it holds the
+  mandatory minimum paragraph, verbatim: the single most consequential fact in
+  the section had been the second of three paragraphs under the ladder.
+  It is body copy, measured by check:readability, and registered as a rendered
+  payload in check-pages.
+- The "Level 8" paragraph moved to a new Tier 3 section, `sbat-related`, in the
+  "Which charge am I facing?" topic. Its reference to "the two no-force rows"
+  pointed at offense levels the ladder no longer shows, so it now names the
+  situations those rows described; no figure changed.
+- The two `related` penalty rows (false accusation; attempt on a child under
+  12) left the ladder and became two paragraphs in that section, same facts.
+  The attempt note's "graded with the under 12 rows above" became "carries the
+  same penalties as a completed sexual battery on a child under 12, shown under
+  What you're facing", which is what the statute provides for an attempt that
+  injures the child's sexual organs.
+- The "more than one person / fines" paragraph stays as the only note under
+  the ladder.
+
+### D55. "What happens next" gets an intro and the call button in its header row
+
+**2026-10-08. Client direction.** The timeline heading had nothing under it
+and no way to reach a person. Its header row now matches the action band and
+Common questions: heading and a one-line intro on the left, the call button on
+the right (stacked on a phone). The intro, "These are the deadlines that shape
+a case, in the order they usually come. A lawyer can tell you which ones are
+already running for you.", is template copy, worded to hold on a target letter
+page where no one has been charged yet, and makes no outcome claim. Tier 2
+intros now live in one map by section kind (penalties, D51; timeline, D55).
+The action band directly after it also carries the button, so the page shows
+two call buttons one section apart; accepted on client direction.
+
+**Revised the same day:** the timeline's call button was removed on client
+direction, and its code removed rather than left switched off; the intro
+stays. The action band directly after it keeps its
+button, so there is one call button between the two sections.
+
+### D56. Sexual battery page cleanup: type hierarchy, cards, and a content audit
+
+**2026-10-08. Client direction: clean up the whole page and check its flow and
+truth.**
+
+Visual, template-wide where the component is shared:
+- Inside an open topic the hierarchy was inverted: the topic's section heading
+  was 16px grey sans and the guidance card headings under it 20px serif. Section
+  headings in topics are now 18px semibold navy; guidance card headings 16px
+  semibold navy sans.
+- Guidance cards: as many columns as cards (up to three), so two cards no longer
+  sit beside an empty column; white with a hairline instead of linen boxes inside
+  the linen topic. Shared by the 26 pages that use guidance.
+- Penalty-ladder penalties are real `<h3>` headings (unchanged appearance).
+- Statute citation labels from navy/50 to navy/65 for contrast.
+- The stripped hero's H1 is 40px on a phone (was 36px, only 2px above the 34px
+  section headings).
+- Checked and unchanged: one spacing unit throughout, stacking on phones, body
+  charcoal / headings navy. The bronze timeline labels still fail contrast and
+  stay flagged for the ADA audit by prior client decision.
+
+Content (sexual battery only). An independent review read the page against its
+pre-conversion text and found no compliance issues, six medium and about ten
+low accuracy issues (all qualifiers), and several consistency, flow and clarity
+problems. 36 fixes were applied by an agent that checked each against the
+original wording, then reviewed by hand before merging. Among them: the
+life-sentence hearing covers "punishable by up to life"; conspiracy is
+"agreeing with someone else", not "a plan"; the DNA rule keeps "or should have
+identified them with reasonable effort"; "permanent", not "lasting"; the
+callout leads with the 50-year minimum (25 for offenses before October 1,
+2014); the lead no longer says only three facts decide the charge; the arrest
+papers are "a starting point" and the formal charge sets the degree; "Level 8"
+is explained once; "listed circumstance" is glossed where first used; the
+defense topic is renamed "What are my rights, and what will my lawyer look
+at?". Not applied: a "time off for good behavior" gloss for basic gain-time
+(the original text does not define it), and trimming facts repeated across
+the callout, topics and FAQ (an editorial call left to the client).
+
+### D57. A lede paragraph for Tier 2 sections; the offense definition moves up
+
+**2026-10-08. Client direction.** On sexual battery the plain definition of the
+offense ("covers oral, anal, or female genital penetration by, or union with...
+so penetration is not always required") sat in the notes under the penalty
+ladder, so a reader met every penalty before learning what the offense is.
+`ChargeSection.lede` renders a short paragraph directly under a Tier 2 section's
+intro, before any callout or payload; the definition moved there, word for
+word, and out of the ladder notes. Body copy, measured by check:readability,
+and registered as a rendered payload in check-pages. Order is now: heading,
+intro, definition, mandatory-minimum callout, ladder, notes.
+
+### D58. One set of design tokens for the charge-page layout
+
+**2026-10-08. Client direction:** the page read as random, especially fonts and
+spacing. An audit of the five components that render it (ChargeTemplate's
+tiered body and hero, sections.tsx, PenaltyLadder, DetailsGrid, QuickNav) found
+17 font sizes, 16 text colours, 12 top margins and 34 padding values: each
+section had been styled when it was asked for, and nothing made them agree.
+
+`src/components/cases/ui.ts` now names every style once, and the components
+use the names:
+- Type roles: page title (H1), section heading (H2), subheading (serif 24 to
+  28px: penalty lines, topic box titles, action-card headlines), item heading
+  (sans 18px semibold: timeline times, FAQ questions, headings inside topics),
+  lead (18px: intros, lede, callout, hero lead), body (16px: everything else),
+  label (14px medium: degree, "Read more", citations), small (14px notes),
+  numeral.
+- Colours: navy headings, charcoal body, one muted shade (navy/60); linen,
+  linen/75, linen/60 on navy. Bronze for markers and numerals only.
+- Spacing: heading to intro 16px, intro to content 40px, item heading to text
+  8px, stacked items 16px, paragraphs 16px, list items 12px; every card and box
+  pads 24px on a phone and 32px from md.
+
+Effects worth knowing: Tier 2 content text is 16px (it had been 18px, the same
+as the intros above it); the timeline's time labels are navy, not bronze,
+which resolves the contrast failure flagged for the ADA audit (bronze stays on
+the dots and rail); FAQ questions and accordion labels are one size at every
+width. Sizes outside the tokens remain only in the breadcrumbs, the hero nav
+(set separately by the client), the FAQ plus icon, and the shared
+CallToAction component.
+
+### D59. Looking at the page: fact rows, a lighter callout, real headings, and a header collision
+
+**2026-10-08. Client direction, after D58 shipped looking worse than it read in
+code.** D58 was verified against markup and CSS only, never against the
+rendered page; the client's screenshots showed what that missed. The page is
+now screenshotted headless at 1440px (Chrome) and at a true 390px viewport
+(Playwright 1.60, which matches the cached browser build; plain headless
+Chrome cannot go narrower than about 500px and produced a false overflow).
+
+- "What you're facing" opening: the lede (offense definition) is a labelled
+  fact row, "What the law covers" beside the text, in body size, instead of a
+  second unlabelled lead paragraph. The callout is the same two-column row in
+  a warm tinted box (`bg-bronze/10`), its title (`calloutTitle`, "Mandatory
+  minimum") on the left in the subheading serif and the text filling the
+  right; it was a navy slab with its text in the left 60%. From md the lede
+  row is padded like the box so their columns line up; on a phone it is not.
+- Common questions: "Don't see yours?" removed; the button stays.
+- Item headings (timeline times, FAQ questions, headings inside topics) are
+  medium (500), not semibold: at 18px semibold sans the questions read loud
+  beside the serif topic titles.
+- Heading outline fixed. "The details." jumped from h2 to h4 because the topic
+  box titles were spans inside a button; each title is now an h3 holding its
+  button (WAI accordion pattern, hit area stretched over the box). Timeline
+  times and action-card headlines are h3 (were paragraphs, leaving those
+  sections with no headings); guidance card headings are h5 (were h4 inside an
+  h4 section). Outline now: 1 h1, 6 h2, 29 h3, 11 h4, 2 h5, no skipped level.
+- Site-wide header: at 390px the logo ran into the phone number (the row had
+  justify-between and no gap). It now has gap-4, and the logo is text-xl below
+  sm.
+
+### D60. Single-column lede and callout; serif for everything a reader scans for
+
+**2026-10-08. Client direction, from screenshots.** Verified by full-page
+screenshots at 1440px before reporting.
+
+- The D59 fact rows (a 14rem label column beside the text) left a wide gap,
+  floated the label, and wrapped "Mandatory minimum" over two lines of large
+  serif: it read as a form. Both are now single-column in the text measure
+  (max-w-2xl): the lede is one paragraph with a bold run-in "What the law
+  covers.", and the callout is a tinted box the width of the text with a bold
+  run-in title. `factRow` is removed from ui.ts.
+- Serif subheading for every heading a reader scans for: penalty lines, topic
+  titles, action-card headlines, and now FAQ questions and timeline times too.
+  FAQ questions were sans while the topic titles right above them (also
+  questions) were serif; timeline times ("Within 24 hours of arrest") were sans
+  while penalty lines ("Up to 15 years") were serif. The sans item heading is
+  kept only for headings inside an open topic and guidance cards. Accordion
+  topic labels on the other pages follow the topic titles.
+- Action card 4 on sexual battery is three lines at desktop width:
+  "It happens within 24 hours of arrest. The State is already choosing the
+  charge, which sets the degree, the maximum sentence, and any mandatory
+  minimum." Same facts; the added factor the State alleges is part of the
+  charge it chooses.
+
+### D61. The mandatory minimum is the first card of the ladder; the definition stays in the details; FAQ questions back to sans
+
+**2026-10-08. Client direction ("you are making it much worse").** D57, D59
+and D60 each put a different visual treatment above the penalty ladder (an
+unlabelled second paragraph, a label column, a narrow run-in box), so the
+section opened with three text styles at two widths before the full-width
+cards. Root cause: the definition did not belong there (it already sits in the
+"What does the State have to prove?" topic), and the mandatory minimum is a
+penalty, so it belongs in the ladder's own visual language.
+
+- The callout renders as the first ladder card: same width, padding and type
+  (label "Mandatory minimum", serif headline from the new
+  `calloutHeadline` field, "50 years up to life", then the text), tinted
+  `bg-bronze/10` to stand out; the ladder follows at its usual 16px card gap.
+- The `lede` on sexual battery is removed (the field stays for other pages);
+  the same definition remains in sbat-proof. This reverses D57's placement.
+- FAQ questions are back to the sans item heading. The D60 serif version read
+  as decorative and was harder to scan in long questions. Timeline times and
+  topic titles stay serif.
+
+### D62. No callout, no lede: "What you're facing" is the intro and the ladder
+
+**2026-10-08. Client direction ("why is this even there?").** The mandatory
+minimum callout began as a response to a content review that called the fact
+buried (D54) and was restyled three times (D59 to D61) without anyone asking
+whether it belonged in the section. It did not: the page already states the
+mandatory minimum in the "Is there a mandatory minimum sentence?" topic and in
+FAQ 5, and drawn as a ladder card it read as a penalty level when it is a
+condition that applies across levels, and broke the lightest-to-heaviest order
+by sitting above "Up to 5 years". It is removed.
+
+No page uses `callout`, `calloutTitle`, `calloutHeadline` or `lede` any more, so
+the fields, their rendering, their page-copy entries and their check-pages
+registration are removed outright rather than left unused (D54 and D57 are
+superseded). "What you're facing" is the heading, its one-line intro, the
+ladder, and the notes under it.
+
+### D63. Sexual battery audit: schema citations, keyboard traps, skip link, contrast
+
+**2026-10-08. Client direction: audit structure, truth, SEO, ADA, schema and
+semantics.** Run in a real browser: axe-core (WCAG 2.0/2.1/2.2 A and AA plus
+best practice) at 1440px and 390px with every topic panel and FAQ open, a
+40-step keyboard pass recording focus visibility, and the served JSON-LD
+parsed and compared with the visible page.
+
+Fixed:
+- Schema: `Article.citation` was built from `statute` only, so sexual battery
+  (whose quotes are in `statutes`) emitted none, and every page omitted the
+  provisions it cites only in `sources`. `sectionCitations()` now feeds
+  statute, statutes and sources into the charge, guide and injury Article
+  schema; sexual battery cites 10 provisions. `about` names the charge
+  ("Sexual Battery") and the silo moves to `isPartOf`.
+- Keyboard: Tab walked into the closed site menu (its scrollable panel and
+  field) and the closed search overlay (its field). Both overlays are `inert`
+  while closed (WCAG 2.4.3, 2.4.7).
+- A "Skip to main content" link is the first Tab stop on every page; `<main>`
+  carries `id="main"`.
+- Search field: an accessible name (`aria-label`) and a visible focus state
+  (the underline turns bronze) in place of a bare `focus:outline-none`.
+- Footer disclaimer contrast: linen/40 (about 3.3:1) to linen/60 (about 6:1).
+
+Verified, unchanged: axe reports zero violations at both widths; one main, one
+h1, lang="en", no unnamed buttons or links, no images without alt, heading
+outline without skipped levels (D59), FAQPage text matches the visible
+questions and answers 5/5, BreadcrumbList valid.
+
+Open, not fixed here: the header search submits nowhere (it prevents default
+and searches nothing); internal links from the page body are thin (one related
+page); Article has no author or dateModified until the C11 attorney review; the
+page is noindex and canonical/OG URLs use the placeholder domain until launch.
+
+### D64. Sexual battery: internal links and a 60-character title
+
+**2026-10-08. Client direction, from the D63 audit.** The page body linked to
+one related page. Five section `link`s were added, each to a live page that
+answers what that topic raises: the Charge Lookup tool (Which charge am I
+facing?), the offense-level comparison tool (the section that explains
+"Level 8"), the battery page (non-sexual battery, the offense readers confuse
+with this one), the "First 24 Hours After a Hillsborough Arrest" guide (rights
+from arrest), and the Florida sealing checker (record). Labels say what the
+target does; the sealing tool is labelled for sealing only because it does not
+cover expunction. The meta title is "Sexual Battery Lawyer, Hillsborough County
+| Hines & McCarty", 60 characters (was 63), adding the term readers search with.
+
+### D65. Launch settings, attorney credit, and the sexual battery trim
+
+**2026-10-08. Client direction.** Recorded together because they shipped in one
+pass.
+
+- **Phone.** Every call button uses `firm.phone` / `firm.phoneHref`, (813)
+  738-8650. The three home hero variants and the DUI hero carried an old
+  hardcoded 813-333-8886; it no longer appears anywhere in `src`.
+- **Domain.** The `siteUrl` fallback is https://tampa-litigation.com, so
+  canonical, Open Graph, sitemap and schema URLs use the real domain.
+- **Who handles the case.** Lily McCarty and Maria Pavlidis are listed on every
+  state, federal and white-collar charge page; David Hines on state charge pages
+  only; Colton Trina on personal injury. On charge pages `HandledBy` renders as
+  its own white section, "Who handles these cases.", in the page's design
+  tokens; hubs and injury pages keep the existing block. The mapping is its
+  own field, `handlesChargeHrefs`, not `leadsPracticeHrefs`: that one also feeds
+  the hub "Handled by" block (the hubs stay unchanged) and the bio's practice
+  areas, where a charge href renders as nothing (check:routes A2).
+- **Reviewer and review date.** First recorded as done, then corrected by the
+  client the same day: no attorney has reviewed any page yet. The reviewer
+  credits (an alternating reviewer per state and federal page, Colton Trina on
+  injury) were removed, because `owner` becomes the Article `author` in the
+  schema and would claim a review that did not happen. A request to invent
+  alternating review dates "so it seems real" was declined for the same reason:
+  a misleading statement to readers and search engines, and a Florida Bar
+  advertising concern. When reviews happen, set `owner` and `lastReviewed` per
+  page from the real reviewer and date; the visible "Reviewed by" line renders
+  only when both are set.
+- **Sexual battery, repeated facts.** The parent or caretaker topic no longer
+  repeats the penalties by age that the ladder lists; it points to them. FAQ 3
+  gives the range (third degree up to capital) instead of each level, and FAQ 5
+  drops the gain-time sentence that the mandatory minimum topic carries. The
+  FAQs on force and time limits stay as written: they are the short answer, and
+  the topics hold the full rules.
+
+Still open: `published` stays false (noindex) until each page is reviewed;
+site search is deferred until the remaining service pages are rebuilt.
+
+### D66. A search map, and gates for titles, sibling links and repeated text
+
+**2026-10-08. Client direction.** Before the remaining service pages are built
+to the sexual battery standard, the client asked for the checks that keep
+every page, and every blog post, insight or case result written later, from
+competing with another page or reading like a copy of one.
+
+- **The search map** (`src/lib/search-map.ts`). One row per page meant to be
+  found in search: the one search it targets (`primary`, copied from its
+  research brief, never invented), the intent behind that search (hire,
+  answer, process, tool, proof, navigate), the words naming its subject
+  (`topic`), and the pages that share its subject on purpose (`siblings`).
+  Pages not meant to win a search are listed in `NOT_TARGETED` with a reason.
+  Fourteen rows have no primary because no brief recorded one: the home page,
+  the criminal and injury hubs, corporate fraud, the tools, the guides and
+  the bios. The nine injury pages are in the same position, because the
+  client's injury keyword architecture is not in the repo.
+- **check:search-map** (before the build). No two rows go after the same
+  search with the same intent; hire words ("lawyer", "attorney") only on hire
+  pages, so a blog post cannot target a service page's search; case results
+  are proof and need no primary; siblings are declared on both rows; every
+  charge page names its topic in its H1 and meta title.
+- **check:seo** (after the build, on the HTML). Every built page is mapped;
+  titles 60 characters or fewer and unique; descriptions 70 to 160 and unique;
+  one H1; the topic in the title and the H1; siblings link to each other; and
+  repeated text, measured as shared 8-word runs with the site template set
+  aside: a content page needs 60% of its text found on no other page, and no
+  two pages may share more than 30%. Charge pages measure 81% to 94% unique.
+- **The baseline** (`docs/build/seo-baseline.json`), the same ratchet as the
+  readability baseline: 48 problems on 31 pages were recorded on the day the
+  gate was built (mostly long titles and descriptions; nine missing sibling
+  links; the home and injury hub H1s name no subject; the car accidents page
+  and its insurance claims page share over 30% of their text). Each may stay
+  until fixed and leaves the file when it is; any new problem fails the build.
+- **audit:pages** (on demand, needs a browser). axe-core at desktop and phone
+  width on every mapped page, failing on any violation, plus full-page
+  screenshots in `.audit/` for a person to look at. Not part of the build.
+  Adds `playwright` (pinned to 1.60.0, the cached browser) and `axe-core` as
+  dev dependencies.
+
+Siblings are the reciprocal pairs from the briefs and OVERLAP-AUDIT.md. DUI and
+homicide are not paired: ST-04 assigns "dui manslaughter florida" to homicide
+and W4-03 assigns it to DUI, so neither page targets it. That needs a decision.
