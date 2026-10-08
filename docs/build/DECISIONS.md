@@ -2614,3 +2614,35 @@ Pavlidis; the registered entity is Hines McCarty Pavlidis, PLLC.
 
 Before launch, the firm should confirm the new name meets the Florida Bar's
 rules on firm names.
+
+### D70. The rollout: 24 more pages on the standard
+
+**2026-10-08.** The remaining charge pages were rebuilt to D67 and D68: 8
+state, 8 federal, 7 white-collar, and DUI. Each was written by Opus, checked
+for accuracy against its original by Fable, fixed, and checked again by a
+fresh Fable reviewer. The 8 pages whose final check still found accuracy
+problems (homicide, domestic violence, bank fraud, both money laundering
+pages, both computer crime pages, DUI) had their fixes checked a third time;
+that pass found and fixed, among others, a DUI lead that implied leaving the
+scene of any DUI crash carries 30 years, a federal money laundering FAQ that
+invented a contrast in what the government must prove, a white-collar money
+laundering timeline that gave a fixed start to a filing deadline the original
+deliberately leaves open, and a dropped definition of "dating partner".
+28 of 29 charge pages are now on the standard; corporate fraud stays a short
+overview (D12, D67), and PPP loan fraud is still to be written (OPP-01).
+
+Calls made in review:
+- **DUI**: the refusal penalties stay in "related charges" (a separate
+  statute), with the 1 October 2025 change in its own topic. The sentencing
+  worksheet link was removed: brief ST-04 says not to link it from this page.
+- **Federal gun charges**: "cannot run at the same time as any other prison
+  term" was repeated in six card headings; it now appears once, in the
+  original's words, in the paragraph under the cards.
+- **Five-step action bands** (domestic violence, conspiracy, CSAM): an odd
+  last card spans the row instead of sitting alone at half width.
+
+Writer flags that need an attorney, not an edit, are collected for the review
+packet: for example, battery's 8-year firearm minimum on a 5-year felony, the
+riot minimum on the officer row, computer crimes' "exceeding authorization"
+limb (brief ST-01 records it as unverified), and battery's bond schedule
+expiring 31 December 2026.

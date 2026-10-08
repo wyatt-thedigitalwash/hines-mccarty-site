@@ -314,7 +314,9 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
               return (
                 <li
                   key={item.slice(0, 40)}
-                  className={`flex flex-col bg-linen/[0.06] ${card}`}
+                  /* D69: an odd last card (a fifth step) spans the row, so
+                     it does not sit alone at half width. */
+                  className={`flex flex-col bg-linen/[0.06] ${card} md:[&:last-child:nth-child(odd)]:col-span-2`}
                 >
                   {/* Bronze on navy is 7.07:1, so gold type is safe here. */}
                   <span

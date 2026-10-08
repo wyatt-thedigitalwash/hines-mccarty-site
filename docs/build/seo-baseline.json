@@ -11,20 +11,8 @@
   "/criminal-defense": [
     "P2 title over 60"
   ],
-  "/criminal-defense/drug-trafficking-defense": [
-    "P6 no link to sibling /criminal-defense/drug-possession-defense"
-  ],
-  "/criminal-defense/dui-defense": [
-    "P3 description not 70 to 160"
-  ],
-  "/criminal-defense/sex-crimes-defense": [
-    "P6 no link to sibling /federal-criminal-defense/csam-defense"
-  ],
   "/federal-criminal-defense": [
     "P2 title over 60"
-  ],
-  "/federal-criminal-defense/computer-internet-crimes": [
-    "P6 no link to sibling /criminal-defense/computer-crimes-defense"
   ],
   "/personal-injury": [
     "P5 topic not in H1"
@@ -82,17 +70,8 @@
   "/resources/tools/sentencing-worksheet": [
     "P2 title over 60"
   ],
-  "/white-collar-defense/bank-fraud": [
-    "P6 no link to sibling /white-collar-defense/ppp-loan-fraud"
-  ],
   "/white-collar-defense/ppp-loan-fraud": [
     "P6 no link to sibling /white-collar-defense/bank-fraud",
     "P6 no link to sibling /white-collar-defense/wire-fraud"
-  ],
-  "/white-collar-defense/securities-fraud": [
-    "P6 no link to sibling /white-collar-defense/corporate-fraud"
-  ],
-  "/white-collar-defense/wire-fraud": [
-    "P6 no link to sibling /white-collar-defense/ppp-loan-fraud"
   ]
 }

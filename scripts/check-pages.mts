@@ -1263,10 +1263,34 @@ console.log("\nReader-question coverage");
 // rebuilt are not held to them, so the rollout can go one batch at a time.
 console.log("\nService page standard (D67), pages rebuilt to it");
 const STANDARD_PAGES = [
+  "/criminal-defense/battery-defense",
+  "/criminal-defense/computer-crimes-defense",
+  "/criminal-defense/domestic-violence-defense",
+  "/criminal-defense/drug-possession-defense",
+  "/criminal-defense/drug-trafficking-defense",
+  "/criminal-defense/dui-defense",
+  "/criminal-defense/grand-theft-defense",
   "/criminal-defense/gun-crimes-defense",
+  "/criminal-defense/homicide-defense",
+  "/criminal-defense/sex-crimes-defense",
   "/criminal-defense/sexual-battery-defense",
+  "/federal-criminal-defense/computer-internet-crimes",
+  "/federal-criminal-defense/conspiracy-charges",
+  "/federal-criminal-defense/csam-defense",
   "/federal-criminal-defense/drug-trafficking",
+  "/federal-criminal-defense/healthcare-fraud",
+  "/federal-criminal-defense/money-laundering",
+  "/federal-criminal-defense/target-letter-defense",
+  "/federal-criminal-defense/weapons-gun-offenses",
+  "/federal-criminal-defense/wire-mail-fraud",
+  "/white-collar-defense/bank-fraud",
+  "/white-collar-defense/embezzlement",
+  "/white-collar-defense/healthcare-fraud",
+  "/white-collar-defense/identity-theft",
+  "/white-collar-defense/money-laundering",
+  "/white-collar-defense/securities-fraud",
   "/white-collar-defense/tax-evasion",
+  "/white-collar-defense/wire-fraud",
 ];
 /** Office holders by name: the standard names offices, because names go stale. */
 const OFFICE_HOLDERS = /Susan S\. Lopez|Victor Crist|Christopher C\. Sabella|Lisa B\. McLean|Chad Chronister/;
