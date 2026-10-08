@@ -1288,6 +1288,7 @@ const STANDARD_PAGES = [
   "/white-collar-defense/healthcare-fraud",
   "/white-collar-defense/identity-theft",
   "/white-collar-defense/money-laundering",
+  "/white-collar-defense/ppp-loan-fraud",
   "/white-collar-defense/securities-fraud",
   "/white-collar-defense/tax-evasion",
   "/white-collar-defense/wire-fraud",

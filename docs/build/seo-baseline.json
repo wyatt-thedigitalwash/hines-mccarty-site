@@ -69,9 +69,5 @@
   ],
   "/resources/tools/sentencing-worksheet": [
     "P2 title over 60"
-  ],
-  "/white-collar-defense/ppp-loan-fraud": [
-    "P6 no link to sibling /white-collar-defense/bank-fraud",
-    "P6 no link to sibling /white-collar-defense/wire-fraud"
   ]
 }

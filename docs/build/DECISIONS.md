@@ -2646,3 +2646,32 @@ packet: for example, battery's 8-year firearm minimum on a 5-year felony, the
 riot minimum on the officer row, computer crimes' "exceeding authorization"
 limb (brief ST-01 records it as unverified), and battery's bond schedule
 expiring 31 December 2026.
+
+### D71. PPP loan fraud written new, and the attorney question list
+
+**2026-10-08.** PPP loan fraud had no content (a placeholder from the brief
+OPP-01). It was written new to the standard, with a stricter source rule than
+the rebuilt pages: every fact had to come from the brief's verified items, its
+recorded C9 assertion, the recorded fetches in PAGE-SOURCES.md, or (for shared
+federal procedure) the already-checked bank fraud and wire fraud pages, and
+the accuracy guard checked every number against those files. Everything the
+brief marks UNVERIFIED is left out: the loss table, the investigating
+agencies, the text and maxima of 18 U.S.C. 1014, 1957 and 371, EIDL timing,
+and prosecution counts. The filing deadline is stated as the brief records it,
+conditionally (the Small Business Act rule for borrowers on covered loans;
+18 U.S.C. 3293 by charge, with wire and mail fraud only when the offense
+affects a listed financial institution; 5 years otherwise), with the two
+questions the text does not settle named as open. Three review rounds; the
+third caught the timeline turning the wire fraud condition on the lender's
+identity rather than on whether the offense affects a financial institution.
+New PAGE-SOURCES.md entries point each cited provision to its recorded fetch.
+Lily McCarty and Maria Pavlidis are listed under "Who handles these cases".
+The brief's own gate stands: no publication before an attorney has read the
+limitations wording.
+
+**Attorney questions.** The writers' flags across the rebuilt pages (140)
+were triaged into `docs/build/ATTORNEY-FLAGS.md`: 57 questions only an
+attorney can settle, by page, with the current page text quoted; 83
+informational notes are counted, not listed. Two are dated: the CSAM page's
+reference to the 1 November 2025 sentencing rules (check after 1 November
+2026) and battery's bond schedule (expires 31 December 2026).

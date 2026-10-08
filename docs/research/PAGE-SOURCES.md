@@ -4451,3 +4451,37 @@ https://www.flsenate.gov/Laws/Statutes/2025/316.1933
 
 - **The 316.1932(1)(f)3. record is the FIRST SENTENCE only.** The subparagraph continues past it with the non-interference duty and the burden on the person tested, which the page states in plain words and which are not transcribed here. A page sentence resting on that continuation would need this record extended.
 
+
+## 2026-10-08: white-collar/ppp-loan-fraud, first build of the page
+
+The page rests on fetches the research brief already records. Nothing below
+was re-fetched for the page; each entry points to the brief's record and
+copies the brief's quotation so the page and its source sit in one place.
+Where a provision is already recorded elsewhere in this file, the entry names
+that record instead of repeating it.
+
+### white-collar/ppp-loan-fraud
+
+**15 U.S.C. 636(a)(36)(W)**, the PPP fraud enforcement harmonization provision
+https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title15-section636&num=0&edition=prelim
+Record: docs/research/briefs/OPP-01-ppp-loan-fraud.md Section 6A, fetched 2026-08-13, quoted verbatim there.
+
+> "(W) Fraud enforcement harmonization.-Notwithstanding any other provision of law, any criminal charge or civil enforcement action alleging that a borrower engaged in fraud with respect to a covered loan guaranteed under this paragraph shall be filed not later than 10 years after the offense was committed."
+
+The page uses only what this sentence says: ten years, keyed to a borrower and a
+covered loan under paragraph (36), whatever title 18 section is charged. The two
+questions the brief records as open (second draw loans under paragraph (37), and
+defendants who were not the borrower) are stated on the page as open, and the
+page takes neither side.
+
+**18 U.S.C. 3293**, read whole: Batch B record above ("What the fetches established", item 1), and brief OPP-01 Section 6A, fetched 2026-08-13. The page prints the brief's verbatim text in its statute block.
+
+**18 U.S.C. 20**, financial institution defined: brief OPP-01 Section 6A, fetched 2026-08-13; the full text is in the white-collar/bank-fraud statute block. The page says only that the term is a set list, naming insured banks and credit unions from it, and that whether a given lender is on it is a question about that lender.
+
+**18 U.S.C. 3282(a)**, the five-year default: Batch B record above (item 2), and brief FED-08 Section 7 as cited by brief OPP-01 Section 6A.
+
+**18 U.S.C. 1343** and **18 U.S.C. 1344**: brief OPP-01 Section 6 (fetched 2026-08-13 from uscode.house.gov) and the whole-section records above under federal/wire-mail-fraud and white-collar/bank-fraud.
+
+**18 U.S.C. 3161(b), (c)(1) and (h)**, **18 U.S.C. 3006A(a)(1)** and **F.S. 943.059(2)**: shared procedure, worded from the verified sibling pages; records above under white-collar/bank-fraud, the 18 U.S.C. 3006A(a)(1) record, and the 943.059(2) records.
+
+Left off the page because the brief marks them UNVERIFIED (not verified, no fetch recorded for this page): the Sentencing Guidelines loss table values, the text and maxima of 18 U.S.C. 1014, 1957 and 371, any named investigating agency, any EIDL time limit, and any count of PPP prosecutions in the Middle District.
