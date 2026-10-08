@@ -43,3 +43,6 @@ next-env.d.ts
 
 # page audit screenshots and report (npm run audit:pages)
 /.audit
+
+# The example settings file is safe to commit (it holds no secrets).
+!.env.example

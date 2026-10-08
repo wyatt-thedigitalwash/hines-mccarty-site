@@ -1,6 +1,6 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect, useRef } from "react";
 import { submitContact, type ContactState } from "@/app/contact/actions";
 import { firm } from "@/lib/site";
 
@@ -23,6 +23,13 @@ const INITIAL: ContactState = { status: "idle" };
  */
 export default function ContactForm() {
   const [state, action, pending] = useActionState(submitContact, INITIAL);
+  // D83: when the form was shown, so the server can drop submissions faster
+  // than a person could type. Set after mount, so it is the real time on
+  // this visitor's screen, not the build time.
+  const shownAt = useRef<HTMLInputElement>(null);
+  useEffect(() => {
+    if (shownAt.current) shownAt.current.value = String(Date.now());
+  }, []);
 
   if (state.status === "success") {
     return (
@@ -118,6 +125,7 @@ export default function ContactForm() {
       <div className="hidden" aria-hidden="true">
         <label htmlFor="company">Company</label>
         <input id="company" name="company" tabIndex={-1} autoComplete="off" />
+        <input ref={shownAt} type="hidden" name="shown_at" defaultValue="" />
       </div>
 
       <button

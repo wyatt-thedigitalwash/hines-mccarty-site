@@ -18,24 +18,33 @@
  *   3. the sitemap, which listed /contact nowhere for the same reason.
  *
  * A launch condition written in three prose comments is three chances to
- * forget. Reading it from the environment means setting RESEND_API_KEY and
- * CONTACT_FROM_EMAIL in the build environment flips all three at once, with no
+ * forget. Reading it from the environment means setting RESEND_API_KEY,
+ * CONTACT_FROM_EMAIL and CONTACT_TO_EMAIL in the build environment flips all
+ * three at once, with no
  * code change, which is the same pattern the charge pages and guides already
  * use with their `published` flag.
  *
- * [NEEDS: verified Resend domain] SITE.md launch blocker.
- * [NEEDS: confirmed intake address] firm.email is still a placeholder, and it
- * is the `to` address. Delivery being ON does not mean it reaches the right
- * inbox; this module only knows whether Resend can send at all.
+ * Sending domain: thedigitalwash.com, already verified in Resend (D83), so
+ * the firm's own domain needs no DNS records for the form.
+ * The inbox is CONTACT_TO_EMAIL (D83), not firm.email, so delivery is on only
+ * once someone has named the inbox that receives enquiries.
  */
 
-export type ContactDelivery = { apiKey: string; from: string };
+export type ContactDelivery = { apiKey: string; from: string; to: string };
 
-/** The Resend credentials, or null when either is missing. */
+/**
+ * The Resend credentials and the inbox, or null when any is missing.
+ *
+ * D83: the destination is a setting too (CONTACT_TO_EMAIL). It used to be
+ * firm.email, a placeholder, so a configured key would have sent every
+ * enquiry to an address nobody confirmed. Now the form sends only when all
+ * three are set; see .env.example.
+ */
 export function contactDelivery(): ContactDelivery | null {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.CONTACT_FROM_EMAIL;
-  return apiKey && from ? { apiKey, from } : null;
+  const to = process.env.CONTACT_TO_EMAIL;
+  return apiKey && from && to ? { apiKey, from, to } : null;
 }
 
 /**

@@ -341,7 +341,7 @@ export const attorneys: Attorney[] = [
       "The Florida Bar certified her in Criminal Trial Law in 2015. She co-chairs the Criminal Law Section of the Hillsborough County Bar Association for the 2025-26 bar year and sits on the board of directors of the Hillsborough County Association of Criminal Defense Lawyers.",
     ],
     // [NEEDS: which practice areas Lily McCarty leads] (WEBSITE-PLAN.md OQ 2)
-    practiceAreaHrefs: ["/criminal-defense/state", "/criminal-defense/federal"],
+    practiceAreaHrefs: ["/criminal-defense/state", "/criminal-defense/federal", "/criminal-defense/white-collar"],  // D83: matches the D65 mapping
     handlesChargeHrefs: [...STATE_CHARGE_HREFS, ...FEDERAL_CHARGE_HREFS, ...WHITE_COLLAR_CHARGE_HREFS],
     credentials: {
       // Client-supplied 2026-08-27.
@@ -451,7 +451,7 @@ export const attorneys: Attorney[] = [
       "She is admitted in the Florida state courts and in the United States District Court for the Middle District of Florida, and The Florida Bar has certified her in Criminal Trial Law.",
     ],
     // [NEEDS: which practice areas Maria Pavlidis leads] (WEBSITE-PLAN.md OQ 2)
-    practiceAreaHrefs: ["/criminal-defense/state", "/criminal-defense/federal"],
+    practiceAreaHrefs: ["/criminal-defense/state", "/criminal-defense/federal", "/criminal-defense/white-collar"],  // D83: matches the D65 mapping
     handlesChargeHrefs: [...STATE_CHARGE_HREFS, ...FEDERAL_CHARGE_HREFS, ...WHITE_COLLAR_CHARGE_HREFS],
     credentials: {
       // Client-supplied 2026-08-27.

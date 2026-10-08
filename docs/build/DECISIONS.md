@@ -2913,3 +2913,28 @@ in nearby counties, so:
 - **Not done, on purpose**: one page per city or county that swaps the place
   name (doorway pages). County pages are for later, each with real
   county-specific content, once the firm has cases there.
+
+### D83. Contact form settings, spam checks, and white-collar on two bios
+
+**2026-10-08. Client direction.**
+
+- **Sending without the firm's DNS.** The form sends through Resend from
+  `website@thedigitalwash.com`, a domain already verified in Resend, so the
+  firm's domain needs no records. The display name reads "Hines McCarty
+  Pavlidis Website"; replies go to the visitor's address.
+- **The inbox is a setting**, `CONTACT_TO_EMAIL`, instead of the placeholder
+  `firm.email`. The form sends only when `RESEND_API_KEY`,
+  `CONTACT_FROM_EMAIL` and `CONTACT_TO_EMAIL` are all set; until then it
+  tells visitors to call, and the contact page stays noindex and out of the
+  sitemap. `.env.example` (committed) documents the three; `.env.local`
+  (ignored) holds the real values.
+- **Spam**, beyond the existing honeypot: a submission under three seconds
+  after the form was shown is dropped quietly, and one visitor may send at
+  most five in ten minutes (in memory, so a brake rather than a guarantee on
+  serverless), after which they are asked to call.
+- The form already carried the notice that sending it does not create an
+  attorney-client relationship; nothing added.
+- **Lily McCarty's and Maria Pavlidis's bios list White-Collar Defense**,
+  matching the D65 mapping that already shows them on every white-collar
+  page. David Hines's bio is unchanged pending the client's answer on
+  whether he takes white-collar cases.

@@ -1,5 +1,6 @@
 "use server";
 
+import { headers } from "next/headers";
 import { Resend } from "resend";
 import { firm } from "@/lib/site";
 import { contactDelivery } from "@/lib/contact-delivery";
@@ -19,9 +20,8 @@ import { contactDelivery } from "@/lib/contact-delivery";
  * src/lib/contact-delivery.ts, which the page's metadata and the sitemap read
  * too, so "is the form live" has one answer rather than three that can drift.
  *
- * [NEEDS: verified Resend domain] SITE.md launch blocker.
- * [NEEDS: confirmed intake address] firm.email is a placeholder.
- * Set RESEND_API_KEY and CONTACT_FROM_EMAIL to enable delivery.
+ * Set RESEND_API_KEY, CONTACT_FROM_EMAIL and CONTACT_TO_EMAIL to enable
+ * delivery (.env.example). D83.
  */
 
 export type ContactState = {
@@ -40,6 +40,31 @@ function clean(value: FormDataEntryValue | null, cap: number) {
   return typeof value === "string" ? value.trim().slice(0, cap) : "";
 }
 
+/*
+  SPAM, beyond the honeypot (D83). Two cheap checks that need no outside
+  service:
+  - TOO FAST. The form stamps the time it was shown; a submission under three
+    seconds later was not typed by a person. It gets the same quiet "success"
+    as the honeypot, so a bot learns nothing.
+  - TOO MANY. At most five submissions per visitor (by IP) in ten minutes.
+    Kept in memory, so on serverless it is per instance and resets on a cold
+    start: a brake on a flood, not a guarantee. A person who hits it is told
+    to call, never silently dropped.
+*/
+const MIN_FILL_MS = 3000;
+const WINDOW_MS = 10 * 60 * 1000;
+const PER_WINDOW = 5;
+const recent = new Map<string, number[]>();
+
+function tooMany(ip: string): boolean {
+  const now = Date.now();
+  const hits = (recent.get(ip) ?? []).filter((t) => now - t < WINDOW_MS);
+  hits.push(now);
+  recent.set(ip, hits);
+  if (recent.size > 5000) recent.clear();
+  return hits.length > PER_WINDOW;
+}
+
 export async function submitContact(
   _prev: ContactState,
   formData: FormData,
@@ -47,6 +72,17 @@ export async function submitContact(
   // Honeypot. Real users never fill a hidden field.
   if (clean(formData.get("company"), 100)) {
     return { status: "success" };
+  }
+  const shownAt = Number(clean(formData.get("shown_at"), 20));
+  if (shownAt && Date.now() - shownAt < MIN_FILL_MS) {
+    return { status: "success" };
+  }
+  const ip = ((await headers()).get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
+  if (tooMany(ip)) {
+    return {
+      status: "error",
+      message: `We have received several messages from you in the last few minutes. Please call ${firm.phone} and we will help you right away.`,
+    };
   }
 
   const name = clean(formData.get("name"), MAX.name);
@@ -79,7 +115,7 @@ export async function submitContact(
     // Not an exception. The user gets a usable next step, and the server log
     // says exactly what is missing.
     console.error(
-      "[contact] Not configured: set RESEND_API_KEY and CONTACT_FROM_EMAIL.",
+      "[contact] Not configured: set RESEND_API_KEY, CONTACT_FROM_EMAIL and CONTACT_TO_EMAIL.",
     );
     return {
       status: "error",
@@ -91,7 +127,7 @@ export async function submitContact(
     const resend = new Resend(delivery.apiKey);
     const { error } = await resend.emails.send({
       from: delivery.from,
-      to: firm.email,
+      to: delivery.to,
       replyTo: email || undefined,
       subject: `Website enquiry: ${name}`,
       text: [
