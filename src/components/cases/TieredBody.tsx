@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { type ChargePage, type ChargeSection, firm } from "@/lib/site";
+import { type ChargePage, type ChargeSection, firm, isLiveHref } from "@/lib/site";
 import { SectionBody } from "./sections";
 import DetailsGrid from "./DetailsGrid";
 import { color, space, type } from "./ui";
@@ -142,7 +142,8 @@ export default function TieredBody({
         <div className={`${space.inItem} ${space.paragraphs}`}>
           <SectionBody section={section} />
         </div>
-        {section.link ? (
+        {/* D73: a link into hidden Resources stays in the data and is not shown. */}
+        {section.link && isLiveHref(section.link.href) ? (
           <Link
             href={section.link.href}
             className={`link-arrow mt-4 inline-block ${type.label} ${color.heading} underline decoration-1 underline-offset-4 transition-colors hover:text-bronze`}

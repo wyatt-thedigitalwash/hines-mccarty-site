@@ -30,10 +30,15 @@ import {
   type Answers,
 } from "../src/lib/tools/seal-expunge/engine.ts";
 import { INTERACTION_ONLY, SEAL_EXPUNGE_PAGE_COPY } from "../src/lib/tools/seal-expunge/copy.ts";
+import { RESOURCES_LIVE } from "../src/lib/site.ts";
 
 /** Build output directory. Verification builds use NEXT_DIST_DIR so a running
  * `next dev` keeps .next to itself. */
 const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
+if (!RESOURCES_LIVE) {
+  console.log("  ..    skipped: Resources is hidden (D73), so the tool is built as a 404 on purpose.");
+  process.exit(0);
+}
 
 let failed = false;
 const fail = (m: string) => { console.error(`  FAIL  ${m}`); failed = true; };

@@ -22,7 +22,7 @@
  * The copy measured is the same set of fields the charge gate measures
  * (`bodyCopy`), because the injury pages use the same section grammar.
  */
-import { injuryPages, injuryHref, type InjuryPage, type ChargePage } from "../src/lib/site.ts";
+import { injuryPages, injuryHref, isLiveHref, type InjuryPage, type ChargePage } from "../src/lib/site.ts";
 import { bodyCopy } from "../src/lib/page-copy.ts";
 import {
   GRADE_PAGE,
@@ -79,7 +79,7 @@ function problems(p: InjuryPage): string[] {
   }
   const [gMin, gMax] = pillar ? [5, 9] : [3, 6];
   if (groups.length < gMin || groups.length > gMax) out.push(`I3 ${groups.length} topics; the standard is ${gMin} to ${gMax}`);
-  const links = secs.filter((s) => s.link).map((s) => s.link!.href);
+  const links = secs.filter((s) => s.link && isLiveHref(s.link.href)).map((s) => s.link!.href); // D73
   const [lMin, lMax] = pillar ? [3, 6] : [1, 4];
   if (links.length < lMin || links.length > lMax) out.push(`I4 ${links.length} section links; the standard is ${lMin} to ${lMax}`);
   if (!pillar && !links.includes(`/personal-injury/${p.parent}`)) out.push(`I4 a spoke must link to its pillar, /personal-injury/${p.parent}`);

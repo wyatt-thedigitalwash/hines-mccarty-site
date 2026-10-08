@@ -26,7 +26,7 @@
  *      merely need a human to look.
  */
 import { readFileSync, writeFileSync, existsSync } from "node:fs";
-import { charges, chargeHref, guides, guideHref } from "../src/lib/site.ts";
+import { charges, chargeHref, guides, guideHref, isLiveHref } from "../src/lib/site.ts";
 import { pageCopy, guideCopy } from "../src/lib/page-copy.ts";
 import { measuredPages, measuredTools } from "../src/lib/measured.ts";
 import { STATUTES } from "../src/lib/statutes.ts";
@@ -1329,7 +1329,8 @@ function standardProblems(c: ChargePage): string[] {
     }
   }
   if (groups.length < 5 || groups.length > 9) out.push(`${groups.length} topics; the standard is 5 to 9`);
-  const links = secs.filter((s) => s.link).length;
+  // D73: only links a reader can see count; links into hidden Resources do not.
+  const links = secs.filter((s) => s.link && isLiveHref(s.link.href)).length;
   if (links < 3 || links > 6) out.push(`${links} section links; the standard is 3 to 6`);
   const faqs = c.faq?.length ?? 0;
   if (faqs < 4 || faqs > 6) out.push(`${faqs} common questions; the standard is 4 to 6`);

@@ -52,6 +52,7 @@ import {
   REFUSAL,
   VERSION,
 } from "../src/lib/tools/charge-lookup/copy.ts";
+import { RESOURCES_LIVE } from "../src/lib/site.ts";
 
 /** Build output directory. Verification builds use NEXT_DIST_DIR so a running
  * `next dev` keeps .next to itself. */
@@ -60,7 +61,9 @@ const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
 const ROUTE = "/resources/tools/charge-lookup";
 const PAGE = `${DIST_DIR}/server/app${ROUTE}.html`;
 const ISLAND = "src/components/tools/ChargeLookup.tsx";
-const RENDERED = process.argv.includes("--rendered");
+// D73: a hidden tool is built as a 404, so there is no rendered page to check.
+const RENDERED = process.argv.includes("--rendered") && RESOURCES_LIVE;
+if (process.argv.includes("--rendered") && !RESOURCES_LIVE) console.log("  ..    rendered checks skipped: Resources is hidden (D73), so the tool is built as a 404 on purpose.");
 
 let failed = false;
 const fail = (m: string) => { console.error(`  FAIL  ${m}`); failed = true; };

@@ -1,6 +1,6 @@
 import { Fragment } from "react";
 import Link from "next/link";
-import { type ChargePage, attorneys, chargeHref, chargeTrail, firm } from "@/lib/site";
+import { type ChargePage, isLiveHref, attorneys, chargeHref, chargeTrail, firm } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Needs from "@/components/Needs";
 import {
@@ -440,11 +440,12 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
           </div>
 
           {/* 10. Related guides, plus the byline and review date (C11) */}
-          {charge.relatedGuides?.length ? (
+          {/* D73: guides are hidden at launch, so their links are too. */}
+          {charge.relatedGuides?.some((g) => isLiveHref(g.href)) ? (
             <div className="mt-16 max-w-3xl border-t border-navy/15 pt-8">
               <h3 className="font-display text-xl">Related guides</h3>
               <ul className="mt-4 space-y-2">
-                {charge.relatedGuides.map((guide) => (
+                {charge.relatedGuides.filter((g) => isLiveHref(g.href)).map((guide) => (
                   <li key={guide.href}>
                     <Link
                       href={guide.href}

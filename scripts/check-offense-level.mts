@@ -27,10 +27,15 @@ import {
   COMPARISON_C,
   OFFENSE_LEVEL_PAGE_COPY,
 } from "../src/lib/tools/offense-level.ts";
+import { RESOURCES_LIVE } from "../src/lib/site.ts";
 
 /** Build output directory. Verification builds use NEXT_DIST_DIR so a running
  * `next dev` keeps .next to itself. */
 const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
+if (!RESOURCES_LIVE) {
+  console.log("  ..    skipped: Resources is hidden (D73), so the tool is built as a 404 on purpose.");
+  process.exit(0);
+}
 
 const ROUTE = "/resources/tools/offense-level-comparison";
 const PAGE = `${DIST_DIR}/server/app${ROUTE}.html`;

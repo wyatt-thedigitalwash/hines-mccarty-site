@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { capabilities, charges, firm } from "@/lib/site";
+import { RESOURCES_LIVE } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import CredentialStrip from "@/components/CredentialStrip";
 import PageHero from "@/components/PageHero";
@@ -96,6 +97,8 @@ export default function CasesWeDefendPage() {
         here or anywhere else until it clears done-criteria C1 through C8
         (CASES-WE-DEFEND-PLAN.md Section 5.6).
       */}
+      {/* D73: this row points to Resources, hidden at launch. */}
+      {RESOURCES_LIVE ? (
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <div className="flex flex-col gap-6 border border-navy/20 p-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-10">
@@ -119,6 +122,7 @@ export default function CasesWeDefendPage() {
           </div>
         </div>
       </section>
+      ) : null}
 
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">

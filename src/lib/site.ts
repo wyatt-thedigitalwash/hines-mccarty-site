@@ -1870,6 +1870,19 @@ export const injuryPractices: InjuryPractice[] = injuryPillars.map((p) => ({
 
 export const publishedInjuryPractices = injuryPractices.filter((p) => p.published);
 
+/**
+ * Resources (tools, guides and articles) are not live at launch, D73. The
+ * client is launching without them and will add them later. Everything stays
+ * in the codebase; this switch hides it: the menu item, the home page's tools
+ * and insights sections, the routes (they return not found), the sitemap, and
+ * every link to a `/resources` page from another page's content (the link
+ * stays in the data and reappears when the switch is turned back on).
+ */
+export const RESOURCES_LIVE = false;
+
+/** False for a link that points into a hidden part of the site (D73). */
+export const isLiveHref = (href: string) => RESOURCES_LIVE || !href.startsWith("/resources");
+
 export const primaryNav: NavItem[] = [
   {
     label: "Attorneys",
@@ -1919,7 +1932,8 @@ export const primaryNav: NavItem[] = [
       .filter((c) => c.published)
       .map((c) => ({ label: c.label, href: `/results/${c.slug}` })),
   },
-  {
+  // D73: present only while RESOURCES_LIVE is on.
+  ...(RESOURCES_LIVE ? [{
     label: "Resources",
     href: "/resources",
     children: [
@@ -1934,7 +1948,7 @@ export const primaryNav: NavItem[] = [
         description: "Explainers on charges, courts, and sentencing",
       },
     ],
-  },
+  }] : []),
   {
     label: "Contact Us",
     href: "/contact",
@@ -3225,6 +3239,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "dv-relationship",
+        link: { label: "Sexual battery charges, which can also count as domestic violence", href: "/criminal-defense/sexual-battery-defense" },
         heading: "Who counts as family or household",
         kind: "bullets",
         tier: 3,
@@ -3604,6 +3619,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "csam-evidence",
+        link: { label: "Talk to a federal defense lawyer before any contact with a witness", href: "/contact" },
         heading: "Why your lawyer cannot take a copy of the files",
         kind: "guidance",
         tier: 3,
@@ -3860,6 +3876,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "cc-proof",
+        link: { label: "Identity theft charges when personal information is taken", href: "/white-collar-defense/identity-theft" },
         heading: "Six ways to break this law, from logins to hidden cameras",
         kind: "bullets",
         tier: 3,
@@ -3966,6 +3983,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "cc-who",
+        link: { label: "Talk to a defense lawyer before you explain the access", href: "/contact" },
         heading: "Who picks the charge in a Tampa computer case",
         kind: "prose",
         tier: 3,
@@ -4261,6 +4279,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "sexcrime-court-clock",
+        link: { label: "Talk to a defense lawyer about the charging deadlines", href: "/contact" },
         heading: "The charging and trial deadlines in detail",
         kind: "prose",
         tier: 3,
@@ -4550,6 +4569,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "sbat-minimum",
+        link: { label: "When a weapon is involved: Florida gun charges and 10-20-Life", href: "/criminal-defense/gun-crimes-defense" },
         heading: "The 25 year and 50 year mandatory minimums",
         kind: "bullets",
         tier: 3,
@@ -4800,6 +4820,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "hom-felony-list",
+        link: { label: "Florida drug trafficking charges", href: "/criminal-defense/drug-trafficking-defense" },
         heading: "When someone else caused the death during a felony",
         kind: "bullets",
         tier: 3,
@@ -4950,6 +4971,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "hom-who",
+        link: { label: "How a family member can reach a defense lawyer", href: "/contact" },
         heading: "The offices and courthouses handling your case",
         kind: "prose",
         tier: 3,
@@ -5132,6 +5154,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "gt-listed-items",
+        link: { label: "Florida gun charges, and where a stolen gun fits", href: "/criminal-defense/gun-crimes-defense" },
         heading: "Items that are a felony at any value",
         kind: "bullets",
         tier: 3,
@@ -5177,6 +5200,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "gt-proof",
+        link: { label: "Theft by someone trusted with the money: embezzlement", href: "/white-collar-defense/embezzlement" },
         heading: "Four things behind every theft charge",
         kind: "bullets",
         tier: 3,
@@ -5303,6 +5327,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "gt-who",
+        link: { label: "Reach a defense lawyer before any court date", href: "/contact" },
         heading: "Three offices already working on your theft case",
         kind: "prose",
         tier: 3,
@@ -5457,6 +5482,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "emb-proof",
+        link: { label: "Florida wire fraud, for fraud by email, phone, or text", href: "/white-collar-defense/wire-fraud" },
         heading: "You were allowed to handle the money, so intent is the fight",
         kind: "bullets",
         tier: 3,
@@ -5491,6 +5517,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "emb-defense",
+        link: { label: "Talk to a lawyer before an internal interview", href: "/contact" },
         heading: "The records, the interview, and your rights",
         kind: "guidance",
         tier: 3,
@@ -5716,6 +5743,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "flml-proof",
+        link: { label: "Florida drug trafficking charges, when drug money is the alleged source", href: "/criminal-defense/drug-trafficking-defense" },
         heading: "Knowing, the source, and the purpose",
         kind: "bullets",
         tier: 3,
@@ -6349,6 +6377,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "license-clock",
+        link: { label: "Reach a defense lawyer before the 10 days run out", href: "/contact" },
         heading: "You have 10 days to answer the case against your license",
         kind: "prose",
         tier: 3,
@@ -6433,6 +6462,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "what-is-charged",
+        link: { label: "Drug possession charges when drugs are found in the car", href: "/criminal-defense/drug-possession-defense" },
         heading: "You do not have to blow 0.08 to be charged",
         kind: "statute",
         tier: 3,
@@ -6802,6 +6832,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "traf-gun",
+        link: { label: "Florida gun charges and the 10-20-Life minimums", href: "/criminal-defense/gun-crimes-defense" },
         heading: "When there was a gun in the car",
         kind: "bullets",
         tier: 3,
@@ -7059,6 +7090,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "gun-minimums",
+        link: { label: "Florida drug trafficking charges and their minimums", href: "/criminal-defense/drug-trafficking-defense" },
         heading: "How 10-20-Life and the other minimum terms work",
         kind: "bullets",
         tier: 3,
@@ -7314,6 +7346,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "idt-other-charges",
+        link: { label: "Fraud by phone, email, or text: Florida communications fraud", href: "/white-collar-defense/wire-fraud" },
         heading: "Fake identities, the dead, harassment, and posing as a banker",
         kind: "bullets",
         tier: 3,
@@ -7329,6 +7362,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "idt-proof",
+        link: { label: "Bank fraud charges, when a bank or lender is the target", href: "/white-collar-defense/bank-fraud" },
         heading: "What makes information personal, and why holding it can be enough",
         kind: "bullets",
         tier: 3,
@@ -7464,6 +7498,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "idt-who",
+        link: { label: "Reach a defense lawyer before a court date", href: "/contact" },
         heading: "The county, the prosecutor, and the courthouse",
         kind: "prose",
         tier: 3,
@@ -8224,6 +8259,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "fdt-safety-valve",
+        link: { label: "Federal gun charges added to a drug case", href: "/federal-criminal-defense/weapons-gun-offenses" },
         heading: "A court route below the mandatory minimum",
         kind: "bullets",
         tier: 3,
@@ -8801,6 +8837,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "tlet-who",
+        link: { label: "Florida state charges we defend", href: "/criminal-defense" },
         heading: "The office that sent it, and the court behind it",
         kind: "prose",
         tier: 3,
@@ -9060,6 +9097,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "fedgun-dv-misdemeanor",
+        link: { label: "Florida domestic violence charges", href: "/criminal-defense/domestic-violence-defense" },
         heading: "Clearing a domestic violence misdemeanor for gun purposes",
         kind: "bullets",
         tier: 3,
@@ -9469,6 +9507,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "hcf-proof",
+        link: { label: "Federal conspiracy charges in health care fraud cases", href: "/federal-criminal-defense/conspiracy-charges" },
         heading: "A knowing lie, not a billing mistake",
         kind: "prose",
         tier: 3,
@@ -9503,6 +9542,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "hcf-defense",
+        link: { label: "Talk to a lawyer before records are handed over", href: "/contact" },
         heading: "Your Medicaid records, and who can see them",
         kind: "guidance",
         tier: 3,
@@ -9923,6 +9963,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "secfraud-proof",
+        link: { label: "Federal wire and mail fraud charges", href: "/federal-criminal-defense/wire-mail-fraud" },
         heading: "Three kinds of fraud under Florida law, and one federal plan",
         kind: "bullets",
         tier: 3,
@@ -10244,6 +10285,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "wf-vulnerable",
+        link: { label: "Identity theft charges, which also rise when the victim is older or a minor", href: "/white-collar-defense/identity-theft" },
         heading: "When the victim was 65 or older, a minor, or disabled",
         kind: "prose",
         tier: 3,
@@ -10492,6 +10534,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "tax-proof",
+        link: { label: "Talk to a lawyer before you explain your returns", href: "/contact" },
         heading: "Willful is the word every tax charge turns on",
         kind: "bullets",
         tier: 3,
@@ -10521,6 +10564,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "tax-time-limit",
+        link: { label: "Federal criminal defense in Tampa, and how federal investigations run", href: "/federal-criminal-defense" },
         heading: "How long the government has to bring a tax charge",
         kind: "prose",
         tier: 3,
@@ -10759,6 +10803,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "proof",
+        link: { label: "When a gun is found with the drugs: Florida gun charges", href: "/criminal-defense/gun-crimes-defense" },
         heading: "Having it, knowing it, and the prescription question",
         kind: "prose",
         tier: 3,
@@ -10890,6 +10935,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "who",
+        link: { label: "Talk to a defense lawyer before the first hearing", href: "/contact" },
         heading: "Three offices already working on your case",
         kind: "prose",
         tier: 3,
@@ -11046,6 +11092,7 @@ const CHARGE_CONTENT: Record<string, Partial<ChargePage>> = {
       },
       {
         id: "battery-proof",
+        link: { label: "Sexual battery, a separate charge when the act is sexual", href: "/criminal-defense/sexual-battery-defense" },
         heading: "What the State has to show for each battery charge",
         kind: "bullets",
         tier: 3,

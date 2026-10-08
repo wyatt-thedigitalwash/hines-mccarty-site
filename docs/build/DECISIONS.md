@@ -2697,3 +2697,30 @@ in, so injury pages say "claim" where charge pages say "charge";
 `InjuryLegacy` (the old template) for any page not yet rebuilt; Colton Trina
 is mapped to every injury page for "Who handles these cases"; and
 `check:injury` holds rebuilt injury pages to PAGE-STANDARD section 13.
+
+### D73. Resources hidden at launch
+
+**2026-10-08. Client direction.** The site launches without tools, guides or
+articles; they come later. The articles page had none, so with tools and
+guides gone the Resources section would have been empty. It is hidden as a
+whole, not deleted.
+
+- **One switch**, `RESOURCES_LIVE` in site.ts, off. It hides the Resources
+  menu item (header and footer read the same nav), the home page's tools
+  carousel and insights section, the "Browse the resources" row on the
+  criminal defense hub, the sitemap entries for guides, and every
+  `/resources` link inside page content (`isLiveHref`): section links on the
+  tiered pages and the old "Related guides" list. Those links stay in the
+  data and reappear when the switch is turned on.
+- **The routes return a real 404.** A layout for the `/resources` segment
+  calls `notFound()` while the switch is off, so every tool, guide and hub
+  page is built as the not-found page with status 404, and nothing under
+  `/resources` can be crawled or reached.
+- **Internal links on the service pages (client chose option A).** 29 of the
+  30 charge pages linked a tool or guide, and hiding them left 22 below the
+  standard's 3 links (grand theft and identity theft with none). Rather than
+  accept that, each such page gets links to related service pages where a
+  reader would want them; the hidden links stay in the data. The standard's
+  link count now counts only links a reader can see.
+- **Checks** that read built tool and guide pages, or that expect guide
+  routes to be built, report the hidden state instead of failing.

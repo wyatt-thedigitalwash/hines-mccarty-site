@@ -35,6 +35,7 @@ import {
   VICTIM_INJURY_POINTS,
   type LevelKey,
 } from "../src/lib/tools/scoresheet-form.ts";
+import { RESOURCES_LIVE } from "../src/lib/site.ts";
 
 /** Build output directory. Verification builds use NEXT_DIST_DIR so a running
  * `next dev` keeps .next to itself. */
@@ -722,7 +723,9 @@ console.log("\nSection 11 assertions");
   }
 
   // ---- T9 and the rendered-HTML assertions, only with --rendered.
-  const RENDERED = process.argv.includes("--rendered");
+  // D73: a hidden tool is built as a 404, so there is no rendered page to check.
+  const RENDERED = process.argv.includes("--rendered") && RESOURCES_LIVE;
+  if (process.argv.includes("--rendered") && !RESOURCES_LIVE) console.log("  ..    rendered checks skipped: Resources is hidden (D73), so the tool is built as a 404 on purpose.");
   const PAGE = `${DIST_DIR}/server/app/resources/tools/sentencing-worksheet.html`;
   if (!RENDERED) {
     console.log(

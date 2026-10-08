@@ -10,6 +10,7 @@ import {
   injuryPages,
   silos,
   siteUrl,
+  RESOURCES_LIVE,
 } from "@/lib/site";
 import { contactCanDeliver } from "@/lib/contact-delivery";
 
@@ -83,8 +84,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // Published guides only, same rule as the charge pages: asking Google to
     // crawl a page and then telling it not to index what it found is the
     // mismatch the comment above this file's charge filter warns about.
+    // D73: no guide is listed while Resources is hidden.
     ...guides
-      .filter((g) => g.published)
+      .filter((g) => g.published && RESOURCES_LIVE)
       .map((g) => ({
         url: `${siteUrl}${guideHref(g)}`,
         changeFrequency: "monthly" as const,

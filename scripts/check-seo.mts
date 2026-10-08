@@ -28,6 +28,7 @@
 import { readFileSync, writeFileSync, existsSync, readdirSync, statSync } from "node:fs";
 import { join } from "node:path";
 import { NOT_TARGETED, searchMap, type SearchTarget } from "../src/lib/search-map.ts";
+import { isLiveHref } from "../src/lib/site.ts";
 
 const DIST_DIR = process.env.NEXT_DIST_DIR || ".next";
 const APP = `${DIST_DIR}/server/app`;
@@ -187,9 +188,10 @@ for (const f of files) {
   let href = f.slice(APP.length, -".html".length);
   if (href.startsWith("/_")) continue; // _not-found, _global-error
   if (href === "/index") href = "/";
+  if (!isLiveHref(href)) continue; // D73: hidden Resources pages are built as 404s
   pages.push(parse(href, readFileSync(f, "utf8")));
 }
-const rows = new Map(searchMap.map((r) => [r.href, r]));
+const rows = new Map(searchMap.filter((r) => isLiveHref(r.href)).map((r) => [r.href, r]));
 
 // P1
 {
@@ -200,7 +202,7 @@ const rows = new Map(searchMap.map((r) => [r.href, r]));
       fail(`P1 ${p.href} is built but is neither in the search map nor in NOT_TARGETED`); bad++;
     }
   for (const r of searchMap)
-    if (!built.has(r.href)) { fail(`P1 ${r.href} has a search-map row but no built page`); bad++; }
+    if (isLiveHref(r.href) && !built.has(r.href)) { fail(`P1 ${r.href} has a search-map row but no built page`); bad++; }
   if (!bad) console.log(`  ok    all ${pages.length} built pages are mapped or listed as not targeted`);
 }
 

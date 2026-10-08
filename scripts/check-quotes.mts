@@ -20,7 +20,7 @@ import {
   namedSectionCount,
   singleSourceUrl,
 } from "../src/lib/statute-links.ts";
-import { charges, guides, injuryPages } from "../src/lib/site.ts";
+import { charges, guides, injuryPages, RESOURCES_LIVE } from "../src/lib/site.ts";
 import { isRecordedVerbatim } from "../src/lib/statute-links.ts";
 import { RECORDED_SOURCES } from "../src/lib/generated/source-index.ts";
 
@@ -163,7 +163,8 @@ if (!existsSync(ROOT)) {
 
   // What the data says should render, computed independently of the pages.
   let expectVerbatim = 0, expectGloss = 0;
-  for (const set of [charges, guides, injuryPages]) {
+  // D73: hidden guides are built as 404s, so their spans are not expected.
+  for (const set of [charges, RESOURCES_LIVE ? guides : [], injuryPages]) {
     for (const c of set as {
       sections?: { statute?: { body: string }; statutes?: { body: string }[] }[];
     }[]) {

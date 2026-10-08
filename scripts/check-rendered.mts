@@ -24,7 +24,7 @@
  * failure shape the gate exists to answer. It fails now; run the build first.
  */
 import { readFileSync, existsSync, readdirSync } from "node:fs";
-import { guides } from "../src/lib/site.ts";
+import { guides, RESOURCES_LIVE } from "../src/lib/site.ts";
 import { measuredPages } from "../src/lib/measured.ts";
 
 /** Build output directory. Verification builds use NEXT_DIST_DIR so a running
@@ -63,7 +63,9 @@ if (!existsSync(`${DIST_DIR}/server/app`)) {
 // entry with no route is a link to a 404. Charges predate the registry and
 // are covered per-page below.
 console.log("\nG1: guide routes match the registry, one to one");
-{
+if (!RESOURCES_LIVE)
+  console.log("  ..    skipped: Resources is hidden (D73), so guide routes are built as 404s on purpose");
+else {
   const dir = `${DIST_DIR}/server/app/resources/guides`;
   const onDisk = existsSync(dir)
     ? readdirSync(dir).filter((f) => f.endsWith(".html")).map((f) => f.replace(/\.html$/, ""))
@@ -85,7 +87,8 @@ let guideSpans = 0;
 const writtenCharges = measuredPages.filter(
   (m) => m.kind === "charge" && Boolean(m.charge.sections?.length),
 );
-const writtenGuides = measuredPages.filter((m) => m.kind === "guide" && m.written);
+// D73: hidden guides are built as the not-found page, so there is no copy to sample.
+const writtenGuides = RESOURCES_LIVE ? measuredPages.filter((m) => m.kind === "guide" && m.written) : [];
 
 for (const m of writtenCharges) {
   if (m.kind !== "charge") continue;
