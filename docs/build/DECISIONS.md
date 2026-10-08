@@ -2820,3 +2820,20 @@ have consented to publish, with the disclaimer the rules require.
 - **Articles hero**: the Results page's photo hero, with the image the
   Resources hub used; its breadcrumb data no longer passes through the
   hidden /resources.
+
+### D77. Taglines restored, plain injury heroes, search easier to close
+
+**2026-10-08. Client direction.**
+
+- **The bronze subject lines added in D74 are removed.** The home page's
+  "Aggressive Representation / Defending Your Future" and the injury hub's
+  "If someone else caused it..." are the H1s again, as the client prefers.
+  Their subject is carried by the title, description and intro. The search
+  map marks both as `h1Tagline`, so check:seo still requires the topic in
+  the title but not in the H1. `PageHero` no longer takes an eyebrow.
+- **The injury pages use the charge pages' plain navy hero**, without the
+  photo (reverses the D72 choice to keep it), with the jump links closing
+  the hero as on the charge pages.
+- **Search closes more easily:** a large "Close ×" in the panel's top
+  corner, where the header's buttons sit, on every screen size; tapping the
+  darkened page below still closes it, and so does Escape.

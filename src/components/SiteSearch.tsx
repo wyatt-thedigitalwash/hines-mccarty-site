@@ -110,14 +110,6 @@ export default function SiteSearch({ open, onNavigate }: { open: boolean; onNavi
           autoComplete="off"
           className="w-full min-w-0 bg-transparent font-display text-2xl font-medium text-linen placeholder:text-linen/60 focus:outline-none sm:text-4xl [&::-webkit-search-cancel-button]:appearance-none"
         />
-        {/* A visible close, because a phone has no Escape key (D76). */}
-        <button
-          type="button"
-          onClick={onNavigate}
-          className="shrink-0 font-heading text-sm text-bronze transition-colors hover:text-bronze-soft"
-        >
-          Close
-        </button>
       </form>
 
       <p className="sr-only" aria-live="polite">

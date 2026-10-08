@@ -262,12 +262,28 @@ export default function Header() {
           onClick={() => setSearchOpen(false)}
           className="absolute inset-0 bg-navy/90 backdrop-blur-sm"
         />
-        <div className="absolute inset-x-0 top-0 bg-navy px-6 py-24 lg:px-10">
+        <div className="absolute inset-x-0 top-0 bg-navy px-6 pt-6 pb-16 lg:px-10 lg:pb-20">
           <div className="mx-auto max-w-[1400px]">
-            <span className="eyebrow text-bronze">Search</span>
+            {/* D77: a large, always-visible close in the corner, where the
+                header's own buttons sit, so leaving search is one obvious tap.
+                Tapping the darkened page below and Escape close it too. */}
+            <div className="flex items-center justify-between">
+              <span className="eyebrow text-bronze">Search</span>
+              <button
+                type="button"
+                onClick={() => setSearchOpen(false)}
+                tabIndex={searchOpen ? 0 : -1}
+                className="-mr-2 inline-flex min-h-11 items-center gap-2 px-2 font-heading text-base text-linen transition-colors hover:text-bronze"
+              >
+                Close
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="h-7 w-7" aria-hidden="true">
+                  <path d="M6 6l12 12M18 6 6 18" strokeLinecap="round" />
+                </svg>
+              </button>
+            </div>
             {/* D76: the site search. Results appear as you type. */}
             <SiteSearch open={searchOpen} onNavigate={() => setSearchOpen(false)} />
-            <p className="mt-4 hidden text-sm text-linen/70 sm:block">Press Escape to close.</p>
+            <p className="mt-4 hidden text-sm text-linen/70 sm:block">Press Escape or click outside to close.</p>
           </div>
         </div>
       </div>

@@ -75,15 +75,10 @@ export default function Hero() {
                 first line broke after "AGGRESSIVE" and the heading rendered as
                 three lines instead of two. The paragraph keeps its own narrower
                 measure, so only the heading got wider. */}
-            {/* D74: the H1 names what the firm does, for search and screen
-                readers; the tagline below keeps the look it had as the H1. */}
-            <h1 className="mb-5 font-heading text-sm font-medium uppercase tracking-[0.12em] text-bronze">
-              Criminal Defense and Personal Injury Attorneys in Tampa Bay
-            </h1>
-            <p className="font-display text-4xl font-extrabold uppercase leading-[1.08] tracking-[0.01em] text-linen sm:text-5xl lg:text-6xl">
+            <h1 className="font-display text-4xl font-extrabold uppercase leading-[1.08] tracking-[0.01em] text-linen sm:text-5xl lg:text-6xl">
               <span className="block">Aggressive Representation</span>
               <span className="block text-bronze">Defending Your Future</span>
-            </p>
+            </h1>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/80">
               If you have been arrested, are under investigation, or have been
               hurt in a collision, you need straight answers before anything

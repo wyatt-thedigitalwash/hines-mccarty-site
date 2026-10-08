@@ -2,12 +2,10 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CallToAction from "@/components/CallToAction";
 import HandledBy from "@/components/attorneys/HandledBy";
-import HeroPhotoLayer from "@/components/HeroPhotoLayer";
 import QuickNav from "@/components/cases/QuickNav";
 import TieredBody, { type TieredCopy } from "@/components/cases/TieredBody";
 import { card, color, space, type } from "@/components/cases/ui";
 import { type InjuryPage, firm, injuryHref, injurySpokes, injuryTrail } from "@/lib/site";
-import { injuryHeroPhoto } from "@/lib/hero-photos";
 import InjuryLegacy from "./InjuryLegacy";
 
 /**
@@ -17,7 +15,8 @@ import InjuryLegacy from "./InjuryLegacy";
  * the call band, with injury wording where the template names the kind of
  * page. What differs, on client direction:
  *
- *   - The hero keeps its photo, which suits injury work.
+ *   - The hero is the charge pages' plain navy hero (D77; it carried a
+ *     photo until the client asked for it to go).
  *   - Pillars carry the full spine (who pays, what happens next, what to do
  *     right now). Spokes open on a short answer and go straight to their
  *     topics, so the same deadlines and steps are not repeated on nine pages.
@@ -50,19 +49,15 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
 
   return (
     <>
-      {/* The photo hero, as before D72: right 58% from lg, a full-bleed band
-          under the copy on a phone. `isolate` and z-10 keep the copy above the
-          absolutely positioned image. */}
-      <section
-        data-bg="navy"
-        data-hero
-        className="relative isolate overflow-hidden bg-navy pt-28 pb-12 lg:pt-44 lg:pb-20"
-      >
-        <div className="relative z-10 mx-auto max-w-[1400px] px-6 lg:px-10">
+      {/* The charge pages' hero (D77, client direction: no photo on the
+          injury pages): breadcrumbs, H1, lead, the call button, and the jump
+          links as the band that closes it (D52). */}
+      <section data-bg="navy" className={`bg-navy pt-28 lg:pt-44 ${quickNav.length > 1 ? "" : "pb-10 lg:pb-16"}`}>
+        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Breadcrumbs trail={injuryTrail(page)} tone="dark" />
-          <h1 className={`mt-6 max-w-2xl ${type.pageTitle} ${color.onDarkHeading}`}>{page.title}</h1>
+          <h1 className={`mt-6 max-w-4xl ${type.pageTitle} ${color.onDarkHeading}`}>{page.title}</h1>
           {page.lead ? (
-            <p className={`mt-6 max-w-xl ${type.lead} ${color.onDarkBody}`}>{page.lead}</p>
+            <p className={`mt-6 max-w-2xl ${type.lead} ${color.onDarkBody}`}>{page.lead}</p>
           ) : null}
           <div className="mt-8">
             <a
@@ -73,20 +68,14 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
             </a>
           </div>
         </div>
-        <HeroPhotoLayer photo={injuryHeroPhoto(page)} />
-      </section>
-
-      {/* The jump links, as the band that closes the charge hero (D52). Its own
-          strip under the photo hero, so the image is not cut by it. */}
-      {quickNav.length > 1 ? (
-        <div data-bg="navy" className="bg-navy">
-          <div className="bg-linen/[0.06]">
+        {quickNav.length > 1 ? (
+          <div className="mt-10 bg-linen/[0.06] lg:mt-20">
             <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
               <QuickNav items={quickNav} />
             </div>
           </div>
-        </div>
-      ) : null}
+        ) : null}
+      </section>
 
       <TieredBody charge={page} sections={sections} copy={INJURY_COPY} />
 

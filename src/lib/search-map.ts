@@ -69,6 +69,11 @@ export type SearchTarget = {
    * readers can tell which is which.
    */
   siblings?: string[];
+  /**
+   * The H1 is a brand tagline by client decision, not the subject (D77). The
+   * topic must still be in the <title>; check:seo skips the H1 half of P5.
+   */
+  h1Tagline?: true;
   /** Where the primary query and the sibling split are recorded. */
   source: string;
   note?: string;
@@ -413,6 +418,7 @@ export const searchMap: SearchTarget[] = [
   },
   {
     href: "/personal-injury",
+    h1Tagline: true,
     kind: "hub",
     intent: "hire",
     primary: null,
@@ -422,6 +428,7 @@ export const searchMap: SearchTarget[] = [
   },
   {
     href: "/",
+    h1Tagline: true,
     kind: "home",
     intent: "navigate",
     primary: null,

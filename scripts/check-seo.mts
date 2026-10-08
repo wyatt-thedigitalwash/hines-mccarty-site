@@ -98,7 +98,7 @@ function audit(pages: Page[], rows: Map<string, SearchTarget>): Map<string, stri
     if (r) {
       const topic = r.topic.toLowerCase();
       if (!p.title.toLowerCase().includes(topic)) add(p.href, `P5 topic not in title`);
-      if (!p.h1s.some((h) => h.toLowerCase().includes(topic))) add(p.href, `P5 topic not in H1`);
+      if (!r.h1Tagline && !p.h1s.some((h) => h.toLowerCase().includes(topic))) add(p.href, `P5 topic not in H1`);
       for (const s of r.siblings ?? []) if (!p.links.has(s)) add(p.href, `P6 no link to sibling ${s}`);
     }
   }
