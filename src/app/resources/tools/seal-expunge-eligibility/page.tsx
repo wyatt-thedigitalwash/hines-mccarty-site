@@ -39,7 +39,8 @@ const P = "mt-4 max-w-[68ch] leading-relaxed text-navy/75";
 
 export default function SealExpungeEligibilityPage() {
   return (
-    <main className="bg-linen">
+    <div className="bg-linen">
+      {/* A div, not <main>: the root layout already provides <main id="main">, and a second one fails WCAG landmark rules (D67). */}
       <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24">
         <h1 className="font-display text-3xl leading-tight text-navy sm:text-4xl">
           {C.H1}
@@ -80,6 +81,6 @@ export default function SealExpungeEligibilityPage() {
 
         <Byline />
       </div>
-    </main>
+    </div>
   );
 }

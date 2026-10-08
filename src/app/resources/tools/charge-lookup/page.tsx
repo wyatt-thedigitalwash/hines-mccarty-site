@@ -69,7 +69,8 @@ const P_CLS = "mt-4 max-w-[68ch] text-navy/75";
 
 export default function ChargeLookupPage() {
   return (
-    <main className="bg-linen">
+    <div className="bg-linen">
+      {/* A div, not <main>: the root layout already provides <main id="main">, and a second one fails WCAG landmark rules (D67). */}
       <div className="mx-auto max-w-4xl px-6 py-20 sm:py-24">
         <h1 className="font-heading text-3xl text-navy sm:text-4xl">
           What does that statute number mean?
@@ -143,6 +144,6 @@ export default function ChargeLookupPage() {
         */}
         <Byline />
       </div>
-    </main>
+    </div>
   );
 }

@@ -566,7 +566,7 @@ export function PenaltyTable({ rows }: { rows: PenaltyRow[] }) {
               <th
                 key={h}
                 className={
-                  "px-5 py-3 font-heading text-sm font-semibold text-navy/55 " +
+                  "px-5 py-3 font-heading text-sm font-semibold text-navy/70 " +
                   (i === 0 ? "w-[30%]" : i === 1 ? "w-[38%]" : "w-[32%]")
                 }
               >
@@ -644,7 +644,7 @@ function SituationTable({ rows }: { rows: PenaltyRow[] }) {
               <th
                 key={h}
                 className={
-                  "px-5 py-3 font-heading text-sm font-semibold text-navy/55 " +
+                  "px-5 py-3 font-heading text-sm font-semibold text-navy/70 " +
                   (i === 0 ? "w-[42%]" : i === 1 ? "w-[30%]" : "w-[28%]")
                 }
               >

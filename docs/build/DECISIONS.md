@@ -2505,3 +2505,43 @@ competing with another page or reading like a copy of one.
 Siblings are the reciprocal pairs from the briefs and OVERLAP-AUDIT.md. DUI and
 homicide are not paired: ST-04 assigns "dui manslaughter florida" to homicide
 and W4-03 assigns it to DUI, so neither page targets it. That needs a decision.
+
+### D67. The service page standard, and the rollout to every service page
+
+**2026-10-08. Client direction.** Every service page is to be finished to the
+standard set by the sexual battery page: easy to read, efficient, and correct
+on SEO and accessibility, with structure free to flex by charge as long as the
+content and flow make sense and the design stays on brand. The client approved
+the plan and delegated five open questions to the recommendations below.
+
+- **The standard is written down**, in `docs/build/PAGE-STANDARD.md`: the
+  reading order, what flexes by charge type (degree ladder, federal ranges,
+  investigation-stage pages, DUI's two clocks, overview pages), the rules for
+  topics, FAQs, writing, accuracy, search, design and accessibility, and what
+  "done" means. The parts a script can measure are a new section of
+  check:pages that applies to every page listed in `STANDARD_PAGES`; pages
+  join the list as they are rebuilt, so the rollout can go batch by batch.
+- **Name offices, not office holders.** Five office holders were named across
+  three pages. Names go stale when people leave office, and the page is then
+  wrong. Sexual battery now names the offices only; the rule is enforced for
+  pages on the standard.
+- **DUI manslaughter belongs to the DUI page.** It is defined in the DUI
+  statute and its searchers have been arrested for DUI. The homicide page
+  links to it. (ST-04 and W4-03 had each assigned it to the other page.)
+- **Corporate fraud stays a short overview** (D12), routing to the specific
+  fraud pages.
+- **PPP loan fraud is written from its brief (OPP-01)** with new statute
+  research, recorded through the existing source gates.
+- **Personal injury runs last.** Its layout is a separate design decision, and
+  the client's injury keyword architecture is still needed.
+- **Commits** go to this branch after each approved batch. Nothing is pushed.
+- **Template fixes made once:** the penalty table header moved from navy/55
+  to navy/70 (an axe contrast failure on 26 pages), and the four tool pages
+  render a div instead of a second `<main>` inside the layout's `<main>`
+  (WCAG landmark rules).
+
+Not changed: the ladder and the box layout stay opt-in per page
+(`display: "ladder"`, `detailsLayout: "grid"`) rather than becoming defaults.
+The ladder only fits penalties that step by Florida degree, so making it the
+default would have reshaped federal pages before anyone decided their shape.
+The standard requires the grid on every page and the ladder where it fits.

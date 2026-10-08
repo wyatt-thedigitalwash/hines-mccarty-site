@@ -1256,6 +1256,76 @@ console.log("\nReader-question coverage");
   if (!migrated.length) console.log("  ..    no migrated pages yet");
 }
 
+// ------------------------------------------------------------------ D67
+// The service page standard (docs/build/PAGE-STANDARD.md), the parts a script
+// can measure. A page joins STANDARD_PAGES when it is rebuilt to the standard
+// and reviewed, and from then on these rules hold for it. Pages not yet
+// rebuilt are not held to them, so the rollout can go one batch at a time.
+console.log("\nService page standard (D67), pages rebuilt to it");
+const STANDARD_PAGES = ["/criminal-defense/sexual-battery-defense"];
+/** Office holders by name: the standard names offices, because names go stale. */
+const OFFICE_HOLDERS = /Susan S\. Lopez|Victor Crist|Christopher C\. Sabella|Lisa B\. McLean|Chad Chronister/;
+const TIER2 = ["What you're facing.", "What happens next.", "What to do right now."];
+
+function standardProblems(c: ChargePage): string[] {
+  const out: string[] = [];
+  const secs = c.sections ?? [];
+  const t2 = secs.filter((s) => s.tier === 2).map((s) => s.heading);
+  if (JSON.stringify(t2) !== JSON.stringify(TIER2))
+    out.push(`Tier 2 headings must be exactly ${TIER2.join(" / ")} in that order (has: ${t2.join(" / ")})`);
+  const doNow = secs.find((s) => s.tier === 2 && s.heading === TIER2[2]);
+  if (doNow && doNow.background !== "navy") out.push(`"What to do right now." must be the navy band`);
+  if (doNow?.bullets && (doNow.bullets.length < 3 || doNow.bullets.length > 5))
+    out.push(`"What to do right now." has ${doNow.bullets.length} bullets; the standard is 3 to 5`);
+  const steps = secs.find((s) => s.tier === 2 && s.kind === "timeline")?.steps ?? [];
+  if (steps.length < 3 || steps.length > 6) out.push(`the timeline has ${steps.length} steps; the standard is 3 to 6`);
+  if (c.detailsLayout !== "grid") out.push(`detailsLayout must be "grid"`);
+  const groups: string[] = [];
+  for (const s of secs.filter((s) => s.tier === 3)) {
+    if (!s.group) { out.push(`Tier 3 section ${s.id} has no group`); continue; }
+    if (!groups.includes(s.group)) {
+      groups.push(s.group);
+      if (!s.groupSummary) out.push(`topic "${s.group}" has no groupSummary on its first section`);
+      if (!s.group.trim().endsWith("?")) out.push(`topic "${s.group}" is not written as the reader's question`);
+    }
+  }
+  if (groups.length < 5 || groups.length > 9) out.push(`${groups.length} topics; the standard is 5 to 9`);
+  const links = secs.filter((s) => s.link).length;
+  if (links < 3 || links > 6) out.push(`${links} section links; the standard is 3 to 6`);
+  const faqs = c.faq?.length ?? 0;
+  if (faqs < 4 || faqs > 6) out.push(`${faqs} common questions; the standard is 4 to 6`);
+  const named = OFFICE_HOLDERS.exec(JSON.stringify(c));
+  if (named) out.push(`names an office holder ("${named[0]}"); name the office instead`);
+  return out;
+}
+
+{
+  // Self-tests: the reference page passes, and a planted break fires.
+  const ref = charges.find((c) => chargeHref(c) === STANDARD_PAGES[0]);
+  if (!ref) fail(`SELF-TEST: the reference page ${STANDARD_PAGES[0]} is missing`);
+  else {
+    const broken: ChargePage = {
+      ...ref,
+      detailsLayout: undefined,
+      sections: ref.sections!.map((s) => (s.group ? { ...s, group: s.group.replace(/\?$/, "") } : s)),
+    };
+    const hits = standardProblems(broken);
+    if (hits.some((h) => h.startsWith("detailsLayout")) && hits.some((h) => h.includes("reader's question")))
+      console.log("  ok    a planted non-question topic and missing grid layout fire");
+    else fail("SELF-TEST: planted standard violations did not fire");
+  }
+  let ok = 0;
+  for (const href of STANDARD_PAGES) {
+    const c = charges.find((x) => chargeHref(x) === href);
+    if (!c) { fail(`${href} is in STANDARD_PAGES but is not a charge page`); continue; }
+    const problems = standardProblems(c);
+    for (const p of problems) fail(`${href}: ${p}`);
+    if (!problems.length) ok++;
+  }
+  if (ok === STANDARD_PAGES.length)
+    console.log(`  ok    ${ok} page(s) on the standard: ${STANDARD_PAGES.length} of ${pages.length}`);
+}
+
 const ratchetOut: Baseline = {
   structuralPairs: ratchet.structuralPairs ?? baseline.structuralPairs,
   duplicationPairs: ratchet.duplicationPairs ?? baseline.duplicationPairs,
