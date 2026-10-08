@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Wordmark from "@/components/Wordmark";
+import SiteSearch from "@/components/SiteSearch";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { firm, formatOffice, primaryNav, primaryOffice } from "@/lib/site";
@@ -264,20 +265,9 @@ export default function Header() {
         <div className="absolute inset-x-0 top-0 bg-navy px-6 py-24 lg:px-10">
           <div className="mx-auto max-w-[1400px]">
             <span className="eyebrow text-bronze">Search</span>
-            <form
-              className="mt-4 flex items-center gap-4 border-b border-white/20 pb-4 transition-colors focus-within:border-bronze"
-              onSubmit={(e) => e.preventDefault()}
-            >
-              <SearchIcon className="h-6 w-6 text-linen/60" />
-              <input
-                autoFocus={searchOpen}
-                type="search"
-                aria-label="Search the site"
-                placeholder="Search charges, guides, and attorneys"
-                className="w-full bg-transparent font-display text-2xl font-medium text-linen placeholder:text-linen/40 focus:outline-none sm:text-4xl"
-              />
-            </form>
-            <p className="mt-4 text-sm text-linen/50">Press Escape to close.</p>
+            {/* D76: the site search. Results appear as you type. */}
+            <SiteSearch open={searchOpen} onNavigate={() => setSearchOpen(false)} />
+            <p className="mt-4 hidden text-sm text-linen/70 sm:block">Press Escape to close.</p>
           </div>
         </div>
       </div>

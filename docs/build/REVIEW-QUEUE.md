@@ -228,6 +228,16 @@ and wrong against the decision that supersedes it.
 
 ## PUBLISHED FIGURES THAT GO STALE ON SOMEONE ELSE'S SCHEDULE, added 2026-08-14
 
+**DATED CHECK: 1 November 2026, `/federal-criminal-defense/csam-defense`.**
+Added 2026-10-08. The page says the judge works through the federal
+sentencing guidelines "in the version dated November 1, 2025". Guideline
+amendments take effect each 1 November, so on or soon after 1 November 2026
+someone checks whether amendments took effect that day and, if so, whether
+anything this page states about the child pornography guideline changed.
+Update the version date and any affected sentence, or confirm no change and
+log it in the Off-Cycle Log. It is the only page that names a guidelines
+version date (checked 2026-10-08).
+
 THREE batch A pages publish United States Sentencing Commission statistics for
 fiscal year 2025: federal healthcare fraud, wire and mail fraud, and weapons.
 

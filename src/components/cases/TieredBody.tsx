@@ -2,6 +2,7 @@ import Link from "next/link";
 import { type ChargePage, type ChargeSection, firm, isLiveHref } from "@/lib/site";
 import { SectionBody } from "./sections";
 import DetailsGrid from "./DetailsGrid";
+import OpenFromHash from "./OpenFromHash";
 import { color, space, type } from "./ui";
 
 /** The fields of a page that the tiered body reads (charge or injury page). */
@@ -336,6 +337,8 @@ export default function TieredBody({
           route from charge.faq, so this markup does not affect it. */}
       {charge.faq?.length ? (
         <section data-bg="white" className="bg-white py-24 lg:py-32 text-navy">
+          {/* D76: site search links to "#faq-<n>"; this opens it. */}
+          <OpenFromHash />
           <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-16">
               <div className="max-w-2xl">
@@ -351,8 +354,8 @@ export default function TieredBody({
               </div>
             </div>
             <div className={`${space.beforeContent} border-t border-navy/15`}>
-              {charge.faq.map((item) => (
-                <details key={item.question} className="group border-b border-navy/15">
+              {charge.faq.map((item, i) => (
+                <details key={item.question} id={`faq-${i}`} className="group scroll-mt-28 border-b border-navy/15">
                   <summary className="flex cursor-pointer list-none items-baseline justify-between gap-4 py-5 [&::-webkit-details-marker]:hidden">
                     <h3 className={`${type.itemHeading} ${color.heading} transition-colors group-hover:text-bronze`}>
                       {item.question}

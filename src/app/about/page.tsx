@@ -46,8 +46,9 @@ import Byline from "@/components/cases/Byline";
  *   3. CREDENTIALS SHIPPED NOTHING. The section held a [NEEDS] covering both
  *      "board certification status" AND "permission to use each mark". The
  *      first half is answered: two board certifications are recorded, and the
- *      eight marks have been rendering site-wide since 2026-08-26. Only the
- *      written permission is still open, so only that is still marked.
+ *      eight marks have been rendering site-wide since 2026-08-26. Written
+ *      permission to display them was confirmed by the client on 2026-10-08
+ *      (D76).
  *
  *   4. noindex WAS ON, for the stated reason that the page was scaffolding.
  *      After 2 and 3 it is not, so it comes off and the page enters the
@@ -56,8 +57,7 @@ import Byline from "@/components/cases/Byline";
  *      pages already indexed.
  *
  * STILL BLOCKED, deliberately: the firm-wide trial count (plan Section 5, Open
- * Question 2b) and written permission for the credential marks (Open Question
- * 8). Each renders a visible [NEEDS] rather than being quietly omitted, so the
+ * Question 2b). Permission for the credential marks is confirmed (D76). Each renders a visible [NEEDS] rather than being quietly omitted, so the
  * gap is legible on the page instead of being rediscovered later.
  *
  * COMPLIANCE RAILS, plan Section 5. About pages are where firms write what they
@@ -367,16 +367,6 @@ export default function AboutPage() {
               organisation and the area of law, which is the only form in which
               it may be stated.
             </p>
-            {/* D74: an internal note, shown in development only. */}
-            {process.env.NODE_ENV !== "production" ? (
-            <p className="mt-8 text-sm leading-relaxed text-navy/60">
-              <Needs>
-                written permission from each organisation to display its mark
-              </Needs>{" "}
-              Open Question 8. The marks render site-wide already, so this is
-              recorded once here rather than repeated beside every strip.
-            </p>
-            ) : null}
           </div>
         </div>
 

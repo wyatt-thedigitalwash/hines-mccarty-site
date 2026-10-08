@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "eslint",
     "check:c9": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-c9.mts",
-    "prebuild": "npm run check:registries && npm run check:dormant && npm run check:c9 && npm run check:pages && npm run check:unverified && npm run check:claims && npm run check:provenance && npm run check:charge-lookup && npm run check:worksheet && npm run check:readability && npm run check:routes && npm run check:search-map && npm run check:injury",
+    "prebuild": "npm run check:registries && npm run check:dormant && npm run check:c9 && npm run check:pages && npm run check:unverified && npm run check:claims && npm run check:provenance && npm run check:charge-lookup && npm run check:worksheet && npm run check:readability && npm run check:routes && npm run check:search-map && npm run check:injury && npm run check:search",
     "check:pages": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-pages.mts",
     "check:unverified": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-unverified.mts",
     "prewrite": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-unverified.mts",
@@ -32,7 +32,8 @@
     "check:search-map": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-search-map.mts",
     "check:seo": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-seo.mts",
     "audit:pages": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/audit-pages.mjs",
-    "check:injury": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-injury.mts"
+    "check:injury": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-injury.mts",
+    "check:search": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-search.mts"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",

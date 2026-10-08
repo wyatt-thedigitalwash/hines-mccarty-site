@@ -2786,3 +2786,37 @@ require testimonials to be real and properly qualified) and fake reviews
 under FTC guidance. The section now renders only when `TESTIMONIALS_REAL` is
 set in site.ts, after the quotes are replaced with real reviews the clients
 have consented to publish, with the disclaimer the rules require.
+
+### D76. Site search, preview pages removed, credential marks cleared, Articles hero
+
+**2026-10-08. Client direction.**
+
+- **Site search** (requested: "very efficient, simple, true value to a
+  visitor"). The header search box now searches the site as you type.
+  - The index is built from the site's own data at build time
+    (`src/lib/search-index.ts`, served as `/search-index.json`, about 500
+    entries): every live page, every detail topic (linking into the page
+    with that topic opened), every common question (opened on arrival),
+    the attorneys, and the main site pages. Hidden tools and guides are
+    left out; published articles join automatically.
+  - Matching (`src/lib/search-engine.ts`, no dependency) finds word starts
+    as you type, maps everyday words to the site's ("weed", "drunk
+    driving", "uber", "18 wheeler"), finds statute numbers ("893.13"),
+    forgives one typo in a longer word, and drops filler words so a typed
+    question still finds the topic that answers it. It ranks the page
+    about the subject first, drops results far weaker than the best, and
+    shows a near-identical question from many charge pages at most twice,
+    suggesting the reader add their charge.
+  - The box follows the WAI-ARIA combobox pattern (arrow keys, Enter,
+    Escape, results announced), shows popular searches when empty, and
+    offers the charge list and the phone number when nothing matches.
+  - `check:search` runs in the build: twenty real queries must find the
+    right page near the top, a nonsense query must return nothing, hidden
+    pages must stay out, and the index must stay small.
+- **Preview pages deleted**: /hero-preview-2, /home-preview-2 and
+  /illustration-preview, the robots rule that excluded them, and three
+  components only they used.
+- **Credential marks**: the client confirmed permission to display them.
+- **Articles hero**: the Results page's photo hero, with the image the
+  Resources hub used; its breadcrumb data no longer passes through the
+  hidden /resources.

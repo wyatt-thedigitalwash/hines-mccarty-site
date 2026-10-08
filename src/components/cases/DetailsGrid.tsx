@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, type ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { card, color, space, type } from "./ui";
 
 export type DetailsGridItem = {
@@ -28,6 +28,26 @@ export type DetailsGridItem = {
 export default function DetailsGrid({ items }: { items: DetailsGridItem[] }) {
   const [open, setOpen] = useState<string | null>(null);
 
+  // D76: a link to "#topic-<id>" (from site search) opens that box and brings
+  // it into view, on arrival and on a jump within the page.
+  useEffect(() => {
+    const fromHash = () => {
+      const id = decodeURIComponent(window.location.hash.slice(1));
+      if (!id || !items.some((i) => i.id === id)) return;
+      setOpen(id);
+      window.requestAnimationFrame(() =>
+        document.getElementById(id)?.scrollIntoView({ block: "start" }),
+      );
+    };
+    fromHash();
+    window.addEventListener("hashchange", fromHash);
+    window.addEventListener("site:hash", fromHash);
+    return () => {
+      window.removeEventListener("hashchange", fromHash);
+      window.removeEventListener("site:hash", fromHash);
+    };
+  }, [items]);
+
   return (
     <div className={space.items}>
       {items.map((item) => {
@@ -35,7 +55,8 @@ export default function DetailsGrid({ items }: { items: DetailsGridItem[] }) {
         return (
           <div
             key={item.id}
-            className={`border transition-colors ${
+            id={item.id}
+            className={`scroll-mt-28 border transition-colors ${
               isOpen ? "border-navy/25 bg-linen/25" : "border-navy/15 bg-white hover:border-bronze hover:bg-linen/15"
             }`}
           >

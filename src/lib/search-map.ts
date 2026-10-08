@@ -87,9 +87,6 @@ export const NOT_TARGETED: Record<string, string> = {
   "/cases-we-defend": "Index of charge pages; each charge carries its own row.",
   "/attorneys": "Index of bios; each bio carries its own row.",
   "/about": "Firm page. Searched for by name, which the home page row covers.",
-  "/hero-preview-2": "Design preview, not a page on the live site.",
-  "/home-preview-2": "Design preview, not a page on the live site.",
-  "/illustration-preview": "Design preview, not a page on the live site.",
 };
 
 /** Intents that may use hire words in their primary query. */
