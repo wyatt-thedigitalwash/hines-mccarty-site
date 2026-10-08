@@ -2844,3 +2844,11 @@ have consented to publish, with the disclaimer the rules require.
 photo hero they had before D77; the seven spokes keep the plain navy hero.
 The pillars' jump links follow the photo hero as their own strip, so the
 image is not cut by them.
+
+### D79. "Who handles what" covers all four practice areas
+
+**2026-10-08. Client direction.** The attorneys page's "Who handles what" listed
+the three criminal areas in a row of three. It now lists all four practice
+areas from `practiceAreaIndex` (personal injury included, handled by Colton
+Trina through his existing mapping) as a 2x2 grid, and its intro says "see
+what it covers" rather than "the charges it covers".

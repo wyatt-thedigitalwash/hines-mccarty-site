@@ -3,7 +3,7 @@ import Link from "next/link";
 import {
   attorneys,
   attorneysLeadingPractice,
-  capabilities,
+  practiceAreaIndex,
   firm,
 } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
@@ -147,11 +147,12 @@ export default function AttorneysPage() {
           </h2>
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-charcoal">
             A case goes to the attorney who concentrates in that area. Select an
-            area to see the charges it covers.
+            area to see what it covers.
           </p>
 
-          <ul className="mt-12 grid gap-6 lg:grid-cols-3">
-            {capabilities.map((cap) => {
+          {/* D79: all four practice areas, injury included, as a 2x2 grid. */}
+          <ul className="mt-12 grid gap-6 md:grid-cols-2">
+            {practiceAreaIndex.map((cap) => {
               // D74: the attorneys who handle this area's charge pages, from the
               // client's D65 mapping (Lily McCarty and Maria Pavlidis on every
               // state, federal and white-collar charge, David Hines on state).
