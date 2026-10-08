@@ -52,6 +52,9 @@ export const organizationJsonLd = () => ({
   address: publishedOffices.map(postalAddress),
   areaServed: [
     firm.serviceArea,
+    // D82: the firm takes cases elsewhere in Florida too, most often around
+    // Tampa Bay; the cities below are where it most often appears.
+    { "@type": "State", name: "Florida" },
     ...serviceAreas.map((area) => ({
       "@type": "City",
       name: `${area.label}, FL`,

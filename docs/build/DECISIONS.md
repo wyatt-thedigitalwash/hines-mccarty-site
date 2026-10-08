@@ -2892,3 +2892,24 @@ the menu, as /personal-injury/... already did:
 - **Redirects** from every old address to its new one, as a safety net for
   links made during development. Redirects from the previous website are
   added before launch (CLAUDE.md audit 6).
+
+### D82. Local focus, and a line for readers elsewhere in Florida
+
+**2026-10-08. Client direction.** The service pages name Tampa and
+Hillsborough County in titles and H1s on purpose: the firm has one office, in
+Brandon; local searches rank by proximity and the business profile; the Tampa
+terms are the winnable ones in keywords.md; and the state pages carry
+Hillsborough-specific procedure. The client takes cases across Florida, mostly
+in nearby counties, so:
+
+- **State, white-collar and injury pages** add one line under the hero's call
+  button: "Charged outside Hillsborough County? We also take cases elsewhere
+  in Florida, most often in the counties around Tampa Bay." (injury: "Hurt
+  ... claims"). No county names are listed, because the client did not name
+  them. Federal pages are left alone: their H1 names the Middle District,
+  and no claim is made about Florida's other federal districts, since the
+  attorneys' admissions there are not on record.
+- **Schema**: the LegalService's `areaServed` adds Florida as a whole.
+- **Not done, on purpose**: one page per city or county that swaps the place
+  name (doorway pages). County pages are for later, each with real
+  county-specific content, once the firm has cases there.

@@ -130,6 +130,16 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                 {charge.heroCta.label}
               </a>
             </div>
+            {/* D82: the pages are written for Tampa Bay, where the firm's one
+                office is and where it ranks; this tells a reader elsewhere in
+                Florida that the firm takes their case too. Not on federal
+                pages, whose H1 already names the 35-county Middle District. */}
+            {charge.silo !== "federal" ? (
+              <p className={`mt-5 max-w-2xl ${type.small} ${color.onDarkMuted}`}>
+                Charged outside Hillsborough County? We also take cases elsewhere
+                in Florida, most often in the counties around Tampa Bay.
+              </p>
+            ) : null}
           </div>
           {/* The page's own menu as a full-width band closing the hero, a shade
               lighter than the navy (a background, not a rule), D52. A row of

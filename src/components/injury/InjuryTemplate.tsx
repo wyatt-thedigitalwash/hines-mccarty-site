@@ -35,6 +35,11 @@ const INJURY_COPY: TieredCopy = {
   faqIntro: "Short answers to the questions people ask about this kind of claim.",
 };
 
+/** D82: the pages are written for Tampa Bay; this tells a reader elsewhere in
+ *  Florida that the firm takes their claim too. */
+const ELSEWHERE =
+  "Hurt outside Hillsborough County? We also take claims elsewhere in Florida, most often in the counties around Tampa Bay.";
+
 export default function InjuryTemplate({ page }: { page: InjuryPage }) {
   const sections = page.sections ?? [];
   if (!sections.some((s) => s.tier)) return <InjuryLegacy page={page} />;
@@ -77,6 +82,7 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
                   {cta.label}
                 </a>
               </div>
+              <p className={`mt-5 max-w-xl ${type.small} ${color.onDarkMuted}`}>{ELSEWHERE}</p>
             </div>
             <HeroPhotoLayer photo={injuryHeroPhoto(page)} />
           </section>
@@ -110,6 +116,7 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
               {cta.label}
             </a>
           </div>
+          <p className={`mt-5 max-w-2xl ${type.small} ${color.onDarkMuted}`}>{ELSEWHERE}</p>
         </div>
         {quickNav.length > 1 ? (
           <div className="mt-10 bg-linen/[0.06] lg:mt-20">
