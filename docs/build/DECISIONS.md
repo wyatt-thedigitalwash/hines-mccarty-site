@@ -3190,3 +3190,13 @@ Its street address is still owed for the office block and schema.
   Its accessible name starts with the visible words ("Call Now, (813)
   738-8650") so voice-control users can say what they see.
 
+
+### D103. The home practice switcher reads as a menu
+
+**2026-10-09. Client choice** (rows, among three options). On desktop the
+State / Federal / White-Collar / Injury switcher was a stack of large serif
+words that read as headings, not buttons. It is now a list of rows with lines
+between them: the name, how many pages it holds, and an arrow. The active row
+has a navy bar on its left edge, a light fill, and an arrow pointing at the
+grid; the others fill lightly and nudge their chevron on hover. Phones keep
+the accordion.

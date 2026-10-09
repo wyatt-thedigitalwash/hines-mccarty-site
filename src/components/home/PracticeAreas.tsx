@@ -132,43 +132,53 @@ export default function PracticeAreas() {
     <section data-bg="white" className="bg-white py-24 text-navy lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         {/* Desktop: category switcher + grid of charges */}
-        <div className="hidden lg:grid lg:grid-cols-[16rem_1fr] lg:gap-20">
-          <div className="flex flex-col items-start gap-7">
+        <div className="hidden lg:grid lg:grid-cols-[19rem_1fr] lg:gap-16">
+          {/*
+            D103: the switcher is a list of rows, each with how many pages it
+            holds and an arrow, so it reads as a menu you pick from rather
+            than a stack of headings (client choice). The active row carries
+            a navy bar on its left edge and its arrow points at the grid.
+          */}
+          <ul className="self-start border-t border-navy/10">
             {GROUPS.map((cap) => {
               const isActive = cap.key === active;
               return (
-                <button
-                  key={cap.key}
-                  type="button"
-                  onClick={() => setActive(cap.key)}
-                  aria-expanded={isActive}
-                  aria-controls={`practice-panel-${cap.key}`}
-                  /*
-                    HOVER HAS TO SAY "PRESSABLE". These read as a heading stack,
-                    and the inactive state going from 30% to 60% navy was too
-                    small a change to register as a control at all.
-
-                    Three signals now: an explicit pointer cursor, because a
-                    <button> does not get one from the user agent; full navy on
-                    hover rather than a midpoint; and the same underline the
-                    active item carries, drawn transparent and revealed on
-                    hover, so hovering previews exactly what clicking does.
-                  */
-                  className="cursor-pointer font-display text-5xl leading-none transition-colors"
-                >
-                  <span
-                    className={`border-b-2 pb-2 transition-colors ${
+                <li key={cap.key} className="border-b border-navy/10">
+                  <button
+                    type="button"
+                    onClick={() => setActive(cap.key)}
+                    aria-expanded={isActive}
+                    aria-controls={`practice-panel-${cap.key}`}
+                    className={`group flex w-full cursor-pointer items-center gap-4 border-l-2 py-5 pl-5 pr-3 text-left transition-colors ${
                       isActive
-                        ? "border-navy text-navy"
-                        : "border-transparent text-navy/70 hover:border-navy/40 hover:text-navy"
+                        ? "border-navy bg-navy/[0.04] text-navy"
+                        : "border-transparent text-navy/70 hover:bg-navy/[0.03] hover:text-navy"
                     }`}
                   >
-                    {cap.short}
-                  </span>
-                </button>
+                    <span className="flex-1 font-display text-[2rem] leading-none">{cap.short}</span>
+                    <span className="font-heading text-sm tabular-nums text-navy/65">
+                      {cap.items.length}
+                      <span className="sr-only"> pages</span>
+                    </span>
+                    <svg
+                      viewBox="0 0 16 16"
+                      className={`h-4 w-4 shrink-0 transition-transform duration-150 ${
+                        isActive ? "translate-x-0.5 text-navy" : "text-navy/40 group-hover:translate-x-0.5 group-hover:text-navy"
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.5"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      aria-hidden="true"
+                    >
+                      {isActive ? <path d="M3 8h10M9 4l4 4-4 4" /> : <path d="m6 3 5 5-5 5" />}
+                    </svg>
+                  </button>
+                </li>
               );
             })}
-          </div>
+          </ul>
 
           {/*
             Every panel stays mounted and the inactive ones are hidden, rather
