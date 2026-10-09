@@ -16,7 +16,7 @@ import CallToAction from "@/components/CallToAction";
  * reads fine, so it now gets the both-courts map. See CircuitMap.
  */
 const FORUM_ILLUSTRATION: Partial<
-  Record<SiloKey, (props: { className?: string; shape?: "box" | "panel" }) => React.ReactElement>
+  Record<SiloKey, (props: { className?: string; shape?: "box" | "panel" | "bleed" }) => React.ReactElement>
 > = {
   state: CircuitMap,
   federal: DistrictMap,
@@ -64,6 +64,15 @@ export default function SiloHub({ silo }: { silo: Silo }) {
             <Illustration shape="panel" className="h-full w-full" />
           </div>
         )}
+        {/* D99: below lg the map comes first, edge to edge, like the home map
+            on a phone. No negative margin: this section follows the white
+            charge index, so the spacing rule already removes its top
+            padding, and the map starts at the section's top edge. */}
+        {Illustration && (
+          <div aria-hidden="true" className="mb-10 lg:hidden">
+            <Illustration shape="bleed" />
+          </div>
+        )}
         <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
           <div>
             <div className={Illustration ? "lg:max-w-[44%]" : "max-w-3xl"}>
@@ -88,12 +97,6 @@ export default function SiloHub({ silo }: { silo: Silo }) {
               <Byline owner={silo.owner} lastReviewed={silo.lastReviewed} />
             </div>
 
-            {/* Below lg: the cropped map in a box under the copy. */}
-            {Illustration && (
-              <div className="mt-14 lg:hidden">
-                <Illustration className="mx-auto w-full max-w-[26rem]" />
-              </div>
-            )}
           </div>
         </div>
       </section>
