@@ -136,8 +136,6 @@ export default function AboutPage() {
 
       <ProcessCards />
       <AttorneyGrid />
-      <WherePractice />
-
       {/* Credentials. Board certification is stated with the certifying
           organisation and the area, the only form Rule 4-7.14 allows. */}
       <section data-bg="white" className="bg-white pt-20 text-navy lg:pt-28">
@@ -152,6 +150,8 @@ export default function AboutPage() {
         {/* Full bleed; the strip supplies the section's bottom padding. */}
         <CredentialStrip />
       </section>
+
+      <WherePractice />
 
       <CallToAction
         heading="Talk to the firm."

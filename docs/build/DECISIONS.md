@@ -3245,3 +3245,5 @@ the home page's core values, and the one-off closing box. The copy names
 both offices, Brandon and Tampa (D101), and the meta description and JSON-LD
 say so. Each section is a component in `src/components/about/`; the page file
 went from 479 lines to 162.
+Revised the same day (client direction): the credential strip comes before
+"Where we practice.", directly after the attorneys.
