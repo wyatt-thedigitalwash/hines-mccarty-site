@@ -3200,3 +3200,10 @@ nudged right on the active one, faint on the others and darkening with a
 nudge on hover, so they read as things to pick. The column is 19rem and the
 items do not wrap, so "White-Collar" stays on one line with its arrow.
 Phones keep the accordion.
+
+### D104. The call is the gold button in the closing cards
+
+**2026-10-09. Client direction.** In the closing cards (the home card and
+`CallToAction`, navy and light) the buttons swap: "Call (813) 738-8650" is the
+gold button and comes first; "Request a consultation" is the outlined one.
+On a phone the call is the top full-width button.

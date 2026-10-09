@@ -57,18 +57,19 @@ export default function CTA() {
               {/* D93: on a phone the two buttons stack, full width, as in
                   CallToAction (D90). */}
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
-                <Link
-                  href="/contact"
-                  className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
-                >
-                  Request a consultation
-                </Link>
+                {/* D104: the call is the gold, first action (client direction). */}
                 <a
                   href={firm.phoneHref}
-                  className="inline-flex w-full items-center justify-center border border-linen/25 px-7 py-4 font-display text-lg font-bold text-linen transition-colors hover:border-bronze hover:text-bronze sm:w-auto"
+                  className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
                 >
                   Call {firm.phone}
                 </a>
+                <Link
+                  href="/contact"
+                  className="inline-flex w-full items-center justify-center border border-linen/25 px-7 py-4 font-display text-lg font-bold text-linen transition-colors hover:border-bronze hover:text-bronze sm:w-auto"
+                >
+                  Request a consultation
+                </Link>
               </div>
             </div>
 

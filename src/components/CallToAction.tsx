@@ -138,22 +138,23 @@ export default function CallToAction({
               <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
                 {/* Bronze fill with navy text measures 7.07:1, so the primary
                     action is identical in both tones. */}
-                <Link
-                  href="/contact"
-                  className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
-                >
-                  Request a consultation
-                </Link>
+                {/* D104: the call is the gold, first action (client direction). */}
                 <a
                   href={firm.phoneHref}
+                  className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+                >
+                  Call {firm.phone}
+                </a>
+                <Link
+                  href="/contact"
                   className={`inline-flex w-full items-center justify-center border px-7 py-4 font-display text-lg font-bold transition-colors sm:w-auto ${
                     isNavy
                       ? "border-linen/25 text-linen hover:border-bronze hover:text-bronze"
                       : "border-navy/30 text-navy hover:border-bronze hover:text-bronze"
                   }`}
                 >
-                  Call {firm.phone}
-                </a>
+                  Request a consultation
+                </Link>
               </div>
             </div>
 
