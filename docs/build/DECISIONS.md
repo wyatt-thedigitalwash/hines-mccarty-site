@@ -3015,3 +3015,13 @@ on the right of its intro from desktop width, level with the intro's last
 line; on smaller screens it sits under the intro, full width on a phone.
 "Where we appear." has the same button beside "Talk to the firm"; on a phone
 the two stack, full width.
+
+### D90. Closing call-to-action card on phones, and its light map
+
+**2026-10-08. Client direction.** In the closing card (`CallToAction`),
+"Request a consultation" and the call button stack full width on a phone,
+like every other call button on the site; from 640px they sit side by side
+at their own width. In the light card on the charge, injury and bio pages,
+the Florida watermark goes from 6% to 11% navy: at 6% it was barely darker
+than the card's gradient and read as a smudge rather than as the state the
+navy card shows plainly.

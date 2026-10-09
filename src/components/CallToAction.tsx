@@ -38,11 +38,11 @@ function Watermark({ tone }: { tone: "navy" | "white" }) {
   );
 
   // Bronze reads on navy; on the gray card it turns muddy, so the light tone
-  // tints the watermark with navy instead. Nudged up from the white-card
-  // version, since it now has to separate from a tinted ground rather than
-  // from pure white.
-  const tint = tone === "navy" ? "text-bronze/20" : "text-navy/[0.06]";
-  const tintLg = tone === "navy" ? "lg:text-bronze/10" : "lg:text-navy/[0.065]";
+  // tints the watermark with navy instead. D90: raised from 6% to 11%. At 6%
+  // the state was barely darker than the card's own gradient and read as a
+  // smudge rather than as Florida, where the navy card shows it plainly.
+  const tint = tone === "navy" ? "text-bronze/20" : "text-navy/[0.11]";
+  const tintLg = tone === "navy" ? "lg:text-bronze/10" : "lg:text-navy/[0.11]";
 
   return (
     <>
@@ -134,18 +134,19 @@ export default function CallToAction({
                 {body}
               </p>
 
-              <div className="mt-10 flex flex-wrap items-center gap-4">
+              {/* D90: on a phone the two buttons stack, full width. */}
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap sm:items-center">
                 {/* Bronze fill with navy text measures 7.07:1, so the primary
                     action is identical in both tones. */}
                 <Link
                   href="/contact"
-                  className="inline-flex items-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
+                  className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
                 >
                   Request a consultation
                 </Link>
                 <a
                   href={firm.phoneHref}
-                  className={`inline-flex items-center border px-7 py-4 font-display text-lg font-bold transition-colors ${
+                  className={`inline-flex w-full items-center justify-center border px-7 py-4 font-display text-lg font-bold transition-colors sm:w-auto ${
                     isNavy
                       ? "border-linen/25 text-linen hover:border-bronze hover:text-bronze"
                       : "border-navy/30 text-navy hover:border-bronze hover:text-bronze"
