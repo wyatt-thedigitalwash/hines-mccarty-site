@@ -3076,3 +3076,14 @@ south (27.15, 760x480) so Naples sits clear of the fade.
   have no order; two by two on a tablet, stacked on a phone. "More about the
   firm" sits opposite the heading and intro from desktop width, level with
   the intro's last line.
+
+### D94. The Florida watermark on phones
+
+**2026-10-09. Client direction.** On a phone the closing cards' Florida
+watermark was small and cut off at the top, so the light cards showed only a
+sliver of the peninsula. The home card's watermark is a little larger and
+higher (360px, 420px on tablets), and `CallToAction` is sized to match it
+(400px wide, 460px on tablets, since its Census outline carries more margin
+than the home card's mask): the whole peninsula and the start of the
+panhandle along the top right, in both the navy and the light card.
+Desktop is unchanged.

@@ -48,7 +48,7 @@ function Watermark({ tone }: { tone: "navy" | "white" }) {
     <>
       <div
         aria-hidden
-        className={`pointer-events-none absolute -right-8 -top-10 block w-[300px] sm:w-[360px] lg:hidden ${tint}`}
+        className={`pointer-events-none absolute -right-12 -top-4 block w-[400px] sm:w-[460px] lg:hidden ${tint}`}
       >
         {shape}
       </div>

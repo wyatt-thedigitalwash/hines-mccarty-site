@@ -15,10 +15,11 @@ export default function CTA() {
               tints with the brand color instead of an inline 80kb path.
               Desktop bleeds off the right edge, centered vertically. Mobile
               bleeds off the top-right corner instead, sized down to suit
-              the narrower, stacked layout. */}
+              the narrower, stacked layout. D94: a little larger and higher
+              on a phone (client direction); CallToAction matches it. */}
           <div
             aria-hidden
-            className="pointer-events-none absolute -right-6 -top-6 block w-[320px] bg-bronze/20 sm:w-[380px] lg:hidden"
+            className="pointer-events-none absolute -right-8 -top-10 block w-[360px] bg-bronze/20 sm:w-[420px] lg:hidden"
             style={{
               aspectRatio: "800 / 679.2",
               WebkitMaskImage: "url('/shapes/florida-outline.svg')",
