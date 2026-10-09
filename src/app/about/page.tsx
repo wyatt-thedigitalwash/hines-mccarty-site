@@ -390,16 +390,17 @@ export default function AboutPage() {
                 attorney is protected in a way that a web form is not. Call, or
                 send a message and we will arrange a time.
               </p>
-              <div className="mt-10 flex flex-wrap gap-4">
+              {/* D93: stacked and full width on a phone. */}
+              <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:flex-wrap">
                 <a
                   href={firm.phoneHref}
-                  className="inline-flex items-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
+                  className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
                 >
                   Call {firm.phone}
                 </a>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center border border-linen/30 px-7 py-4 font-display text-lg font-bold text-linen transition-colors hover:border-linen"
+                  className="inline-flex w-full items-center justify-center border border-linen/30 px-7 py-4 font-display text-lg font-bold text-linen transition-colors hover:border-linen sm:w-auto"
                 >
                   Send a message
                 </Link>

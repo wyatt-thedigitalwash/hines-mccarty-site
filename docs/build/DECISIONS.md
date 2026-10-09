@@ -3062,3 +3062,15 @@ map now comes first, above the heading, edge to edge, starting at the navy
 section above it and fading into the page at the bottom, instead of a boxed
 square under the buttons. The phone view is taller and centred further
 south (27.15, 760x480) so Naples sits clear of the fade.
+
+### D93. Full-width buttons in every CTA box; Core Values in one row
+
+**2026-10-09. Client direction.**
+- The home page's closing card ("Talk to a defense attorney today.") and
+  About's "Talk to the firm." box stack their two buttons full width on a
+  phone, like `CallToAction` (D90). The charge pages' mid-page box already
+  did.
+- Home "Core values.": the placeholder team photo is gone. The four values
+  sit in one row of filled cards, the same card as the charge pages'
+  numbered steps (bronze numeral, serif title, `bg-linen/[0.06]`); two by two
+  on a tablet, stacked on a phone.
