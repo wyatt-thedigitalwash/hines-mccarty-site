@@ -3230,3 +3230,18 @@ labels drop it.
   holds that dropdown shut until the pointer leaves it.
 - The side (hamburger) menu lists Criminal Defense and Personal Injury
   first, then Attorneys, then the rest. The top bar keeps its order.
+
+### D108. The Our Firm page, rebuilt
+
+**2026-10-09. Client choice** (rebuild in the site's newer style). /about now
+runs: hero with the call button; the intro ("Four attorneys, four different
+concentrations.") beside two linked practice cards; "How a case is handled
+here." as four filled navy cards; the attorneys (the /attorneys card on
+white, board certifications where held); "Where we practice." with the
+courts and the offices beside the drawn map (D91), filling the right half on
+desktop and edge to edge under the copy on a phone; the credential strip; and
+the standard closing card. Removed: the two cream sections, the repeat of
+the home page's core values, and the one-off closing box. The copy names
+both offices, Brandon and Tampa (D101), and the meta description and JSON-LD
+say so. Each section is a component in `src/components/about/`; the page file
+went from 479 lines to 162.
