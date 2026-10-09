@@ -19,8 +19,8 @@ import LocationsMap from "./LocationsMap";
 export default function Locations() {
   return (
     <section data-bg="white" className="relative overflow-hidden bg-white py-20 text-navy lg:min-h-[44rem] lg:py-28">
-      {/* Map layer. Absolute on desktop so it can bleed vertically; on mobile
-          it drops below the copy as a normal block, because a background map
+      {/* Desktop map. Absolute so it can bleed vertically. Below lg it is a
+          separate block above the copy (below), because a background map
           behind body text at that width is unreadable. */}
       {/* The dissolve is a mask on this panel rather than an overlay drawn on
           top of it, so it fades the map to the page instead of painting white
@@ -30,6 +30,18 @@ export default function Locations() {
         className="pointer-events-none absolute inset-y-0 right-0 hidden w-[58%] [mask-image:linear-gradient(to_right,transparent_0%,black_22%)] lg:block"
       >
         <LocationsMap />
+      </div>
+
+      {/* Phone and tablet map (D92). First in the section, edge to edge,
+          starting right at the navy section above, and fading into the page
+          at the bottom so it reads as ground rather than a boxed picture.
+          The negative margin takes it up through the section's top padding.
+          Only the service areas and the office are named at this size. */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none -mt-20 mb-6 h-[26rem] w-full [mask-image:linear-gradient(to_bottom,black_84%,transparent)] sm:mb-10 sm:h-[32rem] lg:hidden"
+      >
+        <LocationsMap variant="mobile" />
       </div>
 
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -85,13 +97,6 @@ export default function Locations() {
               Call {firm.phone}
             </a>
           </div>
-        </div>
-
-        {/* Mobile map. Below the copy, full width. Only the service areas and
-            the office are named on it; the gray context cities are left off
-            at this size (D91). */}
-        <div className="mt-14 h-[24rem] w-full sm:h-[30rem] lg:hidden">
-          <LocationsMap variant="mobile" />
         </div>
       </div>
     </section>

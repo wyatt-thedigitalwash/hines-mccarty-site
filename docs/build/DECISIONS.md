@@ -3054,3 +3054,11 @@ pins).
 - **State hub** (`CircuitMap`): the same component at Tampa Bay, with county
   lines and the five county names. It had shown the Mapbox placeholder too.
 - `/api/map` and the `MAPBOX_TOKEN` setting are gone.
+
+### D92. The phone map leads the section
+
+**2026-10-09. Client direction.** Below desktop width the "Where we appear."
+map now comes first, above the heading, edge to edge, starting at the navy
+section above it and fading into the page at the bottom, instead of a boxed
+square under the buttons. The phone view is taller and centred further
+south (27.15, 760x480) so Naples sits clear of the fade.

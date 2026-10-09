@@ -40,7 +40,7 @@ export const MAP_VIEWS = {
    * Home, phone and tablet: tighter on the Gulf coast, Orlando to Naples.
    * Wide for the same reason, for the 30rem-tall panel on a tablet.
    */
-  mobile: { lat: 27.35, lon: -81.95, zoom: 7.5, width: 760, height: 420 },
+  mobile: { lat: 27.15, lon: -81.95, zoom: 7.5, width: 760, height: 480 },
   /**
    * Tampa Bay and the 13th Judicial Circuit, for the state hub illustration,
    * close enough that the county lines the copy describes are legible.
