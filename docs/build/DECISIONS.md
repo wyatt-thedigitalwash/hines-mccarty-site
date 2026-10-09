@@ -3176,3 +3176,15 @@ home, state, federal and white-collar maps; the white-collar map marks Tampa
 alone instead of Brandon. Gold means an office: the client confirmed
 (2026-10-09) that the firm has a Tampa office, so a gold Tampa is accurate.
 Its street address is still owed for the office block and schema.
+
+### D102. Dropdown styling, "Our Firm", and "Call Now"
+
+**2026-10-09. Client choices.**
+- The desktop dropdowns (D100) are navy, continuing the header bar instead
+  of a white box under it: flush with the bar's bottom edge, a thin gold
+  line on top, linen text that turns gold on hover with a small arrow.
+- The Attorneys dropdown ends with "Our Firm" (/about), set apart at the
+  foot like "All charges" in Criminal Defense.
+- The phone header's call link (D95) is the gold phone icon with "Call Now"
+  beside it, no button box. It clears the logo by 55px on a 360px phone.
+

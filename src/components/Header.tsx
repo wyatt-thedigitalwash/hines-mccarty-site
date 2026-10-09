@@ -149,16 +149,17 @@ export default function Header() {
         <div className={`flex items-center gap-4 lg:hidden transition-transform duration-300 ease-out motion-reduce:transition-none ${compact ? "" : "translate-y-[7px]"}`}>
           {/* D69: on the narrowest phones the full number beside the longer
               firm name wrapped onto three lines, so below 640px the number is
-              not written out. D95: a filled gold "Call" button rather than a
-              bare icon, which read as one more icon beside search and menu.
+              not written out. D95: the gold icon with the words "Call Now"
+              beside it (no box, client direction), so it reads as the call
+              rather than one more icon beside search and menu.
               Named with the number for screen readers. */}
           <a
             href={firm.phoneHref}
             aria-label={`Call ${firm.phone}`}
-            className="inline-flex items-center gap-1.5 bg-bronze px-3 py-2 font-heading text-sm font-semibold text-navy transition-colors hover:bg-bronze-soft sm:hidden"
+            className="inline-flex items-center gap-2 font-heading text-sm font-semibold text-bronze transition-colors hover:text-bronze-soft sm:hidden"
           >
-            <PhoneIcon className="h-4 w-4" />
-            Call
+            <PhoneIcon />
+            Call Now
           </a>
           <a
             href={firm.phoneHref}
