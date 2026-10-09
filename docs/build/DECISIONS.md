@@ -3139,3 +3139,10 @@ height; the map covers whatever shape that makes.
 - Markers within about 60 units of an edge are left off, so none sits half
   hidden in a fade (Sarasota on the state map).
 - Phones keep the boxed map under the copy, now the whole view.
+
+### D98. No sea on the hub maps
+
+**2026-10-09. Client direction.** The state, federal and white-collar maps
+drop their gray water: the sea is the white page. To hold its shape on white
+the land is a shade grayer (#eff1f4) with a thin coastline (#cdd2db), and
+lakes and bays (Tampa Bay) are white. The home map keeps its gray sea.

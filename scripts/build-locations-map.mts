@@ -67,6 +67,14 @@ const SHADES: Record<string, { counties: string[]; fill: string }[]> = {
   ],
 };
 
+/**
+ * D98. The hub maps have no sea: the water is the page itself (client
+ * direction), so the land carries a thin coastline and a shade more gray to
+ * hold its shape on white, and lakes and bays are white.
+ */
+const NO_SEA = new Set(["circuit", "district", "whitecollar"]);
+const HUB = { land: "#eff1f4", coast: "#cdd2db", lake: "#ffffff", neighbor: "#f7f8f9" };
+
 /** Views that draw every county line: the ones about counties. */
 const COUNTY_LINES = new Set(["circuit", "district", "whitecollar"]);
 
@@ -252,19 +260,21 @@ for (const [name, view] of Object.entries(MAP_VIEWS)) {
   });
   const road = linePaths(near(roads), view, 0.6);
   const statewide = name in SHADES;
+  const noSea = NO_SEA.has(name);
 
   const { width: W, height: H } = view;
   // No state line is stroked: on the statewide views the neighbors' fill is a
   // shade off Florida's, which draws the border without tracing the coast.
   const svg = [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" preserveAspectRatio="xMidYMid slice">`,
-    `<rect width="${W}" height="${H}" fill="${C.water}"/>`,
-    `<path d="${land}" fill="${C.land}" fill-rule="evenodd"/>`,
-    statewide && neighbors ? `<path d="${neighbors}" fill="${C.neighbor}" fill-rule="evenodd"/>` : "",
+    noSea ? "" : `<rect width="${W}" height="${H}" fill="${C.water}"/>`,
+    `<path d="${land}" fill="${noSea ? HUB.land : C.land}" fill-rule="evenodd"/>`,
+    statewide && neighbors ? `<path d="${neighbors}" fill="${noSea ? HUB.neighbor : C.neighbor}" fill-rule="evenodd"/>` : "",
     ...shades,
     countyLines ? `<path d="${countyLines}" fill="none" stroke="${statewide ? "#ffffff" : C.countyLine}" stroke-width="${statewide ? 0.7 : 1}" stroke-linejoin="round"/>` : "",
     `<path d="${road}" fill="none" stroke="${C.road}" stroke-width="${name === "circuit" ? 1.6 : statewide ? 0.8 : 1.2}" stroke-linecap="round" stroke-linejoin="round" opacity="${statewide ? 0.7 : 1}"/>`,
-    `<path d="${lake}" fill="${C.water}" fill-rule="evenodd"/>`,
+    `<path d="${lake}" fill="${noSea ? HUB.lake : C.water}" fill-rule="evenodd"/>`,
+    noSea ? `<path d="${land}" fill="none" stroke="${HUB.coast}" stroke-width="0.9" stroke-linejoin="round"/>` : "",
     `</svg>`,
   ].join("");
   writeFileSync(`public/maps/${name}.svg`, svg + "\n");
