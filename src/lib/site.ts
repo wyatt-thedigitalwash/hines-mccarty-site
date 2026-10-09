@@ -2388,7 +2388,9 @@ export const primaryNav: NavItem[] = [
     // Only published silos appear. Neither has a pillar page yet, so this is a
     // single link to the hub rather than a dropdown onto two 404s.
     children: publishedInjuryPractices.map((p) => ({
-      label: p.title,
+      // The side menu drops the page title's "in Tampa" (client direction);
+      // the pages' own titles keep it.
+      label: p.title.replace(/ in Tampa\?$/, "?"),
       href: p.href,
       description: p.summary,
       // "Car Accidents" rather than "Hurt in a car accident in Tampa?" (D100).

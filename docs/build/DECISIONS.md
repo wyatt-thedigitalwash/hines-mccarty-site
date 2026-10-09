@@ -3213,3 +3213,10 @@ On a phone the call is the top full-width button.
 **2026-10-09. Client direction.** The line "These are the areas the firm
 practices in. The office is in Brandon." under the "Where we appear." city
 list is removed.
+
+### D106. Side menu injury labels without "in Tampa"
+
+**2026-10-09. Client direction.** In the hamburger menu the injury pages read
+"Hurt in a car accident?" and "Hurt in a truck accident?". The pages' own
+titles and meta descriptions keep "in Tampa" for local search; only the menu
+labels drop it.
