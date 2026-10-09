@@ -8,11 +8,24 @@ import { usePathname } from "next/navigation";
 import { firm, formatOffice, primaryNav, primaryOffice } from "@/lib/site";
 import NavDropdown, { ChevronIcon, dropdownFor } from "@/components/NavDropdown";
 
+/**
+ * The side menu's order (D107): the two practices first, then Attorneys, then
+ * the rest (client direction). The top bar keeps primaryNav's order.
+ */
+const sideMenuNav = [
+  ...primaryNav.filter((n) => n.href === "/criminal-defense" || n.href === "/personal-injury"),
+  ...primaryNav.filter((n) => n.href === "/attorneys"),
+  ...primaryNav.filter((n) => !["/criminal-defense", "/personal-injury", "/attorneys"].includes(n.href)),
+];
+
 export default function Header() {
   const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  // D107: the dropdown just used to navigate stays shut until the pointer
+  // leaves it; otherwise the pointer still over it holds it open.
+  const [shut, setShut] = useState<string | null>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -98,6 +111,7 @@ export default function Header() {
                 <li
                   key={item.href}
                   className={menu ? "group relative" : undefined}
+                  onMouseLeave={menu ? () => setShut(null) : undefined}
                   // Escape closes an open dropdown from the keyboard: it is
                   // open only while focus is inside, so drop the focus.
                   onKeyDown={menu ? (e) => { if (e.key === "Escape") (document.activeElement as HTMLElement | null)?.blur(); } : undefined}
@@ -112,7 +126,18 @@ export default function Header() {
                     {item.label}
                     {menu ? <ChevronIcon /> : null}
                   </Link>
-                  {menu ? <NavDropdown items={menu} pathname={pathname} /> : null}
+                  {menu ? (
+                    <NavDropdown
+                      items={menu}
+                      pathname={pathname}
+                      closed={shut === item.href}
+                      onNavigate={() => {
+                        // Drop focus too, or focus-within would keep it open.
+                        (document.activeElement as HTMLElement | null)?.blur();
+                        setShut(item.href);
+                      }}
+                    />
+                  ) : null}
                 </li>
               );
             })}
@@ -230,7 +255,7 @@ export default function Header() {
           </div>
 
           <nav aria-label="Site" className="mt-6 flex flex-col">
-            {primaryNav.map((item) => (
+            {sideMenuNav.map((item) => (
               <div key={item.href} className="border-b border-navy/10 py-4">
                 <Link
                   href={item.href}

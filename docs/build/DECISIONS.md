@@ -3220,3 +3220,13 @@ list is removed.
 "Hurt in a car accident?" and "Hurt in a truck accident?". The pages' own
 titles and meta descriptions keep "in Tampa" for local search; only the menu
 labels drop it.
+
+### D107. Dropdowns close on navigation; side menu order
+
+**2026-10-09. Client reports.**
+- A desktop dropdown stayed open after one of its links was used: the page
+  changes without a reload, so the pointer still over it and the focus left
+  on the clicked link both held it open. Clicking a link now drops focus and
+  holds that dropdown shut until the pointer leaves it.
+- The side (hamburger) menu lists Criminal Defense and Personal Injury
+  first, then Attorneys, then the rest. The top bar keeps its order.

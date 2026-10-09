@@ -35,17 +35,29 @@ export function dropdownFor(item: NavItem): DropdownItem[] | null {
   }
 }
 
-export default function NavDropdown({ items, pathname }: { items: DropdownItem[]; pathname: string }) {
+export default function NavDropdown({
+  items,
+  pathname,
+  closed = false,
+  onNavigate,
+}: {
+  items: DropdownItem[];
+  pathname: string;
+  /** Held shut after a link in it was used, until the pointer leaves (D107). */
+  closed?: boolean;
+  onNavigate?: () => void;
+}) {
   return (
     /* D102: navy, continuing the header bar rather than a white box under it.
        pt-[26px] bridges from the label down to the bar's bottom edge (the
        76px bar, label centred), so the panel hangs flush from the bar. */
-    <div className="invisible absolute -left-6 top-full z-10 pt-[26px] opacity-0 transition-[opacity,visibility] delay-150 duration-150 group-hover:visible group-hover:opacity-100 group-hover:delay-75 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:delay-0 motion-reduce:transition-none">
+    <div className={`${closed ? "!invisible !opacity-0 !delay-0" : ""} invisible absolute -left-6 top-full z-10 pt-[26px] opacity-0 transition-[opacity,visibility] delay-150 duration-150 group-hover:visible group-hover:opacity-100 group-hover:delay-75 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:delay-0 motion-reduce:transition-none`}>
       <ul className="min-w-64 border-t border-bronze/70 bg-navy py-3 shadow-[0_18px_36px_rgba(5,9,20,0.35)]">
         {items.map((child) => (
           <li key={child.href + child.label} className={child.divider ? "mt-2 border-t border-white/10 pt-2" : undefined}>
             <Link
               href={child.href}
+              onClick={onNavigate}
               aria-current={pathname === child.href ? "page" : undefined}
               className={`group/item flex items-center justify-between gap-6 whitespace-nowrap px-6 py-2.5 font-heading text-sm transition-colors hover:bg-white/[0.04] hover:text-bronze ${
                 child.divider || pathname === child.href ? "text-bronze" : "text-linen/80"
