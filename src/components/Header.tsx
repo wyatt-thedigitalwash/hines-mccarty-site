@@ -68,7 +68,7 @@ export default function Header() {
           the bar over the hero (clear of every hero's breadcrumbs); on scroll
           it scales down from that corner to the monogram, centred in the bar,
           while the names fade (Logo). One element, one transform. The menu
-          and icons sit 9px lower at the top of the page and settle into
+          and icons sit 7px lower at the top of the page and settle into
           place with the logo, a small follow-through the owner asked for. */}
       <div className="relative flex h-[68px] w-full items-center justify-end gap-4 px-6 sm:h-[76px] lg:px-10">
         <Link
@@ -89,7 +89,7 @@ export default function Header() {
         </Link>
 
         {/* Desktop: flat top nav. The depth lives in the side menu. */}
-        <nav aria-label="Primary" className={`hidden lg:block transition-transform duration-300 ease-out motion-reduce:transition-none ${compact ? "" : "translate-y-[9px]"}`}>
+        <nav aria-label="Primary" className={`hidden lg:block transition-transform duration-300 ease-out motion-reduce:transition-none ${compact ? "" : "translate-y-[7px]"}`}>
           <ul className="flex items-center gap-8">
             {primaryNav.map((item) => (
               <li key={item.href}>
@@ -134,7 +134,7 @@ export default function Header() {
         </nav>
 
         {/* Mobile controls */}
-        <div className={`flex items-center gap-4 lg:hidden transition-transform duration-300 ease-out motion-reduce:transition-none ${compact ? "" : "translate-y-[9px]"}`}>
+        <div className={`flex items-center gap-4 lg:hidden transition-transform duration-300 ease-out motion-reduce:transition-none ${compact ? "" : "translate-y-[7px]"}`}>
           {/* D69: on the narrowest phones the full number beside the longer
               firm name wrapped onto three lines, so below 640px it is an icon
               that still dials, named for screen readers. */}

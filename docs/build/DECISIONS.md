@@ -2971,7 +2971,7 @@ shown as a thin white line mid-scroll.
   the top of the page it is the full logo hanging below the bar; on scroll it
   scales down from its top-left corner to the monogram, centred in the bar,
   while the rule and the names fade out. Opening the menu does the same.
-- **Menu, phone number and icons**: sit 9px lower at the top of the page and
+- **Menu, phone number and icons**: sit 7px lower at the top of the page and
   settle into place with the logo, a small follow-through the client asked
   for. Their horizontal position never changes.
 - **Photo heroes**: from desktop width the photo runs up behind the
