@@ -3147,12 +3147,11 @@ drop their gray water: the sea is the white page. To hold its shape on white
 the land is a shade grayer (#eff1f4) with a thin coastline (#cdd2db), and
 lakes and bays (Tampa Bay) are white. The home map keeps its gray sea.
 
-### D99. The hub maps lead the section on phones and tablets
+### D99. The hub maps edge to edge on phones and tablets
 
 **2026-10-09. Client direction.** Below desktop width the state, federal and
-white-collar maps come first in their section, above the heading, edge to
-edge (26rem tall on a phone, 44rem from 640px so a tablet's wide box does not
-crop Jacksonville), fading into the page above and below, with the key under
-the map. The section follows the white charge index, so the spacing rule
-already removes its top padding and the map needs no negative margin; a
-first pass pulled it up 80px and hid the top of the map.
+white-collar maps follow the copy, edge to edge (26rem tall on a phone, 44rem
+from 640px so a tablet's wide box does not crop Jacksonville), fading into
+the page above and below, with the key under the map. The client first asked
+for the map above the copy, then reversed it; the edge-to-edge treatment
+stayed.
