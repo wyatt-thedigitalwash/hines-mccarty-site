@@ -118,6 +118,8 @@ export default function Header() {
                 >
                   <Link
                     href={item.href}
+                    // D109: clicking the label itself closes its dropdown too.
+                    onClick={menu ? () => { (document.activeElement as HTMLElement | null)?.blur(); setShut(item.href); } : undefined}
                     aria-current={isCurrent(item.href) ? "page" : undefined}
                     className={`inline-flex items-center gap-1.5 font-heading text-[0.9375rem] font-medium uppercase transition-colors hover:text-bronze ${
                       isCurrent(item.href) ? "text-bronze" : "text-linen/80"

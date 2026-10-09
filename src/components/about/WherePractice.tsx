@@ -19,6 +19,11 @@ export default function WherePractice() {
         <LocationsMap />
       </div>
 
+      {/* Below lg the map comes first, edge to edge (client direction). */}
+      <div aria-hidden="true" className="mb-12 h-[26rem] w-full sm:h-[34rem] lg:hidden" style={BLEED}>
+        <LocationsMap variant="mobile" />
+      </div>
+
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="lg:max-w-[44%]">
           <h2 className="font-display text-4xl leading-tight sm:text-5xl">Where we practice.</h2>
@@ -42,9 +47,6 @@ export default function WherePractice() {
         </div>
       </div>
 
-      <div aria-hidden="true" className="mt-12 h-[26rem] w-full sm:h-[34rem] lg:hidden" style={BLEED}>
-        <LocationsMap variant="mobile" />
-      </div>
     </section>
   );
 }

@@ -51,8 +51,14 @@ export default function NavDropdown({
     /* D102: navy, continuing the header bar rather than a white box under it.
        pt-[26px] bridges from the label down to the bar's bottom edge (the
        76px bar, label centred), so the panel hangs flush from the bar. */
-    <div className={`${closed ? "!invisible !opacity-0 !delay-0" : ""} invisible absolute -left-6 top-full z-10 pt-[26px] opacity-0 transition-[opacity,visibility] delay-150 duration-150 group-hover:visible group-hover:opacity-100 group-hover:delay-75 group-focus-within:visible group-focus-within:opacity-100 group-focus-within:delay-0 motion-reduce:transition-none`}>
-      <ul className="min-w-64 border-t border-bronze/70 bg-navy py-3 shadow-[0_18px_36px_rgba(5,9,20,0.35)]">
+    /* D109: the panel opens by fading in and settling down 8px (200ms,
+       ease-out) and closes faster (120ms) with no drift, so it feels
+       attached to the bar. The open delay keeps a passing pointer from
+       triggering it; the close delay forgives a pointer that slips off. */
+    <div
+      className={`${closed ? "!invisible !opacity-0 !delay-0" : ""} invisible absolute -left-6 top-full z-10 pt-[26px] opacity-0 transition-[opacity,visibility] delay-100 duration-[120ms] ease-in group-hover:visible group-hover:opacity-100 group-hover:delay-[60ms] group-hover:duration-200 group-hover:ease-out group-focus-within:visible group-focus-within:opacity-100 group-focus-within:delay-0 group-focus-within:duration-200 motion-reduce:transition-none`}
+    >
+      <ul className="min-w-64 -translate-y-2 border-t border-bronze/70 bg-navy py-3 shadow-[0_18px_36px_rgba(5,9,20,0.35)] transition-transform duration-200 ease-out group-hover:translate-y-0 group-focus-within:translate-y-0 motion-reduce:translate-y-0 motion-reduce:transition-none">
         {items.map((child) => (
           <li key={child.href + child.label} className={child.divider ? "mt-2 border-t border-white/10 pt-2" : undefined}>
             <Link

@@ -3247,3 +3247,14 @@ say so. Each section is a component in `src/components/about/`; the page file
 went from 479 lines to 162.
 Revised the same day (client direction): the credential strip comes before
 "Where we practice.", directly after the attorneys.
+
+### D109. Dropdown polish; About map first on phones
+
+**2026-10-09. Client direction.**
+- Clicking a dropdown's own label (Attorneys, Criminal Defense, Personal
+  Injury) now closes it too, as a link inside it already did (D107).
+- The dropdown fades in while settling down 8px (200ms, ease-out) and closes
+  faster (120ms) with no drift. A short open delay keeps a passing pointer
+  from triggering it; a short close delay forgives one that slips off.
+- On the Our Firm page, "Where we practice." puts the map first below
+  desktop width, edge to edge above the copy.
