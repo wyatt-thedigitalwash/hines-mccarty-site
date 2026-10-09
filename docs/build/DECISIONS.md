@@ -3071,6 +3071,8 @@ south (27.15, 760x480) so Naples sits clear of the fade.
   phone, like `CallToAction` (D90). The charge pages' mid-page box already
   did.
 - Home "Core values.": the placeholder team photo is gone. The four values
-  sit in one row of filled cards, the same card as the charge pages'
-  numbered steps (bronze numeral, serif title, `bg-linen/[0.06]`); two by two
-  on a tablet, stacked on a phone.
+  sit in one row of filled cards, the same card as the charge pages' steps
+  (serif title, `bg-linen/[0.06]`) without the numerals, since the values
+  have no order; two by two on a tablet, stacked on a phone. "More about the
+  firm" sits opposite the heading and intro from desktop width, level with
+  the intro's last line.
