@@ -33,7 +33,8 @@
     "check:seo": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-seo.mts",
     "audit:pages": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/audit-pages.mjs",
     "check:injury": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-injury.mts",
-    "check:search": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-search.mts"
+    "check:search": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/check-search.mts",
+    "build:maps": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/build-locations-map.mts"
   },
   "dependencies": {
     "lucide-react": "^1.25.0",
@@ -44,14 +45,17 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
+    "@types/geojson": "^7946.0.16",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "@types/shapefile": "^0.6.4",
     "axe-core": "4.14.0",
     "d3-geo": "^3.1.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.11",
     "playwright": "1.60.0",
+    "shapefile": "^0.6.6",
     "tailwindcss": "^4",
     "topojson-client": "^3.1.0",
     "typescript": "^5",

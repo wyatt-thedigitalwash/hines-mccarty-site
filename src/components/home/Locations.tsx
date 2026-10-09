@@ -87,8 +87,9 @@ export default function Locations() {
           </div>
         </div>
 
-        {/* Mobile map. Below the copy, full width, and unlabelled: at this
-            size the city names live in the list above it, not on it. */}
+        {/* Mobile map. Below the copy, full width. Only the service areas and
+            the office are named on it; the gray context cities are left off
+            at this size (D91). */}
         <div className="mt-14 h-[24rem] w-full sm:h-[30rem] lg:hidden">
           <LocationsMap variant="mobile" />
         </div>

@@ -12993,7 +12993,7 @@ export type ServiceArea = {
   /** Joins to `floridaLocations.places` in the generated map module. */
   key: "tampa" | "stPete" | "sarasota" | "fortMyers" | "naples" | "orlando";
   label: string;
-  /** City centre, for placing the pin on the tile map. */
+  /** City centre, for placing the pin on the map (LocationsMap). */
   lat: number;
   lon: number;
   /** M.D. Fla. division. [VERIFY per C12 against flmd.uscourts.gov] */

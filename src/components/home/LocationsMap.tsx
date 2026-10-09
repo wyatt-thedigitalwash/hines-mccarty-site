@@ -1,113 +1,148 @@
-import { MAP_VIEWS, project, type MapVariant } from "@/lib/map-view";
-import { officeLatLon, serviceAreas } from "@/lib/site";
+import { MAP_VIEWS, toPixel, type MapVariant } from "@/lib/map-view";
+import { officeLatLon, serviceAreas, type ServiceArea } from "@/lib/site";
 
 /**
- * The locations map: a real tile map with the firm's pins dropped on it.
+ * The locations map, D91: a drawn base map with the firm's pins and the place
+ * names set over it.
  *
- * The image comes from /api/map, which holds the provider token server-side.
- * Pins are absolutely positioned HTML, projected into the same Web Mercator
- * view the image was rendered at, so they land exactly on the cities the tiles
- * draw. Positions are percentages, so they stay correct when the image is
- * scaled to fill a container that is not exactly the requested size.
+ * The base map is a static SVG in /public/maps, generated at build time from
+ * Census and Natural Earth geometry (scripts/build-locations-map.mts). No map
+ * provider, no token, no request to a third party. Pins and labels are drawn
+ * here, in the same viewBox and through the same projection the base map was
+ * drawn with, so they land on the coastline it shows. Both share one
+ * preserveAspectRatio, so they crop together at any panel size.
  *
- * OFFICE VERSUS SERVICE AREA. Brandon gets the shield. The service areas get a
- * disc. The reference design uses one shape for all seven of its pins because
- * all seven are offices; ours are not, and under Rule 4-7.12 the firm may only
- * plant an office pin on Brandon. See the note on `serviceAreas` in site.ts.
+ * Labels are SVG text in the site's own type, which a raster tile could not
+ * give: crisp at any size and matching the page.
  *
- * ACCESSIBILITY. The map and the pins are aria-hidden. Every city on it is
- * listed in real text beside it, which is why that list renders at every
- * breakpoint rather than being a mobile fallback.
+ * OFFICE VERSUS SERVICE AREA. Brandon's dot is gold; the service areas' are
+ * navy. The reference design marks all its pins alike because all are
+ * offices. Ours are not, and under Rule 4-7.12 the firm may only mark an
+ * office on Brandon. See the note on `serviceAreas` in site.ts.
+ *
+ * ACCESSIBILITY. The map is aria-hidden. Every service area on it is listed in
+ * real text beside it, at every breakpoint.
  */
-export default function LocationsMap({
-  variant = "desktop",
-}: {
-  variant?: MapVariant;
-}) {
-  const view = MAP_VIEWS[variant];
-  const office = project(officeLatLon.lat, officeLatLon.lon, view);
 
-  // Server component, so this reads the real environment at render time. With
-  // no token /api/map returns 503 and an <img> would render as a broken-image
-  // icon, which is worse than an honest placeholder.
-  // [NEEDS: MAPBOX_TOKEN] See src/app/api/map/route.ts.
-  if (!process.env.MAPBOX_TOKEN) {
-    return (
-      <div
-        aria-hidden="true"
-        className="flex h-full w-full items-center justify-center bg-navy/[0.04] px-6"
-      >
-        {/* D74: the hint shows in development only. A live page without the
-            token shows a plain panel, never a setup note to a visitor. */}
-        {process.env.NODE_ENV !== "production" ? (
-          <p className="max-w-xs text-center font-heading text-sm leading-relaxed text-navy/70">
-            [NEEDS: MAPBOX_TOKEN] Add the token to .env.local and the map renders
-            here.
-          </p>
-        ) : null}
-      </div>
-    );
+/** Context cities, gray, for orientation only. Desktop view. */
+const CONTEXT: { label: string; lat: number; lon: number; side: ServiceArea["side"] }[] = [
+  { label: "Gainesville", lat: 29.6516, lon: -82.3248, side: "e" },
+  { label: "Ocala", lat: 29.1872, lon: -82.1401, side: "e" },
+  { label: "Daytona Beach", lat: 29.2108, lon: -81.0228, side: "e" },
+  { label: "Palm Bay", lat: 28.0345, lon: -80.5887, side: "w" },
+  { label: "Sebring", lat: 27.4956, lon: -81.4409, side: "e" },
+  { label: "Port St. Lucie", lat: 27.273, lon: -80.3582, side: "w" },
+];
+
+/** County names for the circuit view, where the copy is about counties. */
+const COUNTIES: { label: string; lat: number; lon: number }[] = [
+  { label: "PASCO", lat: 28.33, lon: -82.43 },
+  { label: "PINELLAS", lat: 28.07, lon: -82.74 },
+  { label: "HILLSBOROUGH", lat: 27.79, lon: -82.2 },
+  { label: "POLK", lat: 28.0, lon: -81.86 },
+  { label: "MANATEE", lat: 27.47, lon: -82.3 },
+];
+
+const SIZES = {
+  desktop: { disc: 6.5, label: 13.5, context: 12 },
+  mobile: { disc: 6, label: 13, context: 0 },
+  circuit: { disc: 7, label: 15, context: 0 },
+} as const;
+
+/** Where a label sits relative to its point, and how it is anchored. */
+function place(x: number, y: number, side: ServiceArea["side"], gap: number) {
+  switch (side) {
+    case "e": return { x: x + gap, y, anchor: "start" as const, dy: "0.35em" };
+    case "w": return { x: x - gap, y, anchor: "end" as const, dy: "0.35em" };
+    case "s": return { x, y: y + gap + 4, anchor: "middle" as const, dy: "0.7em" };
+    case "n": return { x, y: y - gap - 2, anchor: "middle" as const, dy: "0" };
   }
-
-  return (
-    <div aria-hidden="true" className="relative h-full w-full overflow-hidden">
-      {/*
-        Plain img, not next/image. The bytes come from our own route, which
-        already caches hard at the edge and returns a fixed-size image, so the
-        optimizer would re-encode something that is already exactly right and
-        add a second hop for nothing.
-      */}
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={`/api/map?v=${variant}`}
-        alt=""
-        width={view.width}
-        height={view.height}
-        className="h-full w-full object-cover object-center"
-        loading="lazy"
-        decoding="async"
-      />
-
-      {serviceAreas.map((area) => {
-        const at = project(area.lat, area.lon, view);
-        return (
-          <span
-            key={area.key}
-            className="absolute block h-3.5 w-3.5 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white bg-navy shadow-sm lg:h-4 lg:w-4"
-            style={{ left: `${at.left}%`, top: `${at.top}%` }}
-          />
-        );
-      })}
-
-      {/* The shield's point is its anchor, so it is translated to sit ON the
-          place rather than centred over it like the discs. */}
-      <span
-        className="absolute block -translate-x-1/2 -translate-y-full"
-        style={{ left: `${office.left}%`, top: `${office.top}%` }}
-      >
-        <Shield />
-      </span>
-    </div>
-  );
 }
 
-function Shield() {
+// The halo keeps a label legible where it crosses a road or a coastline.
+const HALO = { stroke: "#f6f6f7", strokeWidth: 3.5, paintOrder: "stroke" as const, strokeLinejoin: "round" as const };
+
+export default function LocationsMap({ variant = "desktop" }: { variant?: MapVariant }) {
+  const view = MAP_VIEWS[variant];
+  const size = SIZES[variant];
+  const at = (lat: number, lon: number) => toPixel(lat, lon, view);
+  const inView = ([x, y]: [number, number]) => x > 0 && x < view.width && y > 0 && y < view.height;
+  const [ox, oy] = at(officeLatLon.lat, officeLatLon.lon);
+  const areas = serviceAreas.map((a) => ({ ...a, xy: at(a.lat, a.lon) })).filter((a) => inView(a.xy));
+
   return (
     <svg
-      width="26"
-      height="34"
-      viewBox="0 0 26 34"
-      className="drop-shadow-sm"
+      viewBox={`0 0 ${view.width} ${view.height}`}
+      preserveAspectRatio="xMidYMid slice"
+      className="block h-full w-full"
       aria-hidden="true"
       focusable="false"
     >
-      <path
-        d="M2 2 H24 V19 Q24 31 13 33 Q2 31 2 19 Z"
-        fill="#101933"
-        stroke="#ffffff"
-        strokeWidth="2.5"
-        strokeLinejoin="round"
-      />
+      <image href={`/maps/${variant}.svg`} width={view.width} height={view.height} />
+
+      {variant === "desktop" ? (
+        <text
+          x={at(28.72, -81.95)[0]}
+          y={at(28.72, -81.95)[1]}
+          textAnchor="middle"
+          className="font-heading"
+          fontSize="17"
+          fontWeight="600"
+          letterSpacing="0.32em"
+          fill="#a3a6ae"
+        >
+          FLORIDA
+        </text>
+      ) : null}
+
+      {variant === "circuit"
+        ? COUNTIES.map((c) => {
+            const [x, y] = at(c.lat, c.lon);
+            return (
+              <text key={c.label} x={x} y={y} textAnchor="middle" className="font-heading" fontSize="11.5" fontWeight="600" letterSpacing="0.2em" fill="#a3a6ae">
+                {c.label}
+              </text>
+            );
+          })
+        : null}
+
+      {size.context
+        ? CONTEXT.map((c) => {
+            const [x, y] = at(c.lat, c.lon);
+            const p = place(x, y, c.side, 7);
+            return (
+              <g key={c.label}>
+                <circle cx={x} cy={y} r="2.2" fill="#9a9da5" />
+                <text x={p.x} y={p.y} dy={p.dy} textAnchor={p.anchor} className="font-heading" fontSize={size.context} fill="#868a93" {...HALO}>
+                  {c.label}
+                </text>
+              </g>
+            );
+          })
+        : null}
+
+      {areas.map((a) => {
+        const [x, y] = a.xy;
+        return <circle key={a.key} cx={x} cy={y} r={size.disc} fill="#101933" stroke="#ffffff" strokeWidth="2.5" />;
+      })}
+
+      {/* The office: the same dot, in the firm's gold (client choice, D91).
+          The color is what sets it apart; the label says what it is. */}
+      <circle cx={ox} cy={oy} r={size.disc + 0.5} fill="#c5a059" stroke="#ffffff" strokeWidth="2.5" />
+
+      {/* Labels last, so no pin covers one. */}
+      {areas.map((a) => {
+        const [x, y] = a.xy;
+        const p = place(x, y, a.side, size.disc + 5);
+        return (
+          <text key={a.key} x={p.x} y={p.y} dy={p.dy} textAnchor={p.anchor} className="font-heading" fontSize={size.label} fontWeight="600" fill="#101933" {...HALO}>
+            {a.label}
+          </text>
+        );
+      })}
+      <text x={ox + size.disc + 5} y={oy} dy="0.35em" className="font-heading" fontSize={size.label} fontWeight="600" fill="#101933" {...HALO}>
+        Brandon
+      </text>
     </svg>
   );
 }
