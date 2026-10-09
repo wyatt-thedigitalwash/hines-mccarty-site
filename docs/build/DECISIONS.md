@@ -3191,12 +3191,12 @@ Its street address is still owed for the office block and schema.
   738-8650") so voice-control users can say what they see.
 
 
-### D103. The home practice switcher reads as a menu
+### D103. An arrow on the home practice switcher
 
-**2026-10-09. Client choice** (rows, among three options). On desktop the
-State / Federal / White-Collar / Injury switcher was a stack of large serif
-words that read as headings, not buttons. It is now a list of rows with lines
-between them: the name, how many pages it holds, and an arrow. The active row
-has a navy bar on its left edge, a light fill, and an arrow pointing at the
-grid; the others fill lightly and nudge their chevron on hover. Phones keep
-the accordion.
+**2026-10-09. Client direction.** On desktop the State / Federal /
+White-Collar / Injury switcher keeps its large serif words (a row-and-count
+version was tried and rejected) and gains an arrow after each: navy and
+nudged right on the active one, faint on the others and darkening with a
+nudge on hover, so they read as things to pick. The column is 19rem and the
+items do not wrap, so "White-Collar" stays on one line with its arrow.
+Phones keep the accordion.
