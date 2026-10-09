@@ -2999,3 +2999,11 @@ Injury, Results, Articles, About and Contact all measure 643px from 1024px
 up. Headings still start at the same height on every page; the shorter
 heroes take the extra room at the bottom. Criminal Defense is taller, as
 before, for its credential strip. Phones are unchanged.
+
+### D88. Shorter home hero copy
+
+**2026-10-08. Client chose** the shorter of two drafts. The paragraph under
+the home headline went from about 70 words over six lines to 35 over three:
+what the firm does, where, and that every case is prepared for trial. The
+opening line about who the reader is, and the "other side of the same
+courthouse" line, are gone. The place names stay for local search.

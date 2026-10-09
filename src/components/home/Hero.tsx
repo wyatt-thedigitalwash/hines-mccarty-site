@@ -80,13 +80,10 @@ export default function Hero() {
               <span className="block text-bronze">Defending Your Future</span>
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/80">
-              If you have been arrested, are under investigation, or have been
-              hurt in a collision, you need straight answers before anything
-              else. Hines McCarty Pavlidis defends state charges in Hillsborough
-              County and federal cases in the Middle District of Florida, and
-              handles injury claims on the other side of the same courthouse.
-              We prepare every case as if it will be tried, because the other
-              side treats a firm differently when they know it will.
+              We defend state charges in Hillsborough County and federal cases
+              in the Middle District of Florida, and we handle injury claims for
+              people hurt in collisions. Every case is prepared as if it will be
+              tried.
             </p>
             <a
               href={firm.phoneHref}
