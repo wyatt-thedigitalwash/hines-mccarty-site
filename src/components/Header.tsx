@@ -155,7 +155,7 @@ export default function Header() {
               Named with the number for screen readers. */}
           <a
             href={firm.phoneHref}
-            aria-label={`Call ${firm.phone}`}
+            aria-label={`Call Now, ${firm.phone}`}
             className="inline-flex items-center gap-2 font-heading text-sm font-semibold text-bronze transition-colors hover:text-bronze-soft sm:hidden"
           >
             <PhoneIcon />

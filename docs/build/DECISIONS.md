@@ -3187,4 +3187,6 @@ Its street address is still owed for the office block and schema.
   foot like "All charges" in Criminal Defense.
 - The phone header's call link (D95) is the gold phone icon with "Call Now"
   beside it, no button box. It clears the logo by 55px on a 360px phone.
+  Its accessible name starts with the visible words ("Call Now, (813)
+  738-8650") so voice-control users can say what they see.
 
