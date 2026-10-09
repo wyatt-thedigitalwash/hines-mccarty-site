@@ -3173,6 +3173,6 @@ whose menu titles are questions. The dropdown lives in `NavDropdown.tsx`;
 
 **2026-10-09. Client direction.** Tampa's dot is gold, like Brandon's, on the
 home, state, federal and white-collar maps; the white-collar map marks Tampa
-alone instead of Brandon. Gold has so far meant "the office", so a gold
-Tampa reads as a second office; that is right only once the Tampa office is
-real, and its address is still on the owed-content list.
+alone instead of Brandon. Gold means an office: the client confirmed
+(2026-10-09) that the firm has a Tampa office, so a gold Tampa is accurate.
+Its street address is still owed for the office block and schema.
