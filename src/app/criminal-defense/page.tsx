@@ -25,6 +25,7 @@ export default function CriminalDefensePage() {
           is why it goes through `bleed` rather than being placed after the
           hero: it has to sit inside the navy and outside the padded wrapper. */}
       <PageHero
+cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
         title="Criminal defense."
         photo={CRIMINAL_HUB_PHOTO}
         bleed={<CredentialStrip />}

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { pageMetadata } from "@/lib/metadata";
+import { firm } from "@/lib/site";
 import CallToAction from "@/components/CallToAction";
 import EmptyState from "@/components/EmptyState";
 import PageHero from "@/components/PageHero";
@@ -36,7 +37,7 @@ export const metadata: Metadata = pageMetadata({
 export default function ResultsPage() {
   return (
     <>
-      <PageHero title="Case results" photo={CASE_RESULTS_PHOTO}>
+      <PageHero cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }} title="Case results" photo={CASE_RESULTS_PHOTO}>
         <p>
           A matter appears on this page only when the client has given informed
           consent to publish it and the outcome can be described accurately.

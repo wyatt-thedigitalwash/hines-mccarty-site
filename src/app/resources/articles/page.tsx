@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { type Crumb } from "@/lib/site";
+import { firm, type Crumb } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import PageHero from "@/components/PageHero";
@@ -36,7 +36,7 @@ export default function Page() {
 
       {/* D76: the Results page's hero, with the photo the Resources hub used
           (client direction). */}
-      <PageHero title="Articles" photo={RESOURCES_PHOTO}>
+      <PageHero cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }} title="Articles" photo={RESOURCES_PHOTO}>
         <p>
           Explainers on charges, courts, and sentencing, written for people who are not lawyers.
         </p>

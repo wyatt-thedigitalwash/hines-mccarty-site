@@ -2981,3 +2981,11 @@ shown as a thin white line mid-scroll.
   unaffected: there the photo sits below the copy.
 - Reduced motion: every transition is off.
 
+
+### D86. A call button in the main page heroes
+
+**2026-10-08. Client direction.** Attorneys, Criminal Defense, Personal
+Injury, Results and Articles carry a "Call (813) 738-8650" button under the
+hero copy, the same button as the charge pages' hero (D67): full width on a
+phone, its own width from 640px. `PageHero` takes it as a `cta` prop, so a
+page without one is unchanged (About, Contact).

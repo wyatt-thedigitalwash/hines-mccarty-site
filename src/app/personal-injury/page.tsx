@@ -64,6 +64,7 @@ export default function PersonalInjuryHub() {
       />
 
       <PageHero
+cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
         title="If someone else caused it, you should not be the one paying for it."
         photo={INJURY_HUB_PHOTO}
       >

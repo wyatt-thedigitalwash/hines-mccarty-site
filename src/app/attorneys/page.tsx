@@ -29,6 +29,7 @@ export default function AttorneysPage() {
   return (
     <>
       <PageHero
+cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
         title="Four attorneys, four different concentrations."
         photo={SITE_HERO_PHOTO}
       >

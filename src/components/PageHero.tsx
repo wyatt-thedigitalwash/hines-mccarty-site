@@ -53,9 +53,15 @@ type Props = {
    * the padded container. The credential strip is the only user of this.
    */
   bleed?: ReactNode;
+  /**
+   * The hero's call button, under the intro copy. The same button as the
+   * charge pages' hero: full width on a phone, where it is the thumb target,
+   * its own width from sm.
+   */
+  cta?: { label: string; href: string };
 };
 
-export default function PageHero({ title, children, photo, bleed }: Props) {
+export default function PageHero({ title, children, photo, bleed, cta }: Props) {
   return (
     <section
       data-bg="navy"
@@ -96,6 +102,16 @@ export default function PageHero({ title, children, photo, bleed }: Props) {
         <div className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/70">
           {children}
         </div>
+        {cta ? (
+          <div className="mt-8">
+            <a
+              href={cta.href}
+              className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+            >
+              {cta.label}
+            </a>
+          </div>
+        ) : null}
       </div>
 
       <HeroPhotoLayer photo={photo} />
