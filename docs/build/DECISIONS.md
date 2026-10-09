@@ -3258,3 +3258,6 @@ Revised the same day (client direction): the credential strip comes before
   from triggering it; a short close delay forgives one that slips off.
 - On the Our Firm page, "Where we practice." puts the map first below
   desktop width, edge to edge above the copy.
+- After a dropdown link is used, the dropdown fades out over 200ms while
+  lifting slightly toward the bar, instead of cutting out as the page changes.
+- Our Firm order: the attorneys now come before "How a case is handled here."
