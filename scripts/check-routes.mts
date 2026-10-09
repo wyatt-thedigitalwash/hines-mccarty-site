@@ -108,6 +108,8 @@ const REDIRECTS = (() => {
  */
 const APP_METADATA: Record<string, string> = {
   "favicon.ico": "/favicon.ico",
+  "icon.svg": "/icon.svg", // D84: the tab icon
+  "apple-icon.png": "/apple-icon.png", // D84: the home-screen icon
   "robots.ts": "/robots.txt",
   "sitemap.ts": "/sitemap.xml",
   "opengraph-image.tsx": "/opengraph-image",

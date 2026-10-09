@@ -1,5 +1,11 @@
 import { ImageResponse } from "next/og";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { firm, primaryOffice } from "@/lib/site";
+
+// D84: read at build time (Node runtime) and inlined, since the image renderer
+// takes an image as a data URI.
+const LOGO = `data:image/svg+xml;base64,${readFileSync(join(process.cwd(), "public/brand/hmp-lockup-linen.svg")).toString("base64")}`;
 
 /**
  * Default Open Graph image for every page that does not define its own.
@@ -16,8 +22,7 @@ import { firm, primaryOffice } from "@/lib/site";
  * Gazpacho, whose licence is unconfirmed. Not worth a licence question for a
  * share card.
  */
-export const runtime = "edge";
-export const alt = `${firm.legalName}, criminal defense in ${firm.serviceArea}`;
+export const alt = `${firm.legalName}, ${firm.tagline.toLowerCase()} in ${firm.serviceArea}`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -34,45 +39,20 @@ export default async function OpengraphImage() {
           width: "100%",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-between",
+          alignItems: "center",
+          justifyContent: "center",
           backgroundColor: NAVY,
-          padding: "72px 80px",
         }}
       >
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", fontSize: 68, color: LINEN }}>
-            <span>Hines</span>
-            <span style={{ color: BRONZE, margin: "0 16px" }}>·</span>
-            <span>McCarty</span>
-            <span style={{ color: BRONZE, margin: "0 16px" }}>·</span>
-            <span>Pavlidis</span>
-          </div>
-          <div
-            style={{
-              width: 96,
-              height: 3,
-              backgroundColor: BRONZE,
-              marginTop: 36,
-            }}
-          />
+        {/* D84: the firm's logo, in linen as in the footer. */}
+        <img src={LOGO} width={520} height={350} alt="" />
+        <div style={{ display: "flex", fontSize: 30, color: LINEN, marginTop: 36 }}>
+          {firm.tagline}
         </div>
-
-        <div style={{ display: "flex", flexDirection: "column" }}>
-          <div style={{ display: "flex", fontSize: 40, color: LINEN }}>
-            Criminal Defense, State and Federal
-          </div>
-          <div
-            style={{
-              display: "flex",
-              fontSize: 26,
-              color: "rgba(246,240,232,0.65)",
-              marginTop: 20,
-            }}
-          >
-            {primaryOffice.city}, {primaryOffice.state}
-            <span style={{ margin: "0 14px" }}>/</span>
-            {firm.serviceArea}
-          </div>
+        <div style={{ display: "flex", fontSize: 22, color: "rgba(246,240,232,0.7)", marginTop: 14 }}>
+          {primaryOffice.city}, {primaryOffice.state}
+          <span style={{ margin: "0 14px", color: BRONZE }}>·</span>
+          {firm.serviceArea}
         </div>
       </div>
     ),

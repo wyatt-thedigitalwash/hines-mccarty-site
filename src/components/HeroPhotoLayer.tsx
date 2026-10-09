@@ -61,6 +61,11 @@ export default function HeroPhotoLayer({ photo }: { photo?: HeroPhoto }) {
         lets the copy reach.
       */}
       <div className="absolute inset-0 bg-gradient-to-b from-navy via-navy/20 to-transparent lg:bg-gradient-to-r lg:via-navy/70" />
+      {/* D85: from lg the photo runs up behind the transparent header, and a
+          bright sky made the phone number and icons hard to read. A navy wash
+          down the top edge gives the header the same ground as a plain navy
+          hero, fading out before the subject of the photo. */}
+      <div className="absolute inset-x-0 top-0 hidden h-40 bg-gradient-to-b from-navy/90 via-navy/50 to-transparent lg:block" />
     </div>
   );
 }

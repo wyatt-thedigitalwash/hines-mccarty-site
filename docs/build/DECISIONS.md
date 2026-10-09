@@ -2938,3 +2938,46 @@ in nearby counties, so:
   matching the D65 mapping that already shows them on every white-collar
   page. David Hines's bio is unchanged pending the client's answer on
   whether he takes white-collar cases.
+
+### D84. The firm's logo across the site
+
+**2026-10-08. Client supplied** the logo (`public/branding/`: a temple
+monogram over HINES • MCCARTY • PAVLIDIS, in black, gold and white, as SVG,
+PDF and raster). Web versions are cut from the SVG into
+`public/brand/`: the monogram, the name line, and the full logo without its
+background, each in linen, the logo's gold (#937c3e) and navy.
+
+- **Header** (client chose among mockups): at the top of the page, the full
+  gold logo with the names below, 64px tall on phones, 72px on tablets and
+  96px on desktop, sized to clear every hero's top padding; once the visitor
+  scrolls, the logo shrinks to the monogram alone, since the names would be
+  unreadable that small. See D85 for how.
+- **Footer**: the full logo in linen (client choice).
+- **Browser tab and home screen**: the gold monogram on navy (`icon.svg`,
+  `favicon.ico`, `apple-icon.png`).
+- **Social share image**: the full logo in linen with the firm's tagline,
+  replacing the typed name and the outdated "Criminal Defense, State and
+  Federal".
+- **Schema**: the LegalService carries the logo (`/brand/hmp-logo.png`).
+- The text wordmark (D69) is retired.
+
+### D85. Header motion on scroll
+
+**2026-10-08. Client direction.** The header keeps one height (68px phone,
+76px from tablet up) and no bottom border, scrolled or not. The border had
+shown as a thin white line mid-scroll.
+
+- **Logo**: one inline SVG (`Logo.tsx`) rather than two images swapped. At
+  the top of the page it is the full logo hanging below the bar; on scroll it
+  scales down from its top-left corner to the monogram, centred in the bar,
+  while the rule and the names fade out. Opening the menu does the same.
+- **Menu, phone number and icons**: sit 9px lower at the top of the page and
+  settle into place with the logo, a small follow-through the client asked
+  for. Their horizontal position never changes.
+- **Photo heroes**: from desktop width the photo runs up behind the
+  transparent header, and a bright sky made the phone number and icons hard
+  to read. A navy wash down the top 160px of the photo (`HeroPhotoLayer`)
+  gives the header the same ground as a plain navy hero. Phones are
+  unaffected: there the photo sits below the copy.
+- Reduced motion: every transition is off.
+

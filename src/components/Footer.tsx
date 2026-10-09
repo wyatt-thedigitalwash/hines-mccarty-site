@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Wordmark from "@/components/Wordmark";
+import Image from "next/image";
 import {
   firm,
   formatOffice,
@@ -18,11 +18,15 @@ export default function Footer() {
       <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link
-              href="/"
-              className="font-display text-3xl font-extrabold tracking-tight"
-            >
-              <Wordmark />
+            {/* D84: the full logo, in linen on the navy footer (client choice). */}
+            <Link href="/" aria-label={`${firm.name} home`} className="inline-block">
+              <Image
+                src="/brand/hmp-lockup-linen.svg"
+                alt=""
+                width={240}
+                height={162}
+                className="h-auto w-48"
+              />
             </Link>
             <p className="mt-5 max-w-sm text-linen/60">
               A Brandon firm handling serious state and federal criminal

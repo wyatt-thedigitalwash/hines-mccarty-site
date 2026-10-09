@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Wordmark from "@/components/Wordmark";
+import Logo from "@/components/Logo";
 import SiteSearch from "@/components/SiteSearch";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -38,12 +38,13 @@ export default function Header() {
   const isCurrent = (href: string) =>
     pathname === href || pathname.startsWith(`${href}/`);
 
+  // D85: the logo shrinks and the controls settle once the page scrolls.
+  const compact = scrolled || menuOpen;
+
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || menuOpen
-          ? "bg-navy border-b border-white/10"
-          : "bg-transparent"
+        scrolled || menuOpen ? "bg-navy" : "bg-transparent"
       }`}
     >
       {/*
@@ -61,17 +62,34 @@ export default function Header() {
         lines up with nothing in particular by design: it is anchored to the
         window rather than to the content column.
       */}
-      <div className="flex w-full items-center justify-between gap-4 px-6 py-5 lg:px-10">
+      {/* D85: THE BAR HAS ONE HEIGHT, scrolled or not, so the menu, phone
+          number and icons never move. Only the logo changes: pinned to the
+          top-left, at the top of the page it is the full logo hanging below
+          the bar over the hero (clear of every hero's breadcrumbs); on scroll
+          it scales down from that corner to the monogram, centred in the bar,
+          while the names fade (Logo). One element, one transform. The menu
+          and icons sit 9px lower at the top of the page and settle into
+          place with the logo, a small follow-through the owner asked for. */}
+      <div className="relative flex h-[68px] w-full items-center justify-end gap-4 px-6 sm:h-[76px] lg:px-10">
         <Link
-          href="/"
-          className="shrink-0 whitespace-nowrap font-display text-xl font-extrabold tracking-tight text-linen sm:text-2xl lg:text-[1.75rem]"
-          aria-label={`${firm.name} home`}
-        >
-          <Wordmark />
+              href="/"
+              aria-label={`${firm.name} home`}
+              className={`absolute left-6 top-4 block transition-[width,height] duration-300 ease-out motion-reduce:transition-none lg:left-10 ${
+                compact
+                  ? "h-9 w-12 sm:h-11 sm:w-[59px]"
+                  : "h-16 w-[95px] sm:h-[72px] sm:w-[107px] lg:h-24 lg:w-[143px]"
+              }`}
+            >
+              <Logo
+                compact={compact}
+                className={`h-16 w-[95px] origin-top-left text-[#937c3e] transition-transform duration-300 ease-out motion-reduce:transition-none sm:h-[72px] sm:w-[107px] lg:h-24 lg:w-[143px] [--s:0.687] [--x:-8.5px] sm:[--s:0.746] sm:[--x:-10.4px] lg:[--s:0.559] lg:[--x:-10.5px] ${
+                  compact ? "[transform:translateX(var(--x))_scale(var(--s))]" : ""
+                }`}
+              />
         </Link>
 
         {/* Desktop: flat top nav. The depth lives in the side menu. */}
-        <nav aria-label="Primary" className="hidden lg:block">
+        <nav aria-label="Primary" className={`hidden lg:block transition-transform duration-300 ease-out motion-reduce:transition-none ${compact ? "" : "translate-y-[9px]"}`}>
           <ul className="flex items-center gap-8">
             {primaryNav.map((item) => (
               <li key={item.href}>
@@ -116,7 +134,7 @@ export default function Header() {
         </nav>
 
         {/* Mobile controls */}
-        <div className="flex items-center gap-4 lg:hidden">
+        <div className={`flex items-center gap-4 lg:hidden transition-transform duration-300 ease-out motion-reduce:transition-none ${compact ? "" : "translate-y-[9px]"}`}>
           {/* D69: on the narrowest phones the full number beside the longer
               firm name wrapped onto three lines, so below 640px it is an icon
               that still dials, named for screen readers. */}

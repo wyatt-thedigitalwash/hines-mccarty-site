@@ -47,6 +47,8 @@ export const organizationJsonLd = () => ({
   // (D69). Google reads `name` as the business name.
   name: firm.name,
   legalName: firm.legalName,
+  // D84: the firm's logo, for Google's business information.
+  logo: `${siteUrl}/brand/hmp-logo.png`,
   url: siteUrl,
   telephone: firm.phone,
   address: publishedOffices.map(postalAddress),
