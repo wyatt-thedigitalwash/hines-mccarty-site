@@ -738,6 +738,8 @@ export type NavChild = {
   label: string;
   href: string;
   description?: string;
+  /** A shorter name for the desktop dropdowns (D100), where it differs. */
+  short?: string;
 };
 
 export type NavItem = {
@@ -2389,6 +2391,8 @@ export const primaryNav: NavItem[] = [
       label: p.title,
       href: p.href,
       description: p.summary,
+      // "Car Accidents" rather than "Hurt in a car accident in Tampa?" (D100).
+      short: injuryPillars.find((x) => injuryHref(x) === p.href)?.label,
     })),
   },
   {

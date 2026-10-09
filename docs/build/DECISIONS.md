@@ -3155,3 +3155,24 @@ from 640px so a tablet's wide box does not crop Jacksonville), fading into
 the page above and below, with the key under the map. The client first asked
 for the map above the copy, then reversed it; the edge-to-edge treatment
 stayed.
+
+### D100. Desktop dropdowns on three menu items
+
+**2026-10-09. Client choice** (short lists, among three options). From
+desktop width, Attorneys, Criminal Defense and Personal Injury open a small
+dropdown on hover or keyboard focus: the four attorneys; State, Federal and
+White-Collar plus "All charges"; Car Accidents and Truck Accidents. The top
+labels still link to their pages. Short open and close delays keep a passing
+pointer from flashing them; Escape closes one from the keyboard; a closed
+menu's links are out of the tab order. The hamburger menu and phones are
+unchanged. `NavChild` gains an optional `short` label for the injury pages,
+whose menu titles are questions. The dropdown lives in `NavDropdown.tsx`;
+`Header.tsx` was already over the 300-line guide (397) before this.
+
+### D101. Tampa in gold on every map
+
+**2026-10-09. Client direction.** Tampa's dot is gold, like Brandon's, on the
+home, state, federal and white-collar maps; the white-collar map marks Tampa
+alone instead of Brandon. Gold has so far meant "the office", so a gold
+Tampa reads as a second office; that is right only once the Tampa office is
+real, and its address is still on the owed-content list.

@@ -6,6 +6,7 @@ import SiteSearch from "@/components/SiteSearch";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { firm, formatOffice, primaryNav, primaryOffice } from "@/lib/site";
+import NavDropdown, { ChevronIcon, dropdownFor } from "@/components/NavDropdown";
 
 export default function Header() {
   const pathname = usePathname();
@@ -91,19 +92,30 @@ export default function Header() {
         {/* Desktop: flat top nav. The depth lives in the side menu. */}
         <nav aria-label="Primary" className={`hidden lg:block transition-transform duration-300 ease-out motion-reduce:transition-none ${compact ? "" : "translate-y-[7px]"}`}>
           <ul className="flex items-center gap-8">
-            {primaryNav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  aria-current={isCurrent(item.href) ? "page" : undefined}
-                  className={`font-heading text-[0.9375rem] font-medium uppercase transition-colors hover:text-bronze ${
-                    isCurrent(item.href) ? "text-bronze" : "text-linen/80"
-                  }`}
+            {primaryNav.map((item) => {
+              const menu = dropdownFor(item);
+              return (
+                <li
+                  key={item.href}
+                  className={menu ? "group relative" : undefined}
+                  // Escape closes an open dropdown from the keyboard: it is
+                  // open only while focus is inside, so drop the focus.
+                  onKeyDown={menu ? (e) => { if (e.key === "Escape") (document.activeElement as HTMLElement | null)?.blur(); } : undefined}
                 >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
+                  <Link
+                    href={item.href}
+                    aria-current={isCurrent(item.href) ? "page" : undefined}
+                    className={`inline-flex items-center gap-1.5 font-heading text-[0.9375rem] font-medium uppercase transition-colors hover:text-bronze ${
+                      isCurrent(item.href) ? "text-bronze" : "text-linen/80"
+                    }`}
+                  >
+                    {item.label}
+                    {menu ? <ChevronIcon /> : null}
+                  </Link>
+                  {menu ? <NavDropdown items={menu} pathname={pathname} /> : null}
+                </li>
+              );
+            })}
             <li className="flex items-center gap-5 pl-1">
               <a
                 href={firm.phoneHref}
@@ -395,3 +407,4 @@ function CloseIcon() {
     </svg>
   );
 }
+
