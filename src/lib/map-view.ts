@@ -22,6 +22,14 @@ export type MapView = {
   height: number;
 };
 
+/**
+ * D97. The hub maps are framed tight on their subject at 760 by 720, close to
+ * the 21:20 box they fill on a phone, so the box shows the whole view. On
+ * desktop the same view fills a half-section panel of whatever shape the copy
+ * makes; it is anchored to the panel's right edge, so a narrow panel loses
+ * only the left side, which dissolves into the copy anyway.
+ */
+
 export const MAP_VIEWS = {
   /**
    * Home, desktop. Framed like the reference: Gainesville at the top, Naples
@@ -45,18 +53,18 @@ export const MAP_VIEWS = {
    * Tampa Bay and the 13th Judicial Circuit, for the state hub illustration,
    * close enough that the county lines the copy describes are legible.
    */
-  circuit: { lat: 27.93, lon: -82.36, zoom: 9.35, width: 620, height: 590 },
+  circuit: { lat: 27.93, lon: -82.45, zoom: 9.35, width: 760, height: 720 },
   /**
    * D96. The whole state, panhandle to Keys, for the federal hub: the Middle
    * District shaded and its five division seats marked. Same box as circuit.
    */
-  district: { lat: 27.75, lon: -83.75, zoom: 6.72, width: 620, height: 590 },
+  district: { lat: 27.8, lon: -83.83, zoom: 6.85, width: 760, height: 720 },
   /**
    * D96. The same framing for the white-collar hub, where a case can be
    * charged in either court: the Middle District light, Hillsborough County
    * dark.
    */
-  whitecollar: { lat: 27.75, lon: -83.75, zoom: 6.72, width: 620, height: 590 },
+  whitecollar: { lat: 27.8, lon: -83.83, zoom: 6.85, width: 760, height: 720 },
 } satisfies Record<string, MapView>;
 
 export type MapVariant = keyof typeof MAP_VIEWS;

@@ -16,7 +16,7 @@ import CallToAction from "@/components/CallToAction";
  * reads fine, so it now gets the both-courts map. See CircuitMap.
  */
 const FORUM_ILLUSTRATION: Partial<
-  Record<SiloKey, (props: { className?: string }) => React.ReactElement>
+  Record<SiloKey, (props: { className?: string; shape?: "box" | "panel" }) => React.ReactElement>
 > = {
   state: CircuitMap,
   federal: DistrictMap,
@@ -55,16 +55,18 @@ export default function SiloHub({ silo }: { silo: Silo }) {
 
       <ChargeIndex only={silo.key} heading="Charges we defend in this area" />
 
-      <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <div
-            className={
-              Illustration
-                ? "grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-start lg:gap-20"
-                : ""
-            }
-          >
-            <div className={Illustration ? "" : "max-w-3xl"}>
+      <section data-bg="white" className="relative overflow-hidden bg-white py-20 text-navy lg:py-28">
+        {/* D97: from lg the map fills the right half of the section, edge to
+            edge and top to bottom, like the home map. Absolute, so the copy
+            alone sets the section's height. */}
+        {Illustration && (
+          <div aria-hidden="true" className="pointer-events-none absolute inset-y-0 right-0 hidden w-1/2 lg:block">
+            <Illustration shape="panel" className="h-full w-full" />
+          </div>
+        )}
+        <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
+          <div>
+            <div className={Illustration ? "lg:max-w-[44%]" : "max-w-3xl"}>
               <h2 className="font-display text-4xl leading-tight sm:text-5xl">
                 {silo.forumHeading}
               </h2>
@@ -86,10 +88,10 @@ export default function SiloHub({ silo }: { silo: Silo }) {
               <Byline owner={silo.owner} lastReviewed={silo.lastReviewed} />
             </div>
 
-            {/* Stacks below the copy on mobile by DOM order, no order juggling. */}
+            {/* Below lg: the cropped map in a box under the copy. */}
             {Illustration && (
-              <div className="lg:pt-2">
-                <Illustration className="mx-auto aspect-[21/20] w-full max-w-[26rem] lg:mx-0 lg:max-w-none" />
+              <div className="mt-14 lg:hidden">
+                <Illustration className="mx-auto w-full max-w-[26rem]" />
               </div>
             )}
           </div>

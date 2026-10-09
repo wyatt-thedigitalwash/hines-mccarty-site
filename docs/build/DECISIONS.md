@@ -3121,3 +3121,21 @@ taken from M.D. Fla. Local Rule 1.04(a) as amended effective November 1, 2025
 read it. Hernando is in the Ocala Division, as the table already said.
 The old `ForumMaps.tsx` and `spec.ts` are removed. Map files: 82 KB each for
 the two statewide views.
+
+### D97. The hub maps fill their half of the section
+
+**2026-10-09. Client direction.** From desktop width the state, federal and
+white-collar maps are no longer a box beside the copy: each fills the right
+half of the section, to the window's edge and top to bottom, dissolving into
+the copy on its left and fading at top and bottom against the white sections
+around it, the way the home map fills its side. The copy sets the section's
+height; the map covers whatever shape that makes.
+
+- The views are framed tight on their subject at 760 by 720 and anchored to
+  the panel's right edge (`xMaxYMid slice`), so a narrow panel crops only the
+  side that dissolves.
+- The federal and white-collar keys are HTML, a small card in the panel's
+  bottom-right corner (under the map on a phone), so no crop can cut them.
+- Markers within about 60 units of an edge are left off, so none sits half
+  hidden in a fade (Sarasota on the state map).
+- Phones keep the boxed map under the copy, now the whole view.
