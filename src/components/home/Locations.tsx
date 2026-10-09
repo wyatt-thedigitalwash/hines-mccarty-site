@@ -69,12 +69,22 @@ export default function Locations() {
             {primaryOffice.city}.
           </p>
 
-          <Link
-            href="/contact"
-            className="mt-10 inline-flex items-center bg-navy px-7 py-4 font-display text-lg font-bold text-linen transition-colors hover:bg-navy-700"
-          >
-            Talk to the firm
-          </Link>
+          {/* D89: the call button beside "Talk to the firm"; stacked and full
+              width on a phone. */}
+          <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <Link
+              href="/contact"
+              className="inline-flex w-full items-center justify-center bg-navy px-7 py-4 font-display text-lg font-bold text-linen transition-colors hover:bg-navy-700 sm:w-auto"
+            >
+              Talk to the firm
+            </Link>
+            <a
+              href={firm.phoneHref}
+              className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+            >
+              Call {firm.phone}
+            </a>
+          </div>
         </div>
 
         {/* Mobile map. Below the copy, full width, and unlabelled: at this

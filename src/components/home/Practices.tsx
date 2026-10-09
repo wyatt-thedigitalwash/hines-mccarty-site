@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { capabilities } from "@/lib/site";
+import { capabilities, firm } from "@/lib/site";
 
 /**
  * The practice cards on the home page. Four of them, two by two.
@@ -52,15 +52,25 @@ export default function Practices() {
   return (
     <section data-bg="dark" className="bg-navy py-24 lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-        <div className="max-w-2xl">
-          <h2 className="font-display text-4xl leading-[1.05] tracking-tight text-linen sm:text-5xl">
-            What we handle.
-          </h2>
-          <p className="mt-6 text-lg leading-relaxed text-linen/70">
-            Hines McCarty Pavlidis defends people accused of crimes and represents
-            people injured by someone else, in the 13th Judicial Circuit and in
-            the Middle District of Florida, Tampa Division.
-          </p>
+        {/* D89: the call button on the right of the intro from lg, level with
+            its last line; under it, full width, on a phone. */}
+        <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <h2 className="font-display text-4xl leading-[1.05] tracking-tight text-linen sm:text-5xl">
+              What we handle.
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-linen/70">
+              Hines McCarty Pavlidis defends people accused of crimes and represents
+              people injured by someone else, in the 13th Judicial Circuit and in
+              the Middle District of Florida, Tampa Division.
+            </p>
+          </div>
+          <a
+            href={firm.phoneHref}
+            className="inline-flex w-full shrink-0 items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto sm:self-start lg:self-auto"
+          >
+            Call {firm.phone}
+          </a>
         </div>
 
         <div className="mt-16 grid gap-6 md:grid-cols-2">

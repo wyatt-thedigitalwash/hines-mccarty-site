@@ -3007,3 +3007,11 @@ the home headline went from about 70 words over six lines to 35 over three:
 what the firm does, where, and that every case is prepared for trial. The
 opening line about who the reader is, and the "other side of the same
 courthouse" line, are gone. The place names stay for local search.
+
+### D89. Call buttons in two home sections
+
+**2026-10-08. Client direction.** "What we handle." has the gold call button
+on the right of its intro from desktop width, level with the intro's last
+line; on smaller screens it sits under the intro, full width on a phone.
+"Where we appear." has the same button beside "Talk to the firm"; on a phone
+the two stack, full width.
