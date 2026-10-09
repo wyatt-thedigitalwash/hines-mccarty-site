@@ -1,5 +1,6 @@
 import { MAP_VIEWS, toPixel, type MapVariant } from "@/lib/map-view";
 import { officeLatLon, serviceAreas, type ServiceArea } from "@/lib/site";
+import { middleDistrict } from "@/lib/middle-district";
 
 /**
  * The locations map, D91: a drawn base map with the firm's pins and the place
@@ -47,7 +48,31 @@ const SIZES = {
   desktop: { disc: 6.5, label: 13.5, context: 12 },
   mobile: { disc: 6, label: 13, context: 0 },
   circuit: { disc: 7, label: 15, context: 0 },
+  district: { disc: 5, label: 13, context: 0 },
+  whitecollar: { disc: 5.5, label: 14, context: 0 },
 } as const;
+
+/** Which side each division seat's label sits on, on the federal map. */
+const SEAT_SIDE: Record<string, ServiceArea["side"]> = {
+  Jacksonville: "w", Ocala: "w", Orlando: "e", Tampa: "w", "Fort Myers": "e",
+};
+
+type Marker = { key: string; label: string; side: ServiceArea["side"]; xy: [number, number] };
+
+/**
+ * The key on the statewide maps (D96), set in the Gulf where nothing else is.
+ * The fill colors match scripts/build-locations-map.mts.
+ */
+const LEGEND: Partial<Record<MapVariant, { swatch?: string; dot?: string; label: string }[]>> = {
+  district: [
+    { swatch: "#d6dde9", label: "Middle District of Florida" },
+    { dot: "#101933", label: "Division courthouse" },
+  ],
+  whitecollar: [
+    { swatch: "#b4c0d5", label: "Hillsborough County, state court" },
+    { swatch: "#e1e6ef", label: "Middle District, federal court" },
+  ],
+};
 
 /** Where a label sits relative to its point, and how it is anchored. */
 function place(x: number, y: number, side: ServiceArea["side"], gap: number) {
@@ -68,7 +93,15 @@ export default function LocationsMap({ variant = "desktop" }: { variant?: MapVar
   const at = (lat: number, lon: number) => toPixel(lat, lon, view);
   const inView = ([x, y]: [number, number]) => x > 0 && x < view.width && y > 0 && y < view.height;
   const [ox, oy] = at(officeLatLon.lat, officeLatLon.lon);
-  const areas = serviceAreas.map((a) => ({ ...a, xy: at(a.lat, a.lon) })).filter((a) => inView(a.xy));
+  // The home and circuit maps mark the service areas; the federal map marks
+  // the five division seats; the white-collar map marks only the office.
+  const areas: Marker[] =
+    variant === "district"
+      ? middleDistrict.map((d) => ({ key: d.name, label: d.name, side: SEAT_SIDE[d.name], xy: at(d.lat, d.lon) }))
+      : variant === "whitecollar"
+        ? []
+        : serviceAreas.map((a) => ({ key: a.key, label: a.label, side: a.side, xy: at(a.lat, a.lon) })).filter((a) => inView(a.xy));
+  const legend = LEGEND[variant];
 
   return (
     <svg
@@ -129,6 +162,23 @@ export default function LocationsMap({ variant = "desktop" }: { variant?: MapVar
       {/* The office: the same dot, in the firm's gold (client choice, D91).
           The color is what sets it apart; the label says what it is. */}
       <circle cx={ox} cy={oy} r={size.disc + 0.5} fill="#c5a059" stroke="#ffffff" strokeWidth="2.5" />
+
+      {legend ? (
+        <g transform={`translate(52 ${view.height - 40 - legend.length * 24})`}>
+          {legend.map((item, i) => (
+            <g key={item.label} transform={`translate(0 ${i * 24})`}>
+              {item.swatch ? (
+                <rect x="0" y="-7" width="14" height="14" fill={item.swatch} stroke="#ffffff" strokeWidth="1" />
+              ) : (
+                <circle cx="7" cy="0" r="5" fill={item.dot} stroke="#ffffff" strokeWidth="2" />
+              )}
+              <text x="22" y="0" dy="0.35em" className="font-heading" fontSize="12.5" fill="#3f4555">
+                {item.label}
+              </text>
+            </g>
+          ))}
+        </g>
+      ) : null}
 
       {/* Labels last, so no pin covers one. */}
       {areas.map((a) => {

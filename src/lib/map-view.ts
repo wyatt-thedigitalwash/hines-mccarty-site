@@ -46,6 +46,17 @@ export const MAP_VIEWS = {
    * close enough that the county lines the copy describes are legible.
    */
   circuit: { lat: 27.93, lon: -82.36, zoom: 9.35, width: 620, height: 590 },
+  /**
+   * D96. The whole state, panhandle to Keys, for the federal hub: the Middle
+   * District shaded and its five division seats marked. Same box as circuit.
+   */
+  district: { lat: 27.75, lon: -83.75, zoom: 6.72, width: 620, height: 590 },
+  /**
+   * D96. The same framing for the white-collar hub, where a case can be
+   * charged in either court: the Middle District light, Hillsborough County
+   * dark.
+   */
+  whitecollar: { lat: 27.75, lon: -83.75, zoom: 6.72, width: 620, height: 590 },
 } satisfies Record<string, MapView>;
 
 export type MapVariant = keyof typeof MAP_VIEWS;

@@ -3097,3 +3097,27 @@ bare phone icon, which read as one more icon beside search and menu, is a
 filled gold button with the icon and the word "Call" (navy text, named
 "Call (813) 738-8650" for screen readers). It clears the logo by 71px on a
 360px phone. From 640px the full number shows as before.
+
+### D96. The three hub maps, drawn
+
+**2026-10-09. Client choices.** The forum illustrations on the state,
+federal and white-collar hubs are all the drawn map (D91), with their edges
+faded into the page rather than boxed:
+
+- **State**: unchanged Tampa Bay view, now with soft edges.
+- **Federal**: the whole state with the Middle District's 35 counties shaded
+  and its five division courthouses marked (Jacksonville, Ocala, Orlando,
+  Tampa, Fort Myers), Brandon in gold, and a small key. Replaces the US
+  outline drawing.
+- **White-collar**: the whole state with the Middle District shaded lightly
+  (federal court) and Hillsborough County darker (state court), Brandon in
+  gold, and a key. Replaces the document drawing; the old objection that
+  Hillsborough is unreadable on a statewide map no longer holds at this
+  drawing's detail.
+
+The divisions and counties now live in one list, `src/lib/middle-district.ts`,
+taken from M.D. Fla. Local Rule 1.04(a) as amended effective November 1, 2025
+(checked 2026-10-09). The federal hub's division table and the map build both
+read it. Hernando is in the Ocala Division, as the table already said.
+The old `ForumMaps.tsx` and `spec.ts` are removed. Map files: 82 KB each for
+the two statewide views.

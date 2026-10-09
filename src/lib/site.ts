@@ -5,6 +5,9 @@
 // runtime imports. That property is what lets scripts/check-c9.ts load this
 // file directly under `node --experimental-strip-types`.
 import type { C9Assertion, C9Category, C9Exemption } from "./c9.ts";
+// The one runtime import, D96. A relative .ts module with no imports of its
+// own, so this file still loads directly under strip-types.
+import { middleDistrict } from "./middle-district.ts";
 import type {
   ChargeSection,
   PenaltyRow,
@@ -2618,29 +2621,12 @@ export const silos: Silo[] = [
         intro:
           "The Middle District of Florida runs from the Georgia line to the edge of the Everglades, and it is split into five divisions. Which one hears a case follows the county it comes from.",
         rows: [
-          {
-            name: "Tampa",
-            counties:
-              "Hardee, Hillsborough, Manatee, Pasco, Pinellas, Polk, Sarasota",
-            isLocal: true,
-          },
-          {
-            name: "Orlando",
-            counties: "Brevard, Orange, Osceola, Seminole, Volusia",
-          },
-          {
-            name: "Jacksonville",
-            counties:
-              "Baker, Bradford, Clay, Columbia, Duval, Flagler, Hamilton, Nassau, Putnam, St. Johns, Suwannee, Union",
-          },
-          {
-            name: "Ocala",
-            counties: "Citrus, Hernando, Lake, Marion, Sumter",
-          },
-          {
-            name: "Fort Myers",
-            counties: "Charlotte, Collier, DeSoto, Glades, Hendry, Lee",
-          },
+          // D96: from the one list the federal map is shaded from.
+          ...middleDistrict.map((d) => ({
+            name: d.name,
+            counties: d.counties.join(", "),
+            ...(d.name === "Tampa" ? { isLocal: true } : {}),
+          })),
         ],
       },
       courthouse: {

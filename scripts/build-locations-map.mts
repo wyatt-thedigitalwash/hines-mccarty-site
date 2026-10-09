@@ -31,6 +31,7 @@ import { open } from "shapefile";
 import { mkdirSync, writeFileSync, existsSync } from "node:fs";
 import { join } from "node:path";
 import { MAP_VIEWS, toLatLon, toPixel, type MapView } from "../src/lib/map-view.ts";
+import { middleDistrictCounties } from "../src/lib/middle-district.ts";
 
 const DATA = process.argv[2];
 if (!DATA || !existsSync(DATA)) {
@@ -44,7 +45,30 @@ const C = {
   land: "#f6f6f7",
   countyLine: "#e1e3e7",
   road: "#e4e5e9",
+  /** Georgia and Alabama, a shade off Florida so the state line reads. */
+  neighbor: "#eeeff1",
+  /** The Middle District on the federal map (D96). */
+  district: "#d6dde9",
+  /** The Middle District on the white-collar map, lighter, under... */
+  districtLight: "#e1e6ef",
+  /** ...Hillsborough County, the state court, darker. */
+  circuit: "#b4c0d5",
 };
+
+/**
+ * Counties shaded per view, D96. Statewide views only; the home maps and the
+ * circuit view shade nothing.
+ */
+const SHADES: Record<string, { counties: string[]; fill: string }[]> = {
+  district: [{ counties: middleDistrictCounties, fill: C.district }],
+  whitecollar: [
+    { counties: middleDistrictCounties, fill: C.districtLight },
+    { counties: ["Hillsborough"], fill: C.circuit },
+  ],
+};
+
+/** Views that draw every county line: the ones about counties. */
+const COUNTY_LINES = new Set(["circuit", "district", "whitecollar"]);
 
 type Pt = [number, number];
 type Ring = Pt[];
@@ -143,7 +167,7 @@ function linesOf(g: GeoJSON.Geometry): number[][][] {
 const TOL = 0.33;
 const MARGIN = 6;
 
-function areaPath(geoms: GeoJSON.Geometry[], view: MapView, minArea: number) {
+function areaPath(geoms: GeoJSON.Geometry[], view: MapView, minArea: number, tol = TOL) {
   const parts: string[] = [];
   for (const g of geoms)
     for (const poly of polygonsOf(g))
@@ -151,7 +175,7 @@ function areaPath(geoms: GeoJSON.Geometry[], view: MapView, minArea: number) {
         const projected = ring.map(([lon, lat]) => toPixel(lat, lon, view));
         const clipped = clipRing(projected, view.width, view.height, MARGIN);
         if (clipped.length < 3) continue;
-        const s = simplify([...clipped, clipped[0]], TOL).slice(0, -1);
+        const s = simplify([...clipped, clipped[0]], tol).slice(0, -1);
         if (s.length < 3 || area(s) < minArea) continue;
         parts.push(ringPath(s));
       }
@@ -210,22 +234,36 @@ for (const [name, view] of Object.entries(MAP_VIEWS)) {
   // Egmont Key and belongs on the map.
   const minArea = name === "circuit" ? 0.6 : 1.2;
 
-  const land = areaPath(near(states), view, minArea);
+  // Statewide, a unit is about 1.4 km: half a unit of tolerance is still
+  // below what the screen shows and halves the file.
+  const tol = name in SHADES ? 0.55 : TOL;
+  const land = areaPath(near(states), view, minArea, tol);
+  const nearStates = states.filter((f) => touches(f.geometry, b));
+  const neighbors = areaPath(nearStates.filter((f) => f.properties.STUSPS !== "FL").map((f) => f.geometry), view, minArea, tol);
   const lake = areaPath(near(lakes), view, 4);
-  // County lines only where the copy is about counties: the circuit view.
-  const countyLines = name === "circuit"
-    ? linePaths(near(counties).flatMap((g) => polygonsOf(g).map((p) => ({ type: "MultiLineString", coordinates: p }) as GeoJSON.Geometry)), view, TOL)
-    : "";
+  const outline = (gs: GeoJSON.Geometry[]) =>
+    gs.flatMap((g) => polygonsOf(g).map((p) => ({ type: "MultiLineString", coordinates: p }) as GeoJSON.Geometry));
+  const countyLines = COUNTY_LINES.has(name) ? linePaths(outline(near(counties)), view, tol) : "";
+  const shades = (SHADES[name] ?? []).map(({ counties: names, fill }) => {
+    const picked = counties.filter((f) => names.includes(f.properties.NAME as string));
+    const missing = names.filter((n) => !counties.some((f) => f.properties.NAME === n));
+    if (missing.length) throw new Error(`${name}: no Census county named ${missing.join(", ")}`);
+    return `<path d="${areaPath(picked.map((f) => f.geometry), view, minArea, tol)}" fill="${fill}" fill-rule="evenodd"/>`;
+  });
   const road = linePaths(near(roads), view, 0.6);
+  const statewide = name in SHADES;
 
   const { width: W, height: H } = view;
-  // No state line: the Georgia and Alabama borders sit north of every view.
+  // No state line is stroked: on the statewide views the neighbors' fill is a
+  // shade off Florida's, which draws the border without tracing the coast.
   const svg = [
     `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" preserveAspectRatio="xMidYMid slice">`,
     `<rect width="${W}" height="${H}" fill="${C.water}"/>`,
     `<path d="${land}" fill="${C.land}" fill-rule="evenodd"/>`,
-    countyLines ? `<path d="${countyLines}" fill="none" stroke="${C.countyLine}" stroke-width="1" stroke-linejoin="round"/>` : "",
-    `<path d="${road}" fill="none" stroke="${C.road}" stroke-width="${name === "circuit" ? 1.6 : 1.2}" stroke-linecap="round" stroke-linejoin="round"/>`,
+    statewide && neighbors ? `<path d="${neighbors}" fill="${C.neighbor}" fill-rule="evenodd"/>` : "",
+    ...shades,
+    countyLines ? `<path d="${countyLines}" fill="none" stroke="${statewide ? "#ffffff" : C.countyLine}" stroke-width="${statewide ? 0.7 : 1}" stroke-linejoin="round"/>` : "",
+    `<path d="${road}" fill="none" stroke="${C.road}" stroke-width="${name === "circuit" ? 1.6 : statewide ? 0.8 : 1.2}" stroke-linecap="round" stroke-linejoin="round" opacity="${statewide ? 0.7 : 1}"/>`,
     `<path d="${lake}" fill="${C.water}" fill-rule="evenodd"/>`,
     `</svg>`,
   ].join("");

@@ -3,36 +3,24 @@ import { type Silo, type SiloKey, siloTrail } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import HandledBy from "@/components/attorneys/HandledBy";
 import Needs from "@/components/Needs";
-import {
-  FederalForumMap,
-  WhiteCollarDocumentMap,
-} from "@/components/cases/illustrations/ForumMaps";
-import CircuitMap from "@/components/cases/illustrations/CircuitMap";
+import CircuitMap, { DistrictMap, WhiteCollarMap } from "@/components/cases/illustrations/CircuitMap";
 import ChargeIndex from "./ChargeIndex";
 import Byline from "./Byline";
 import CallToAction from "@/components/CallToAction";
 
 /**
- * The forum illustration for each silo.
- *
- * State and federal share one cartographic grammar: Florida and the United
- * States, same marks, different zoom. They answer the same question, which
- * court.
- *
- * White-collar deliberately does not. It is the one silo with no geography of
- * its own, and forcing it into the map system failed twice: overlaying the two
- * outlines read as a broken map, and marking one Florida for both the circuit
- * and the district is blocked on the M.D. Fla. county list AND illegible, since
- * Hillsborough is roughly 6px on a full-state map. Its section is not about
- * which court anyway; it is about records that exist before anyone knows there
- * is an investigation. So it gets its own drawing.
+ * The forum illustration for each silo: one drawn map at three framings, each
+ * answering which court (D96). White-collar used to get a document drawing
+ * because one Florida could not show both courts legibly; drawn from Census
+ * counties at a statewide zoom, Hillsborough is about 40 units across and
+ * reads fine, so it now gets the both-courts map. See CircuitMap.
  */
 const FORUM_ILLUSTRATION: Partial<
   Record<SiloKey, (props: { className?: string }) => React.ReactElement>
 > = {
   state: CircuitMap,
-  federal: FederalForumMap,
-  "white-collar": WhiteCollarDocumentMap,
+  federal: DistrictMap,
+  "white-collar": WhiteCollarMap,
 };
 
 /**
