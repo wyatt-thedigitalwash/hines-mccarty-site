@@ -76,10 +76,6 @@ export default function Locations() {
             ))}
           </ul>
 
-          <p className="mt-8 max-w-xl text-sm leading-relaxed text-navy/60">
-            These are the areas the firm practices in. The office is in{" "}
-            {primaryOffice.city}.
-          </p>
 
           {/* D89: the call button beside "Talk to the firm"; stacked and full
               width on a phone. */}

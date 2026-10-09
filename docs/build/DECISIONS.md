@@ -3207,3 +3207,9 @@ Phones keep the accordion.
 `CallToAction`, navy and light) the buttons swap: "Call (813) 738-8650" is the
 gold button and comes first; "Request a consultation" is the outlined one.
 On a phone the call is the top full-width button.
+
+### D105. No areas note under the home map list
+
+**2026-10-09. Client direction.** The line "These are the areas the firm
+practices in. The office is in Brandon." under the "Where we appear." city
+list is removed.
