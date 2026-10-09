@@ -3084,6 +3084,8 @@ watermark was small and cut off at the top, so the light cards showed only a
 sliver of the peninsula. The home card's watermark is a little larger and
 higher (360px, 420px on tablets), and `CallToAction` is sized to match it
 (400px wide, 460px on tablets, since its Census outline carries more margin
-than the home card's mask): the whole peninsula and the start of the
-panhandle along the top right, in both the navy and the light card.
+than the home card's mask), bleeding off the card's top and right edges
+(-top-14, -right-16) like the home card rather than floating inside it. A
+first pass set it lower and showed the whole state inside the card, which
+the client rejected.
 Desktop is unchanged.
