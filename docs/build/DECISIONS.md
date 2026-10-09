@@ -2989,3 +2989,13 @@ Injury, Results and Articles carry a "Call (813) 738-8650" button under the
 hero copy, the same button as the charge pages' hero (D67): full width on a
 phone, its own width from 640px. `PageHero` takes it as a `cta` prop, so a
 page without one is unchanged (About, Contact).
+
+### D87. Main page heroes the same height again
+
+**2026-10-08. Client approved.** The call button (D86) made the heroes
+uneven on desktop: 556px to 643px. `PageHero`'s content floor goes from
+380px to 467px, the tallest (Personal Injury), so Attorneys, Personal
+Injury, Results, Articles, About and Contact all measure 643px from 1024px
+up. Headings still start at the same height on every page; the shorter
+heroes take the extra room at the bottom. Criminal Defense is taller, as
+before, for its credential strip. Phones are unchanged.

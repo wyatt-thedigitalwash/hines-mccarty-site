@@ -69,7 +69,7 @@ export default function PageHero({ title, children, photo, bleed, cta }: Props) 
       className="relative isolate overflow-hidden bg-navy pt-36 lg:pt-44"
     >
       {/*
-        lg:min-h-[380px] IS WHAT MAKES EVERY HERO THE SAME HEIGHT. Measured in
+        lg:min-h-[467px] IS WHAT MAKES EVERY HERO THE SAME HEIGHT. Measured in
         the browser at 1024, 1280, 1440 and 1920, the seven heroes ran from
         457px to 567px, a 110px spread with no pattern to it beyond how much
         copy each page happened to have.
@@ -80,7 +80,12 @@ export default function PageHero({ title, children, photo, bleed, cta }: Props) 
 
         The floor is 380px of CONTENT, which is the tallest of them once the
         176px of pt-44 comes off, so nothing is squeezed and nothing is cut.
-        Every one of these pages now measures 556px. It holds at all four
+        Every one of these pages now measures 556px.
+
+        D87: RAISED TO 467px, so every hero measures 643px. The hero call
+        button (D86) took Personal Injury's content to 467px and Attorneys' to
+        437px, and About had already grown to 433px, so the heroes ran from
+        556px to 643px again. The floor is the tallest content once more. It holds at all four
         widths because max-w-4xl and max-w-2xl cap the text, so no heading
         re-wraps between 1024 and 1920 and the number cannot drift.
 
@@ -95,7 +100,7 @@ export default function PageHero({ title, children, photo, bleed, cta }: Props) 
         /criminal-defense is taller than 556 and correctly so: it carries the
         credential strip on its bottom edge, which no other hero does.
       */}
-      <div className="relative z-10 mx-auto max-w-[1400px] px-6 pb-20 lg:min-h-[380px] lg:px-10 lg:pb-24">
+      <div className="relative z-10 mx-auto max-w-[1400px] px-6 pb-20 lg:min-h-[467px] lg:px-10 lg:pb-24">
         <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
           {title}
         </h1>
