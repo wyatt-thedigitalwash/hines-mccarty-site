@@ -3089,3 +3089,11 @@ than the home card's mask), bleeding off the card's top and right edges
 first pass set it lower and showed the whole state inside the card, which
 the client rejected.
 Desktop is unchanged.
+
+### D95. A "Call" button in the phone header
+
+**2026-10-09. Client choice** among four options. Below 640px the header's
+bare phone icon, which read as one more icon beside search and menu, is a
+filled gold button with the icon and the word "Call" (navy text, named
+"Call (813) 738-8650" for screen readers). It clears the logo by 71px on a
+360px phone. From 640px the full number shows as before.
