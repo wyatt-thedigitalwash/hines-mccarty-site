@@ -3261,3 +3261,9 @@ Revised the same day (client direction): the credential strip comes before
 - After a dropdown link is used, the dropdown fades out over 200ms while
   lifting slightly toward the bar, instead of cutting out as the page changes.
 - Our Firm order: the attorneys now come before "How a case is handled here."
+
+### D110. No trial-count note on Our Firm
+
+**2026-10-12. Client direction.** The development-only "[NEEDS: firm-wide
+trial count]" note is removed from /about. The trial count itself stays off
+the site until it is substantiated; it is still on the owed-content list.

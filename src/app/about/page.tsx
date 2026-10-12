@@ -5,7 +5,6 @@ import { pageMetadata } from "@/lib/metadata";
 import PageHero from "@/components/PageHero";
 import { ABOUT_PHOTO } from "@/lib/hero-photos";
 import CredentialStrip from "@/components/CredentialStrip";
-import Needs from "@/components/Needs";
 import CallToAction from "@/components/CallToAction";
 import PracticeCards from "@/components/about/PracticeCards";
 import ProcessCards from "@/components/about/ProcessCards";
@@ -120,13 +119,6 @@ export default function AboutPage() {
                 other lawyers who send the matters they do not take themselves.
               </p>
             </div>
-            {/* D74: an internal note, shown in development only. */}
-            {process.env.NODE_ENV !== "production" ? (
-              <p className="mt-10 text-sm leading-relaxed text-navy/60">
-                <Needs>firm-wide trial count, substantiated and correctly attributed</Needs> Plan Section 5
-                and Open Question 2b. It stays off until it is verifiable.
-              </p>
-            ) : null}
           </div>
           <div className="lg:pt-2">
             <PracticeCards />
