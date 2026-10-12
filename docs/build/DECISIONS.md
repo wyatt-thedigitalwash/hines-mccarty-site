@@ -3314,3 +3314,12 @@ sentence case, no letter spacing, 15px. The all-caps, wide-tracked
 Kept as they were: the top navigation, buttons, table headers in the
 (hidden) tools, the dev-only [NEEDS] marker, and the two uppercase text links
 ("More about the firm", "All attorneys").
+
+### D115. Hours: 24/7
+
+**2026-10-12. Client direction.** The firm is available 24 hours a day, 7
+days a week. The office hours line (closing cards, contact page, office
+blocks) reads "Available 24 hours a day, 7 days a week", replacing "Monday
+to Friday, 9 AM to 5 PM"; the Tampa entry carries the same hours for when its
+address is added. The JSON-LD carries no opening hours, so nothing there
+changes.

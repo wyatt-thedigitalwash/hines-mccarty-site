@@ -95,7 +95,8 @@ export const offices: Office[] = [
     zip: "33511",
     phone: firm.phone,
     phoneHref: firm.phoneHref,
-    hours: "Monday to Friday, 9 AM to 5 PM",
+    // D115: the firm is reachable around the clock (client, 2026-10-12).
+    hours: "Available 24 hours a day, 7 days a week",
   },
   {
     key: "tampa",
@@ -103,7 +104,7 @@ export const offices: Office[] = [
     published: false,
     // [NEEDS: Tampa office address]
     // [NEEDS: Tampa office suite number]
-    // [NEEDS: Tampa office hours]
+    hours: "Available 24 hours a day, 7 days a week",
     // [NEEDS: confirm whether Tampa has a separate phone number]
     city: "Tampa",
     state: "FL",
