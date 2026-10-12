@@ -89,3 +89,12 @@ export function injuryHeroPhoto(page: InjuryPage): HeroPhoto {
     INJURY_HUB_PHOTO
   );
 }
+
+/**
+ * D112. The three criminal hubs' hero photographs, one per court. Empty until
+ * the client supplies them (search terms given 2026-10-12: the Edgecomb
+ * Courthouse for state, the Gibbons Courthouse for federal, a Tampa office
+ * tower or documents for white-collar). A hub with none renders the plain
+ * navy hero. Add a file under public/ and set `src` here; nothing else moves.
+ */
+export const SILO_HERO_PHOTOS: Partial<Record<"state" | "federal" | "white-collar", HeroPhoto>> = {};

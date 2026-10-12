@@ -3272,3 +3272,26 @@ the site until it is substantiated; it is still on the owed-content list.
 
 **2026-10-12. Client direction.** The line "30 charge pages are planned
 across the three areas above." is removed from /criminal-defense.
+
+### D112. The three criminal hubs in the site's current form
+
+**2026-10-12. Client direction** ("redo with the new branding"). The state,
+federal and white-collar hubs stay short and keep their copy; their styling
+catches up with the rest of the site:
+
+- **Hero** (`HubHero`): the main pages' hero form with the gold call button
+  (full width on a phone), the D82 "outside Hillsborough" line on state and
+  white-collar, the 380px content floor, and a photo slot,
+  `SILO_HERO_PHOTOS` in hero-photos.ts, empty until the client sends the
+  courthouse images.
+- **Charges** (`HubCharges`): the home practice card (label, one-line
+  description, arrow) in two columns with a count, replacing the dense text
+  index.
+- **Federal court facts** (`ForumFactsSection`): the last cream section on
+  the site becomes white. The five divisions are cards, Tampa's in gold and
+  marked "Hillsborough is here"; the courthouse is a navy card with its
+  details; the two offices are cards.
+- The white-collar pointer on the federal hub is one linked card.
+- The forum map section and the closing card are unchanged.
+
+`SiloHub.tsx` went from 332 lines to 179.

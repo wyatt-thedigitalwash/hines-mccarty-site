@@ -1,10 +1,11 @@
 import Link from "next/link";
-import { type Silo, type SiloKey, siloTrail } from "@/lib/site";
-import Breadcrumbs from "@/components/Breadcrumbs";
+import { type Silo, type SiloKey } from "@/lib/site";
 import HandledBy from "@/components/attorneys/HandledBy";
 import Needs from "@/components/Needs";
 import CircuitMap, { DistrictMap, WhiteCollarMap } from "@/components/cases/illustrations/CircuitMap";
-import ChargeIndex from "./ChargeIndex";
+import HubHero from "@/components/hub/HubHero";
+import HubCharges from "@/components/hub/HubCharges";
+import ForumFactsSection from "@/components/hub/ForumFactsSection";
 import Byline from "./Byline";
 import CallToAction from "@/components/CallToAction";
 
@@ -39,21 +40,10 @@ export default function SiloHub({ silo }: { silo: Silo }) {
 
   return (
     <>
-      <section data-bg="navy" className="bg-navy pt-36 pb-20 lg:pt-44 lg:pb-24">
-        <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <Breadcrumbs trail={siloTrail(silo)} />
-          <h1 className="mt-8 max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
-            {silo.h1}
-          </h1>
-          <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-linen/70">
-            {silo.intro.map((paragraph) => (
-              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* D112: the hubs in the site's current form. */}
+      <HubHero silo={silo} />
 
-      <ChargeIndex only={silo.key} heading="Charges we defend in this area" />
+      <HubCharges silo={silo.key} />
 
       <section data-bg="white" className="relative overflow-hidden bg-white py-20 text-navy lg:py-28">
         {/* D97: from lg the map fills the right half of the section, edge to
@@ -112,151 +102,7 @@ export default function SiloHub({ silo }: { silo: Silo }) {
         merits independent of the calculator ship gate. That is a standing rule
         in CASES-WE-DEFEND-PLAN.md Section 4.2.
       */}
-      {facts && (
-        <section data-bg="linen" className="bg-linen py-20 text-navy lg:py-28">
-          <div className="mx-auto max-w-[1400px] space-y-20 px-6 lg:space-y-24 lg:px-10">
-            {facts.divisions && (
-              <div>
-                <h2 className="font-display text-4xl leading-tight sm:text-5xl">
-                  {facts.divisions.heading}
-                </h2>
-                {facts.divisions.intro && (
-                  <p className="mt-6 max-w-3xl text-lg leading-relaxed text-charcoal">
-                    {facts.divisions.intro}
-                  </p>
-                )}
-                {/* No min-width here, unlike the charge-page penalties table.
-                    That one has four short columns and needs the floor. This
-                    one has two, and the second is a wrapping county list that
-                    IS the content. Forcing a min-width would push the counties
-                    off-screen at 390px and make the substance of the table
-                    reachable only by horizontal scroll. */}
-                <div className="mt-10 overflow-x-auto">
-                  <table className="w-full border-collapse text-left">
-                    <thead>
-                      <tr className="border-b border-navy/20">
-                        <th className="py-3 pr-6 font-heading text-sm font-semibold uppercase tracking-wide text-navy/70">
-                          Division
-                        </th>
-                        <th className="py-3 font-heading text-sm font-semibold uppercase tracking-wide text-navy/70">
-                          Counties
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      {facts.divisions.rows.map((row) => (
-                        <tr
-                          key={row.name}
-                          className="border-b border-navy/10 align-top"
-                        >
-                          <td className="py-4 pr-6 font-medium">
-                            <span className="whitespace-nowrap">{row.name}</span>
-                            {row.isLocal && (
-                              <span className="mt-1 block font-heading text-xs uppercase leading-snug tracking-wide text-navy/70">
-                                Hillsborough
-                              </span>
-                            )}
-                          </td>
-                          <td className="py-4 leading-relaxed text-charcoal">
-                            {row.counties}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            )}
-
-            {facts.courthouse && (
-              <div>
-                <h2 className="font-display text-4xl leading-tight sm:text-5xl">
-                  {facts.courthouse.heading}
-                </h2>
-                {facts.courthouse.body?.map((paragraph) => (
-                  <p
-                    key={paragraph.slice(0, 40)}
-                    className="mt-6 max-w-3xl text-lg leading-relaxed text-charcoal"
-                  >
-                    {paragraph}
-                  </p>
-                ))}
-                <div className="mt-10 max-w-3xl border-t-2 border-navy pt-6">
-                  <p className="font-display text-2xl leading-snug">
-                    {facts.courthouse.name}
-                  </p>
-                  <p className="mt-2 leading-relaxed text-charcoal">
-                    {facts.courthouse.address}
-                  </p>
-                  {!!facts.courthouse.rows?.length && (
-                    <dl className="mt-8 space-y-4">
-                      {facts.courthouse.rows.map((row) => (
-                        <div
-                          key={row.label}
-                          className="border-t border-navy/12 pt-4 sm:flex sm:gap-8"
-                        >
-                          <dt className="font-heading text-sm uppercase tracking-wide text-navy/70 sm:w-56 sm:shrink-0">
-                            {row.label}
-                          </dt>
-                          <dd className="mt-1 leading-relaxed text-charcoal sm:mt-0">
-                            {row.value}
-                          </dd>
-                        </div>
-                      ))}
-                    </dl>
-                  )}
-                </div>
-              </div>
-            )}
-
-            {facts.offices && (
-              <div>
-                <h2 className="font-display text-4xl leading-tight sm:text-5xl">
-                  {facts.offices.heading}
-                </h2>
-                {facts.offices.intro && (
-                  <p className="mt-6 max-w-3xl text-lg leading-relaxed text-charcoal">
-                    {facts.offices.intro}
-                  </p>
-                )}
-                <ul className="mt-10 grid gap-6 sm:grid-cols-2">
-                  {facts.offices.items.map((item) => (
-                    <li
-                      key={item.name}
-                      className="border border-navy/20 bg-white p-8"
-                    >
-                      <p className="font-heading text-sm uppercase tracking-wide text-navy/70">
-                        {item.role}
-                      </p>
-                      <p className="mt-3 font-display text-xl leading-snug">
-                        {item.name}
-                      </p>
-                      {item.note && (
-                        <p className="mt-4 leading-relaxed text-charcoal">
-                          {item.note}
-                        </p>
-                      )}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-
-            {facts.practice && (
-              <div className="max-w-3xl">
-                <h2 className="font-display text-4xl leading-tight sm:text-5xl">
-                  {facts.practice.heading}
-                </h2>
-                <div className="mt-6 space-y-5 text-lg leading-relaxed text-charcoal">
-                  {facts.practice.body.map((paragraph) => (
-                    <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-                  ))}
-                </div>
-              </div>
-            )}
-          </div>
-        </section>
-      )}
+      {facts && <ForumFactsSection facts={facts} />}
 
       {/*
         Forum-level questions. These belong on the hub, not on any one charge
@@ -302,22 +148,23 @@ export default function SiloHub({ silo }: { silo: Silo }) {
       {silo.crossSilo && (
         <section data-bg="white" className="bg-white pb-20 text-navy lg:pb-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <div className="flex flex-col gap-6 border border-navy/20 p-8 lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-10">
-              <div className="max-w-2xl">
-                <h2 className="font-display text-2xl leading-tight lg:text-3xl">
+            <Link
+              href={silo.crossSilo.href}
+              className="group flex flex-col gap-6 border border-navy/20 p-8 transition-colors hover:border-navy lg:flex-row lg:items-center lg:justify-between lg:gap-12 lg:p-10"
+            >
+              <span className="max-w-2xl">
+                <span className="block font-display text-2xl leading-tight transition-colors group-hover:text-bronze lg:text-3xl">
                   {silo.crossSilo.label}
-                </h2>
-                <p className="mt-4 leading-relaxed text-charcoal">
-                  {silo.crossSilo.note}
-                </p>
-              </div>
-              <Link
-                href={silo.crossSilo.href}
-                className="link-arrow shrink-0 text-base underline decoration-1 underline-offset-4 transition-colors hover:text-bronze"
-              >
+                </span>
+                <span className="mt-4 block leading-relaxed text-charcoal">{silo.crossSilo.note}</span>
+              </span>
+              <span className="inline-flex shrink-0 items-center gap-2 font-heading text-sm font-medium transition-colors group-hover:text-bronze">
                 View those charges
-              </Link>
-            </div>
+                <svg viewBox="0 0 16 16" className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                  <path d="M3 8h10M9 4l4 4-4 4" />
+                </svg>
+              </span>
+            </Link>
           </div>
         </section>
       )}
