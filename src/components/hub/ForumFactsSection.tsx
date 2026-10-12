@@ -12,7 +12,7 @@ import type { Silo } from "@/lib/site";
  */
 const H2 = "font-display text-4xl leading-tight sm:text-5xl";
 const LEAD = "mt-6 max-w-3xl text-lg leading-relaxed text-charcoal";
-const EYEBROW = "font-heading text-xs font-semibold uppercase tracking-[0.12em]";
+const EYEBROW = "eyebrow";
 
 export default function ForumFactsSection({ facts }: { facts: NonNullable<Silo["forumFacts"]> }) {
   return (

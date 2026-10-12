@@ -69,7 +69,7 @@ export default function GuideTemplate({ guide }: { guide: GuidePage }) {
                 would be the D24 hole in reverse. */}
             {guide.relatedLinks?.length ? (
               <div className="border-t border-navy/15 pt-8">
-                <h2 className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">
+                <h2 className="eyebrow text-navy/60">
                   Read next
                 </h2>
                 <ul className="mt-4 space-y-2">

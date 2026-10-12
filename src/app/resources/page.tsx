@@ -100,7 +100,7 @@ export default function ResourcesPage() {
             {tools.map((tool) => {
               const inner = (
                 <>
-                  <span className="font-heading text-xs font-semibold uppercase tracking-wide text-navy/70">
+                  <span className="eyebrow text-navy/70">
                     {tool.kind}
                   </span>
                   <span className="mt-4 block font-display text-2xl leading-tight">

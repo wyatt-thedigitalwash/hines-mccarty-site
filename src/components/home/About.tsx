@@ -122,7 +122,7 @@ export default function About() {
 
                 {/* No role label renders until the client confirms it, same
                     rule as the attorneys index. */}
-                <p className="mt-2 font-heading text-xs uppercase tracking-wide text-navy/70 sm:text-sm">
+                <p className="mt-2 eyebrow text-navy/70 sm:text-sm">
                   {attorney.role ?? <Needs>role and title</Needs>}
                 </p>
 

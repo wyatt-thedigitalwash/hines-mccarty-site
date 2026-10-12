@@ -44,7 +44,7 @@ export function BioHeader({ attorney }: { attorney: Attorney }) {
             {/* No role label renders until the client confirms it. For Maria
                 Pavlidis that is gated on her relationship to the firm
                 (WEBSITE-PLAN.md Open Question 2a). */}
-            <p className="mt-4 font-heading text-sm uppercase tracking-wide text-bronze">
+            <p className="mt-4 eyebrow text-bronze">
               {attorney.role ?? <Needs>role and title</Needs>}
             </p>
 

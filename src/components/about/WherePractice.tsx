@@ -29,18 +29,18 @@ export default function WherePractice() {
           <h2 className="font-display text-4xl leading-tight sm:text-5xl">Where we practice.</h2>
           <div className="mt-8 space-y-8 text-lg leading-relaxed text-charcoal">
             <div>
-              <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">State</h3>
+              <h3 className="eyebrow text-navy/60">State</h3>
               <p className="mt-3">
                 The 13th Judicial Circuit in Hillsborough County, with matters throughout Tampa Bay including
                 Pinellas, Polk, Manatee, Hernando, Sarasota, and Pasco.
               </p>
             </div>
             <div>
-              <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">Federal</h3>
+              <h3 className="eyebrow text-navy/60">Federal</h3>
               <p className="mt-3">The Middle District of Florida, including the Tampa, Orlando, and Fort Myers divisions.</p>
             </div>
             <div>
-              <h3 className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/60">Offices</h3>
+              <h3 className="eyebrow text-navy/60">Offices</h3>
               <p className="mt-3">Brandon and Tampa.</p>
             </div>
           </div>

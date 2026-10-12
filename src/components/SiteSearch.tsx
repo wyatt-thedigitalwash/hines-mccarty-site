@@ -155,7 +155,7 @@ export default function SiteSearch({ open, onNavigate }: { open: boolean; onNavi
                     onMouseEnter={() => setActive(i)}
                     className={`block px-3 py-4 transition-colors ${i === active ? "bg-white/[0.06]" : ""}`}
                   >
-                    <span className="font-heading text-xs uppercase tracking-[0.12em] text-bronze">
+                    <span className="eyebrow text-bronze">
                       {KIND_LABEL[r.kind]}
                       {r.kind !== "page" ? <span className="text-linen/70 normal-case tracking-normal"> · {r.c}</span> : null}
                     </span>

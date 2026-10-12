@@ -74,7 +74,7 @@ cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
                   {/* No role label renders until the client confirms it. For
                       Maria Pavlidis that is gated on her relationship to the
                       firm (WEBSITE-PLAN.md Open Question 2a). */}
-                  <p className="mt-2 font-heading text-sm uppercase tracking-wide text-navy/70">
+                  <p className="mt-2 eyebrow text-navy/70">
                     {attorney.role ?? <Needs>role and title</Needs>}
                   </p>
 
@@ -225,7 +225,7 @@ cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
 
           <dl className="mt-10 grid max-w-4xl gap-8 sm:grid-cols-2">
             <div>
-              <dt className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/70">
+              <dt className="eyebrow text-navy/70">
                 State
               </dt>
               <dd className="mt-3 text-lg leading-relaxed text-charcoal">
@@ -233,7 +233,7 @@ cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
               </dd>
             </div>
             <div>
-              <dt className="font-heading text-sm font-semibold uppercase tracking-wide text-navy/70">
+              <dt className="eyebrow text-navy/70">
                 Federal
               </dt>
               <dd className="mt-3 text-lg leading-relaxed text-charcoal">

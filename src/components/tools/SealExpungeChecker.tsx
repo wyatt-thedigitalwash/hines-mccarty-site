@@ -57,7 +57,7 @@ export default function SealExpungeChecker() {
     const q = questions[step];
     return (
       <div className="border border-navy/20 bg-white p-8 lg:p-10" data-checker>
-        <p className="font-heading text-xs uppercase tracking-wide text-navy/70">
+        <p className="eyebrow text-navy/70">
           {C.STEP_LABEL} {step + 1} of {questions.length}
         </p>
         <div className="mt-2 h-1 w-full bg-navy/10" aria-hidden="true">
@@ -124,7 +124,7 @@ export default function SealExpungeChecker() {
           </p>
         )}
 
-        <h3 className="mt-9 font-heading text-sm uppercase tracking-wide text-navy/70">
+        <h3 className="mt-9 eyebrow text-navy/70">
           {C.RESULT_INTRO}
         </h3>
         <ul className="mt-4 grid gap-4">
@@ -137,7 +137,7 @@ export default function SealExpungeChecker() {
             >
               <p className="flex flex-wrap items-baseline gap-x-3">
                 <span
-                  className={`font-heading text-xs uppercase tracking-wide ${
+                  className={`eyebrow ${
                     c.verdict === "met"
                       ? "text-bronze"
                       : c.verdict === "failed"
@@ -207,7 +207,7 @@ export default function SealExpungeChecker() {
 
           <div className="mt-6 grid gap-5 sm:grid-cols-2">
             <label className="block">
-              <span className="font-heading text-xs uppercase tracking-wide text-navy/60">
+              <span className="eyebrow text-navy/60">
                 Your name
               </span>
               <input
@@ -221,7 +221,7 @@ export default function SealExpungeChecker() {
               )}
             </label>
             <label className="block">
-              <span className="font-heading text-xs uppercase tracking-wide text-navy/60">
+              <span className="eyebrow text-navy/60">
                 Email
               </span>
               <input

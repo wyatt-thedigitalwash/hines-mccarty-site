@@ -113,7 +113,7 @@ export default function InjuryLegacy({ page }: { page: InjuryPage }) {
                         <span className="mt-1 block leading-relaxed text-charcoal/60">
                           {s.description}
                         </span>
-                        <span className="mt-2 inline-block font-heading text-xs uppercase tracking-wide text-navy/40">
+                        <span className="mt-2 inline-block eyebrow text-navy/40">
                           In progress
                         </span>
                       </div>

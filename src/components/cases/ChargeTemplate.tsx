@@ -257,7 +257,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                     <SectionLede section={section} />
                     {hasSectionRest(section) && (
                       <details className="group mt-8 border-t border-navy/15 pt-6">
-                        <summary className="cursor-pointer list-none font-heading text-sm font-semibold uppercase tracking-wide text-navy/60 transition-colors hover:text-bronze">
+                        <summary className="cursor-pointer list-none eyebrow text-navy/60 transition-colors hover:text-bronze">
                           <span className="group-open:hidden">
                             Read the full analysis
                           </span>
@@ -299,7 +299,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
             <Block heading="What the statute says">
               {charge.statute ? (
                 <>
-                  <p className="font-heading text-sm uppercase tracking-wide text-navy/70">
+                  <p className="eyebrow text-navy/70">
                     {charge.statute.citation}
                   </p>
                   <p className="mt-3">{charge.statute.body}</p>

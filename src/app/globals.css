@@ -111,14 +111,17 @@ h6 {
   font-family: var(--font-heading), "Helvetica Neue", Arial, sans-serif;
 }
 
-/* All-caps Lora subheader / eyebrow label, no tracking per brand spec */
+/* D114: the small label above or under a heading. Lora italic in sentence
+   case, no letter spacing: an editorial caption rather than the all-caps,
+   wide-tracked UI tag it was, which read as a template (client direction).
+   Every such label on the site uses this class. */
 .eyebrow {
   font-family: var(--font-serif), Georgia, serif;
-  text-transform: uppercase;
+  font-style: italic;
+  font-weight: 400;
   letter-spacing: 0;
-  font-weight: 600;
-  font-size: 0.8125rem;
-  line-height: 1.2;
+  font-size: 0.9375rem;
+  line-height: 1.35;
 }
 
 /* Hide the horizontal scrollbar on the tools carousel while keeping scroll */

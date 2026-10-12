@@ -3301,3 +3301,16 @@ catches up with the rest of the site:
 **2026-10-12. Client direction.** The federal hub's division cards drop their
 "Division" / "Hillsborough is here" label; Tampa's card keeps its gold border
 and tint.
+
+### D114. Labels in serif italic, not all-caps
+
+**2026-10-12. Client direction** ("so obviously AI"; chose serif italic among
+three options). Every small label on the site (card labels such as
+"Prosecution", attorney titles such as "Partner", section labels such as
+"State" and "Federal", courthouse details, footer column titles, office
+labels, search result kinds) is now the `.eyebrow` class: Lora italic,
+sentence case, no letter spacing, 15px. The all-caps, wide-tracked
+`font-heading text-xs uppercase tracking-wide` pattern is gone from labels.
+Kept as they were: the top navigation, buttons, table headers in the
+(hidden) tools, the dev-only [NEEDS] marker, and the two uppercase text links
+("More about the firm", "All attorneys").

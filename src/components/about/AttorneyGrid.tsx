@@ -40,7 +40,7 @@ export default function AttorneyGrid() {
                 <h3 className="mt-4 font-display text-xl leading-tight transition-colors group-hover:text-bronze sm:mt-6 sm:text-2xl lg:text-3xl">
                   {a.name}
                 </h3>
-                <p className="mt-2 font-heading text-xs uppercase tracking-wide text-navy/60 sm:text-sm">
+                <p className="mt-2 eyebrow text-navy/60 sm:text-sm">
                   {a.role ?? <Needs>role and title</Needs>}
                 </p>
                 <p className="mt-3 flex-1 text-sm leading-snug text-charcoal sm:mt-4">
