@@ -3267,3 +3267,8 @@ Revised the same day (client direction): the credential strip comes before
 **2026-10-12. Client direction.** The development-only "[NEEDS: firm-wide
 trial count]" note is removed from /about. The trial count itself stays off
 the site until it is substantiated; it is still on the owed-content list.
+
+### D111. No planned-pages count on Criminal Defense
+
+**2026-10-12. Client direction.** The line "30 charge pages are planned
+across the three areas above." is removed from /criminal-defense.

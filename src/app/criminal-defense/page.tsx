@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { capabilities, charges, firm } from "@/lib/site";
+import { capabilities, firm } from "@/lib/site";
 import { TOOLS_LIVE } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import CredentialStrip from "@/components/CredentialStrip";
@@ -146,10 +146,6 @@ cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
               </p>
             </div>
           </div>
-          <p className="mt-8 text-sm text-navy/70">
-            {charges.length} charge pages are planned across the three areas
-            above.
-          </p>
         </div>
       </section>
 
