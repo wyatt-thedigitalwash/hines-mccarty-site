@@ -3,7 +3,7 @@ import type { Silo } from "@/lib/site";
 /**
  * Verified court facts, on the federal hub (D112 restyle of D1's W1-01
  * section). White, in the site's card language, replacing the last cream
- * section: the five divisions as cards with Tampa's marked in gold, the
+ * section: the five divisions as cards with Tampa's in gold (no eyebrow, D113), the
  * courthouse as a card with its details, the two offices as cards, and the
  * appearance rule as prose. Renders nothing for a silo with no facts.
  *
@@ -28,10 +28,7 @@ export default function ForumFactsSection({ facts }: { facts: NonNullable<Silo["
                   key={row.name}
                   className={`flex flex-col border p-6 ${row.isLocal ? "border-bronze bg-bronze/[0.07]" : "border-navy/15"}`}
                 >
-                  <p className={`${EYEBROW} ${row.isLocal ? "text-[#8a6d2f]" : "text-navy/70"}`}>
-                    {row.isLocal ? "Hillsborough is here" : "Division"}
-                  </p>
-                  <h3 className="mt-3 font-display text-2xl leading-tight">{row.name}</h3>
+                  <h3 className="font-display text-2xl leading-tight">{row.name}</h3>
                   <p className="mt-3 text-sm leading-relaxed text-charcoal">{row.counties}</p>
                 </li>
               ))}

@@ -3295,3 +3295,9 @@ catches up with the rest of the site:
 - The forum map section and the closing card are unchanged.
 
 `SiloHub.tsx` went from 332 lines to 179.
+
+### D113. No eyebrow on the division cards
+
+**2026-10-12. Client direction.** The federal hub's division cards drop their
+"Division" / "Hillsborough is here" label; Tampa's card keeps its gold border
+and tint.
