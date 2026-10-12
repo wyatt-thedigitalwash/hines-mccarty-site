@@ -46,6 +46,15 @@ const CARDS: Card[] = [
     // which side of the firm they have landed on.
     cta: "View claim types",
   },
+  // D116. A fifth card, so it spans the row on its own (see the grid below).
+  {
+    key: "business-litigation",
+    title: "Business Litigation",
+    summary:
+      "Contract disputes, disputes between owners and partners, non-competes and trade secrets, and business fraud claims, for companies and the people who run them.",
+    href: "/business-litigation",
+    cta: "View business litigation",
+  },
 ];
 
 export default function Practices() {
@@ -60,9 +69,10 @@ export default function Practices() {
               What we handle.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-linen/70">
-              Hines McCarty Pavlidis defends people accused of crimes and represents
-              people injured by someone else, in the 13th Judicial Circuit and in
-              the Middle District of Florida, Tampa Division.
+              Hines McCarty Pavlidis defends people accused of crimes, represents
+              people injured by someone else, and litigates disputes for businesses
+              and their owners, in the 13th Judicial Circuit and in the Middle
+              District of Florida, Tampa Division.
             </p>
           </div>
           <a
@@ -79,7 +89,7 @@ export default function Practices() {
               key={card.key}
               href={card.href}
               data-practice-card={card.key}
-              className="group flex min-h-[340px] flex-col bg-white p-10 transition-colors hover:bg-linen lg:min-h-[380px] lg:p-12"
+              className="group flex min-h-[340px] flex-col bg-white p-10 transition-colors hover:bg-linen md:last:odd:col-span-2 lg:min-h-[380px] lg:p-12"
             >
               <h3 className="font-display text-3xl font-medium leading-tight text-navy lg:text-4xl">
                 {card.title}

@@ -71,7 +71,7 @@ import WherePractice from "@/components/about/WherePractice";
 export const metadata: Metadata = pageMetadata({
   title: "Our Firm | Hines McCarty Pavlidis, Brandon FL",
   description:
-    "Four attorneys in Brandon and Tampa handling criminal defense and personal injury in Hillsborough County and the Middle District of Florida.",
+    "Four attorneys in Brandon and Tampa handling criminal defense, personal injury, and business litigation in Hillsborough County and beyond.",
   path: "/about",
 });
 
@@ -82,7 +82,7 @@ const aboutJsonLd = {
   url: `${siteUrl}/about`,
   name: "Our Firm",
   description:
-    "A firm of four attorneys, each concentrating in a different area, handling criminal defense and personal injury from offices in Brandon and Tampa.",
+    "A firm of four attorneys, each concentrating in a different area, handling criminal defense, personal injury, and business litigation from offices in Brandon and Tampa.",
   mainEntity: organizationJsonLd(),
 };
 
@@ -97,7 +97,7 @@ export default function AboutPage() {
         cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
       >
         <p>
-          {`${firm.name} is four attorneys who each concentrate on a different area, practicing in the state courts of Hillsborough County and in the Middle District of Florida. The firm defends people accused of crimes and represents people injured by someone else.`}
+          {`${firm.name} is four attorneys who each concentrate on a different area, practicing in the state courts of Hillsborough County and in the Middle District of Florida. The firm defends people accused of crimes, represents people injured by someone else, and litigates disputes for businesses and their owners.`}
         </p>
       </PageHero>
 

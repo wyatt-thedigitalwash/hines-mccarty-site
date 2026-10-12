@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 /**
- * The firm's two practices as two large linked cards, beside the intro on the
+ * The firm's three practices as large linked cards, beside the intro on the
  * firm page (D108). A referring lawyer reads this page to see what the firm
  * takes; these answer that before anything else.
  */
@@ -15,6 +15,11 @@ const PRACTICES = [
     href: "/personal-injury",
     title: "Personal Injury",
     body: "Car and truck collision claims in Hillsborough County and across Tampa Bay.",
+  },
+  {
+    href: "/business-litigation",
+    title: "Business Litigation",
+    body: "Contract, ownership, non-compete, trade secret, and business fraud disputes for companies and their owners.",
   },
 ];
 

@@ -155,6 +155,7 @@ export function buildSearchIndex(): SearchEntry[] {
   }
   out.push(
     { u: "/personal-injury", t: "Personal Injury", c: "Practice area", s: "Car and truck collision claims in Hillsborough County and across Tampa Bay.", k: "injury accident hurt injured claim", kind: "page" },
+    { u: "/business-litigation", t: "Business Litigation", c: "Practice area", s: "Contract, ownership, non-compete, trade secret and business fraud disputes.", k: "business litigation lawsuit contract breach partner shareholder llc non-compete noncompete trade secret fraud fdutpa dispute company sue", kind: "page" },
     { u: "/criminal-defense", t: "Criminal Defense", c: "Practice area", s: "Every state, federal and white-collar charge the firm defends, in one list.", k: "charges list all crimes criminal defense", kind: "page" },
     { u: "/attorneys", t: "Our Attorneys", c: firm.name, s: "The four attorneys and what each one concentrates on.", k: "attorneys lawyers team who", kind: "page" },
     { u: "/about", t: "About the Firm", c: firm.name, s: "Who the firm is, where it practices, and how it works a case.", k: "about firm office brandon", kind: "page" },

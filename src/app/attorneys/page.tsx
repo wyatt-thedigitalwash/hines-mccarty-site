@@ -151,7 +151,8 @@ cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
             area to see what it covers.
           </p>
 
-          {/* D79: all four practice areas, injury included, as a 2x2 grid. */}
+          {/* D79: every practice area, two to a row; D116's fifth (business
+              litigation) spans the last row on its own. */}
           <ul className="mt-12 grid gap-6 md:grid-cols-2">
             {practiceAreaIndex.map((cap) => {
               // D74: the attorneys who handle this area's charge pages, from the
@@ -163,7 +164,7 @@ cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
                 ? led
                 : attorneys.filter((a) => a.handlesChargeHrefs?.some((h) => h.startsWith(`${cap.href}/`)));
               return (
-                <li key={cap.key} className="flex">
+                <li key={cap.key} className="flex md:last:odd:col-span-2">
                   <div className="flex h-full w-full flex-col border border-navy/20 bg-white p-8">
                     <h3 className="font-display text-2xl leading-tight">
                       <Link

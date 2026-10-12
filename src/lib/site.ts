@@ -510,16 +510,10 @@ export const attorneys: Attorney[] = [
     // [NEEDS: a full-resolution headshot for David Hines, at least 800x1000]
     portrait: "/headshots/DavidHines_Headshot.jpg",
     //
-    // SITE GAP, not a bio gap. His practice areas are given as Civil
-    // Litigation, Business Disputes, and Criminal Defense. The site has three
-    // capabilities and all three are criminal, so two of his areas have no page
-    // to link to and `practiceAreaHrefs` can only carry the third. That
-    // understates the Managing Partner's practice on his own bio.
-    // [NEEDS: decide whether civil litigation and business disputes get
-    // practice pages, or whether the firm presents as criminal-only and his bio
-    // states the civil work in prose instead]
-    // [NEEDS: which practice areas David Hines leads] (WEBSITE-PLAN.md OQ 2)
-    practiceAreaHrefs: ["/criminal-defense/state", "/criminal-defense/federal"],
+    // D116: business litigation now has a page, and the client named him and
+    // Colton Trina as the attorneys who handle it (2026-10-12).
+    practiceAreaHrefs: ["/criminal-defense/state", "/criminal-defense/federal", "/business-litigation"],
+    leadsPracticeHrefs: ["/business-litigation"],
     // D80: state and federal, on client direction.
     handlesChargeHrefs: [...STATE_CHARGE_HREFS, ...FEDERAL_CHARGE_HREFS],
     credentials: {
@@ -615,7 +609,7 @@ export const attorneys: Attorney[] = [
       while tidying a line, which is the kind of edit that is invisible until
       someone relies on it. The venue detail survives in his overview.
     */
-    concentration: "State criminal defense and personal injury",
+    concentration: "State criminal defense, personal injury, and business litigation",
     // 608x760, an exact 4:5 match. No crop.
     portrait: "/headshots/ColtonTrina_Headshot.png",
 
@@ -643,7 +637,7 @@ export const attorneys: Attorney[] = [
     // [NEEDS: decide whether personal injury is a practice the site presents]
     // -- until then his concentration line and this list stay criminal-only,
     // which is accurate but narrower than what he actually practices.
-    practiceAreaHrefs: ["/criminal-defense/state", "/personal-injury"],
+    practiceAreaHrefs: ["/criminal-defense/state", "/personal-injury", "/business-litigation"],
     // THE FIRST POPULATED `leadsPracticeHrefs` ON THIS SITE, and only for the
     // injury practice. The client answered 2026-08-26 that Colton handles all
     // personal injury work, which is exactly the claim this field makes: this
@@ -652,7 +646,7 @@ export const attorneys: Attorney[] = [
     // The criminal areas stay empty. WEBSITE-PLAN.md Open Question 2 asks which
     // attorney leads which criminal area and is still unanswered; answering one
     // practice does not answer the other.
-    leadsPracticeHrefs: ["/personal-injury"],
+    leadsPracticeHrefs: ["/personal-injury", "/business-litigation"],
     // D72: the injury pillars and spokes, for the "Who handles these cases"
     // block on each injury page (D65 mapped Colton Trina to injury).
     handlesChargeHrefs: [
@@ -2265,6 +2259,14 @@ export const practiceAreaIndex: {
     summary:
       "Collision claims in Hillsborough County and across Tampa Bay, from the insurance claim through a lawsuit if the claim does not resolve.",
   },
+  // D116: the firm's third practice, one page for now.
+  {
+    key: "business-litigation",
+    title: "Business Litigation",
+    href: "/business-litigation",
+    summary:
+      "Contract, ownership, non-compete, trade secret, and business fraud disputes for companies and their owners.",
+  },
 ];
 
 export const injuryHref = (p: InjuryPage) =>
@@ -2398,6 +2400,8 @@ export const primaryNav: NavItem[] = [
       short: injuryPillars.find((x) => injuryHref(x) === p.href)?.label,
     })),
   },
+  // D116.
+  { label: "Business Litigation", href: "/business-litigation" },
   {
     label: "Results",
     href: "/results",

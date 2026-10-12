@@ -5,7 +5,7 @@ import {
   type InjuryPage,
   type Crumb,
   type FaqItem,
-  capabilities,
+  practiceAreaIndex,
   chargeHref,
   guideHref,
   injuryHref,
@@ -282,7 +282,9 @@ export const attorneyJsonLd = (attorney: Attorney) => {
 
   const knowsAbout: string[] = [];
   for (const href of attorney.practiceAreaHrefs ?? []) {
-    const title = capabilities.find((c) => c.href === href)?.title;
+    // practiceAreaIndex, not capabilities: the latter is criminal only, so
+    // personal injury and business litigation were dropped here (D116).
+    const title = practiceAreaIndex.find((c) => c.href === href)?.title;
     if (title) knowsAbout.push(title);
   }
 

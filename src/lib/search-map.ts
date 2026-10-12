@@ -435,6 +435,15 @@ export const searchMap: SearchTarget[] = [
     note: "keywords.md covers criminal clusters only; no personal injury query recorded anywhere in briefs or keywords.md.",
   },
   {
+    href: "/business-litigation",
+    kind: "hub",
+    intent: "hire",
+    primary: null,
+    topic: "business litigation",
+    source: "none",
+    note: "D116: added 2026-10-12 on client direction; no business query researched yet in keywords.md.",
+  },
+  {
     href: "/",
     h1Tagline: true,
     kind: "home",

@@ -12,11 +12,47 @@ import type { NavItem } from "@/lib/site";
  * pointer from flashing it open or shut. A closed menu is `invisible`, so its
  * links leave the tab order.
  */
-export type DropdownItem = { label: string; href: string; divider?: boolean };
+export type DropdownItem = { label: string; href: string; divider?: boolean; head?: boolean; indent?: boolean };
 
-export function dropdownFor(item: NavItem): DropdownItem[] | null {
+/** The top bar's grouped item (D117). Not a page, so the label is a button. */
+export const PRACTICE_AREAS = "#practice-areas";
+const PRACTICE_HREFS = ["/criminal-defense", "/personal-injury", "/business-litigation"];
+
+/**
+ * The top bar's items (D117): the three practices fold into one "Practice
+ * Areas" item so the bar fits down to 1024px. The side menu and footer keep
+ * the full `primaryNav`.
+ */
+export function topBarNav(nav: NavItem[]): NavItem[] {
+  const out: NavItem[] = [];
+  for (const n of nav) {
+    if (PRACTICE_HREFS.includes(n.href)) {
+      if (!out.some((o) => o.href === PRACTICE_AREAS)) out.push({ label: "Practice Areas", href: PRACTICE_AREAS });
+    } else out.push(n);
+  }
+  return out;
+}
+
+/** True when the page is under one of the grouped practices. */
+export const inPracticeAreas = (pathname: string) =>
+  PRACTICE_HREFS.some((h) => pathname === h || pathname.startsWith(`${h}/`));
+
+function practiceAreasMenu(nav: NavItem[]): DropdownItem[] {
+  const out: DropdownItem[] = [];
+  for (const href of PRACTICE_HREFS) {
+    const n = nav.find((x) => x.href === href);
+    if (!n) continue;
+    out.push({ label: n.label, href: n.href, head: true, divider: out.length > 0 });
+    for (const c of n.children ?? []) out.push({ label: c.short ?? c.label, href: c.href, indent: true });
+  }
+  return out;
+}
+
+export function dropdownFor(item: NavItem, nav: NavItem[] = []): DropdownItem[] | null {
   const kids = item.children ?? [];
   switch (item.href) {
+    case PRACTICE_AREAS:
+      return practiceAreasMenu(nav);
     case "/attorneys":
       return [
         ...kids.filter((c) => c.href.startsWith("/attorneys/")).map((c) => ({ label: c.label, href: c.href })),
@@ -71,9 +107,11 @@ export default function NavDropdown({
               href={child.href}
               onClick={onNavigate}
               aria-current={pathname === child.href ? "page" : undefined}
-              className={`group/item flex items-center justify-between gap-6 whitespace-nowrap px-6 py-2.5 font-heading text-sm transition-colors hover:bg-white/[0.04] hover:text-bronze ${
-                child.divider || pathname === child.href ? "text-bronze" : "text-linen/80"
-              } ${child.divider ? "font-semibold" : ""}`}
+              className={`group/item flex items-center justify-between gap-6 whitespace-nowrap py-2.5 pr-6 font-heading transition-colors hover:bg-white/[0.04] hover:text-bronze ${
+                child.indent ? "pl-10 text-[0.8125rem]" : "pl-6 text-sm"
+              } ${
+                child.head ? "font-semibold text-linen" : child.divider || pathname === child.href ? "text-bronze" : "text-linen/75"
+              } ${child.divider && !child.head ? "font-semibold" : ""}`}
             >
               {child.label}
               <svg

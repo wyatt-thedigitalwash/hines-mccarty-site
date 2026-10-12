@@ -118,6 +118,7 @@ const known = new Set<string>([
   "/",
   ...silos.map((s) => s.href),
   "/personal-injury",
+  "/business-litigation", // D116
   "/criminal-defense", // the criminal defense overview, parent of the three hubs (D81)
   ...charges.map(chargeHref),
   ...guides.map(guideHref),

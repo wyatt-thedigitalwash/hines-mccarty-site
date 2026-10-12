@@ -6,16 +6,16 @@ import SiteSearch from "@/components/SiteSearch";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { firm, formatOffice, primaryNav, primaryOffice } from "@/lib/site";
-import NavDropdown, { ChevronIcon, dropdownFor } from "@/components/NavDropdown";
+import NavDropdown, { ChevronIcon, PRACTICE_AREAS, dropdownFor, inPracticeAreas, topBarNav } from "@/components/NavDropdown";
 
 /**
- * The side menu's order (D107): the two practices first, then Attorneys, then
+ * The side menu's order (D107): the three practices first, then Attorneys, then
  * the rest (client direction). The top bar keeps primaryNav's order.
  */
 const sideMenuNav = [
-  ...primaryNav.filter((n) => n.href === "/criminal-defense" || n.href === "/personal-injury"),
+  ...primaryNav.filter((n) => ["/criminal-defense", "/personal-injury", "/business-litigation"].includes(n.href)),
   ...primaryNav.filter((n) => n.href === "/attorneys"),
-  ...primaryNav.filter((n) => !["/criminal-defense", "/personal-injury", "/attorneys"].includes(n.href)),
+  ...primaryNav.filter((n) => !["/criminal-defense", "/personal-injury", "/business-litigation", "/attorneys"].includes(n.href)),
 ];
 
 export default function Header() {
@@ -104,9 +104,14 @@ export default function Header() {
 
         {/* Desktop: flat top nav. The depth lives in the side menu. */}
         <nav aria-label="Primary" className={`hidden lg:block transition-transform duration-300 ease-out motion-reduce:transition-none ${compact ? "" : "translate-y-[7px]"}`}>
-          <ul className="flex items-center gap-8">
-            {primaryNav.map((item) => {
-              const menu = dropdownFor(item);
+          <ul className="flex items-center gap-5 xl:gap-8">
+            {topBarNav(primaryNav).map((item) => {
+              const menu = dropdownFor(item, primaryNav);
+              const grouped = item.href === PRACTICE_AREAS;
+              const current = grouped ? inPracticeAreas(pathname) : isCurrent(item.href);
+              const labelClass = `inline-flex items-center gap-1.5 font-heading text-[0.9375rem] font-medium uppercase transition-colors hover:text-bronze ${
+                current ? "text-bronze" : "text-linen/80"
+              }`;
               return (
                 <li
                   key={item.href}
@@ -116,18 +121,25 @@ export default function Header() {
                   // open only while focus is inside, so drop the focus.
                   onKeyDown={menu ? (e) => { if (e.key === "Escape") (document.activeElement as HTMLElement | null)?.blur(); } : undefined}
                 >
-                  <Link
-                    href={item.href}
-                    // D109: clicking the label itself closes its dropdown too.
-                    onClick={menu ? () => { (document.activeElement as HTMLElement | null)?.blur(); setShut(item.href); } : undefined}
-                    aria-current={isCurrent(item.href) ? "page" : undefined}
-                    className={`inline-flex items-center gap-1.5 font-heading text-[0.9375rem] font-medium uppercase transition-colors hover:text-bronze ${
-                      isCurrent(item.href) ? "text-bronze" : "text-linen/80"
-                    }`}
-                  >
-                    {item.label}
-                    {menu ? <ChevronIcon /> : null}
-                  </Link>
+                  {grouped ? (
+                    /* D117: "Practice Areas" is not a page, so its label is a
+                       button: focus opens the menu like hover does. */
+                    <button type="button" aria-haspopup="true" className={`${labelClass} cursor-pointer`}>
+                      {item.label}
+                      <ChevronIcon />
+                    </button>
+                  ) : (
+                    <Link
+                      href={item.href}
+                      // D109: clicking the label itself closes its dropdown too.
+                      onClick={menu ? () => { (document.activeElement as HTMLElement | null)?.blur(); setShut(item.href); } : undefined}
+                      aria-current={current ? "page" : undefined}
+                      className={labelClass}
+                    >
+                      {item.label}
+                      {menu ? <ChevronIcon /> : null}
+                    </Link>
+                  )}
                   {menu ? (
                     <NavDropdown
                       items={menu}

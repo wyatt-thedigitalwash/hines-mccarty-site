@@ -3323,3 +3323,49 @@ blocks) reads "Available 24 hours a day, 7 days a week", replacing "Monday
 to Friday, 9 AM to 5 PM"; the Tampa entry carries the same hours for when its
 address is added. The JSON-LD carries no opening hours, so nothing there
 changes.
+
+### D116. Business litigation, the firm's third practice
+
+**2026-10-12. Client direction.** Business litigation is one of the firm's
+main services. Client choices: one page at launch (subpages later); four
+dispute types (contracts; partner, shareholder and LLC member disputes;
+non-competes and trade secrets; business fraud and unfair trade practices);
+handled by David Hines and Colton Trina.
+
+- **/business-litigation**: hero with the call button; "The disputes we
+  handle." as four cards, each with the Florida rule that most shapes it and
+  its citation; "Where a business case is heard." (the 13th Circuit's
+  Business Court under AO S-2013-021, assigned by case type with no dollar
+  threshold; circuit court over $50,000 and for injunctions; county court at
+  $50,000 or less); "What to do first."; Handled by; closing card. noindex
+  until an attorney reads it, like the other unreviewed practice pages.
+- **Verification** (2026-10-12, statute text at leg.state.fl.us and the 13th
+  Circuit's orders): 95.11(2)(b), (3)(i), (3)(j); 95.031(2)(a); 542.335;
+  the CHOICE Act, ch. 2025-213, ss. 542.41 to 542.45, effective July 1, 2025;
+  688.007; 605.04091, 605.0802; 501.211, 501.2105; 34.01; 26.012. Two
+  assumptions were wrong and were not used: the Business Court has no dollar
+  threshold, and a Florida corporate derivative suit has no strict demand
+  requirement. Points that rest on case law (the period for fiduciary duty
+  claims, FDUTPA's limitations period) are left off the page.
+- **Wiring**: primaryNav, side menu (third practice), practiceAreaIndex
+  ("Who handles what" now has five cards; the odd last one spans the row),
+  both attorneys' `practiceAreaHrefs` and `leadsPracticeHrefs`, Colton
+  Trina's concentration line, the home "What we handle." cards and intro,
+  the About practice cards and copy, the footer blurb, site search, the
+  search map. `attorneyJsonLd` now reads practiceAreaIndex, so personal
+  injury and business litigation reach `knowsAbout` (personal injury was
+  silently dropped before).
+- Not changed, for the client to decide: the home page's meta title
+  ("Criminal Defense and Personal Injury Attorneys in Tampa Bay"), the home
+  hero paragraph (D88), and `firm.tagline` on the share image.
+
+### D117. "Practice Areas" groups the practices in the top bar
+
+**2026-10-12. Client choice** (among three options). With a third practice
+the desktop bar no longer fit below 1440px and ran into the logo. The top bar
+now reads Attorneys, Practice Areas, Results, Articles, Contact Us. Practice
+Areas is a button (it is not a page) whose dropdown lists Criminal Defense
+with its three areas, Personal Injury with its two, and Business Litigation;
+it is gold on any page under them. Item spacing is tighter below 1280px. The
+side menu and footer keep every practice as its own item. Measured clearance
+from the logo: 35px at 1024, 231px at 1280.

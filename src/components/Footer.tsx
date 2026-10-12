@@ -29,8 +29,9 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-5 max-w-sm text-linen/60">
-              A Brandon firm handling serious state and federal criminal
-              charges and personal injury claims across {firm.serviceArea}.
+              A firm in Brandon and Tampa handling state and federal criminal
+              charges, personal injury claims, and business disputes across{" "}
+              {firm.serviceArea}.
             </p>
             <a
               href={firm.phoneHref}
