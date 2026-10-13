@@ -3457,3 +3457,9 @@ desktop width the wash is an even navy at 80% (the copy spans the width
 there); from desktop the left-to-right fade stays. The clip is 854px wide,
 so it is soft at full width on large screens; a 1920px export would sharpen
 it.
+
+### D124. No empty Overview on a bio
+
+**2026-10-13. Client direction.** A bio with no overview renders no Overview
+section, instead of a [NEEDS] marker. Only David Hines's lacks one, so only
+his page changes; his overview stays on the owed-content list.

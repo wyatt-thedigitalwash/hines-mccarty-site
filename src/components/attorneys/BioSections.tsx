@@ -88,6 +88,9 @@ export function BioHeader({ attorney }: { attorney: Attorney }) {
   own band rather than as something abandoned mid-page.
 */
 export function BioOverview({ attorney }: { attorney: Attorney }) {
+  // D124: no overview, no section (client direction); it used to render a
+  // [NEEDS] marker, which showed on David Hines's live bio.
+  if (!attorney.overview?.length) return null;
   return (
     <section data-bg="white" className="bg-white pb-20 text-navy lg:pb-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -95,18 +98,9 @@ export function BioOverview({ attorney }: { attorney: Attorney }) {
           Overview
         </h2>
         <div className="mt-8 max-w-3xl space-y-5 text-lg leading-relaxed text-charcoal">
-          {attorney.overview?.length ? (
-            attorney.overview.map((paragraph) => (
-              <p key={paragraph.slice(0, 40)}>{paragraph}</p>
-            ))
-          ) : (
-            <p>
-              <Needs>
-                bio overview, what this attorney handles and how they work a
-                case
-              </Needs>
-            </p>
-          )}
+          {attorney.overview.map((paragraph) => (
+            <p key={paragraph.slice(0, 40)}>{paragraph}</p>
+          ))}
         </div>
       </div>
     </section>
