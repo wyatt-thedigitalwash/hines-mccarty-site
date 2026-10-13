@@ -132,8 +132,8 @@ export default function PracticeAreas() {
     <section data-bg="white" className="bg-white py-24 text-navy lg:py-32">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         {/* Desktop: category switcher + grid of charges */}
-        <div className="hidden lg:grid lg:grid-cols-[19rem_1fr] lg:gap-16">
-          <div className="flex flex-col items-start gap-7">
+        <div className="hidden lg:grid lg:grid-cols-[21rem_1fr] lg:gap-16">
+          <div className="flex flex-col items-stretch gap-7">
             {GROUPS.map((cap) => {
               const isActive = cap.key === active;
               return (
@@ -154,7 +154,7 @@ export default function PracticeAreas() {
                     active item carries, drawn transparent and revealed on
                     hover, so hovering previews exactly what clicking does.
                   */
-                  className="group inline-flex cursor-pointer items-center gap-4 whitespace-nowrap font-display text-5xl leading-none transition-colors"
+                  className="group flex w-full cursor-pointer items-center justify-between gap-6 whitespace-nowrap font-display text-5xl leading-none transition-colors"
                 >
                   <span
                     className={`border-b-2 pb-2 transition-colors ${
@@ -165,22 +165,25 @@ export default function PracticeAreas() {
                   >
                     {cap.short}
                   </span>
-                  {/* D103: an arrow on every item says "pick me"; the active
-                      one points at the grid it opened, the others nudge
-                      toward it on hover (client direction). */}
+                  {/* D103, D120: every item carries a mark that says "pick
+                      me", all in one column at the right edge (not trailing
+                      each word, which left them ragged) and sized to the
+                      serif. The active one is an arrow pointing at the grid
+                      it opened; the others are faint chevrons that darken
+                      and nudge on hover. */}
                   <svg
-                    viewBox="0 0 16 16"
-                    className={`-mt-1 h-5 w-5 shrink-0 transition duration-150 ${
-                      isActive ? "translate-x-1 text-navy" : "text-navy/35 group-hover:translate-x-1 group-hover:text-navy"
+                    viewBox="0 0 24 24"
+                    className={`-mt-1 h-7 w-7 shrink-0 transition duration-150 ${
+                      isActive ? "text-navy" : "text-navy/30 group-hover:translate-x-1 group-hover:text-navy"
                     }`}
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1.4"
+                    strokeWidth="1.3"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     aria-hidden="true"
                   >
-                    <path d="M3 8h10M9 4l4 4-4 4" />
+                    {isActive ? <path d="M4 12h15M13 6l6 6-6 6" /> : <path d="m9 5 7 7-7 7" />}
                   </svg>
                 </button>
               );

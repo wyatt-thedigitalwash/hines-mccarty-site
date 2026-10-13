@@ -3409,3 +3409,11 @@ background light wraps the outer edge; one grain covers the whole frame.
 Maria's old light-gray background is removed from between her hair strands
 by colour (it is neutral, her hair is warm), and Colton's dark rim by pulling
 his edge in 5px. Files renamed `*_Portrait.jpg` so no cached image survives.
+
+### D120. Switcher marks in one column
+
+**2026-10-13. Client choice.** The D103 arrows trailed each word at a
+different distance and were small for the serif, which looked off. They now
+sit in one column at the right edge of a 21rem switcher, sized to the type:
+an arrow on the active item pointing at the grid, faint chevrons on the
+others that darken and nudge on hover.
