@@ -34,6 +34,14 @@ const nextConfig: NextConfig = {
       // they cannot catch the new /criminal-defense/state, /federal and
       // /white-collar routes. Redirects from the previous website are added
       // before launch (CLAUDE.md audit 6).
+      // D126: the previous website, a four-page GoDaddy site on this same
+      // domain. Its pages were About Us, Practice Areas (white-collar defense
+      // and corporate law) and Contact Us. Its own sitemaps are dropped too.
+      { source: "/about-us", destination: "/about", permanent: true },
+      { source: "/practice-areas", destination: "/criminal-defense", permanent: true },
+      { source: "/contact-us", destination: "/contact", permanent: true },
+      { source: "/sitemap.website.xml", destination: "/sitemap.xml", permanent: true },
+      { source: "/sitemap.ols.xml", destination: "/sitemap.xml", permanent: true },
       { source: "/cases-we-defend", destination: "/criminal-defense", permanent: true },
       { source: "/criminal-defense/battery-defense", destination: "/criminal-defense/state/battery", permanent: true },
       { source: "/criminal-defense/computer-crimes-defense", destination: "/criminal-defense/state/computer-crimes", permanent: true },

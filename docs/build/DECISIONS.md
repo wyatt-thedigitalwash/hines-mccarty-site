@@ -3477,3 +3477,17 @@ reversing the 2026-10-09 note in D101. Brandon is the only office (Rule
   Brandon, in Hillsborough County."; its meta description and JSON-LD, and
   the footer blurb, name Brandon only.
 - The unpublished Tampa entry in `offices` stays, marked as not an office.
+
+### D126. Old-site redirects and the disavow file
+
+**2026-10-13.** The new site launches on tampa-litigation.com, the domain the
+firm's four-page GoDaddy site uses now. That site's URLs redirect: /about-us
+to /about, /practice-areas to /criminal-defense, /contact-us to /contact, and
+its two sitemaps to /sitemap.xml. hinesmccarty.com and hines-lawfirm.com
+already 301 to tampa-litigation.com; keep both registered.
+
+The domain's 1,138 linking domains are almost all an automated "SEO checker"
+spam network. `docs/seo/disavow-tampa-litigation.txt` lists 1,134 of them for
+Search Console's disavow tool (URL-prefix property only). Kept off it: the
+Central Hillsborough Chamber listing, Juridipedia (a Facebook mirror), and
+the firm's two redirecting domains.
