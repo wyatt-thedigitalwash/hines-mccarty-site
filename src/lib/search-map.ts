@@ -85,6 +85,7 @@ export type SearchTarget = {
  */
 export const NOT_TARGETED: Record<string, string> = {
   "/contact": "Utility page. Reached from every call to action, not from search.",
+  "/hmp-tasks-k7x2": "D127: the firm's private to-do list at an unlisted address; noindex.",
   "/resources": "Index of the resources section; links to the pages that target searches.",
   "/resources/articles": "Index page; each article carries its own row.",
   "/resources/tools-and-guides": "Index page; each tool and guide carries its own row.",

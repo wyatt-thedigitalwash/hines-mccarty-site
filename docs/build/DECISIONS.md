@@ -3491,3 +3491,12 @@ spam network. `docs/seo/disavow-tampa-litigation.txt` lists 1,134 of them for
 Search Console's disavow tool (URL-prefix property only). Kept off it: the
 Central Hillsborough Chamber listing, Juridipedia (a Facebook mirror), and
 the firm's two redirecting domains.
+
+### D127. The firm's to-do list at an unlisted address
+
+**2026-10-13. Client direction.** The listings-and-links checklist (also
+published as a claude.ai artifact) is on the site at /hmp-tasks-k7x2: linked
+from nowhere, absent from the sitemap and site search, noindex and nofollow,
+and listed in `NOT_TARGETED`. Ticks are saved in each viewer's browser
+(localStorage), so progress is per device, not shared. Unlisted is not
+private: anyone given the address can read it.
