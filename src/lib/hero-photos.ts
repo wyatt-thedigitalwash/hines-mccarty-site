@@ -107,4 +107,10 @@ export const SILO_HERO_PHOTOS: Partial<Record<"state" | "federal" | "white-colla
  * MB at 1080p) and set `src`; a `poster` frame from it is worth adding too.
  * With no video the hero is the navy gradient alone.
  */
-export const HOME_HERO_VIDEO: { src?: string; poster?: string } = {};
+export const HOME_HERO_VIDEO: { src?: string; poster?: string } = {
+  // Client-supplied 2026-10-13: aerial of downtown Tampa and the waterfront,
+  // 10 s, 854x642, H.264, 5.4 MB, served from the agency's media host. The
+  // poster is its first frame.
+  src: "https://media.thedigitalwash.com/hines-mccarty/HinesLaw_Hero.m4v",
+  poster: "/backgrounds/home-hero-poster.jpg",
+};

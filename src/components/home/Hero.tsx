@@ -46,7 +46,10 @@ export default function Hero() {
           {/* Navy from the left: solid under the copy, opening toward the
               right so the footage reads as footage. A light top and bottom
               wash keeps the header and the edge clean. */}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-navy/30" />
+          {/* Below lg the copy spans the full width, so the wash is even
+              and stronger rather than opening toward the right. */}
+          <div className="absolute inset-0 bg-navy/80 lg:hidden" />
+          <div className="absolute inset-0 hidden bg-gradient-to-r from-navy via-navy/80 to-navy/30 lg:block" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy/50 via-transparent to-navy/40" />
         </div>
 

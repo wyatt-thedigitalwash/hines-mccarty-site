@@ -3444,3 +3444,16 @@ height so the descenders of the first line clear the italic second line, and
 the H1 steps up one size from 1536px. Measured space above the H1 (below the
 header) and below the button: 79/107px at 1280x720, 141/169px at 1440x900,
 192/220px at 1920x1080. Phones are unchanged.
+
+### D123. The home hero video
+
+**2026-10-13. Client-supplied.** `HOME_HERO_VIDEO` plays the agency-hosted
+clip (media.thedigitalwash.com/hines-mccarty/HinesLaw_Hero.m4v): an aerial of
+downtown Tampa and the waterfront, 10 s, 854x642, H.264, 5.4 MB, which
+Chromium plays muted and inline on desktop and phone. Its first frame is the
+poster (`public/backgrounds/home-hero-poster.jpg`, 99 KB), shown while it
+loads and kept for reduced motion. The footage is bright daytime, so below
+desktop width the wash is an even navy at 80% (the copy spans the width
+there); from desktop the left-to-right fade stays. The clip is 854px wide,
+so it is soft at full width on large screens; a 1920px export would sharpen
+it.
