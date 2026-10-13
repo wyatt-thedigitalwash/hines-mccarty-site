@@ -3500,3 +3500,14 @@ from nowhere, absent from the sitemap and site search, noindex and nofollow,
 and listed in `NOT_TARGETED`. Ticks are saved in each viewer's browser
 (localStorage), so progress is per device, not shared. Unlisted is not
 private: anyone given the address can read it.
+
+### D128. First production deploy, and no indexing on vercel.app
+
+**2026-10-13. Client direction:** push to main so the site can be shown to the
+firm. Production deploys from `main` on Vercel; the public review address is
+https://hines-mccarty-site-seven.vercel.app (the per-deployment URLs sit
+behind Vercel Authentication). No custom domain is attached and
+tampa-litigation.com still points at GoDaddy, so the live firm site is
+untouched. Every response on a `*.vercel.app` host carries
+`X-Robots-Tag: noindex, nofollow`, so the review copy is never indexed; the
+real domain is unaffected.

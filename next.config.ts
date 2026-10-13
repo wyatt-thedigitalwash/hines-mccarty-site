@@ -64,6 +64,13 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      // D128: the vercel.app addresses are for review only. Search engines
+      // must not index them; only the real domain gets indexed after launch.
+      {
+        source: "/(.*)",
+        has: [{ type: "host", value: "(?<host>.*\\.vercel\\.app)" }],
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
       {
         source: '/(.*)',
         headers: [
