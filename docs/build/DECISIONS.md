@@ -3417,3 +3417,20 @@ different distance and were small for the serif, which looked off. They now
 sit in one column at the right edge of a 21rem switcher, sized to the type:
 an arrow on the active item pointing at the grid, faint chevrons on the
 others that darken and nudge on hover.
+
+### D121. Home hero: sentence case, straight edge, ready for video
+
+**2026-10-13. Client approved.**
+- Headline in the display serif, sentence case: "Aggressive representation."
+  in linen, "Defending your future." in gold italic, replacing the all-caps
+  two-tone lines.
+- The ellipse bottom edge, the only curve on the site, is now straight.
+- Left aligned, like every other hero; the navy fade is solid under the copy
+  and opens toward the right for the footage.
+- The paragraph names all three practices (D116): state and federal
+  criminal cases, injury claims, and business disputes. Replaces D88's text.
+- The call button is full width on a phone, like every other hero.
+- Video: the old Cloudinary clip returned 401, so it is removed. The slot is
+  `HOME_HERO_VIDEO` in hero-photos.ts (`src`, optional `poster`), muted,
+  inline, looping, `preload="metadata"`, hidden for reduced motion. Empty
+  until the client's clip is ready; the hero is the navy gradient until then.

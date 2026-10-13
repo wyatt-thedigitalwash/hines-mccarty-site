@@ -98,3 +98,13 @@ export function injuryHeroPhoto(page: InjuryPage): HeroPhoto {
  * navy hero. Add a file under public/ and set `src` here; nothing else moves.
  */
 export const SILO_HERO_PHOTOS: Partial<Record<"state" | "federal" | "white-collar", HeroPhoto>> = {};
+
+/**
+ * D121. The home hero's background video, and the still that shows first and
+ * stays for anyone who has asked for reduced motion. The old Cloudinary clip
+ * returned 401 (2026-10-13), so the slot is empty until the client's new clip
+ * is ready: put an .mp4 under public/ (muted, 10 to 20 seconds, about 3 to 5
+ * MB at 1080p) and set `src`; a `poster` frame from it is worth adding too.
+ * With no video the hero is the navy gradient alone.
+ */
+export const HOME_HERO_VIDEO: { src?: string; poster?: string } = {};

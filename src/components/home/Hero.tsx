@@ -1,93 +1,72 @@
 import CredentialStrip from "@/components/CredentialStrip";
 import { firm } from "@/lib/site";
+import { HOME_HERO_VIDEO } from "@/lib/hero-photos";
 
 /**
- * Home hero.
+ * Home hero (D121).
  *
- * The video runs full bleed behind the headline rather than being silhouetted
- * into the two overlapping arches the mask used to cut. The arch treatment is
- * gone; nothing else on the site used it.
+ * STRAIGHT BOTTOM EDGE. It was an ellipse clip, the only curved edge on the
+ * site, and a curve over video cuts the footage at an odd angle.
  *
- * The bottom edge is an ellipse clip rather than a straight line, so the
- * footage sweeps into solid navy instead of stopping dead. It is a clip on the
- * media layer only, which keeps the headline and the three blocks out of it:
- * clipping the whole section would cut the text at the same curve.
+ * LEFT ALIGNED, like every other hero, so the call button sits where it does
+ * on every page and the copy reads against a solid navy fade while the video
+ * shows on the right, where nothing sits on top of it.
  *
- * Legibility comes from two stacked scrims, not from one flat overlay. A single
- * uniform wash either washes out the footage or leaves the headline sitting on
- * whatever happens to be behind it that second.
+ * THE VIDEO is optional (HOME_HERO_VIDEO). It plays muted and inline, shows
+ * its poster first, and is hidden for reduced motion, leaving the still.
  */
 export default function Hero() {
+  const video = HOME_HERO_VIDEO;
   return (
     <section data-bg="white" className="relative bg-white">
       <div className="relative">
-        {/* Media layer. Clipped, so the section's own white shows below the
-            sweep: the wedges the ellipse leaves at the bottom corners are the
-            page background, not a band of navy. The video's bottom scrim stays
-            partly navy on purpose, because the curve is only visible where dark
-            footage meets that white.
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Shows while the video loads, and for reduced motion. */}
+          <div className="absolute inset-0 bg-gradient-to-br from-navy-700 via-navy to-navy" />
+          {video.poster ? (
+            // eslint-disable-next-line @next/next/no-img-element
+            <img src={video.poster} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" />
+          ) : null}
+          {video.src ? (
+            <video
+              className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              poster={video.poster}
+              aria-hidden="true"
+              tabIndex={-1}
+            >
+              <source src={video.src} type="video/mp4" />
+            </video>
+          ) : null}
 
-            The radius is per breakpoint because the depth of the dip is set by
-            the ratio of the ellipse's x-radius to the element width, and the
-            hero is roughly twice as tall on a phone as it is wide. One radius
-            cannot serve both: at 95% the drop is 15% of the height, which is a
-            restrained sweep on a wide desktop hero and an enormous bowl on a
-            tall narrow one. Widening the radius to 150% on small screens
-            flattens it to about 6% while keeping the same curve family. */}
-        <div className="absolute inset-0 overflow-hidden [clip-path:ellipse(150%_100%_at_50%_0%)] lg:[clip-path:ellipse(95%_100%_at_50%_0%)]">
-          {/* Shows while the video loads, and stays put for anyone who has
-              asked for reduced motion. */}
-          <div className="absolute inset-0 bg-gradient-to-br from-navy-700 via-charcoal to-navy" />
-
-          <video
-            className="absolute inset-0 h-full w-full object-cover motion-reduce:hidden"
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="auto"
-            aria-hidden="true"
-            tabIndex={-1}
-          >
-            <source
-              src="https://res.cloudinary.com/dgbiatexy/video/upload/v1784816947/HinesLaw_Hero2_kqhs7w.mp4"
-              type="video/mp4"
-            />
-          </video>
-
-          {/* Horizontal scrim: heaviest under the copy, clearing toward the
-              right so the footage is still readable as footage. */}
-          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/85 to-navy/35" />
-          {/* Vertical scrim. Deliberately does NOT reach full navy at the
-              bottom: fading the footage out before the cut made the curve
-              invisible, which defeated the point of curving it. */}
-          <div className="absolute inset-0 bg-gradient-to-t from-navy/55 via-navy/15 to-navy/55" />
+          {/* Navy from the left: solid under the copy, opening toward the
+              right so the footage reads as footage. A light top and bottom
+              wash keeps the header and the edge clean. */}
+          <div className="absolute inset-0 bg-gradient-to-r from-navy via-navy/80 to-navy/30" />
+          <div className="absolute inset-0 bg-gradient-to-b from-navy/50 via-transparent to-navy/40" />
         </div>
 
-        <div className="relative mx-auto max-w-[1400px] px-6 pt-36 pb-32 lg:px-10 lg:pt-48 lg:pb-48">
+        <div className="relative mx-auto max-w-[1400px] px-6 pt-36 pb-24 lg:px-10 lg:pt-48 lg:pb-36">
           <div className="max-w-5xl">
-            {/* Two stacked lines, both left aligned. Uppercased in CSS rather
-                than in the source so the text stays readable to anything
-                reading the markup, and tracked slightly open because Cormorant
-                set in all caps at this size closes up without it.
-
-                The wrapper is max-w-5xl rather than the 3xl it was: at 3xl the
-                first line broke after "AGGRESSIVE" and the heading rendered as
-                three lines instead of two. The paragraph keeps its own narrower
-                measure, so only the heading got wider. */}
-            <h1 className="font-display text-4xl font-extrabold uppercase leading-[1.08] tracking-[0.01em] text-linen sm:text-5xl lg:text-6xl">
-              <span className="block">Aggressive Representation</span>
-              <span className="block text-bronze">Defending Your Future</span>
+            {/* Sentence case in the display serif, one weight; the second
+                line in gold italic carries the contrast the all-caps
+                two-tone used to (client choice). */}
+            <h1 className="font-display text-5xl leading-[1.05] tracking-tight text-linen sm:text-6xl lg:text-7xl">
+              <span className="block">Aggressive representation.</span>
+              <span className="block italic text-bronze">Defending your future.</span>
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/80">
-              We defend state charges in Hillsborough County and federal cases
-              in the Middle District of Florida, and we handle injury claims for
-              people hurt in collisions. Every case is prepared as if it will be
-              tried.
+              We defend state and federal criminal cases, handle injury claims for
+              people hurt in collisions, and litigate disputes for businesses and
+              their owners. Every case is prepared as if it will be tried.
             </p>
             <a
               href={firm.phoneHref}
-              className="mt-10 inline-flex items-center self-start bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
+              className="mt-10 inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
             >
               Call {firm.phone}
             </a>
