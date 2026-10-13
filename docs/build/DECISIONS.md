@@ -3463,3 +3463,17 @@ it.
 **2026-10-13. Client direction.** A bio with no overview renders no Overview
 section, instead of a [NEEDS] marker. Only David Hines's lacks one, so only
 his page changes; his overview stays on the owed-content list.
+
+### D125. No Tampa office; Tampa back to navy
+
+**2026-10-13. Client correction.** The firm does not have a Tampa office,
+reversing the 2026-10-09 note in D101. Brandon is the only office (Rule
+4-7.12: no office may be implied that is not bona fide).
+
+- Maps: Tampa's dot is navy again, like every other service area; only
+  Brandon is gold. The white-collar map marks Tampa (navy) and the Brandon
+  office (gold), instead of a gold Tampa alone.
+- Copy: the About page's "Offices: Brandon and Tampa." is now "Office:
+  Brandon, in Hillsborough County."; its meta description and JSON-LD, and
+  the footer blurb, name Brandon only.
+- The unpublished Tampa entry in `offices` stays, marked as not an office.

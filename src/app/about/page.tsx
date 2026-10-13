@@ -57,21 +57,21 @@ import WherePractice from "@/components/about/WherePractice";
  * filled navy cards; the attorneys; "Where we practice" beside the drawn map;
  * the credential strip; the standard closing card. The cream sections and the
  * repeat of the home page's core values are gone, and the copy names both
- * offices, Brandon and Tampa (D101). Each section is its own component in
+ * office, Brandon (D125; D101's Tampa office was withdrawn). Each section is its own component in
  * src/components/about/.
  *
  * COMPLIANCE RAILS, plan Section 5. About pages are where firms write what they
  * would never write on a practice page. Nothing here characterizes quality: no
  * best, expert, specialist, or leading; no case results, verdicts, or
  * settlement figures; no outcome language in the process section; no office
- * implied beyond Brandon and Tampa (Rule 4-7.12); no imported directory superlatives.
+ * implied beyond Brandon (Rule 4-7.12); no imported directory superlatives.
  * Board certifications name the certifying organisation and the area, which is
  * what Rule 4-7.14(a)(4) requires and the reason they may be stated at all.
  */
 export const metadata: Metadata = pageMetadata({
   title: "Our Firm | Hines McCarty Pavlidis, Brandon FL",
   description:
-    "Four attorneys in Brandon and Tampa handling criminal defense, personal injury, and business litigation in Hillsborough County and beyond.",
+    "Four attorneys in Brandon handling criminal defense, personal injury, and business litigation in Hillsborough County and across Tampa Bay.",
   path: "/about",
 });
 
@@ -82,7 +82,7 @@ const aboutJsonLd = {
   url: `${siteUrl}/about`,
   name: "Our Firm",
   description:
-    "A firm of four attorneys, each concentrating in a different area, handling criminal defense, personal injury, and business litigation from offices in Brandon and Tampa.",
+    "A firm of four attorneys, each concentrating in a different area, handling criminal defense, personal injury, and business litigation from its office in Brandon.",
   mainEntity: organizationJsonLd(),
 };
 

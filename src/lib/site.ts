@@ -101,11 +101,9 @@ export const offices: Office[] = [
   {
     key: "tampa",
     label: "Tampa",
+    // D125: the firm has no Tampa office (client, 2026-10-13). Kept
+    // unpublished so the structure is ready if one opens; never render it.
     published: false,
-    // [NEEDS: Tampa office address]
-    // [NEEDS: Tampa office suite number]
-    hours: "Available 24 hours a day, 7 days a week",
-    // [NEEDS: confirm whether Tampa has a separate phone number]
     city: "Tampa",
     state: "FL",
   },

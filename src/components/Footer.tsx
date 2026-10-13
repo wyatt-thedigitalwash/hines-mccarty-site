@@ -29,7 +29,7 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-5 max-w-sm text-linen/60">
-              A firm in Brandon and Tampa handling state and federal criminal
+              A Brandon firm handling state and federal criminal
               charges, personal injury claims, and business disputes across{" "}
               {firm.serviceArea}.
             </p>

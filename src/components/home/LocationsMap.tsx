@@ -16,8 +16,8 @@ import { middleDistrict } from "@/lib/middle-district";
  * Labels are SVG text in the site's own type, which a raster tile could not
  * give: crisp at any size and matching the page.
  *
- * OFFICE VERSUS SERVICE AREA. Brandon's dot is gold, and Tampa's (D101,
- * client direction); the other service areas' are navy. The reference design marks all its pins alike because all are
+ * OFFICE VERSUS SERVICE AREA. Brandon's dot is gold; the service areas',
+ * Tampa's included, are navy. The firm has one office (D125). The reference design marks all its pins alike because all are
  * offices. Ours are not, and under Rule 4-7.12 the firm may only mark an
  * office on Brandon. See the note on `serviceAreas` in site.ts.
  *
@@ -61,8 +61,6 @@ type Marker = { key: string; label: string; side: ServiceArea["side"]; xy: [numb
 
 const NAVY = "#101933";
 const GOLD = "#c5a059";
-/** D101: Tampa is gold on every map, like Brandon (client direction). */
-const isTampa = (m: Marker) => m.label === "Tampa";
 
 /** The statewide maps' key is HTML, in CircuitMap (D97), so it never crops. */
 
@@ -97,16 +95,16 @@ export default function LocationsMap({
   const inView = ([x, y]: [number, number]) => x > 50 && x < view.width - 30 && y > 60 && y < view.height - 60;
   const [ox, oy] = at(officeLatLon.lat, officeLatLon.lon);
   // The home and circuit maps mark the service areas; the federal map marks
-  // the five division seats; the white-collar map marks Tampa alone, in gold,
-  // not Brandon (client direction, D101).
+  // the five division seats; the white-collar map marks Tampa (navy) beside
+  // the Brandon office (D125).
   const tampa = middleDistrict.find((d) => d.name === "Tampa")!;
   const areas: Marker[] =
     variant === "district"
       ? middleDistrict.map((d) => ({ key: d.name, label: d.name, side: SEAT_SIDE[d.name], xy: at(d.lat, d.lon) }))
       : variant === "whitecollar"
-        ? [{ key: "tampa", label: "Tampa", side: "e", xy: at(tampa.lat, tampa.lon) }]
+        ? [{ key: "tampa", label: "Tampa", side: "w", xy: at(tampa.lat, tampa.lon) }]
         : serviceAreas.map((a) => ({ key: a.key, label: a.label, side: a.side, xy: at(a.lat, a.lon) })).filter((a) => inView(a.xy));
-  const showOffice = variant !== "whitecollar";
+  const showOffice = true;
 
   return (
     <svg
@@ -161,8 +159,7 @@ export default function LocationsMap({
 
       {areas.map((a) => {
         const [x, y] = a.xy;
-        const gold = isTampa(a);
-        return <circle key={a.key} cx={x} cy={y} r={gold ? size.disc + 0.5 : size.disc} fill={gold ? GOLD : NAVY} stroke="#ffffff" strokeWidth="2.5" />;
+        return <circle key={a.key} cx={x} cy={y} r={size.disc} fill={NAVY} stroke="#ffffff" strokeWidth="2.5" />;
       })}
 
       {/* The office: the same dot, in the firm's gold (client choice, D91).

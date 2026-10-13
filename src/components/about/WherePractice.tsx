@@ -5,8 +5,7 @@ import LocationsMap from "@/components/home/LocationsMap";
  * Florida map (D91) filling the right half from desktop width, and edge to
  * edge under the copy below that, the way the hub maps sit (D97, D99).
  *
- * The offices line names Brandon and Tampa: the client confirmed the Tampa
- * office (D101). Its street address is still owed, so no address shows here.
+ * The office line names Brandon only: the firm has no Tampa office (D125).
  */
 const fade = (mask: string) => ({ WebkitMaskImage: mask, maskImage: mask, WebkitMaskComposite: "source-in", maskComposite: "intersect" }) as const;
 const PANEL = fade("linear-gradient(to right, transparent, black 22%), linear-gradient(to bottom, transparent, black 10%, black 90%, transparent)");
@@ -40,8 +39,8 @@ export default function WherePractice() {
               <p className="mt-3">The Middle District of Florida, including the Tampa, Orlando, and Fort Myers divisions.</p>
             </div>
             <div>
-              <h3 className="eyebrow text-navy/60">Offices</h3>
-              <p className="mt-3">Brandon and Tampa.</p>
+              <h3 className="eyebrow text-navy/60">Office</h3>
+              <p className="mt-3">Brandon, in Hillsborough County.</p>
             </div>
           </div>
         </div>
