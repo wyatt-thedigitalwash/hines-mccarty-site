@@ -3392,3 +3392,20 @@ one set.
 - Lily's and Colton's sources are small (512 and 608px wide), so their
   re-crops are upscaled; they read fine at card and bio size. Higher
   resolution originals would sharpen them.
+
+### D119. Cleaner headshot edges
+
+**2026-10-13. Client report:** the D118 cutouts looked obviously cut out.
+Causes: the person mask was made at low resolution and scaled up, so edges
+stair-stepped; edge pixels kept the old background (a gray haze on Maria, a
+dark outline on Colton from an earlier cutout of his photo); and the person
+sat on the new background with no light or texture in common.
+
+Redone (`scripts/headshots/`): the crop is scaled to 960x1200 first and the
+mask made at that size with Apple's subject cutout; the matte is refined
+with a guided filter so it follows the photo's own edges and keeps hair
+strands; edge colour comes from just inside the person; a little blurred
+background light wraps the outer edge; one grain covers the whole frame.
+Maria's old light-gray background is removed from between her hair strands
+by colour (it is neutral, her hair is warm), and Colton's dark rim by pulling
+his edge in 5px. Files renamed `*_Portrait.jpg` so no cached image survives.
