@@ -50,12 +50,15 @@ export default function Hero() {
           <div className="absolute inset-0 bg-gradient-to-b from-navy/50 via-transparent to-navy/40" />
         </div>
 
-        <div className="relative mx-auto max-w-[1400px] px-6 pt-36 pb-24 lg:px-10 lg:pt-48 lg:pb-36">
+        {/* D122: from lg the hero is most of the screen (85vh, with a floor
+            so a short laptop window still fits the copy) and the copy is
+            centred in it, clear of the header, to give the video room. */}
+        <div className="relative mx-auto flex max-w-[1400px] flex-col justify-center px-6 pt-36 pb-24 lg:min-h-[max(85vh,640px)] lg:px-10 lg:pt-32 lg:pb-20">
           <div className="max-w-5xl">
             {/* Sentence case in the display serif, one weight; the second
                 line in gold italic carries the contrast the all-caps
                 two-tone used to (client choice). */}
-            <h1 className="font-display text-5xl leading-[1.05] tracking-tight text-linen sm:text-6xl lg:text-7xl">
+            <h1 className="font-display text-5xl leading-[1.1] tracking-tight text-linen sm:text-6xl lg:text-7xl 2xl:text-8xl">
               <span className="block">Aggressive representation.</span>
               <span className="block italic text-bronze">Defending your future.</span>
             </h1>

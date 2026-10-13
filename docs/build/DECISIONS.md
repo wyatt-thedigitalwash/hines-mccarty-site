@@ -3434,3 +3434,13 @@ others that darken and nudge on hover.
   `HOME_HERO_VIDEO` in hero-photos.ts (`src`, optional `poster`), muted,
   inline, looping, `preload="metadata"`, hidden for reduced motion. Empty
   until the client's clip is ready; the hero is the navy gradient until then.
+
+### D122. Home hero proportions
+
+**2026-10-13. Client approved.** From desktop width the home hero is 85% of
+the screen height (at least 640px) with the copy centred vertically, clear of
+the header, to give the coming video room. The H1's lines get 1.1 line
+height so the descenders of the first line clear the italic second line, and
+the H1 steps up one size from 1536px. Measured space above the H1 (below the
+header) and below the button: 79/107px at 1280x720, 141/169px at 1440x900,
+192/220px at 1920x1080. Phones are unchanged.
