@@ -310,8 +310,8 @@ export const attorneys: Attorney[] = [
   {
     slug: "lily-mccarty",
     name: "Lily McCarty",
-    // 512x760 against a 4:5 card. See portraitPosition on the type.
-    portraitPosition: "center top",
+    // D118: re-cropped to 4:5 on the shared navy background, so no position
+    // override is needed any more.
     // Confirmed: overview, practice areas, bar admission, courts, education,
     // prior roles, and memberships are all client-supplied, so nothing renders
     // as scaffolding. The portrait is still missing and renders a monogram,
@@ -322,7 +322,7 @@ export const attorneys: Attorney[] = [
     // 512x760, a 0.67 ratio against the 4:5 frame, so object-cover crops the
     // sides rather than letterboxing. Fine at this size, but it is the tighter
     // of the four crops.
-    portrait: "/headshots/LilyMcCarty_Headshot.png",
+    portrait: "/headshots/LilyMcCarty_Headshot_navy.jpg",
     //
     // CONFLICT, unresolved. The client bio opens "Lily McCarty is in private
     // practice at the Law Office of Lily McCarty," which does not square with
@@ -406,7 +406,7 @@ export const attorneys: Attorney[] = [
     role: "Partner",
     concentration: "State and federal criminal defense",
     // 1200x1500, an exact 4:5 match and the largest of the four. No crop.
-    portrait: "/headshots/MariaPavlidis_Headshot.jpg",
+    portrait: "/headshots/MariaPavlidis_Headshot_navy.jpg",
     //
     // ---------------------------------------------------------------------
     // The client bio for Maria Pavlidis is the longest supplied and mostly
@@ -611,7 +611,7 @@ export const attorneys: Attorney[] = [
     */
     concentration: "State criminal defense, personal injury, and business litigation",
     // 608x760, an exact 4:5 match. No crop.
-    portrait: "/headshots/ColtonTrina_Headshot.png",
+    portrait: "/headshots/ColtonTrina_Headshot_navy.jpg",
 
     // Every sentence below traces to a client-verified fact. Nothing about
     // volume, tenure in private practice, or skill.

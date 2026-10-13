@@ -3369,3 +3369,26 @@ with its three areas, Personal Injury with its two, and Business Litigation;
 it is gold on any page under them. Item spacing is tighter below 1280px. The
 side menu and footer keep every practice as its own item. Measured clearance
 from the logo: 35px at 1024, 231px at 1280.
+
+### D118. One background for every headshot
+
+**2026-10-13. Client direction.** Lily McCarty, Maria Pavlidis and Colton
+Trina's portraits are put on a background recreated from David Hines's (navy
+blue, darker at the top, slightly darker at the sides), so the four read as
+one set.
+
+- The person is cut out with Apple's Vision person segmentation, run
+  locally; the old background is subtracted from the edge pixels so hair
+  carries no light rim; Colton's source, already cut out onto white, has its
+  speckled rim removed.
+- Lily and Colton were three-quarter length with a chair and their hands in
+  front, which cannot survive a cutout cleanly. Both are re-cropped to David's
+  head-and-shoulders framing (head about 10% from the top). Maria's photo was
+  already a close crop with her shoulders at the frame's edges, so it keeps
+  its framing.
+- New files: `public/headshots/*_Headshot_navy.jpg`, 960x1200 (4:5). The
+  originals stay beside them. Lily's `portraitPosition` override is removed.
+  The scripts are in `scripts/headshots/` (not part of the build).
+- Lily's and Colton's sources are small (512 and 608px wide), so their
+  re-crops are upscaled; they read fine at card and bio size. Higher
+  resolution originals would sharpen them.
