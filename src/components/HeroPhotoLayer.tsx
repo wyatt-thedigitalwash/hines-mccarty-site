@@ -65,7 +65,7 @@ export default function HeroPhotoLayer({ photo }: { photo?: HeroPhoto }) {
           bright sky made the phone number and icons hard to read. A navy wash
           down the top edge gives the header the same ground as a plain navy
           hero, fading out before the subject of the photo. */}
-      <div className="absolute inset-x-0 top-0 hidden h-40 bg-gradient-to-b from-navy/90 via-navy/50 to-transparent lg:block" />
+      <div className="absolute inset-x-0 top-0 hidden h-48 bg-gradient-to-b from-navy via-navy/80 to-transparent lg:block" />
     </div>
   );
 }

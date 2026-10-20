@@ -56,7 +56,11 @@ export default function Header() {
   const compact = scrolled || menuOpen;
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-bronze/60 bg-navy">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
+        scrolled || menuOpen ? "bg-navy" : "bg-transparent"
+      }`}
+    >
       {/*
         FULL BLEED, unlike the page content below it.
 
@@ -80,12 +84,9 @@ export default function Header() {
           while the names fade (Logo). One element, one transform. The menu
           and icons sit 7px lower at the top of the page and settle into
           place with the logo, a small follow-through the owner asked for. */}
-      {/* D129: THE HEADER IS SOLID NAVY on every page, with a gold rule on its
-          bottom edge (client: separate the header from the page; the video
-          was swallowing it). At the top of the page the bar is tall enough
-          to hold the full logo; on scroll the spacer below the controls
-          collapses to the slim bar. The controls row keeps one height, so the
-          menu does not move. */}
+      {/* D133: see-through at the top of the page, navy once scrolled, no
+          rule (client reversed D129's solid bar). The heroes darken their top
+          strip instead, so the nav stays readable over video and photos. */}
       <div className="relative flex h-[68px] w-full items-center justify-end gap-4 px-6 sm:h-[76px] lg:px-10">
         <Link
               href="/"
@@ -112,7 +113,7 @@ export default function Header() {
               const grouped = item.href === PRACTICE_AREAS;
               const current = grouped ? inPracticeAreas(pathname) : isCurrent(item.href);
               const labelClass = `inline-flex items-center gap-1.5 font-heading text-[0.8125rem] font-medium uppercase xl:text-[0.9375rem] transition-colors hover:text-bronze ${
-                current ? "text-bronze" : "text-linen/80"
+                current ? "text-bronze" : "text-white"
               }`;
               return (
                 <li
@@ -147,7 +148,6 @@ export default function Header() {
                       items={menu}
                       pathname={pathname}
                       closed={shut === item.href}
-                      tall={!compact}
                       onNavigate={() => {
                         // Drop focus too, or focus-within would keep it open.
                         (document.activeElement as HTMLElement | null)?.blur();
@@ -175,7 +175,7 @@ export default function Header() {
                 type="button"
                 onClick={() => setSearchOpen(true)}
                 aria-label="Open search"
-                className="text-linen/80 transition-colors hover:text-bronze"
+                className="text-white transition-colors hover:text-bronze"
               >
                 <SearchIcon />
               </button>
@@ -185,7 +185,7 @@ export default function Header() {
                 aria-label="Open menu"
                 aria-expanded={menuOpen}
                 aria-controls="site-menu"
-                className="text-linen/80 transition-colors hover:text-bronze"
+                className="text-white transition-colors hover:text-bronze"
               >
                 <MenuIcon />
               </button>
@@ -219,7 +219,7 @@ export default function Header() {
             type="button"
             onClick={() => setSearchOpen(true)}
             aria-label="Open search"
-            className="text-linen/80"
+            className="text-white"
           >
             <SearchIcon />
           </button>
@@ -229,16 +229,12 @@ export default function Header() {
             aria-label="Open menu"
             aria-expanded={menuOpen}
             aria-controls="site-menu"
-            className="text-linen/80"
+            className="text-white"
           >
             <MenuIcon />
           </button>
         </div>
       </div>
-      <div
-        aria-hidden="true"
-        className={`transition-[height] duration-300 ease-out motion-reduce:transition-none ${compact ? "h-0" : "h-7 lg:h-[52px]"}`}
-      />
 
       {/*
         Slide-in site menu. This is where the site's depth lives: every top-level

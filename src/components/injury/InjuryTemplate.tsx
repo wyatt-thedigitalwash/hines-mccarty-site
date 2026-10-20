@@ -67,7 +67,7 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
           <section
             data-bg="navy"
             data-hero
-            className="relative isolate overflow-hidden bg-navy pt-36 pb-12 lg:pt-44 lg:pb-20"
+            className="relative isolate overflow-hidden bg-navy pt-28 pb-12 lg:pt-44 lg:pb-20"
           >
             {/* D132: the contact form on the right from lg, over the photo. */}
             <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-[1fr_400px] lg:items-start lg:gap-16 lg:px-10">
@@ -106,7 +106,7 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
       {/* The charge pages' hero (D77, client direction: no photo on the
           spokes): breadcrumbs, H1, lead, the call button, and the jump
           links as the band that closes it (D52). */}
-      <section data-bg="navy" className={`bg-navy pt-36 lg:pt-44 ${quickNav.length > 1 ? "" : "pb-10 lg:pb-16"}`}>
+      <section data-bg="navy" className={`bg-navy pt-28 lg:pt-44 ${quickNav.length > 1 ? "" : "pb-10 lg:pb-16"}`}>
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Breadcrumbs trail={injuryTrail(page)} tone="dark" />
           <h1 className={`mt-6 max-w-4xl ${type.pageTitle} ${color.onDarkHeading}`}>{page.title}</h1>

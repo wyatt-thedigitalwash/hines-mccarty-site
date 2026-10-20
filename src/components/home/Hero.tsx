@@ -51,12 +51,15 @@ export default function Hero() {
           <div className="absolute inset-0 bg-navy/80 lg:hidden" />
           <div className="absolute inset-0 hidden bg-gradient-to-r from-navy via-navy/80 to-navy/30 lg:block" />
           <div className="absolute inset-0 bg-gradient-to-b from-navy/50 via-transparent to-navy/40" />
+          {/* D133: a solid navy band behind the see-through header, fading
+              out below it, so the nav never sits on bright footage. */}
+          <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-navy via-navy/85 to-transparent lg:h-56" />
         </div>
 
         {/* D122: from lg the hero is most of the screen (85vh, with a floor
             so a short laptop window still fits the copy) and the copy is
             centred in it, clear of the header, to give the video room. */}
-        <div className="relative mx-auto flex max-w-[1400px] flex-col justify-center px-6 pt-36 pb-24 lg:min-h-[max(85vh,680px)] lg:px-10 lg:pt-44 lg:pb-20">
+        <div className="relative mx-auto flex max-w-[1400px] flex-col justify-center px-6 pt-36 pb-24 lg:min-h-[max(85vh,640px)] lg:px-10 lg:pt-32 lg:pb-20">
           <div className="max-w-5xl">
             {/* Sentence case in the display serif, one weight; the second
                 line in gold italic carries the contrast the all-caps

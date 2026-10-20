@@ -97,16 +97,12 @@ export default function NavDropdown({
   items,
   pathname,
   closed = false,
-  tall = false,
   onNavigate,
 }: {
   items: DropdownItem[];
   pathname: string;
   /** Held shut after a link in it was used, until the pointer leaves (D107). */
   closed?: boolean;
-  /** The header is in its tall, top-of-page state (D129): hang lower so the
-   *  panel still meets the bar's bottom edge. */
-  tall?: boolean;
   onNavigate?: () => void;
 }) {
   return (
@@ -118,7 +114,7 @@ export default function NavDropdown({
        attached to the bar. The open delay keeps a passing pointer from
        triggering it; the close delay forgives a pointer that slips off. */
     <div
-      className={`${closed ? "!invisible !opacity-0 !delay-0 !duration-200 !ease-out" : ""} invisible absolute -left-6 top-full z-10 ${tall ? "pt-[71px]" : "pt-[26px]"} opacity-0 transition-[opacity,visibility] delay-100 duration-[120ms] ease-in group-hover:visible group-hover:opacity-100 group-hover:delay-[60ms] group-hover:duration-200 group-hover:ease-out group-focus-within:visible group-focus-within:opacity-100 group-focus-within:delay-0 group-focus-within:duration-200 motion-reduce:transition-none`}
+      className={`${closed ? "!invisible !opacity-0 !delay-0 !duration-200 !ease-out" : ""} invisible absolute -left-6 top-full z-10 pt-[26px] opacity-0 transition-[opacity,visibility] delay-100 duration-[120ms] ease-in group-hover:visible group-hover:opacity-100 group-hover:delay-[60ms] group-hover:duration-200 group-hover:ease-out group-focus-within:visible group-focus-within:opacity-100 group-focus-within:delay-0 group-focus-within:duration-200 motion-reduce:transition-none`}
     >
       {/* After a link in it is used (closed), it lifts back toward the bar as
           it fades, over 200ms, rather than cutting out as the page changes. */}

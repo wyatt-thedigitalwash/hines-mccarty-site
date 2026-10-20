@@ -3563,3 +3563,14 @@ fill-time and rate checks) and the email names the page it came from. The
 Rule 4-1.18 notice sits above the message field and asks for a brief note,
 details by phone. It sends only once RESEND_API_KEY, CONTACT_FROM_EMAIL and
 CONTACT_TO_EMAIL are set in Vercel; until then it tells the visitor to call.
+
+### D133. See-through header again; white menu items
+
+**2026-10-20. Client direction.** D129's solid navy bar and gold rule are
+withdrawn: the header is see-through at the top of the page and navy once
+scrolled, with no rule, and the logo hangs below the bar as in D85. The menu
+items and icons are white (were 80% linen) so they stand out; the white call
+button stays. To keep the nav readable over footage, the home video carries a
+solid navy band at its top fading out by 192px (224px from desktop), and the
+hero photos' top wash (D85) is now solid navy fading over 192px. Hero spacing
+returns to D122 (home) and pt-28 on phones. The footer keeps its gold rule.

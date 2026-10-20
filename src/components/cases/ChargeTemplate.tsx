@@ -89,7 +89,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
       {charge.heroCta ? (
         <section
           data-bg="navy"
-          className={`bg-navy pt-36 lg:pt-44 ${quickNav.length ? "" : "pb-10 lg:pb-16"}`}
+          className={`bg-navy pt-28 lg:pt-44 ${quickNav.length ? "" : "pb-10 lg:pb-16"}`}
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Breadcrumbs trail={chargeTrail(charge)} />
