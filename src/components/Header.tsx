@@ -164,7 +164,7 @@ export default function Header() {
                   xl, where the bar has room for it. */}
               <a
                 href={firm.phoneHref}
-                className="flex flex-col items-center bg-linen px-4 py-2 text-navy transition-colors hover:bg-white"
+                className="flex flex-col items-center bg-white px-4 py-2 text-navy transition-colors hover:bg-linen"
               >
                 <span className="font-heading text-[0.9375rem] font-semibold leading-tight tabular-nums">{firm.phone}</span>
                 <span className="hidden font-heading text-[0.6875rem] font-medium leading-tight text-navy/70 xl:block">

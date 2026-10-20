@@ -109,8 +109,10 @@ export const SILO_HERO_PHOTOS: Partial<Record<"state" | "federal" | "white-colla
  */
 export const HOME_HERO_VIDEO: { src?: string; poster?: string } = {
   // Client-supplied 2026-10-13: aerial of downtown Tampa and the waterfront,
-  // 10 s, 854x642, H.264, 5.4 MB, served from the agency's media host. The
-  // poster is its first frame.
-  src: "https://media.thedigitalwash.com/hines-mccarty/HinesLaw_Hero.m4v",
+  // 10 s, 854x642. D134: served from the site itself (Vercel's CDN),
+  // re-encoded to 1.5 MB with the index at the front so it starts at once;
+  // the agency's media host delivered it at about 15 KB/s, which kept it
+  // from ever playing. The poster is its first frame.
+  src: "/videos/home-hero.mp4",
   poster: "/backgrounds/home-hero-poster.jpg",
 };

@@ -3574,3 +3574,14 @@ button stays. To keep the nav readable over footage, the home video carries a
 solid navy band at its top fading out by 192px (224px from desktop), and the
 hero photos' top wash (D85) is now solid navy fading over 192px. Hero spacing
 returns to D122 (home) and pt-28 on phones. The footer keeps its gold rule.
+
+### D134. The hero video is served from the site
+
+**2026-10-20.** The agency media host delivered the hero clip at about 15 KB/s
+(5.6 MB, roughly six minutes), so visitors never saw it play and page-load
+tests timed out. The full 10-second clip is re-encoded to H.264, 1.5 MB, with
+the index at the front (`-movflags +faststart`), and served from
+`public/videos/home-hero.mp4` on Vercel's CDN. The header call button keeps
+no border (a gold border was tried and reverted, client direction), and the
+gold buttons keep navy text: white on that gold measured 2.5:1, under the
+4.5:1 minimum.
