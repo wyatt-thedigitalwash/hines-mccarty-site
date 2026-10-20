@@ -3591,3 +3591,7 @@ gold buttons keep navy text: white on that gold measured 2.5:1, under the
 **2026-10-20. Client direction.** On every hero (home, the main pages, the
 criminal hubs, the injury pages, the charge pages) the line sits to the right
 of the call button, and under it, left-aligned, on a phone.
+On a phone the line is centred under the full-width button (client
+direction). The hero form's notice is shortened to "This does not create an
+attorney-client relationship. Please don't include confidential details." It
+stays above the message field (Rule 4-1.18, see D132).

@@ -81,7 +81,7 @@ export default function Hero() {
               >
                 Call {firm.phone}
               </a>
-              <p className="font-heading text-sm font-medium text-linen/80">Available 24/7 · Free consultation</p>
+              <p className="text-center font-heading text-sm font-medium text-linen/80 sm:text-left">Available 24/7 · Free consultation</p>
             </div>
           </div>
         </div>

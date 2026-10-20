@@ -130,7 +130,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                 {charge.heroCta.label}
               </a>
               {/* D135: availability beside the button; under it on a phone. */}
-              <p className="font-heading text-sm font-medium text-linen/80">Available 24/7 · Free consultation</p>
+              <p className="text-center font-heading text-sm font-medium text-linen/80 sm:text-left">Available 24/7 · Free consultation</p>
             </div>
             {/* D82: the pages are written for Tampa Bay, where the firm's one
                 office is and where it ranks; this tells a reader elsewhere in

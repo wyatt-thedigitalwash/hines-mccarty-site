@@ -85,7 +85,7 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
                   {cta.label}
                 </a>
                 {/* D135: availability beside the button; under it on a phone. */}
-                <p className="font-heading text-sm font-medium text-linen/80">Available 24/7 · Free consultation</p>
+                <p className="text-center font-heading text-sm font-medium text-linen/80 sm:text-left">Available 24/7 · Free consultation</p>
               </div>
               <p className={`mt-5 max-w-xl ${type.small} ${color.onDarkMuted}`}>{ELSEWHERE}</p>
               </div>
@@ -123,7 +123,7 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
               {cta.label}
             </a>
             {/* D135: availability beside the button; under it on a phone. */}
-            <p className="font-heading text-sm font-medium text-linen/80">Available 24/7 · Free consultation</p>
+            <p className="text-center font-heading text-sm font-medium text-linen/80 sm:text-left">Available 24/7 · Free consultation</p>
           </div>
           <p className={`mt-5 max-w-2xl ${type.small} ${color.onDarkMuted}`}>{ELSEWHERE}</p>
         </div>

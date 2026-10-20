@@ -36,7 +36,7 @@ export default function HubHero({ silo }: { silo: Silo }) {
             Call {firm.phone}
           </a>
           {/* D135: availability beside the button; under it on a phone. */}
-          <p className="font-heading text-sm font-medium text-linen/80">Available 24/7 · Free consultation</p>
+          <p className="text-center font-heading text-sm font-medium text-linen/80 sm:text-left">Available 24/7 · Free consultation</p>
         </div>
         {silo.key !== "federal" ? (
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-linen/60">

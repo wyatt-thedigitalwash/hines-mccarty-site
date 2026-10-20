@@ -71,8 +71,7 @@ export default function HeroContactForm({ source }: { source: string }) {
           </div>
         </div>
         <p className="text-xs leading-relaxed text-navy/70">
-          Sending this does not create an attorney-client relationship and is not privileged. Keep it brief; we will
-          get the details by phone.
+          This does not create an attorney-client relationship. Please don&apos;t include confidential details.
         </p>
         <div>
           <label htmlFor="hf-note" className={label}>Briefly, what happened?</label>
