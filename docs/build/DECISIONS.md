@@ -3600,3 +3600,9 @@ stays above the message field (Rule 4-1.18, see D132).
 
 **2026-10-20. Client direction.** The home hero's call button is white with
 navy text (hover: linen), matching the header button. Other heroes keep gold.
+
+### D137. Outlined header call button
+
+**2026-10-20. Client direction.** The header's call button is outlined: a
+white border with white text on the header, filling white with navy text on
+hover.

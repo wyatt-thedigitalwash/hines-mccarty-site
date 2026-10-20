@@ -159,15 +159,15 @@ export default function Header() {
               );
             })}
             <li className="flex items-center gap-4 pl-1 xl:gap-5">
-              {/* D129: a white call button (client direction), the number in
+              {/* D129, D137: an outlined white call button (client direction), the number in
                   the sans so its figures line up; the 24/7 line shows from
                   xl, where the bar has room for it. */}
               <a
                 href={firm.phoneHref}
-                className="flex flex-col items-center bg-white px-4 py-2 text-navy transition-colors hover:bg-linen"
+                className="group/call flex flex-col items-center border border-white px-4 py-2 text-white transition-colors hover:bg-white hover:text-navy"
               >
                 <span className="font-heading text-[0.9375rem] font-semibold leading-tight tabular-nums">{firm.phone}</span>
-                <span className="hidden font-heading text-[0.6875rem] font-medium leading-tight text-navy/70 xl:block">
+                <span className="hidden font-heading text-[0.6875rem] font-medium leading-tight text-white/80 group-hover/call:text-navy/70 xl:block">
                   Available 24/7 · Free consultation
                 </span>
               </a>
