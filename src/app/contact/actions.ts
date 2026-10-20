@@ -6,6 +6,7 @@ import { firm } from "@/lib/site";
 import { contactDelivery } from "@/lib/contact-delivery";
 import { checkBotId } from "botid/server";
 import { isRepeat, remember, spamReason } from "@/lib/spam";
+import { inquiryHtml, inquirySubject, inquiryText } from "@/lib/inquiry-email";
 
 /**
  * Contact form submission.
@@ -163,26 +164,16 @@ export async function submitContact(
 
   try {
     const resend = new Resend(delivery.apiKey);
+    const inquiry = { name, phone, email, note, source };
     // D139: from the verified sending domain, to every inbox on the list,
     // with Reply-To set to the visitor so "Reply" reaches them directly.
     const { error } = await resend.emails.send({
       from: delivery.from,
       to: delivery.to,
       replyTo: email || undefined,
-      subject: `New website inquiry from ${name}${source ? ` (${source})` : ""}`,
-      text: [
-        "A new inquiry came in through the website.",
-        "",
-        `Name:  ${name}`,
-        `Phone: ${phone}`,
-        `Email: ${email || "not given"}`,
-        ...(source ? [`Page:  ${source}`] : []),
-        "",
-        "Message:",
-        note || "(none)",
-        "",
-        email ? "Reply to this email to answer them directly." : "No email given; call them back.",
-      ].join("\n"),
+      subject: inquirySubject(inquiry),
+      html: inquiryHtml(inquiry),
+      text: inquiryText(inquiry),
     });
 
     if (error) throw new Error(error.message);

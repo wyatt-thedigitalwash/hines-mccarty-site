@@ -3646,3 +3646,13 @@ text, like the desktop button (D137), filling white on tap.
 - AI crawlers (GPTBot, ClaudeBot and the like) are not blocked in robots.txt:
   they read pages, they do not fill forms, and being cited by AI answers is
   wanted.
+
+### D140. A readable inquiry email
+
+**2026-10-20. Client direction.** Inquiries arrive as an HTML email
+(`src/lib/inquiry-email.ts`) with the plain-text version as the fallback: a
+navy header with a gold rule, the page and the visitor's name large, Call and
+Email buttons, a table of phone, email, page and time received (Eastern),
+and the message in its own block. Built from tables and inline styles for
+mail clients; every visitor value is HTML-escaped. One test sent to the
+developer's inbox only; Resend reports it delivered.
