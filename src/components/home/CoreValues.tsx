@@ -20,7 +20,7 @@ export default function CoreValues() {
             the intro's last line; under the intro below that. */}
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <h2 className="font-display text-4xl leading-[1.05] tracking-tight text-linen sm:text-5xl">
+            <h2 className="font-display font-semibold text-4xl leading-[1.05] tracking-tight text-linen sm:text-5xl">
               Core values.
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-linen/70">

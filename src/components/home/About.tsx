@@ -85,7 +85,7 @@ export default function About() {
           different enough to notice.
         */}
         <div className="max-w-3xl md:col-start-1 md:row-start-1">
-          <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl">
+          <h2 className="font-display font-semibold text-4xl leading-[1.05] tracking-tight sm:text-5xl">
             A partnership, not a single name on the door.
           </h2>
           <div className="mt-6 space-y-5 text-lg leading-relaxed text-charcoal">
@@ -156,7 +156,7 @@ export default function About() {
         */}
         <Link
           href="/about"
-          className="mt-12 inline-flex shrink-0 items-center justify-self-center border border-navy px-8 py-4 font-display text-lg transition-colors hover:border-bronze hover:text-bronze md:col-start-2 md:row-start-1 md:mt-0 md:self-end md:justify-self-end"
+          className="mt-12 inline-flex shrink-0 items-center justify-self-center border border-navy px-8 py-4 font-heading text-base font-semibold transition-colors hover:border-bronze hover:text-bronze md:col-start-2 md:row-start-1 md:mt-0 md:self-end md:justify-self-end"
         >
           Our Firm
         </Link>

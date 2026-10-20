@@ -56,11 +56,7 @@ export default function Header() {
   const compact = scrolled || menuOpen;
 
   return (
-    <header
-      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
-        scrolled || menuOpen ? "bg-navy" : "bg-transparent"
-      }`}
-    >
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-bronze/60 bg-navy">
       {/*
         FULL BLEED, unlike the page content below it.
 
@@ -84,6 +80,12 @@ export default function Header() {
           while the names fade (Logo). One element, one transform. The menu
           and icons sit 7px lower at the top of the page and settle into
           place with the logo, a small follow-through the owner asked for. */}
+      {/* D129: THE HEADER IS SOLID NAVY on every page, with a gold rule on its
+          bottom edge (client: separate the header from the page; the video
+          was swallowing it). At the top of the page the bar is tall enough
+          to hold the full logo; on scroll the spacer below the controls
+          collapses to the slim bar. The controls row keeps one height, so the
+          menu does not move. */}
       <div className="relative flex h-[68px] w-full items-center justify-end gap-4 px-6 sm:h-[76px] lg:px-10">
         <Link
               href="/"
@@ -104,12 +106,12 @@ export default function Header() {
 
         {/* Desktop: flat top nav. The depth lives in the side menu. */}
         <nav aria-label="Primary" className={`hidden lg:block transition-transform duration-300 ease-out motion-reduce:transition-none ${compact ? "" : "translate-y-[7px]"}`}>
-          <ul className="flex items-center gap-5 xl:gap-8">
+          <ul className="flex items-center gap-4 xl:gap-8">
             {topBarNav(primaryNav).map((item) => {
               const menu = dropdownFor(item, primaryNav);
               const grouped = item.href === PRACTICE_AREAS;
               const current = grouped ? inPracticeAreas(pathname) : isCurrent(item.href);
-              const labelClass = `inline-flex items-center gap-1.5 font-heading text-[0.9375rem] font-medium uppercase transition-colors hover:text-bronze ${
+              const labelClass = `inline-flex items-center gap-1.5 font-heading text-[0.8125rem] font-medium uppercase xl:text-[0.9375rem] transition-colors hover:text-bronze ${
                 current ? "text-bronze" : "text-linen/80"
               }`;
               return (
@@ -145,6 +147,7 @@ export default function Header() {
                       items={menu}
                       pathname={pathname}
                       closed={shut === item.href}
+                      tall={!compact}
                       onNavigate={() => {
                         // Drop focus too, or focus-within would keep it open.
                         (document.activeElement as HTMLElement | null)?.blur();
@@ -155,12 +158,18 @@ export default function Header() {
                 </li>
               );
             })}
-            <li className="flex items-center gap-5 pl-1">
+            <li className="flex items-center gap-4 pl-1 xl:gap-5">
+              {/* D129: a white call button (client direction), the number in
+                  the sans so its figures line up; the 24/7 line shows from
+                  xl, where the bar has room for it. */}
               <a
                 href={firm.phoneHref}
-                className="font-heading text-[0.9375rem] font-semibold text-bronze transition-colors hover:text-bronze-soft"
+                className="flex flex-col items-center bg-linen px-4 py-2 text-navy transition-colors hover:bg-white"
               >
-                {firm.phone}
+                <span className="font-heading text-[0.9375rem] font-semibold leading-tight tabular-nums">{firm.phone}</span>
+                <span className="hidden font-heading text-[0.6875rem] font-medium leading-tight text-navy/70 xl:block">
+                  Available 24/7 · Free consultation
+                </span>
               </a>
               <button
                 type="button"
@@ -226,6 +235,10 @@ export default function Header() {
           </button>
         </div>
       </div>
+      <div
+        aria-hidden="true"
+        className={`transition-[height] duration-300 ease-out motion-reduce:transition-none ${compact ? "h-0" : "h-7 lg:h-[52px]"}`}
+      />
 
       {/*
         Slide-in site menu. This is where the site's depth lives: every top-level

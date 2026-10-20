@@ -92,7 +92,7 @@ export default function TieredBody({
   const ctaButton = (
     <a
       href={cta.href}
-      className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+      className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
     >
       {cta.label}
     </a>

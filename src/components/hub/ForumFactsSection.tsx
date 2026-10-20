@@ -10,7 +10,7 @@ import type { Silo } from "@/lib/site";
  * No Criminal Punishment Code artifact is linked from any of this: the CPC
  * does not apply to federal cases (CASES-WE-DEFEND-PLAN.md Section 4.2).
  */
-const H2 = "font-display text-4xl leading-tight sm:text-5xl";
+const H2 = "font-display font-semibold text-4xl leading-tight sm:text-5xl";
 const LEAD = "mt-6 max-w-3xl text-lg leading-relaxed text-charcoal";
 const EYEBROW = "eyebrow";
 

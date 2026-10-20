@@ -85,7 +85,7 @@ export default function ContactPage() {
         </p>
         <a
           href={firm.phoneHref}
-          className="mt-10 inline-flex items-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
+          className="mt-10 inline-flex items-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft"
         >
           Call {firm.phone}
         </a>

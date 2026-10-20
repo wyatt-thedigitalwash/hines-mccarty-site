@@ -3511,3 +3511,55 @@ tampa-litigation.com still points at GoDaddy, so the live firm site is
 untouched. Every response on a `*.vercel.app` host carries
 `X-Robots-Tag: noindex, nofollow`, so the review copy is never indexed; the
 real domain is unaffected.
+
+### D129. Solid header with a gold rule; white call button; footer contact
+
+**2026-10-20. Client revisions.** The client asked for a white bar between
+the header and the page because the video hid the header. A white header was
+rejected; instead:
+- The header is solid navy on every page with a gold rule on its bottom
+  edge. At the top of the page it is tall enough for the full logo (129px at
+  desktop, 97px on a phone) and shrinks to the slim bar on scroll; the
+  controls row keeps one height, so the menu does not move. The dropdowns
+  hang from whichever bottom edge is showing.
+- The header's call button is white (linen) with navy text, with
+  "Available 24/7 · Free consultation" under the number from 1280px. Below
+  1280px the nav text is a size smaller so the bar still clears the logo
+  (89px at 1024).
+- The footer is a deeper navy with a gold rule on top, so it reads apart from
+  the navy section above. Its contact is a clear call button with
+  "Available 24/7 · Free consultation", and its blurb says "A Florida firm".
+- The closing cards carry the same 24/7 line under their buttons.
+- Every call button (and the buttons paired with them) uses the sans, so the
+  phone number's figures line up; the serif drew them old-style.
+- Phone hero tops are 144px (were 112px) to clear the taller header.
+- "Free consultation": the client confirmed (2026-10-20) it is offered for
+  every practice, which Rule 4-7 requires of an advertised term. This
+  reverses the earlier "no fee terms" choice for this one statement.
+
+### D130. Bolder headings; counties on the Attorneys page
+
+**2026-10-20. Client revisions.** Home and hub headings (H1, H2) and the hub
+and home charge-card titles are semibold. "Where the bench practices" on
+/attorneys lists only the ten counties the client named
+(`practiceCounties` in site.ts): Hillsborough, Pinellas, Polk, Pasco, Orange,
+Manatee, Sarasota, Lee, Sumter, Osceola. The bar admissions list there is
+removed (each bio still has the attorney's admission).
+
+### D131. State and Federal flyouts in Practice Areas
+
+**2026-10-20. Client revision.** In the desktop Practice Areas dropdown,
+State Criminal Defense and Federal Criminal Defense open a second panel to
+the right listing their charges, on hover or keyboard focus. It stays on
+screen at 1024px.
+
+### D132. A contact form in the five practice heroes
+
+**2026-10-20. Client request.** The State, Federal and White-Collar hubs and
+the Car and Truck Accident pages carry a short form on the right of the hero
+(under the copy on a phone): name, phone, email, "Briefly, what happened?".
+It posts to the same server action as /contact (validation, honeypot,
+fill-time and rate checks) and the email names the page it came from. The
+Rule 4-1.18 notice sits above the message field and asks for a brief note,
+details by phone. It sends only once RESEND_API_KEY, CONTACT_FROM_EMAIL and
+CONTACT_TO_EMAIL are set in Vercel; until then it tells the visitor to call.

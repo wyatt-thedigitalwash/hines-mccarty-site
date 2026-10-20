@@ -141,13 +141,13 @@ export default function CallToAction({
                 {/* D104: the call is the gold, first action (client direction). */}
                 <a
                   href={firm.phoneHref}
-                  className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+                  className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
                 >
                   Call {firm.phone}
                 </a>
                 <Link
                   href="/contact"
-                  className={`inline-flex w-full items-center justify-center border px-7 py-4 font-display text-lg font-bold transition-colors sm:w-auto ${
+                  className={`inline-flex w-full items-center justify-center border px-7 py-4 font-heading text-base font-semibold tabular-nums transition-colors sm:w-auto ${
                     isNavy
                       ? "border-linen/25 text-linen hover:border-bronze hover:text-bronze"
                       : "border-navy/30 text-navy hover:border-bronze hover:text-bronze"
@@ -156,6 +156,8 @@ export default function CallToAction({
                   Request a consultation
                 </Link>
               </div>
+              {/* D129: availability and the free consultation, under the buttons. */}
+              <p className="mt-4 font-heading text-sm font-medium opacity-80">Available 24/7 · Free consultation</p>
             </div>
 
             {/* Renders every published office, so Tampa appears here the moment

@@ -57,7 +57,7 @@ export default function SiloHub({ silo }: { silo: Silo }) {
         <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
           <div>
             <div className={Illustration ? "lg:max-w-[44%]" : "max-w-3xl"}>
-              <h2 className="font-display text-4xl leading-tight sm:text-5xl">
+              <h2 className="font-display font-semibold text-4xl leading-tight sm:text-5xl">
                 {silo.forumHeading}
               </h2>
               <div className="mt-8 space-y-5 text-lg leading-relaxed text-charcoal">
@@ -119,7 +119,7 @@ export default function SiloHub({ silo }: { silo: Silo }) {
       {!!silo.faq?.some((item) => item.answer) && (
         <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-            <h2 className="font-display text-4xl leading-tight sm:text-5xl">
+            <h2 className="font-display font-semibold text-4xl leading-tight sm:text-5xl">
               Common questions
             </h2>
             <dl className="mt-10 max-w-3xl space-y-8">

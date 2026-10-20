@@ -14,7 +14,9 @@ export default function Footer() {
   const year = 2026;
 
   return (
-    <footer className="bg-navy text-linen">
+    // D129: a deeper navy and a gold rule, so the footer reads apart from
+    // the navy closing section above it.
+    <footer className="border-t border-bronze/60 bg-[#0b1226] text-linen">
       <div className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
@@ -29,16 +31,19 @@ export default function Footer() {
               />
             </Link>
             <p className="mt-5 max-w-sm text-linen/60">
-              A Brandon firm handling state and federal criminal
+              A Florida firm handling state and federal criminal
               charges, personal injury claims, and business disputes across{" "}
               {firm.serviceArea}.
             </p>
+            {/* D129: the contact as a clear button with the two things a
+                caller wants to know (client direction). */}
             <a
               href={firm.phoneHref}
-              className="mt-8 inline-block font-display text-3xl font-extrabold hover:text-bronze"
+              className="mt-8 inline-flex items-center bg-bronze px-6 py-3.5 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft"
             >
-              {firm.phone}
+              Call {firm.phone}
             </a>
+            <p className="mt-3 font-heading text-sm text-linen/75">Available 24/7 · Free consultation</p>
           </div>
 
           <div>

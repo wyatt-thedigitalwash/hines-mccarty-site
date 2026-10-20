@@ -89,7 +89,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
       {charge.heroCta ? (
         <section
           data-bg="navy"
-          className={`bg-navy pt-28 lg:pt-44 ${quickNav.length ? "" : "pb-10 lg:pb-16"}`}
+          className={`bg-navy pt-36 lg:pt-44 ${quickNav.length ? "" : "pb-10 lg:pb-16"}`}
         >
           <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
             <Breadcrumbs trail={chargeTrail(charge)} />
@@ -125,7 +125,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
             <div className="mt-8">
               <a
                 href={charge.heroCta.href}
-                className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+                className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
               >
                 {charge.heroCta.label}
               </a>
@@ -186,13 +186,13 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
             <a
               href={firm.phoneHref}
-              className="inline-flex items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft"
+              className="inline-flex items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft"
             >
               Call {firm.phone}
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center border border-linen/30 px-7 py-4 font-display text-lg text-linen transition-colors hover:border-linen"
+              className="inline-flex items-center justify-center border border-linen/30 px-7 py-4 font-heading text-base font-semibold tabular-nums text-linen transition-colors hover:border-linen"
             >
               Send a message
             </Link>
@@ -285,7 +285,7 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                       </p>
                       <a
                         href={firm.phoneHref}
-                        className="mt-6 inline-flex items-center border border-navy px-7 py-4 font-display text-lg transition-colors hover:border-bronze hover:text-bronze"
+                        className="mt-6 inline-flex items-center border border-navy px-7 py-4 font-heading text-base font-semibold tabular-nums transition-colors hover:border-bronze hover:text-bronze"
                       >
                         Call {firm.phone}
                       </a>

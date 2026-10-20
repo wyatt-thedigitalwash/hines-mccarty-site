@@ -2,6 +2,7 @@ import { firm, siloTrail, type Silo } from "@/lib/site";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import HeroPhotoLayer from "@/components/HeroPhotoLayer";
 import { SILO_HERO_PHOTOS } from "@/lib/hero-photos";
+import HeroContactForm from "@/components/contact/HeroContactForm";
 
 /**
  * The criminal hubs' hero (D112), in the main pages' hero form (PageHero):
@@ -15,9 +16,11 @@ import { SILO_HERO_PHOTOS } from "@/lib/hero-photos";
 export default function HubHero({ silo }: { silo: Silo }) {
   return (
     <section data-bg="navy" data-hero className="relative isolate overflow-hidden bg-navy pt-36 lg:pt-44">
-      <div className="relative z-10 mx-auto max-w-[1400px] px-6 pb-20 lg:min-h-[380px] lg:px-10 lg:pb-24">
+      {/* D132: the contact form on the right from lg, under the copy below. */}
+      <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-6 pb-20 lg:min-h-[380px] lg:grid-cols-[1fr_400px] lg:items-start lg:gap-16 lg:px-10 lg:pb-24">
+        <div>
         <Breadcrumbs trail={siloTrail(silo)} />
-        <h1 className="mt-8 max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
+        <h1 className="mt-8 max-w-4xl font-display font-semibold text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
           {silo.h1}
         </h1>
         <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-linen/70">
@@ -28,7 +31,7 @@ export default function HubHero({ silo }: { silo: Silo }) {
         <div className="mt-8">
           <a
             href={firm.phoneHref}
-            className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+            className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
           >
             Call {firm.phone}
           </a>
@@ -39,6 +42,8 @@ export default function HubHero({ silo }: { silo: Silo }) {
             counties around Tampa Bay.
           </p>
         ) : null}
+        </div>
+        <HeroContactForm source={silo.label} />
       </div>
       <HeroPhotoLayer photo={SILO_HERO_PHOTOS[silo.key]} />
     </section>

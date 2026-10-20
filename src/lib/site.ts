@@ -13004,6 +13004,12 @@ export type ServiceArea = {
   side: "n" | "s" | "e" | "w";
 };
 
+/** D130: the counties the firm practices in, as the client listed them. */
+export const practiceCounties = [
+  "Hillsborough", "Pinellas", "Polk", "Pasco", "Orange",
+  "Manatee", "Sarasota", "Lee", "Sumter", "Osceola",
+].map((c) => `${c} County`);
+
 export const serviceAreas: ServiceArea[] = [
   {
     key: "orlando",

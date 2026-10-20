@@ -67,7 +67,7 @@ function ItemRow({ item }: { item: Item }) {
       className="group flex h-full items-center justify-between gap-4 border border-navy/20 px-6 py-4 transition-colors hover:border-navy"
     >
       <span className="min-w-0">
-        <span className="block text-lg text-navy">{label}</span>
+        <span className="block text-lg font-semibold text-navy">{label}</span>
         {/*
           13px, not 14px: at 14px the longest description measures 394px against
           400px of available card width, which is too little headroom to trust.

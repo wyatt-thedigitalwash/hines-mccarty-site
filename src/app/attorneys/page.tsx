@@ -4,6 +4,7 @@ import {
   attorneys,
   attorneysLeadingPractice,
   practiceAreaIndex,
+  practiceCounties,
   firm,
 } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
@@ -24,7 +25,6 @@ export const metadata: Metadata = pageMetadata({
 export default function AttorneysPage() {
   // Only attorneys whose bar admission is recorded in the data. See the note on
   // the section below for why unconfirmed ones are omitted rather than marked.
-  const admitted = attorneys.filter((a) => a.credentials?.barAdmission);
 
   return (
     <>
@@ -220,54 +220,19 @@ cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
       */}
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
-          <h2 className="font-display text-4xl leading-tight sm:text-5xl">
+          <h2 className="font-display font-semibold text-4xl leading-tight sm:text-5xl">
             Where the bench practices
           </h2>
 
-          <dl className="mt-10 grid max-w-4xl gap-8 sm:grid-cols-2">
-            <div>
-              <dt className="eyebrow text-navy/70">
-                State
-              </dt>
-              <dd className="mt-3 text-lg leading-relaxed text-charcoal">
-                The 13th Judicial Circuit, Hillsborough County
-              </dd>
-            </div>
-            <div>
-              <dt className="eyebrow text-navy/70">
-                Federal
-              </dt>
-              <dd className="mt-3 text-lg leading-relaxed text-charcoal">
-                The Middle District of Florida
-              </dd>
-            </div>
-          </dl>
-
-          {admitted.length > 0 && (
-            <div className="mt-14 max-w-4xl border-t border-navy/15 pt-10">
-              <h3 className="font-display text-xl">Bar admissions</h3>
-              <ul className="mt-5 space-y-3">
-                {admitted.map((attorney) => (
-                  <li key={attorney.slug} className="leading-relaxed">
-                    <Link
-                      href={`/attorneys/${attorney.slug}`}
-                      className="underline decoration-1 underline-offset-4 transition-colors hover:text-bronze"
-                    >
-                      {attorney.name}
-                    </Link>
-                    {/* Number omitted when unknown, as on the bio pages. */}
-                    <span className="text-charcoal">
-                      , The Florida Bar
-                      {attorney.credentials?.barAdmission?.number
-                        ? `, No. ${attorney.credentials.barAdmission.number}`
-                        : ""}
-                      , admitted {attorney.credentials?.barAdmission?.admitted}
-                    </span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          )}
+          {/* D130: the counties only (client direction). */}
+          <ul className="mt-10 grid max-w-4xl grid-cols-2 gap-x-8 gap-y-3 sm:grid-cols-3 lg:grid-cols-5">
+            {practiceCounties.map((county) => (
+              <li key={county} className="flex items-baseline gap-2.5 text-lg text-navy">
+                <span aria-hidden="true" className="h-1.5 w-1.5 shrink-0 translate-y-[-2px] rounded-full bg-bronze" />
+                {county}
+              </li>
+            ))}
+          </ul>
         </div>
       </section>
 

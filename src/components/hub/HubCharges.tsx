@@ -13,7 +13,7 @@ export default function HubCharges({ silo }: { silo: SiloKey }) {
     <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex items-end justify-between gap-6">
-          <h2 className="font-display text-4xl leading-tight sm:text-5xl">Charges we defend in this area.</h2>
+          <h2 className="font-display font-semibold text-4xl leading-tight sm:text-5xl">Charges we defend in this area.</h2>
           <p className="shrink-0 pb-1 font-heading text-sm text-navy/65">{items.length} charges</p>
         </div>
         <ul className="mt-12 grid gap-4 md:grid-cols-2">
@@ -24,9 +24,9 @@ export default function HubCharges({ silo }: { silo: SiloKey }) {
                 className="group flex h-full items-center justify-between gap-4 border border-navy/20 px-6 py-5 transition-colors hover:border-navy"
               >
                 <span className="min-w-0">
-                  <span className="block text-lg text-navy transition-colors group-hover:text-bronze">{c.label}</span>
+                  <span className="block text-lg font-semibold text-navy transition-colors group-hover:text-bronze">{c.label}</span>
                   {c.description ? (
-                    <span className="mt-1 block text-[0.8125rem] leading-snug text-navy/65">{c.description}</span>
+                    <span className="mt-1 block text-[0.8125rem] font-medium leading-snug text-navy/75">{c.description}</span>
                   ) : null}
                 </span>
                 <svg

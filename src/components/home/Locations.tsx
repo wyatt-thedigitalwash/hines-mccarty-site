@@ -46,7 +46,7 @@ export default function Locations() {
 
       <div className="relative mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="lg:max-w-[46%]">
-          <h2 className="font-display text-4xl leading-tight sm:text-5xl">
+          <h2 className="font-display font-semibold text-4xl leading-tight sm:text-5xl">
             Where we appear.
           </h2>
 
@@ -82,13 +82,13 @@ export default function Locations() {
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
             <Link
               href="/contact"
-              className="inline-flex w-full items-center justify-center bg-navy px-7 py-4 font-display text-lg font-bold text-linen transition-colors hover:bg-navy-700 sm:w-auto"
+              className="inline-flex w-full items-center justify-center bg-navy px-7 py-4 font-heading text-base font-semibold tabular-nums text-linen transition-colors hover:bg-navy-700 sm:w-auto"
             >
               Talk to the firm
             </Link>
             <a
               href={firm.phoneHref}
-              className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+              className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
             >
               Call {firm.phone}
             </a>

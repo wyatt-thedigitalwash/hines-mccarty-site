@@ -60,17 +60,19 @@ export default function CTA() {
                 {/* D104: the call is the gold, first action (client direction). */}
                 <a
                   href={firm.phoneHref}
-                  className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+                  className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
                 >
                   Call {firm.phone}
                 </a>
                 <Link
                   href="/contact"
-                  className="inline-flex w-full items-center justify-center border border-linen/25 px-7 py-4 font-display text-lg font-bold text-linen transition-colors hover:border-bronze hover:text-bronze sm:w-auto"
+                  className="inline-flex w-full items-center justify-center border border-linen/25 px-7 py-4 font-heading text-base font-semibold tabular-nums text-linen transition-colors hover:border-bronze hover:text-bronze sm:w-auto"
                 >
                   Request a consultation
                 </Link>
               </div>
+              {/* D129: availability and the free consultation, under the buttons. */}
+              <p className="mt-4 font-heading text-sm font-medium opacity-80">Available 24/7 · Free consultation</p>
             </div>
 
             {/* Sources from `publishedOffices`, so the Tampa location appears

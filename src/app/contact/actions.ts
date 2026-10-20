@@ -89,6 +89,8 @@ export async function submitContact(
   const phone = clean(formData.get("phone"), MAX.phone);
   const email = clean(formData.get("email"), MAX.email);
   const note = clean(formData.get("note"), MAX.note);
+  // D132: the page a hero form was sent from, so the firm knows the matter.
+  const source = clean(formData.get("source"), 120);
 
   const fieldErrors: ContactState["fieldErrors"] = {};
   if (!name) fieldErrors.name = "Please enter your name.";
@@ -129,11 +131,12 @@ export async function submitContact(
       from: delivery.from,
       to: delivery.to,
       replyTo: email || undefined,
-      subject: `Website enquiry: ${name}`,
+      subject: `Website enquiry${source ? ` (${source})` : ""}: ${name}`,
       text: [
         `Name:  ${name}`,
         `Phone: ${phone}`,
         `Email: ${email || "not given"}`,
+        ...(source ? [`Page:  ${source}`] : []),
         "",
         "Message:",
         note || "(none)",

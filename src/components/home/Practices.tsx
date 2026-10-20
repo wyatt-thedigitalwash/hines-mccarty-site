@@ -65,7 +65,7 @@ export default function Practices() {
             its last line; under it, full width, on a phone. */}
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-2xl">
-            <h2 className="font-display text-4xl leading-[1.05] tracking-tight text-linen sm:text-5xl">
+            <h2 className="font-display font-semibold text-4xl leading-[1.05] tracking-tight text-linen sm:text-5xl">
               What we handle.
             </h2>
             <p className="mt-6 text-lg leading-relaxed text-linen/70">
@@ -77,7 +77,7 @@ export default function Practices() {
           </div>
           <a
             href={firm.phoneHref}
-            className="inline-flex w-full shrink-0 items-center justify-center bg-bronze px-7 py-4 font-display text-lg font-bold text-navy transition-colors hover:bg-bronze-soft sm:w-auto sm:self-start lg:self-auto"
+            className="inline-flex w-full shrink-0 items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto sm:self-start lg:self-auto"
           >
             Call {firm.phone}
           </a>

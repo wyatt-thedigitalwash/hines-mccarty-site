@@ -84,7 +84,7 @@ export default function MattersAndInsights() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         {/* Block 1: Representative Matters, 3 most recent */}
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="max-w-2xl font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl">
+          <h2 className="max-w-2xl font-display font-semibold text-4xl leading-[1.05] tracking-tight sm:text-5xl">
             The range of what we handle.
           </h2>
           <Link
@@ -113,7 +113,7 @@ export default function MattersAndInsights() {
 
         {/* Block 2: Insights, 3 most recent posts */}
         <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="max-w-2xl font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl">
+          <h2 className="max-w-2xl font-display font-semibold text-4xl leading-[1.05] tracking-tight sm:text-5xl">
             Notes on the process.
           </h2>
           <Link

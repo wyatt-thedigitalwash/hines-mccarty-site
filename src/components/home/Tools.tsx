@@ -37,7 +37,7 @@ export default function Tools() {
         {/* Statement: heading left, positioning paragraph right */}
         <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
           <div>
-            <h2 className="font-display text-4xl leading-[1.05] tracking-tight sm:text-5xl">
+            <h2 className="font-display font-semibold text-4xl leading-[1.05] tracking-tight sm:text-5xl">
               Tools &amp; Guides
             </h2>
           </div>

@@ -1,5 +1,5 @@
 import Link from "next/link";
-import type { NavItem } from "@/lib/site";
+import { chargeHref, chargesInSilo, type NavItem, type SiloKey } from "@/lib/site";
 
 /**
  * The desktop dropdowns, D100: short lists one hover from the top bar, for
@@ -12,7 +12,21 @@ import type { NavItem } from "@/lib/site";
  * pointer from flashing it open or shut. A closed menu is `invisible`, so its
  * links leave the tab order.
  */
-export type DropdownItem = { label: string; href: string; divider?: boolean; head?: boolean; indent?: boolean };
+export type DropdownItem = {
+  label: string;
+  href: string;
+  divider?: boolean;
+  head?: boolean;
+  indent?: boolean;
+  /** D131: a flyout of this item's own pages (State and Federal charges). */
+  sub?: { label: string; href: string }[];
+};
+
+/** The silos whose charges open as a flyout (client direction, D131). */
+const FLYOUT: Record<string, SiloKey> = {
+  "/criminal-defense/state": "state",
+  "/criminal-defense/federal": "federal",
+};
 
 /** The top bar's grouped item (D117). Not a page, so the label is a button. */
 export const PRACTICE_AREAS = "#practice-areas";
@@ -43,7 +57,15 @@ function practiceAreasMenu(nav: NavItem[]): DropdownItem[] {
     const n = nav.find((x) => x.href === href);
     if (!n) continue;
     out.push({ label: n.label, href: n.href, head: true, divider: out.length > 0 });
-    for (const c of n.children ?? []) out.push({ label: c.short ?? c.label, href: c.href, indent: true });
+    for (const c of n.children ?? []) {
+      const silo = FLYOUT[c.href];
+      out.push({
+        label: c.short ?? c.label,
+        href: c.href,
+        indent: true,
+        sub: silo ? chargesInSilo(silo).map((ch) => ({ label: ch.label, href: chargeHref(ch) })) : undefined,
+      });
+    }
   }
   return out;
 }
@@ -75,12 +97,16 @@ export default function NavDropdown({
   items,
   pathname,
   closed = false,
+  tall = false,
   onNavigate,
 }: {
   items: DropdownItem[];
   pathname: string;
   /** Held shut after a link in it was used, until the pointer leaves (D107). */
   closed?: boolean;
+  /** The header is in its tall, top-of-page state (D129): hang lower so the
+   *  panel still meets the bar's bottom edge. */
+  tall?: boolean;
   onNavigate?: () => void;
 }) {
   return (
@@ -92,7 +118,7 @@ export default function NavDropdown({
        attached to the bar. The open delay keeps a passing pointer from
        triggering it; the close delay forgives a pointer that slips off. */
     <div
-      className={`${closed ? "!invisible !opacity-0 !delay-0 !duration-200 !ease-out" : ""} invisible absolute -left-6 top-full z-10 pt-[26px] opacity-0 transition-[opacity,visibility] delay-100 duration-[120ms] ease-in group-hover:visible group-hover:opacity-100 group-hover:delay-[60ms] group-hover:duration-200 group-hover:ease-out group-focus-within:visible group-focus-within:opacity-100 group-focus-within:delay-0 group-focus-within:duration-200 motion-reduce:transition-none`}
+      className={`${closed ? "!invisible !opacity-0 !delay-0 !duration-200 !ease-out" : ""} invisible absolute -left-6 top-full z-10 ${tall ? "pt-[71px]" : "pt-[26px]"} opacity-0 transition-[opacity,visibility] delay-100 duration-[120ms] ease-in group-hover:visible group-hover:opacity-100 group-hover:delay-[60ms] group-hover:duration-200 group-hover:ease-out group-focus-within:visible group-focus-within:opacity-100 group-focus-within:delay-0 group-focus-within:duration-200 motion-reduce:transition-none`}
     >
       {/* After a link in it is used (closed), it lifts back toward the bar as
           it fades, over 200ms, rather than cutting out as the page changes. */}
@@ -102,7 +128,10 @@ export default function NavDropdown({
         }`}
       >
         {items.map((child) => (
-          <li key={child.href + child.label} className={child.divider ? "mt-2 border-t border-white/10 pt-2" : undefined}>
+          <li
+            key={child.href + child.label}
+            className={`${child.divider ? "mt-2 border-t border-white/10 pt-2" : ""} ${child.sub ? "group/sub relative" : ""}`}
+          >
             <Link
               href={child.href}
               onClick={onNavigate}
@@ -116,7 +145,7 @@ export default function NavDropdown({
               {child.label}
               <svg
                 viewBox="0 0 12 12"
-                className="h-3 w-3 -translate-x-1 opacity-0 transition duration-150 group-hover/item:translate-x-0 group-hover/item:opacity-100"
+                className={`h-3 w-3 transition duration-150 ${child.sub ? "opacity-60 group-hover/item:opacity-100" : "-translate-x-1 opacity-0 group-hover/item:translate-x-0 group-hover/item:opacity-100"}`}
                 fill="none"
                 stroke="currentColor"
                 strokeWidth="1.5"
@@ -124,9 +153,31 @@ export default function NavDropdown({
                 strokeLinejoin="round"
                 aria-hidden="true"
               >
-                <path d="M2 6h8M7 3l3 3-3 3" />
+                {child.sub ? <path d="m4.5 2.5 3.5 3.5-3.5 3.5" /> : <path d="M2 6h8M7 3l3 3-3 3" />}
               </svg>
             </Link>
+            {child.sub ? (
+              /* D131: opens to the right on hover or keyboard focus, level
+                 with its row; the left padding bridges the gap. */
+              <div className="invisible absolute left-full top-0 z-20 -mt-3 pl-1 opacity-0 transition-[opacity,visibility] delay-75 duration-150 group-hover/sub:visible group-hover/sub:opacity-100 group-focus-within/sub:visible group-focus-within/sub:opacity-100 motion-reduce:transition-none">
+                <ul className="min-w-60 border-t border-bronze/70 bg-navy py-3 shadow-[0_18px_36px_rgba(5,9,20,0.35)]">
+                  {child.sub.map((g) => (
+                    <li key={g.href}>
+                      <Link
+                        href={g.href}
+                        onClick={onNavigate}
+                        aria-current={pathname === g.href ? "page" : undefined}
+                        className={`block whitespace-nowrap px-6 py-2 font-heading text-[0.8125rem] transition-colors hover:bg-white/[0.04] hover:text-bronze ${
+                          pathname === g.href ? "text-bronze" : "text-linen/75"
+                        }`}
+                      >
+                        {g.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ) : null}
           </li>
         ))}
       </ul>
