@@ -4,6 +4,8 @@ import { headers } from "next/headers";
 import { Resend } from "resend";
 import { firm } from "@/lib/site";
 import { contactDelivery } from "@/lib/contact-delivery";
+import { checkBotId } from "botid/server";
+import { isRepeat, remember, spamReason } from "@/lib/spam";
 
 /**
  * Contact form submission.
@@ -51,9 +53,10 @@ function clean(value: FormDataEntryValue | null, cap: number) {
     start: a brake on a flood, not a guarantee. A person who hits it is told
     to call, never silently dropped.
 */
+const SENT = "Thank you. Your message has been sent and someone will be in touch.";
 const MIN_FILL_MS = 3000;
 const WINDOW_MS = 10 * 60 * 1000;
-const PER_WINDOW = 5;
+const PER_WINDOW = 3;
 const recent = new Map<string, number[]>();
 
 function tooMany(ip: string): boolean {
@@ -71,18 +74,7 @@ export async function submitContact(
 ): Promise<ContactState> {
   // Honeypot. Real users never fill a hidden field.
   if (clean(formData.get("company"), 100)) {
-    return { status: "success" };
-  }
-  const shownAt = Number(clean(formData.get("shown_at"), 20));
-  if (shownAt && Date.now() - shownAt < MIN_FILL_MS) {
-    return { status: "success" };
-  }
-  const ip = ((await headers()).get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
-  if (tooMany(ip)) {
-    return {
-      status: "error",
-      message: `We have received several messages from you in the last few minutes. Please call ${firm.phone} and we will help you right away.`,
-    };
+    return { status: "success", message: SENT };
   }
 
   const name = clean(formData.get("name"), MAX.name);
@@ -111,6 +103,50 @@ export async function submitContact(
     };
   }
 
+  // D139: the speed and rate checks run after field validation, so a person
+  // who submits an incomplete form sees what is missing, never a false
+  // "sent".
+  const shownAt = Number(clean(formData.get("shown_at"), 20));
+  if (shownAt && Date.now() - shownAt < MIN_FILL_MS) {
+    return { status: "success", message: SENT };
+  }
+  const ip = ((await headers()).get("x-forwarded-for") ?? "").split(",")[0].trim() || "unknown";
+  if (tooMany(ip)) {
+    return {
+      status: "error",
+      message: `We have received several messages from you in the last few minutes. Please call ${firm.phone} and we will help you right away.`,
+    };
+  }
+
+  /*
+    D139. Bots and mass-produced spam get the same quiet "success" as the
+    honeypot, so nothing tells them what tripped. Real people are never
+    silently dropped by the bot check on an error: if Vercel BotID cannot be
+    reached, the message goes through.
+  */
+  try {
+    const verdict = await checkBotId({
+      // BotID only works on Vercel; locally every visitor passes.
+      developmentOptions: { isDevelopment: !process.env.VERCEL },
+    });
+    if (verdict.isBot && !verdict.isVerifiedBot) {
+      console.warn("[contact] Dropped: BotID flagged the submission.");
+      return { status: "success", message: SENT };
+    }
+  } catch (cause) {
+    console.error("[contact] BotID check failed, sending anyway:", cause);
+  }
+  const input = { name, email, phone, note };
+  const reason = spamReason(input);
+  if (reason) {
+    console.warn(`[contact] Dropped as spam: ${reason}.`);
+    return { status: "success", message: SENT };
+  }
+  if (isRepeat(input)) {
+    console.warn("[contact] Dropped: an exact repeat of a message already sent.");
+    return { status: "success", message: SENT };
+  }
+
   const delivery = contactDelivery();
 
   if (!delivery) {
@@ -127,12 +163,16 @@ export async function submitContact(
 
   try {
     const resend = new Resend(delivery.apiKey);
+    // D139: from the verified sending domain, to every inbox on the list,
+    // with Reply-To set to the visitor so "Reply" reaches them directly.
     const { error } = await resend.emails.send({
       from: delivery.from,
       to: delivery.to,
       replyTo: email || undefined,
-      subject: `Website enquiry${source ? ` (${source})` : ""}: ${name}`,
+      subject: `New website inquiry from ${name}${source ? ` (${source})` : ""}`,
       text: [
+        "A new inquiry came in through the website.",
+        "",
         `Name:  ${name}`,
         `Phone: ${phone}`,
         `Email: ${email || "not given"}`,
@@ -140,16 +180,15 @@ export async function submitContact(
         "",
         "Message:",
         note || "(none)",
+        "",
+        email ? "Reply to this email to answer them directly." : "No email given; call them back.",
       ].join("\n"),
     });
 
     if (error) throw new Error(error.message);
+    remember(input);
 
-    return {
-      status: "success",
-      message:
-        "Thank you. Your message has been sent and someone will be in touch.",
-    };
+    return { status: "success", message: SENT };
   } catch (cause) {
     console.error("[contact] Send failed:", cause);
     return {

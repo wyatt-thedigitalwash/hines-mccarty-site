@@ -37,6 +37,7 @@
     "build:maps": "node --experimental-strip-types --disable-warning=ExperimentalWarning scripts/build-locations-map.mts"
   },
   "dependencies": {
+    "botid": "^1.5.11",
     "lucide-react": "^1.25.0",
     "next": "16.2.11",
     "react": "19.2.4",

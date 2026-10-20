@@ -3612,3 +3612,37 @@ hover.
 **2026-10-20. Client direction.** Below desktop width the header's "Call Now"
 (phones) and the phone number (tablets) are outlined white buttons with white
 text, like the desktop button (D137), filling white on tap.
+
+### D139. Form delivery to the firm, and bot protection
+
+**2026-10-20. Client direction.**
+- **Recipients:** `CONTACT_TO_EMAIL` takes a comma-separated list; each
+  address gets every inquiry. Production (set in Vercel) is the firm's six
+  inboxes. `.env.local` sends to the developer's inbox only, so a local test
+  never reaches the firm. Tested end to end 2026-10-20 to that inbox only;
+  Resend reports it delivered.
+- **Sender:** `Hines McCarty Pavlidis Website <website@thedigitalwash.com>`,
+  on the agency domain verified in Resend (SPF and DKIM pass), with Reply-To
+  set to the visitor so "Reply" reaches them. Subject: "New website inquiry
+  from {name} ({page})".
+- **Bot protection**, in order, after field validation (so a person always
+  sees what is missing):
+  1. Honeypot field (D83).
+  2. Under 3 seconds from page load to submit (D83).
+  3. More than 3 submissions per IP in 10 minutes: told to call (was 5).
+  4. **Vercel BotID** (`botid`): an invisible challenge on the six pages with
+     a form (`src/instrumentation-client.ts`), checked in the server action.
+     Bypassed off Vercel. If BotID cannot be reached, the message still goes
+     through.
+  5. **Content checks** (`src/lib/spam.ts`): link in the name, two or more
+     links in the message, SEO and marketing pitch phrases, mostly
+     non-Latin script, throwaway email domains, fake phone numbers.
+  6. **Exact repeats** within a day (same phone and message, or the same long
+     message), recorded only after a successful send.
+  Steps 1, 2 and 4 to 6 answer "sent" without sending, so nothing tells a bot
+  what tripped. Tested against four real-looking inquiries (including one in
+  Spanish and one with a single link), which pass, and six kinds of spam,
+  which are caught.
+- AI crawlers (GPTBot, ClaudeBot and the like) are not blocked in robots.txt:
+  they read pages, they do not fill forms, and being cited by AI answers is
+  wanted.

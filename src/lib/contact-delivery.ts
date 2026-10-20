@@ -30,7 +30,7 @@
  * once someone has named the inbox that receives enquiries.
  */
 
-export type ContactDelivery = { apiKey: string; from: string; to: string };
+export type ContactDelivery = { apiKey: string; from: string; to: string[] };
 
 /**
  * The Resend credentials and the inbox, or null when any is missing.
@@ -43,8 +43,12 @@ export type ContactDelivery = { apiKey: string; from: string; to: string };
 export function contactDelivery(): ContactDelivery | null {
   const apiKey = process.env.RESEND_API_KEY;
   const from = process.env.CONTACT_FROM_EMAIL;
-  const to = process.env.CONTACT_TO_EMAIL;
-  return apiKey && from && to ? { apiKey, from, to } : null;
+  // D139: a comma-separated list; every address gets each inquiry.
+  const to = (process.env.CONTACT_TO_EMAIL ?? "")
+    .split(",")
+    .map((a) => a.trim())
+    .filter(Boolean);
+  return apiKey && from && to.length ? { apiKey, from, to } : null;
 }
 
 /**

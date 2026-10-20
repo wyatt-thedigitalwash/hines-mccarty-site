@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import { withBotId } from "botid/next/config";
 
 const nextConfig: NextConfig = {
   /*
@@ -85,4 +86,5 @@ const nextConfig: NextConfig = {
   },
 };
 
-export default nextConfig;
+// D139: Vercel BotID's challenge routes.
+export default withBotId(nextConfig);
