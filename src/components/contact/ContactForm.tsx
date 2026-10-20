@@ -126,6 +126,8 @@ export default function ContactForm() {
         <label htmlFor="company">Company</label>
         <input id="company" name="company" tabIndex={-1} autoComplete="off" />
         <input ref={shownAt} type="hidden" name="shown_at" defaultValue="" />
+        {/* D141: names the form in the inquiry email's subject and Page row. */}
+        <input type="hidden" name="source" value="Contact page" />
       </div>
 
       <button

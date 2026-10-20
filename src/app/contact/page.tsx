@@ -78,17 +78,13 @@ export default function ContactPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(contactJsonLd) }}
       />
 
-      <PageHero title="Contact" photo={SITE_HERO_PHOTO}>
+      {/* D141: the shared hero call button, full width on a phone with the
+          24/7 line, like every other page. */}
+      <PageHero title="Contact" photo={SITE_HERO_PHOTO} cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}>
         <p>
           The fastest way to reach the firm is by phone. If you cannot speak
           freely right now, send a message and we will arrange a time.
         </p>
-        <a
-          href={firm.phoneHref}
-          className="mt-10 inline-flex items-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft"
-        >
-          Call {firm.phone}
-        </a>
       </PageHero>
 
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">

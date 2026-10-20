@@ -3656,3 +3656,14 @@ Email buttons, a table of phone, email, page and time received (Eastern),
 and the message in its own block. Built from tables and inline styles for
 mail clients; every visitor value is HTML-escaped. One test sent to the
 developer's inbox only; Resend reports it delivered.
+
+### D141. Every form checked for launch
+
+**2026-10-20.** All six forms (Contact; the State, Federal and White-Collar
+hubs; Car and Truck Accidents) were submitted end to end against a production
+build, each delivering one email to the developer's inbox only and labelled
+with its page; a sales-pitch submission showed "sent" and delivered nothing.
+The Contact page form now names itself ("Contact page") in the email, and its
+hero uses the shared call button (full width on a phone, with the 24/7 line).
+The Contact page leaves noindex and enters the sitemap on its own once the
+three settings are present at build time in Vercel.
