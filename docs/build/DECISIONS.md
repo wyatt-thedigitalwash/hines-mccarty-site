@@ -3606,3 +3606,9 @@ navy text (hover: linen), matching the header button. Other heroes keep gold.
 **2026-10-20. Client direction.** The header's call button is outlined: a
 white border with white text on the header, filling white with navy text on
 hover.
+
+### D138. Outlined call button on phones and tablets
+
+**2026-10-20. Client direction.** Below desktop width the header's "Call Now"
+(phones) and the phone number (tablets) are outlined white buttons with white
+text, like the desktop button (D137), filling white on tap.

@@ -198,20 +198,20 @@ export default function Header() {
           {/* D69: on the narrowest phones the full number beside the longer
               firm name wrapped onto three lines, so below 640px the number is
               not written out. D95: the gold icon with the words "Call Now"
-              beside it (no box, client direction), so it reads as the call
+              beside it, now an outlined button like the desktop one (D138), so it reads as the call
               rather than one more icon beside search and menu.
               Named with the number for screen readers. */}
           <a
             href={firm.phoneHref}
             aria-label={`Call Now, ${firm.phone}`}
-            className="inline-flex items-center gap-2 font-heading text-sm font-semibold text-bronze transition-colors hover:text-bronze-soft sm:hidden"
+            className="inline-flex items-center gap-2 border border-white px-3 py-1.5 font-heading text-sm font-semibold text-white transition-colors hover:bg-white hover:text-navy sm:hidden"
           >
             <PhoneIcon />
             Call Now
           </a>
           <a
             href={firm.phoneHref}
-            className="hidden whitespace-nowrap font-heading text-sm font-semibold text-bronze sm:inline"
+            className="hidden whitespace-nowrap border border-white px-3 py-1.5 font-heading text-sm font-semibold tabular-nums text-white transition-colors hover:bg-white hover:text-navy sm:inline-block"
           >
             {firm.phone}
           </a>
