@@ -77,7 +77,7 @@ export default function Hero() {
             <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
               <a
                 href={firm.phoneHref}
-                className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+                className="inline-flex w-full items-center justify-center bg-white px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-linen sm:w-auto"
               >
                 Call {firm.phone}
               </a>
