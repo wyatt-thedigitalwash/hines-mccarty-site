@@ -28,13 +28,15 @@ export default function HubHero({ silo }: { silo: Silo }) {
             <p key={paragraph.slice(0, 40)}>{paragraph}</p>
           ))}
         </div>
-        <div className="mt-8">
+        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
           <a
             href={firm.phoneHref}
             className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
           >
             Call {firm.phone}
           </a>
+          {/* D135: availability beside the button; under it on a phone. */}
+          <p className="font-heading text-sm font-medium text-linen/80">Available 24/7 · Free consultation</p>
         </div>
         {silo.key !== "federal" ? (
           <p className="mt-5 max-w-2xl text-sm leading-relaxed text-linen/60">

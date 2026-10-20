@@ -3585,3 +3585,9 @@ the index at the front (`-movflags +faststart`), and served from
 no border (a gold border was tried and reverted, client direction), and the
 gold buttons keep navy text: white on that gold measured 2.5:1, under the
 4.5:1 minimum.
+
+### D135. "Available 24/7 · Free consultation" beside every hero call button
+
+**2026-10-20. Client direction.** On every hero (home, the main pages, the
+criminal hubs, the injury pages, the charge pages) the line sits to the right
+of the call button, and under it, left-aligned, on a phone.

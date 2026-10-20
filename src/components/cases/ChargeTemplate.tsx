@@ -122,13 +122,15 @@ export default function ChargeTemplate({ charge }: { charge: ChargePage }) {
                 {new Date(`${charge.lastReviewed}T12:00:00`).toLocaleDateString("en-US", { month: "long", year: "numeric" })}
               </p>
             ) : null}
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
               <a
                 href={charge.heroCta.href}
                 className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
               >
                 {charge.heroCta.label}
               </a>
+              {/* D135: availability beside the button; under it on a phone. */}
+              <p className="font-heading text-sm font-medium text-linen/80">Available 24/7 · Free consultation</p>
             </div>
             {/* D82: the pages are written for Tampa Bay, where the firm's one
                 office is and where it ranks; this tells a reader elsewhere in

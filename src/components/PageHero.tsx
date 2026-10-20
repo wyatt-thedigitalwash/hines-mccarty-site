@@ -108,13 +108,15 @@ export default function PageHero({ title, children, photo, bleed, cta }: Props) 
           {children}
         </div>
         {cta ? (
-          <div className="mt-8">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
             <a
               href={cta.href}
               className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
             >
               {cta.label}
             </a>
+            {/* D135: availability beside the button; under it on a phone. */}
+            <p className="font-heading text-sm font-medium text-linen/80">Available 24/7 · Free consultation</p>
           </div>
         ) : null}
       </div>

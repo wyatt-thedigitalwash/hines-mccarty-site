@@ -73,12 +73,16 @@ export default function Hero() {
               people hurt in collisions, and litigate disputes for businesses and
               their owners. Every case is prepared as if it will be tried.
             </p>
-            <a
-              href={firm.phoneHref}
-              className="mt-10 inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
-            >
-              Call {firm.phone}
-            </a>
+            {/* D135: availability beside the button; under it on a phone. */}
+            <div className="mt-10 flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-5">
+              <a
+                href={firm.phoneHref}
+                className="inline-flex w-full items-center justify-center bg-bronze px-7 py-4 font-heading text-base font-semibold tabular-nums text-navy transition-colors hover:bg-bronze-soft sm:w-auto"
+              >
+                Call {firm.phone}
+              </a>
+              <p className="font-heading text-sm font-medium text-linen/80">Available 24/7 · Free consultation</p>
+            </div>
           </div>
         </div>
       </div>
