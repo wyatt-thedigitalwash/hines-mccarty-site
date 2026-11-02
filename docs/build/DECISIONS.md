@@ -3678,3 +3678,13 @@ old firm, a Tampa address or another phone), and five for the office
 (search the old names and the number; Google Maps; Apple and Bing Maps;
 Yelp, BBB, Yellow Pages, Manta and Nextdoor; Facebook and LinkedIn). 44
 tasks in all. No recurring re-check (client choice).
+
+### D143. Fonts bundled with the site
+
+**2026-11-02.** Builds kept failing at random, locally and on a Vercel
+preview, with Turbopack's `next/font/google` unable to resolve its own font
+module (Google Fonts itself was reachable). Cormorant Garamond (400 to 700),
+Poppins (300 to 700) and Lora (400 to 700), latin subset, are now bundled in
+`src/app/fonts/` (Fontsource 5.3.0, SIL Open Font License, licences
+alongside) and loaded with `next/font/local`. Same families, weights and CSS
+variables, so pages render the same; builds no longer reach Google.

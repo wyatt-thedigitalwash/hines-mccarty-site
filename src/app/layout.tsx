@@ -1,29 +1,49 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Lora, Poppins } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { firm, siteUrl } from "@/lib/site";
 
-const cormorantGaramond = Cormorant_Garamond({
+/*
+  D143: the three faces are bundled with the site (Fontsource 5.3.0, SIL Open
+  Font License, licences in ./fonts) instead of fetched from Google at build
+  time. Turbopack's next/font/google intermittently failed to resolve its own
+  font module and broke builds, locally and on Vercel; local files remove
+  that step. Same families, weights and latin subset as before.
+*/
+const cormorantGaramond = localFont({
   variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
+  src: [
+    { path: "./fonts/cormorant-garamond-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/cormorant-garamond-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/cormorant-garamond-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/cormorant-garamond-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
 });
 
-const poppins = Poppins({
+const poppins = localFont({
   variable: "--font-poppins",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
   display: "swap",
+  src: [
+    { path: "./fonts/poppins-latin-300-normal.woff2", weight: "300", style: "normal" },
+    { path: "./fonts/poppins-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/poppins-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/poppins-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/poppins-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
 });
 
-const lora = Lora({
+const lora = localFont({
   variable: "--font-lora",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
   display: "swap",
+  src: [
+    { path: "./fonts/lora-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/lora-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/lora-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/lora-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
 });
 
 const DEFAULT_TITLE = "Hines McCarty Pavlidis | Criminal Defense Attorneys in Tampa Bay";
