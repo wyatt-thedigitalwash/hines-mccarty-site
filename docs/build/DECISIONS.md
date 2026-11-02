@@ -3667,3 +3667,14 @@ The Contact page form now names itself ("Contact page") in the email, and its
 hero uses the shared call button (full width on a phone, with the 24/7 line).
 The Contact page leaves noindex and enters the sitemap on its own once the
 three settings are present at build time in Vercel.
+
+### D142. "Check" tasks on the firm's to-do list
+
+**2026-11-02. Client direction.** Nine confirmation tasks join the list at
+/hmp-tasks-k7x2 (D127), because the listing research could not see every
+site (Yelp, Bing, Apple Maps, BBB, Yellow Pages and Manta block automated
+checks): one per attorney (search their own name and fix any profile with an
+old firm, a Tampa address or another phone), and five for the office
+(search the old names and the number; Google Maps; Apple and Bing Maps;
+Yelp, BBB, Yellow Pages, Manta and Nextdoor; Facebook and LinkedIn). 44
+tasks in all. No recurring re-check (client choice).

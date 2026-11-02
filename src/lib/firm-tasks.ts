@@ -16,6 +16,7 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "l-nacdl", title: "Join NACDL and add the website to your profile ($364/yr)", links: [["NACDL", "https://www.nacdl.org/findalawyer"]] },
     { id: "l-hcacdl", title: "HCACDL: ask the board if member listings can link to websites", links: [["HCACDL members", "https://www.hcacdl.org/member-directory/"]] },
     { id: "l-fsu", title: "FSU Law: send a class note about the new firm", links: [["FSU class note", "https://law.fsu.edu/alumni/submit-class-note"]] },
+    { id: "l-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Lily+McCarty%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=729701"]] },
   ]},
   { id: "maria", title: "Maria", items: [
     { id: "m-bar", title: "Florida Bar: change Tampa to the Brandon address, phone and firm name", links: [BAR] },
@@ -25,6 +26,7 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "m-experience", title: "Experience.com: update or remove the old Pavlidis Law profile", links: [["Your profile", "https://www.experience.com/reviews/maria-7932190"]] },
     { id: "m-justia", title: "Justia: create your free profile", links: [JUSTIA] },
     { id: "m-nacdl", title: "Join NACDL and add the website to your profile ($364/yr)", links: [["NACDL", "https://www.nacdl.org/findalawyer"]] },
+    { id: "m-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Maria+Pavlidis%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=684341"]] },
   ]},
   { id: "david", title: "David", items: [
     { id: "d-bar", title: "Florida Bar: update the firm name, add the website", links: [BAR] },
@@ -32,6 +34,7 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "d-martindale", title: "Martindale: add the firm, phone and website", links: [["Update form", "https://www.martindale.com/update-profile/"]] },
     { id: "d-justia", title: "Justia: create your free profile", links: [JUSTIA] },
     { id: "d-stetson", title: "Stetson: mail a note about the new firm to Alumni Engagement, 1401 61st St. S, Gulfport, FL 33707" },
+    { id: "d-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22David+Hines%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=1038894"]] },
   ]},
   { id: "colton", title: "Colton", items: [
     { id: "c-bar", title: "Florida Bar: add the firm name, main phone and website", links: [BAR] },
@@ -39,6 +42,7 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "c-justia", title: "Justia: change Rhino Lawyers to the new firm", links: [["Your Justia", "https://lawyers.justia.com/lawyer/colton-trina-1812075"]] },
     { id: "c-avvo", title: "Avvo: create your free profile", links: [AVVO] },
     { id: "c-siu", title: "SIU Law: submit an alumni highlight", links: [["SIU form", "https://law.siu.edu/alumni-support/alumni-highlights.php"]] },
+    { id: "c-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Colton+Trina%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=1057615"]] },
   ]},
   { id: "office", title: "Office", items: [
     { id: "o-name", title: "Confirm the exact firm name with the Florida Bar", links: [["Sunbiz", "https://search.sunbiz.org/"]] },
@@ -53,5 +57,10 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "o-qwoted", title: "Qwoted: sign one attorney up (free)", links: [["Sign up", "https://app.qwoted.com/users/sign_up"]] },
     { id: "o-sponsor", title: "Sponsor one local team (from $500). Email sponsorship@valricorams.org", links: [["Valrico Rams", "https://www.valricorams.com/"]] },
     { id: "o-domains", title: "Keep hinesmccarty.com and hines-lawfirm.com renewed" },
+    { id: "o-check-search", title: "Check: Google the old names and the phone number; fix anything with old details", links: [["Hines & McCarty", "https://www.google.com/search?q=%22Hines+&+McCarty%22"], ["The Hines Law Firm", "https://www.google.com/search?q=%22The+Hines+Law+Firm%22+Brandon"], ["Hines McCarty Pavlidis", "https://www.google.com/search?q=%22Hines+McCarty+Pavlidis%22"], ["(813) 738-8650", "https://www.google.com/search?q=%22813-738-8650%22"]] },
+    { id: "o-check-gmaps", title: "Check: on your phone, find the firm in Google Maps and confirm name, address, 24/7 hours, phone, website and categories", links: [["Google Maps", "https://www.google.com/maps/search/Hines+McCarty+Pavlidis+Brandon+FL"]] },
+    { id: "o-check-apple-bing", title: "Check: find the firm in Apple Maps and Bing Maps and confirm the same details", links: [["Bing Maps", "https://www.bing.com/maps?q=Hines+McCarty+Pavlidis+Brandon+FL"]] },
+    { id: "o-check-directories", title: "Check: search Yelp, BBB, Yellow Pages, Manta and Nextdoor for the firm; claim and correct any listing that exists", links: [["Yelp", "https://www.yelp.com/search?find_desc=Hines+McCarty&find_loc=Brandon%2C+FL"], ["BBB", "https://www.bbb.org/search?find_text=Hines%20McCarty&find_loc=Brandon%2C%20FL"], ["Yellow Pages", "https://www.yellowpages.com/search?search_terms=Hines+McCarty&geo_location_terms=Brandon%2C+FL"], ["Manta", "https://www.manta.com/search?search=Hines+McCarty+Brandon+FL"]] },
+    { id: "o-check-social", title: "Check: confirm name, address, phone and website on Facebook and LinkedIn" },
   ]},
 ];
