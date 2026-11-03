@@ -8,7 +8,10 @@ import { FIRM_TASKS } from "@/lib/firm-tasks";
  * (localStorage), so each person sees their own progress on their own device.
  */
 const KEY = "hmp-tasks-v1";
-const total = FIRM_TASKS.reduce((n, g) => n + g.items.length, 0);
+// Saved ticks can include tasks that were later removed, so the count only
+// looks at ids still on the list.
+const ids = FIRM_TASKS.flatMap((g) => g.items.map((t) => t.id));
+const total = ids.length;
 
 export default function FirmTasks() {
   const [done, setDone] = useState<Record<string, boolean>>({});
@@ -32,7 +35,7 @@ export default function FirmTasks() {
       return next;
     });
 
-  const count = Object.values(done).filter(Boolean).length;
+  const count = ids.filter((id) => done[id]).length;
 
   return (
     <>
