@@ -58,6 +58,7 @@ export default function FirmTasks() {
                 {n} of {group.items.length} done
               </p>
             </div>
+            {group.note ? <p className="mt-2 max-w-3xl leading-relaxed text-charcoal">{group.note}</p> : null}
             <ul className="mt-4 grid gap-3">
               {group.items.map((t) => (
                 <li

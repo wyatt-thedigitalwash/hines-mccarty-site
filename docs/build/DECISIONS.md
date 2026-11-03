@@ -3701,25 +3701,41 @@ report within 15 days, Rule 4-7.22), and what to skip. Corrections to the
 tasks themselves: NACDL is $359/yr (was $364), and FindLaw's free listing
 carries no website link.
 
-## D146: Attorney to-do revisions (2026-11-03)
+### D145. Firm to-do list revisions
 
-All four attorneys already have Avvo profiles, so every Avvo task is "update"
-and the claim link is gone (Colton's links to an Avvo search, since his URL is
-not on file). Maria's Lawyers.com task covers the whole profile; her NACDL task
-is removed. The three alumni notes (FSU, Stetson, SIU; the SIU link 404s) move
-to Recommended as one item: they rarely carry a link. Experience.com is a
+**2026-11-03. Client direction.** Facebook is one page, so one link
+(547898668412988, the one the current site uses). The Chamber task links the
+live listing as proof: it still reads "The Hines Law Firm" and points to
+hines-lawfirm.com. Featured.com and Qwoted get a one-line note on how they
+work. The Valrico Rams sponsorship moves to Recommended (Bronze $500, verified;
+confirm Bronze includes a linked logo). The domain-renewal task is removed.
+Tasks can now carry a short `note`. Later the same day: the BBB profile moved
+from Recommended to an Office task, the section heading became "Optional", and
+the progress count ignores saved ticks for tasks no longer on the list.
+
+### D146. Attorney to-do revisions
+
+**2026-11-03. Client direction.** All four attorneys already have Avvo
+profiles, so every Avvo task is "update" and the claim link is gone (Colton's
+links to an Avvo search, since his URL is not on file). Maria's Lawyers.com
+task covers the whole profile; her NACDL task is removed, and later Lily's too.
+The three alumni notes (FSU, Stetson, SIU; the SIU link 404s) move to
+Recommended as one item: they rarely carry a link. Experience.com is a
 mortgage and real-estate review tool, so only Maria's stale profile is handled.
 
-## D147: Same core profiles for every attorney (2026-11-03)
+### D147. Same core profiles for every attorney
 
-Each attorney now has Florida Bar, Avvo, Justia, Martindale (which also updates
-Lawyers.com; Maria's existing Lawyers.com task covers it) and a personal
-LinkedIn task. Added Martindale for Lily and Colton, LinkedIn for all four.
+**2026-11-03. Client direction.** Each attorney now has Florida Bar, Avvo,
+Justia, Martindale (which also updates Lawyers.com; Maria's existing
+Lawyers.com task covers it) and a personal LinkedIn task. Added Martindale for
+Lily and Colton, LinkedIn for all four.
 
-## D148: Case notes before the case-pages meeting (2026-11-03)
+### D148. A "Case results" section before the case-pages meeting
 
-Each attorney's list now opens with a task to send Wyatt a voice memo or notes
-per past case: charge, court, year, facts, what they did, outcome, and the case
-number (for verification only; Rule 4-7.13 requires past results to be
-objectively verifiable). No client names or identifying details without the
-client's written consent (Rule 4-1.6 has no public-record exception).
+**2026-11-03. Client direction.** A separate "Case results" section at the top
+of the to-do list, one task per attorney: compile past cases worth featuring
+(a list, notes or voice memos). Nothing is sent ahead; Wyatt goes through them
+with each attorney at the meeting. The section note asks for charge, court,
+year, facts, what they did, outcome, and the case number (to verify the result
+under Rule 4-7.13, never published), and no client names (Rule 4-1.6 has no
+public-record exception).
