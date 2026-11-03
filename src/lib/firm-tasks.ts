@@ -13,7 +13,7 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "l-bar", title: "Florida Bar: add the firm name and website", links: [BAR] },
     { id: "l-avvo", title: "Avvo: change your firm and address (keep your 25 reviews)", links: [["Your Avvo", "https://www.avvo.com/attorneys/33602-fl-lily-mccarty-1272927.html"], AVVO] },
     { id: "l-justia", title: "Justia: create your free profile", links: [JUSTIA] },
-    { id: "l-nacdl", title: "Join NACDL and add the website to your profile ($364/yr)", links: [["NACDL", "https://www.nacdl.org/findalawyer"]] },
+    { id: "l-nacdl", title: "Join NACDL and add the website to your profile ($359/yr)", links: [["NACDL", "https://www.nacdl.org/findalawyer"]] },
     { id: "l-hcacdl", title: "HCACDL: ask the board if member listings can link to websites", links: [["HCACDL members", "https://www.hcacdl.org/member-directory/"]] },
     { id: "l-fsu", title: "FSU Law: send a class note about the new firm", links: [["FSU class note", "https://law.fsu.edu/alumni/submit-class-note"]] },
     { id: "l-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Lily+McCarty%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=729701"]] },
@@ -25,7 +25,7 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "m-lawyerscom", title: "Lawyers.com: change Tampa to Brandon", links: [["Update form", "https://www.martindale.com/update-profile/"]] },
     { id: "m-experience", title: "Experience.com: update or remove the old Pavlidis Law profile", links: [["Your profile", "https://www.experience.com/reviews/maria-7932190"]] },
     { id: "m-justia", title: "Justia: create your free profile", links: [JUSTIA] },
-    { id: "m-nacdl", title: "Join NACDL and add the website to your profile ($364/yr)", links: [["NACDL", "https://www.nacdl.org/findalawyer"]] },
+    { id: "m-nacdl", title: "Join NACDL and add the website to your profile ($359/yr)", links: [["NACDL", "https://www.nacdl.org/findalawyer"]] },
     { id: "m-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Maria+Pavlidis%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=684341"]] },
   ]},
   { id: "david", title: "David", items: [
@@ -51,7 +51,7 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "o-facebook", title: "Facebook: keep one page, use the new name", links: [["Page 1", "https://www.facebook.com/547898668412988"], ["Page 2", "https://www.facebook.com/61573377995254"]] },
     { id: "o-linkedin", title: "LinkedIn: create a company page", links: [["Create", "https://www.linkedin.com/company/setup/new/"]] },
     { id: "o-yelp", title: "Yelp: claim or add the firm", links: [["Yelp", "https://biz.yelp.com/claim"]] },
-    { id: "o-findlaw", title: "FindLaw: fix or remove the old McCarty Gonzalez & Pavlidis listing", links: [["The listing", "https://lawyers.findlaw.com/florida/tampa/4871907_1/"], ["How to claim", "https://profileupdate.findlaw.com/help/finding-and-claiming-a-profile/"]] },
+    { id: "o-findlaw", title: "FindLaw: fix or remove the old McCarty Gonzalez & Pavlidis listing (the free listing has no website link; don't pay for one)", links: [["The listing", "https://lawyers.findlaw.com/florida/tampa/4871907_1/"], ["How to claim", "https://profileupdate.findlaw.com/help/finding-and-claiming-a-profile/"]] },
     { id: "o-chamber", title: "Chamber: ask them to change \"The Hines Law Firm\" to the new name. Call (813) 234-5944" },
     { id: "o-featured", title: "Featured.com: sign one attorney up (free)", links: [["Sign up", "https://featured.com/signup"]] },
     { id: "o-qwoted", title: "Qwoted: sign one attorney up (free)", links: [["Sign up", "https://app.qwoted.com/users/sign_up"]] },
@@ -64,3 +64,21 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "o-check-social", title: "Check: confirm name, address, phone and website on Facebook and LinkedIn" },
   ]},
 ];
+
+/**
+ * D144: suggestions, not tasks. Shown below the to-do list as optional, with
+ * no checkbox and outside the progress count. Researched 2026-11-02.
+ */
+export type Recommendation = { title: string; note: string; links?: [string, string][] };
+
+export const RECOMMENDED: Recommendation[] = [
+  { title: "Martindale peer review rating (AV Preeminent)", note: "Free. Peers rate the attorney; no subscription needed.", links: [["How it works", "https://www.martindale.com/marketyourfirm/profiles/peer-ratings"]] },
+  { title: "Super Lawyers, Rising Stars and Best Lawyers", note: "Free, peer-selected. Accept the selection; skip their paid profiles and badges.", links: [["Super Lawyers", "https://www.superlawyers.com/for-lawyers/attorney-profile-comparison/"]] },
+  { title: "Florida Trend Legal Elite", note: "Free. Voted by Florida Bar members." , links: [["Florida Trend", "https://www.floridatrend.com/"]] },
+  { title: "BBB business profile", note: "The basic profile is free. Paid accreditation isn't worth it.", links: [["Get listed", "https://www.bbb.org/get-listed"]] },
+  { title: "Justia Connect Pro ($19.99/mo)", note: "Removes competitors' ads from your profiles. Call the Florida Bar Ethics Hotline first: 800-235-8619.", links: [["Justia Pro", "https://connect.justia.com/pro"]] },
+  { title: "Tampa Bay Chamber ($590/yr)", note: "Business-litigation referrals. The Brandon Riverview Chamber the firm is already in matters more.", links: [["Join", "https://www.tampabaychamber.com/forms/join-the-chamber/"]] },
+  { title: "Avvo Advertising (about $100/mo and up)", note: "Only as a tracked test for criminal and injury leads. Report it to the Florida Bar within 15 days of starting (Rule 4-7.22).", links: [["Bar reporting form", "https://www.floridabar.org/ethics/etad/participation-with-qualifying-provider-reporting/"]] },
+  { title: "Skip these", note: "America's Top 100 (can't be advertised in Florida), National Trial Lawyers Top 100, paid Super Lawyers or Best Lawyers profiles, FindLaw, LawInfo or Lawyers.com premium, Lawyer.com, Expertise.com featured spots, link packages and sponsored articles." },
+];
+

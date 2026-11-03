@@ -3688,3 +3688,15 @@ Poppins (300 to 700) and Lora (400 to 700), latin subset, are now bundled in
 `src/app/fonts/` (Fontsource 5.3.0, SIL Open Font License, licences
 alongside) and loaded with `next/font/local`. Same families, weights and CSS
 variables, so pages render the same; builds no longer reach Google.
+
+### D144. Recommended, optional items on the to-do list
+
+**2026-11-02. Client direction.** After researching free and paid listings
+(2026-11-02), suggestions sit in a separate "Recommended (optional)" section
+at /hmp-tasks-k7x2, without checkboxes and outside the progress count:
+Martindale peer review, Super Lawyers / Best Lawyers selection, Florida Trend
+Legal Elite, a free BBB profile, Justia Connect Pro (after calling the Bar's
+Ethics Hotline), the Tampa Bay Chamber, a tracked Avvo Advertising test (Bar
+report within 15 days, Rule 4-7.22), and what to skip. Corrections to the
+tasks themselves: NACDL is $359/yr (was $364), and FindLaw's free listing
+carries no website link.

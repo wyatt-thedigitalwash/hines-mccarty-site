@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import FirmTasks from "@/components/tasks/FirmTasks";
+import { RECOMMENDED } from "@/lib/firm-tasks";
 
 /**
  * D127. The firm's to-do list at an unlisted address: linked from nowhere,
@@ -38,6 +39,35 @@ export default function FirmTasksPage() {
             </dl>
           </div>
           <FirmTasks />
+          {/* D144: optional, so no checkboxes and outside the progress count. */}
+          <section className="mt-14">
+            <h2 className="font-display text-4xl">Recommended (optional)</h2>
+            <p className="mt-3 text-charcoal">Worth considering once the list above is done. None of these are required.</p>
+            <ul className="mt-6 grid gap-3">
+              {RECOMMENDED.map((r) => (
+                <li key={r.title} className="border-l-2 border-bronze/60 bg-navy/[0.03] px-5 py-4">
+                  <p className="font-medium text-navy">{r.title}</p>
+                  <p className="mt-1 text-sm leading-relaxed text-charcoal">{r.note}</p>
+                  {r.links?.length ? (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {r.links.map(([label, href]) => (
+                        <a
+                          key={href}
+                          href={href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="border border-navy/20 bg-white px-3 py-1.5 text-sm font-medium text-navy transition-colors hover:border-bronze hover:text-bronze"
+                        >
+                          {label} ↗
+                        </a>
+                      ))}
+                    </div>
+                  ) : null}
+                </li>
+              ))}
+            </ul>
+          </section>
+
           <section className="mt-14">
             <h2 className="font-display text-4xl">Every month</h2>
             <ul className="mt-4 grid gap-2 text-lg text-charcoal">
