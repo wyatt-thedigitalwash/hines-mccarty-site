@@ -3715,3 +3715,11 @@ mortgage and real-estate review tool, so only Maria's stale profile is handled.
 Each attorney now has Florida Bar, Avvo, Justia, Martindale (which also updates
 Lawyers.com; Maria's existing Lawyers.com task covers it) and a personal
 LinkedIn task. Added Martindale for Lily and Colton, LinkedIn for all four.
+
+## D148: Case notes before the case-pages meeting (2026-11-03)
+
+Each attorney's list now opens with a task to send Wyatt a voice memo or notes
+per past case: charge, court, year, facts, what they did, outcome, and the case
+number (for verification only; Rule 4-7.13 requires past results to be
+objectively verifiable). No client names or identifying details without the
+client's written consent (Rule 4-1.6 has no public-record exception).
