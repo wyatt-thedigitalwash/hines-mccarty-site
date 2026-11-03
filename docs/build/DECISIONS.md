@@ -3700,3 +3700,12 @@ Ethics Hotline), the Tampa Bay Chamber, a tracked Avvo Advertising test (Bar
 report within 15 days, Rule 4-7.22), and what to skip. Corrections to the
 tasks themselves: NACDL is $359/yr (was $364), and FindLaw's free listing
 carries no website link.
+
+## D146: Attorney to-do revisions (2026-11-03)
+
+All four attorneys already have Avvo profiles, so every Avvo task is "update"
+and the claim link is gone (Colton's links to an Avvo search, since his URL is
+not on file). Maria's Lawyers.com task covers the whole profile; her NACDL task
+is removed. The three alumni notes (FSU, Stetson, SIU; the SIU link 404s) move
+to Recommended as one item: they rarely carry a link. Experience.com is a
+mortgage and real-estate review tool, so only Maria's stale profile is handled.

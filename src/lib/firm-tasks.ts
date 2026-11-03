@@ -6,42 +6,37 @@ export type Task = { id: string; title: string; note?: string; links?: [string, 
 export type TaskGroup = { id: string; title: string; items: Task[] };
 
 const BAR: [string, string] = ["Florida Bar login", "https://member.floridabar.org/"];
-const AVVO: [string, string] = ["Avvo: claim profile", "https://www.avvo.com/for-lawyers/avvo-profile"];
 const JUSTIA: [string, string] = ["Justia: get listed", "https://lawyers.justia.com/lawyer-directory-listings"];
 export const FIRM_TASKS: TaskGroup[] = [
   { id: "lily", title: "Lily", items: [
     { id: "l-bar", title: "Florida Bar: add the firm name and website", links: [BAR] },
-    { id: "l-avvo", title: "Avvo: change your firm and address (keep your 25 reviews)", links: [["Your Avvo", "https://www.avvo.com/attorneys/33602-fl-lily-mccarty-1272927.html"], AVVO] },
+    { id: "l-avvo", title: "Avvo: change your firm and address (keep your 25 reviews)", links: [["Your Avvo", "https://www.avvo.com/attorneys/33602-fl-lily-mccarty-1272927.html"]] },
     { id: "l-justia", title: "Justia: create your free profile", links: [JUSTIA] },
     { id: "l-nacdl", title: "Join NACDL and add the website to your profile ($359/yr)", links: [["NACDL", "https://www.nacdl.org/findalawyer"]] },
     { id: "l-hcacdl", title: "HCACDL: ask the board if member listings can link to websites", links: [["HCACDL members", "https://www.hcacdl.org/member-directory/"]] },
-    { id: "l-fsu", title: "FSU Law: send a class note about the new firm", links: [["FSU class note", "https://law.fsu.edu/alumni/submit-class-note"]] },
     { id: "l-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Lily+McCarty%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=729701"]] },
   ]},
   { id: "maria", title: "Maria", items: [
     { id: "m-bar", title: "Florida Bar: change Tampa to the Brandon address, phone and firm name", links: [BAR] },
     { id: "m-pavlidis", title: "Close the old Pavlidis Law Google listing and point pavlidislawfirm.com to the new site", links: [["Google Business Profile", "https://business.google.com/"]] },
-    { id: "m-avvo", title: "Avvo: change your firm and address", links: [["Your Avvo", "https://www.avvo.com/attorneys/33602-fl-maria-pavlidis-1272809.html"], AVVO] },
-    { id: "m-lawyerscom", title: "Lawyers.com: change Tampa to Brandon", links: [["Update form", "https://www.martindale.com/update-profile/"]] },
-    { id: "m-experience", title: "Experience.com: update or remove the old Pavlidis Law profile", links: [["Your profile", "https://www.experience.com/reviews/maria-7932190"]] },
+    { id: "m-avvo", title: "Avvo: update your profile with the new firm, Brandon address, phone and website", links: [["Your Avvo", "https://www.avvo.com/attorneys/33602-fl-maria-pavlidis-1272809.html"]] },
+    { id: "m-lawyerscom", title: "Lawyers.com: update your whole profile (firm, Brandon address, phone, website, practice areas, photo)", note: "Lawyers.com and Martindale share one profile, so this form updates both.", links: [["Update form", "https://www.martindale.com/update-profile/"]] },
+    { id: "m-experience", title: "Experience.com: update or remove the old Pavlidis Law profile", note: "It still shows Pavlidis Law and (813) 272-2200.", links: [["Your profile", "https://www.experience.com/reviews/maria-7932190"]] },
     { id: "m-justia", title: "Justia: create your free profile", links: [JUSTIA] },
-    { id: "m-nacdl", title: "Join NACDL and add the website to your profile ($359/yr)", links: [["NACDL", "https://www.nacdl.org/findalawyer"]] },
     { id: "m-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Maria+Pavlidis%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=684341"]] },
   ]},
   { id: "david", title: "David", items: [
     { id: "d-bar", title: "Florida Bar: update the firm name, add the website", links: [BAR] },
-    { id: "d-avvo", title: "Avvo: update the firm name", links: [["Your Avvo", "https://www.avvo.com/attorneys/33511-fl-david-hines-5288849.html"], AVVO] },
+    { id: "d-avvo", title: "Avvo: update your profile with the new firm name, phone and website", links: [["Your Avvo", "https://www.avvo.com/attorneys/33511-fl-david-hines-5288849.html"]] },
     { id: "d-martindale", title: "Martindale: add the firm, phone and website", links: [["Update form", "https://www.martindale.com/update-profile/"]] },
     { id: "d-justia", title: "Justia: create your free profile", links: [JUSTIA] },
-    { id: "d-stetson", title: "Stetson: mail a note about the new firm to Alumni Engagement, 1401 61st St. S, Gulfport, FL 33707" },
     { id: "d-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22David+Hines%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=1038894"]] },
   ]},
   { id: "colton", title: "Colton", items: [
     { id: "c-bar", title: "Florida Bar: add the firm name, main phone and website", links: [BAR] },
     { id: "c-duidla", title: "DUIDLA: add the website to your member profile", links: [["DUIDLA", "https://duidla.org/directory/"]] },
     { id: "c-justia", title: "Justia: change Rhino Lawyers to the new firm", links: [["Your Justia", "https://lawyers.justia.com/lawyer/colton-trina-1812075"]] },
-    { id: "c-avvo", title: "Avvo: create your free profile", links: [AVVO] },
-    { id: "c-siu", title: "SIU Law: submit an alumni highlight", links: [["SIU form", "https://law.siu.edu/alumni-support/alumni-highlights.php"]] },
+    { id: "c-avvo", title: "Avvo: update your profile with the new firm, address, phone and website", links: [["Find your Avvo", "https://www.avvo.com/search/lawyer_search?q=Colton+Trina&loc=Brandon%2C+FL"]] },
     { id: "c-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Colton+Trina%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=1057615"]] },
   ]},
   { id: "office", title: "Office", items: [
@@ -76,6 +71,7 @@ export const RECOMMENDED: Recommendation[] = [
   { title: "BBB business profile", note: "The basic profile is free. Paid accreditation isn't worth it.", links: [["Get listed", "https://www.bbb.org/get-listed"]] },
   { title: "Justia Connect Pro ($19.99/mo)", note: "Removes competitors' ads from your profiles. Call the Florida Bar Ethics Hotline first: 800-235-8619.", links: [["Justia Pro", "https://connect.justia.com/pro"]] },
   { title: "Sponsor a local youth team (Valrico Rams, from $500)", note: "Mostly local goodwill; one link is a small SEO boost. Bronze is $500. Before paying, confirm the Bronze level gets a logo that links to the website. Email sponsorship@valricorams.org.", links: [["Valrico Rams", "https://www.valricorams.com/"]] },
+  { title: "Tell your law school about the new firm", note: "Free. Usually a line in the alumni magazine, rarely a website link, so the value is classmates who refer cases. FSU (Lily): online form. Stetson (David): alumni@law.stetson.edu. SIU (Colton): law@siu.edu.", links: [["FSU class note", "https://law.fsu.edu/alumni/submit-class-note"]] },
   { title: "Tampa Bay Chamber ($590/yr)", note: "Business-litigation referrals. The Brandon Riverview Chamber the firm is already in matters more.", links: [["Join", "https://www.tampabaychamber.com/forms/join-the-chamber/"]] },
   { title: "Avvo Advertising (about $100/mo and up)", note: "Only as a tracked test for criminal and injury leads. Report it to the Florida Bar within 15 days of starting (Rule 4-7.22).", links: [["Bar reporting form", "https://www.floridabar.org/ethics/etad/participation-with-qualifying-provider-reporting/"]] },
   { title: "Skip these", note: "America's Top 100 (can't be advertised in Florida), National Trial Lawyers Top 100, paid Super Lawyers or Best Lawyers profiles, FindLaw, LawInfo or Lawyers.com premium, Lawyer.com, Expertise.com featured spots, link packages and sponsored articles." },
