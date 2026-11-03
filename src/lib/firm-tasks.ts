@@ -18,7 +18,6 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "l-justia", title: "Justia: create your free profile", links: [JUSTIA] },
     martindale("l-martindale"),
     linkedin("l-linkedin"),
-    { id: "l-nacdl", title: "Join NACDL and add the website to your profile ($359/yr)", links: [["NACDL", "https://www.nacdl.org/findalawyer"]] },
     { id: "l-hcacdl", title: "HCACDL: ask the board if member listings can link to websites", links: [["HCACDL members", "https://www.hcacdl.org/member-directory/"]] },
     { id: "l-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Lily+McCarty%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=729701"]] },
   ]},
