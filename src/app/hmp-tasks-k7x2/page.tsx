@@ -41,7 +41,7 @@ export default function FirmTasksPage() {
           <FirmTasks />
           {/* D144: optional, so no checkboxes and outside the progress count. */}
           <section className="mt-14">
-            <h2 className="font-display text-4xl">Recommended (optional)</h2>
+            <h2 className="font-display text-4xl">Optional</h2>
             <p className="mt-3 text-charcoal">Worth considering once the list above is done. None of these are required.</p>
             <ul className="mt-6 grid gap-3">
               {RECOMMENDED.map((r) => (
