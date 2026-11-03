@@ -75,6 +75,7 @@ export default function FirmTasks() {
                     >
                       {t.title}
                     </label>
+                    {t.note ? <p className="mt-1 text-sm leading-relaxed text-charcoal">{t.note}</p> : null}
                     {t.links?.length ? (
                       <div className="mt-3 flex flex-wrap gap-2">
                         {t.links.map(([label, href]) => (

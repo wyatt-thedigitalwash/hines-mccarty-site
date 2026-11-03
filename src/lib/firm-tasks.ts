@@ -2,7 +2,7 @@
  * The firm's to-do list for listings, links and reviews (D127), shown at the
  * unlisted /hmp-tasks-k7x2. Research 2026-10-13; see docs/seo/.
  */
-export type Task = { id: string; title: string; links?: [string, string][] };
+export type Task = { id: string; title: string; note?: string; links?: [string, string][] };
 export type TaskGroup = { id: string; title: string; items: Task[] };
 
 const BAR: [string, string] = ["Florida Bar login", "https://member.floridabar.org/"];
@@ -48,15 +48,13 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "o-name", title: "Confirm the exact firm name with the Florida Bar", links: [["Sunbiz", "https://search.sunbiz.org/"]] },
     { id: "o-google", title: "Google: rename the listing, add categories and photos", links: [["Google Business Profile", "https://business.google.com/"]] },
     { id: "o-apple", title: "Apple Maps: claim the listing", links: [["Apple Business Connect", "https://business.apple.com/"]] },
-    { id: "o-facebook", title: "Facebook: keep one page, use the new name", links: [["Page 1", "https://www.facebook.com/547898668412988"], ["Page 2", "https://www.facebook.com/61573377995254"]] },
+    { id: "o-facebook", title: "Facebook: use the new name on the page", links: [["Facebook page", "https://www.facebook.com/547898668412988"]] },
     { id: "o-linkedin", title: "LinkedIn: create a company page", links: [["Create", "https://www.linkedin.com/company/setup/new/"]] },
     { id: "o-yelp", title: "Yelp: claim or add the firm", links: [["Yelp", "https://biz.yelp.com/claim"]] },
     { id: "o-findlaw", title: "FindLaw: fix or remove the old McCarty Gonzalez & Pavlidis listing (the free listing has no website link; don't pay for one)", links: [["The listing", "https://lawyers.findlaw.com/florida/tampa/4871907_1/"], ["How to claim", "https://profileupdate.findlaw.com/help/finding-and-claiming-a-profile/"]] },
-    { id: "o-chamber", title: "Chamber: ask them to change \"The Hines Law Firm\" to the new name. Call (813) 234-5944" },
-    { id: "o-featured", title: "Featured.com: sign one attorney up (free)", links: [["Sign up", "https://featured.com/signup"]] },
-    { id: "o-qwoted", title: "Qwoted: sign one attorney up (free)", links: [["Sign up", "https://app.qwoted.com/users/sign_up"]] },
-    { id: "o-sponsor", title: "Sponsor one local team (from $500). Email sponsorship@valricorams.org", links: [["Valrico Rams", "https://www.valricorams.com/"]] },
-    { id: "o-domains", title: "Keep hinesmccarty.com and hines-lawfirm.com renewed" },
+    { id: "o-chamber", title: "Chamber: update the member listing. Call (813) 234-5944", note: "It still says \"The Hines Law Firm\" and links to hines-lawfirm.com. Ask for the new name and tampa-litigation.com.", links: [["The listing", "https://web.centralhillsboroughchamber.com/Attorney/The-Hines-Law-Firm-5443"]] },
+    { id: "o-featured", title: "Featured.com: sign one attorney up (free)", note: "Reporters post questions; you answer in a few sentences. If they use the answer, the article quotes the attorney and links to the website. Free for 3 answers a month.", links: [["Sign up", "https://featured.com/signup"]] },
+    { id: "o-qwoted", title: "Qwoted: sign one attorney up (free)", note: "Same idea as Featured: reporters ask for expert sources and you pitch a short answer. The free plan has a few pitches a month.", links: [["Sign up", "https://app.qwoted.com/users/sign_up"]] },
     { id: "o-check-search", title: "Check: Google the old names and the phone number; fix anything with old details", links: [["Hines & McCarty", "https://www.google.com/search?q=%22Hines+&+McCarty%22"], ["The Hines Law Firm", "https://www.google.com/search?q=%22The+Hines+Law+Firm%22+Brandon"], ["Hines McCarty Pavlidis", "https://www.google.com/search?q=%22Hines+McCarty+Pavlidis%22"], ["(813) 738-8650", "https://www.google.com/search?q=%22813-738-8650%22"]] },
     { id: "o-check-gmaps", title: "Check: on your phone, find the firm in Google Maps and confirm name, address, 24/7 hours, phone, website and categories", links: [["Google Maps", "https://www.google.com/maps/search/Hines+McCarty+Pavlidis+Brandon+FL"]] },
     { id: "o-check-apple-bing", title: "Check: find the firm in Apple Maps and Bing Maps and confirm the same details", links: [["Bing Maps", "https://www.bing.com/maps?q=Hines+McCarty+Pavlidis+Brandon+FL"]] },
@@ -77,6 +75,7 @@ export const RECOMMENDED: Recommendation[] = [
   { title: "Florida Trend Legal Elite", note: "Free. Voted by Florida Bar members." , links: [["Florida Trend", "https://www.floridatrend.com/"]] },
   { title: "BBB business profile", note: "The basic profile is free. Paid accreditation isn't worth it.", links: [["Get listed", "https://www.bbb.org/get-listed"]] },
   { title: "Justia Connect Pro ($19.99/mo)", note: "Removes competitors' ads from your profiles. Call the Florida Bar Ethics Hotline first: 800-235-8619.", links: [["Justia Pro", "https://connect.justia.com/pro"]] },
+  { title: "Sponsor a local youth team (Valrico Rams, from $500)", note: "Mostly local goodwill; one link is a small SEO boost. Bronze is $500. Before paying, confirm the Bronze level gets a logo that links to the website. Email sponsorship@valricorams.org.", links: [["Valrico Rams", "https://www.valricorams.com/"]] },
   { title: "Tampa Bay Chamber ($590/yr)", note: "Business-litigation referrals. The Brandon Riverview Chamber the firm is already in matters more.", links: [["Join", "https://www.tampabaychamber.com/forms/join-the-chamber/"]] },
   { title: "Avvo Advertising (about $100/mo and up)", note: "Only as a tracked test for criminal and injury leads. Report it to the Florida Bar within 15 days of starting (Rule 4-7.22).", links: [["Bar reporting form", "https://www.floridabar.org/ethics/etad/participation-with-qualifying-provider-reporting/"]] },
   { title: "Skip these", note: "America's Top 100 (can't be advertised in Florida), National Trial Lawyers Top 100, paid Super Lawyers or Best Lawyers profiles, FindLaw, LawInfo or Lawyers.com premium, Lawyer.com, Expertise.com featured spots, link packages and sponsored articles." },
