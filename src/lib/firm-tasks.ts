@@ -6,12 +6,18 @@ export type Task = { id: string; title: string; note?: string; links?: [string, 
 export type TaskGroup = { id: string; title: string; items: Task[] };
 
 const BAR: [string, string] = ["Florida Bar login", "https://member.floridabar.org/"];
+const MARTINDALE: [string, string] = ["Update form", "https://www.martindale.com/update-profile/"];
+const LINKEDIN: [string, string] = ["Your LinkedIn", "https://www.linkedin.com/in/me/"];
+const linkedin = (id: string): Task => ({ id, title: "LinkedIn: add Hines McCarty Pavlidis as your current job", note: "Once the firm's company page exists, pick it from the list so the logo shows.", links: [LINKEDIN] });
+const martindale = (id: string): Task => ({ id, title: "Martindale: add the firm, Brandon address, phone and website", note: "Lawyers.com shares this profile, so it updates both.", links: [MARTINDALE] });
 const JUSTIA: [string, string] = ["Justia: get listed", "https://lawyers.justia.com/lawyer-directory-listings"];
 export const FIRM_TASKS: TaskGroup[] = [
   { id: "lily", title: "Lily", items: [
     { id: "l-bar", title: "Florida Bar: add the firm name and website", links: [BAR] },
     { id: "l-avvo", title: "Avvo: change your firm and address (keep your 25 reviews)", links: [["Your Avvo", "https://www.avvo.com/attorneys/33602-fl-lily-mccarty-1272927.html"]] },
     { id: "l-justia", title: "Justia: create your free profile", links: [JUSTIA] },
+    martindale("l-martindale"),
+    linkedin("l-linkedin"),
     { id: "l-nacdl", title: "Join NACDL and add the website to your profile ($359/yr)", links: [["NACDL", "https://www.nacdl.org/findalawyer"]] },
     { id: "l-hcacdl", title: "HCACDL: ask the board if member listings can link to websites", links: [["HCACDL members", "https://www.hcacdl.org/member-directory/"]] },
     { id: "l-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Lily+McCarty%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=729701"]] },
@@ -23,13 +29,15 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "m-lawyerscom", title: "Lawyers.com: update your whole profile (firm, Brandon address, phone, website, practice areas, photo)", note: "Lawyers.com and Martindale share one profile, so this form updates both.", links: [["Update form", "https://www.martindale.com/update-profile/"]] },
     { id: "m-experience", title: "Experience.com: update or remove the old Pavlidis Law profile", note: "It still shows Pavlidis Law and (813) 272-2200.", links: [["Your profile", "https://www.experience.com/reviews/maria-7932190"]] },
     { id: "m-justia", title: "Justia: create your free profile", links: [JUSTIA] },
+    linkedin("m-linkedin"),
     { id: "m-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Maria+Pavlidis%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=684341"]] },
   ]},
   { id: "david", title: "David", items: [
     { id: "d-bar", title: "Florida Bar: update the firm name, add the website", links: [BAR] },
     { id: "d-avvo", title: "Avvo: update your profile with the new firm name, phone and website", links: [["Your Avvo", "https://www.avvo.com/attorneys/33511-fl-david-hines-5288849.html"]] },
-    { id: "d-martindale", title: "Martindale: add the firm, phone and website", links: [["Update form", "https://www.martindale.com/update-profile/"]] },
+    martindale("d-martindale"),
     { id: "d-justia", title: "Justia: create your free profile", links: [JUSTIA] },
+    linkedin("d-linkedin"),
     { id: "d-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22David+Hines%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=1038894"]] },
   ]},
   { id: "colton", title: "Colton", items: [
@@ -37,6 +45,8 @@ export const FIRM_TASKS: TaskGroup[] = [
     { id: "c-duidla", title: "DUIDLA: add the website to your member profile", links: [["DUIDLA", "https://duidla.org/directory/"]] },
     { id: "c-justia", title: "Justia: change Rhino Lawyers to the new firm", links: [["Your Justia", "https://lawyers.justia.com/lawyer/colton-trina-1812075"]] },
     { id: "c-avvo", title: "Avvo: update your profile with the new firm, address, phone and website", links: [["Find your Avvo", "https://www.avvo.com/search/lawyer_search?q=Colton+Trina&loc=Brandon%2C+FL"]] },
+    martindale("c-martindale"),
+    linkedin("c-linkedin"),
     { id: "c-check", title: "Check: Google your name; fix any profile showing an old firm, a Tampa address or another phone", links: [["Search your name", "https://www.google.com/search?q=%22Colton+Trina%22+attorney"], ["Your Bar profile", "https://www.floridabar.org/directories/find-mbr/profile/?num=1057615"]] },
   ]},
   { id: "office", title: "Office", items: [

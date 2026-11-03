@@ -3709,3 +3709,9 @@ not on file). Maria's Lawyers.com task covers the whole profile; her NACDL task
 is removed. The three alumni notes (FSU, Stetson, SIU; the SIU link 404s) move
 to Recommended as one item: they rarely carry a link. Experience.com is a
 mortgage and real-estate review tool, so only Maria's stale profile is handled.
+
+## D147: Same core profiles for every attorney (2026-11-03)
+
+Each attorney now has Florida Bar, Avvo, Justia, Martindale (which also updates
+Lawyers.com; Maria's existing Lawyers.com task covers it) and a personal
+LinkedIn task. Added Martindale for Lily and Colton, LinkedIn for all four.
