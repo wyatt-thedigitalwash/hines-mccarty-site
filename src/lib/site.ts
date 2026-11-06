@@ -695,6 +695,28 @@ export const attorneys: Attorney[] = [
   },
 ];
 
+/**
+ * Non-attorney staff, kept apart from `attorneys` on purpose (D149). That list
+ * drives bio routes, Attorney JSON-LD, "Handled by" blocks, the "four
+ * attorneys" copy and an "attorney at" alt text, and every one of those would
+ * present a non-lawyer as a lawyer (Rules 4-5.3, 4-7.13). Name, title and photo
+ * only: no bio page, and nothing here until the client supplies it.
+ */
+export type StaffMember = {
+  name: string;
+  role: string;
+  /** Path under /public. Undefined renders a monogram, never a stock photo. */
+  portrait?: string;
+};
+
+export const staff: StaffMember[] = [
+  {
+    name: "Liz Carissimo",
+    role: "Legal Assistant",
+    portrait: "/headshots/LizCarissimo_Portrait.jpg",
+  },
+];
+
 export const attorneyBySlug = (slug: string) =>
   attorneys.find((a) => a.slug === slug);
 

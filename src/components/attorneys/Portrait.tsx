@@ -2,19 +2,24 @@ import Image from "next/image";
 import type { Attorney } from "@/lib/site";
 
 /**
- * An attorney portrait, or a monogram when there is no real headshot.
+ * A portrait, or a monogram when there is no real headshot.
  *
  * Deliberately does NOT fall back to the stock images in /public/team. Putting
  * a stock photo under a named lawyer's name misrepresents a real person, which
  * is a Rule 4-7.13 problem before it is a design problem.
+ *
+ * `alt` defaults to the attorney wording. Anyone who is not an attorney must
+ * pass their own, or this would label them one.
  */
 export default function Portrait({
   attorney,
+  alt,
   className = "",
   sizes,
   priority = false,
 }: {
-  attorney: Attorney;
+  attorney: Pick<Attorney, "name" | "portrait" | "portraitPosition">;
+  alt?: string;
   className?: string;
   sizes?: string;
   priority?: boolean;
@@ -42,7 +47,7 @@ export default function Portrait({
     <div className={`relative overflow-hidden bg-navy-700 ${className}`}>
       <Image
         src={attorney.portrait}
-        alt={`${attorney.name}, criminal defense attorney at Hines McCarty Pavlidis`}
+        alt={alt ?? `${attorney.name}, criminal defense attorney at Hines McCarty Pavlidis`}
         fill
         sizes={sizes ?? "(min-width: 1024px) 24rem, 100vw"}
         priority={priority}

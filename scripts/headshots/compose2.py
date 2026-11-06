@@ -55,6 +55,7 @@ TUNE = {
     "LilyMcCarty_Headshot": (0, 0.08),
     "MariaPavlidis_Headshot": (4, 0.22),
     "ColtonTrina_Headshot": (5, 0.15),
+    "LizCarissimo_Headshot": (6, 0.25),
 }
 
 for stem, (shrink, floor) in TUNE.items():

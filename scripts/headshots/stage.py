@@ -8,6 +8,7 @@ CROPS = {
     "LilyMcCarty_Headshot.png": (94, -4, 336, 420),
     "ColtonTrina_Headshot.png": (110, -23, 377, 471),
     "MariaPavlidis_Headshot.jpg": (0, 0, 1200, 1500),
+    "LizCarissimo_Headshot.png": (250, 70, 880, 1100),
 }
 for name, (x0, y0, w, h) in CROPS.items():
     im = Image.open(f"{SRC}/{name}").convert("RGB")

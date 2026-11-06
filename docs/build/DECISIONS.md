@@ -3739,3 +3739,13 @@ with each attorney at the meeting. The section note asks for charge, court,
 year, facts, what they did, outcome, and the case number (to verify the result
 under Rule 4-7.13, never published), and no client names (Rule 4-1.6 has no
 public-record exception).
+
+### D149. Liz Carissimo, Legal Assistant, added to the firm page
+
+**2026-11-06. Client direction.** Liz Carissimo is on /about in a new "The
+staff." section under the attorneys: photo, name, title, no bio page. She sits
+in a separate `staff` list rather than `attorneys`, which feeds bio routes,
+Attorney JSON-LD, "Handled by" blocks and the "four attorneys" copy, so nothing
+presents a non-lawyer as a lawyer (Rules 4-5.3, 4-7.13). /attorneys stays
+attorneys only. Her photo went through the D118/D119 pipeline onto the shared
+navy background.
