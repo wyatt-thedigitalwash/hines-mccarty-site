@@ -9,7 +9,6 @@ import CallToAction from "@/components/CallToAction";
 import PracticeCards from "@/components/about/PracticeCards";
 import ProcessCards from "@/components/about/ProcessCards";
 import AttorneyGrid from "@/components/about/AttorneyGrid";
-import StaffGrid from "@/components/about/StaffGrid";
 import WherePractice from "@/components/about/WherePractice";
 
 /**
@@ -128,7 +127,6 @@ export default function AboutPage() {
       </section>
 
       <AttorneyGrid />
-      <StaffGrid />
       <ProcessCards />
       {/* Credentials. Board certification is stated with the certifying
           organisation and the area, the only form Rule 4-7.14 allows. */}

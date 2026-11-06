@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { attorneys } from "@/lib/site";
 import Portrait from "@/components/attorneys/Portrait";
+import StaffCards from "@/components/attorneys/StaffCards";
 import Needs from "@/components/Needs";
 
 /**
@@ -8,6 +9,7 @@ import Needs from "@/components/Needs";
  * portrait, name, role, concentration) on white. Board certification shows
  * only where one is held, since this is where a referring lawyer looks for
  * it; there is no [NEEDS] for its absence, as most lawyers are not certified.
+ * The staff close the same row (D150), which is why the heading names both.
  */
 export default function AttorneyGrid() {
   return (
@@ -15,7 +17,7 @@ export default function AttorneyGrid() {
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <div className="flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
           <div className="max-w-3xl">
-            <h2 className="font-display text-4xl leading-tight sm:text-5xl">The attorneys.</h2>
+            <h2 className="font-display text-4xl leading-tight sm:text-5xl">The attorneys and staff.</h2>
             <p className="mt-6 text-lg leading-relaxed text-charcoal">
               Each bio states what that attorney handles, the courts they appear in, and their Florida Bar
               admission.
@@ -29,15 +31,15 @@ export default function AttorneyGrid() {
           </Link>
         </div>
 
-        <ul className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-4">
+        <ul className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-5">
           {attorneys.map((a) => (
             <li key={a.slug}>
               <Link
                 href={`/attorneys/${a.slug}`}
-                className="group flex h-full flex-col border border-navy/15 p-4 transition-colors hover:border-navy sm:p-6"
+                className="group flex h-full flex-col border border-navy/15 p-4 transition-colors hover:border-navy sm:p-6 lg:p-4 xl:p-6"
               >
-                <Portrait attorney={a} className="aspect-4/5 w-full" sizes="(min-width: 1024px) 20rem, 45vw" />
-                <h3 className="mt-4 font-display text-xl leading-tight transition-colors group-hover:text-bronze sm:mt-6 sm:text-2xl lg:text-3xl">
+                <Portrait attorney={a} className="aspect-4/5 w-full" sizes="(min-width: 1024px) 16rem, 45vw" />
+                <h3 className="mt-4 font-display text-xl leading-tight transition-colors group-hover:text-bronze sm:mt-6 sm:text-2xl lg:text-xl xl:text-2xl">
                   {a.name}
                 </h3>
                 <p className="mt-2 eyebrow text-navy/60 sm:text-sm">
@@ -62,6 +64,7 @@ export default function AttorneyGrid() {
               </Link>
             </li>
           ))}
+          <StaffCards className="border-navy/15 p-4 sm:p-6 lg:p-4 xl:p-6" />
         </ul>
       </div>
     </section>

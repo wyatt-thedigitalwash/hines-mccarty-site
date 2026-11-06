@@ -3749,3 +3749,12 @@ Attorney JSON-LD, "Handled by" blocks and the "four attorneys" copy, so nothing
 presents a non-lawyer as a lawyer (Rules 4-5.3, 4-7.13). /attorneys stays
 attorneys only. Her photo went through the D118/D119 pipeline onto the shared
 navy background.
+
+### D150. Staff in the row with the attorneys
+
+**2026-11-06. Client direction.** Liz Carissimo moves into the attorney row, on
+the home page and on /about, five across from lg. This replaces D149's separate
+"The staff." section. Her card is the same frame without a link, a concentration
+or "Read bio", and she stays in the `staff` list, so D149's separation still
+holds. The /about heading becomes "The attorneys and staff." so it does not call
+her an attorney. /attorneys stays attorneys only.

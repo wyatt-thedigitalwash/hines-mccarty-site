@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Portrait from "@/components/attorneys/Portrait";
+import StaffCards from "@/components/attorneys/StaffCards";
 import Needs from "@/components/Needs";
 import { attorneys } from "@/lib/site";
 
@@ -18,11 +19,12 @@ import { attorneys } from "@/lib/site";
  * showing the same four people in two different card designs is how a site
  * starts looking assembled rather than designed.
  *
- * Four across from lg, two by two everywhere below it, including a phone. There
- * is no one-up breakpoint: a single column turned four attorneys into four
- * full-width blocks and roughly three screens of scrolling, which buries the
- * fourth and makes the point of the section (there are four of us) something
- * you have to scroll to discover rather than see.
+ * Five across from lg, the four attorneys then the staff (D150), and two up
+ * everywhere below it, including a phone. There is no one-up breakpoint: a
+ * single column turned four attorneys into four full-width blocks and roughly
+ * three screens of scrolling, which buries the fourth and makes the point of the
+ * section (there are four of us) something you have to scroll to discover rather
+ * than see.
  *
  * Two columns on a 360px phone leaves each card near 160px wide, so the padding
  * and type step down below sm. The `sizes` hint follows the same breakpoints so
@@ -103,20 +105,20 @@ export default function About() {
           </div>
         </div>
 
-        <ul className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 md:col-span-2 md:row-start-2 lg:mt-16 lg:grid-cols-4">
+        <ul className="mt-14 grid grid-cols-2 gap-4 sm:gap-6 md:col-span-2 md:row-start-2 lg:mt-16 lg:grid-cols-5">
           {attorneys.map((attorney) => (
             <li key={attorney.slug}>
               <Link
                 href={`/attorneys/${attorney.slug}`}
-                className="group flex h-full flex-col border border-navy/20 p-4 transition-colors hover:border-navy sm:p-6"
+                className="group flex h-full flex-col border border-navy/20 p-4 transition-colors hover:border-navy sm:p-6 lg:p-4 xl:p-6"
               >
                 <Portrait
                   attorney={attorney}
                   className="aspect-4/5 w-full"
-                  sizes="(min-width: 1024px) 20rem, 45vw"
+                  sizes="(min-width: 1024px) 16rem, 45vw"
                 />
 
-                <h3 className="mt-4 font-display text-xl leading-tight transition-colors group-hover:text-bronze sm:mt-6 sm:text-2xl lg:text-3xl">
+                <h3 className="mt-4 font-display text-xl leading-tight transition-colors group-hover:text-bronze sm:mt-6 sm:text-2xl lg:text-xl xl:text-2xl">
                   {attorney.name}
                 </h3>
 
@@ -138,6 +140,7 @@ export default function About() {
               </Link>
             </li>
           ))}
+          <StaffCards className="border-navy/20 p-4 sm:p-6 lg:p-4 xl:p-6" />
         </ul>
 
         {/*
