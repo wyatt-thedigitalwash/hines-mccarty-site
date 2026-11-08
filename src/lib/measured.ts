@@ -31,6 +31,7 @@ import {
   tools,
 } from "./site.ts";
 import { guideCopy, injuryCopy, pageCopy, toolCopy } from "./page-copy.ts";
+import { type LocationPage, locationCopy, locationHref, locationPages } from "./locations.ts";
 
 export type Measured =
   | {
@@ -60,6 +61,15 @@ export type Measured =
       written: boolean;
       published: boolean;
       injury: InjuryPage;
+    }
+  | {
+      kind: "location";
+      key: string;
+      href: string;
+      copy: string[];
+      written: boolean;
+      published: boolean;
+      location: LocationPage;
     }
   | {
       kind: "tool";
@@ -104,6 +114,18 @@ export const measuredPages: Measured[] = [
       written: Boolean(p.lead || p.sections?.length),
       published: p.published,
       injury: p,
+    }),
+  ),
+  // D151: lawyer advertising like the rest, so inside every content rail.
+  ...locationPages.map(
+    (p): Measured => ({
+      kind: "location",
+      key: `location:${p.parent ? `${p.parent}/` : ""}${p.slug}`,
+      href: locationHref(p),
+      copy: locationCopy(p),
+      written: true,
+      published: p.published,
+      location: p,
     }),
   ),
   // Tool GUIDE rows are derived from `guides` and would double-measure the

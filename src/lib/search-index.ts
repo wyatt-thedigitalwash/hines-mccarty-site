@@ -22,6 +22,7 @@ import {
   type FaqItem,
 } from "./site.ts";
 import type { SearchEntry } from "./search-engine.ts";
+import { locationHref, publishedLocations } from "./locations.ts";
 
 /**
  * The words people use for each service page that the page itself may not:
@@ -163,6 +164,12 @@ export function buildSearchIndex(): SearchEntry[] {
     { u: "/results", t: "Case Results", c: firm.name, s: "Results from the firm's cases.", k: "results outcomes verdicts", kind: "page" },
     { u: "/resources/articles", t: "Articles", c: firm.name, s: "Explainers on charges, courts and sentencing.", k: "articles blog insights", kind: "page" },
   );
+  for (const p of publishedLocations) {
+    out.push({
+      u: locationHref(p), t: p.place, c: `Location, ${p.county}`, kind: "page",
+      s: p.lead[0], k: `${p.place} ${p.county} location near me lawyer attorney`,
+    });
+  }
   for (const a of attorneys) {
     out.push({
       u: `/attorneys/${a.slug}`, t: a.name, c: a.role ?? "Attorney", kind: "attorney",

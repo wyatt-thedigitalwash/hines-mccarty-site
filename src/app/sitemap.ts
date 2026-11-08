@@ -13,6 +13,7 @@ import {
   TOOLS_LIVE,
 } from "@/lib/site";
 import { contactCanDeliver } from "@/lib/contact-delivery";
+import { locationHref, publishedLocations } from "@/lib/locations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const pages = [
@@ -110,6 +111,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
           },
         ]
       : []),
+    // D151: the same gate as the route's noindex, so the two cannot disagree.
+    ...publishedLocations
+      .filter((p) => p.indexable)
+      .map((p) => ({
+        url: `${siteUrl}${locationHref(p)}`,
+        changeFrequency: "monthly" as const,
+        priority: 0.7,
+      })),
     ...injuryPages.filter(injuryIsIndexable).map((p) => ({
       url: `${siteUrl}${injuryHref(p)}`,
       changeFrequency: "monthly" as const,

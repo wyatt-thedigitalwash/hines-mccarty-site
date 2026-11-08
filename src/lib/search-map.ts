@@ -48,6 +48,7 @@ export type SearchKind =
   | "insight"
   | "result"
   | "bio"
+  | "location"
   | "page";
 
 export type SearchTarget = {
@@ -92,6 +93,7 @@ export const NOT_TARGETED: Record<string, string> = {
   "/results": "Index of case results; results are proof, not ranking targets.",
   "/attorneys": "Index of bios; each bio carries its own row.",
   "/about": "Firm page. Searched for by name, which the home page row covers.",
+  "/locations": "D151: index of the location pages; each page carries its own row.",
 };
 
 /** Intents that may use hire words in their primary query. */
@@ -434,6 +436,24 @@ export const searchMap: SearchTarget[] = [
     topic: "personal injury",
     source: "none",
     note: "keywords.md covers criminal clusters only; no personal injury query recorded anywhere in briefs or keywords.md.",
+  },
+  {
+    href: "/locations/tampa",
+    kind: "location",
+    intent: "hire",
+    primary: null,
+    topic: "Tampa",
+    source: "D151",
+    note: "D151: routes Tampa readers to the hubs. Assigned no head term on purpose: 'criminal defense attorney Tampa' belongs to /criminal-defense, and a second page on it would compete.",
+  },
+  {
+    href: "/locations/tampa/brandon",
+    kind: "location",
+    intent: "hire",
+    primary: "felony lawyer Brandon FL",
+    topic: "Brandon",
+    source: "docs/research/keywords.md:46",
+    note: "D151: graded NOW and home turf in keywords.md, and assigned to no route until this page.",
   },
   {
     href: "/business-litigation",

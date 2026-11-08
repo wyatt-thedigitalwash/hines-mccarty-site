@@ -59,9 +59,11 @@ type Props = {
    * its own width from sm.
    */
   cta?: { label: string; href: string };
+  /** A breadcrumb trail above the H1, on pages more than one level deep (D151). */
+  crumbs?: ReactNode;
 };
 
-export default function PageHero({ title, children, photo, bleed, cta }: Props) {
+export default function PageHero({ title, children, photo, bleed, cta, crumbs }: Props) {
   return (
     <section
       data-bg="navy"
@@ -101,7 +103,8 @@ export default function PageHero({ title, children, photo, bleed, cta }: Props) 
         credential strip on its bottom edge, which no other hero does.
       */}
       <div className="relative z-10 mx-auto max-w-[1400px] px-6 pb-20 lg:min-h-[467px] lg:px-10 lg:pb-24">
-        <h1 className="max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl">
+        {crumbs}
+        <h1 className={`${crumbs ? "mt-8 " : ""}max-w-4xl font-display text-4xl leading-[1.08] tracking-tight text-linen sm:text-5xl lg:text-6xl`}>
           {title}
         </h1>
         <div className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/70">

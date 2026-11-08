@@ -222,7 +222,8 @@ implies an office the firm does not have (Rule 4-7.12; avoid.md items 33, 46,
 and 47).
 
 St. Petersburg and Clearwater remain out regardless: saturated own-markets
-(keywords.md Section 5).
+(keywords.md Section 5). **Superseded by D151:** the client has chosen to
+build both.
 
 ### Tier 3 -- Publishing
 - `/resources` hub -> `/resources/tools`, `/resources/guides`, `/resources/articles`
@@ -249,6 +250,10 @@ legitimate as FEDERAL reach. Split the footer accordingly:
 - "Middle District of Florida, including the Tampa, Orlando, and Fort Myers
   divisions." This covers Orlando and Ft. Myers accurately, as a credential
   rather than a reach.
+
+**Superseded by D151 (2026-11-08, client direction):** location pages are now
+built per market and community. The rule below is kept as the record of why each
+one must carry facts true of that place.
 
 **Hard rule:** these are plain text or links to the five built location pages
 only. Do NOT generate a page per city. Twenty near-identical city pages is a

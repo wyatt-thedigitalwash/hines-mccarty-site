@@ -19,6 +19,7 @@
  * links between siblings, and repeated text between pages.
  */
 import { charges, chargeHref, guides, guideHref, injuryPages, injuryHref, silos, tools } from "../src/lib/site.ts";
+import { locationHref, publishedLocations } from "../src/lib/locations.ts";
 import {
   HIRE_INTENTS,
   HIRE_WORDS,
@@ -123,6 +124,7 @@ const known = new Set<string>([
   ...charges.map(chargeHref),
   ...guides.map(guideHref),
   ...injuryPages.map(injuryHref),
+  ...publishedLocations.map(locationHref), // D151
   ...tools.map((t) => t.href),
   "/attorneys/lily-mccarty", "/attorneys/maria-pavlidis", "/attorneys/david-hines", "/attorneys/colton-trina",
 ]);

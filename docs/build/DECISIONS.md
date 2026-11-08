@@ -3758,3 +3758,38 @@ the home page and on /about, five across from lg. This replaces D149's separate
 or "Read bio", and she stays in the `staff` list, so D149's separation still
 holds. The /about heading becomes "The attorneys and staff." so it does not call
 her an attorney. /attorneys stays attorneys only.
+
+### D151. Location pages
+
+**2026-11-08. Client direction.** This reverses the plan's "do not generate a
+page per city" and the exclusion of St. Petersburg and Clearwater (keywords.md
+Section 5, avoid.md item 10). Those were search-strategy calls and the client has
+made a different one; the rules below keep the parts that were never optional.
+
+- **Structure.** Five markets at `/locations/<market>`: Tampa, St. Petersburg,
+  Clearwater, Sarasota, Orlando. Sixteen communities at
+  `/locations/<market>/<community>`: under Tampa, Brandon, Wesley Chapel, Town 'n'
+  Country, Riverview, Plant City, Carrollwood; under St. Petersburg, Pinellas Park,
+  Gulfport, St. Pete Beach, Treasure Island, Kenneth City; under Clearwater, New
+  Port Richey, Largo, Palm Harbor, Dunedin, Tarpon Springs.
+- **Service hubs on market pages.** Outside Tampa, a market gets its own State
+  Criminal and Personal Injury pages, because the courthouse and jail change with
+  the county. Federal, White Collar and Business Litigation are links to the main
+  hubs: Tampa, St. Petersburg, Clearwater and Sarasota share one federal division,
+  so those pages would read the same with the city swapped. Communities have no
+  hub pages.
+- **Tampa links to the hubs and gets no hub pages of its own.** The site is
+  already written for Hillsborough County and `/criminal-defense` holds "criminal
+  defense attorney Tampa". A Tampa State Criminal page would compete with it and
+  fail check:search-map S2. Raised with the client for confirmation.
+- **Brandon is the only office (D125, Rule 4-7.12).** Every location page names
+  it and none implies another. The Brandon clerk service center stays out of copy
+  (D7).
+- **Each page carries facts true of that place**, from a source recorded in
+  PAGE-SOURCES.md. A community with little of its own is reported to the client
+  rather than padded.
+- **Built first for review:** `/locations`, Tampa and Brandon. `indexable` is
+  false on every page until an attorney has read it, so all are noindex and out
+  of the sitemap. Nav and footer links wait until the set is approved.
+- **Gates.** Registered in `measuredPages` as kind `location`, so the banned-term,
+  claims and provenance rails read them; each page has a search-map row.

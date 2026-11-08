@@ -4485,3 +4485,33 @@ page takes neither side.
 **18 U.S.C. 3161(b), (c)(1) and (h)**, **18 U.S.C. 3006A(a)(1)** and **F.S. 943.059(2)**: shared procedure, worded from the verified sibling pages; records above under white-collar/bank-fraud, the 18 U.S.C. 3006A(a)(1) record, and the 943.059(2) records.
 
 Left off the page because the brief marks them UNVERIFIED (not verified, no fetch recorded for this page): the Sentencing Guidelines loss table values, the text and maxima of 18 U.S.C. 1014, 1957 and 371, any named investigating agency, any EIDL time limit, and any count of PPP prosecutions in the Middle District.
+
+---
+
+## Location pages (D151)
+
+Fetched 2026-11-08 for `/locations/tampa` and `/locations/tampa/brandon`.
+
+**Hillsborough County Sheriff's Office, Department of Detention Services**  
+https://www.teamhcso.com/Section/708bcd1f-1d7b-4029-8428-39aac7343910/Department-of-Detention-Services
+
+> The Orient Road Jail is the primary receiving facility, providing booking, processing, and detention services
+
+> The Orient Road Jail consists of Central Booking, Intake and Housing Operations
+
+Addresses given there: 1201 Orient Road, Tampa, FL 33619, and 520 N. Falkenburg Road, Tampa, FL 33619. The page describes booking at Orient Road only. An HCSO annual report from 2019 goes further, calling Orient Road the only adult booking facility in the county. The pages do not rely on that older wording.
+
+**Hillsborough County Clerk of Court, Circuit Civil**  
+https://www.hillsclerk.com/court-services/circuit-civil
+
+> The Circuit Civil jurisdiction is for amounts over $50,000.
+
+The page lists Auto Negligence and Personal injury among its case types, and gives in-person service as Downtown Tampa and Plant City. CAUTION: a different address for the same Clerk page returned in search showed an older $15,000 figure. The $50,000 figure is the one on the page as fetched. F.S. 34.01's civil limit is not separately recorded in this file, so the pages cite the Clerk and not the statute for this line.
+
+**U.S. Census Bureau, QuickFacts: Brandon CDP, Florida**  
+https://www.census.gov/quickfacts/fact/table/brandoncdpflorida/SBO050223
+
+The Bureau titles the place "Brandon CDP, Florida", a census-designated place. INFERENCE, for the attorney read: a CDP is not an incorporated municipality, so the page says Brandon has no police force of its own and that arrests there are usually made by Sheriff's deputies. No source was found that says this in those words. The HCSO District IV page did not list the communities it serves, so no district is named.
+
+**Reused from records above, no new fetch:** Rule 3.130(a) and (d); F.S. 26.012(2)(d); F.S. 34.01(1)(a); F.S. 95.11; F.S. 627.736(1)(a); F.S. 768.81. The Edgecomb, Plant City and Gibbons courthouse addresses are as already published on the charge pages.
+

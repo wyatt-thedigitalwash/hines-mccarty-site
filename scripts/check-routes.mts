@@ -29,6 +29,7 @@
  */
 import { readFileSync, readdirSync, existsSync, statSync } from "node:fs";
 import { join } from "node:path";
+import { locationHref, publishedLocations } from "../src/lib/locations.ts";
 import {
   attorneys,
   charges,
@@ -80,6 +81,7 @@ const DYNAMIC: Record<string, string[]> = {
   // Catch-all: one entry covers both pillars and spokes, because injuryHref is
   // the same function generateStaticParams builds its params from.
   "/personal-injury/[...injury]": injuryPages.map((p) => injuryHref(p)),
+  "/locations/[...location]": publishedLocations.map((p) => locationHref(p)), // D151
   "/criminal-defense/state/[charge]": charges
     .filter((c) => c.silo === "state")
     .map((c) => chargeHref(c)),
