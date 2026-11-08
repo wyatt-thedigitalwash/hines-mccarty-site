@@ -3761,7 +3761,7 @@ her an attorney. /attorneys stays attorneys only.
 
 ### D151. Location pages
 
-**2026-11-08. Client direction.** This reverses the plan's "do not generate a
+**2026-11-08. Client direction.** Tampa's part of this is replaced by D152. This reverses the plan's "do not generate a
 page per city" and the exclusion of St. Petersburg and Clearwater (keywords.md
 Section 5, avoid.md item 10). Those were search-strategy calls and the client has
 made a different one; the rules below keep the parts that were never optional.
@@ -3793,3 +3793,13 @@ made a different one; the rules below keep the parts that were never optional.
   of the sitemap. Nav and footer links wait until the set is approved.
 - **Gates.** Registered in `measuredPages` as kind `location`, so the banned-term,
   claims and provenance rails read them; each page has a search-map row.
+
+### D152. No Tampa location page
+
+**2026-11-08. Client direction.** Tampa is the whole site, so `/locations/tampa`
+is gone; the home page and hubs are the Tampa pages. It was never pushed, so no
+redirect is needed. That leaves four market pages. Tampa's six communities have
+no parent and sit directly under `/locations`, so Brandon is `/locations/brandon`;
+other markets' communities still nest, as in `/locations/st-petersburg/gulfport`.
+On the index, Tampa is a card linking home with its communities under it, and a
+Tampa community's "More around Tampa" links home too.

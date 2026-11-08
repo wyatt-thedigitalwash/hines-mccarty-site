@@ -4490,7 +4490,7 @@ Left off the page because the brief marks them UNVERIFIED (not verified, no fetc
 
 ## Location pages (D151)
 
-Fetched 2026-11-08 for `/locations/tampa` and `/locations/tampa/brandon`.
+Fetched 2026-11-08 for the location pages. The Tampa page they were first written for was removed (D152); `/locations/brandon` uses the Sheriff and Census records, and the Clerk record below is kept for reuse with no page citing it today.
 
 **Hillsborough County Sheriff's Office, Department of Detention Services**  
 https://www.teamhcso.com/Section/708bcd1f-1d7b-4029-8428-39aac7343910/Department-of-Detention-Services

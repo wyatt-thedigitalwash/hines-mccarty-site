@@ -4,13 +4,14 @@ import { firm } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
-import { locationHref, marketLocations, subLocations } from "@/lib/locations";
+import { locationHref, marketLocations, subLocations, tampaCommunities } from "@/lib/locations";
 import PageHero from "@/components/PageHero";
 import CallToAction from "@/components/CallToAction";
 import { OfficeSection } from "@/components/locations/LocationSections";
 
 /**
- * /locations, the index of location pages (D151). Reads the published list, so
+ * /locations, the index of location pages (D151). The Tampa card links home,
+ * because the site itself is the Tampa page (D152). Reads the published list, so
  * a page appears here the day it is built. The heading says where the firm
  * takes cases, not where it has offices: Brandon is the only office (Rule
  * 4-7.12), and the office section below says so.
@@ -53,6 +54,28 @@ export default function LocationsIndex() {
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <ul className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <li className="flex flex-col border border-navy/15 p-8">
+              <h2 className="font-display text-3xl leading-tight">
+                <Link href="/" className="transition-colors hover:text-bronze">
+                  Tampa
+                </Link>
+              </h2>
+              <p className="mt-2 eyebrow text-navy/60 sm:text-sm">Most of this site is written for Tampa</p>
+              {tampaCommunities.length ? (
+                <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-navy/10 pt-6">
+                  {tampaCommunities.map((s) => (
+                    <li key={s.slug}>
+                      <Link
+                        href={locationHref(s)}
+                        className="font-heading text-sm font-medium underline decoration-1 underline-offset-4 transition-colors hover:text-bronze"
+                      >
+                        {s.place}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              ) : null}
+            </li>
             {marketLocations.map((m) => (
               <li key={m.slug} className="flex flex-col border border-navy/15 p-8">
                 <h2 className="font-display text-3xl leading-tight">

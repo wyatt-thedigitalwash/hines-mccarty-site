@@ -1,16 +1,15 @@
 /**
- * Location pages (D151). Five market pages, Tampa, St. Petersburg, Clearwater,
- * Sarasota and Orlando, each with sub-location pages for the communities around
- * it. Outside Tampa, a market also gets its own State Criminal and Personal
- * Injury pages, because the courthouse and the jail change with the county;
- * Federal, White Collar and Business Litigation stay as links to the main hubs,
- * because every one of those markets but Orlando is in the same federal
- * division and the pages would read the same with the city swapped.
+ * Location pages (D151, D152). Four market pages, St. Petersburg, Clearwater,
+ * Sarasota and Orlando, each with community pages around it. A market also gets
+ * its own State Criminal and Personal Injury pages, because the courthouse and
+ * the jail change with the county; Federal, White Collar and Business Litigation
+ * stay as links to the main hubs, because every market but Orlando is in the
+ * same federal division and the pages would read the same with the city swapped.
  *
- * TAMPA IS THE EXCEPTION. The whole site is already written for Hillsborough
- * County, and the Tampa head terms belong to the home page and the hubs
- * (search-map.ts). A Tampa State Criminal page would compete with
- * /criminal-defense/state, so Tampa links to the hubs instead.
+ * THERE IS NO TAMPA PAGE (D152). Tampa is the whole site: the home page and the
+ * hubs are its pages. Tampa's communities have no `parent` and sit directly
+ * under /locations, so Brandon is /locations/brandon, while a community of
+ * another market nests under it, as in /locations/st-petersburg/gulfport.
  *
  * THE RULES THESE PAGES LIVE UNDER, every one a reason a location page goes
  * wrong:
@@ -43,7 +42,8 @@ export type LocationLink = { href: string; title: string; body: string };
 
 export type LocationPage = {
   slug: string;
-  /** The market's slug, for a sub-location. Absent on a market page. */
+  kind: "market" | "community";
+  /** The market's slug. Absent on a market, and on a Tampa community (D152). */
   parent?: string;
   /** The place as a reader writes it: "Tampa", "Brandon". */
   place: string;
@@ -76,107 +76,8 @@ const COURT_LEVEL_SOURCE = "F.S. 26.012(2)(d); F.S. 34.01(1)(a)";
 
 export const locationPages: LocationPage[] = [
   {
-    slug: "tampa",
-    place: "Tampa",
-    county: "Hillsborough County",
-    published: true,
-    indexable: false,
-    metaTitle: "Lawyers Serving Tampa, FL | Hines McCarty Pavlidis",
-    metaDescription:
-      "Criminal defense, personal injury, and business litigation for people in Tampa, from our Brandon office. Call (813) 738-8650, 24/7.",
-    h1: "Lawyers for Tampa criminal, injury, and business cases.",
-    lead: [
-      "Hines McCarty Pavlidis defends people charged with crimes in Tampa, represents people hurt in Tampa crashes, and handles business disputes in the Hillsborough County courts.",
-      "Our office is in Brandon, in the same county. A Tampa case moves through the same county jail, courthouses, and prosecutor's office as every other Hillsborough case.",
-    ],
-    facts: {
-      heading: "Where a Tampa case goes.",
-      intro:
-        "Knowing which offices will handle your case helps you make sense of the papers you are handed. Here is the path a Tampa case takes.",
-      items: [
-        {
-          title: "Who makes the arrest",
-          body: "Inside the city limits, arrests are usually made by the Tampa Police Department. In the parts of the county that are not a city, it is usually the Hillsborough County Sheriff's Office. Either way, the case enters the same county system.",
-        },
-        {
-          title: "Where you are booked",
-          body: "Adults arrested in Tampa are booked at the Sheriff's Orient Road Jail, 1201 Orient Road. The Sheriff calls it the county's primary receiving facility. The Sheriff also houses people at the Falkenburg Road Jail, 520 N. Falkenburg Road, so a person booked at Orient Road may be held at either.",
-          source: HCSO_SOURCE,
-        },
-        {
-          title: "Your first court date",
-          body: "You must be brought before a judge within 24 hours of arrest, unless you were already released. The judge may see you in person or by video. That hearing is where release and bond are first decided.",
-          source: FIRST_APPEARANCE_SOURCE,
-        },
-        {
-          title: "Who decides the charge",
-          body: "The State Attorney for the 13th Judicial Circuit decides whether to file charges and which ones. The police report starts the case, but the charge you face is the prosecutor's choice.",
-        },
-        {
-          title: "Where the case is heard",
-          body: "A felony is a circuit court case and a misdemeanor is a county court case. Criminal court services are at the Edgecomb Courthouse, 800 E. Twiggs Street, in downtown Tampa, and at the Plant City Courthouse, 301 North Michigan Avenue.",
-          source: COURT_LEVEL_SOURCE,
-        },
-        {
-          title: "If the charge is federal",
-          body: "A federal case from Tampa is heard in the Tampa Division of the Middle District of Florida, at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue. Federal agents and the U.S. Attorney's Office bring these cases, not the county.",
-        },
-        {
-          title: "Injury and business lawsuits",
-          body: "A Tampa lawsuit asking for more than $50,000 is a circuit court case, and the Clerk lists car crash and other personal injury claims among them. The Clerk serves circuit civil filers in person downtown and in Plant City.",
-          source: "Hillsborough County Clerk of Court, Circuit Civil",
-        },
-      ],
-    },
-    practices: {
-      heading: "What we handle for people in Tampa.",
-      intro:
-        "Each area has its own page with the charges or claims it covers. Those pages are written for Hillsborough County, so they apply to Tampa as written.",
-      items: [
-        {
-          href: "/criminal-defense/state",
-          title: "State criminal defense",
-          body: "Felonies and misdemeanors in the Hillsborough County courts, from DUI and drug charges to violent and sex offenses.",
-        },
-        {
-          href: FEDERAL,
-          title: "Federal criminal defense",
-          body: "Charges brought by the U.S. Attorney in the Middle District of Florida, and investigations before any charge is filed.",
-        },
-        {
-          href: WHITE_COLLAR,
-          title: "White-collar defense",
-          body: "Fraud, embezzlement, and other financial charges, in state or federal court, often starting with a subpoena or a call from an agent.",
-        },
-        {
-          href: "/personal-injury",
-          title: "Personal injury",
-          body: "Claims for people hurt in car and truck crashes caused by someone else.",
-        },
-        {
-          href: BUSINESS,
-          title: "Business litigation",
-          body: "Contract, ownership, non-compete, and trade secret disputes for businesses and their owners.",
-        },
-      ],
-    },
-    communitiesIntro:
-      "Pages for the communities around Tampa, each with the local details that differ from the city's.",
-    office: {
-      heading: "Our office is in Brandon.",
-      body: [
-        "The firm has one office, in Brandon. There is no Tampa office. Tampa clients work with the same attorneys who handle the firm's other Hillsborough County cases.",
-        "We answer the phone 24 hours a day, 7 days a week.",
-      ],
-    },
-    cta: {
-      heading: "Talk to an attorney about your Tampa case.",
-      body: "Calls are confidential. If you or someone close to you was arrested in Tampa, contacted by police, or hurt in a crash, call now.",
-    },
-  },
-  {
     slug: "brandon",
-    parent: "tampa",
+    kind: "community",
     place: "Brandon",
     county: "Hillsborough County",
     published: true,
@@ -278,12 +179,14 @@ export const locationBySegments = (segments: string[]) =>
       : segments.length === 2 && p.parent === segments[0] && p.slug === segments[1],
   );
 
-export const marketLocations = publishedLocations.filter((p) => !p.parent);
+export const marketLocations = publishedLocations.filter((p) => p.kind === "market");
 export const subLocations = (marketSlug: string) =>
   publishedLocations.filter((p) => p.parent === marketSlug);
+/** The communities around Tampa, which have no market page of their own (D152). */
+export const tampaCommunities = publishedLocations.filter((p) => p.kind === "community" && !p.parent);
 
 export const locationTrail = (p: LocationPage) => {
-  const market = p.parent ? publishedLocations.find((m) => !m.parent && m.slug === p.parent) : undefined;
+  const market = p.parent ? marketLocations.find((m) => m.slug === p.parent) : undefined;
   return [
     { name: "Home", href: "/" },
     { name: "Locations", href: "/locations" },

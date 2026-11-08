@@ -3,8 +3,9 @@ import {
   type LocationPage,
   locationHref,
   locationTrail,
-  publishedLocations,
+  marketLocations,
   subLocations,
+  tampaCommunities,
 } from "@/lib/locations";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
@@ -21,27 +22,26 @@ import { FactsSection, OfficeSection, PlaceLinksSection, PracticesSection } from
  */
 export default function LocationTemplate({ page }: { page: LocationPage }) {
   const trail = locationTrail(page);
-  const market = page.parent
-    ? publishedLocations.find((m) => !m.parent && m.slug === page.parent)
-    : undefined;
+  const market = page.parent ? marketLocations.find((m) => m.slug === page.parent) : undefined;
+  const siblings = market ? subLocations(market.slug) : tampaCommunities;
 
-  const placeLinks = market ? (
-    <PlaceLinksSection
-      heading={`More around ${market.place}.`}
-      links={[
-        { href: locationHref(market), label: market.place },
-        ...subLocations(market.slug)
-          .filter((s) => s.slug !== page.slug)
-          .map((s) => ({ href: locationHref(s), label: s.place })),
-      ]}
-    />
-  ) : (
-    <PlaceLinksSection
-      heading={`Communities around ${page.place}.`}
-      intro={page.communitiesIntro}
-      links={subLocations(page.slug).map((s) => ({ href: locationHref(s), label: s.place }))}
-    />
-  );
+  // Tampa has no location page, so a Tampa community links up to the home page (D152).
+  const placeLinks =
+    page.kind === "community" ? (
+      <PlaceLinksSection
+        heading={`More around ${market?.place ?? "Tampa"}.`}
+        links={[
+          market ? { href: locationHref(market), label: market.place } : { href: "/", label: "Tampa" },
+          ...siblings.filter((s) => s.slug !== page.slug).map((s) => ({ href: locationHref(s), label: s.place })),
+        ]}
+      />
+    ) : (
+      <PlaceLinksSection
+        heading={`Communities around ${page.place}.`}
+        intro={page.communitiesIntro}
+        links={subLocations(page.slug).map((s) => ({ href: locationHref(s), label: s.place }))}
+      />
+    );
 
   return (
     <>

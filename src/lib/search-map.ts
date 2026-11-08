@@ -438,16 +438,7 @@ export const searchMap: SearchTarget[] = [
     note: "keywords.md covers criminal clusters only; no personal injury query recorded anywhere in briefs or keywords.md.",
   },
   {
-    href: "/locations/tampa",
-    kind: "location",
-    intent: "hire",
-    primary: null,
-    topic: "Tampa",
-    source: "D151",
-    note: "D151: routes Tampa readers to the hubs. Assigned no head term on purpose: 'criminal defense attorney Tampa' belongs to /criminal-defense, and a second page on it would compete.",
-  },
-  {
-    href: "/locations/tampa/brandon",
+    href: "/locations/brandon",
     kind: "location",
     intent: "hire",
     primary: "felony lawyer Brandon FL",
