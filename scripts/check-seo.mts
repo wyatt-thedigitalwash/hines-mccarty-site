@@ -44,7 +44,7 @@ const TEMPLATE_PAGES = 6;
 const UNIQUE_MIN = 0.6;
 const PAIR_MAX = 0.3;
 const MIN_WORDS = 500;
-const CONTENT_KINDS = new Set(["charge", "injury", "guide", "tool", "blog", "insight"]);
+const CONTENT_KINDS = new Set(["charge", "injury", "guide", "tool", "blog", "insight", "location"]); // location: D151, doorway pages are what P7 exists to catch
 
 let failed = false;
 const fail = (m: string) => { console.error(`  FAIL  ${m}`); failed = true; };
@@ -115,7 +115,8 @@ const templateAt = Math.max(3, Math.min(TEMPLATE_PAGES, Math.ceil(pages.length *
   for (const [href, set] of runs) own.set(href, new Set([...set].filter((r) => count.get(r)! < templateAt)));
   const content = pages.filter((p) => {
     const r = rows.get(p.href);
-    return r && CONTENT_KINDS.has(r.kind) && wordsOf(p.main).length >= MIN_WORDS;
+    // A short location page is the doorway risk itself, so it gets no length pass (D151).
+    return r && CONTENT_KINDS.has(r.kind) && (r.kind === "location" || wordsOf(p.main).length >= MIN_WORDS);
   });
   for (const p of content) {
     const set = own.get(p.href)!;
