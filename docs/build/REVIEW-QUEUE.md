@@ -22,17 +22,20 @@ the page needs looking at. Populate these as pages are assigned and read.
 
 ## Location pages: open items (D151 to D155)
 
-All 27 location pages are noindex and out of the sitemap until an attorney has read them. Set `indexable: true` per page in `src/lib/location-data/` after that read. Every INFERENCE is recorded in `docs/research/PAGE-SOURCES.md` under the "Location pages" headings.
+All 33 location pages are noindex and out of the sitemap until an attorney has read them. Set `indexable: true` per page in `src/lib/location-data/` after that read. Every INFERENCE is recorded in `docs/research/PAGE-SOURCES.md` under the "Location pages" headings.
 
 **Expires**
 - 31 December 2026: bond schedules for Hillsborough (S-2025-063), Pinellas (2026-036), Pasco (2026-035), and Sarasota (AOSC25-69). Pages name the date. Update the tables and `*_DEADLINES` text, and the "2026" wording in link labels and meta descriptions.
 - 1 January 2027: FHP moves to Traffic Court II in Pinellas (2026-048). Six pages state the date; rewrite after it.
 - 16 November 2026: Ninth Circuit divisions order 2025-13-09 takes effect. Check the Orlando pages.
-- 4 January 2027: Sarasota judicial assignments change. No page names a judge.
+- 3 and 4 January 2027: Polk judge assignments (AO 1-1.69) end, and 12th Circuit AO 2026-14.4 adds Felony Division VII in Manatee and VIII in Sarasota. Update Sarasota's "three felony judges" wording and table, and the Bradenton hub's division table. No page names a judge.
+- January 2027: Polk bond order AO 2-49.10 has no end date but recites an older statewide order; the current statewide schedule, AOSC25-69, ends 31 December 2026. Check the index.
 
 **Attorney to confirm first**
 - Orlando: that Order 2022-03-04 is still the operative bond schedule, with doubling for non-Florida residents, and how the DUI rows read (II.D.8 against Attachment A 3).
 - Brandon and the Tampa-side communities: a felony goes to Tampa, inferred because the East Division order sets up no felony division.
+- Polk: misdemeanor routing between Lakeland and Lake Alfred, on which no order is clear, and whether first appearances sit in jail courtrooms or Courtroom 8E.
+- Bradenton: that AO 2015-14.3, the 500-foot no-contact order, applies in Manatee although its caption names Sarasota County.
 - Pinellas: paragraphs of 2021-016 surviving 2026-036, and 2026-002 ZIP routing as applied to the firm's 33511.
 
 **Confirm by phone or page**

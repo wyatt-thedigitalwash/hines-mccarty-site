@@ -11,7 +11,7 @@ import {
   tampaCommunities,
 } from "@/lib/locations";
 import { breadcrumbJsonLd } from "@/lib/schema";
-import { LOCATION_PHOTOS, REGION_PHOTO, SITE_HERO_PHOTO } from "@/lib/hero-photos";
+import { CRIMINAL_HUB_PHOTO, INJURY_HUB_PHOTO, LOCATION_PHOTOS, REGION_PHOTO, SITE_HERO_PHOTO } from "@/lib/hero-photos";
 import PageHero from "@/components/PageHero";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CallToAction from "@/components/CallToAction";
@@ -67,7 +67,8 @@ export default function LocationTemplate({ page }: { page: LocationPage }) {
       ? SITE_HERO_PHOTO
       : page.county === "Pasco County"
         ? REGION_PHOTO
-        : (LOCATION_PHOTOS[page.parent ?? page.slug] ?? REGION_PHOTO);
+        : (LOCATION_PHOTOS[page.parent ?? page.slug] ??
+          (page.hubType === "injury" ? INJURY_HUB_PHOTO : CRIMINAL_HUB_PHOTO));
 
   return (
     <>

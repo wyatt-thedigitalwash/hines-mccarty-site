@@ -5953,3 +5953,736 @@ You need the inmate's name and inmate or booking number, on Who's In Jail or fro
 
 No new fetch. `/locations/pasco-county` restates facts recorded above for Wesley Chapel and New Port Richey. Its one addition is a comparison of Pasco's and Hillsborough's third degree felony amounts, both from orders already recorded (2026-035, S-2025-063). INFERENCE, for the attorney read: "Pasco borders Hillsborough to the south and Pinellas to the southwest" and "where the offense happened usually controls" are general statements with no order cited.
 
+---
+
+### Location pages, Twelfth Judicial Circuit, Manatee County (Bradenton) (D160)
+
+#### Bradenton market and hubs (D154, D155, D159). Fetched 2026-11-09.
+
+All Twelfth Circuit orders below are listed as in effect on the circuit's index on the fetch date, with no expired or superseded flag on the listing: https://www.jud12.flcourts.org/Documents/Administrative-Orders. Each is reached through its viewer page at /Documents/Administrative-Orders/Administrative-Order-Viewer/aid/<id>. Unless noted, they read as text PDFs, in full. Each one's caption or body was checked for Manatee County; Sarasota-only orders were not carried over (see "Checked and not used").
+
+**Search demand on the market page.** D159, docs/research/county-search-demand.md: "criminal defense attorney bradenton", DataForSEO, Florida, about 590 searches a month, 2026-11-09.
+
+**12th Circuit Administrative Order 2025-22.3, Amended Uniform Bond Schedule (aid 687), signed 23 December 2025**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/2025-22.3.pdf
+
+Captioned "IN AND FOR DESOTO, MANATEE, AND SARASOTA COUNTIES". Copies go to the Manatee County Sheriff's Office and the Bradenton, Bradenton Beach, Holmes Beach, Longboat Key and Palmetto Police Departments.
+
+> This uniform statewide bond schedule shall not bind a judge in an individual case who is conducting a first appearance hearing or bail determination.
+
+> Each crime of arrest requires a separate bond
+
+> No bond amount will be imposed, and a person may not be released before first appearance hearing upon the offense of Domestic Battery.
+
+> Trafficking in a controlled substance, including conspiracy to engage in trafficking in a controlled substance
+
+> This Administrative Order shall take effect on January 1, 2026, and remain in full force and effect until otherwise ordered by this Court.
+
+Paragraph 1 is the wait list on the page, which gives part of it and says so. Paragraph 2: dangerous crimes under Rule 3.132(a). Paragraph 6: the amounts, read from this order. Left off on purpose: the unauthorized alien, riot, gang, racketeering, arson, escape and witness tampering items and the prison releasee and supervision items, covered by "The order's full list is longer."
+
+**Florida Supreme Court AOSC25-69, Uniform Statewide Bond Schedule.** Recorded in the Sarasota block; no new fetch.
+https://flcourts-media.flcourts.gov/content/download/2482757/file/AOSC25-69.pdf
+
+> The bond schedule below is effective from January 1, 2026, through December 31, 2026.
+
+**EXPIRES 31 December 2026.**
+
+**12th Circuit Administrative Order 2024-23.3, Amended Assignment of Felony Cases (aid 656), effective January 1, 2025**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/2024-23.3.pdf
+
+> Manatee County: Divisions I, III, and V
+
+> Cases filed on or after January 1, 2025, including violation of probation cases and all specialty prosecution cases, will be assigned to the felony division corresponding to the first letter of the last name of the defendant
+
+> Division I: B through F
+
+> Division III: G through O, plus A
+
+> Division V: P through Z
+
+Paragraph 3, co-defendants in one Information go to the first listed. Paragraph 4, capias co-defendants go by the first served. Paragraph 6, a pending felony. Paragraph 10, a violation of probation based on a new felony. Paragraph 11, refiled or reopened cases. Paragraph 13:
+
+> Cases already pending at the time of this Administrative Order will not be transferred to correspond with the above division assignments unless a motion to transfer is filed and good cause shown.
+
+**12th Circuit Administrative Order 2026-14.4, Judicial Assignments 2027 (aid 706), signed 19 October 2026, effective 4 January 2027**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section04/2026-14.4.pdf
+
+> Felony Division VII Manatee County Honorable Frederick P. Mercurio
+
+> Please see Administrative Order 2026-04a.4 for case types assigned to each division.
+
+Also: "Civil Division B" and "Civil Division D", Manatee County. "Civil Trial Division T All Counties". "Community Care Court", "CTC Manatee", "Drug Court, Veteran's Court", "Independent Living", Manatee County. County Divisions 1 to 5. DUI Court is listed for Sarasota County and not for Manatee.
+
+CONFLICT, UNRESOLVED, FOR THE ATTORNEY READ: this order lists a fourth Manatee felony division, and a fourth Sarasota one (VIII), from 4 January 2027. AO 2024-23.3 still assigns letters only to I, III and V, the prior assignments order 2026-05b.4 (aid 704) lists only those three, and no newer letter order was on the index on the fetch date. The page gives the current letters and warns about a felony filed after that date. **Update when letters issue.**
+
+**12th Circuit Administrative Order 2026-04a.4, Manatee County Court Judicial Division Assignments (aid 701), signed 12 August 2026, effective immediately**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section04/2026-04a.4.pdf
+
+> All Criminal cases filed on or after September 1, 2026, will be assigned to the County Court division corresponding to the first letter of the last name of the defendant as follows:
+
+> Division 3 – A,B,C,D,E,F,J
+
+> Division 4 – O,P,Q,R,S,T,U,V,W,X
+
+> Division 5 – G,H,I,K,L,M,N,Y,Z
+
+> This new alphabet distribution only applies to new cases filed on or after September 1. Cases filed prior to that date are not to be reassigned.
+
+> Criminal cases filed before May 31, 2026, with court dates set after June 1, 2026, will be reassigned to their new divisions by alphabet, and new notices must be sent by the Clerk.
+
+> County Civil cases will be assigned to County Divisions 1 and 2 by equal blind assignment.
+
+> Small Claims cases filed on or after May 31, 2026, will be assigned by equal blind assignment across Divisions 1, 2, 3 and 5.
+
+Paragraphs 4 to 6, 10 and 11: co-defendants, related events, a pending misdemeanor or criminal traffic case, a violation of probation based on a new charge, refiled cases. Amends AO 2026-04.4 (aid 692), which the index flags "Amended by 2026-04a.4". Letter Y is in Division 5 and J in Division 3 as printed.
+
+CONFLICT, resolved for the order: the court's Criminal Division page and telephone list still show older county court labels and "2 county judges". The August 2026 order creates five divisions, and AO 2026-14.4 confirms it.
+
+**12th Circuit Administrative Order 2009-9.2, First Appearance Schedules (aid 220)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section02/09-09-2.pdf
+
+> Manatee County: 8:00 a.m. until Monday, October 5, 2009, then at 1:00 p.m.;
+
+> Manatee County: 8:00 a.m.
+
+The first is the weekday schedule, the second the weekend and holiday schedule. Extraction reads the hour as "I :00". Old, but listed as in effect and matched by the Sheriff's page below.
+
+**12th Circuit Administrative Plan, AO 2024-21.2**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section02/2024-21.2.pdf
+
+> First appearance hearings are held during normal business hours every day in DeSoto, Manatee and Sarasota counties. First appearances are assigned to judges by rotation.
+
+Read for context; the page does not cite it. The viewer for aid 662 returned a different PDF (2018-20.2), so this copy was fetched by direct path from a search result.
+
+**Manatee County Sheriff's Office, Marsy's Law page, First Appearance Information**
+https://www.manateesheriff.com/services/marsy_s_law.php
+
+> All first appearance hearings are held at the Manatee County Judicial Center, 1051 Manatee Avenue West, Bradenton, Florida 34205, in courtroom 2-A. These hearings are held on normal court workdays at 1:00 p.m. During court holidays and weekends, these hearings are held at 8:00 a.m. To confirm that an arrestee is scheduled for the day's first appearance docket, call the Manatee County Jail Booking Unit at 723-5132.
+
+> Initial bond amounts are pursuant to a bond schedule set by Administrative Order.
+
+CONFLICT: this page says "within 24 to 48 hours". The site's rule (Rule 3.130(a)) and the Sheriff's own Jail and First Appearance pages say 24 hours, and the page says 24. Whether the arrestee is physically in 2-A or appears by video, and whether family may attend or watch, was not found and is not stated.
+
+**Manatee County Sheriff's Office, Jail, Jail Information, First Appearance, Intake and Release**
+https://www.manateesheriff.com/jail/ ; https://www.manateesheriff.com/jail/jail_information.php ; https://www.manateesheriff.com/jail/first_appearance.php ; https://www.manateesheriff.com/jail/intake___release.php
+
+> Individuals who have been placed under arrest are first transported to the Manatee County Central Jail, which is located at 14470 Harlee Road, Palmetto.
+
+> All arrestees who do not bond out of jail will routinely appear before a judge within 24 hours after arrest.
+
+> In misdemeanor cases, the judge may accept a guilty plea and release the arrestee on his own recognizance or time served. In felony cases, the judge may raise or lower the bond.
+
+> The judge may order the inmate screened to be released on Supervised ROR. This process takes longer for the inmate to be released due to the screening process.
+
+> If you are calling for bond information on a newly arrested person, please wait until the results are received.
+
+> Inmates cannot receive incoming telephone calls and MCSO employees are not permitted to deliver personal messages to inmates.
+
+CONFLICT: results reach booking "around 4:00 p.m. Monday -Friday and around 11:00 a.m. Saturday and Sunday" (Jail), "around 5:00 pm. each day" (First Appearance), "around 11:30 A.M. each day" (Jail Information). The page says the times differ. The Sheriff and the Clerk both spell it "Harlee", and the page follows them.
+
+**Manatee County Sheriff's Office, Charges and Bond**
+https://www.manateesheriff.com/jail/charges___bond.php
+
+> Information about an arrestee's charge(s) and bond is available by clicking the Arrest Inquiry Link on our home page, by calling (941) 723-5132, or by visiting the Central Jail Front Desk, which is open 7:00 AM - 5:30 PM
+
+> Cash, cashier's checks, or money orders are the only accepted methods of payment for bail. Cash bonds are accepted 24 hours a day.
+
+> When posting bail, cashier's checks and money orders must be made payable to the Manatee County Clerk of Circuit Court. The inmate's booking number should be written on the money order/check.
+
+> Refunds for cash bonds can be made if the blue bond receipt and court disposition sheet that releases the bond are both presented.
+
+**Manatee County Sheriff's Office, Arrest Inquiries**
+https://www.manateesheriff.com/arrest_inquiries_app/
+
+> Online inquiries for persons booked into the Manatee County Jail are available for persons currently incarcerated and persons released within the last 90 days. To obtain reports for these arrests, please contact the records section of the arresting agency.
+
+**Manatee County Sheriff's Office, Inmate Phone Service; Inmate Money**
+https://www.manateesheriff.com/jail/inmate_phone_service.php ; https://www.manateesheriff.com/jail/inmate_money.php
+
+> Each inmate is provided with two free 20-minute telephone calls per week. Jail employees are not permitted to deliver personal messages to inmates.
+
+IC Solutions, "888.506.8407", prepaid service. Booking number for deposits: "If you do not have the booking number, check our webpage ... under Arrest Inquiries or call 941-723-5132". CONFLICT: the Jail page says calls are collect; the phone page is more specific and is used. Whether calls are recorded was not found and is not stated.
+
+**Manatee County Sheriff's Office, File a Report Online; Contact; Public Records**
+https://www.manateesheriff.com/services/file_a_report_online.php ; https://www.manateesheriff.com/contact_us/contact.php ; https://www.manateesheriff.com/services/public_records/index.php
+
+> If the incident happened inside the city limits of Bradenton, Palmetto, Holmes Beach, Bradenton Beach, or the Town of Longboat Key, then this is NOT unincorporated Manatee County.
+
+Bradenton Police 941-932-9300, Palmetto Police 941-721-2000, Holmes Beach Police "(941) 778-COPS" (link tel:9417782677), Bradenton Beach Police 941-778-6311, Longboat Key Police 941 316-1201. Contact page: "(941) 747-3011", "Central Jail - Booking (941) 723-5132", "District 5 Anna Maria Unit (941) 708-8899", "Support Division - Records 2295 or 2364". Public Records: Records Section, "600 301 Boulevard West, Suite 202", "Monday-Friday, from 8:00am-5:00pm". It quotes the crash report statute:
+
+> a person must present a valid driver's license or other photographic identification, proof of status, or identification that demonstrates his or her qualifications to access that information, and file a written sworn statement
+
+No Sheriff's crash report fee or online route was found, so the page gives none.
+
+**Manatee County Clerk of the Circuit Court and Comptroller, Criminal department**
+https://www.manateeclerk.com/departments/criminal/
+
+> The address for the Manatee County Jail is 14470 Harlee Road, Palmetto, FL 34221. It is located approximately 11 miles north of Bradenton; take US 41 north to the Port Manatee exit and turn left. Go west to Harlee Road and follow the signs.
+
+> The Clerk's office does not have the authority to change a court date.
+
+> Failure to appear may result in the Judge issuing a bench warrant for your arrest. You may forfeit the bail posted, thus losing your money or collateral. If the offense you failed to appear for includes a traffic offense, the Judge will also suspend your driving privileges.
+
+> You will be required to turn yourself in at the Manatee County Jail. If you live outside of Manatee County, you may turn yourself in to the closest law enforcement agency. Upon your arrest you will be required to post bail as required by the Judge. You will be assigned a new court date, which will be approximately 3 weeks later.
+
+Criminal 941-741-4019. Main 941-749-1800. 1115 Manatee Avenue West.
+
+**Manatee County Clerk, Frequently Asked Questions (cash bond)**
+https://www.manateeclerk.com/about-us/frequently-asked-questions/
+
+> A cash bond will stay posted on a case until the defendant is sentenced in court. At that time, the cash bond will be applied to any court costs or fines assessed on the case.
+
+> then the Clerks office will research the defendants name to see if any other monies are owed in Manatee County. This includes any civil cases, juvenile cases, traffic tickets, and any other criminal fines.
+
+**Manatee County Clerk, Court Records Search, Electronic Access, Public Access FAQ**
+https://records.manateeclerk.com/CourtRecords/Search ; https://records.manateeclerk.com/CourtRecords/ElectronicAccess ; https://www.manateeclerk.com/departments/public-access/public-access-frequently-asked-questions/
+
+Search options listed: "Person's Name", "Business Name", "Case Number", "Citation Number", "Case/Filing Type", "Judge Docket Todays Hearing".
+
+> electronic access to many court records, indexes and dockets as well as non-confidential document images
+
+> (Viewable on Request) - Records which have a higher probability for sensitive information and require manual review prior to release for public viewing
+
+Public Access 941-741-4040. The Records Hub carries an old Hurricane Ian banner in its markup; it was not used.
+
+**Manatee County Clerk, Court date information (eNotify)**
+https://www.manateeclerk.com/clerks-news/court-date-information-in-manatee-county/
+
+> you can sign up for the eNotify service to receive courtesy text and/or email reminders of criminal court events
+
+The article's other lines describe emergency court measures and are out of date, so only eNotify is used. https://enotify.flcourts.org/ returned 200 on the fetch date.
+
+**Manatee County Clerk, Circuit Civil and County Civil**
+https://www.manateeclerk.com/departments/circuit-civil/ ; https://www.manateeclerk.com/departments/county-civil/
+
+Phone 941-741-4025. Physical address 1115 Manatee Avenue West.
+
+**12th Judicial Circuit, Manatee County Judicial Center**
+https://www.jud12.flcourts.org/About/Courthouses/Manatee-County-Judicial-Center
+
+> Located in beautiful downtown Bradenton, next to the historic courthouse
+
+> Free two-hour parking is available on most streets downtown near the Manatee County Judicial Center.
+
+"The city parking garage is located on 12th Street West between Sixth Avenue West and Eight Avenue West. The county parking garage is on 10th Street West between Manatee Avenue and Fourth Avenue West." Address 1051 Manatee Ave. W., Bradenton, FL 34205. (941) 749-3600.
+
+**12th Judicial Circuit, telephone list**
+https://www.jud12.flcourts.org/forms/printjudges.aspx?lt=j
+
+Every Manatee felony, county criminal and civil, and circuit civil judge is shown at "Manatee County Judicial Center". Courtroom numbers are left off the page, because assignments change on 4 January 2027.
+
+**12th Judicial Circuit, Inmate Transport Requests, updated 10 September 2026**
+https://www.jud12.flcourts.org/Manatee-County-Jail-Inmate-Transport-Requests
+
+> all inmate clothes are to be delivered by an attorney to the Manatee County Central Jail. No delivery by family members.
+
+> Felony Arraignments : Inmates are not required to appear in person or by video for Arraignments. If a Defense Attorney/Public Defender's Office is requesting an inmate appear by video they must contact the JA for approval.
+
+> Arraignments : The JSS will secure the presence of all inmates by video who appear as "in jail" on the Clerk's Docket.
+
+> There will no no transportation of an inmate for attorney/client conferences.
+
+> It is the attorney's responsibility to have the inmate dressed for trial and the clothes taken to the jail not brought to court the same day as the trial.
+
+JSS is the Sheriff's Judicial Security Section. The second arraignment line sits under "Misdemeanors", which also lists docket sounding, violations of probation and pretrial conferences by video.
+
+**12th Circuit Administrative Order 2009-21.3, Manatee County Supervised Release Sign-up (aid 230)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/09-21-3.pdf
+
+> Failure to sign the appropriate supervised release agreement as ordered precludes the defendant's release from jail, even if the defendant has posted the requisite bond.
+
+**Manatee County, Find Information about Pretrial Release; Judicial Center location**
+https://www.mymanatee.org/services-and-amenities/service-listing/service-details/learn-about-pretrial-release ; https://www.mymanatee.org/connect/locations/location-details/manatee-county-judicial-center
+
+> Report to his/her Pretrial Release Officer twice per week or as otherwise ordered.
+
+> Allow a Pretrial Release Officer to conduct visits at his/her residence.
+
+> Not leave Manatee, Sarasota or their contiguous counties, or the State of Florida without a Court Order.
+
+"Hensley Wing, 5th Floor", (941) 749-3051. CONFLICT: the Public Defender's resource page gives 941-749-3050 for Manatee Pretrial Services. The county's own number is used.
+
+**12th Circuit Administrative Order 2024-21.3, Manatee County Comprehensive Treatment Court (aid 654)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/2024-21.3.pdf
+
+> Manatee CTC is designed for criminal defendants who suffer from a substance use disorder, serious mental illness, or a co-occurring disorder
+
+> Manatee CTC is diversionary for misdemeanors and low-level felonies. It is post-adjudicative for felonies only.
+
+> A Centerstone professional conducts an evaluation of a defendant and advises the Court regarding clinical eligibility. The Court makes the ultimate decision regarding a defendant's admission into Manatee CTC.
+
+Paragraph 5: an in-custody defendant Centerstone deems eligible, charged with listed misdemeanors including "possession of marijuana" and "possession of paraphernalia", and "not already on probation and was not in prison within the preceding three years", has an expedited path, with the State's stipulation "subject to later review". The two quoted lines on felonies sit uneasily together, so the page says only that the court is for "misdemeanors and low-level felonies". FOR THE ATTORNEY READ.
+
+**12th Circuit Administrative Order 2015-14.3, No Contact with the Victim (aid 341)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/15-14.3.pdf
+
+> the following "no contact" with the victim order shall apply as a condition of pretrial release to all applicable defendants and shall be provided to defendants by the sheriffs of the Twelfth Judicial Circuit prior to their release
+
+> Being within 500 feet of the victim's or other named person's residence, even if the defendant and the victim or other named person share the residence.
+
+> An invitation for contact from the victim does not affect this order and is not a defense to a violation of the no contact order.
+
+Caption reads "IN AND FOR SARASOTA COUNTY", but the body speaks of the circuit's sheriffs and copies go to the Manatee Clerk and Manatee Sheriff. See INFERENCE 5. AO 2025-22.3 paragraph 7 separately requires no contact with the victim, in all three counties.
+
+**12th Circuit Administrative Order 2025-06.3, Public Defender Application Fee (aid 666)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/2025-06.3.pdf
+
+Captioned for all three counties; paragraph 4 directs the Manatee Clerk.
+
+> shall pay a $50.00 application fee to the clerk for each application for court-appointed counsel filed. The applicant shall pay the fee within seven (7) days after submitting the application.
+
+**12th Circuit Administrative Order 2004-20.3, Interim Appointment of Public Defender (aid 121)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/04-20-3.pdf
+
+Captioned for all three counties.
+
+> An individual incarcerated in a county jail in this circuit for more than 24 hours following an advisory hearing, and who requests the appointment of counsel, is preliminarily determined by this court to be indigent, and the public defender is hereby appointed
+
+"so long as the individual is otherwise eligible", and "an interim appointment only". See INFERENCE 6.
+
+**Office of the State Attorney, 12th Judicial Circuit, Our Offices**
+https://www.sao12.org/about/our-offices/
+
+"Manatee Office", "Manatee County Building", "1112 Manatee Ave W.", "Bradenton, FL 34205", "(941) 747-3077".
+
+**Office of the Public Defender, 12th Judicial Circuit, Manatee**
+https://www.pd12.org/en/about-us/manatee
+
+"1051 Manatee Avenue West", "7th Floor", "(941) 747-6436". Used for the office and number only.
+
+**U.S. District Court, Middle District of Florida, Tampa**
+https://www.flmd.uscourts.gov/locations/tampa
+
+> It serves Hardee, Hillsborough, Manatee, Pasco, Pinellas, Polk and Sarasota Counties.
+
+Sam M. Gibbons United States Courthouse, 801 North Florida Avenue, Tampa, Florida 33602. Matches `middleDistrict` in src/lib/middle-district.ts.
+
+**U.S. Census Bureau, 2020 place codes for Florida**
+https://www2.census.gov/geo/docs/reference/codes2020/place/st12_fl_place2020.txt
+
+"Bradenton city", "Palmetto city", "Holmes Beach city", "Bradenton Beach city", "Anna Maria city", each INCORPORATED PLACE in Manatee County. "Longboat Key town", INCORPORATED PLACE, Manatee and Sarasota Counties. "West Bradenton CDP", "South Bradenton CDP", CENSUS DESIGNATED PLACE.
+
+**Bradenton Police Department, Obtain a Crash Report**
+https://www.bradentonpd.com/obtain-crash-report
+
+> Reports may take up to 10 days to become available.
+
+> If you are requesting a report during these 60 days, you must show photo identification or complete a Sworn Statement for Crash Report (affidavit). The affidavit must be notarized and can be completed at the Bradenton Police Department Records Division or by any notary public. You may NOT obtain a crash report from the FLHSMV portal below during these 60 days.
+
+> For inquiries or specific questions, you may contact the Records Division at 941-932-9397 during normal business hours.
+
+CONFLICT, FOR THE ATTORNEY READ: FLHSMV (below) says the portal can sell a report in the first 60 days to people who qualify. The Bradenton Police card gives that department's own instruction, and the Highway Patrol card gives FLHSMV's.
+
+**Bradenton Police Department, Location and Hours; Public Records; Report a Crash**
+https://www.bradentonpd.com/location ; https://www.bradentonpd.com/publicrecordsrequest ; https://www.bradentonpd.com/report-a-crash
+
+"100 10th St. W., Bradenton, FL 34205". "Records Department: 941-932-9358 Monday - Friday: 7:00 a.m. - 4:30 p.m." Front desk 941-932-9300.
+
+> A crash with injury; A crash with a fatality; A hit-and-run crash; A DUI crash; A crash that requires a wrecker to remove the vehicle; A crash with a commercial motor vehicle; or A crash where apparent damage is at least $2,000.00.
+
+> Please stay at the scene and call 911
+
+No fee for a crash report is stated, so the page gives none.
+
+**Manatee County, Resident Information Tool**
+https://www.mymanatee.org/services-and-amenities/service-listing/service-details/resident-information-tool
+
+> Search your address to find your trash and recycling days, evacuation level, police district
+
+Linked by the Sheriff's report page as "Verify Your Location".
+
+**Florida Department of Highway Safety and Motor Vehicles, Troop F; FHP Station Locations; Contact FHP; crash records FAQ**
+https://www.flhsmv.gov/florida-highway-patrol/troop-boundaries-information/troop-f/ ; https://www.flhsmv.gov/florida-highway-patrol/contact-fhp/fhp-station-locations/ ; https://www.flhsmv.gov/florida-highway-patrol/contact-fhp/ ; https://www.flhsmv.gov/courts-enforcement/about-crash-records-and-crash-reporting/frequently-asked-questions/
+
+> Troop F consists of ten Southwest Florida counties including Charlotte, Collier, Glades, Hendry, Lee, Desoto, Hardee, Highlands, Manatee, and Sarasota.
+
+"Bradenton 5023 53rd Ave. E. Bradenton, FL 34203-4134 941-751-8350 Manatee F". Crash records "Call 850-617-3416, Option 5", FloridaCrashPortal.gov, "fees apply".
+
+> Crash reports sold prior to or during this timeframe can only be sold to those individuals who meet one of the exceptions required by statute. A purchaser must disclose the exemption on the webpage and provide their driver license number.
+
+> These entities include both the parties involved in the crash and their licensed insurance agents.
+
+**12th Judicial Circuit, Civil Division; Criminal Division**
+https://www.jud12.flcourts.org/About/Divisions/Civil ; https://www.jud12.flcourts.org/About/Divisions/Criminal
+
+> Florida Circuit Civil Courts have jurisdiction in all civil actions exceeding $50,000.
+
+> Florida County Courts have jurisdiction in civil actions which do not exceed $50,000, small claims (i.e., civil actions of $8,000 or under)
+
+> These Court events will be held in Courtroom 6C, Judge Lynn N. Silvertooth Judicial Center, 2002 Ringling Blvd., Sarasota, Florida 34237.
+
+The last line is Judge Carroll's notice for jury trials, nonjury trials and evidentiary hearings over 61 minutes, in Division T.
+
+**12th Circuit Administrative Order 2026-09.1, Circuit Civil Major Trial Division T (aid 698)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section01/2026-09.1.pdf
+
+> A Circuit Civil Major Trial Division, known as Division T, is created in DeSoto, Manatee and Sarasota counties.
+
+Section 5: new cases filed August 3, 2026, and later of type "Malpractice (all variants)" and "Mass Tort", among others, are assigned automatically. Sections 7 and 8: transfer by agreement or by order on motion. See INFERENCE 7.
+
+**F.S. 47.011, 2025 Florida Statutes**
+https://www.flsenate.gov/Laws/Statutes/2025/47.011
+
+> Actions shall be brought only in the county where the defendant resides, where the cause of action accrued, or where the property in litigation is located. This section shall not apply to actions against nonresidents.
+
+Basis for the injury FAQ on where a suit can be filed. No source line carries it, because FAQ answers have none.
+
+**Reused from records above, no new fetch:** Rule 3.130(a); Rule 3.134(a) and (b); Rule 3.191; F.S. 95.11; F.S. 627.736(1)(a); F.S. 768.81; the DUI 10-day rule, F.S. 322.2615(1)(b)3.
+
+**Checked and not used, because they do not reach Manatee County or do not help the reader:**
+- AO 2026-12.2 (South County Judicial District), AO 2002-10.3 and AO 2014-3.3: Sarasota County geography.
+- AO 2011-3.3 and AO 2024-01.3: captioned Sarasota County only. AO 2009-21.3 is Manatee's own, and its consequence differs.
+- GovPayNet card payments and location code 8673: Sarasota jail. The Manatee Sheriff's page accepts only cash, cashier's checks and money orders.
+- AO 2010-15.3 (drug court screening by Pretrial Services): operative for Sarasota; for Manatee it says only that the procedure "may be implemented".
+- AO 2009-12.6 (Manatee DUI Court costs): the 2027 assignments list a DUI Court for Sarasota only. No Manatee DUI court is claimed.
+- AO 2023-06.3 (reciprocal authority at first appearance) does cover Manatee, but it is left off to keep this page different from Sarasota's. Available for later use.
+- AO 2021-7.3 (TYLA docket), AO 2024-09.3 (drug court levels): cover Manatee; not needed at this depth.
+- AO 2010-18.1 and AO 2020-22.1 (civil redistributions): one-time reassignments.
+
+INFERENCES, for the attorney read:
+1. Bradenton Police usually make arrests and work crashes inside the city limits, and Sheriff's deputies in the unincorporated county. No source says this in those words. It rests on the Sheriff's report page and the Census places. The market card says "cover", and the injury card says "usually".
+2. A Bradenton mailing address may be outside the city. It rests on the Census listing West Bradenton and South Bradenton as separate places, and on Sheriff's offices with Bradenton addresses. The page hedges with "may not settle it".
+3. One courthouse handles all Manatee state cases. The court's courthouse list names only the Judicial Center for this county, the telephone list places every Manatee judge there, and no order sets up a geographic split like Sarasota's. No order says this in those words. The page says "the court lists one courthouse" and "listed at".
+4. The Anna Maria Unit handles a crash in Anna Maria. Anna Maria is incorporated but not on the Sheriff's list of cities with their own police. The Sheriff's contact page lists the unit, and a city event permit form refers to the Anna Maria substation (search excerpt only, not fetched: https://www.cityofannamaria.com/DocumentCenter/View/249/Special-Event-Permit). The page gives only the unit's number, in answer to the question of who to call.
+5. AO 2015-14.3 applies in Manatee County, despite its Sarasota caption. It rests on the order's reference to the circuit's sheriffs, and copies to the Manatee Clerk and Sheriff. The page says "a circuit order sent to the Manatee Sheriff". PLEASE CONFIRM.
+6. "Advisory hearing" in AO 2004-20.3 means first appearance. The page says "that hearing".
+7. A Manatee case in Division T may have its trial in Sarasota. It rests on Judge Carroll's notice, which does not address Manatee cases. The page says "may not stay in Bradenton".
+8. "For more calls" on the prepaid phone account, from the Sheriff's phone page listing two free calls and then prepaid services.
+9. Firm advice, not from any source: "As family, do not ask what happened"; "call a lawyer before then", before a possible misdemeanor plea at first appearance; "Talk to a lawyer before you go" on a missed court date.
+
+---
+
+### Location pages, Tenth Judicial Circuit, Polk County (D160)
+
+#### Polk County market and hubs, Tenth Judicial Circuit (D159)
+
+All fetched 2026-11-09. Tenth Circuit orders are text PDFs, read with pdftotext. Each order below was listed on the circuit's index on that date, at https://www.jud10.flcourts.org/admin-orders (Criminal 3 result pages, Civil 2 result pages, Administrative and Special Orders searched by title). Reused with no new fetch: Rule 3.130(a), Rule 3.134, Rule 3.191, F.S. 34.01(1)(c), F.S. 47.011, F.S. 95.11, F.S. 322.2615(1)(b)3, F.S. 627.736(1)(a), F.S. 768.81, M.D. Fla. Local Rule 1.04(a), FLHSMV Troop C, FLHSMV Traffic Crash Reports. The Gibbons courthouse address is as already published on the charge pages.
+
+**D159 search demand.** `search` on the market page is as directed: "criminal defense attorney polk county", about 320 a month. Lakeland, about 260 a month, is in the market page's description, lead, FAQ and call to action. It is not in the title: `Polk County Criminal Defense | Hines McCarty Pavlidis` is 53 characters, and any version naming Lakeland runs past 60 unless the firm name is cut.
+
+#### Bond
+
+**10th Circuit Administrative Order 2-49.10, In Re: Uniform Bond Schedule, entered December 23, 2025**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/AO_2-49.10.pdf
+
+> the bond schedule set forth in this Order shall apply to all felonies, misdemeanors, and county or municipal ordinance violations as the presumptive bond to be set unless ordered differently by a judge.
+
+> M2; CO; MO $250.00 / M1 $1000.00 / F3 $5,000.00 / F2 None, until FAH / F1 None, until FAH
+
+> Violations of §322.34(6) (DWLSR w/fatality) $10,000.00
+
+> DUI §316.193 or BUI §327.25 without a prior conviction for DUI or BUI $1000.00
+
+> DUI §316.193 or BUI §327.25 with one or more prior convictions for either DUI or BUI None, until FAH
+
+> Arrestees on active Probation or Community Control ... None, until FAH
+
+> Life Felony (LF) None / Capital Felony (CF) None
+
+> Any person, out on bond or other form of pre-trial release for a criminal offense, who has been arrested for committing a new offense within the Tenth Judicial Circuit while out on bond or other form of pre-trial release, shall be held without bond on the new offense until FAH
+
+> This Order is effective on January 1, 2026, and shall remain in effect until further order of the Court.
+
+Section III.9 quotes F.S. 903.011(6); the page gives a partial list and says so. "FAH" is First Appearance Hearing. The header of the table reads "Bond Amount (cash or surety)". Quoted recital: "[e]ach crime requires a separate bond".
+
+**NO END DATE, BUT CHECK IT IN JANUARY 2027.** The order recites AOSC23-88, not the current statewide order.
+
+**Supreme Court of Florida, AOSC25-69, In Re: Uniform Statewide Bond Schedule, December 17, 2025**  
+https://circuit7.org/wp-content/uploads/AOSC25-69.pdf (a circuit's copy of the Court's order)
+
+> The chief judge of a judicial circuit may establish a local bond schedule that adds conditions of release and/or increases the bond amounts above those required by this schedule.
+
+> The bond schedule below is effective from January 1, 2026, through December 31, 2026.
+
+Amounts read: $5,000 and $2,500 (third degree felony), $1,000 and $500 (first degree misdemeanor), $250 and $150 (second degree misdemeanor); DUI or BUI $1,000, $750, $500. This is the basis for "several of its amounts are higher than the statewide schedule" and for the FAQ's comparison with HILLSBOROUGH_BOND, which adopts that schedule. **EXPIRES December 31, 2026.** Whether the circuit reissues 2-49.10 when the statewide schedule changes is unknown.
+
+**10th Circuit Administrative Order 2-15.1, Adversary Bail Modification Hearings, September 1, 2009**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/2-15.1.pdf
+
+> The hearing must be conducted before a judge in person.
+
+> no subsequent adversary bail modification hearing may be conducted unless: (a) It is conducted before the same judge who conducted the prior hearing, or (b) It is conducted before a judge of superior jurisdiction, or (c) It is conducted before the elected chief judge of the circuit.
+
+CAUTION: a 2009 order, still on the index, requires in-person hearings. An attorney should confirm this is still the practice, given the circuit's virtual rooms.
+
+**10th Circuit Administrative Order 2-61.1, Scheduling of Evidentiary Preliminary Hearings, April 19, 2011**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/AO-2_61.1.pdf
+
+> Bond motions in cases alleging a felony offense filed before the State Attorney's Office files an Information shall be heard by a county court judge
+
+> If the State Attorney's Office files an Information charging a Defendant with a one or more felony offenses, and thereafter a bond motion is filed or the defense files a motion for a preliminary hearing, the matter shall be heard in the circuit court.
+
+**10th Circuit Administrative Order 2-48.0, Automatic Revocation of PTR Status upon Failure to Appear, June 30, 1997**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/2-48.0.pdf
+
+> WHEN a defendant who has been released on PTR fails to appear at any subsequent court hearing and where the judge thereafter issues a capias for the defendant, it shall be automatic that the defendant's PTR status be REVOKED.
+
+Read but not used on a page: AO 2-8.1 (surety and cash bond not exchanged without a judge's approval), AO 2-35.2 (cancelling appearance bonds on diversion).
+
+#### First appearance and pretrial release
+
+**10th Circuit Administrative Order 2-56.8, Guidelines for Setting the First Appearance Docket, August 21, 2026**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/AO_2-56.8.pdf
+
+> The weekday First Appearance Docket shall start at 12:45 p.m. each day. The holiday and weekend First Appearance Docket shall start as provided in Administrative Order 1-15.4 (or as later amended).
+
+> Provided the motion and notice are filed with the Polk County Clerk of Court by 11:00 a.m., the status conference must be conducted on the next business day unless all parties agree on a different date.
+
+> If the Court and the defense are informed that no such evidence presentation is to be made, the defendant shall be released from custody on the charge(s) for which a preliminary hearing was sought "unless an information or indictment has been filed, in which event the defendant shall be released on recognizance subject to the condition that he or she appear at all court proceedings or shall be released under a summons
+
+> Every effort must be made to schedule the evidentiary hearing within five (5) working days; however, in no event will the evidentiary hearing be scheduled later than ten (10) days unless otherwise ordered by the Court upon agreement of the parties.
+
+It vacates 2-56.7. CAUTION: the index still lists 2-56.7 beside 2-56.8. 2-56.8 controls by its own terms. "Though court rules limit when" on the page points to Rule 3.133, quoted by the order. The rule's conditions were not read and are not stated.
+
+**10th Circuit Administrative Order 1-15.4, Duty Judge Assignment & Responsibilities, August 21, 2026**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/AO_1-15.4.pdf
+
+> On holidays and weekends, the duty judge shall preside over juvenile detention, shelter, and first appearance hearings, which shall begin at 8:00 a.m.
+
+**10th Circuit Administrative Order 1-1.69, Assignment of Judges, July 6, 2026 through January 3, 2027, and its Special Orders**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/AO_1-1.69.pdf  
+Special Order of October 14, 2026, amending Exhibits B, C and F, effective October 15, 2026: https://www.jud10.flcourts.org/sites/default/files/adminOrders/SO_Amending_1-1.69.pdf
+
+Amended Exhibit B: "Juvenile Detention and First Appearance Hearings on holidays and weekends for all three counties are conducted in Courtroom 8E in the Polk County Courthouse in Bartow, FL. The hearings will begin at 8:00 a.m." CONFLICT RESOLVED: the original Exhibit B of 1-1.69 said 9:00 a.m. The Second Special Order of August 21, 2026 amended Exhibit B, and 1-15.4 and the October order both say 8:00 a.m.
+
+Exhibit E as entered: F1 to F9 each "POLK FELONY DIVISION" (F7 "(VOP)", F9 "(Capital)", F8 with specialty and competency work), each "Monday – Friday, Bartow". Civil sections 04, 07, 08, 11 and 15 each "POLK CIVIL DIVISION", "Monday – Friday, Bartow". Courthouse: "255 North Broadway Ave., Bartow, FL 33830".
+
+Amended Exhibit F: M4, M5, M6, M7 "County Criminal", calendar "BTW" all five weekdays. L1 "County Court Lakeland / Criminal Relief", 930 E. Parker St., Lakeland, calendar "LKD". W3 "County Court Northeast / Criminal Relief", 200 Government Center Blvd., Lake Alfred, calendar "NE". M0 and M9 "County General Civil", BTW. M1 and M2 "County Small Claims/ Evictions", BTW. M8 "County Administrative Judge, Simplified DOM/PSC/Evictions", BTW. Special Order of October 28, 2026 changes only Hardee and Highlands county criminal. The October 14 exhibits supersede those of the October 1, 2026 special order, which was dated only and not read. The July 17, 2026 special order changes only the felony division's administrative judge. **EXPIRES January 3, 2027: recheck the division and location statements against the next order.**
+
+Felony and county civil judges are not named on any page.
+
+**10th Circuit Administrative Order 2-12.3, Pretrial Release Program, September 27, 2022**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/AO_2-12.3.pdf
+
+> Polk County Court Services staff who administer the Polk County Pretrial Release Program are not employees of the Florida State Court System. The staff are employees of Polk County.
+
+> PTR staff then makes a recommendation to the judge assigned to hear first appearance hearings as to whether the defendant should be released or detained.
+
+**Tenth Judicial Circuit, Virtual Courtroom Links**  
+https://www.jud10.flcourts.org/polk-virtual-courtrooms and https://www.jud10.flcourts.org/virtual-courtroom-links/polk-first-appearance
+
+Lists "Polk First Appearance Virtual Courtroom" with a Teams link and phone line. The "Winter Haven" page lists "Stamey ... Winter Haven Branch Virtual Courtroom". The "Lakeland" page lists "Flynn ... Lakeland Branch Virtual Courtroom".
+
+**Polk County Clerk, Find My Courtroom**  
+https://www.polkclerkfl.gov/270/Find-My-Courtroom
+
+> Use the Find My Courtroom app to find the location or link for your courtroom. Only the current day's schedule is available on the app.
+
+> Not all court hearings are available to view virtually.
+
+#### Felony and misdemeanor routing
+
+**10th Circuit Administrative Order 2-5.9, Random Assignment of Felony Cases in Polk County, November 30, 2023**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/AO_2-5.9.pdf
+
+> The case maintenance system shall then randomly assign the new case to a felony division based on a ratio between the division ordered from time to time by the Chief Judge of the Circuit.
+
+> Upon a defendant's first appearance conducted pursuant to Rule 3.130, Florida Rules of Criminal Procedure, the division assignment shall be noted on the Order Following First Appearance Hearing.
+
+> If there is an open case pending against one of the defendants or if one is on probation or community control, the case shall be assigned to the division before whom the other case is pending or by whom the defendant has been placed on probation or community control.
+
+> All first-degree homicide cases ... will continue to be assigned to Division F9
+
+**Tenth Circuit Local Rules No. 1, Rule 1.4(b), October 26, 1994**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/local_rule1.pdf
+
+> Matters within the jurisdiction of the Criminal Division shall be assigned by the Administrative Judge by Administrative Order, in accordance with an automatic random schedule of assignments
+
+Rule 1.2 has the same automatic random schedule for circuit civil. No county criminal assignment order is on the Criminal list of the index.
+
+**10th Circuit Administrative Order 3-38.5, County Court Landlord Tenant Eviction Cases, November 28, 2023**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/AO_3-38.5.pdf
+
+> county court landlord tenant eviction and unlawful detainer cases are currently assigned based on the zip code of the property identified in the complaint
+
+Not used on a page. It matters because the order then lists "Divisions M0, M9, L-1, and W-3", which shows ZIP routing to those branches once existed for evictions.
+
+**INFERENCE, for the attorney read: misdemeanor routing. This is the page's weakest point and needs a direct answer.** No order found says which misdemeanors go to Lakeland (L1) or Lake Alfred (W3). Exhibit F labels both "Criminal Relief" and the four M divisions "County Criminal". Local Rule 1.4(b) says random, but it dates from 1994. AO 3-38.5 shows that a ZIP system was once used for evictions. The pages therefore say the divisions exist, say to go by your notice, and say not to assume a Lakeland arrest means a Lakeland courtroom. If the firm knows the practice, this can become the pages' strongest local fact.
+
+**INFERENCE, for the attorney read: felonies.** No order says "a Lakeland felony is heard in Bartow". It follows from all nine felony divisions being listed Monday to Friday in Bartow, and from assignment being random. The pages say "usually" on the market page and FAQ. The criminal hub says "That holds for an arrest in Lakeland or Winter Haven too", resting on the same reading.
+
+**INFERENCE, for the attorney read: "Winter Haven Branch".** The name comes from the court's virtual room page and from the Clerk row on the court's contact list. The same judge is W3 in Exhibit F, at the Lake Alfred address. So the page treats the two as one place. The court's contact list also gives (863) 401-2410 for "Winter Haven" probation, and the county gives that number for its Northeast Government Center office.
+
+**Northeast Government Center addresses conflict.** Court, Clerk street address and State Attorney: Lake Alfred, FL 33850. Clerk's mail table: "200 Government Center Blvd. Haines City, FL 33844". Polk County Court Services: "Lake Alfred, FL 33844". The page gives the street and Lake Alfred, with no ZIP, and notes the Haines City listing.
+
+**Special Order of March 21, 2024, Transfer of Cases to the F8 and M8 Divisions**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/SO_Transfer_of_Cases_to_Division_F8%20and%20M8.pdf
+
+Directs "DUI/Drug Court cases (misdemeanor and felony cases)" to M8.
+
+**10th Circuit Administrative Order 2-71.1, Creation of Polk County DUI/Drug Court, 2024**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/AO_2-71.1.pdf
+
+> the State Attorney may, in his/her discretion, offer any multiple DUI offender the option of DUI/Drug Court as part of a negotiated plea offer
+
+> The DUI/Drug Court shall be a condition of the offender's probation.
+
+CAUTION: the order's text says it was done "21st day of January, 2024", and the index shows 03/21/2024. No date is given on the page.
+
+**10th Circuit Administrative Order 2-19.2, Arraignment Date for Felony Cases, February 14, 2005**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/2-19.2.pdf
+
+> The arraignment date for felony cases in which there is an arrest and for which no information or indictment has been filed at the time of arrest, shall be the first Tuesday that occurs thirty (30) days after the arrest.
+
+> If the thirtieth day falls on a Tuesday, the arraignment date shall be the next Tuesday.
+
+> The day of arrest shall not be counted in computing the arraignment date. Holidays shall be counted.
+
+> shall be the first Tuesday that occurs fourteen (14) days after the arrest.
+
+> If an information or indictment has not been filed at the time of arraignment, the State shall appear in Court and explain the reason for the delay and be prepared to specify the amount of additional time needed to file the information or indictment. At the conclusion of the hearing, the court shall set a date certain for the arraignment.
+
+CAUTION: a 2005 order, still on the index. The page tells the reader to check the actual date on the Clerk's portal.
+
+#### Sheriff and jail
+
+**Polk County Sheriff's Office, Security Division**  
+https://www.polksheriff.org/about/departments/department-of-detention/Security-Division
+
+> All persons arrested within Polk County are processed at the Sheriff's Processing Center (also known as Book-In) facility located at 7101 De Castro Road in Winter Haven.
+
+> The Central County Jail is located at 2390 Bob Phillips Road in Bartow. The main number to call is 863-534-6123.
+
+> The South County Jail is located at 1103 US Hwy 98 West in Frostproof. The main number to call is 863-635-6920.
+
+> A courtroom is provided at the Central County Jail for First Appearance and other hearings. Visitors can watch these proceedings in the lobby of the Central County Jail seven days a week.
+
+> A courtroom is provided at the South County Jail for First Appearance Hearings. Visitors can watch these proceedings in the lobby of the South County Jail seven days a week.
+
+Also: Processing Center 863-292-3400, open 24 hours, with a public window.
+
+**NOT RECONCILED, for the attorney read.** The Sheriff says these hearings are in jail courtrooms, seven days a week. Exhibit B says weekend and holiday hearings are conducted in Courtroom 8E at the courthouse. Both can be true if the judge sits in 8E and the person appears from the jail, but no source says so. The page reports each statement and does not say anyone appears by video. No source says where the weekday judge sits.
+
+**Polk County Sheriff's Office, Contact Us**  
+https://www.polksheriff.org/contact-us
+
+"Sheriff's Releasing Center (where inmates are released) Directly behind Central County Jail (2390 Bob Phillips Road) Bartow, FL 33830 863-534-8712". "Records: 863-298-6300" and "recordsrequest@polksheriff.org". "Contract Cities": Dundee, Eagle Lake, Fort Meade, Frostproof, Mulberry and Polk City Sheriff's Stations.
+
+**INFERENCE, for the attorney read:** the heading "Contract Cities" is read to mean the Sheriff polices those six cities. The pages use the Sheriff's own words and do not say more. "Outside city limits, expect Sheriff's deputies" has no source in those words.
+
+**Polk County Sheriff's Office, Jail Inquiry**  
+https://www.polksheriff.org/detention/jail-inquiry
+
+> For inmate information, friends and family can call 863-292-3400
+
+Search by name or booking date. The page says "you must put two apostrophes in the name - like this: O''Keefe." (WebFetch summary; the phone line was checked on the raw page.)
+
+**Polk County Sheriff's Office, Scam Reporting**  
+https://www.polksheriff.org/news-investigations/scam-reporting
+
+> They claim to be calling on behalf of a local bondsmen, and they urgently request bond money to be paid via CashApp, Zelle, or gift cards.
+
+> Our local bail bond agencies are licensed - verify their identity when speaking with them over the phone by hanging up and calling them back. They will also confirm your inmate's status - you should also contact the Polk County Jail on your own and do the same by calling 863-292-3400.
+
+**Polk County Sheriff's Office, Public Records**  
+https://www.polksheriff.org/public-records
+
+> To initiate a Public Records Request, please contact Records for the necessary forms.
+
+No crash report process is set out, so the page says only to ask for the forms.
+
+#### Police
+
+Checked on each city's own site: **City of Lakeland, Police Department, Contact Us**, https://www.lakelandgov.net/departments/lakeland-police-department/contact-us/ ("NON-EMERGENCY CALLS: 863.834.6900"); **City of Winter Haven, Records Division**, https://www.mywinterhaven.com/182/Records-Division; **City of Bartow, Police Department directory**, https://www.cityofbartow.net/Directory.aspx?did=24 (450 North Broadway Avenue; the old /176/Police-Department address returned 404); **City of Haines City, Police Department**, https://hainescity.com/197/Police-Department; **City of Lake Wales, Police Dispatch**, https://www.lakewalesfl.gov/707/Dispatch; **City of Davenport, Police Information & Resources**, https://www.mydavenport.org/pdresources ("The Davenport Police Department provides law enforcement services within the City of Davenport.").
+
+The list is not complete. Other Polk cities were not checked, so the page names only these six and the Sheriff's six contract cities.
+
+**City of Lakeland, Police Department, Records and Information**  
+https://www.lakelandgov.net/departments/lakeland-police-department/table-of-organization/special-services/records-and-information/
+
+> The Lakeland Police Department maintains police reports and records for our agency only.
+
+> Traffic crash accident reports may be requested within 60 days of the accident. You must complete the attached sworn statement and have it notarized prior to receiving the report.
+
+Telephone 863.834.6936. INFERENCE, for the attorney read: the second quote is ambiguous. It may mean the 60-day period when reports are confidential, or a limit on requests. The page repeats the city's wording and does not explain it.
+
+**City of Winter Haven, Records Division FAQ**  
+https://www.mywinterhaven.com/FAQ.aspx?QID=80
+
+> We are located on the 1st floor of the Winter Haven Police Department: 125 N Lake Silver Drive NW Winter Haven, FL 33881
+
+> The Public Records window is open Monday through Friday 8 am to 5 pm.
+
+Phone 863-291-5858. Asking for "the date, the place, and the names" comes from a search excerpt of the city's FAQ: "Please indicate the date, location, incident description, and any names associated with the report."
+
+#### State Attorney and federal
+
+**State Attorney for the Tenth Judicial Circuit of Florida, Contact Us**  
+https://www.sao10.com/contact-us/ (the fetch that returned this listing)
+
+Offices listed: Bartow, Polk County Courthouse, 863-534-4800; Lakeland, 930 E. Parker St., Room 240, 863-802-6240; Northeast, 200 Government Center Blvd., Lake Alfred, 863-401-2477. Not named or dialed on a page. It gives ZIP 33880 for Bartow, and the Clerk gives 33830, so no ZIP is used.
+
+**Federal.** `middleDistrict` in src/lib/middle-district.ts puts Polk in the Tampa Division, and https://www.flmd.uscourts.gov/local-rules/rule-104-divisions-and-place-file lists "Polk County" under "Tampa Division" on this fetch. Agrees with the existing Local Rule 1.04(a) record.
+
+#### Clerk
+
+**Polk County Clerk, Court Dates**  
+https://www.polkclerkfl.gov/295/Court-Dates
+
+Criminal: portal https://showcase.polkcountyclerk.net/showcaseweb/, "Navigate to the Court Events tab". Civil: portal https://pro.polkcountyclerk.net/PRO, "Public Access", "Select the court type", "Search by party name or case number", "Select the "Hearings" tab". (WebFetch summary.)
+
+**Polk County Clerk, Search Criminal & Traffic Records**  
+https://www.polkclerkfl.gov/299/Criminal-Traffic-Records
+
+> The portal can be searched anonymously and does not require a registered account.
+
+The page also says the information "does not constitute an official record". (WebFetch summary.)
+
+**Polk County Clerk, Legal Community**  
+https://www.polkclerkfl.gov/174/Legal-Community
+
+> e-Notify sends texts and/or email alerts about upcoming criminal and civil court dates.
+
+**Polk County Clerk, Misdemeanor Cases FAQ**  
+https://www.polkclerkfl.gov/m/faq?cat=20
+
+> Failure to appear could result in a misdemeanor judge issuing a capias for your arrest. You may forfeit the bond you posted, thus losing your money or collateral.
+
+> At the conclusion of your case, the Clerk will withhold from the return of a cash bond, posted on behalf of a criminal defendant by a person other than a bail bond agent, sufficient funds to pay any unpaid court fees, court costs, and criminal penalties. If the amount posted is greater than the fees, costs, and penalties due, the balance will be applied to any case that remains with payment due.
+
+CAUTION: the page is written about misdemeanors. The hub's failure-to-appear card and cash bond FAQ apply it to any charge. An attorney should confirm that for felonies.
+
+**Polk County Clerk, Small Claims FAQ**  
+https://www.polkclerkfl.gov/m/faq
+
+> A small claims case is a legal action filed in county court to settle minor legal disputes among parties where the dollar amount involved is $8,000 or less, excluding costs, interest, and attorney fees.
+
+**Polk County Clerk, Contact Us**  
+https://www.polkclerkfl.gov/209/Contact-Us
+
+863-534-4000. Polk County Courthouse, 255 N. Broadway Ave., Bartow; Lakeland Government Center, 930 E. Parker St.; Northeast Government Center, 200 Government Center Blvd., Lake Alfred.
+
+**Tenth Judicial Circuit, Courthouse Locations**  
+https://www.jud10.flcourts.org/courthouse-locations
+
+Lists Polk County Courthouse, Northeast Polk Government Center and Lakeland Branch. No Winter Haven location. No statement of which cases are heard at each, so D7 applies: the pages rest case-type statements on the assignment order only.
+
+#### Civil
+
+**10th Circuit Administrative Order 3-42.2, Civil Case Management, March 10, 2025**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/AO_3-42.2.pdf
+
+> Plaintiff shall, at the onset and based on the definitions outlined below, determine the appropriate case management track for the case: streamlined, general, or complex.
+
+> Initial pleadings that do not include the preapproved Civil Case Management Plan will not be accepted by the Clerk of the Circuit Court.
+
+> Streamlined cases: will be circuit civil non-jury cases (if agreed to), all foreclosure cases, county civil jury and non-jury cases
+
+> General Cases: will be Circuit Civil Jury cases, Circuit Civil Non-Jury cases and will be on track for disposition 18 months from the date of service of initial process on the last defendant or 120 days after the commencement of the action, whichever occurs first.
+
+> All tracks: Within 120 days of the date the complaint was filed, unless the court grants an extension, which shall not exceed 240 days after the date the complaint was filed.
+
+> General: Within 450 days of the date the complaint was filed.
+
+Discovery and alternative dispute resolution deadlines are 270 days (streamlined) and 450 days (general). Complex Track: "Case resolved within 30 months". The plan says its deadlines "will be strictly adhered to by the parties unless change is otherwise agreed to by the parties and approved by the Court".
+
+**10th Circuit Administrative Order 3-44.0, Re-creation of Polk County Civil Section 11, May 1, 2026**  
+https://www.jud10.flcourts.org/sites/default/files/adminOrders/AO_3-44.0.pdf
+
+> On July 1, 2026, the Polk County Clerk of Courts shall begin randomly assigning newly filed cases to Section 11 along with the remaining four civil sections
+
+Basis for "five". The order also reassigned open, reopened and closed cases to Section 11 from May 1, 2026.
+
+INFERENCE, for the attorney read: a Lakeland crash claim of $50,000 or less. The pages do not say where a county civil case from Lakeland is heard. M0 and M9 are in Bartow, and L1 and W3 once took county cases (AO 3-38.5). The FAQ says a smaller claim "could be different" and points to the Find My Courtroom tool.
+
+INFERENCE, for the attorney read: a crash claim accrues where the crash happened, as in the existing F.S. 47.011 record. The page says "generally" and "usually". Corporate defendants have a separate venue statute, not recorded here.

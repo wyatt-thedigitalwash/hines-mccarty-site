@@ -127,6 +127,7 @@ export const LOCATION_PHOTOS: Record<string, HeroPhoto> = {
   "st-petersburg": { src: "/locations/st-petersburg.jpg" }, // the downtown marina
   clearwater: { src: "/locations/clearwater.jpg" }, // Clearwater Beach Marina
   sarasota: { src: "/locations/sarasota.jpg" }, // the Ringling Bridge
+  bradenton: { src: "/locations/skyway.jpg" }, // the Sunshine Skyway lands in Manatee County
   orlando: { src: "/locations/orlando.jpg" }, // the Lake Eola fountain
 };
 

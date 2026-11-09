@@ -3882,3 +3882,14 @@ County pages are not being added where a city page already covers the county
 (Hillsborough, Pinellas, Sarasota, Orange). Search demand for the rest is recorded
 in `docs/research/county-search-demand.md`, for the client to decide on.
 
+### D160. Bradenton and Polk County
+
+**2026-11-09. Client direction, from the D159 search figures.** Six pages: a market
+page and State Criminal and Personal Injury hubs for each, at `/locations/bradenton`
+and `/locations/polk-county`. Named as people search: "Bradenton" over Manatee
+County, and "Polk County" with Lakeland in the copy. Each criminal hub holds its
+county's one bond table and timeline (D155). Fort Myers is held until the client
+asks, and Osceola and Sumter were skipped for low demand. Bradenton uses the
+Sunshine Skyway photo, since the bridge lands in Manatee County. Polk is inland, so
+it keeps the firm's criminal and injury photos until a Polk photo is supplied.
+

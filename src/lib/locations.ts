@@ -1,6 +1,6 @@
 /**
- * Location pages (D151, D152). Five market pages, St. Petersburg, Clearwater,
- * Pasco County, Sarasota and Orlando, each with community pages around it. A market also gets
+ * Location pages (D151, D152). Seven market pages, St. Petersburg, Clearwater,
+ * Pasco County, Sarasota, Bradenton, Polk County and Orlando, each with community pages around it. A market also gets
  * its own State Criminal and Personal Injury pages, because the courthouse and
  * the jail change with the county; Federal, White Collar and Business Litigation
  * stay as links to the main hubs, because every market but Orlando is in the
@@ -38,6 +38,8 @@ import { stPetersburgPages } from "./location-data/st-petersburg.ts";
 import { clearwaterPages } from "./location-data/clearwater.ts";
 import { pascoPages } from "./location-data/pasco.ts";
 import { sarasotaPages } from "./location-data/sarasota.ts";
+import { bradentonPages } from "./location-data/bradenton.ts";
+import { polkCountyPages } from "./location-data/polk-county.ts";
 import { orlandoPages } from "./location-data/orlando.ts";
 
 export type { LocationPage } from "./location-types.ts";
@@ -48,6 +50,8 @@ export const locationPages: LocationPage[] = [
   ...clearwaterPages,
   ...pascoPages,
   ...sarasotaPages,
+  ...bradentonPages,
+  ...polkCountyPages,
   ...orlandoPages,
 ];
 
