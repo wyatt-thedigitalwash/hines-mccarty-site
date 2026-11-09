@@ -77,7 +77,7 @@ export const locationTrail = (p: LocationPage) => {
   const market = p.parent ? marketLocations.find((m) => m.slug === p.parent) : undefined;
   return [
     { name: "Home", href: "/" },
-    { name: "Locations", href: "/locations" },
+    { name: "Areas We Cover", href: "/locations" },
     ...(market ? [{ name: market.place, href: locationHref(market) }] : []),
     { name: locationLabel(p), href: locationHref(p) },
   ];

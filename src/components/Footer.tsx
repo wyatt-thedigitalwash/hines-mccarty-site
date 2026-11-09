@@ -59,6 +59,12 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              {/* D156: footer only, not the top nav. */}
+              <li>
+                <Link href="/locations" className="text-linen/70 transition-colors hover:text-linen">
+                  Areas We Cover
+                </Link>
+              </li>
             </ul>
           </div>
 

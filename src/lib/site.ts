@@ -13001,10 +13001,8 @@ export const testimonials = [
  * of its five divisions, which is the framing that asserts nothing the site does
  * not already claim.
  *
- * [NEEDS: confirmation the firm accepts STATE cases in Pinellas, Sarasota, Lee,
- * Collier, and Orange Counties, or that these six are federal reach only.] The
- * site currently claims state practice in Hillsborough alone. See
- * docs/build/LOCATIONS-MAP-PLAN.md Section 2.
+ * D156: the firm takes state cases anywhere (client, 2026-11-09), so these are
+ * not federal reach only. Brandon is still the only office.
  */
 export type ServiceArea = {
   /** Joins to `floridaLocations.places` in the generated map module. */

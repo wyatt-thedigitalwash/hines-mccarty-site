@@ -3836,3 +3836,13 @@ criminal page, Pasco on Wesley Chapel, and Sarasota and Orlando on their crimina
 pages. The rest carry a short "Bond and deadlines" section with the key numbers
 and links. The gate was not changed.
 
+### D156. The firm takes cases anywhere; "Areas We Cover"
+
+**2026-11-09. Client answer.** The firm takes state cases anywhere, which closes
+the open question on `ServiceArea` about Pinellas, Sarasota, Lee, Collier and
+Orange. Copy says "across Florida", since Florida is where the attorneys' recorded
+bar admissions are. Brandon is still the only office (Rule 4-7.12). The section's
+visible name is now "Areas We Cover" in the breadcrumb, index page, site search
+and a new footer link under Explore, which also suits the rule better than
+"Locations" did. It is not in the top nav. The URL stays `/locations`.
+

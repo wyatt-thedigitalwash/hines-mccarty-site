@@ -166,8 +166,8 @@ export function buildSearchIndex(): SearchEntry[] {
   );
   for (const p of publishedLocations) {
     out.push({
-      u: locationHref(p), t: locationLabel(p), c: `Location, ${p.county}`, kind: "page",
-      s: p.lead[0], k: `${p.place} ${p.county} location near me lawyer attorney`,
+      u: locationHref(p), t: locationLabel(p), c: `Areas we cover, ${p.county}`, kind: "page",
+      s: p.lead[0], k: `${p.place} ${p.county} location area near me lawyer attorney`,
     });
   }
   for (const a of attorneys) {

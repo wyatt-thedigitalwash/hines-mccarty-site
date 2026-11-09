@@ -24,9 +24,6 @@ the page needs looking at. Populate these as pages are assigned and read.
 
 All 28 location pages are noindex and out of the sitemap until an attorney has read them. Set `indexable: true` per page in `src/lib/location-data/` after that read. Every INFERENCE is recorded in `docs/research/PAGE-SOURCES.md` under the "Location pages" headings.
 
-**Client must answer**
-- Does the firm take STATE cases in Pinellas, Sarasota and Orange? `practiceCounties` (D130) lists them, but the note on `ServiceArea` in `site.ts` still asks. The pages say yes.
-
 **Expires**
 - 31 December 2026: bond schedules for Hillsborough (S-2025-063), Pinellas (2026-036), Pasco (2026-035), and Sarasota (AOSC25-69). Pages name the date. Update the tables and `*_DEADLINES` text, and the "2026" wording in link labels and meta descriptions.
 - 1 January 2027: FHP moves to Traffic Court II in Pinellas (2026-048). Six pages state the date; rewrite after it.

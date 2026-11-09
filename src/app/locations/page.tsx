@@ -19,9 +19,9 @@ import { OfficeSection } from "@/components/locations/LocationSections";
  * noindex until the location pages it lists have been read by an attorney.
  */
 export const metadata: Metadata = pageMetadata({
-  title: "Where We Take Cases | Hines McCarty Pavlidis",
+  title: "Areas We Cover | Hines McCarty Pavlidis",
   description:
-    "The Florida communities where Hines McCarty Pavlidis takes criminal, injury, and business cases, from its office in Brandon. Call (813) 738-8650.",
+    "Hines McCarty Pavlidis takes criminal, injury, and business cases across Florida from its office in Brandon. See the areas we cover. Call (813) 738-8650.",
   path: "/locations",
   noindex: true,
 });
@@ -35,19 +35,19 @@ export default function LocationsIndex() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Home", href: "/" },
-              { name: "Locations", href: "/locations" },
+              { name: "Areas We Cover", href: "/locations" },
             ]),
           ),
         }}
       />
 
       <PageHero
-        title="Where we take cases."
+        title="Areas we cover."
         photo={SITE_HERO_PHOTO}
         cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
       >
         <p>
-          {`${firm.name} works from one office in Brandon and takes cases in the communities below. Each page covers who makes arrests there, which courts hear the case, and what the firm handles.`}
+          {`${firm.name} works from one office in Brandon and takes cases across Florida. The pages below cover who makes arrests in each place, which courts hear the case, and what the firm handles. If you do not see your area, call us.`}
         </p>
       </PageHero>
 
@@ -114,8 +114,8 @@ export default function LocationsIndex() {
       />
 
       <CallToAction
-        heading="Not sure if we take cases where you are?"
-        body="Call and ask. Calls are confidential, and we answer 24 hours a day."
+        heading="Is your area not listed?"
+        body="We take cases across Florida, so call us. Calls are confidential, and we answer 24 hours a day."
         tone="navy"
       />
     </>
