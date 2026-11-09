@@ -23,6 +23,8 @@
  * A page whose brief recorded no primary query has `primary: null` and a note.
  */
 
+import { locationHref, publishedLocations } from "./locations.ts";
+
 export type SearchIntent =
   /** Wants to hire someone: service pages, hubs, the home page. */
   | "hire"
@@ -437,15 +439,18 @@ export const searchMap: SearchTarget[] = [
     source: "none",
     note: "keywords.md covers criminal clusters only; no personal injury query recorded anywhere in briefs or keywords.md.",
   },
-  {
-    href: "/locations/brandon",
-    kind: "location",
-    intent: "hire",
-    primary: "felony lawyer Brandon FL",
-    topic: "Brandon",
-    source: "docs/research/keywords.md:46",
-    note: "D151: graded NOW and home turf in keywords.md, and assigned to no route until this page.",
-  },
+  // D154: one row per location page, generated so a new page cannot miss the gate.
+  ...publishedLocations.map(
+    (p): SearchTarget => ({
+      href: locationHref(p),
+      kind: "location",
+      intent: "hire",
+      primary: p.search?.primary ?? null,
+      topic: p.place,
+      source: p.search?.source ?? "D151",
+      ...(p.search ? {} : { note: "D151: a client-directed location page; keywords.md assigns it no primary query." }),
+    }),
+  ),
   {
     href: "/business-litigation",
     kind: "hub",

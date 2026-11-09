@@ -3,13 +3,15 @@ import { firm } from "@/lib/site";
 import {
   type LocationPage,
   locationHref,
+  locationLabel,
   locationTrail,
+  marketHubs,
   marketLocations,
   subLocations,
   tampaCommunities,
 } from "@/lib/locations";
 import { breadcrumbJsonLd } from "@/lib/schema";
-import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
+import { CRIMINAL_HUB_PHOTO, INJURY_HUB_PHOTO, SITE_HERO_PHOTO } from "@/lib/hero-photos";
 import PageHero from "@/components/PageHero";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CallToAction from "@/components/CallToAction";
@@ -32,22 +34,41 @@ export default function LocationTemplate({ page }: { page: LocationPage }) {
   const siblings = market ? subLocations(market.slug) : tampaCommunities;
 
   // Tampa has no location page, so a Tampa community links up to the home page (D152).
+  const link = (p: LocationPage) => ({ href: locationHref(p), label: locationLabel(p) });
   const placeLinks =
-    page.kind === "community" ? (
+    page.kind === "market" ? (
       <PlaceLinksSection
-        heading={`More around ${market?.place ?? "Tampa"}.`}
+        heading={`Communities around ${page.place}.`}
+        intro={page.communitiesIntro}
+        links={subLocations(page.slug).map(link)}
+      />
+    ) : page.kind === "hub" ? (
+      <PlaceLinksSection
+        heading={`More in ${market?.place ?? page.place}.`}
         links={[
-          market ? { href: locationHref(market), label: market.place } : { href: "/", label: "Tampa" },
-          ...siblings.filter((s) => s.slug !== page.slug).map((s) => ({ href: locationHref(s), label: s.place })),
+          ...(market ? [link(market), ...marketHubs(market.slug).filter((h) => h.slug !== page.slug).map(link)] : []),
+          ...(market ? subLocations(market.slug).map(link) : []),
         ]}
       />
     ) : (
       <PlaceLinksSection
-        heading={`Communities around ${page.place}.`}
-        intro={page.communitiesIntro}
-        links={subLocations(page.slug).map((s) => ({ href: locationHref(s), label: s.place }))}
+        heading={`More around ${market?.place ?? "Tampa"}.`}
+        links={[
+          market ? link(market) : { href: "/", label: "Tampa" },
+          ...(market ? marketHubs(market.slug).map(link) : []),
+          ...siblings.filter((s) => s.slug !== page.slug).map(link),
+        ]}
       />
     );
+
+  // The placeholder is the Tampa skyline, so it stays in Hillsborough County. Elsewhere
+  // the page takes the firm's own photo for the subject (D154).
+  const photo =
+    page.hubType === "injury"
+      ? INJURY_HUB_PHOTO
+      : page.county === "Hillsborough County"
+        ? SITE_HERO_PHOTO
+        : CRIMINAL_HUB_PHOTO;
 
   return (
     <>
@@ -59,7 +80,7 @@ export default function LocationTemplate({ page }: { page: LocationPage }) {
 
       <PageHero
         title={page.h1}
-        photo={SITE_HERO_PHOTO}
+        photo={photo}
         cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
         crumbs={<Breadcrumbs trail={trail} />}
       >

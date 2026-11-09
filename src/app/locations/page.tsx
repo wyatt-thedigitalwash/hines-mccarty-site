@@ -4,7 +4,7 @@ import { firm } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
-import { locationHref, marketLocations, subLocations, tampaCommunities } from "@/lib/locations";
+import { locationHref, locationLabel, marketHubs, marketLocations, subLocations, tampaCommunities } from "@/lib/locations";
 import PageHero from "@/components/PageHero";
 import CallToAction from "@/components/CallToAction";
 import { OfficeSection } from "@/components/locations/LocationSections";
@@ -84,15 +84,15 @@ export default function LocationsIndex() {
                   </Link>
                 </h2>
                 <p className="mt-2 eyebrow text-navy/60 sm:text-sm">{m.county}</p>
-                {subLocations(m.slug).length ? (
+                {marketHubs(m.slug).length || subLocations(m.slug).length ? (
                   <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-navy/10 pt-6">
-                    {subLocations(m.slug).map((s) => (
+                    {[...marketHubs(m.slug), ...subLocations(m.slug)].map((s) => (
                       <li key={s.slug}>
                         <Link
                           href={locationHref(s)}
                           className="font-heading text-sm font-medium underline decoration-1 underline-offset-4 transition-colors hover:text-bronze"
                         >
-                          {s.place}
+                          {locationLabel(s)}
                         </Link>
                       </li>
                     ))}

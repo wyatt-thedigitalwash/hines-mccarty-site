@@ -3815,3 +3815,13 @@ gives each Hillsborough community a real difference: which side it is on. County
 page still has to add its own routing and agency. The bond amounts expire
 December 31, 2026.
 
+
+### D154. The rest of the location pages
+
+**2026-11-09. Client direction: build them all.** Twenty-seven pages on the Brandon
+pattern. Data moves to `src/lib/location-data/`, one file per area, with shared
+county facts as constants. A market's State Criminal and Personal Injury pages are
+kind `hub` at `/locations/<market>/criminal-defense` and `/personal-injury`.
+Search-map rows are generated from the page list. The Tampa skyline placeholder
+stays on Hillsborough pages; elsewhere the hero uses the firm's own criminal or
+injury photo, so no page shows one city's skyline above another.
