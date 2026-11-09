@@ -3893,3 +3893,17 @@ asks, and Osceola and Sumter were skipped for low demand. Bradenton uses the
 Sunshine Skyway photo, since the bridge lands in Manatee County. Polk is inland, so
 it keeps the firm's criminal and injury photos until a Polk photo is supplied.
 
+
+### D161. Fort Myers
+
+**2026-11-09. Client direction, lifting the D160 hold.** Three pages: a market page
+and State Criminal and Personal Injury hubs at `/locations/fort-myers`, with no
+community pages. Named "Fort Myers" as people search (about 320 a month, against
+50 for Lee County); Cape Coral is in the copy, not the title. Lee County is in the
+Twentieth Circuit and in the federal Fort Myers Division, so, as on the Orlando
+pages, the federal practice card says the site's federal page is written around
+Tampa and the fact cards give the Fort Myers courthouse. The criminal hub holds
+the county's one bond table and timeline (D155). AO 3.23 adopts each new statewide
+schedule on its own, so the 2027 amounts need no circuit order, only an update to
+`LEE_BOND`. No photo was supplied, so the pages keep the firm's criminal and injury
+photos.

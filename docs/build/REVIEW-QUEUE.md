@@ -20,15 +20,16 @@ the page needs looking at. Populate these as pages are assigned and read.
 
 ---
 
-## Location pages: open items (D151 to D155)
+## Location pages: open items (D151 to D161)
 
-All 33 location pages are noindex and out of the sitemap until an attorney has read them. Set `indexable: true` per page in `src/lib/location-data/` after that read. Every INFERENCE is recorded in `docs/research/PAGE-SOURCES.md` under the "Location pages" headings.
+All 36 location pages are noindex and out of the sitemap until an attorney has read them. Set `indexable: true` per page in `src/lib/location-data/` after that read. Every INFERENCE is recorded in `docs/research/PAGE-SOURCES.md` under the "Location pages" headings.
 
 **Expires**
 - 31 December 2026: bond schedules for Hillsborough (S-2025-063), Pinellas (2026-036), Pasco (2026-035), and Sarasota (AOSC25-69). Pages name the date. Update the tables and `*_DEADLINES` text, and the "2026" wording in link labels and meta descriptions.
 - 1 January 2027: FHP moves to Traffic Court II in Pinellas (2026-048). Six pages state the date; rewrite after it.
 - 16 November 2026: Ninth Circuit divisions order 2025-13-09 takes effect. Check the Orlando pages.
 - 3 and 4 January 2027: Polk judge assignments (AO 1-1.69) end, and 12th Circuit AO 2026-14.4 adds Felony Division VII in Manatee and VIII in Sarasota. Update Sarasota's "three felony judges" wording and table, and the Bradenton hub's division table. No page names a judge.
+- 31 December 2026, Lee County: AO 3.23 adopts the newest statewide schedule on its own, so update `LEE_BOND` in `fort-myers.ts` from the 2027 Supreme Court order. On 4 January 2027 the felony trial schedule drops from five divisions to four; the Felonies card says so. Check the 2027 first appearance rotation.
 - January 2027: Polk bond order AO 2-49.10 has no end date but recites an older statewide order; the current statewide schedule, AOSC25-69, ends 31 December 2026. Check the index.
 
 **Attorney to confirm first**
@@ -36,10 +37,11 @@ All 33 location pages are noindex and out of the sitemap until an attorney has r
 - Brandon and the Tampa-side communities: a felony goes to Tampa, inferred because the East Division order sets up no felony division.
 - Polk: misdemeanor routing between Lakeland and Lake Alfred, on which no order is clear, and whether first appearances sit in jail courtrooms or Courtroom 8E.
 - Bradenton: that AO 2015-14.3, the 500-foot no-contact order, applies in Manatee although its caption names Sarasota County.
+- Fort Myers: where first appearance is held, and the 10:00 a.m. start, read from a script on the court's schedule page. Where a Cape Coral misdemeanor is heard since AO 2.32 was vacated (the page says to check the notice). How county court criminal cases are assigned.
 - Pinellas: paragraphs of 2021-016 surviving 2026-036, and 2026-002 ZIP routing as applied to the firm's 33511.
 
 **Confirm by phone or page**
-- Pasco booking number 813-235-6070 (a Sheriff's brochure only). Sarasota Police records details (site returned 403; search excerpts only). Hillsborough HOVER wording (page would not load). Largo and Tarpon Springs police numbers (sources conflict).
+- Pasco booking number 813-235-6070 (a Sheriff's brochure only). Sarasota Police records details (site returned 403; search excerpts only). Hillsborough HOVER wording (page would not load). Largo and Tarpon Springs police numbers (sources conflict). Lee Clerk facts (small claims limit, records before 2004, documents on request): leeclerk.org refused direct fetches, so they come from archived copies of the Clerk's pages. Whether the Lee jail takes cards for a cash bond (the page says to call).
 
 **Thin, may fold into the city page if they draw no search traffic after launch:** Palm Harbor, Gulfport, Dunedin, Carrollwood, Town 'n' Country. Kenneth City and Treasure Island were folded into St. Petersburg (D157).
 

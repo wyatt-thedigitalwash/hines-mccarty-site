@@ -6686,3 +6686,372 @@ Basis for "five". The order also reassigned open, reopened and closed cases to S
 INFERENCE, for the attorney read: a Lakeland crash claim of $50,000 or less. The pages do not say where a county civil case from Lakeland is heard. M0 and M9 are in Bartow, and L1 and W3 once took county cases (AO 3-38.5). The FAQ says a smaller claim "could be different" and points to the Find My Courtroom tool.
 
 INFERENCE, for the attorney read: a crash claim accrues where the crash happened, as in the existing F.S. 47.011 record. The page says "generally" and "usually". Corporate defendants have a separate venue statute, not recorded here.
+
+---
+
+### Location pages, Twentieth Judicial Circuit, Lee County (Fort Myers) (D161)
+
+#### Fort Myers market and hubs, Lee County, Twentieth Judicial Circuit (D161). Fetched 2026-11-09.
+
+All fetched 2026-11-09 unless noted. Twentieth Circuit orders were listed on the circuit's index on that date, at https://www.ca.cjis20.org/Documents/admin-orders.aspx . The index has no "current" or "status" column; it lists each order with its date and marks some titles "VACATED". Every order a page relies on is listed and not marked vacated, except AO 2.32 and the 2005 first appearance order, which the pages cite only for the fact that they were vacated. Orders were read with pdftotext and, where the text layer was broken, as page images. Nothing was carried over from the 12th or 13th Circuit.
+
+Reused with no new fetch: Rule 3.130(a), Rule 3.134(a) and (b), Rule 3.191(a), (d), (f) and (o), F.S. 34.01(1)(c), F.S. 47.011, F.S. 95.11, F.S. 322.2615(1)(b)3, F.S. 627.736(1)(a), F.S. 768.81, and the FLHSMV crash records FAQ and Contact FHP record (Bradenton block: FloridaCrashPortal.gov, 850-617-3416 option 5, the disclosure and driver license number rule). M.D. Fla. Local Rule 1.04(a) as recorded in src/lib/middle-district.ts.
+
+**D161 search demand.** `search` on the market page is as directed: "criminal defense attorney fort myers", DataForSEO, Florida, about 320 a month, 2026-11-09. Cape Coral (about 30 a month) is in the description, lead, a fact card and an FAQ on the market page, and in the hubs' copy; not in any title.
+
+##### Bond
+
+**20th Circuit Administrative Order 3.23, Second Amended, Uniform Statewide Bond Schedule and Prohibitions Against Release Prior to Appearance Before Judge (Jessica Lunsford and Anti-Murder Acts), filed December 26, 2023**
+https://www.ca.cjis20.org/pdf/ao/ao_3_23.pdf
+
+Index title: "Uniform Statewide Bond Schedule and Prohibitions Against Release Prior to Appearance Before Judge (Jessica Lunsford and Anti-Murder Acts) (Amended 12/23/23)". Scanned; pages 2 and 3 read as images because the text layer dropped them.
+
+> it is the intent of the Courts of the Twentieth Judicial Circuit to adopt the Uniform Statewide Bond Schedule as the bond schedule to be used in Lee, Collier, Charlotte, Hendry, and Glades counties
+
+> It is the intent that any such revisions or updates made by the Supreme Court of Florida to the Uniform Statewide Bond Schedule shall be applicable within the Twentieth Judicial Circuit, regardless of whether any amendment is made to this local Administrative Order. The most recent and up-to-date version of the Uniform Statewide Bond Schedule adopted by the Supreme Court of Florida shall be used within the Twentieth Judicial Circuit.
+
+> In counties where the Administrative Office of the Courts has an established pretrial services division, the sheriff shall honor all written requests from a pretrial services officer, as an officer of the court, to hold a person pending the First Appearance Hearing.
+
+> judges are not bound by the bond amounts listed on the Uniform Statewide Bond Schedule
+
+> Before releasing any person pursuant to the Uniform Statewide Bond Schedule, or any other conditions of release, the sheriff shall run a FCIC/NCIC records report and certify to the court that the person does not qualify as a high-risk sex offender
+
+> Persons who qualify as violent felony offenders and who qualify for detention pending a probation-violation or community-control-violation hearing shall under no circumstances be released from custody prior to a violation hearing.
+
+> This Administrative Order shall not be construed to mandate that the sheriffs within the Twentieth Judicial Circuit release persons pursuant to the Uniform Statewide Bond Schedule. The decision to release a person pursuant to the Uniform Statewide Bond Schedule before that person's First Appearance Hearing is discretionary.
+
+> This amended version of Administrative Order No. 3.23 shall take effect January 1, 2024.
+
+Attachment A is AOSC23-88, "effective from January 1, 2024 through December 31, 2024". Its amounts match AOSC25-69's line for line, but the page reads its amounts from AOSC25-69 under paragraph I.B, not from the attachment.
+
+**Florida Supreme Court AOSC25-69, In Re: Uniform Statewide Bond Schedule, December 17, 2025**
+https://flcourts-media.flcourts.gov/content/download/2482757/file/AOSC25-69.pdf (fetched again on this date; text PDF)
+
+> The bond schedule below is effective from January 1, 2026, through December 31, 2026.
+
+> Each crime of arrest requires a separate bond pursuant to § 903.02(4), Florida Statutes, and Florida Rule of Criminal Procedure 3.131.
+
+> an arrested person released from jail before trial must refrain from criminal activity of any kind and must refrain from any contact of any type with the victim
+
+The rows, verbatim:
+
+> 1. For persons arrested for a crime listed in § 903.011(6), Fla. Stat., or who meet the criteria in § 903.011(6), Fla. Stat., or a person arrested for a crime designated as a dangerous crime in § 907.041(5)(a), Fla. Stat., or an unauthorized alien arrested for a forcible felony. Bond: None 1st appearance required.
+
+> 2. For persons not covered by number 1., arrested for a third degree felony that involves any amount of force or threat of force against a person. Bond: $5,000
+
+> 3. For persons not covered by number 1., arrested for a third degree felony that does not involve any force or threat of force against a person. Bond: $2,500
+
+> 4. For persons not covered by number 1., arrested for a first degree misdemeanor or an ordinance punishable like a first degree misdemeanor, that involves any amount of force or threat of force against a person. Bond: $1,000
+
+> 5. For persons not covered by number 1., arrested for a first degree misdemeanor or an ordinance punishable like a first degree misdemeanor, that does not involve any force or threat of force against a person and that is not driving under the influence or boating under the influence. Bond: $500
+
+> 6. For persons not covered by number 1., arrested for a second degree misdemeanor or an ordinance punishable like a second degree misdemeanor, that involves any amount of force or threat of force against a person. Bond: $250
+
+> 7. For persons not covered by number 1., arrested for a second-degree misdemeanor or an ordinance punishable like a second degree misdemeanor, that does not involve force or threat of force against a person and that is not driving under the influence or boating under the influence. Bond: $150
+
+> 8. For persons not covered by numbers 1. or 3., arrested for driving under the influence or boating under the influence. a. First degree misdemeanor. Bond: $1,000 b. Second offense, second degree misdemeanor. Bond: $750 c. First offense, second degree misdemeanor. Bond: $500
+
+The wait list on the page paraphrases part of § 903.011(6) as quoted in the order: (a) felony arrest while on pretrial release, probation or community control "in this state or any other state"; (b) sexual offender or predator; (c) protective injunction; (f) three or more arrests in 6 months; (g)1 capital, life, first or second degree felony; (g)2 homicide; (g)3 felony battery, domestic battery by strangulation, domestic violence, stalking, assault or battery on a law enforcement officer, on a person 65 or older, robbery, burglary, carjacking, resisting with violence; (g)4 kidnapping, false imprisonment, human trafficking; (g)5 firearm or ammunition by a felon or a person under a domestic violence, stalking or cyberstalking injunction; (g)6 sexual battery, lewd touching, luring, child pornography; (g)12 trafficking "including conspiracy"; (g)14 failure to appear while on bail. Left off on purpose, covered by "The statewide list is longer than this": (d), (e), (g)7 to 11, (g)13, Rule 3.132(a) dangerous crimes, and the unauthorized alien item.
+
+**EXPIRES 31 December 2026.** Because AO 3.23 adopts the newest statewide schedule on its own, the 2027 amounts will come from the Supreme Court's next order, with no new circuit order needed. Update LEE_BOND then, and recheck AO 3.23 on the index.
+
+**Lee County Sheriff's Office, Frequently Asked Questions (Corrections)**
+https://www.sheriffleefl.org/frequently-asked-questions/ ; the answers load from https://www.sheriffleefl.org/public-api/faqs?category= , which was read directly.
+
+"How can I bond someone out of jail?":
+
+> A Cash Bond, Cash Fine, or Cash Purge requires the exact amount be paid in full at the time of service. The Corrections Bureau will not accept personal checks, money orders, cashier's checks or an excessive amount of coins, or rolled coins as payment for a cash bond, fine, or purge.
+
+> Persons choosing to bond a defendant using the Surety Bond option, will contact a bonding agent of their choice. The Bonding Agent must be an authorized bonding agent working with an authorized bonding agency (registered with the Lee Clerk of Courts, and Lee County Sheriff's Office Corrections Bureau). The bonding agent will submit the Surety Bond to a Corrections Clerk at the applicable facility's front desk for review and processing. Bonds are accepted on a first come, first serve basis.
+
+NOT STATED: whether a credit or debit card is accepted for a cash bond. The answer lists what is refused and does not mention cards. The page does not say cards are refused; it tells the reader to call the jail. The kiosks that take cards are described only for inmate account deposits ("Monies can also be deposited into kiosk machines at the Main Jail and Ortiz Site. Major credit cards and cash accepted."), and no page relies on that line.
+
+"Can inmates receive telephone calls?":
+
+> Incoming calls or messages to the inmate will not be accepted. However, inmates have access to telephones during the day and can call you collect.
+
+> You will need to contact Viapath to setup an account so that you may still receive calls from the Lee County Sheriff's Office Corrections Facilities. Viapath: Advanced Payment System: 1-800-483-8314
+
+CAUTION: the same answer carries a stale line about a provider change "On March 24th, 2010". Only the account instruction and number are used.
+
+"How do I add money to an inmates account?": mailed money "must state the inmate's name and booking number".
+
+"Can I bring in clothing and hygiene items for the inmate?":
+
+> Inmates are provided clothing for the duration of their incarceration.
+
+> If an inmate is going to appear in court and you wish to bring him or her clothes for trial, you can have the inmate's attorney or public defender call the Court Operations Office at (239) 258-3400 to make the necessary arrangements. Arrangements with the Court Operations Unit will not be made directly with the family.
+
+"What is the number for the Jail?": "Jail - 239-477-1500 Core - 239-477-1700". "How do I contact another agency within Lee County?": "Cape Coral Police Department 239-574-3223 Fort Myers Police Department 239-321-7700 ... Florida Highway Patrol 239-344-1730 Sanibel Police Department 239-472-3111". "How can I contact the Lee County Clerk of Courts?": "239-533-5000 Address: 1500 Monroe St". "How can I tell if I must register with CCPD, FMPD, or LCSO?": STRAP "C" Cape Coral Police, "P" Fort Myers Police, "T" Sanibel Police; otherwise the Sheriff's jurisdiction. See INFERENCE 1.
+
+##### Jail and Sheriff
+
+**Lee County Sheriff's Office, Corrections Bureau**
+https://www.sheriffleefl.org/corrections/
+
+> The Lee County Sheriff's Office Corrections Bureau is responsible for the operation and maintenance of all Lee County jail facilities
+
+> The Jail is a maximum security facility with 457 beds. It serves as the central intake and booking facility for all people arrested within Lee County.
+
+Listed as "Lee County Jail ... 2115 Dr Martin Luther King Jr Blvd, Fort Myers, FL 33901", and under "Our Facilities" as "Downtown Jail". Jail Scam Alert:
+
+> Scammers introduce themselves, pretending to be deputies of the Lee County Sheriff's Office
+
+> they will request payment in advance, which could be in the form of purchasing gift cards, or by placing cash in a crypto ATM at a nearby location.
+
+> If you witness this scam, or become a victim, please contact LCSO at 239-477-1000
+
+CONFLICT, resolved for the majority: this page gives the Lee County Jail "239 477-1700" and the Core facility "239 477-1500". The Sheriff's Facility Directory ("Corrections Downtown Jail ... (239) 477-1500"; "Correction Core Facility ... (239) 477-1700"), the site footer ("239-477-1500 (Main Jail)"), two FAQ answers, and the court's Pretrial Services page ("Lee County Sheriff's Office at (239) 477-1500"; "the Lee County Jail ... at (239) 477-1500") all give 239-477-1500 for the jail. The pages use 239-477-1500.
+
+**Lee County Sheriff's Office, Facility Directory; Arrest Search; Records**
+https://www.sheriffleefl.org/facility-directory/ ; https://www.sheriffleefl.org/arrest-search/ ; https://www.sheriffleefl.org/records/
+
+Facility Directory: "Corrections Downtown Jail 2115 Martin Luther King Boulevard Fort Myers, FL 33901 (239) 477-1500"; "Main Headquarters 14750 Six Mile Cypress Parkway Fort Myers, FL 33912 (239) 477-1000"; 4th Precinct in Bonita Springs. Arrest Search: search fields "First Name", "Last Name", "Date Of Birth", "Booking #", "In Custody", tabs "Recent Bookings" and "Recent Releases". Records:
+
+> Visit Central Records at Lee County Sheriff's Office Headquarters 14750 Six Mile Cypress Parkway during normal business hours.
+
+> Contact Central Records Division by phone: 239-477-1350.
+
+> *There is a $.15 per page copy charge. If you are a victim of a crime or party involved in a crash, include a copy of your government issued ID to have any fee waived.
+
+> Victims or parties involved in a crash who utilize the Online Request option, will have the report available for download.
+
+> Crash Reports are exempt from public disclosure for the first 60 days after a crash; however, drivers involved in the crash and their legal representatives can request the report as soon as it becomes available.
+
+Hours: "Monday-Friday 7:00 am to 5:00 pm (Lobby opens at 8:00 am)". CONFLICT, minor: the directory and records page give ZIP 33912 for headquarters, the footer 33913. No page gives the ZIP.
+
+##### Court, first appearance and routing
+
+**20th Judicial Circuit, Lee County Justice Center location page**
+https://www.ca.cjis20.org/About-The-Court/Locations/leecounty.aspx
+
+> Entrances and exits to the complex are located on Dr. Martin Luther King, Jr. Blvd or Monroe Street from 7:30 A.M. until 5:00 P.M., Monday through Friday and 7:30 A.M. until 1:00 P.M., Saturday through Sunday.
+
+> Public parking is located at the corner of Dr. Martin Luther King, Jr. and Heitman Street, across the street from the "MLK Entrance" to the justice center complex.
+
+"East Entrance Justice Center Proper 1700 Monroe Street Fort Myers, FL 33901"; "South Entrance Justice Center Tower 2075 Dr. Martin Luther King, Jr. Blvd"; "Information Desk Phone: (239) 533-9197 x0". The court's Locations index lists two Lee locations: this one and "Lee County Goverment Center - Cape Coral".
+
+**20th Judicial Circuit, Lee Government Center - Cape Coral location page**
+https://www.ca.cjis20.org/About-The-Court/Locations/leecountycape.aspx
+
+"1039 SE 9th Place Cape Coral, FL 33990", "Phone: (239) 533-7101", "Mon. - Fri. 7:30am - 5pm".
+
+**20th Circuit Administrative Order 2.32, Lee County Court Division for the City of Cape Coral, VACATED, filed December 8, 2021**
+https://www.ca.cjis20.org/pdf/ao/ao_2_32_vacated.pdf
+
+Index: "VACATED - Lee County Court Division for the City of Cape Coral (12/7/21)".
+
+> the types of proceedings to be conducted in the City of Cape Coral are now primarily conducted remotely without the need for parties to appear in person
+
+> It is ORDERED that local Administrative Order 2.32 is no longer necessary or feasible and is, hereby, VACATED.
+
+See INFERENCE 4.
+
+**20th Circuit Administrative Order 2.7, Designation of Branch Courthouses, Amended June 18, 2010**
+https://www.ca.cjis20.org/pdf/ao/ao_2_7.pdf
+
+> (A) The following facility is designated as a branch Courthouse in and for Lee County, Florida: 1. CAPE CORAL LEE COUNTY GOVERNMENT BUILDING
+
+> The following facility adjacent to the Lee County Justice Center is designated as a branch Courthouse ... LEE COUNTY JUSTICE CENTER ANNEX, 2000 Main Street, in Fort Myers.
+
+Basis for "the annex next to it" on the market page.
+
+**20th Judicial Circuit, Court Schedules - Lee; Other Schedules; 2026 and 2027 First Appearance Schedules**
+https://www.ca.cjis20.org/About-The-Court/Court-Schedules/leeschedules.aspx ; https://www.ca.cjis20.org/About-The-Court/Court-Schedules/leeotherschedule.aspx ; https://www.ca.cjis20.org/pdf/2026FirstAppearance.pdf ; https://www.ca.cjis20.org/pdf/2027FirstAppearance.pdf
+
+The Lee schedule page has a "FIRST APPEARANCE" heading whose content is written by a page script:
+
+> document.write('<strong>Week of ' + thismondaymonth + ' ' + thismondaydate + ordinal + ', ' + thismondayyear + ' at 10:00 am</strong><br \>');
+
+followed by that week's judge, read from an XML file. CAUTION, FOR THE ATTORNEY READ: the 10:00 a.m. time is the court's own page, but it comes from a script, it does not say where the hearing is held, and it says nothing of weekends or holidays. The page says only that the schedule page "lists that week's judge with a 10:00 a.m. start". Confirm it reflects practice.
+
+2026 First Appearance Schedule: "Please bear in mind this is subject to the duty judge's responsibilities." Weekly rows by judge initials (for example "November 9 JFP", "November 16 BEK"). The 2027 schedule is posted in the same form. See INFERENCE 3.
+
+**Administrative Assignment Order vacating the December 21, 2005 First Appearance Assignment (Lee County), signed July 26, 2022, nunc pro tunc July 5, 2022**
+https://www.ca.cjis20.org/pdf/ao/FirstAppearanceJudgeVACATINGorderDecember212005.pdf (index item 35.123)
+
+> effective July 5, 2022, the Administrative Assignment Order entered December 21, 2005 regarding First Appearance assignment is hereby VACATED.
+
+The 2005 order (https://www.ca.cjis20.org/pdf/ao/aao_20051221b.pdf, still on the index as 35.21) had assigned Lee first appearances to the County Court Judges. It is not used for anything current. No order now on the index sets the Lee first appearance schedule, place or judges.
+
+**20th Circuit Administrative Order 3.33, Reciprocal Grant of Authority ... for Revocation of Pretrial Release at First Appearance, May 12, 2023**
+https://www.ca.cjis20.org/pdf/ao/ao_3_33.pdf
+
+> any Judge of the Twentieth Judicial Circuit presiding over a first appearance hearing may revoke pretrial release granted by another Judge of the Twentieth Judicial Circuit in an earlier case, upon making a finding of probable to believe that the defendant committed a new crime while at liberty on that pretrial release
+
+> The reciprocal authority granted herein does not mandate any particular action on the part of the Judge presiding over first appearance.
+
+**20th Circuit Administrative Order 3.27, Second Amended, Assignment of Multiple Felony Cases Involving a Single Defendant or Co-Defendants in Lee County, filed August 18, 2022**
+https://www.ca.cjis20.org/pdf/ao/ao_3_27.pdf
+
+> In any case in which a single defendant has multiple felony cases arising on the same date of arrest, the Clerk shall assign the first felony case of that defendant to a judge, and shall manually assign to that same judge all additional felony cases of that same defendant arising on that same date of arrest
+
+> In any case in which eight (8) or less co-defendants are listed on the arrest report, and the arrests occur on the same date, the Clerk shall assign the first case involving the first defendant to a judge, and shall manually assign to that same judge all additional felony cases of the remaining co-defendants.
+
+> the more recent pending felony case or cases shall be reassigned to the judge assigned to the earliest pending felony case with the oldest original arrest date
+
+> the Clerk ... shall assign new felony cases in a manner so as to allow for the redistribution of caseload to obtain a fair and equal assignment of cases among judges serving in the Lee County Circuit Criminal division.
+
+Paragraph 4 puts the request for reassignment on the State Attorney. Nine or more co-defendants go to the Administrative Felony Judge for rotation (not on the page). See INFERENCE 2.
+
+**20th Judicial Circuit, 2026 and 2027 Felony Trial Schedules, Lee**
+https://www.ca.cjis20.org/pdf/2026FelonyTrialSchedule.pdf ; https://www.ca.cjis20.org/pdf/2027FelonyTrialSchedule.pdf
+
+2026 header: "JUDGE B. KYLE JUDGE A. MARCUS JUDGE R. BRANNING JUDGE N. THOMPSON JUDGE J.F. PORTER / DIVISION E DIVISION S DIVISION D DIVISION F DIVISION R / COURTROOM 8A COURTROOM 7A COURTROOM 8B COURTROOM 7B COURTROOM 4A". 2027 header: the same without Judge Porter, Division R or Courtroom 4A.
+
+**CHANGES 4 JANUARY 2027:** four felony divisions instead of five. The "Felonies" card says the 2027 schedule lists one fewer and to go by the notice. No page names a division, courtroom or judge.
+
+**20th Judicial Circuit, Pretrial Services page**
+https://www.ca.cjis20.org/Programs/pretrial.aspx
+
+> Universal screening - Pretrial officers collect and verify background information for individuals arrested on criminal charges to determine risk, need and ties to the community.
+
+> Pretrial officers also assist with screening for determination of indigence for appointment of counsel
+
+> Once the judge orders release, the defendant will be processed at the jail and be released usually within a few hours typically after posting a monetary bond. The defendant will be afforded a phone call to arrange for transportation.
+
+> If eligible, the defendant may be released without having to post a bond.
+
+> The pretrial office in Lee County is located on the third floor of the Lee County Justice Center at 1700 Monroe Street, Fort Myers, FL. ... The main line is (239) 533-8400.
+
+> You must report to the pretrial office to request a travel permit.
+
+> What if I cannot make a court date or have missed a court date? You should contact your attorney.
+
+> You may contact the Lee County Clerk of Court at (239) 533-5000 ... contact the Lee County Sheriff's Office Warrants Division at (239) 477-1690
+
+> Pursuant to the Florida Statute §27.52, the $50 public defender application fee must be paid prior to all other financial obligations.
+
+Also links the FDLE FCIC wanted persons search. See INFERENCE 5.
+
+**20th Judicial Circuit, Frequently Asked Questions**
+https://www.ca.cjis20.org/About-The-Court/faqs.aspx
+
+> Lee County : Public Parking is located across Dr. Martin Luther King, Jr. Blvd. to the South of the Justice Center Complex.
+
+> To file a small claim (i.e. damages under $8,000.00), you will need to obtain a form from the Small Claims Office.
+
+> Searching Court Records can be done from each individual County Clerk's website.
+
+**Office of the State Attorney, 20th Judicial Circuit, home page Office Locations**
+https://sao20.org/
+
+"Lee County Justice Complex Center 2000 Main Street, 6th Floor Fort Myers, Florida 33901 All visitors must sign in on the sixth floor (239) 533-1000". Its menu links "Lee County Court Record Search" to https://matrix.leeclerk.org/ .
+
+**Office of the Public Defender, 20th Judicial Circuit, Our Offices; Client Info**
+https://www.pd20.org/offices/ ; https://www.pd20.org/clients/
+
+"Lee County Physical Address: 2000 Main St., 3rd Floor Fort Myers, Florida 33901 Phone: (239) 533-2911". Its menu also links https://matrix.leeclerk.org/ as "Lee County". Client Info:
+
+> Within 24 hours of being arrested, you will appear before a judge. The judge will: Tell you the charge(s) for which you have been arrested. Determine if the police had sufficient probable cause to arrest you for charges.
+
+> After formal charges have been filed against you, you will be arraigned. At that time, the filed charges will be read to you
+
+Used for the timeline's first and fourth steps, alongside the rules.
+
+##### Arresting agencies
+
+**Fort Myers Police Department, Contact Us; Obtain Copy of Police Report; home page**
+https://www.fmpolice.com/164/Contact-Us ; https://www.fmpolice.com/244/Obtain-Copy-of-Police-Report ; https://www.fmpolice.com/
+
+Non-emergency "239-321-7700". Report page: "Call: 239-321-7665", "Visit: 2210 Widman Way Fort Myers, Florida 33901", "Monday to Friday Hours: 8:00 a.m. to 4:30 p.m."
+
+> Accident reports are only available in person at the Police Department (Monday-Friday, 8am – 4:30pm) or on CrashDocs . Per Florida Statute, accident reports can only be released to those individuals involved in the accident (or their insurance company or legal representative) for the first 60 days. Please make sure you have proper ID when requesting an accident report. Accident reports cannot be sent via email or fax.
+
+The "How Do I" page links "Self-Report Minor Traffic Crash" to https://www.flhsmv.gov/traffic-crash-reports/#report .
+
+**Cape Coral Police Department, Contact Us**
+https://capecops.com/ccpd/contact-us/
+
+> If you require immediate police service, please contact us at 239-574-3223.
+
+> For all Police Department records requests, please go to our Public Portal .
+
+> You can also get a copy of a police report in person by coming to the Cape Coral Police Station between the hours of 8:00 am and 4:00 pm, Monday- Friday.
+
+"1100 Cultural Park Boulevard", "Records Department 239-574-0695". No crash report fee or 60-day rule is stated, so the page gives none.
+
+**U.S. Census Bureau, 2020 place codes for Florida**
+https://www2.census.gov/geo/docs/reference/codes2020/place/st12_fl_place2020.txt
+
+Lee County INCORPORATED PLACE: "Bonita Springs city", "Cape Coral city", "Estero village", "Fort Myers city", "Fort Myers Beach town", "Sanibel city". CENSUS DESIGNATED PLACE includes "Lehigh Acres CDP", "North Fort Myers CDP", "Fort Myers Shores CDP", "San Carlos Park CDP".
+
+**Florida Department of Highway Safety and Motor Vehicles, FHP Station Locations; Troop F**
+https://www.flhsmv.gov/florida-highway-patrol/contact-fhp/fhp-station-locations/ ; https://www.flhsmv.gov/florida-highway-patrol/troop-boundaries-information/troop-f/
+
+"Ft. Myers 10041 Daniels Pkwy. Ft. Myers, FL 33913 239-344-1730 Lee F". Troop F:
+
+> Troop F Headquarters is currently located in Fort Myers
+
+##### Federal
+
+**U.S. District Court, Middle District of Florida, Fort Myers location page**
+https://www.flmd.uscourts.gov/locations/fort-myers
+
+> The Fort Myers Division is headquartered in downtown Fort Myers, Florida. It serves Charlotte, Collier, DeSoto, Glades, Hendry, and Lee Counties.
+
+Courthouse: "United States Courthouse and Federal Building". Street Address: "2110 First Street Fort Myers, Florida 33901". Clerk's Office: "(239) 461-2000". Hours: "The courthouse is open from 8:00 a.m. to 5:00 p.m. The clerk's office is open 8:30 a.m. to 4:00 p.m." The six counties match the Fort Myers entry in src/lib/middle-district.ts. The Orlando pattern is followed: the federal card names this courthouse, the FEDERAL practice item says the site's federal page is written around Tampa, and an FAQ says the case does not go to Tampa.
+
+##### Civil and the Clerk
+
+**Lee County Clerk of Court. NOT FETCHED DIRECTLY.** https://www.leeclerk.org/ returned 403 (Akamai "Access Denied") to every direct fetch on 2026-11-09, and https://matrix.leeclerk.org/ timed out. The Clerk facts below come from Wayback Machine copies of the Clerk's own pages, fetched on 2026-11-09, and from other official sites. Confirm against the live pages when they can be reached.
+
+- Court Case Records, archived 2026-02-11: http://web.archive.org/web/20260211192903/https://www.leeclerk.org/departments/courts/court-case-records
+
+> Not all court records maintained by the Lee County Clerk of Court are available through this online viewing system. Many cases opened prior to 2004 may only be available through our Records Request System service.
+
+> a Viewable on Request (VOR) submission may be required before the release of a document.
+
+- Small Claims, archived 2026-03-08: http://web.archive.org/web/20260308075621/https://www.leeclerk.org/departments/courts/small-claims
+
+> Small Claims are disputes involving money damages where the amount at issue does not exceed $8000.00 excluding costs, interest and attorneys' fees.
+
+Where to file: "In person at our Fort Myers location", "By mail: Lee County Clerk of the Circuit Court, P.O. Box 310, Fort Myers, FL 33902", "Electronically via the Florida Courts E-Filing Portal".
+
+- The Court Record Search address, matrix.leeclerk.org, is as linked by the State Attorney and Public Defender. The search page itself was not reached, so the page says nothing of its search fields.
+- The Clerk's phone, 239-533-5000, is as given by the court's Pretrial Services page and the Sheriff's FAQ. The Clerk's street address (Sheriff FAQ: "1500 Monroe St") is not used.
+
+**20th Circuit Administrative Order 1.13, Third Amended, Establishment and Implementation of Civil Case Management Plans, filed February 17, 2025, nunc pro tunc January 1, 2025**
+https://www.ca.cjis20.org/pdf/ao/ao_1_13.pdf
+
+> Full implementation of the "Civil Differentiated Case Management Procedures," including all uniform circuitwide procedure and forms, shall apply to all circuit and county civil cases filed in the Twentieth Judicial Circuit, effective January 1, 2025.
+
+> The following requirements apply to all civil cases in the Twentieth Judicial Circuit, except those listed as exceptions under Florida Rule of Civil Procedure 1.200(a).
+
+> A Court Ordered Case Management Plan must be entered no later than 120 days after the action commences.
+
+> The Court Ordered Case Management Plan shall specify the projected date of trial; indicate that the deadlines established in the order will be strictly enforced by the court
+
+> The presiding judge may sanction counsel, sanction clients, dismiss the action, strike pleadings, limit proof by excluding witnesses or exhibits, or take any other appropriate action
+
+The page says "most civil cases" because of the Rule 1.200(a) exceptions.
+
+##### Checked and not used
+
+- AO 3.13 (Guidelines for the Establishment of Bail): the PDF is the 2005 vacating order, though the index lists it without "VACATED". Not used.
+- AO 3.4 (Notices to Appear, 2000): general; no Lee detail.
+- AO 3.15 (Drug Courts), 3.30 (Mental Health Courts), 3.31 (Veterans Courts): each authorizes these courts in any county "though not mandated". No page claims Lee has one. The 2003 Lee mental health court order (Parochial 30.18) and 1994 Lee DV court order (30.3) were not read and are not used.
+- AO 3.25 (criminal case management plan, 2007), AO 3.2 (co-defendants, 1991): superseded in practice by AO 3.27 for Lee felonies; not used.
+- Parochial 30.31, Supplemental Order re: Case Assignments (2009): captioned Collier County. Not used.
+- 2026 and 2027 Lee County Judge Schedules (county criminal rotation codes "ARR", "DV", "TW1", "TW2", "SC/TR", "ANC WK"): no legend, so not used.
+- Sheriff FAQ "Where is the Court House located?": "2115 Second St Fort Myers, FL 33901 239-533-2111". Conflicts with the court's own location page; the court's page is used.
+- Temporary judge assignment orders (Section 20): judge names only.
+- AO 1.20 (COVID PIP small claims standing order, Lee and Collier, 2021): not used.
+
+##### Expiries
+
+1. **Bond amounts expire 31 December 2026** (AOSC25-69). AO 3.23 picks up the next statewide schedule on its own.
+2. **Felony divisions change 4 January 2027**: five on the 2026 felony trial schedule, four on 2027's.
+3. The first appearance rotation is a yearly posted list; the 2027 list is posted.
+
+##### INFERENCES, for the attorney read
+
+1. Who polices where. The Sheriff names only three city police departments (Fort Myers, Cape Coral, Sanibel) in its "contact another agency" answer and its alarm jurisdiction answer. Bonita Springs, Estero and Fort Myers Beach are incorporated (Census) but have no department named there; the page does not name them and says only that "across the rest of the county, the arrest is usually by a deputy". Lehigh Acres and North Fort Myers are CDPs, so unincorporated; the page says "a deputy usually comes there". No source says this in those words.
+2. "No last-name table". No order on the index assigns Lee felonies or misdemeanors by name or by area. AO 3.27 describes the Clerk assigning felonies and balancing caseload. The page says the Clerk assigns felonies "not one picked by your last name". How county court criminal cases are assigned was not found and is not stated.
+3. First appearance judges. The weekly initials on the 2026 and 2027 lists match both county judges (for example MEG, JMG, NLM, ZMG, TPP, DSG) and circuit judges (BEK, AM, RJB, NRT, JFP) on the court's Lee schedule page. The page says "county and circuit judges take turns by the week".
+4. Cape Coral cases. AO 2.32's vacatur ended the Cape Coral county court division and says the Cape Coral work is "primarily conducted remotely"; AO 2.7 still designates the Cape Coral building, and the court still lists it. Where a Cape Coral misdemeanor is heard now is not stated by any source. The page says only that the division closed, that the location is still listed, and to read the notice.
+5. Pretrial holds. AO 3.23 I.E applies "In counties where the Administrative Office of the Courts has an established pretrial services division". The court's Pretrial Services page lists a Lee pretrial office, so the hub's FAQ says a pretrial officer "can also ask the Sheriff to hold a person". AO 3.23 I.F (no release before screening where pretrial runs 24/7 from the jail) is not stated, because whether Lee's division works from the jail around the clock was not found.
+6. "The State Attorney's Lee office is in the annex next to" the Justice Center rests on AO 2.7's "LEE COUNTY JUSTICE CENTER ANNEX, 2000 Main Street ... adjacent to the Lee County Justice Center" and the State Attorney's address.
+7. "Court Operations Office" on trial clothes is named as the Sheriff's FAQ names it; whether it is a Sheriff's or court unit is not stated, so the page does not say.
+8. Firm advice, not from any source: "Say nothing about the case"; "Call 911 if anyone is hurt" and "Do not leave before the officer says you can"; "Talk to a lawyer before you turn yourself in"; "Talk to your lawyer before you enter any plea"; "Hang up on anyone selling a release" (the heading; the body is the Sheriff's warning); "call us before you hand cash to anyone".
+9. Injury hub "Who investigates": "usually" city police inside each city and a deputy elsewhere rests on INFERENCE 1. A trooper's role is stated only as the Fort Myers station covering Lee County (Troop F).
