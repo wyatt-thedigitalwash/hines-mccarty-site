@@ -1,6 +1,5 @@
 import type { LocationPage } from "../location-types.ts";
 import { BUSINESS, FEDERAL, WHITE_COLLAR } from "./hillsborough.ts";
-import { PASCO_DEADLINES } from "./wesley-chapel.ts";
 import {
   CLERK_PHONE,
   FEDERAL_TAMPA_SOURCE,
@@ -52,9 +51,7 @@ import {
  * Springs have their own departments; Dunedin contracts with the Sheriff; Palm
  * Harbor is an unincorporated CDP. The agency decides the traffic court.
  *
- * NEW PORT RICHEY IS IN PASCO COUNTY. It sits under Clearwater for geography only.
- * No Pinellas constant applies to it. Its bond and timeline come from
- * wesley-chapel.ts, and its 2026-035 bond schedule expires on the same date.
+ * New Port Richey is in Pasco County, so its page is in pasco.ts (D159).
  */
 
 const MARKET = "clearwater";
@@ -73,16 +70,8 @@ const LARGO_SOURCE = "City of Largo, Police Department and Records";
 const PCSO_AREAS_SOURCE = "Pinellas County Sheriff's Office, Service Areas";
 const DUNEDIN_SOURCE = "City of Dunedin, City Commission Agenda, September 4, 2025, PCSO FY26 Addendum";
 const PALM_HARBOR_CENSUS_SOURCE = "U.S. Census Bureau, TIGERweb: Palm Harbor CDP";
-const TSPD_SOURCE = "Tarpon Springs Police Department, Contact and Records";
-const NPRPD_SOURCE = "City of New Port Richey, Police Department, Records and Communication Center";
 const PASCO_ASSIGNMENT_SOURCE = "6th Circuit Administrative Order 2023-005 PA-CIR";
-const PASCO_CIRCUIT_SOURCE = "6th Circuit Administrative Order 2026-027 PA-CIR";
-const PASCO_COUNTY_SOURCE = "6th Circuit Administrative Order 2026-037 PA-CTY";
-const PASCO_CIVIL_SOURCE = "6th Circuit Administrative Order PA-CIR-97-20";
-const WEST_PASCO_SOURCE = "Pasco County Clerk, Office Locations; Sixth Judicial Circuit, West Pasco Judicial Center";
-const PASCO_CORRECTIONS_SOURCE = "Pasco County, Corrections and Inmate Services";
-const PASCO_SHERIFF_BROCHURE = "Pasco Sheriff's Office, Victims' Rights Brochure";
-const PASCO_TRANSITION_SOURCE = "Pasco Sheriff's Office, Detention Center Management Transition";
+const TSPD_SOURCE = "Tarpon Springs Police Department, Contact and Records";
 
 const carLinks = [
   { href: "/personal-injury/car-accidents", label: "Car accident claims" },
@@ -179,7 +168,7 @@ export const clearwaterPages: LocationPage[] = [
       ],
     },
     communitiesIntro:
-      "These towns around Clearwater have their own pages, because who polices them differs. New Port Richey is the odd one out: it is across the county line in Pasco County, with its own jail and courthouse.",
+      "These towns around Clearwater have their own pages, because who polices them differs. North of them, across the county line, Pasco County has its own jail and courts, and its own page.",
     faq: [
       {
         question: "I have a Clearwater court date. Which building do I go to?",
@@ -1357,211 +1346,4 @@ export const clearwaterPages: LocationPage[] = [
   },
 
   // ------------------------------------------------------------------ New Port Richey (Pasco County)
-  {
-    slug: "new-port-richey",
-    kind: "community",
-    parent: MARKET,
-    place: "New Port Richey",
-    county: "Pasco County",
-    published: true,
-    indexable: false,
-    metaTitle: "New Port Richey Defense, Pasco Co. | Hines McCarty Pavlidis",
-    metaDescription:
-      "New Port Richey is in Pasco County, not Pinellas. See its police, the Land O' Lakes jail, Pasco bond amounts, and the West Pasco court on Little Road.",
-    h1: "New Port Richey is in Pasco County, with a Pasco court.",
-    lead: [
-      "We list New Port Richey beside Clearwater only for geography. The city is about three miles north of the Pinellas County line, along US 19. Its court system is not Clearwater's. It has a different jail, a different clerk, and a different courthouse.",
-      "If someone told you to go to the Justice Center in Pinellas, check again. Everything below follows Pasco County's own orders. Our office is in Brandon, and we take Pasco County cases from there.",
-    ],
-    firstSteps: {
-      heading: "After an arrest in New Port Richey.",
-      intro: "The advisory hearing comes within 24 hours. Here is what a family can do in that time.",
-      items: [
-        {
-          title: "Look on Pasco's list, not Pinellas's",
-          body: "New Port Richey police work inside the city limits. Adults are usually held at the Pasco County detention center, 20101 Central Boulevard, Land O' Lakes, about 15 miles east. County government has run it since 1 October 2022. Use the county's In Custody list, or call booking at 813-235-6070.",
-          source: `${PASCO_CORRECTIONS_SOURCE}; ${PASCO_TRANSITION_SOURCE}; ${PASCO_SHERIFF_BROCHURE}`,
-          link: { href: "https://jailinfo.pascocorrections.net/jmc/#/inCustody", label: "In Custody list (Pasco County)", external: true },
-        },
-        {
-          title: "Use Pasco's bond order",
-          body: "This county has its own order for bond. Do not rely on a chart from Pinellas or Hillsborough. The county bond table linked below has the amounts, and many charges have none until the hearing.",
-          link: { href: "#bond", label: "Pasco bond schedule" },
-        },
-        {
-          title: "Ignore callers who want money",
-          body: "Pasco County says Corrections and the Sheriff's Office will never ask you to pay to get someone released. To bond someone out, use a licensed bond agent or post cash at the detention facility. You can report a scam at 727-847-8102, option 7.",
-          source: PASCO_CORRECTIONS_SOURCE,
-        },
-        {
-          title: "Know the hearing is by video",
-          body: "If bond has not been posted, the advisory hearing is by video from the detention center. The Sheriff's brochure says hearings usually run at 1 p.m. on weekdays and 8 a.m. on weekends. Times can change, so ask booking which courthouse is hosting it if you plan to attend.",
-          source: `Fla. R. Crim. P. 3.130(a); ${PASCO_SHERIFF_BROCHURE}`,
-        },
-        {
-          title: "Keep it off jail messages",
-          body: "Video visits and messages can be monitored or reviewed. Do not talk about what happened. Save that for a lawyer, and call us before the hearing.",
-          source: PASCO_CORRECTIONS_SOURCE,
-        },
-      ],
-    },
-    deadlines: PASCO_DEADLINES,
-    facts: {
-      heading: "Why a New Port Richey case should stay on the West Pasco side.",
-      intro: "Pasco splits criminal cases at one highway. New Port Richey lies far to the west of it, so a case from here should stay near home.",
-      items: [
-        {
-          title: "New Port Richey police",
-          body: "The department is at 6739 Adams Street and is open 24 hours a day. Its non-emergency line is 727-841-4550. Its dispatch center answers calls inside the city limits. Port Richey, just to the north, is a separate city with a separate police department.",
-          source: `${NPRPD_SOURCE}; Port Richey Police Department, Communications`,
-        },
-        {
-          title: "Outside the city",
-          body: "Outside the city limits, Pasco Sheriff's deputies usually respond. Their non-emergency line is 727-847-8102, option 7. A New Port Richey mailing address does not prove you are in the city, so read the agency named on your paperwork.",
-          source: "Pasco Sheriff's Office, Contact",
-        },
-        {
-          title: "The US 41 rule",
-          body: "If an offense happened east of US 41, the Clerk makes it an East Pasco case in Dade City. New Port Richey is more than 10 miles west of that road, so a case from here should be West Pasco. Officers mark East or West on the affidavit or ticket, so look for it.",
-          source: PASCO_ASSIGNMENT_SOURCE,
-        },
-        {
-          title: "The courthouse",
-          body: "West Pasco cases are heard at the West Pasco Judicial Center, 7530 Little Road, New Port Richey. A judge can reassign a case when needed. The orders send these cases here, not to the Pinellas County Justice Center.",
-          source: `${PASCO_ASSIGNMENT_SOURCE}; ${WEST_PASCO_SOURCE}`,
-        },
-        {
-          title: "Felony sections",
-          body: "Sections 3 and 4 split West Pasco felonies evenly. Section 31 is the adult drug court and veterans court. These numbers change with new orders, so look yours up.",
-          source: PASCO_CIRCUIT_SOURCE,
-        },
-        {
-          title: "Misdemeanors, DUI, and traffic",
-          body: "Sections 15, 16, and 17 hear West Pasco misdemeanors, DUI, and criminal traffic. Civil traffic goes to Sections 24, 25, and 27. The Clerk has a Case Section/Division Lookup, so you can find your section.",
-          source: `${PASCO_COUNTY_SOURCE}; Pasco County Clerk, Search Court Records`,
-        },
-        {
-          title: "Getting the police file",
-          body: "Since 1 June 2026, the department's Records Section no longer fills discovery requests from defendants or their lawyers. Those go to the State Attorney's Office. A request sent to Records is treated as a public records request, and it may have fees and redactions.",
-          source: NPRPD_SOURCE,
-        },
-        {
-          title: "South of the county line",
-          body: "An offense south of the line is a Pinellas County case, with a Pinellas jail and court. Tarpon Springs and Palm Harbor are on that side. Check where the arrest actually happened.",
-        },
-        {
-          title: "Federal cases",
-          body: "Pasco County is in the Tampa Division of the Middle District of Florida. A federal case from New Port Richey is heard at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue, Tampa.",
-          source: "M.D. Fla. Local Rule 1.04(a)",
-        },
-      ],
-    },
-    charges: {
-      heading: "Charges we defend in New Port Richey.",
-      intro: "These pages explain the Florida law and penalties. They are written around Hillsborough County courts, so use this page for Pasco's courts.",
-      items: [
-        {
-          href: `${STATE}/dui`,
-          title: "DUI",
-          body: "Sections 15, 16, and 17 hear it. Pasco's schedule says $500 with no damage or DUI history, and no bond otherwise. You have 10 days from the suspension notice to act on your license.",
-        },
-        {
-          href: `${STATE}/domestic-violence`,
-          title: "Domestic violence",
-          body: "No schedule amount. You stay in custody until the advisory hearing, and any release comes with a no-contact rule.",
-        },
-        {
-          href: `${STATE}/drug-possession`,
-          title: "Drug possession",
-          body: "If you end up asking about treatment, Section 31 is West Pasco's drug court. Trafficking has no schedule amount.",
-        },
-        {
-          href: `${STATE}/grand-theft`,
-          title: "Grand theft",
-          body: "The amount sets the degree. In Pasco, the lowest degree with no force is $5,000, and anything higher waits for the judge.",
-        },
-        {
-          href: `${STATE}/battery`,
-          title: "Battery",
-          body: "A first degree misdemeanor with force has a $1,000 amount, unless it is domestic violence. Felony battery has none.",
-        },
-      ],
-    },
-    injury: {
-      heading: "If you were hurt in a New Port Richey crash.",
-      intro: "US 19 and Main Street both run through the city. The Florida deadlines are the same as anywhere, but the civil court rule is Pasco's own.",
-      items: [
-        {
-          title: "Getting the report",
-          body: "Ask which agency came. City police records can be requested through the JustFOIA portal or at 6739 Adams Street, Monday to Friday, 8 a.m. to 5 p.m. The city's records page does not mention crash reports, so ask the clerk at 727-232-8920. The state's portal sells them for $10 plus a $2 order fee.",
-          source: `${NPRPD_SOURCE}; ${FLHSMV_CRASH_SOURCE}`,
-        },
-        {
-          title: "Care within 14 days",
-          body: "Your own insurance pays first medical bills only if your first care is within 14 days of the crash.",
-          source: "F.S. 627.736(1)(a)",
-        },
-        {
-          title: "Two years to sue",
-          body: "A negligence claim from a crash after 24 March 2023 has a two-year limit.",
-          source: "F.S. 95.11",
-        },
-        {
-          title: "Over half at fault",
-          body: "If you are more than 50 percent at fault for your own harm, you recover nothing from the other driver.",
-          source: "F.S. 768.81",
-        },
-        {
-          title: "Which courthouse",
-          body: "Civil cases use survey lines, not US 41. The city is on the West Pasco side, so a suit over a crash here can be heard at Little Road. Over $50,000 goes to Sections G or H. County civil is Sections O and U, and small claims is S and W.",
-          source: `${PASCO_CIVIL_SOURCE}; ${PASCO_CIRCUIT_SOURCE}; ${PASCO_COUNTY_SOURCE}; F.S. 34.01(1)(c)`,
-        },
-      ],
-      links: carLinks,
-    },
-    practices: {
-      heading: "Other pages, and how far they apply.",
-      intro: "The two Clearwater pages are written for Pinellas County, so use them for how a case works and not for Pasco's courts.",
-      items: [
-        { href: CRIMINAL_HUB, title: "Criminal defense in Clearwater", body: "Pinellas County's system, for comparison or a charge south of the line." },
-        { href: INJURY_HUB, title: "Personal injury in Clearwater", body: "Reports and courts for a crash on the Pinellas side." },
-        { href: FEDERAL, title: "Federal criminal defense", body: "Federal cases from Pasco County, heard in Tampa." },
-        { href: WHITE_COLLAR, title: "White-collar defense", body: "Fraud and financial charges, state or federal." },
-        { href: BUSINESS, title: "Business litigation", body: "Contract, ownership, and trade secret disputes." },
-      ],
-    },
-    faq: [
-      {
-        question: "Why is this page under Clearwater if it is a Pasco case?",
-        answer: "Only because the two are close together on the map. A criminal case from New Port Richey should stay at the West Pasco Judicial Center. Clearwater's courts have no part in it.",
-      },
-      {
-        question: "Could a New Port Richey crash ever end up in Clearwater?",
-        answer: "Only if the suit is properly filed in Pinellas County, which depends on the facts. A Pinellas order lists ZIP codes 34652 through 34655 with Clearwater's civil sections, which matters if you have no lawyer. Our Brandon ZIP code is not listed, so that order can send our suits to either city.",
-      },
-      {
-        question: "How do I look up a Pasco case?",
-        answer: "Use the Pasco County Clerk's Online Court Records Search, plus its section lookup. Sealed, expunged, and confidential cases are not open to view. Pinellas County's search will not show a Pasco case.",
-      },
-      {
-        question: "I live in New Port Richey but was arrested in Clearwater. Which page applies?",
-        answer: "Where the offense happened usually controls, so that is a Pinellas County case. Use the Clearwater criminal defense page, not this one.",
-      },
-      {
-        question: "Is the firm in New Port Richey?",
-        answer: "No. Our only office is in Brandon, in Hillsborough County. There is no office in New Port Richey or anywhere else in Pasco County.",
-      },
-    ],
-    office: {
-      heading: "We are in Brandon, not New Port Richey.",
-      body: [
-        "Our only office is at 745 W Lumsden Rd in Brandon. We have no office in New Port Richey or elsewhere in Pasco County.",
-        "We answer 813-738-8650 at any hour, so a call is the place to start.",
-      ],
-    },
-    cta: {
-      heading: "Call about a West Pasco case.",
-      body: "If you were arrested, heard from an investigator, or were hurt in New Port Richey, talk to an attorney first. The call is confidential and answered 24/7.",
-    },
-  },
 ];

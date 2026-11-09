@@ -133,7 +133,7 @@ export const LOCATION_PHOTOS: Record<string, HeroPhoto> = {
 /**
  * The Sunshine Skyway belongs to the whole bay rather than one city, so it goes
  * on the Areas We Cover index and on the Pasco County pages, which have no photo
- * of their own and no market in their county.
+ * of their own.
  */
 export const REGION_PHOTO: HeroPhoto = { src: "/locations/skyway.jpg" };
 

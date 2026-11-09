@@ -38,7 +38,7 @@ export default function LocationTemplate({ page }: { page: LocationPage }) {
   const placeLinks =
     page.kind === "market" ? (
       <PlaceLinksSection
-        heading={`Communities around ${page.place}.`}
+        heading={page.place === page.county ? `Communities in ${page.place}.` : `Communities around ${page.place}.`}
         intro={page.communitiesIntro}
         links={subLocations(page.slug).map(link)}
       />
@@ -52,7 +52,7 @@ export default function LocationTemplate({ page }: { page: LocationPage }) {
       />
     ) : (
       <PlaceLinksSection
-        heading={`More around ${market?.place ?? "Tampa"}.`}
+        heading={market?.place === market?.county && market ? `More in ${market.place}.` : `More around ${market?.place ?? "Tampa"}.`}
         links={[
           market ? link(market) : { href: "/", label: "Tampa" },
           ...(market ? marketHubs(market.slug).map(link) : []),
@@ -61,8 +61,7 @@ export default function LocationTemplate({ page }: { page: LocationPage }) {
       />
     );
 
-  // Each page shows its own county (D158). Pasco has no market page of its own, so
-  // New Port Richey does not take Clearwater's photo. Hillsborough keeps the Tampa skyline.
+  // Each page shows its own county (D158). Pasco has no city photo of its own. Hillsborough keeps the Tampa skyline.
   const photo =
     page.county === "Hillsborough County"
       ? SITE_HERO_PHOTO

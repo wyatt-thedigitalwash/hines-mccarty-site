@@ -3869,3 +3869,16 @@ because it stands for the bay rather than a city. Hillsborough pages keep the Ta
 skyline. A photograph of a place implies no office there, and every page says the
 only office is in Brandon (Rule 4-7.12).
 
+### D159. A Pasco County page; search demand for other counties
+
+**2026-11-09. Client direction.** Wesley Chapel (under Tampa) and New Port Richey
+(under Clearwater) were the only pages without a market in their own county.
+`/locations/pasco-county` now holds them, at `/locations/pasco-county/wesley-chapel`
+and `/new-port-richey`, along with Pasco's one bond table and timeline, moved from
+Wesley Chapel. Never pushed, so no redirects. It uses only facts already recorded
+for those two pages.
+
+County pages are not being added where a city page already covers the county
+(Hillsborough, Pinellas, Sarasota, Orange). Search demand for the rest is recorded
+in `docs/research/county-search-demand.md`, for the client to decide on.
+

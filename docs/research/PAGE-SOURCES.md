@@ -5948,3 +5948,8 @@ You need the inmate's name and inmate or booking number, on Who's In Jail or fro
 - PINELLAS_BOND (2026-036) and PASCO_BOND (2026-035) run through 31 December 2026.
 - FHP's move from Traffic Court I to II takes effect 1 January 2027 (AO 2026-048). Copy states both sides of the date on the Clearwater market and hub, Dunedin, Palm Harbor, Tarpon Springs and Largo pages. After that date, rewrite those lines.
 - Section numbers in 2026-027 and 2026-037 change with each assignment order.
+
+### Pasco County page (D159)
+
+No new fetch. `/locations/pasco-county` restates facts recorded above for Wesley Chapel and New Port Richey. Its one addition is a comparison of Pasco's and Hillsborough's third degree felony amounts, both from orders already recorded (2026-035, S-2025-063). INFERENCE, for the attorney read: "Pasco borders Hillsborough to the south and Pinellas to the southwest" and "where the offense happened usually controls" are general statements with no order cited.
+

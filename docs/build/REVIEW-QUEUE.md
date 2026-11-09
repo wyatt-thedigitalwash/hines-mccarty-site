@@ -22,7 +22,7 @@ the page needs looking at. Populate these as pages are assigned and read.
 
 ## Location pages: open items (D151 to D155)
 
-All 26 location pages are noindex and out of the sitemap until an attorney has read them. Set `indexable: true` per page in `src/lib/location-data/` after that read. Every INFERENCE is recorded in `docs/research/PAGE-SOURCES.md` under the "Location pages" headings.
+All 27 location pages are noindex and out of the sitemap until an attorney has read them. Set `indexable: true` per page in `src/lib/location-data/` after that read. Every INFERENCE is recorded in `docs/research/PAGE-SOURCES.md` under the "Location pages" headings.
 
 **Expires**
 - 31 December 2026: bond schedules for Hillsborough (S-2025-063), Pinellas (2026-036), Pasco (2026-035), and Sarasota (AOSC25-69). Pages name the date. Update the tables and `*_DEADLINES` text, and the "2026" wording in link labels and meta descriptions.

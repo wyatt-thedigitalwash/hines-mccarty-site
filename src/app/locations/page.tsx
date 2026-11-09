@@ -83,7 +83,7 @@ export default function LocationsIndex() {
                     {m.place}
                   </Link>
                 </h2>
-                <p className="mt-2 eyebrow text-navy/60 sm:text-sm">{m.county}</p>
+                {m.place !== m.county ? <p className="mt-2 eyebrow text-navy/60 sm:text-sm">{m.county}</p> : null}
                 {marketHubs(m.slug).length || subLocations(m.slug).length || m.towns ? (
                   <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-navy/10 pt-6">
                     {[...marketHubs(m.slug), ...subLocations(m.slug)].map((s) => (
