@@ -4515,3 +4515,48 @@ The Bureau titles the place "Brandon CDP, Florida", a census-designated place. I
 
 **Reused from records above, no new fetch:** Rule 3.130(a) and (d); F.S. 26.012(2)(d); F.S. 34.01(1)(a); F.S. 95.11; F.S. 627.736(1)(a); F.S. 768.81. The Edgecomb, Plant City and Gibbons courthouse addresses are as already published on the charge pages.
 
+### Added 2026-11-09, read from the scanned PDFs (D153)
+
+All of these orders are image or scanned PDFs, read page by page, and all are listed as current on the circuit's index at https://www.fljud13.org/Resources/Administrative-Orders on the fetch date.
+
+**13th Circuit Administrative Order S-2024-079, East Division, effective January 1, 2025**  
+https://www.fljud13.org/Portals/0/AO/DOCS/S-2024-079.pdf
+
+Section 1 gives the western boundary: "south on I-75 to Martin Luther King, Jr. Boulevard; east along Martin Luther King, Jr. Boulevard to Dover Road; south on Dover Road to Bloomingdale Avenue; west on Bloomingdale Avenue to Lithia Pinecrest Road; south on Lithia Pinecrest Road to Fish Hawk Boulevard". Section 2: "The East Divisions will be located in the Plant City Courthouse." Its circuit divisions are civil, family, injunction and probate only. Section 3.A and 4.A: the East Division is the location where a defendant resides, the cause of action accrued, or property in litigation is located. Section 4.C: for criminal cases, "the location where the offense occurred." Section 5: transfer on good cause, "based primarily upon the convenience of the parties, attorneys and witnesses involved."
+
+INFERENCES, for the attorney read: (1) no felony division exists in the East Division, so a Brandon felony is a Tampa case; (2) most of Brandon lies west of the boundary. The order does not name Brandon, and (2) rests on the road layout, not on a mapped check of the Census boundary.
+
+**13th Circuit Administrative Order S-2025-012, County Criminal Division**  
+https://www.fljud13.org/Portals/0/AO/DOCS/S-2025-012.pdf
+
+Section 3.A: misdemeanors, including domestic violence, and criminal traffic offenses occurring within the East Division go to East County Criminal Division "X". Section 3.B gives the last-name table used on the page. Section 3.D.ii: domestic violence cases outside the East Division go to Division "F".
+
+**13th Circuit Administrative Order S-2024-030, Criminal Division "O"**  
+https://www.fljud13.org/Portals/0/AO/DOCS/S-2024-030.pdf
+
+Division "O" conducts "First appearance hearings on all criminal cases". Section 3: "All proceedings in Criminal Division "O" will be conducted via audiovisual devices".
+
+**13th Circuit Administrative Order S-2024-062, Circuit Criminal Division** (pages 1 to 3 of 22 read)  
+https://www.fljud13.org/Portals/0/AO/DOCS/S-2024-062.pdf
+
+A "proposed division" is an assignment of a standard division "based on an even distribution made by the clerk upon the filing of a criminal report affidavit after arrest." First-degree murder, RICO and capital sexual battery are assigned separately, and direct-file cases can be assigned at the State Attorney's request, so "even rotation" on the page describes the ordinary case. S-2025-035 re-established Division "F" and was not read.
+
+**13th Circuit Administrative Order S-2025-063, Uniform Statewide Bond Schedule, effective January 1 through December 31, 2026**  
+https://www.fljud13.org/Portals/0/AO/DOCS/S-2025-063.pdf
+
+Section 1: "This bond schedule applies only to the booking officer, not to judges." Section 2 lists who may not be released before first appearance; the page gives a partial list and says so. Section 2 also states the no-contact condition, citing F.S. 903.047(1)(a) and Rule 3.131(a), and the separate-bond rule. Section 3: warrants. Section 4: the amounts on the page. **EXPIRES December 31, 2026: replace when the 2027 order issues.**
+
+**13th Circuit Administrative Order S-2026-006, Bond Matters** (pages 1 to 4 of 21 read)  
+https://www.fljud13.org/Portals/0/AO/DOCS/S-2026-006.pdf
+
+Section 2: the courts "will not accept personal property of any kind other than a bail bond posted by a licensed surety" or a cash bond; "Real property bonds are discouraged"; "Blanket bonds" are prohibited.
+
+**Hillsborough County Sheriff's Office, Locations and Arrest Records**  
+https://www.teamhcso.com/Home/Locations and https://www.teamhcso.com/Section/b376ce21-dc5f-473e-8b52-c008a26452f7/Arrest-Records
+
+Orient Road Jail, 813-247-8300. "Who's In Jail (Arrest Inquiry)" at https://webapps.hcso.tampa.fl.us/ArrestInquiry. District IV is listed at 508 33rd Street SE, Ruskin, so no district is named for Brandon.
+
+**Hillsborough Clerk, HOVER FAQ. NOT FETCHED: two fetches of https://hover.hillsclerk.com/html/faq.html failed on 2026-11-08.** The search options, the hearing lookup, no-charge viewing and the sealed-record exclusion come from a search-result excerpt of that page. Confirm against the page itself.
+
+**Reused from records above, no new fetch:** Rule 3.134(a) and (b), Rule 3.191, the timeline wording from the domestic violence page, and the DUI 10-day rule, F.S. 322.2615(1)(b)3.
+

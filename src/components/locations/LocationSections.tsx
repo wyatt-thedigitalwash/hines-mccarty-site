@@ -1,3 +1,4 @@
+import type { ReactNode } from "react";
 import Link from "next/link";
 import { firm, formatOffice, primaryOffice } from "@/lib/site";
 import type { LocationPage } from "@/lib/locations";
@@ -12,13 +13,21 @@ import OfficeBlock from "@/components/OfficeBlock";
 const H2 = "font-display font-semibold text-4xl leading-tight sm:text-5xl";
 const LEAD = "mt-6 max-w-3xl text-lg leading-relaxed text-charcoal";
 
-export function FactsSection({ facts }: { facts: LocationPage["facts"] }) {
+export function FactsSection({
+  facts,
+  children,
+}: {
+  facts: LocationPage["facts"];
+  /** Anything that belongs under the cards, such as the injury page links. */
+  children?: ReactNode;
+}) {
   return (
     <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <h2 className={H2}>{facts.heading}</h2>
         <p className={LEAD}>{facts.intro}</p>
-        <ul className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Four cards go two by two, so none is left alone on a row of three. */}
+        <ul className={`mt-12 grid gap-6 md:grid-cols-2 ${facts.items.length === 4 ? "" : "lg:grid-cols-3"}`}>
           {facts.items.map((f) => (
             <li key={f.title} className="flex flex-col border border-navy/15 p-6 lg:p-8">
               <h3 className="font-display text-2xl leading-tight">{f.title}</h3>
@@ -31,6 +40,31 @@ export function FactsSection({ facts }: { facts: LocationPage["facts"] }) {
             </li>
           ))}
         </ul>
+        {facts.table ? (
+          <div className="mt-12 max-w-2xl">
+            <table className="w-full border-collapse text-left">
+              <caption className="mb-4 text-left font-display text-2xl leading-tight">{facts.table.caption}</caption>
+              <thead>
+                <tr className="border-b border-navy/30 font-heading text-sm">
+                  <th scope="col" className="py-3 pr-6 font-semibold">Division</th>
+                  <th scope="col" className="py-3 font-semibold">Last name starts with</th>
+                </tr>
+              </thead>
+              <tbody>
+                {facts.table.rows.map((r) => (
+                  <tr key={r.division} className="border-b border-navy/10 text-charcoal">
+                    <td className="py-3 pr-6 font-medium text-navy">{r.division}</td>
+                    <td className="py-3">{r.letters}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+            <p className="mt-4 text-sm text-navy/65">
+              <span className="eyebrow">Source</span> {facts.table.source}
+            </p>
+          </div>
+        ) : null}
+        {children}
       </div>
     </section>
   );

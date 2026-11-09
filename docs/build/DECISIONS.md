@@ -3803,3 +3803,15 @@ no parent and sit directly under `/locations`, so Brandon is `/locations/brandon
 other markets' communities still nest, as in `/locations/st-petersburg/gulfport`.
 On the index, Tampa is a card linking home with its communities under it, and a
 Tampa community's "More around Tampa" links home too.
+
+### D153. Location pages built out
+
+**2026-11-09. Client feedback: the pages were thin.** Brandon was about 600 words.
+It now follows the person who just got the call: what to do first, what bond
+costs and who has to wait, which courtroom, the clocks after first appearance,
+common charges, injury deadlines, attorneys, and questions. The courtroom and bond
+content comes from 13th Circuit administrative orders, and the East Division line
+gives each Hillsborough community a real difference: which side it is on. County facts are shared constants, so a community
+page still has to add its own routing and agency. The bond amounts expire
+December 31, 2026.
+
