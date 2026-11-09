@@ -3857,3 +3857,15 @@ site search still find them by name. Never pushed, so no redirects. Palm Harbor,
 Gulfport, Dunedin, Carrollwood and Town 'n' Country stay, to be looked at again
 if they draw no search traffic after launch.
 
+### D158. Photographs on the location pages
+
+**2026-11-09. Client supplied five Pexels photographs.** Replaces D154's use of the
+firm's criminal and injury photos on these pages. St. Petersburg (Jacob Evans, the
+downtown marina), Clearwater (Solvej Nielsen, Clearwater Beach Marina), Sarasota
+(Jeffrey Eisen, the Ringling Bridge) and Orlando (Sid Dalal, Lake Eola) go on that
+market's city, hub and Pinellas, Sarasota or Orange community pages. The Sunshine
+Skyway (Justin Helms) goes on the Areas We Cover index and the two Pasco pages,
+because it stands for the bay rather than a city. Hillsborough pages keep the Tampa
+skyline. A photograph of a place implies no office there, and every page says the
+only office is in Brandon (Rule 4-7.12).
+

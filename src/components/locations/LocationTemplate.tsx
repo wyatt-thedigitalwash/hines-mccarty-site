@@ -11,7 +11,7 @@ import {
   tampaCommunities,
 } from "@/lib/locations";
 import { breadcrumbJsonLd } from "@/lib/schema";
-import { CRIMINAL_HUB_PHOTO, INJURY_HUB_PHOTO, SITE_HERO_PHOTO } from "@/lib/hero-photos";
+import { LOCATION_PHOTOS, REGION_PHOTO, SITE_HERO_PHOTO } from "@/lib/hero-photos";
 import PageHero from "@/components/PageHero";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CallToAction from "@/components/CallToAction";
@@ -61,14 +61,14 @@ export default function LocationTemplate({ page }: { page: LocationPage }) {
       />
     );
 
-  // The placeholder is the Tampa skyline, so it stays in Hillsborough County. Elsewhere
-  // the page takes the firm's own photo for the subject (D154).
+  // Each page shows its own county (D158). Pasco has no market page of its own, so
+  // New Port Richey does not take Clearwater's photo. Hillsborough keeps the Tampa skyline.
   const photo =
-    page.hubType === "injury"
-      ? INJURY_HUB_PHOTO
-      : page.county === "Hillsborough County"
-        ? SITE_HERO_PHOTO
-        : CRIMINAL_HUB_PHOTO;
+    page.county === "Hillsborough County"
+      ? SITE_HERO_PHOTO
+      : page.county === "Pasco County"
+        ? REGION_PHOTO
+        : (LOCATION_PHOTOS[page.parent ?? page.slug] ?? REGION_PHOTO);
 
   return (
     <>

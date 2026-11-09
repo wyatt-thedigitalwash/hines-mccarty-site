@@ -116,3 +116,24 @@ export const HOME_HERO_VIDEO: { src?: string; poster?: string } = {
   src: "/videos/home-hero.mp4",
   poster: "/backgrounds/home-hero-poster.jpg",
 };
+
+/**
+ * Location pages (D158), one photograph per market, shown on its hub and
+ * community pages too. Each shows the county the page is about, so no page has
+ * another county's landmark above it. They are Pexels photographs, chosen by the
+ * client; the hero shows no attribution and the Pexels license requires none.
+ */
+export const LOCATION_PHOTOS: Record<string, HeroPhoto> = {
+  "st-petersburg": { src: "/locations/st-petersburg.jpg" }, // the downtown marina
+  clearwater: { src: "/locations/clearwater.jpg" }, // Clearwater Beach Marina
+  sarasota: { src: "/locations/sarasota.jpg" }, // the Ringling Bridge
+  orlando: { src: "/locations/orlando.jpg" }, // the Lake Eola fountain
+};
+
+/**
+ * The Sunshine Skyway belongs to the whole bay rather than one city, so it goes
+ * on the Areas We Cover index and on the Pasco County pages, which have no photo
+ * of their own and no market in their county.
+ */
+export const REGION_PHOTO: HeroPhoto = { src: "/locations/skyway.jpg" };
+

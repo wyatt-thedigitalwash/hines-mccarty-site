@@ -3,7 +3,7 @@ import Link from "next/link";
 import { firm } from "@/lib/site";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/schema";
-import { SITE_HERO_PHOTO } from "@/lib/hero-photos";
+import { REGION_PHOTO } from "@/lib/hero-photos";
 import { locationHref, locationLabel, marketHubs, marketLocations, subLocations, tampaCommunities } from "@/lib/locations";
 import PageHero from "@/components/PageHero";
 import CallToAction from "@/components/CallToAction";
@@ -43,7 +43,7 @@ export default function LocationsIndex() {
 
       <PageHero
         title="Areas we cover."
-        photo={SITE_HERO_PHOTO}
+        photo={REGION_PHOTO}
         cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
       >
         <p>
