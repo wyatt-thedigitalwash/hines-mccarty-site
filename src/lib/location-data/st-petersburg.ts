@@ -27,7 +27,8 @@ import {
 } from "./sixth-circuit.ts";
 
 /**
- * St. Petersburg: the market page, its two hubs, and five communities (D154).
+ * St. Petersburg: the market page, its two hubs, and three communities (D154).
+ * Kenneth City and Treasure Island are a section on the market page (D157).
  * County facts and their source lines live in sixth-circuit.ts, which also says
  * what is different about Pinellas County and which dates to watch.
  *
@@ -156,6 +157,23 @@ export const stPetersburgPages: LocationPage[] = [
         answer: "No. Our only office is in Brandon, at 745 W Lumsden Rd. We take Pinellas County cases from there, and you can call us at any hour.",
       },
     ],
+    towns: {
+      heading: "Kenneth City and Treasure Island.",
+      intro:
+        "These two small towns follow the same Pinellas County process as St. Petersburg, so the criminal defense and personal injury pages above apply. What differs is who to call and how a ticket is handled.",
+      items: [
+        {
+          title: "Kenneth City",
+          body: "Kenneth City has its own police department, at 4600 58th Street North. The town lists 727-582-6200 as its non-emergency police line, and the county's phone list shows that as Sheriff's dispatch for the town. The officers who respond still come from Kenneth City's department. For records or a crash report, call 727-498-8942. The county's order lists its police with Traffic Court I, for non-DUI criminal traffic charges.",
+          source: `${KC_SOURCE}; ${PINELLAS_PHONES_SOURCE}; ${SIXTH_TRAFFIC_SOURCE}`,
+        },
+        {
+          title: "Treasure Island",
+          body: "Treasure Island has its own police department, at 180 108th Avenue, with business hours Monday to Friday, 8:00 a.m. to 4:00 p.m. The Sheriff's Office monitors its non-emergency line, 727-547-4595, around the clock. For a crash report, call Police Records at 727-547-4592 on a weekday. The order also lists its police with Traffic Court I. For a ticket, use the methods printed on it. The city warns that third-party payment sites may add delays and fines, and that you cannot dispute a ticket once it is paid. A criminal traffic charge requires a court date, so do not just pay it.",
+          source: `${TI_SOURCE}; ${SIXTH_TRAFFIC_SOURCE}`,
+        },
+      ],
+    },
     office: {
       heading: "We are in Brandon, not St. Petersburg.",
       body: [
@@ -1064,323 +1082,6 @@ export const stPetersburgPages: LocationPage[] = [
   },
 
   // ------------------------------------------------------------------ Treasure Island
-  {
-    slug: "treasure-island",
-    kind: "community",
-    parent: MARKET,
-    place: "Treasure Island",
-    county: "Pinellas County",
-    published: true,
-    indexable: false,
-    metaTitle: "Treasure Island Arrests and Crashes | Hines McCarty Pavlidis",
-    metaDescription:
-      "Treasure Island has its own police, with calls monitored by the Sheriff. The jail number, 2026 bond amounts, your courtroom, and crash report contacts.",
-    h1: "Treasure Island arrests and crash claims.",
-    lead: [
-      "Treasure Island runs its own police department, at 180 108th Avenue. Its non-emergency line is monitored around the clock by the Sheriff's Office.",
-      "There is not much about a court case that is unique to this small city, so this page stays short on that. It gives you the local contacts and the county rules. Our office is in Brandon, and we take Treasure Island cases from there.",
-    ],
-    firstSteps: {
-      heading: "If you got the call from Treasure Island.",
-      intro: "You have about a day before a judge rules on release. Start here.",
-      items: [
-        {
-          title: "Reach the right desk",
-          body: "For the police, call 727-547-4595. For someone already in jail, call Inmate Records at 727-464-6415, which is a county number, or look on the Sheriff's list.",
-          source: `${TI_SOURCE}; ${PCSO_JAIL_SOURCE}`,
-          link: { href: WHOS_IN_JAIL_URL, label: "Who's In Jail (Sheriff's Office)", external: true },
-        },
-        {
-          title: "See if a bond exists yet",
-          body: "Find the charge in the county bond table linked below. No bond means nobody can pay to get the person out until the judge has ruled, so hold on to your money.",
-          link: { href: "#bond", label: "Bond amounts through 2026" },
-        },
-        {
-          title: "Say little",
-          body: "The right to stay quiet applies to police and detectives alike. Ask for a lawyer and leave it there.",
-        },
-        {
-          title: "Get a lawyer on it before advisories",
-          body: "Everyone in custody sees a judge within 24 hours, at the hearing this county calls advisories. Release is decided there, so that is the deadline for your call to us.",
-          source: "Fla. R. Crim. P. 3.130(a)",
-        },
-      ],
-    },
-    deadlines: PINELLAS_DEADLINES,
-    facts: {
-      heading: "Where a Treasure Island case goes.",
-      intro: "This is a small city with its own police, and the county courts take over from there.",
-      items: [
-        {
-          title: "The department",
-          body: "The police office is at 180 108th Avenue, open for business Monday to Friday, 8:00 a.m. to 4:00 p.m. Call 911 in an emergency. The Sheriff's Office monitors the non-emergency number, 727-547-4595, 24 hours a day.",
-          source: TI_SOURCE,
-        },
-        {
-          title: "The courthouse",
-          body: "State criminal cases from the island go to the Justice Center, 14250 49th Street North, Clearwater. There is no court on the island for them, and no separate beach court in the orders.",
-          source: SIXTH_CRIMINAL_COURTS_SOURCE,
-        },
-        {
-          title: "Your traffic court",
-          body: "The order lists this city's police with Traffic Court I, along with the Sheriff's Office. St. Petersburg police tickets go to the other one, Traffic Court II. So charges from two nearby towns can land before different judges.",
-          source: SIXTH_TRAFFIC_SOURCE,
-        },
-        {
-          title: "Federal court",
-          body: "A federal charge is a Tampa Division case, heard at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue.",
-          source: FEDERAL_TAMPA_SOURCE,
-        },
-      ],
-    },
-    charges: {
-      heading: "Charges we defend in Treasure Island.",
-      intro: "Each page has the Florida law and penalties. Since they are written for Hillsborough County courts, take your court details from this page.",
-      items: [
-        {
-          href: `${STATE}/dui`,
-          title: "DUI",
-          body: "The set bond is $500, and only with a clean history and no damage. A boating case follows the same rule. For the license, the deadline to act is 10 days from the notice.",
-        },
-        {
-          href: `${STATE}/battery`,
-          title: "Battery",
-          body: "A fight charged as a misdemeanor can still bring a set bond. A battery on an officer cannot.",
-        },
-        {
-          href: `${STATE}/drug-possession`,
-          title: "Drug possession",
-          body: "If it is a third degree felony, bond is $5,000 when no force is involved.",
-        },
-        {
-          href: `${STATE}/grand-theft`,
-          title: "Grand theft",
-          body: "The degree rises with value. That decides whether the jail can release you at all before the hearing.",
-        },
-      ],
-    },
-    injury: {
-      heading: "If you were hurt in a Treasure Island crash.",
-      intro: "Start with city records, and then watch these deadlines.",
-      items: [
-        {
-          title: "The crash report",
-          body: "Contact Police Records at 727-547-4592 or records@mytreasureisland.org, on weekdays. The city's page also links to the Sheriff's crash report system, but that holds only reports the Sheriff's Office wrote.",
-          source: `${TI_SOURCE}; ${PCSO_CRASH_SOURCE}`,
-        },
-        {
-          title: "First medical care",
-          body: "You need it within 14 days to use your own policy's injury benefits.",
-          source: "F.S. 627.736(1)(a)",
-        },
-        {
-          title: "The filing deadline",
-          body: "Two years from the date of the crash, if it came after 24 March 2023 and the claim is for negligence.",
-          source: "F.S. 95.11",
-        },
-        {
-          title: "How fault counts",
-          body: "Florida bars you from recovering if you carry more than 50 percent of the blame. Keep your account of it short and accurate.",
-          source: "F.S. 768.81",
-        },
-      ],
-      links: carLinks,
-    },
-    practices: {
-      heading: "Pages with more detail.",
-      intro: "Treasure Island shares its courts with St. Petersburg, so the county detail lives on those two pages.",
-      items: [
-        { href: CRIMINAL_HUB, title: "Criminal defense in St. Petersburg", body: "Full detail on county court sections and bond." },
-        { href: INJURY_HUB, title: "Personal injury in St. Petersburg", body: "Where a Pinellas injury suit gets filed, and the amount limits." },
-        { href: FEDERAL, title: "Federal criminal defense", body: "Charges brought in the Middle District of Florida." },
-        { href: WHITE_COLLAR, title: "White-collar defense", body: "Fraud and money matters from the first contact." },
-        { href: BUSINESS, title: "Business litigation", body: "Conflicts over deals, ownership, and trade secrets." },
-      ],
-    },
-    faq: [
-      {
-        question: "Why does the Sheriff's Office answer the Treasure Island police line?",
-        answer: "The city says those numbers are monitored around the clock by the Sheriff's Office. The officers are still from the Treasure Island Police Department.",
-      },
-      {
-        question: "How do I pay or fight a traffic ticket from the city?",
-        answer: "Use the methods printed on the citation. The city warns that third-party payment sites may cause delays and added fines, and that you cannot dispute a ticket once it is paid. A criminal traffic charge requires a court date, so do not just pay it.",
-      },
-      {
-        question: "How can I check a court date?",
-        answer: PINELLAS_CASE_LOOKUP_ANSWER,
-      },
-      {
-        question: "Is your firm on the island?",
-        answer: "No. Our only office is in Brandon. We take Treasure Island cases from there, and we answer the phone at all hours.",
-      },
-    ],
-    office: {
-      heading: "We work from Brandon, with no island office.",
-      body: [
-        "There is no Treasure Island office. The firm has one office, at 745 W Lumsden Rd in Brandon.",
-        "The number is 813-738-8650, any day and any hour. Call ahead so an attorney can make time if you want to come in.",
-      ],
-    },
-    cta: {
-      heading: "Have a Treasure Island question?",
-      body: "Call and describe what happened. It stays confidential, and the line is open 24/7.",
-    },
-  },
 
   // ------------------------------------------------------------------ Kenneth City
-  {
-    slug: "kenneth-city",
-    kind: "community",
-    parent: MARKET,
-    place: "Kenneth City",
-    county: "Pinellas County",
-    published: true,
-    indexable: false,
-    metaTitle: "Kenneth City Defense and Injury | Hines McCarty Pavlidis",
-    metaDescription:
-      "Kenneth City has its own small police department. Find the station, the jail number, 2026 bond amounts, and which traffic court takes its citations.",
-    h1: "Kenneth City arrests and crashes.",
-    lead: [
-      "Kenneth City is a small town with its own police department, at 4600 58th Street North. Almost everything after the first contact with an officer happens at the county level.",
-      "So this page is short. It covers the town's own contacts and what the county rules mean for you. Our office is in Brandon, and we take Kenneth City cases from there.",
-    ],
-    firstSteps: {
-      heading: "Right after a Kenneth City arrest.",
-      intro: "Three steps matter most in the day before the release hearing.",
-      items: [
-        {
-          title: "Find out where they are",
-          body: "Look on the Sheriff's Who's In Jail list, or call Inmate Records at 727-464-6415. Police calls here go through 727-582-6200, and the town's records desk is 727-498-8942.",
-          source: `${PCSO_JAIL_SOURCE}; ${KC_SOURCE}`,
-          link: { href: WHOS_IN_JAIL_URL, label: "Who's In Jail (Sheriff's Office)", external: true },
-        },
-        {
-          title: "Hold off on paying",
-          body: "A bail company cannot help if the charge has no bond yet. The county bond table linked below sorts that out by charge.",
-          link: { href: "#bond", label: "Bond amounts through 2026" },
-        },
-        {
-          title: "Call a lawyer, and stay quiet until then",
-          body: "A judge rules on release within 24 hours of arrest. Use that time to get legal help and not to explain the case to anyone else.",
-          source: "Fla. R. Crim. P. 3.130(a)",
-        },
-      ],
-    },
-    deadlines: PINELLAS_DEADLINES,
-    facts: {
-      heading: "Where a Kenneth City case goes next.",
-      intro: "The town name matters in one place, and that is traffic court.",
-      items: [
-        {
-          title: "Traffic Court I",
-          body: "The county's order lists the Kenneth City Police Department with Traffic Court I. St. Petersburg police are listed with Traffic Court II. That covers non-DUI criminal traffic charges, and both courts sit at the Justice Center.",
-          source: SIXTH_TRAFFIC_SOURCE,
-        },
-        {
-          title: "All other state charges",
-          body: "Felonies and misdemeanors are heard at the Pinellas County Justice Center, 14250 49th Street North, Clearwater. The orders make no special rule for this town.",
-          source: SIXTH_CRIMINAL_COURTS_SOURCE,
-        },
-        {
-          title: "A federal case",
-          body: "This would be heard in Tampa at the Sam M. Gibbons United States Courthouse, 801 North Florida Avenue.",
-          source: FEDERAL_TAMPA_SOURCE,
-        },
-      ],
-    },
-    charges: {
-      heading: "Charges we defend in Kenneth City.",
-      intro: "The linked pages explain Florida law and penalties around Hillsborough County courts. Your court details are here instead.",
-      items: [
-        {
-          href: `${STATE}/dui`,
-          title: "DUI",
-          body: "Past DUI history or any damage means waiting for the judge. The 10-day license deadline runs from the notice of suspension either way.",
-        },
-        {
-          href: `${STATE}/domestic-violence`,
-          title: "Domestic violence",
-          body: "Nobody bonds out on this charge before first appearance. Section R hears the county court case.",
-        },
-        {
-          href: `${STATE}/drug-possession`,
-          title: "Drug possession",
-          body: "Felony drug cases can sometimes go to drug court, if the State Attorney's Office agrees.",
-        },
-        {
-          href: `${STATE}/grand-theft`,
-          title: "Grand theft",
-          body: "With no force involved and at the third degree, the schedule sets $5,000.",
-        },
-      ],
-    },
-    injury: {
-      heading: "If you were hurt in a Kenneth City crash.",
-      intro: "The town's police keep their own records. The deadlines are the same as anywhere in Florida.",
-      items: [
-        {
-          title: "Report copies",
-          body: "Call the Kenneth City police administration and records line at 727-498-8942. You will want the date of the crash and any number the officer gave you.",
-          source: KC_SOURCE,
-        },
-        {
-          title: "See someone within 14 days",
-          body: "Getting care inside that window protects the medical benefits in your own policy.",
-          source: "F.S. 627.736(1)(a)",
-        },
-        {
-          title: "The suit deadline",
-          body: "Negligence claims from crashes after 24 March 2023 carry a limit of two years.",
-          source: "F.S. 95.11",
-        },
-        {
-          title: "Fault and recovery",
-          body: "Being more than 50 percent responsible ends the claim against the other driver.",
-          source: "F.S. 768.81",
-        },
-      ],
-      links: carLinks,
-    },
-    practices: {
-      heading: "For more detail, see these pages.",
-      intro: "The county's courts and rules are covered in full on the St. Petersburg pages.",
-      items: [
-        { href: CRIMINAL_HUB, title: "Criminal defense in St. Petersburg", body: "Sections, traffic courts, and bond for all of Pinellas." },
-        { href: INJURY_HUB, title: "Personal injury in St. Petersburg", body: "Reports, dollar limits, and civil case assignment." },
-        { href: FEDERAL, title: "Federal criminal defense", body: "Cases and investigations in federal court." },
-        { href: WHITE_COLLAR, title: "White-collar defense", body: "Fraud and other financial charges." },
-        { href: BUSINESS, title: "Business litigation", body: "Company and contract disputes." },
-      ],
-    },
-    faq: [
-      {
-        question: "Why is the police number the same as the Sheriff's?",
-        answer: "The town lists 727-582-6200 as its non-emergency police line, and the county's phone list shows that as Sheriff's dispatch for this town. The officers who respond still come from Kenneth City's department.",
-      },
-      {
-        question: "Where can I see the case online?",
-        answer: PINELLAS_CASE_LOOKUP_ANSWER,
-      },
-      {
-        question: "Where would an injury suit be filed?",
-        answer: "In Pinellas County, the filing lawyer's ZIP code picks St. Petersburg or Clearwater. Ours is not on the list, so it could be assigned to either. Someone filing with no lawyer uses their own ZIP, and 33709 is on the St. Petersburg list.",
-      },
-      {
-        question: "Can I meet with you in Kenneth City?",
-        answer: "We have no office there. Our only office is in Brandon. You can start by phone at any hour.",
-      },
-    ],
-    office: {
-      heading: "No Kenneth City office, just Brandon.",
-      body: [
-        "We do not have an office in Kenneth City. The firm's one office is at 745 W Lumsden Rd in Brandon.",
-        "Call 813-738-8650 whenever you need to. If you would like to meet there, call first to set a time.",
-      ],
-    },
-    cta: {
-      heading: "Questions about a Kenneth City case?",
-      body: "One call can tell you what to do next. It is confidential, and we answer 24/7.",
-    },
-  },
 ];

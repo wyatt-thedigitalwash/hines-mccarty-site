@@ -3846,3 +3846,14 @@ visible name is now "Areas We Cover" in the breadcrumb, index page, site search
 and a new footer link under Explore, which also suits the rule better than
 "Locations" did. It is not in the top nav. The URL stays `/locations`.
 
+### D157. Kenneth City and Treasure Island fold into St. Petersburg
+
+**2026-11-09. Client direction.** These two had the least of their own: a police
+contact, a records line and a traffic court, with everything else general Pinellas
+advice. Thin pages built around a town's name are the doorway pattern D151 warned
+about, so their facts move to a "Kenneth City and Treasure Island" section on
+`/locations/st-petersburg` (`towns`, anchor `#towns`). The Areas We Cover page and
+site search still find them by name. Never pushed, so no redirects. Palm Harbor,
+Gulfport, Dunedin, Carrollwood and Town 'n' Country stay, to be looked at again
+if they draw no search traffic after launch.
+

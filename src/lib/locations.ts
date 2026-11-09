@@ -137,6 +137,7 @@ export function locationCopy(p: LocationPage): string[] {
     ...(p.injury
       ? [p.injury.heading, p.injury.intro, ...facts(p.injury.items), ...p.injury.links.map((l) => l.label)]
       : []),
+    ...(p.towns ? [p.towns.heading, p.towns.intro, ...facts(p.towns.items)] : []),
     p.practices.heading,
     p.practices.intro,
     ...p.practices.items.flatMap((l) => [l.title, l.body]),

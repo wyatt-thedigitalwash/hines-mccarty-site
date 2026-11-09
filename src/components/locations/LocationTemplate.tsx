@@ -117,6 +117,7 @@ export default function LocationTemplate({ page }: { page: LocationPage }) {
       <PracticesSection practices={page.practices} />
       <AttorneyGrid />
       {placeLinks}
+      {page.towns ? <FactsSection id="towns" facts={page.towns} /> : null}
       {page.faq ? <FaqSection faq={page.faq} /> : null}
       {page.officeHere ? null : <OfficeSection office={page.office} />}
 

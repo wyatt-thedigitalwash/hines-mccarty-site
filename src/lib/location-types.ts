@@ -86,6 +86,8 @@ export type LocationPage = {
   faq?: { question: string; answer: string }[];
   practices: { heading: string; intro: string; items: LocationLink[] };
   office: { heading: string; body: string[] };
+  /** Small towns covered on a market page rather than with their own page (D157). */
+  towns?: { heading: string; intro: string; items: LocationFact[] };
   /** The line over the sub-location links on a market page. */
   communitiesIntro?: string;
   cta: { heading: string; body: string };

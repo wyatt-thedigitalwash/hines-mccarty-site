@@ -169,6 +169,13 @@ export function buildSearchIndex(): SearchEntry[] {
       u: locationHref(p), t: locationLabel(p), c: `Areas we cover, ${p.county}`, kind: "page",
       s: p.lead[0], k: `${p.place} ${p.county} location area near me lawyer attorney`,
     });
+    // D157: a town covered on its market page still comes up by name.
+    for (const t of p.towns?.items ?? []) {
+      out.push({
+        u: `${locationHref(p)}#towns`, t: t.title, c: `Areas we cover, ${p.county}`, kind: "page",
+        s: t.body, k: `${t.title} location area near me lawyer attorney`,
+      });
+    }
   }
   for (const a of attorneys) {
     out.push({

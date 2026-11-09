@@ -22,7 +22,7 @@ the page needs looking at. Populate these as pages are assigned and read.
 
 ## Location pages: open items (D151 to D155)
 
-All 28 location pages are noindex and out of the sitemap until an attorney has read them. Set `indexable: true` per page in `src/lib/location-data/` after that read. Every INFERENCE is recorded in `docs/research/PAGE-SOURCES.md` under the "Location pages" headings.
+All 26 location pages are noindex and out of the sitemap until an attorney has read them. Set `indexable: true` per page in `src/lib/location-data/` after that read. Every INFERENCE is recorded in `docs/research/PAGE-SOURCES.md` under the "Location pages" headings.
 
 **Expires**
 - 31 December 2026: bond schedules for Hillsborough (S-2025-063), Pinellas (2026-036), Pasco (2026-035), and Sarasota (AOSC25-69). Pages name the date. Update the tables and `*_DEADLINES` text, and the "2026" wording in link labels and meta descriptions.
@@ -38,7 +38,7 @@ All 28 location pages are noindex and out of the sitemap until an attorney has r
 **Confirm by phone or page**
 - Pasco booking number 813-235-6070 (a Sheriff's brochure only). Sarasota Police records details (site returned 403; search excerpts only). Hillsborough HOVER wording (page would not load). Largo and Tarpon Springs police numbers (sources conflict).
 
-**Thin, may fold into the city page:** Kenneth City, Treasure Island, Palm Harbor, Gulfport, Dunedin, Carrollwood, Town 'n' Country.
+**Thin, may fold into the city page if they draw no search traffic after launch:** Palm Harbor, Gulfport, Dunedin, Carrollwood, Town 'n' Country. Kenneth City and Treasure Island were folded into St. Petersburg (D157).
 
 ---
 

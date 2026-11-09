@@ -84,7 +84,7 @@ export default function LocationsIndex() {
                   </Link>
                 </h2>
                 <p className="mt-2 eyebrow text-navy/60 sm:text-sm">{m.county}</p>
-                {marketHubs(m.slug).length || subLocations(m.slug).length ? (
+                {marketHubs(m.slug).length || subLocations(m.slug).length || m.towns ? (
                   <ul className="mt-6 flex flex-wrap gap-x-5 gap-y-2 border-t border-navy/10 pt-6">
                     {[...marketHubs(m.slug), ...subLocations(m.slug)].map((s) => (
                       <li key={s.slug}>
@@ -93,6 +93,17 @@ export default function LocationsIndex() {
                           className="font-heading text-sm font-medium underline decoration-1 underline-offset-4 transition-colors hover:text-bronze"
                         >
                           {locationLabel(s)}
+                        </Link>
+                      </li>
+                    ))}
+                    {/* D157: towns covered on the market page, not on their own. */}
+                    {m.towns?.items.map((t) => (
+                      <li key={t.title}>
+                        <Link
+                          href={`${locationHref(m)}#towns`}
+                          className="font-heading text-sm font-medium underline decoration-1 underline-offset-4 transition-colors hover:text-bronze"
+                        >
+                          {t.title}
                         </Link>
                       </li>
                     ))}

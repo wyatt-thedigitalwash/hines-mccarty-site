@@ -15,19 +15,21 @@ const LEAD = "mt-6 max-w-3xl text-lg leading-relaxed text-charcoal";
 
 export function FactsSection({
   facts,
+  id,
   children,
 }: {
   facts: LocationPage["facts"];
+  id?: string;
   /** Anything that belongs under the cards, such as the injury page links. */
   children?: ReactNode;
 }) {
   return (
-    <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
+    <section id={id} data-bg="white" className="scroll-mt-28 bg-white py-20 text-navy lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <h2 className={H2}>{facts.heading}</h2>
         <p className={LEAD}>{facts.intro}</p>
-        {/* Four cards go two by two, so none is left alone on a row of three. */}
-        <ul className={`mt-12 grid gap-6 md:grid-cols-2 ${facts.items.length === 4 ? "" : "lg:grid-cols-3"}`}>
+        {/* Two or four cards go two across, so none is left alone on a row of three. */}
+        <ul className={`mt-12 grid gap-6 md:grid-cols-2 ${[2, 4].includes(facts.items.length) ? "" : "lg:grid-cols-3"}`}>
           {facts.items.map((f) => (
             <li key={f.title} className="flex flex-col border border-navy/15 p-6 lg:p-8">
               <h3 className="font-display text-2xl leading-tight">{f.title}</h3>
