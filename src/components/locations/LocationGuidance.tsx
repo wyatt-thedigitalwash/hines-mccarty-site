@@ -11,11 +11,13 @@ const LEAD_DARK = "mt-6 max-w-3xl text-lg leading-relaxed text-linen/70";
 
 export function FirstStepsSection({ steps }: { steps: NonNullable<LocationPage["firstSteps"]> }) {
   return (
-    <section data-bg="navy" className="bg-navy py-20 text-linen lg:py-28">
+    // Explicit top padding: on most pages this follows the navy hero, and the
+    // same-background rule would otherwise press the heading against the photo.
+    <section data-bg="navy" className="bg-navy py-20 !pt-20 text-linen lg:py-28 lg:!pt-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <h2 className={H2}>{steps.heading}</h2>
         <p className={LEAD_DARK}>{steps.intro}</p>
-        <ol className="mt-12 grid gap-4 md:grid-cols-2">
+        <ol className={`mt-12 grid gap-4 md:grid-cols-2 ${steps.items.length === 3 ? "lg:grid-cols-3" : ""}`}>
           {steps.items.map((s, i) => (
             <li key={s.title} className="flex flex-col bg-linen/[0.06] p-8 lg:p-10">
               <span aria-hidden="true" className="font-display text-4xl leading-none text-bronze">
@@ -91,9 +93,51 @@ export function BondSection({ bond }: { bond: NonNullable<LocationPage["bond"]> 
   );
 }
 
+/**
+ * The key numbers and links to the county's one full table and timeline (D155).
+ * Copying those blocks onto every page in a county is what made these pages read
+ * alike, and a reader is one tap from the full version.
+ */
+export function DeadlinesSection({
+  place,
+  deadlines,
+}: {
+  place: string;
+  deadlines: NonNullable<LocationPage["deadlines"]>;
+}) {
+  const cards = [
+    { title: "What bond costs", ...deadlines.bond },
+    { title: "The clocks that start", ...deadlines.clocks },
+  ];
+  return (
+    <section id="bond" data-bg="white" className="scroll-mt-28 bg-white py-20 text-navy lg:py-28">
+      <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
+        <h2 className={H2}>{`Bond and deadlines in ${place}.`}</h2>
+        <ul className="mt-12 grid gap-6 md:grid-cols-2">
+          {cards.map((c) => (
+            <li key={c.title} className="flex flex-col border border-navy/15 p-6 lg:p-8">
+              <h3 className="font-display text-2xl leading-tight">{c.title}</h3>
+              <p className="mt-4 flex-1 leading-relaxed text-charcoal">{c.body}</p>
+              <Link
+                href={c.href}
+                className="mt-6 self-start font-heading text-sm font-medium underline decoration-1 underline-offset-4 transition-colors hover:text-bronze"
+              >
+                {c.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+        <p className="mt-8 text-sm text-navy/65">
+          <span className="eyebrow">Source</span> {deadlines.source}
+        </p>
+      </div>
+    </section>
+  );
+}
+
 export function TimelineSection({ timeline }: { timeline: NonNullable<LocationPage["timeline"]> }) {
   return (
-    <section data-bg="navy" className="bg-navy py-20 text-linen lg:py-28">
+    <section id="timeline" data-bg="navy" className="scroll-mt-28 bg-navy py-20 text-linen lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <h2 className={H2}>{timeline.heading}</h2>
         <p className={LEAD_DARK}>{timeline.intro}</p>

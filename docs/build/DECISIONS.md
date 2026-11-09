@@ -3825,3 +3825,14 @@ kind `hub` at `/locations/<market>/criminal-defense` and `/personal-injury`.
 Search-map rows are generated from the page list. The Tampa skyline placeholder
 stays on Hillsborough pages; elsewhere the hero uses the firm's own criminal or
 injury photo, so no page shows one city's skyline above another.
+
+### D155. One full bond table and timeline per county
+
+**2026-11-09. Found by check:seo P7.** With all location pages built, 17 fell under
+the 60% unique-text floor, because the same bond table and timeline, about 570
+words, sat word for word on ten Pinellas pages and four Hillsborough ones. Each
+county now holds them once: Hillsborough on Brandon, Pinellas on the Clearwater
+criminal page, Pasco on Wesley Chapel, and Sarasota and Orlando on their criminal
+pages. The rest carry a short "Bond and deadlines" section with the key numbers
+and links. The gate was not changed.
+

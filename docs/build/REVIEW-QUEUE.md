@@ -20,6 +20,31 @@ the page needs looking at. Populate these as pages are assigned and read.
 
 ---
 
+## Location pages: open items (D151 to D155)
+
+All 28 location pages are noindex and out of the sitemap until an attorney has read them. Set `indexable: true` per page in `src/lib/location-data/` after that read. Every INFERENCE is recorded in `docs/research/PAGE-SOURCES.md` under the "Location pages" headings.
+
+**Client must answer**
+- Does the firm take STATE cases in Pinellas, Sarasota and Orange? `practiceCounties` (D130) lists them, but the note on `ServiceArea` in `site.ts` still asks. The pages say yes.
+
+**Expires**
+- 31 December 2026: bond schedules for Hillsborough (S-2025-063), Pinellas (2026-036), Pasco (2026-035), and Sarasota (AOSC25-69). Pages name the date. Update the tables and `*_DEADLINES` text, and the "2026" wording in link labels and meta descriptions.
+- 1 January 2027: FHP moves to Traffic Court II in Pinellas (2026-048). Six pages state the date; rewrite after it.
+- 16 November 2026: Ninth Circuit divisions order 2025-13-09 takes effect. Check the Orlando pages.
+- 4 January 2027: Sarasota judicial assignments change. No page names a judge.
+
+**Attorney to confirm first**
+- Orlando: that Order 2022-03-04 is still the operative bond schedule, with doubling for non-Florida residents, and how the DUI rows read (II.D.8 against Attachment A 3).
+- Brandon and the Tampa-side communities: a felony goes to Tampa, inferred because the East Division order sets up no felony division.
+- Pinellas: paragraphs of 2021-016 surviving 2026-036, and 2026-002 ZIP routing as applied to the firm's 33511.
+
+**Confirm by phone or page**
+- Pasco booking number 813-235-6070 (a Sheriff's brochure only). Sarasota Police records details (site returned 403; search excerpts only). Hillsborough HOVER wording (page would not load). Largo and Tarpon Springs police numbers (sources conflict).
+
+**Thin, may fold into the city page:** Kenneth City, Treasure Island, Palm Harbor, Gulfport, Dunedin, Carrollwood, Town 'n' Country.
+
+---
+
 ## Rules
 
 - **No page ships without a populated `owner` and `lastReviewed` and a row here**

@@ -34,11 +34,21 @@
 
 import type { LocationFact, LocationPage } from "./location-types.ts";
 import { hillsboroughPages } from "./location-data/hillsborough.ts";
+import { wesleyChapelPages } from "./location-data/wesley-chapel.ts";
+import { stPetersburgPages } from "./location-data/st-petersburg.ts";
+import { clearwaterPages } from "./location-data/clearwater.ts";
+import { sarasotaPages } from "./location-data/sarasota.ts";
+import { orlandoPages } from "./location-data/orlando.ts";
 
 export type { LocationPage } from "./location-types.ts";
 
 export const locationPages: LocationPage[] = [
   ...hillsboroughPages,
+  ...wesleyChapelPages,
+  ...stPetersburgPages,
+  ...clearwaterPages,
+  ...sarasotaPages,
+  ...orlandoPages,
 ];
 
 export const publishedLocations = locationPages.filter((p) => p.published);
@@ -75,8 +85,11 @@ export const locationTrail = (p: LocationPage) => {
 
 /** Every rendered string on a location page, for the content gates (D29). */
 export function locationCopy(p: LocationPage): string[] {
+  // A source line ends in a period here only. Without one, the sentence-based
+  // gates read it together with the next card's first sentence, and fire on a
+  // counting word that has nothing to do with the provision it names.
   const facts = (items: LocationFact[]) =>
-    items.flatMap((f) => [f.title, f.body, ...(f.source ? [f.source] : [])]);
+    items.flatMap((f) => [f.title, f.body, ...(f.source ? [`${f.source}.`] : [])]);
   return [
     p.metaTitle,
     p.metaDescription,
@@ -106,6 +119,15 @@ export function locationCopy(p: LocationPage): string[] {
           ...p.bond.wait,
           p.bond.waitNote,
           p.bond.source,
+        ]
+      : []),
+    ...(p.deadlines
+      ? [
+          p.deadlines.bond.body,
+          p.deadlines.bond.label,
+          p.deadlines.clocks.body,
+          p.deadlines.clocks.label,
+          p.deadlines.source,
         ]
       : []),
     ...(p.timeline

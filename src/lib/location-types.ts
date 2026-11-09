@@ -27,6 +27,12 @@ export type LocationBond = {
   source: string;
 };
 
+export type LocationDeadlines = {
+  bond: { body: string; href: string; label: string };
+  clocks: { body: string; href: string; label: string };
+  source: string;
+};
+
 export type LocationDivisionTable = {
   caption: string;
   rows: { division: string; letters: string }[];
@@ -64,6 +70,11 @@ export type LocationPage = {
   /** What to do in the first day. */
   firstSteps?: { heading: string; intro: string; items: LocationStep[] };
   bond?: LocationBond;
+  /**
+   * The county's key numbers, with links to the one page holding its full bond
+   * table and timeline (D155). A page has this, or `bond` and `timeline`, not both.
+   */
+  deadlines?: LocationDeadlines;
   timeline?: { heading: string; intro: string; steps: { when: string; what: string }[]; source: string };
   charges?: { heading: string; intro: string; items: LocationLink[] };
   injury?: {

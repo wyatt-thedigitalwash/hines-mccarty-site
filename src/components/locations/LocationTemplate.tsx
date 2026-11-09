@@ -18,7 +18,7 @@ import CallToAction from "@/components/CallToAction";
 import { faqJsonLd } from "@/lib/schema";
 import AttorneyGrid from "@/components/about/AttorneyGrid";
 import { FactsSection, OfficeSection, PlaceLinksSection, PracticesSection } from "./LocationSections";
-import { BondSection, ChargesSection, FaqSection, FirstStepsSection, TimelineSection } from "./LocationGuidance";
+import { BondSection, ChargesSection, DeadlinesSection, FaqSection, FirstStepsSection, TimelineSection } from "./LocationGuidance";
 
 /**
  * One location page, market or community (D151, D153). Reading order follows
@@ -94,6 +94,7 @@ export default function LocationTemplate({ page }: { page: LocationPage }) {
       {page.officeHere ? <OfficeSection office={page.office} /> : null}
       {page.firstSteps ? <FirstStepsSection steps={page.firstSteps} /> : null}
       {page.bond ? <BondSection bond={page.bond} /> : null}
+      {page.deadlines ? <DeadlinesSection place={page.place} deadlines={page.deadlines} /> : null}
       <FactsSection facts={page.facts} />
       {page.timeline ? <TimelineSection timeline={page.timeline} /> : null}
       {page.charges ? <ChargesSection charges={page.charges} /> : null}

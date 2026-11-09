@@ -4560,3 +4560,1391 @@ Orient Road Jail, 813-247-8300. "Who's In Jail (Arrest Inquiry)" at https://weba
 
 **Reused from records above, no new fetch:** Rule 3.134(a) and (b), Rule 3.191, the timeline wording from the domestic violence page, and the DUI 10-day rule, F.S. 322.2615(1)(b)3.
 
+---
+
+### Location pages, Tampa-area communities and Pasco County (D154)
+
+#### Tampa communities: Plant City, Riverview, Carrollwood, Town 'n' Country, Wesley Chapel (D154)
+
+All fetched 2026-11-09 unless noted. Reused from existing records, no new fetch: HILLSBOROUGH_BOND and HILLSBOROUGH_DIVISIONS (S-2025-063, S-2026-006, S-2025-012), S-2024-030, S-2024-062, the Orient Road record, Rule 3.130(a), Rule 3.134, Rule 3.191, F.S. 26.012(2)(d), F.S. 34.01(1)(a), F.S. 95.11, F.S. 627.736(1)(a), F.S. 768.81, F.S. 322.2615(1)(b)3, the Hillsborough Clerk's Circuit Civil page, and the HOVER search-result excerpt (still NOT FETCHED, as PAGE-SOURCES says). The Edgecomb, Plant City and Gibbons addresses are as already published on the charge pages.
+
+**CAUTION, keywords.md Section 5.** It says Brandon and east Hillsborough arrests are heard at the Plant City courthouse, from directory snippets. No page relies on it. S-2024-079 and S-2025-012 control: only East Division misdemeanor, criminal traffic and domestic violence cases go to Division X.
+
+#### Hillsborough
+
+**13th Circuit Administrative Order S-2024-079, East Division (all 7 pages read, scanned PDF)**
+https://www.fljud13.org/Portals/0/AO/DOCS/S-2024-079.pdf
+
+> From the boundary line of Hillsborough and Pasco Counties south on U.S. 301 to the first time U.S. 301 intersects I-75; south on I-75 to Martin Luther King, Jr. Boulevard; east along Martin Luther King, Jr. Boulevard to Dover Road; south on Dover Road to Bloomingdale Avenue; west on Bloomingdale Avenue to Lithia Pinecrest Road; south on Lithia Pinecrest Road to Fish Hawk Boulevard; west on Fish Hawk Boulevard to Bell Shoals Road; south on Bell Shoals Road to Boyette Road; south on Boyette Road to Balm Boyette Road; south on Balm Boyette Road to County Road 579; south on County Road 579 to the boundary line of Hillsborough and Manatee Counties
+
+> East County Division "X" will consist of misdemeanor offenses, criminal traffic offenses, and City of Plant City criminal municipal ordinance violations.
+
+> East County Division "Y" will consist of civil actions, non-criminal non-traffic infractions, and City of Plant City civil municipal ordinance violations.
+
+> Civil Actions - The East Division is the location where: (i) a defendant / respondent resides; (ii) the cause of action accrued; or (iii) property in litigation is located.
+
+> Family Law Proceedings and Protective Injunction Petitions - The East Division is the location where a party resides.
+
+> Criminal and Criminal Traffic Proceedings - The East Division is the location where the offense occurred.
+
+> The court's decision to transfer a case will be based primarily upon the convenience of the parties, attorneys and witnesses involved.
+
+Section 6.E: if the Division X judge is disqualified in a non-domestic-violence misdemeanor or a criminal traffic case, the clerk reassigns to a Tampa County Criminal Division "based on the alphabetical assignment system"; a criminal domestic violence case goes to Tampa County Criminal Division "F". The order's copy list includes "James M. Bradford, Chief of Police, Plant City".
+
+**U.S. Census Bureau, TIGERweb, Places layers (Incorporated Places layer 4, CDP layer 5)**
+https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Places_CouSub_ConCity_SubMCD/MapServer
+
+Records as returned: "Plant City city", GEOID 1257550, LSADC 25. "Riverview CDP", GEOID 1260950, LSADC 57. "Carrollwood CDP", GEOID 1210825, LSADC 57. "Town 'n' Country CDP", GEOID 1272145, LSADC 57. "Wesley Chapel CDP", GEOID 1275875, LSADC 57. The QuickFacts pages returned 403 on this fetch, so the record is TIGERweb, not QuickFacts. Road geometry for the inferences below came from the same service's Transportation MapServer.
+
+**City of Plant City, Police Department**
+https://www.plantcitygov.com/departments/public_safety/police/index.php
+
+Lists the Police number as (813) 757-9200. CONFLICT: the street address is "1 Police Pl" here and "1 Police Center Drive" on the Clerk's filing locations page, so no page gives the street address.
+
+**City of Plant City Police, Records Unit**
+https://www.plantcitygov.com/departments/public_safety/police/services/records_unit.php
+
+> $2.00 each or visit the Florida Crash Portal website at www.floridacrashportal.gov
+
+> 7 a.m. to 5 p.m., Monday through Friday
+
+> 813-757-9200, ext. 2226
+
+Requests "either in person or through a signed letter of request."
+
+**Hillsborough County Clerk of Court, Domestic Violence Injunction Filing Locations**
+https://www.hillsclerk.com/court-services/domestic-violence-filing-locations
+
+> Plant City Courthouse: 301 North Michigan Avenue, Plant City, Florida, 33563
+
+> Monday through Friday, 8 am - 5 pm
+
+Filing substations listed include "Hillsborough County Sheriff's Office: 7202 Gunn Highway, Tampa, FL 33625" and "Plant City Police Department: 1 Police Center Drive, Plant City, FL 33566".
+
+**Hillsborough County Sheriff's Office, 2023 Annual Report**
+https://www.teamhcso.com/getattachment/5624d154-b866-4064-bae1-f551fd137a96/1161986-HCSO-2023-Annual-Report.pdf
+
+> District III's jurisdiction encompasses the expansive northwest region of Hillsborough County, overseeing areas such as Carrollwood, Egypt Lake, Keystone, Odessa, Town 'N Country, Westchase, and the western parts of Lutz.
+
+> The District V office serves the community members within the nearly 70 square miles that make up the Bloomingdale Brandon, Clair Mel, Gran Park, Orient Park, Palm River, Progress village and Riverview areas.
+
+CAUTION: this is a 2023 report. The same text names Brandon in District V, while PAGE-SOURCES records that no district is named for Brandon because District IV's page did not list its communities. Brandon's page is unchanged; the attorney may want to add District V.
+
+**Hillsborough County Sheriff's Office, Locations and Telephone Directory**
+https://www.teamhcso.com/Home/Locations and https://www.teamhcso.com/Home/Directory
+
+District III, 7202 Gunn Highway, 813-247-0330. District V, 10128 Windhorst Road, 813-318-5400. "D2 Plant City Community Station", 813-757-3855. "D3 Town n' Country Community Station", 813-554-5170.
+
+**Tampa Police, Contact Us**
+https://www.tampa.gov/police/contact-us
+
+> For Non-Emergencies call: (813) 231-6130
+
+**Tampa International Airport, news item naming the department**
+https://news.tampaairport.com/airport-police-work-to-spread-awareness-for-human-trafficking-prevention-month/
+
+Names the "Tampa International Airport Police Department". The page says only that the airport has its own department. Booking practice for that department was not found.
+
+**FLHSMV, Troop C**
+https://www.flhsmv.gov/florida-highway-patrol/troop-boundaries-information/troop-c/
+
+> Troop C consists of the seven Florida counties along the Gulf of America: Sumter, Citrus, Hernando, Hillsborough, Polk, Pasco, and Pinellas.
+
+**FLHSMV, Traffic Crash Reports**
+https://www.flhsmv.gov/traffic-crash-reports/
+
+> The fee for crash reports is $10.00 per report, per section 321.23, Florida Statutes.
+
+> Traffic crash reports may take up to 10 days to become available.
+
+Also a $2.00 convenience fee per transaction on the portal, and reports are exempt "except for parties involved in the crash and other specific parties outlined in the statute."
+
+INFERENCES, Hillsborough, for the attorney read:
+
+1. **Plant City is inside the East Division.** The city's westernmost point is longitude -82.18708. Dover Road, the line at that latitude, runs at about -82.22. So the whole city, as Census maps it, lies east of the line. The order does not state this, though it does assign City of Plant City ordinance violations to the division. The page says "should".
+2. **A Plant City felony goes to Tampa.** Same inference as Brandon's: the order creates no felony division. The page says "should".
+3. **Plant City Police arrests go to Orient Road.** The Sheriff calls Orient Road the "primary receiving facility". No source says where Plant City Police, Tampa Police or Airport Police book specifically. The pages say "usually".
+4. **Riverview and the line.** Mapped check of the CDP boundary against the order's roads. The CDP's east edge matches the line closely for most of its length: Bell Shoals Rd (-82.2692 at latitude 27.855), Boyette Rd (-82.2609 at 27.845, -82.2445 at 27.83), and Balm Boyette Rd (-82.232 at 27.815, -82.2447 at 27.79). Near its south end, latitude 27.765 to 27.775, the CDP reaches about -82.2447 while Balm Boyette Rd runs at about -82.2529, so a small corner lies EAST of the line. So nearly all of the CDP is west, and not all of it. Also, the order's "Fish Hawk Boulevard" appears as "Fishhawk Blvd" in Census data. The page says "most of" and tells the reader to check addresses on or near those roads. A Riverview mailing address may also fall outside the CDP; that was not checked.
+5. **Carrollwood and Town 'n' Country are on the Tampa side.** Carrollwood's easternmost point is -82.47958 and Town 'n' Country's is -82.52545. I-75 and US 301, where the line starts, are many miles east. The page says "should".
+6. **Carrollwood and Town 'n' Country touch the City of Tampa.** Boundary points fall within 150 metres of Tampa's boundary. Carrollwood: southeast edge, longitude -82.4855 to -82.4796, latitude 28.0333 to 28.0552. Town 'n' Country: south and east edges, longitude -82.6323 to -82.5261, latitude 27.9681 to 28.0029. No official source says this in words. Riverview's nearest point to Tampa is 5.7 km, so no Tampa Police card appears there.
+7. **The airport is in the City of Tampa, not Town 'n' Country.** Point test at -82.5332, 27.9755, a coordinate chosen by me for the terminal area, not an official boundary record for the airport.
+8. **CDP means no local police.** Same inference as Brandon's. The pages say arrests are "usually" made by deputies.
+9. **Roads named in injury intros.** US 301, I-75, Big Bend Rd (Riverview); N Dale Mabry Hwy, Gunn Hwy (Carrollwood); W Hillsborough Ave, Memorial Hwy, Veterans Expy (Town 'n' Country); I-75, State Rd 54, Bruce B Downs Blvd (Wesley Chapel). Census road segments tested inside each CDP boundary.
+
+#### Pasco County (Wesley Chapel)
+
+The circuit's index, https://www.jud6.org/administrative-orders/, shows a Status field. 2026-035 and 2026-037 show "Active" as fetched. 2026-027 is the latest Pasco Circuit assignment order among the 20 listed most recent orders (2026-029 to 2026-048 show none later); it did not itself appear in that first page of the list. **NOT CONFIRMED: an "Active" flag for 2023-005 or PA-CIR-97-20.** The index's first page covers only recent orders. 2023-005 is on the circuit's older Criminal Division subject list, which also still lists the rescinded 2026-021, so that list is weak evidence. 2023-005 paragraph 8 keeps PA-CIR-97-20 alive as of February 2023, and 2026-037 and 2026-027 still organize by East and West Pasco.
+
+**6th Circuit Administrative Order 2026-035 PA-CIR, Uniform Bond Schedule, Pasco County, Effective October 1, 2026**
+https://www.jud6.org/trdv/view/7887/
+
+> The following bond schedule is effective through December 31, 2026:
+
+> THIS SCHEDULE IS FOR LAW ENFORCEMENT. THIS SCHEDULE DOES NOT BIND ANY JUDGE CONDUCTING FIRST APPEARANCE OR BAIL BOND HEARINGS.
+
+> Each crime of arrest requires a separate bond
+
+> For persons not covered by number (1), arrested for a third-degree felony that involves any amount of force or threat of force against a person. Bond: None First appearance required.
+
+> For persons not covered by number (1), arrested for a third-degree felony that does not involve any force or threat of force against a person. Bond: $5,000
+
+> Any felony driving offense or boating offense. Any felony failure to register charge. Bond: None First appearance required.
+
+First degree misdemeanor: $1,000 with force or threat, $500 without. Second degree misdemeanor: $250 with force or threat, $150 without and not DUI or BUI. DUI or BUI, felony or misdemeanor, $500 where the person has not caused damage to the property or person of another, been convicted of DUI or BUI, had one dismissed as part of a diversionary program, or had one reduced; otherwise "Bond: None".
+
+> If a person arrested is eligible for bond under this schedule, but jail staff or pretrial release staff are unable to make a determination as to their status under section 903.011(6), Florida Statutes, the defendant will be required to attend a first appearance hearing.
+
+> Effective October 1, 2026, Administrative Order 2026-025 is hereby rescinded
+
+The page gives a partial wait list and says so. **EXPIRES December 31, 2026: replace when the 2027 order issues.** This circuit's numbering moved in 2026: 2026-004, then 2026-021, then 2026-025 (corrected), then this one. The amounts are NOT Hillsborough's, which has a $2,500 third degree felony amount and a $5,000 force row; this order raises the first and removes the second, under the chief judge's authority cited as section 903.011(5)(d).
+
+**6th Circuit Administrative Order 2023-005 PA-CIR, Assignment of Criminal, Juvenile Delinquency, Juvenile Dependency and Traffic Cases in Pasco County**
+https://www.jud6.org/LegalCommunity/LegalPractice/AOSAndRules/aos/aos2023/2023-005.pdf
+
+> the Clerk will assign cases to the appropriate section at the Robert D. Sumner Judicial Center in Dade City for East Pasco County cases, or to the West Pasco Judicial Center in New Port Richey for West Pasco County cases.
+
+> The Clerk will designate a circuit or county criminal, juvenile delinquency, or traffic case as an East Pasco County case when the offense location is east of US Highway 41.
+
+> the applicable law enforcement officer must indicate on the Pasco County Complaint Affidavit next to the agency designation whether the case should be assigned to East Pasco or West Pasco
+
+> For all traffic cases, law enforcement must indicate on the Uniform Traffic Citation next to the designation for "County of" Pasco whether the case should be assigned to East Pasco or West Pasco
+
+> This Administrative Order does not prohibit the Chief Judge or the Pasco Administrative Judge from reassigning cases when determined necessary for the prompt and efficient administration of justice.
+
+**6th Circuit Administrative Order 2026-027 PA-CIR, Pasco Circuit Court Judicial Assignments, 24 June 2026**
+https://www.jud6.org/trdv/view/5777/
+
+East Pasco: "Sections 1, 2 ... All Criminal cases"; "Section 30 ... Adult Drug Court, Veterans Court". Judge names are left out of the page. Section numbers can change with a new assignment order.
+
+**6th Circuit Administrative Order 2026-037 PA-CTY, Pasco County Court Judicial Assignments, October 1, 2026**
+https://www.jud6.org/trdv/view/7889/
+
+East Pasco: "Section 10" and "Section 14", each "Misdemeanors, DUI, Criminal Traffic". Effective October 1, 2026, rescinding 2026-016. Section numbers can change.
+
+**6th Circuit Administrative Order PA-CIR-97-20, Assignment of Cases, Circuit Civil**
+https://www.jud6.org/LegalCommunity/LegalPractice/AOSAndRules/aos/aos97/AO9720pa.html
+
+> Any circuit civil case in which the defendant resides or the cause of action accrues or the property in litigation is located east of Range 17 East, in Pasco County shall be designated an East Pasco case and shall be assigned to the appropriate section and judge at the Pasco County Courthouse, Dade City, Florida.
+
+> Any circuit civil case in which the defendant resides or the cause of action accrues or the property in litigation is located west of Range 18 East, in Pasco County shall be designated a West Pasco case
+
+> to the appropriate section and courthouse facility located nearest the principal office of the plaintiff's attorney; or ... to the appropriate courthouse facility on an alternating east - west basis.
+
+A 1997 order. The page describes the tiebreak only as "a rule for choosing", because its first branch turns on where the plaintiff's lawyer's office is.
+
+**Pasco County, Corrections and Inmate Services**
+https://www.pascocountyfl.gov/services/pasco_corrections/index.php and https://www.pascocountyfl.gov/inmate_services/index.php
+
+In Custody list linked at https://jailinfo.pascocorrections.net/jmc/#/inCustody.
+
+> Pasco County Corrections, Pasco Sheriff's Office, and inmate attorneys will NEVER request payment to secure someone's release.
+
+> To bond an individual out of custody, always work with a licensed, reputable bond agent or post a cash bond directly at the Detention Facility.
+
+> Report scams at 727.847.8102, option 7.
+
+> All personal video visits are subject to monitoring and recording.
+
+> All messages and photos are subject to review by the facility.
+
+Pasco Corrections, 20101 Central Blvd, Land O' Lakes, FL 34637. Pasco County Resource and Visitation Building, 10326 Asbel Road, Land O' Lakes. Visits "must be scheduled, at a minimum of 17 hours in advance".
+
+**Pasco Sheriff's Office, Pasco County Detention Center Management Transition, 3 October 2022**
+https://news.pascosheriff.com/pasco-sheriffs-office-community-news/pasco-county-detention-center-management-transition/
+
+> On October 1, 2022, the management of the Pasco County Detention Center transitioned to Pasco County's Board of County Commissioners. Inquiries about the detention center, including inquiries about those in custody, should be directed to the Pasco County Government moving forward.
+
+**Pasco Sheriff's Office, Victims' Rights Brochure** (file dated in 2026)
+https://pascosheriff.com/wp-content/uploads/2026/09/VRB-081826-1.pdf
+
+> Within 24 hours of arrest, defendants who have not posted bond will appear before a judge for an Advisory Hearing. These hearings are typically held Monday through Friday at 1:00 pm, and Saturday and Sunday at 8:00 am. These times are subject to change. During these hearings, defendants remain at the detention center, appearing by video.
+
+> please contact the Booking Department at (813) 235-6070 to determine the courthouse where advisories are being held.
+
+CAUTION: this is the Sheriff's brochure, and the county has run the jail since 2022. 813-235-6070 is the only booking number found in a current official source; a call to confirm it before launch would be wise. 813-996-6982 appears on the county's page only for the visitation building, extension 6419, and on an old Sheriff's form, so it is not used. The brochure is written for victims; the page uses only its description of the hearing.
+
+**Pasco County Clerk & Comptroller**
+https://www.pascoclerk.com/172/Search-Court-Records , https://www.pascoclerk.com/219/Criminal-Courts , https://www.pascoclerk.com/368/Office-Locations-and-Directions , https://www.pascoclerk.com/774/Civil
+
+Online Court Records Search and "Case Section/Division Lookup". Robert D. Sumner Judicial Center, 38053 Live Oak Avenue, Dade City.
+
+> Felony, misdemeanor, and criminal traffic case files are available for public viewing unless the case has been sealed, expunged, or is confidential by law.
+
+CONFLICT: the Clerk's Civil page says "Circuit Civil cases are actions where damages sought exceed $30,000." That is out of date against the statute below. The page uses $50,000 and cites the statute, not the Clerk.
+
+**F.S. 34.01(1)(c), 2025 Florida Statutes**
+https://www.flsenate.gov/Laws/Statutes/2025/34.01
+
+> 3. If filed on or after January 1, 2023, the sum of $50,000.
+
+**M.D. Fla. Local Rule 1.04(a)**
+https://www.flmd.uscourts.gov/local-rules/rule-104-divisions-and-place-file
+
+Tampa Division: "Hardee County Hillsborough County Manatee County Pasco County Pinellas County Polk County Sarasota County". Agrees with `middleDistrict` in src/lib/middle-district.ts.
+
+**Pasco Sheriff's Office, Contact and news items**
+https://pascosheriff.com/contact/ and https://news.pascosheriff.com/pasco-sheriffs-office-community-news/attempt-to-identify-vehicle-burglary-wesley-chapel/
+
+The news title reads "Attempt to Identify: Vehicle Burglary, Wesley Chapel", showing the Sheriff handling a Wesley Chapel incident. Body text was not readable on fetch. No page names the Sheriff, because sources conflict: the 2026 orders and brochure name Chris Nocco, and the news site footer links "Sheriff Jeff Harrington".
+
+**BLM National PLSS, CadNSDI**
+https://gis.blm.gov/arcgis/rest/services/Cadastral/BLM_Natl_PLSS_CadNSDI/MapServer
+
+Point tests: Wesley Chapel CDP's westernmost point, -82.4035, 28.18649, is "26S 19E". Its easternmost point, -82.24588, 28.20474, is "26S 21E".
+
+INFERENCES, Pasco, for the attorney read:
+
+1. **Wesley Chapel is East Pasco for criminal cases.** The order does not name it. Census data puts the CDP's westernmost point at -82.4035, and US 41 runs at about -82.4575 or further west at those latitudes, roughly 5 km away. The page says "should". An address outside the CDP but with a Wesley Chapel mailing address was not checked.
+2. **Wesley Chapel is East Pasco for civil cases.** Every point tested is Range 19 East or higher, so east of Range 17 East and not west of Range 18 East. That assumes the crash happened there. A defendant living in West Pasco would make the case eligible for both, and the page says so.
+3. **The Sheriff makes most Wesley Chapel arrests.** From CDP status. The page says "usually".
+4. **County line.** The CDP's southern limit, 28.17117, matches the county line per Census road and place data. The page says an offense south of the line is a Hillsborough case.
+5. **Reader-facing paraphrase of a scam warning.** The county's words include "inmate attorneys". The page omits them and names Corrections and the Sheriff.
+
+---
+
+### Location pages, Sixth Judicial Circuit, Pinellas County (St. Petersburg pages) (D154)
+
+#### Location pages: Sixth Judicial Circuit, Pinellas County, and St. Petersburg (D154)
+
+All fetched 2026-11-09. Shared county facts are in `src/lib/location-data/sixth-circuit.ts`; the Clearwater writer should read this file first.
+
+#### READ THIS FIRST, for the Clearwater pages
+
+1. **No criminal split.** Every criminal and traffic section is at the Justice Center. There is no St. Petersburg or Clearwater routing for a criminal case. Do not write one.
+2. **Civil splits by the ZIP code of the plaintiff's lawyer**, or the plaintiff if unrepresented, and not by crash location. The firm's ZIP, 33511, is on no list, so paragraph 2(g) applies.
+3. **Traffic follows the citing agency**, and FHP moves from Traffic Court I to II on January 1, 2027. Clearwater PD and Tarpon Springs PD are in Traffic Court I, Largo PD in II, in both orders. Dunedin, Oldsmar, Safety Harbor are Sheriff contract cities (North District); check any town yourself. Palm Harbor and New Port Richey were not checked. New Port Richey is in Pasco County, which has its own bond order (2026-035), its own assignment order (2023-005), and is not covered by anything here.
+4. **Index caution.** The live index is https://www.jud6.org/administrative-orders/ and shows 20 orders per page, 2026-029 to 2026-048 on page 1; later pages load by script and could not be opened. The older subject pages under /LegalCommunity/.../SubjectAO/ lag it: the Criminal page still lists bond order 2026-022, which 2026-036 replaced through 2026-026. PDFs at www.jud6.org/.../aos2026/ return 404; the same paths on archive.jud6.org work, and live orders are at www.jud6.org/trdv/view/<id>/.
+
+#### Administrative orders
+
+**6th Circuit Administrative Order 2026-036 PI-CIR, Uniform Bond Schedule, Pinellas County, effective October 1, 2026**  
+https://www.jud6.org/trdv/view/7888/  
+Listed Active on the index. Signed September 16, 2026.
+
+> Each crime of arrest requires a separate bond pursuant to section 903.02(4), Florida Statutes, and Florida Rule of Criminal Procedure 3.131(b)(2).
+
+> The following bond schedule is effective through December 31, 2026:
+
+> THIS SCHEDULE IS FOR LAW ENFORCEMENT. THIS SCHEDULE DOES NOT BIND ANY JUDGE CONDUCTING FIRST APPEARANCE OR BAIL BOND HEARINGS.
+
+> For persons not covered by number (1), arrested for a third-degree felony that involves any amount of force or threat of force against a person. Bond: None First appearance required.
+
+> For persons not covered by number (1), arrested for a third-degree felony that does not involve any force or threat of force against a person. Bond: $5,000
+
+> Any felony driving offense or boating offense. [and] Any felony failure to register charge. Bond: None First appearance required.
+
+> For persons not covered by number (1), arrested for any felony or misdemeanor while on any form of supervised pretrial release or bond with supervised condition(s).
+
+> If a person arrested is eligible for bond under this schedule, but jail staff or pretrial release staff are unable to make a determination as to their status under section 903.011(6), Florida Statutes, the defendant will be required to attend a first appearance hearing.
+
+> Effective October 1, 2026, Administrative Order 2026-026 is hereby rescinded, and Administrative Order 2021-016 is rescinded to the extent it conflicts with this Administrative Order.
+
+Amounts on the page: first degree misdemeanor $1,000 with force, $500 without; second degree $250 with, $150 without; DUI or BUI $500 "whether charged as a felony or misdemeanor" if the person has not caused damage to the property or person of another, been convicted of DUI or BUI, had one dismissed in diversion, or had one reduced; otherwise none. The page's wait list is partial and says so. The order rests on the chief judge's authority under s. 903.011(5)(d) "to locally increase the monetary bond". **EXPIRES December 31, 2026: replace when the 2027 order issues.**
+
+Comparison used on the pages: Hillsborough's 2026 figure of $2,500 for a third degree felony with no force is from S-2025-063, already recorded.
+
+**6th Circuit Administrative Order 2021-016 PI-CIR, Uniform Bond Schedule, Pinellas County**  
+https://www.jud6.org/LegalCommunity/LegalPractice/AOSAndRules/aos/aos2021/2021-016.pdf
+
+> All law enforcement agencies in Pinellas County are urged to use a Notice to Appear (NTA), pursuant to Rule of Criminal Procedure 3.125, where permitted by law.
+
+> For persons charged with an ordinance violation or a first or second degree misdemeanor, the booking officer may issue a NTA in accordance with Rule of Criminal Procedure 3.125 if the booking officer determines that there is a likelihood that the accused will appear as directed and the defendant is not otherwise required to be held.
+
+> If the arrest is based upon a warrant, the booking officer shall confirm that the bond on the warrant has been correctly placed on the complaint affidavit, and, if not, enter the bond amount set out in the warrant.
+
+> For misdemeanor offenses which will be charged by an information, the Sheriff is authorized to issue a NTA to any pre-trial defendant whose highest charge is a first degree misdemeanor when such incarcerated pre-trial defendant has not been charged by an information or NTA within (7) days following first appearance, excluding weekends and holidays.
+
+The same paragraph excludes domestic violence, non-domestic stalking, injunction violations, and pretrial release violations on a domestic violence arrest.
+
+INFERENCE, for the attorney read: 2026-036 rescinds 2021-016 only "to the extent it conflicts". The pages treat the notice-to-appear, warrant, and 7-day paragraphs as surviving, because 2026-036 does not address them. The 7-day step in `PINELLAS_TIMELINE` and two hub FAQ answers rest on this. The old dollar table in 2021-016 is not used.
+
+**6th Circuit Administrative Order 2026-038 PI-CIR, Pinellas Circuit Court Judicial Assignments, effective October 12, 2026**  
+https://www.jud6.org/trdv/view/7890/  
+Listed Active. The headings are the routing fact: "PINELLAS COUNTY JUSTICE CENTER JUDICIAL ASSIGNMENTS", then "CRIMINAL COURT SECTIONS" A, B, C, D, I, J, K, M, N, Q, T, Z. "CLEARWATER JUDICIAL ASSIGNMENTS" lists civil 7, 15, 20, 60, family, probate. "ST. PETERSBURG JUDICIAL ASSIGNMENTS" lists civil 11, 13, 19, family, probate. No criminal section is listed under St. Petersburg. Judges are not named on the pages.
+
+**6th Circuit Administrative Order 2026-014 PI-CTY, Pinellas County Court Judicial Assignments, May 1, 2026**  
+https://archive.jud6.org/LegalCommunity/LegalPractice/AOSAndRules/aos/aos2026/2026-014.pdf  
+CAUTION: listed on the Judicial Assignments subject page, which lags the index. No later county court assignment order appears in 2026-029 to 2026-048; orders 2026-024 to 2026-028 could not be opened, so a later one is possible but no sign of it was found.
+
+> CRIMINAL SECTIONS PINELLAS COUNTY JUSTICE CENTER
+
+> Section R ... All Domestic violence cases, including Violations of Probation
+
+> Advisory /Section P ... As scheduled by the Court, conducts misdemeanor and felony advisories; Local Ordinance Violations and non-criminal payable infractions; bond calendars; extradition matters; and other duties assigned by the Court
+
+> PINELLAS COUNTY JUSTICE CENTER –TRAFFIC COURT I ... PINELLAS COUNTY JUSTICE CENTER –TRAFFIC COURT II
+
+Civil and small claims: "CLEARWATER – CLEARWATER HISTORIC COURTHOUSE" (41, 42, 47, 48) and "ST. PETERSBURG – ST. PETERSBURG JUDICIAL BUILDING" (39, 40, 45, 46).
+
+**6th Circuit Administrative Order 2026-002 PI-CIR, Assignment of Circuit Civil, Family Law, County Civil, and Small Claims Cases in Pinellas County, effective February 9, 2026**  
+https://archive.jud6.org/LegalCommunity/LegalPractice/AOSAndRules/aos/aos2026/2026-002.pdf
+
+> For the Circuit Civil Division, cases will be assigned based upon the Zone Improvement Plan (ZIP) code of the plaintiff's attorney or if the plaintiff is unrepresented, the ZIP code of the plaintiff, except as provided in this Administrative Order.
+
+> Unless otherwise provided for in this Administrative Order, cases with a ZIP code not listed in this Administrative Order are to be assigned in a manner that results in an even distribution of the cases among all civil sections in Clearwater and St. Petersburg.
+
+Paragraph 2(a), Clearwater sections 7, 15, 20: 33755 to 33767, 33769 to 33771, 33774, 33775, 33778, 33779, 33785, 33786, 34660, 34677, 34681 to 34685, 34688, 34689, 34695, 34697, 34698, plus a long run of Pasco codes. Paragraph 2(b), St. Petersburg sections 11, 13, 19: 33701 to 33716, 33729 to 33734, 33736 to 33738, 33740 to 33744, 33747, 33772, 33773, 33776, 33777, 33780, 33781, 33782, 33784. Paragraph 4 repeats the rule for county civil and small claims. Note the family law lists differ: 33772 to 33780 and 33784 are Clearwater there. Paragraph 2(h) lets the court office adjust the share of unlisted cases.
+
+Paragraph 3(i): injunction petitions go to "sections CV1, CV2, and CV3 in Clearwater".
+
+INFERENCES, for the attorney read: (1) 33511 appears on no list, so a suit the firm files falls under 2(g) and can go to either location. The pages say so. Co-counsel or a different filing address would change it. (2) The order assigns a section once a case is filed in Pinellas County. It says nothing on which county is the right venue, and the pages say "if a suit is filed in Pinellas County". (3) The order calls circuit civil locations only "in Clearwater", naming no building, so the pages name no Clearwater building for circuit civil.
+
+**6th Circuit Administrative Order 2024-029 PI-CIR, Restructuring of Traffic Court, effective January 6, 2025 (in force until January 1, 2027)**  
+https://archive.jud6.org/LegalCommunity/LegalPractice/AOSAndRules/aos/aos2024/2024-029.pdf  
+**6th Circuit Administrative Order 2026-048 PI-CIR, Traffic Court and Assignment of Traffic Cases in Pinellas County, effective January 1, 2027**  
+https://www.jud6.org/trdv/view/8285/
+
+> Criminal traffic and non-criminal traffic infraction cases, excluding DUI cases, are to be assigned to Section TC-I or TC-II based upon the agency issuing the citation as provided in this Administrative Order.
+
+Current table, 2024-029. Traffic Court 1: Pinellas County Sheriff's Office, Florida Highway Patrol, Clearwater PD, Tarpon Springs PD, Belleair PD, Treasure Island PD, FWC, Kenneth City PD, Other. Traffic Court 2: Largo PD, St. Petersburg PD, Pinellas Park PD, Gulfport PD, Indian Shores PD. Table in 2026-048 is the same except that **Florida Highway Patrol moves to Traffic Court II on January 1, 2027**.
+
+> The Clerk's Office will set the case for arraignment within 20 days from the receipt of the citation.
+
+> New DUI criminal traffic cases, plus related non-DUI criminal and civil traffic infractions, for defendants with no prior county court history, will be assigned on an equal random blind basis to one of the county criminal sections—E, F, G, H, L, or V.
+
+> If the defendant has current pending cases in a county criminal section, the new DUI criminal traffic case and all related cases will be assigned to the section with the most recent assignment
+
+> Cases will also be transferred when the defendant has appointed counsel or files a demand for jury trial.
+
+That last sentence sits in the companion-case paragraph, so the page says a jury demand "usually" moves a case. Local Rule 1(C)4 also sends a traffic jury trial to the Justice Center.
+
+INFERENCE: St. Pete Beach is not on the table. The pages treat its citations as Sheriff's Office citations, because deputies police the city under contract.
+
+**6th Circuit Administrative Order 2020-019 PI-CTY, Misdemeanor Notice to Appear and Ordinance Violations**  
+https://www.jud6.org/LegalCommunity/LegalPractice/AOSAndRules/aos/aos2020/2020-019.pdf
+
+> Issue NTAs for misdemeanor violations returnable to Pinellas County Justice Center, 14250 49th Street North, Clearwater, Florida 33762.
+
+> Issue NTAs for local ordinance violations or non-criminal payable infractions returnable to Courtroom 16, Pinellas County Justice Center
+
+> Notices for municipal violations and county violations filed by the Pinellas County Sheriff's Office shall be returnable at 1:30 p.m. on the fifth Thursday following issuance.
+
+Section 4(a): assignment turns on pending misdemeanor cases, then the most recent section, then "equal, at random, blind". The order names sections E to L; 2026-014 and 2026-048 add V. The pages tell readers to go by the date on their own notice.
+
+**6th Circuit Administrative Orders 2007-009 PI-CTY and 2006-097 PA/PI CIR, first appearance**  
+https://www.jud6.org/LegalCommunity/LegalPractice/AOSAndRules/aos/aos2007/2007-009.htm
+
+> First appearances for domestic violence criminal cases assigned to section R remain in section R.
+
+Paragraph 3: on Saturday and Sunday the advisory judges take first appearances, including domestic violence. CAUTION: this is a 2007 order, still on the Criminal subject page and not named in the obsolete-orders order 2026-001. The hub's weekday Section R sentence relies on it alone. 2006-097 (recorded rights advisement played by Sheriff's staff) was read and not used.
+
+**6th Circuit Administrative Order 2019-066 PA/PI-CIR, Adult Drug Court** (first 5 paragraphs read)  
+https://www.jud6.org/LegalCommunity/LegalPractice/AOSAndRules/aos/aos2019/2019-066.pdf
+
+> The State Attorney's Office is to identify which cases are to be heard in drug court.
+
+> If the defense attorney desires to have a case heard in drug court, he or she must make a request to transfer, which must be processed and approved by the State Attorney's Office.
+
+Section N is the Pinellas drug court section, and paragraph 2 says the State Attorney's Office provides pre-trial intervention.
+
+**Sixth Judicial Circuit Local Rules 1 and 3**  
+https://www.jud6.org/trdv/view/7409/
+
+**Local Rule 3(A), Initial Assignment of Cases:**
+> All suits, causes, actions and proceedings shall be assigned to a section in a division on an equal, at random, blind assignment system, except when cases are assigned by administrative order or when a case is assigned by the Chief Judge or his or her designee.
+
+INFERENCE: no order was found assigning ordinary Pinellas felonies by another method, so the hub says felonies go at random under the rule "unless an order says otherwise". 2016-009 (Section J) and 2019-066 (Section N) are such exceptions. 2005-060 (Section T) and PI-CIR-99-47 (career criminal) were not read.
+
+**6th Circuit Administrative Order 2026-001, Obsolete Administrative Orders**  
+https://archive.jud6.org/LegalCommunity/LegalPractice/AOSAndRules/aos/aos2026/2026-001.pdf  
+Rescinds 2006-107 (County Criminal Section), not used. It names none of the orders the pages cite.
+
+**Left out on purpose:** 2026-009, a veterans' court session at Bay Pines on March 28, 2026. It was a single past date. Worth a look if another one is ordered.
+
+#### Court and clerk pages
+
+**Sixth Judicial Circuit, Duty Judge Calendar**  
+https://www.jud6.org/court-calendars/duty-judge-calendar-current-week/  
+Read through WebFetch's summary, week of November 2 to 8, 2026, so confirm wording against the page.
+
+> An advisory judge is on duty on weekends and holidays from 8:30 AM to approximately 12:00 PM
+
+Pinellas weekday table lists "County Justice Center – Advisory". People planning to attend should confirm by "calling State Attorney Dispatch (727) 464-6221". CAUTION: the notice is not limited to Pinellas, and 727-464-6221 is also the county's listing for the State Attorney in Pinellas.
+
+NOT VERIFIED AND LEFT OUT: whether advisories are by video, and the exact room. The Inmate Handbook calls it "advisory court" and does not say.
+
+**Sixth Judicial Circuit, courthouse pages**  
+https://www.jud6.org/courthouse/st-petersburg-judicial-building/ , /pinellas-county-justice-center/ , /clearwater-historic-courthouse/ , /clearwater-courthouse/
+
+> Serving South Pinellas County, the St. Petersburg Judicial Building handles both Circuit and County court matters, with a primary focus on Family Court proceedings, civil matters, and public judicial services.
+
+> The Pinellas County Justice Center is the primary criminal and judicial facility for Pinellas County, housing Circuit and County courts, the Clerk of Court, and Jury Assembly.
+
+Addresses: 545 1st Avenue North, St. Petersburg 33701; 14250 49th Street North, Clearwater 33762; 324 South Ft. Harrison Avenue, Clearwater 33756. CAUTION: these pages carry boilerplate from the West Pasco page, including a (727) 847-8128 phone. Do not use that number.
+
+**Pinellas County Clerk of the Circuit Court, Public Access Case Records**  
+https://courtrecords.mypinellasclerk.gov/
+
+> Most information and documents available on this site require no registration.
+
+> Case searches for mental health, probate, guardianship, juvenile, and domestic relations cases will not return complete results if searching as the general public
+
+Search tabs are Name, Case, Attorney, Calendar, and the help covers case and citation numbers. The page says "no registration", not "free", so the pages do not say free. Fetched with curl over HTTP/1.1 at the non-www host; www.mypinellasclerk.gov and WebFetch return 403.
+
+**Pinellas County Clerk, Hearing Search**  
+https://mypinellasclerk.gov/View-Records/Hearing-Search
+
+> This service is designed to provide value to customers looking for a quick lookup for upcoming or recently past Criminal or Traffic hearings. These searches are regularly updated but are not part of the official court record.
+
+**Pinellas County Clerk, Civil Court**  
+https://mypinellasclerk.gov/Home/Civil-Court
+
+> This court area handles all cases where damages sought are over $8,000 but less than $50,000 excluding costs, interest and attorney fees
+
+> has jurisdiction where damages do not exceed $8,000 exclusive of costs, interest or attorney fees.
+
+CAUTION: the same page has an older line, "in excess of $30,000", beside the current $50,000. **F.S. 34.01(1)(c) (2025)**, https://www.flsenate.gov/Laws/Statutes/2025/34.01 , read through WebFetch: "If filed on or after January 1, 2023, the sum of $50,000." New record at that subsection.
+
+**Pinellas County Clerk, Criminal Court**  
+https://mypinellasclerk.gov/Home/Criminal-Juvenile
+
+> Traffic Court hearings are held at the following location: Pinellas County Justice Center 14250 49th St. N. Clearwater, FL 33762
+
+> Persons charged with a criminal offense will have a court date shown on their traffic ticket and must appear in court.
+
+Also says a public defender application carries a $50 fee. Not used. The Clerk's main phone is 727-464-7000. The Clerk has a Self Help Center in the St. Petersburg Judicial Building, Room 103, not used (D7).
+
+#### Sheriff and county
+
+**Pinellas County Sheriff's Office, How to Post Bond**  
+https://pinellassheriff.gov/Post-Bond
+
+> Individuals may use this program to apply up to $2,500, per charge.
+
+> Surety bonds are accepted from registered bonding agents.
+
+> Cash bonds are accepted in the full amount of the bond. In order to post a cash bond, you will need to present a valid photo ID.
+
+> All bank checks, Traveler's Checks and Money Orders must be made payable to the Clerk of the Circuit Court. No personal checks will be accepted.
+
+> Contact Inmate Records 727-464-6415
+
+**Pinellas County Sheriff's Office, Inmate Information**  
+https://pinellassheriff.gov/InmateInfo
+
+> Inmates/detainees are not able to receive incoming phone calls; however, they may purchase credits from Smart Communications place outgoing calls using their assigned tablets or housing unit kiosks.
+
+Legal mail address: 14400 49th Street North, Clearwater, FL 33762. Pinellas County's contact page gives the jail as "14400 49th St. N., Largo, FL 33778" with the same phone. The pages use the Sheriff's version. Who's In Jail is https://whosinjail.pinellassheriff.gov , linked from the Sheriff's site; it is a script page and could not be read, so its search options are not described.
+
+INFERENCE, for the attorney read: no source states that the jail is the only booking site for adults. The pages say adults are "usually" taken there.
+
+**Pinellas County Sheriff's Office, Patrol Operations Bureau**  
+https://pinellassheriff.gov/patrol
+
+> serves ten law enforcement contract cities: Belleair Beach, Belleair Bluffs, Belleair Shore, Indian Rocks Beach, Madeira Beach, North Redington Beach, Redington Beach, Seminole, South Pasadena, and St. Pete Beach.
+
+> The Central District station is housed in the Sheriff's Administration Building in Largo.
+
+North District "serves three law enforcement contract cities: Dunedin, Oldsmar, and Safety Harbor."
+
+**Pinellas County Sheriff's Office, Crash Report Policy**  
+https://pinellassheriff.gov/CrashReports/CrashPolicy
+
+> To retrieve a report, you will be required to enter the report number supplied by the Deputy at the scene, the date the crash occurred and the last name of the driver involved in the crash.
+
+> This site only hosts reports investigated by the Pinellas County Sheriff's Office for one year after the crash.
+
+> Please check back after at least two weeks before contacting our Records Division. If you need assistance, you may call our Records Division at 727-582-6281.
+
+**Pinellas County, Non-Emergency Phone Numbers**  
+https://pinellas.gov/non-emergency-phone-numbers/
+
+> PCSO Dispatch Only – Pinellas County Sheriff's Office will dispatch to the local/city agency
+
+St Petersburg 727-893-7780; Sheriff's Office 727-582-6200; FHP Pinellas Station 727-217-8820; Jail (727) 464-6415. Gulfport, Kenneth City and Treasure Island: 727-582-6200 (PCSO Dispatch Only). St Pete Beach: (PCSO). CAUTION: Pinellas Park shows "(PCSO)" rather than "Dispatch Only", though the city runs its own department. The city's site and AO 2024-029 control, and the page uses the city's number.
+
+**Pinellas County, Contact Information and Location Maps**  
+https://pinellas.gov/contact-information-and-location-maps/  
+State Attorney at the Justice Center, (727) 464-6221. The State Attorney's site, https://www.sao6.org/ , lists Pinellas County Justice Center as an office.
+
+#### Who polices each town
+
+**St. Petersburg Police Department, Records Division**  
+https://police.stpete.org/policeRecordsDivision/
+
+> Most accident reports are not available for 10-14 days after they are turned in
+
+> Accident reports can generally not be provided to anyone other than the persons involved, their insurance companies or their attorneys until 60 days after the accident.
+
+1301 First Avenue North, 33705. Records counter Monday to Friday, 8:00 AM to 4:30 PM, excluding holidays. Information desk 727-893-7521. The department's home page has "State of Florida Self-Report Traffic Crash".
+
+**City of Pinellas Park, Police Department and Police Records**  
+https://www.pinellas-park.com/1771/Police and https://www.pinellas-park.com/672/Police-Records
+
+7700 59th Street N, 33781, 727-369-7864. Records Section 727-369-7836, PoliceReports@pinellaspark.gov.
+
+> A crash report may only be released prior to 60 days with the following exceptions: (Individuals involved in the crash, Legal representatives of the parties involved, Insurance agencies representing the parties involved, State and local Law Enforcement agencies). A Sworn Statement must be completed by the requesting party.
+
+**City of Gulfport, Police Department**  
+https://mygulfport.us/police/ , reached by redirect from gulfportpolice.com
+
+2401 53rd Street South, 33707. "Hours of operation: 24/7". Non-emergency (727) 582-6177. Records (727) 893-1041, Monday to Friday, 8:00 am to 4:30 pm. Subpages would not load.
+
+**City of Treasure Island, Police Department**  
+https://www.mytreasureisland.org/residents/departments/police_dept/index.php , /records_lost_and_found.php , /pay_a_ticket.php
+
+180 108th Avenue, 33706. Business hours Monday to Friday, 8:00AM to 4:00PM. Records 727-547-4592, records@mytreasureisland.org.
+
+> NON-EMERGENCY POLICE: (727) 547-4595 These phone numbers are for immediate police assistance, monitored 24/7 by the Pinellas County Sheriff's Office.
+
+> Using 3rd party vendors, such as DOXO, may delay your payments and additional fines may be assessed.
+
+> you cannot dispute a ticket once it has been paid for.
+
+The city's "Request a Traffic Accident Report" link goes to the Sheriff's accident report policy. Sheriff's press releases from 2015 to 2021 show its crash team working Treasure Island crashes, and a search excerpt said it contracts for that. The fetched releases did not confirm the contract, so it is left out.
+
+**Town of Kenneth City, Police Department**  
+https://www.kennethcityfl.org/government/police
+
+Non-emergency (727) 582-6200. Administration / Records (727) 498-8942. 4600 58th Street N., Kenneth City, FL 33709.
+
+INFERENCES, for the attorney read: (1) "inside the city it is usually" the city's department, on each page; (2) Treasure Island is "nearby" St. Pete Beach, from general knowledge, not from a source; (3) the officers who respond in Treasure Island and Kenneth City are the town's own, from the county's "PCSO Dispatch Only" key.
+
+#### Federal and state
+
+**U.S. District Court, Middle District of Florida**  
+https://www.flmd.uscourts.gov/
+
+> Serving Hardee, Hillsborough, Manatee, Pasco, Pinellas, Polk and Sarasota Counties
+
+801 North Florida Avenue, Tampa, Florida 33602, "The Sam M. Gibbons United States Courthouse". Agrees with `middleDistrict` in src/lib/middle-district.ts.
+
+**FLHSMV, Traffic Crash Reports**  
+https://www.flhsmv.gov/traffic-crash-reports/ , read through WebFetch's summary
+
+> The fee for crash reports is $10.00 per report, per section 321.23, Florida Statutes.
+
+> A convenience fee of $2.00 will be applied to each total transaction through the Florida Crash Portal.
+
+Portal: https://services.flhsmv.gov/CrashReportPurchasing/
+
+**Reused from records above, no new fetch:** Rule 3.130(a); Rule 3.134(a) and (b); Rule 3.191(a), (d), (f) and (o); F.S. 95.11; F.S. 627.736(1)(a); F.S. 768.81; the DUI 10-day rule, F.S. 322.2615(1)(b)3; Brandon's address and phone.
+
+One line goes beyond the recorded bar: the injury hub says "Up to 50 percent, fault lowers what you can recover". F.S. 768.81 is recorded whole, but this file's WHY note covers only the bar in subsection (6). Check it in the attorney read.
+
+---
+
+### Location pages, Twelfth Judicial Circuit, Sarasota County (D154)
+
+#### Sarasota market and hubs (D154). Fetched 2026-11-09.
+
+All Twelfth Circuit orders below are listed as in effect on the circuit's index on the fetch date, not marked expired or superseded: https://www.jud12.flcourts.org/Documents/Administrative-Orders. Each is reached through its viewer page at /Documents/Administrative-Orders/Administrative-Order-Viewer/aid/<id>. All read as text PDFs, in full unless noted.
+
+**12th Circuit Administrative Order 2025-22.3, Amended Uniform Bond Schedule (aid 687), signed 23 December 2025**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/2025-22.3.pdf
+
+> This uniform statewide bond schedule shall not bind a judge in an individual case who is conducting a first appearance hearing or bail determination.
+
+> Each crime of arrest requires a separate bond
+
+> No bond amount will be imposed, and a person may not be released before first appearance hearing upon the offense of Domestic Battery.
+
+> This Administrative Order shall take effect on January 1, 2026, and remain in full force and effect until otherwise ordered by this Court.
+
+Section 1 is the wait list used on the page, which gives part of it and says so. Section 2: Rule 3.132(a) dangerous crimes. Section 6: the amounts on the page, the same as the statewide schedule. Left off the list on purpose: the unauthorized alien, riot, gang, racketeering, arson, and witness-tampering items, covered by "only part of the order's list." The distribution list names Sarasota, Venice, North Port and Longboat Key Police Departments and the Sheriff's Office. **The order has no end date of its own, but rests on the schedule below.**
+
+**Florida Supreme Court AOSC25-69, Uniform Statewide Bond Schedule**
+https://flcourts-media.flcourts.gov/content/download/2482757/file/AOSC25-69.pdf
+
+> The bond schedule below is effective from January 1, 2026, through December 31, 2026.
+
+**EXPIRES 31 December 2026.** The Twelfth Circuit has amended its local order each cycle (2023-21.3, 2024-06.3, 2024-06a.3, 2025-22.3). No 2027 schedule was found on the fetch date.
+
+**12th Circuit Administrative Order 2026-12.2, Second Amended Modification of South County Judicial District (aid 703), signed 27 August 2026, effective immediately**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section02/2026-12.2.pdf
+
+> shall be defined as that land within Sarasota County lying south of a line running east and west along Blackburn Point Road, extending east to the eastern boundary of Sarasota County.
+
+> The physical location of the courthouse is the South County Courthouse, 4004 South Tamiami Trail, Venice, Florida 34293.
+
+> The Clerk shall continue to docket all traffic and misdemeanor cases arising within the South County Judicial District of Sarasota County at the South County Courthouse.
+
+> Mortgage Foreclosures, Mental Health cases initiated by a licensed mental health facility in Sarasota, Felony and Juvenile Cases: All of these cases shall continue to be docketed, filed, and heard in North Sarasota County.
+
+Section 4.A: county civil and general circuit civil actions are filed at the South County Courthouse when "The Defendant/Respondent resides within the South County Judicial District of Sarasota County or within Charlotte County, Florida", "The cause of action arose within the South County Judicial District", or the property in litigation is there. Section 4.B: other venue "at the option of the Plaintiff" under F.S. 47.021, 47.041, 47.051 and 47.061, and the Clerk "may transfer the filings". Section 8: "South County Criminal Divisions E and F". Section 9: nothing modifies statutory venue.
+
+CONFLICT, resolved for the order: the Public Defender's page below gives Stickney Point Road as the line. The court's August 2026 order says Blackburn Point Road, and the page uses the order.
+
+**12th Circuit Administrative Order 2024-23.3, Amended Assignment of Felony Cases (aid 656), effective January 1, 2025**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/2024-23.3.pdf
+
+> Division II: A through G, except E
+
+> Division IV: P through Z
+
+> Division VI: H through O, plus E
+
+Paragraphs 3 to 6 and 11: co-defendants, related cases, an open felony, refiled cases. Paragraph 13: cases pending before the order are not moved without a motion and good cause.
+
+CONFLICT, resolved for the order: the Public Defender's page shows an older table (IV: E, H to O; VI: P to Z). The order is later and controls.
+
+**12th Circuit Administrative Order 2009-9.2, First Appearance Schedules (aid 220)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section02/09-09-2.pdf
+
+Weekday: "Sarasota County: 1:00 p.m." (extraction reads "I :00"). Weekend and holiday: "Sarasota County: 9:00 a.m." Old, but listed as in effect and matched by the Sheriff's page below.
+
+**Sarasota County Sheriff's Office, Community Affairs Office**
+https://www.sarasotasheriff.org/news/community_affairs_office/index.php
+
+> Sarasota County's first appearance generally takes place daily Monday – Friday at 1:00 p.m., and on Saturdays, Sundays and holidays at 9:00 a.m. The first appearance courtroom is located within the Sarasota County Correctional Facility, a secured building located at 2020 Main Street in Sarasota.
+
+The next sentence, on media access, refers to first appearance "from a courtroom within the Judge Lynn N. Silvertooth Judicial Center". The page uses the courtroom at the jail, which the Sheriff states directly. FOR THE ATTORNEY READ: confirm the jail courtroom is the regular one. Whether family can attend in person or watch was not found and is not stated.
+
+**Sarasota County Sheriff's Office, Victim's Rights**
+https://sarasotasheriff.org/programs_and_amp_services/victim_s_rights.php
+
+> FIRST APPEARANCE - Occurs within 24 hours of an arrest.
+
+> The Judge will also consider conditions of release and appoint a defense attorney if the suspect cannot afford one.
+
+**Sarasota County Sheriff's Office, Corrections**
+https://www.sarasotasheriff.org/corrections
+
+Sarasota County Correctional Facility, 2020 Main Street, Sarasota, FL 34237. 941.861.4601. Lobby "Daily 7a.m. to 7p.m." The "Who's in Jail?" link goes to the Arrests and Inmates page.
+
+**Sarasota County Sheriff's Office, Jail Booking**
+https://www.sarasotasheriff.org/corrections/jail_booking/index.php
+
+> Then the arrestee is photographed, fingerprinted, a full medical screening is conducted and a Pre-Trial Services interview is completed.
+
+> Bail payments up to $7,500 can be made for inmates at the Sarasota County Jail via GovPayNet.
+
+> The Pay Location Code for the Sarasota County Jail is #8673.
+
+> To pay by phone call 1-877-EZBAIL (1-877-392-2455).
+
+Any service fee is not stated, so the page gives none.
+
+**Sarasota County Sheriff's Office, Arrests and Inmates**
+https://www.sarasotasheriff.org/arrest-reports/index.php
+
+> Several area law enforcement agencies bring inmates to the Sarasota County Jail. To obtain reports for these arrests, please contact the records section of the arresting agency.
+
+Records Section 941.861.4025, Monday to Friday 8 a.m. to 5 p.m., except holidays. The page warns the data may not reflect a detainee's current location, status, or release date.
+
+**Sarasota County Sheriff's Office, Patrol Bureau**
+https://www.sarasotasheriff.org/about_scso/divisions/patrol_bureau.php
+
+> patrol the entire county 24 hours a day, seven days a week.
+
+**Sarasota County Sheriff's Office, File a Police Report Online**
+https://www.sarasotasheriff.org/programs_and_amp_services/file_a_police_report_online.php
+
+> If the incident occurred within the city limits of Sarasota, Venice, or North Port, you would need to report the incident to the appropriate agency.
+
+**Sarasota County Sheriff's Office, Public Record Requests**
+https://www.sarasotasheriff.org/programs_and_amp_services/public_records_requests.php
+
+> If within the first sixty (60) days of occurrence, the requestor MUST provide: photo identification completed Sworn Statement for Traffic Crash Information
+
+> After sixty (60) crash reports may be requested from https://secure.crashdocs.org/fl-sarasotacounty
+
+Records "first floor of the Criminal Justice Center, 2071 Ringling Blvd., Sarasota. Hours are Monday through Friday 8 a.m. - 5 p.m." 941.861.4025. No crash report fee is stated, so the page gives none.
+
+**U.S. Census Bureau, 2020 place codes for Florida**
+https://www2.census.gov/geo/docs/reference/codes2020/place/st12_fl_place2020.txt
+
+"Sarasota city", "Venice city" and "North Port city", each INCORPORATED PLACE in Sarasota County. "Longboat Key town", INCORPORATED PLACE, Manatee and Sarasota Counties. QuickFacts returned 403 on two tries.
+
+**Sarasota Police Department. NOT FETCHED: sarasotapd.org and sarasotafl.gov returned 403 to every fetch on 2026-11-09.** The following come from search-result excerpts of https://www.sarasotapd.org/divisions/records and https://www.sarasotapd.org/virtual-front-desk/request-a-public-record. Confirm against the pages themselves.
+
+Records Unit, 2099 Adams Lane, 941-263-6045. "The Records Unit is open to the public Tuesday through Friday, 8:00am – 5:00pm", "closed on Mondays as of Dec. 22, 2025"; an older page still says Monday to Friday. Crash reports are "confidential for the first 60 days after the crash", requesters "must complete an affidavit", and online reports go through https://buycrash.lexisnexisrisk.com/. CONFLICT: one page gives $5 in person and $10 online, the other $10 and $13, so the page gives no fee and says to call.
+
+**12th Judicial Circuit, Criminal Division**
+https://www.jud12.flcourts.org/About/Divisions/Criminal
+
+> 3 circuit judges in Sarasota County (all assigned to North Sarasota County)
+
+**12th Judicial Circuit, telephone list**
+https://www.jud12.flcourts.org/forms/printjudges.aspx?lt=j
+
+Felony II, IV and VI, County Divisions A, B and C, and Circuit Civil Divisions A, C and T at "Judge Lynn N. Silvertooth Judicial Center". South County Divisions E and F, and Division H, at "South County Courthouse". Courtroom numbers are left off the page because assignments change on 4 January 2027.
+
+**12th Judicial Circuit, courthouse pages**
+https://www.jud12.flcourts.org/About/Courthouses/Silvertooth-Judicial-Center and https://www.jud12.flcourts.org/About-the-Court/Courthouses/South-County-Courthouse
+
+2002 Ringling Blvd., Sarasota; 4004 S. Tamiami Trail, Venice. Neither page says which case types are heard there; the orders and the telephone list do. ZIP differs across court pages for 2002 Ringling (34237 and 34236), so the page gives no ZIP.
+
+**12th Circuit Administrative Orders 2026-14.4, Judicial Assignments 2027 (aid 706), and 2026-05b.4, Fourth Amended Judicial Assignments 2026 (aid 704)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section04/2026-14.4.pdf and https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section04/2026-05b.4.pdf
+
+"Criminal/Civil Division A", B, C and "South County Criminal/Civil Division E", F; "DUI Court, Sarasota County". Effective 3 September 2026 and 4 January 2027. No judge is named on the pages.
+
+**12th Circuit Administrative Order 2002-10.3, Not Transporting Prisoners to South Sarasota County (aid 139)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/02-10-3.pdf
+
+> All incarcerated defendants in misdemeanor criminal cases, contempt actions concerning temporary restraining orders, and probation violations awaiting court hearings will not be transported to South County for trial or hearings.
+
+> Any South County case involving an incarcerated defendant shall be re-assigned to North County for trial or hearing. Exceptions will be made only with the approval of the Chief Judge.
+
+**12th Circuit Administrative Order 2014-3.3, New Arraignment Dates for Inmates (aid 312)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/14-3-3.pdf
+
+> The Clerk is authorized by this Administrative Order to reschedule those misdemeanor defendants on the first available arraignment docket at the Judge Lynn N. Silvertooth Judicial Center.
+
+FOR THE ATTORNEY READ: both orders are old and the 2014 one speaks of the RLA Center, not the South County Courthouse. Both are listed as in effect, and the Public Defender's page describes the same practice, so the page says "generally". Confirm current practice.
+
+**12th Circuit Administrative Order 2015-14.3, No Contact with the Victim (aid 341)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/15-14.3.pdf
+
+> Being within 500 feet of the victim's or other named person's residence, even if the defendant and the victim or other named person share the residence.
+
+> An invitation for contact from the victim does not affect this order and is not a defense to a violation of the no contact order.
+
+Also vehicle, place of employment, and a place regularly frequented. Paragraph 4: subject to modification by court order.
+
+**12th Circuit Administrative Order 2023-06.3, Reciprocal Authority at First Appearance (aid 613)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/2023-6.3.pdf
+
+Any judge presiding at first appearance may "modify or revoke, on his or her own motion, bonds or conditions of release previously set by any other Judge", on probable cause that the defendant committed a new crime on that release. Permissive.
+
+**12th Circuit Administrative Order 2011-3.3, Supervised Release Requirements (aid 261)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/11-3-3.pdf
+
+> shall be held without bond in custody until the next first appearance hearing
+
+**12th Circuit Administrative Order 2025-06.3, Public Defender Application Fee (aid 666)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section03/2025-06.3.pdf
+
+> shall pay a $50.00 application fee to the clerk for each application for court-appointed counsel filed. The applicant shall pay the fee within seven (7) days after submitting the application.
+
+**12th Judicial Circuit, Pretrial Services Program**
+https://www.jud12.flcourts.org/Programs/Pretrial-Services
+
+> The Pretrial Services Intake Unit operates 24 hours a day, 365 days a year. The Intake Unit compiles information about arrested persons into a comprehensive report for the judge at First Appearances.
+
+> This report aids the judge in bond decisions and includes: community ties, extensive criminal background checks, and a risk assessment.
+
+> The team also reviews initial eligibility for specialty courts (Health Care, Drug and DUI Courts)
+
+The Supervision Unit tracks "clients' criminal court dates". FOR THE ATTORNEY READ: the page advises the reader to help confirm where they live and work and not to explain the charge in that interview. That is our advice, not the program's.
+
+**12th Circuit Public Defender, Sarasota divisions and home page. Used for the office number only; its routing is out of date (see the two conflicts above).**
+https://www.pd12.org/en/about-us/sarasota/divisions and https://www.pd12.org
+
+Sarasota office, 2071 Ringling Boulevard, 5th Floor, (941) 861-5500. It also gives a county court last-name table with a Division D, which the 2027 and 2026 assignment orders do not have. No order setting a current misdemeanor table was found, so the page gives none.
+
+**Office of the State Attorney, 12th Judicial Circuit, Our Offices**
+https://www.sao12.org/about/our-offices/
+
+2071 Ringling Blvd. Suite 400, Sarasota, (941) 861-4400. 4000 S. Tamiami Trail Suite 135, Venice, (941) 861-3200.
+
+**Sarasota County Clerk of the Circuit Court and County Comptroller, Courts**
+https://www.sarasotaclerk.com/Courts
+
+> Civil records from 2001 to present
+
+> Criminal records from 2003 to present
+
+> Registration is not required to anonymously search court records
+
+"excluding confidential and sealed filings". e-Notify gives "email and text reminders of upcoming scheduled criminal court hearings" and does not replace formal notice by mail.
+
+**Sarasota Clerk, Court Date Information**
+https://www.sarasotaclerk.com/Courts/Criminal-Court/Court-Date-Information
+
+Search by defendant name or case number; under Case Events, "You will see all scheduled court events, including the time and location for the case." Notice to Appear is among the documents that give time, place and date.
+
+**Sarasota Clerk, Cash Bond**
+https://www.sarasotaclerk.com/Courts/Criminal-Court/Cash-Bond
+
+> authorizes the Clerk of the Circuit Court and County Comptroller to deduct any unpaid costs of prosecution, costs of representation, court fees, and criminal penalties from the Cash Appearance Bond.
+
+> If you have additional questions, or it is past the 30th business day following final disposition, you may call the Clerk and Comptroller's office at (941) 861-7400.
+
+**12th Judicial Circuit, Civil Division**
+https://www.jud12.flcourts.org/About/Divisions/Civil
+
+> Florida Circuit Civil Courts have jurisdiction in all civil actions exceeding $50,000.
+
+> Florida County Courts have jurisdiction in civil actions which do not exceed $50,000, small claims (i.e., civil actions of $8,000 or under)
+
+Division T events "held in Courtroom 6C, Judge Lynn N. Silvertooth Judicial Center".
+
+**12th Circuit Administrative Order 2026-09.1, Circuit Civil Major Trial Division T (aid 698)**
+https://www.jud12.flcourts.org/Portals/0/AdminOrders/Section01/2026-09.1.pdf
+
+Section 3 criteria include "Cases with trials expected to exceed seven days" and high complexity. Section 5: new cases filed August 3, 2026 and later of type "Malpractice (all variants)" and "Mass Tort", among others, go to Division T automatically.
+
+**Florida Department of Highway Safety and Motor Vehicles, crash records FAQ**
+https://www.flhsmv.gov/courts-enforcement/about-crash-records-and-crash-reporting/frequently-asked-questions/
+
+> crash reports are confidential and exempt for a period of sixty-days.
+
+> only the specific entities identified in section 316.066(2), Florida Statutes, can obtain a copy of the report.
+
+> A purchaser must disclose the exemption on the webpage and provide their driver license number.
+
+**FLHSMV, Contact FHP**
+https://www.flhsmv.gov/florida-highway-patrol/contact-fhp/
+
+FloridaCrashPortal.gov, fees apply. 850-617-3416, option 5. The FHP troop for Sarasota County was not found in text (the boundaries are a map image), so none is named.
+
+**U.S. District Court, Middle District of Florida, Tampa**
+https://www.flmd.uscourts.gov/locations/tampa
+
+Sam M. Gibbons United States Courthouse, 801 North Florida Avenue, Tampa, Florida 33602.
+
+> It serves Hardee, Hillsborough, Manatee, Pasco, Pinellas, Polk and Sarasota Counties.
+
+Matches `middleDistrict` in src/lib/middle-district.ts.
+
+**Reused from records above, no new fetch:** Rule 3.130(a); Rule 3.134(a) and (b); Rule 3.191; F.S. 95.11; F.S. 627.736(1)(a); F.S. 768.81; the DUI 10-day rule, F.S. 322.2615(1)(b)3.
+
+INFERENCES, for the attorney read:
+1. The City of Sarasota lies north of Blackburn Point Road, and Venice and North Port lie south of it. The order names no city. This rests on road layout, not a mapped check. The South County warrant order 2003-08.3 copies the Venice and North Port police, which fits. The market page hedges to "most cases from the city"; the criminal hub says "from the road layout" and tells the reader to check the address near the line.
+2. Sarasota Police usually make arrests inside city limits and Sheriff's deputies usually outside them. No source says this in those words. It rests on the Sheriff's "patrol the entire county", its city-limits reporting line, and the Census places. Pages say "usually" or "the local agency".
+3. Felony judges sitting at the Silvertooth Center means felony hearings are there. The order says "North Sarasota County"; the telephone list gives the building.
+4. A state trooper "may also work the crash" in Sarasota County. FLHSMV gives the report route, not a county statement.
+
+---
+
+### Location pages, Ninth Judicial Circuit, Orange County (D154)
+
+#### Orlando market and hubs, Orange County (D154)
+
+All fetched 2026-11-09. Ninth Circuit orders are text PDFs read with pdftotext, or read page by page; each was listed Active on the circuit's index on that date.
+
+**Ninth Circuit, Administrative Orders index**  
+https://ninthcircuit.org/resources/admin-orders
+
+All 14 result pages crawled and filtered, then searched for "bond", "first appearance" and "assignment of cases". Status "Active" for every order below. No 2026 bond schedule order and no order adopting the uniform statewide schedule appears. https://ninthcircuit.org/administrative-orders redirects here.
+
+**Ninth Circuit Administrative Order 2022-03-04, Amended Order Governing Bond Schedule and Weekend & Holiday Initial Appearances, signed 27 March 2025** (all 28 pages read)  
+https://ninthcircuit.org/sites/default/files/AO2022-03-04.pdf
+
+> effective immediately, to continue until further order
+
+> The bail bond schedule, attached hereto as Attachments A 1, A 2, & A 3, is for use in setting bail in Orange and Osceola Counties prior to first appearance, and is not intended to and does not in any manner bind judges conducting first appearance hearings or bond hearings.
+
+> Those crimes that require a First Appearance hearing under section 903.011(6), Florida Statutes ... must be held for First Appearance even if a bond is set on the warrant.
+
+> Double the stated amount of the following bail schedule will be required of persons who do not reside in Florida.
+
+> Each crime of arrest requires a separate bond pursuant to section 903.02(4), Florida Statutes, and Florida Rule of Criminal Procedure 3.131(b)(2)
+
+> the person's release conditions shall include an obligation to comply with all court orders, to appear at all court hearings, to refrain from any criminal activity, and to refrain from any contact with the alleged victim.
+
+Section II.D: third degree felony $5,000 with force or threat, $2,500 without; first degree misdemeanor $1,000 / $500; second degree misdemeanor $250 / $150; DUI or BUI first degree misdemeanor $1,000, second offense second degree misdemeanor $750, first offense second degree misdemeanor $500. Attachment A 1, felonies used on the page: aggravated assault $5,000, "If DV, Must be set for First Appearance"; aggravated assault with firearm, must be set; burglary of structure or conveyance, must be set; felony battery, must be set; concealed firearm $2,500; grand theft $300 up to $20,000, $2,500; grand theft $20,000 and over, must be set; possession of a firearm by a felon, must be set. Felony drugs: cannabis more than 20 grams up to 25 lbs, $2,500; trafficking amounts must be set; some No Bond. Felony traffic: DUI with 3 prior convictions $5,000, DUI serious bodily injury $5,000; fleeing, must be set. Attachment A 2: battery $1,000, "If DV related, Must be set for First Appearance"; cannabis less than 20 grams $500. Attachment A 3: DUI "1st offense - M1" $1,000; "2nd offense - M1" $2,500; "3rd offense within 10 years" $5,000; "4th offense (no time limit)" $5,000.
+
+Section I.D gives the weekend and holiday session: "1130 ... Orange County Booking & Release Center Courtroom 1: In-person first appearances". Section I.M: "Public viewing is permitted at the Booking & Release Center and the Video Visitation Center in designated locations."
+
+**THIS SCHEDULE STATES NO END DATE**, unlike the 13th Circuit's yearly order. Recheck the index. F.S. 903.011, as recorded from S-2025-063 elsewhere in this file, lets a chief judge adopt the uniform statewide schedule, raise an amount on it, or petition to lower one.
+
+FOR THE ATTORNEY READ:
+(1) Whether order 2022-03-04, signed before the statewide schedule's 2026 orders, is still the operative schedule. It is listed Active, no replacement is listed, and the base amounts match the statewide ones as recorded for Hillsborough. The doubling for non-residents is local to this order.
+(2) INFERENCE, the DUI rows. Section II.D.8 and Attachment A 2 list $1,000 / $750 / $500. Attachment A 3 lists $1,000 / $2,500 / $5,000 / $5,000 using "M1" labels. The page reads them together: a second degree misdemeanor DUI uses II.D.8, and "M1" is a first degree misdemeanor DUI, so the rows do not conflict. The order does not say this in those words.
+
+**Ninth Circuit Administrative Order 2003-39-34, Amended Order Governing First Appearance Proceedings, Orange County, signed 16 October 2026** (13 pages read)  
+https://ninthcircuit.org/sites/default/files/AO2003-39-34%20ADAC.pdf
+
+> Any motions related to bond after First Appearance must be heard by the assigned judge where the case is assigned.
+
+> If a judge is not able to hold a hearing on a motion to set or reduce bail within five (5) business days, the movant may seek a hearing before that judge's alternate or the chief judge. The five-day period only applies to an initial bond hearing after initial appearance
+
+> The five-day period does not commence until filing of the motion and actual notice has been provided.
+
+> The State Attorney or his/her designee has the authority to release pre-trial detainees without the approval of the court. Such authority shall extend only to those prisoners whom the State Attorney has determined shall not be prosecuted for the instant charged offense.
+
+> Florida Rule of Criminal Procedure 3.130 requires that every person arrested on a criminal charge who is still in custody 24 hours after arrest must be taken before a judge for a First Appearance hearing unless such person was previously arrested and released from custody on that same charge.
+
+> The schedule for Session One, First Appearances, shall be in the following order: First Appearance on felony domestic violence, misdemeanor domestic violence, out of county warrants, violation of probation or community control
+
+> No felony arraignments shall be held at First Appearance hearings
+
+> The presiding judge may arraign and sentence defendants charged with misdemeanors and ordinance violations at First Appearance hearings.
+
+> a Public Defender may be appointed
+
+Section VI.A quotes F.S. 903.011(6): the wait list on the page is drawn from it, with burglary, aggravated assault with a firearm and fleeing added from the schedule in 2022-03-04. Section I.B: the judge may take "a no contest or guilty plea on a misdemeanor, traffic, or municipal case." Section VII.B, out-of-county warrants: "Inmates held for contiguous Florida counties, e.g.: Osceola, Seminole, Polk, Lake, and Brevard - 24 hours from First Appearance; with no local charges", "Inmates held for all other Florida counties - 72 hours from First Appearance with no local charges", time periods "shall not include Saturdays, Sundays, and holidays". Section VII.D: the first appearance judge "shall set bond or make such other release determination." Section IX: certain probation holds "CANNOT BE RELEASED". The page's FAQ says "bordering" for "contiguous" and omits the 30-day out-of-state period.
+
+**Ninth Circuit Administrative Order 2022-02-03, Notices to Appear, Orange County, signed 26 April 2024, effective 1 July 2024**  
+https://ninthcircuit.org/sites/default/files/AO2022-02-03.pdf
+
+> When a person is arrested for a non-violent misdemeanor of the first or second degree, a criminal traffic offense, or a violation of a municipal or county ordinance, except for charges relating to domestic violence or sex crimes ... the accused shall be released at the scene of the arrest through the issuance of a Notice to Appear, except in those cases requiring mandatory booking
+
+> The accused person has no valid, verifiable address; The accused person does not reside in Orange County or a bordering county
+
+> the minimum bond on either a capias or a warrant is set in the amount of $2,000.00, or such other amount, as required by section 903.046(d), Florida Statutes.
+
+> All Notices to Appear issued in Orange County shall be returnable to the Division of the County Court of Orange County identified by the Court in the Notice to Appear.
+
+**Ninth Circuit Administrative Order 2022-01-04, Orange County Pretrial Release Program, signed 27 March 2025** (pages 1 to 6 read)  
+https://ninthcircuit.org/sites/default/files/AO2022-01-04.pdf
+
+> The Orange County PTR Program ("Program") is administered by Corrections.
+
+> At a minimum, supervision consists of automated telephonic reporting
+
+> The Program administers random drug and alcohol testing
+
+> The accused person must reside in or own real property in the State of Florida.
+
+> The accused person is not currently on bail (monetary or non-monetary), or probation or parole, or other legal constraint
+
+Section IV.A: review before first appearance for a non-violent misdemeanor, a criminal traffic offense or an ordinance violation. Section IV.A.2.a excludes current domestic violence charges. Section IV.A.2.b requires a risk assessment of Moderate or below; the page omits this.
+
+**Ninth Circuit Administrative Order 2024-08-01, Assignment of Cases in All Divisions, signed 8 October 2024**  
+https://ninthcircuit.org/sites/default/files/AO2024-08-01.pdf
+
+> assigned by the clerk to one of the judges assigned to that division, according to a system of assignment of cases devised by the clerk that will, over a reasonable period of time, effect an even distribution of the case load among the judges of that division and preclude a selection of the judge by the parties
+
+> Except for sufficient cause shown, the judge to whom a cause is initially assigned will hear the case throughout
+
+**Ninth Circuit Administrative Order 2009-06-01, Assignment of Orange County Misdemeanor Cases, October 2020**  
+https://ninthcircuit.org/sites/default/files/AO2009-06-01.pdf
+
+> the Clerk of Court in both the Criminal Division and the Traffic Division will randomly and equally assign newly filed criminal misdemeanor cases with a clerk case prefix of "MM" and criminal traffic cases with a clerk case prefix of "CT" among the County Criminal Subdivisions.
+
+> Tuesdays, Wednesdays and Thursdays at 7:30 a.m.
+
+An older order, still listed Active. The page tells the reader their paperwork controls.
+
+**Ninth Circuit Administrative Order 2025-13-09, Establishing Divisions and Assigning Judges for 2026, signed 30 October 2026, effective 16 November 2026**  
+https://ninthcircuit.org/sites/default/files/AO2025-13-09%20ADAC.pdf
+
+Division 1, Circuit Criminal. Division 2, Circuit Civil. Division 7, "County Criminal Divisions: (misdemeanor & traffic cases)". Subdivision "51-8 (located at BRC)". "Division 9 - West Orange County Division" lists Ocoee. "Division 10 - Northwest Orange County Division" lists Apopka and Winter Park. D7 CAUTION: the order does not say which misdemeanors are heard there, so the page says only that the divisions exist and sends the reader to their paperwork.
+
+**Ninth Circuit Administrative Order 2021-04-07, Civil Case Management and Resolution, signed 20 July 2026** (pages 1 to 4 and Exhibit B read)  
+https://ninthcircuit.org/sites/default/files/AO2021-04-07%20ADAC.pdf
+
+> The UTCMO will be entered on each applicable circuit civil case within three (3) business days of the filing of the initial complaint.
+
+> Deadlines established in the UTCMO will be strictly enforced by the court.
+
+> General civil cases are all civil cases other than complex cases and streamlined cases.
+
+Exhibit B, general track, jury trial: "Deadline for Service of Process: 120 days"; "30 additional days, for a total of 150 days. If service of process is not completed by the end of the Automatic Extension, all unserved defendants are automatically dismissed without prejudice"; mediation "Completed prior to the Pretrial Conference". Personal Injury Protection claims are listed as streamlined in county court.
+
+INFERENCE, for the attorney read: an ordinary circuit crash suit is on the general track, because negligence is not on the streamlined list. The page says "the usual jury track".
+
+**Ninth Circuit Administrative Order 2009-12-03, First Party Insurance Claims, signed 7 October 2021** (first page read)  
+https://ninthcircuit.org/sites/default/files/AO2009-12-03.pdf
+
+> Certain cases are routinely filed within the Small Claims Division of the Orange County and the Osceola County Civil Court, to wit: claims by insureds (or assignees of insureds) against insurers for insurance policy benefits, such as Personal Injury Protection benefits
+
+**Ninth Circuit, Criminal Court and Civil Court pages; Contact; Divisions; judge directory**  
+https://ninthcircuit.org/divisions/criminal-court, https://ninthcircuit.org/divisions/civil-court, https://ninthcircuit.org/contact, https://ninthcircuit.org/divisions
+
+> The Circuit Civil Courts have jurisdiction in all actions of law in which the matter or controversy exceeds $50,000
+
+> The County Courts have general jurisdiction over actions of law in which the matter or controversy does not exceed $50,000, small claims (i.e., matter or controversy under $8,000)
+
+Contact: "Orange County Courthouse", 425 N. Orange Avenue, Orlando, Florida 32801. Divisions lists Business Court. Judge pages checked: Seegobin, Chiu, Leach and Kraynick each show "Chambers: Orange County Courthouse" with a numbered courtroom and "Assignment: Circuit Criminal"; Guarch, Duckworth and Beasley the same with "Assignment: County Criminal". CAUTION: the court says "under $8,000" for small claims and the Clerk says "$8,000 or less". The page uses the Clerk's wording.
+
+Also read, not used: https://ninthcircuit.org/communication-outreach/initial-appearances-live-proceedings shows two live players and "As of Tuesday, December 30, 2025, video livestreams will no longer be available in either county from our website." The page does not mention a feed.
+
+**Order 2026-08, Appointing Clerk Ad Interim, Orange County**  
+https://ninthcircuit.org/sites/default/files/AO2026-08%20ADAC.pdf
+
+The Clerk resigned effective 31 August 2026 and an ad interim Clerk was appointed. The pages name no Clerk for this reason.
+
+**Orange County Corrections, Current Inmate Database**  
+https://netapps.ocfl.net/BestJail/Home/Inmates
+
+> This database lists people currently in jail and includes information on their charges, bond amount, and booking photo.
+
+> Please phone Orange County Inmate Records Management at (407) 836-3400
+
+> This information is updated every 30 minutes.
+
+**Orange County Corrections, First Appearance**  
+https://netapps.ocfl.net/BestJail/Home/FirstAppearance
+
+> Most inmates booked on a new offense will attend first appearance before a judge unless they are released on bond prior to the proceeding.
+
+> Sessions take place weekdays 9 a.m. or weekdays 1 p.m.
+
+> All sessions are posted at 4:30 a.m.
+
+> Weekends and Court holidays, only one session is held at 11 a.m. (start times vary based on judicial operations)
+
+> You can watch first appearance proceedings from the public galleries at the Booking and Release Center (excluding weekends and holidays). The galleries are accessed via the BRC public lobby.
+
+"Inmate Records Management, 3855 John Young Parkway, Orlando, FL 32839 ... Phone: (407) 836-3400 (use option 5)".
+
+**Orange County Corrections, Bonding Out**  
+https://netapps.ocfl.net/BestJail/Home/BondingOut
+
+> You may post bond in person at the Booking and Release Center with a money order, travelers check, or certified/cashier's check made payable to: "CLERK OF THE COURTS". All payments require personal identification. No personal checks or cash accepted.
+
+> The Orange County Jail cannot and will not recommend a bonding company. Most bonding companies charge a fee for posting the bond
+
+> The Orange County Jail will not call you to assist with bond payments
+
+> There are active bonding scams occurring.
+
+> Use the city code ORLFLJAILCLERK
+
+> To be accepted, transfer MUST be the exact amount of the bond. Bonds paid via Western Union WILL NOT BE PROCESSED UNTIL CONFIRMATION OF PAYMENT IS RECEIVED, which may take 24-50 hours.
+
+> The bond process is lengthy and can take up to 12 hours to complete
+
+> no releases will take place during the following approximate timeframes: 5:00 a.m. - 7:30 a.m. 5:00 p.m. - 7:30 p.m.
+
+> Individuals with an Orange County warrants/capiases may report to the public lobby of the Booking and Release Center with a bondsman or money order, to turn themselves in for an expedited booking process. Monday-Friday (excluding holidays) 8:00 a.m. - 2:00 p.m. Fee: $20 (money order only) Service available for Orange County warrants ONLY and excludes any charge that statutorily requires attendance at First Appearance.
+
+**Orange County Corrections, Facilities; Inmate Phone Info; Jail & Inmate FAQ**  
+https://netapps.ocfl.net/BestJail/Home/Facilities, https://netapps.ocfl.net/BestJail/Home/InmatePhoneInfo, https://netapps.ocfl.net/BestJail/Home/JailInmateFAQ
+
+> Booking, first court appearance and release all in one location
+
+> Post bail any time 24/7
+
+> To receive phone calls from an inmate you must first set up an inmate telephone account. This process could take up to 24 hours.
+
+**Orange County directory, Corrections Department**  
+https://newsroom.ocfl.net/directory/corrections-department/
+
+> Booking and Release Center (open 24/7)
+
+> 3855 S. John Young Pkwy., Orlando, FL 32839
+
+**Orange County Sheriff's Office, FAQ; Contact Us; File Police Report; Report A Crash**  
+https://www.ocso.com/faq/, https://www.ocso.com/CONTACT, https://www.ocso.com/e-reports/, https://www.ocso.com/services/report-a-crash/
+
+> The Orange County Sheriff's Office does not manage the county jail.
+
+> This incident occurred within the limits of unincorporated Orange County, Florida.
+
+> Please call the Law Enforcement Agency that serves your City or County.
+
+> If this incident is related to a traffic crash please call the Florida Highway Patrol Office @ 407-737-2200.
+
+> A Law Enforcement officer must take a report in the following scenarios: A crash with injury A crash with fatality A hit and run crash An impaired crash A crash which requires a wrecker to remove the vehicle A crash with a commercial motor vehicle If you need to report a crash, call 911 and your call will be routed to the appropriate agency.
+
+> Crashes with no injury Crashes where vehicles are drivable and do not need to be towed Crashes with minimal damage Crashes where neither driver appears to be under the influence of alcohol or drugs
+
+> The fee for crash reports is $10.00 per report ... A convenience fee of $2.00 will be applied to each total transaction through the Florida Crash Portal. ... must be downloaded within 48 hours of the request.
+
+Non-emergency (407) 836-4357. CAUTION: the Sheriff's pages disagree on who takes crashes. An older tourist page says it does not handle auto accidents and lists a different Highway Patrol number, 407-737-2300; the Report A Crash page describes a deputy's report. So the page hedges and gives no Highway Patrol number.
+
+**City of Orlando, Orlando Police Department; Contact the Orlando Police Department; Check Your Address; Contact Us; Request a Traffic Crash Report**  
+https://www.orlando.gov/Our-Government/Departments-Offices/Orlando-Police-Department, https://www.orlando.gov/Our-Government/Departments-Offices/Orlando-Police-Department/Contact-Us, https://www.orlando.gov/Check-Your-Address, https://www.orlando.gov/Our-Government/Contact-Us, https://www.orlando.gov/Public-Safety/OPD/OPD-Records-Open-Data/Request-a-Traffic-Crash-Report
+
+> Orlando Police Department Headquarters, 1250 West South Street, 32805
+
+> Although your address may say Orlando, you might be in unincorporated Orange County or another nearby city.
+
+> You must be the driver, or named on the report as a person involved in the crash. The crash must have happened since 2011. The crash must have happened in the City of Orlando.
+
+> It takes 3-5 business days after a crash for the report to be available online.
+
+> You will need: Case number Date of crash Driver's name Credit or debit card for a $10 payment
+
+Non-emergency 321.235.5300.
+
+INFERENCES, for the attorney read: (1) Orlando police make arrests inside city limits and Sheriff's deputies in unincorporated Orange County. No page says this in those words. It follows from the Sheriff's "unincorporated" limit and the city's address and crash pages, and the page says "usually". (2) Both agencies take arrestees to the Booking and Release Center. The orders and Corrections describe one booking center and no other, but neither says it in those words about each agency. (3) Other cities in the county may have their own agencies, from the city's "another nearby city" and the Sheriff's "serves your City or County". None is named.
+
+**FLHSMV, Traffic Crash Reports**  
+https://www.flhsmv.gov/traffic-crash-reports/
+
+> Traffic crash reports may take up to 10 days to become available. Traffic crash reports are exempt from public disclosure, except for parties involved in the crash and other specific parties outlined in the statute.
+
+No 60-day period is stated on this page, so the pages state none.
+
+**Orange County Clerk of Courts, Criminal Court; Bond Information; Civil Court; Small Claims; Court Records; Hearing Schedule; my eClerk**  
+https://www.myorangeclerk.com/Divisions/Criminal/Criminal-Court, https://www.myorangeclerk.com/Divisions/Criminal/Bond-Information, https://www.myorangeclerk.com/Divisions/Civil/Civil-Court, https://www.myorangeclerk.com/Divisions/Civil/Small-Claims, https://www.myorangeclerk.com/Divisions/Records/Court-Records, https://www.myorangeclerk.com/node/203, https://myeclerk.myorangeclerk.com/
+
+> Criminal felony court cases are processed at the Orange County Courthouse in downtown Orlando, while misdemeanor cases can be processed at any of our locations.
+
+> Refer to your court paperwork for arraignment location.
+
+> Bonds for all arrests must be posted at the Orange County Jail.
+
+> County Civil Court handles claims up to and including $50,000.
+
+> Circuit Civil cases are non-criminal cases in which individuals or businesses sue for damages which exceed $50,000.
+
+> The Clerk's my eClerk website provides remote public access to many of the court records managed by our office free of charge.
+
+> E-Notify is a free way to get reminders about court events through text or emails.
+
+> This tool provides a court date and location.
+
+> when searching by name, both First and Last name are required
+
+> Court dates and locations can change at the last minute.
+
+Online documents "from 2009 to present for most case types". Civil Division: 425 N. Orange Ave., Suite 350; 407-836-2000. D7: "processed" is the Clerk's word. "Heard" on the page rests on the court's judge pages and the orders above. Small claims page: "the dollar amount involved is $8,000 or less, excluding costs, interest and attorneys' fees."
+
+**U.S. District Court, Middle District of Florida, Orlando**  
+https://www.flmd.uscourts.gov/locations/orlando
+
+> The Orlando Division is headquartered in downtown Orlando, Florida. It serves Brevard, Orange, Osceola, Seminole, and Volusia Counties. Courthouse: George C. Young Federal Annex Courthouse Street Address: 401 West Central Boulevard Orlando, Florida 32801 Clerk's Office: (407) 835-4200
+
+Agrees with `middleDistrict` in src/lib/middle-district.ts. The site's federal hub and charge pages are written around the Tampa Division and the Gibbons courthouse, and these pages say so.
+
+**F.S. 47.011 (2025)**  
+https://www.flsenate.gov/Laws/Statutes/2025/47.011
+
+> Actions shall be brought only in the county where the defendant resides, where the cause of action accrued, or where the property in litigation is located. This section shall not apply to actions against nonresidents.
+
+INFERENCE, for the attorney read: a crash claim accrues where the crash happened, so an Orlando crash can be filed in Orange County. The page says "generally". It does not cover corporate defendants, which have a separate venue statute not recorded here.
+
+**Reused from records above, no new fetch:** Rule 3.130(a); Rule 3.134(a) and (b); Rule 3.191(a), (d), (f) and (o); F.S. 95.11; F.S. 627.736(1)(a); F.S. 768.81; F.S. 322.2615(1)(b)3. The firm's address and hours are from site.ts. Orange County's place on the firm's list is D130, `practiceCounties` in site.ts.
+
+**Left out, could not verify from an official page:** the State Attorney's name, address and phone (sao9.org did not resolve and the Attorney General's victim services page returned 403; a county directory excerpt gave 415 N. Orange Avenue and 407-836-2400, unconfirmed); the Highway Patrol's phone, where two Sheriff's pages disagree; the distance from Brandon to Orlando, so the pages say "a long drive" and give no figure; which arrests go to the Ocoee, Apopka or Winter Park divisions; whether jail calls are recorded; the cost of the pretrial release program.
+
+---
+
+### Location pages, Clearwater and New Port Richey (D154)
+
+#### Location pages: Clearwater, its hubs, Largo, Dunedin, Palm Harbor, Tarpon Springs, New Port Richey (D154)
+
+All fetched 2026-11-09. Read through WebFetch's summary unless the entry says otherwise, so quoted wording should be confirmed against the page. Shared Pinellas facts are in `src/lib/location-data/sixth-circuit.ts` and recorded in sources/sixth-circuit-st-pete.md. Pasco bond and timeline are in `src/lib/location-data/wesley-chapel.ts` and recorded in sources/tampa-communities.md. Neither is repeated here.
+
+#### Correction to a working assumption
+
+The brief describes Clearwater as where the Justice Center and jail are. They have **Clearwater mailing addresses** only. Census Geocoder puts 14250 49th St N at -82.7006, 27.9020 and 14400 49th St N at -82.7006, 27.9029. A point test against the TIGERweb boundaries places both outside the City of Clearwater and outside the City of Largo. So the pages say "Clearwater mailing address" or "the address says Clearwater", and never say the jail is in the city.
+
+#### Who polices each place
+
+**Clearwater: its own department.**
+
+**Clearwater Police Department, Contact Us**
+https://www.clearwaterpolice.org/Contact-Us
+
+> Lobby Hours: Mon. - Fri., 7 a.m. to 6 p.m.
+
+> Monday-Friday, 8:00 am to 4:00 pm.
+
+645 Pierce St., Clearwater, FL 33756. Non-emergency (727) 562-4242. Records Section (727) 562-4441. The hours quote is the Records Section's.
+
+**City of Clearwater, Police Department**
+https://www.myclearwater.com/police
+
+> For copies of accident, crime, and incident reports, records checks, solicitor permits, and police activity reports.
+
+Agrees on address, phones and hours. A law firm's page gave a different records address (560 N. Fort Harrison). Ignored: both city sources say Pierce Street.
+
+**Clearwater Police Department, Support Services Division**
+https://www.clearwaterpolice.org/About-Us/Support-Services-Division
+
+> Obtain a crash report from LexisNexis.
+
+The link https://www.clearwaterpolice.org/Programs-and-Services/Obtain-Crash-Report redirects to https://buycrash.lexisnexisrisk.com/ui/home. **NOT VERIFIED AND LEFT OUT:** the LexisNexis price and how soon a report appears. Support Services also lists (727) 444-7245, not used. Its contact block has a typo in the ZIP (33576); the footer and every other page say 33756.
+
+**Clearwater Police Department, File a Report**
+https://www.clearwaterpolice.org/Programs-and-Services/File-a-Report
+
+> Minor traffic collisions.
+
+Listed among incidents that can be reported online. Conditions include "This is not an emergency." and "There are no known suspects." With a suspect, "contact the Clearwater Police Communications Center at (727) 562-4242." The incident must have occurred within Clearwater.
+
+**City of Clearwater, FAQ for Public Records Requests**
+https://www.myclearwater.com/My-Government/Public-Records/FAQ-for-Public-Records-Requests
+
+> unless the custodian is required by law to obtain this information prior to releasing records (accident reports)
+
+Clearwater Police Records, 645 Pierce St., (727) 562-4441, fax (727) 562-4415.
+
+**Largo: its own department.**
+
+**City of Largo, Police Department**
+https://www.largo.com/largo_police/index.php
+
+> Communications Center at 727-587-6730
+
+The page directs people to report crimes or file police reports "in the City of Largo" through that number.
+
+**City of Largo, Police Records** (read with curl, wording exact)
+https://www.largo.com/largo_police/records.php
+
+> Accident reports are available for the first 60 days of the incident occurring, only to the parties having direct involvement or their authorized representatives. Proper identification must be presented at the time of picking up the report. You may call (727)587-6717 to have the report ready upon your arrival. There is no cost for reports that are less than four pages.
+
+> Requests made by mail must include a stamped, self-addressed envelope with which to return the report.
+
+> Final court dispositions are available through the Clerk of the Circuit Court
+
+Largo Police Department Records Section, 201 Highland Ave, Largo, FL 33770. CONFLICT: the county's phone list gives 727-587-6717 as Largo's law enforcement non-emergency number, while the city gives that number to Records and 727-587-6730 to the Communications Center. The page follows the city. AO 2024-029 and 2026-048 name Largo PD (Traffic Court II).
+
+**Tarpon Springs: its own department.**
+
+**Tarpon Springs Police Department, About and Records** (records fees read with curl)
+https://www.tspd.us/about-5 and https://www.tspd.us/about-3
+
+444 South Huey Avenue, Tarpon Springs, Florida 34689. "Police Department Dispatch - (727) 937-6151". "Police Department Administrations / Records - (727) 938-2849".
+
+> The first 15 minutes on any request will not be billed
+
+> Document research and/or redaction--$24.00 per hour
+
+> Requests may be made by phone, mail, in-person, email, or by submitting the form below.
+
+> Discovery regarding a criminal case we MUST receive the Notice to Appear (NOA) and the ATD (Answer to Demand) to process.
+
+Copies $0.15 per page; $5.00 per media piece; a downloadable "Sworn Statement (Crash Reports)" form; payment before review and release. The page says only "certain court papers" because the department's phrase "Notice to Appear (NOA)" may mean a notice of appearance. City of Tarpon Springs, https://www.ctsfl.us/101/Departments , lists the Police Department and tspd.us is its site. CONFLICT: the city's contacts page gives police (727) 938-2840; the department's own pages give 938-2849, used here. County phone list agrees on 727-937-6151. AO 2024-029 and 2026-048 name Tarpon Springs PD (Traffic Court I).
+
+**Pinellas County Sheriff's Office, News Release 18-187**
+https://pinellassheriff.gov/18-187-m-a-i-t-investigates-deputy-involved-crash-in-unincorporated-tarpon-springs
+
+> The crash occurred near the intersection of Trinity Boulevard and East Lake Road in unincorporated Tarpon Springs.
+
+A 2018 release, cited only to show the Sheriff uses the phrase.
+
+**Dunedin: contract with the Sheriff. Confirmed.**
+
+**Pinellas County Sheriff's Office, Patrol Operations Bureau**
+https://pinellassheriff.gov/patrol
+
+> serves three law enforcement contract cities: Dunedin, Oldsmar, and Safety Harbor.
+
+> Members of North District provide uniformed law enforcement services for citizens in unincorporated Pinellas County
+
+> contract cities located north of State Road 60 (Gulf to Bay Boulevard) to the Pasco County line.
+
+> North District Station is physically located in the City of Dunedin.
+
+Central District serves unincorporated land and contract cities "south of State Road 60 (Gulf to Bay Boulevard)".
+
+**Pinellas County Sheriff's Office, Service Areas**
+https://pinellassheriff.gov/service-areas
+
+North District Patrol, "2496 Bayshore Boulevard", "Dunedin, FL 34698". Sheriff's Administration Building, "10750 Ulmerton Road", "Largo, FL 33778". Lists 13 contract cities including Dunedin, Oldsmar and Safety Harbor. Does not name Largo, Tarpon Springs or Palm Harbor.
+
+**City of Dunedin, City Commission Regular Meeting, September 4, 2025, item 3.e**
+https://dunedin.granicusideas.com/meetings/1480-city-commission-regular-meeting/agenda_items/68b20419442538894d002c64-3-dot-e-pinellas-county-sheriffs-office-pcso-fy26
+
+> Pinellas County Sheriff's Office (PCSO) FY26 Annual Addendum to the Contract with the City of Dunedin
+
+> to provide Law Enforcement Services, at a cost of $6,134,860 for FY26.
+
+The cost is not on the page. FY26 ended before today's date; the Sheriff's current page confirms the arrangement continues. The city's home page lists "Pinellas County Sheriff's Office" under Public Safety, and https://www.dunedin.gov/City-Services/Public-Safety/Pinellas-County-Sheriffs-Office redirects to the Sheriff's site. A 1995 Attorney General opinion on the contract returned 403, so it is not used.
+
+**Palm Harbor: unincorporated. Confirmed.**
+
+**U.S. Census Bureau, TIGERweb, Places layers**
+https://tigerweb.geo.census.gov/arcgis/rest/services/TIGERweb/Places_CouSub_ConCity_SubMCD/MapServer
+
+Records as returned: "Palm Harbor CDP", GEOID 1254350, LSADC 57. "Clearwater city" 1212875, "Largo city" 1239425, "Dunedin city" 1218575, "Tarpon Springs city" 1271150, "New Port Richey city" 1248500, each LSADC 25.
+
+**Pinellas County, Non-Emergency Phone Numbers**
+https://pinellas.gov/non-emergency-phone-numbers/
+
+Columns are law enforcement, fire, municipal administration. Palm Harbor: "727-582-6200 (PCSO)", "727-784-0454", "N/A". Dunedin: "727-582-6200 (PCSO)", "727-298-3102", "727-298-3000". Clearwater: "727-562-4242". Tarpon Springs: "727-937-6151". Largo: "727-587-6717". The Sheriff's own pages do not name Palm Harbor; the record is the Census status, the county's list, and the patrol page's "unincorporated".
+
+**New Port Richey: its own department, in Pasco County. Confirmed.**
+
+**City of New Port Richey, Police Department, Communication Center, Records**
+https://www.cityofnewportrichey.org/Residents/Public-Safety/Police-Department , /Communication-Center , /Records , /Records-Section
+
+6739 Adams St, New Port Richey, FL 34652. "24 hours a day, 7 days a week". Non-emergencies (727) 841-4550. The center "handles all incoming calls for service for Police, Fire and Public Works Departments", "within the city limits". Records clerk (727) 232-8920 or 232-8919. In-person requests Monday through Friday, 8 a.m. to 5 p.m., holidays excluded. JustFOIA portal https://citynprfl.justfoia.com/publicportal/home/track.
+
+Summary of the notice, as returned: starting June 1, 2026, the Police Records Section will no longer fulfill discovery requests from defense counsel or defendants in criminal cases. They go to the State Attorney's Office for the Sixth Judicial Circuit under Rule 3.220. Requests made to Records after that date are handled as public records requests under Chapter 119 and "may be subject to fees and redactions." **The city's pages do not mention crash reports**, so the page says to ask the clerk.
+
+**Port Richey Police Department, Communications**
+https://www.portricheypd.gov/post/communications-1
+
+> All incoming calls for service for Police, Fire or EMS within the city limits are professionally handled by the communications center.
+
+"The City of Port Richey Police Department". Census: "Port Richey city", latitude 28.263 to 28.288, north of New Port Richey's 28.219 to 28.275.
+
+**Pasco Sheriff's Office, Contact**
+https://pascosheriff.com/contact/
+
+> For non-emergencies, dial 727-847-8102 option 7.
+
+#### Courts and buildings
+
+**Sixth Judicial Circuit, Pinellas County Justice Center** (parking and bus wording read with curl)
+https://www.jud6.org/courthouse/pinellas-county-justice-center/
+
+> Free parking is available in the courthouse parking lot.
+
+> Bus routes 49 and 52 stop near the courthouse.
+
+> All visitors to the Pinellas County Justice Center must pass through security screening
+
+"Monday – Friday: 8am – 5pm Except Holidays". CAUTION: the parking sentence also appears on the West Pasco page, so it may be boilerplate. The bus sentence does not appear there. The page attributes both to the court. Main line (727) 453-5555 not used.
+
+**Sixth Judicial Circuit, Clearwater Courthouse and Clearwater Historic Courthouse**
+https://www.jud6.org/courthouse/clearwater-courthouse/ and https://www.jud6.org/courthouse/clearwater-historic-courthouse/
+
+> This facility houses courtrooms and administrative offices dedicated to civil and judicial operations
+
+315 Court Street, Clearwater, FL 33756. Historic Courthouse, 324 South Ft. Harrison Avenue, "houses select county administrative offices and judicial functions."
+
+**Pinellas County Clerk, Locations and Contact Us** (read with curl over HTTP/1.1, wording exact)
+https://mypinellasclerk.gov/Home/Contact-Us
+
+> Clearwater Courthouse 315 Court Street Clearwater, FL 33756 Phone: (727) 464-7000 Services Circuit/County Civil Court Records - Room 170
+
+> Pinellas County Justice Center 14250 49th Street North Clearwater, FL 33762 Phone: (727) 464-7000 Services Criminal Court Records
+
+> Accept payments for: traffic, criminal, and misdemeanor fines and costs, payable traffic citations, non-criminal payable infractions
+
+That last line is the North County Customer Information & Service Center, 3165 McMullen Booth Rd., Fessler Center, Building B, Clearwater, FL 33761. CONFLICT: the Clerk's Criminal Court page, in its payment-plan block, lists a "North County Branch" at 29582 U.S. 19 North, while its Contact, Civil and other Criminal Court blocks say McMullen Booth. The pages use McMullen Booth and tell Palm Harbor readers to call first. D7 applies: the pages say this office is not where a hearing is. No order places a criminal section there.
+
+**Pinellas County, Contact Information and Location Maps**
+https://pinellas.gov/contact-information-and-location-maps/
+
+Jail as "14400 49th St. N., Largo, FL 33778", recorded in the St. Petersburg file, re-used here.
+
+**6th Circuit Administrative Order 2026-002 PI-CIR** (paragraph 2 re-read from the PDF with pdftotext, wording exact)
+https://archive.jud6.org/LegalCommunity/LegalPractice/AOSAndRules/aos/aos2026/2026-002.pdf
+
+Paragraph 2(a), sections 7, 15, 20 in Clearwater: "33755; 33756; 33757; 33758; 33759; 33760; 33761; 33762; 33763; 33764; 33765; 33766; 33767; 33769; 33770; 33771; 33774; 33775; 33778; 33779; 33785; 33786; 34660; 34677; 34681; 34682; 34683; 34684; 34685; 34688; 34689; 34695; 34697; 34698;" then Pasco codes including "34652; 34653; 34654; 34655; 34656". Paragraph 2(b), St. Petersburg, includes "33772; 33773; 33776; 33777; 33780; 33781; 33782; 33784".
+
+ODDITY, for the attorney read: paragraph 2(a) heads its list "Pinellas County ZIP codes" and then includes Pasco codes. The New Port Richey FAQ relies on that.
+
+**6th Circuit Administrative Order 2026-037 PA-CTY, Pasco County Court Judicial Assignments, October 1, 2026** (read in full, 3 pages, from the scanned PDF)
+https://www.jud6.org/trdv/view/7889/
+
+West Pasco criminal: "Section 15", "Section 16", "Section 17", each "Misdemeanors, DUI, Criminal Traffic, Violations of probation and orders to show cause". West Pasco civil: "Section O West Pasco Civil Cases", "Section U West Pasco Civil Cases", "Section S" and "Section W", "West Pasco Small Claims and Summary Procedures". Sections 24, 25, 27: "West Pasco Civil Traffic Hearings with and without injuries; West Pasco Civil Traffic Arraignments". Signed 16 September 2026. Rescinds 2026-016. Judges not named on the page.
+
+**6th Circuit Administrative Order 2026-027 PA-CIR, Pasco Circuit Court Judicial Assignments** (pages 1 to 4 of 6 read)
+https://www.jud6.org/trdv/view/5777/
+
+West Pasco: "Section 3" and "Section 4", each "50% Criminal cases"; "Section 31 Adult Drug Court, Veterans Court"; "Section G" and "Section H", each "50% Circuit Civil cases". Section numbers can change with a new assignment order.
+
+**Pasco County Clerk, Office Locations**
+https://www.pascoclerk.com/368/Office-Locations-and-Directions
+
+West Pasco Judicial Center (court operations), "7530 Little Road", "New Port Richey, FL 34654". Hours 8:30 a.m. to 5 p.m. CAUTION: (727) 847-8031 appears on the Criminal Courts page under a mailing address heading, so it is not used.
+
+**Sixth Judicial Circuit, West Pasco Judicial Center**
+https://www.jud6.org/courthouse/west-pasco-judicial-center/
+
+> The West Pasco Judicial Center serves as the primary judicial facility for western Pasco County.
+
+Same address; "civil, criminal, family, probate, and traffic cases".
+
+**Reused, no new fetch:** the Sixth Circuit orders and records in sources/sixth-circuit-st-pete.md, including 2026-036, 2026-038, 2026-014, 2024-029, 2026-048, 2020-019, 2021-016, 2019-066, Local Rule 3, the Duty Judge Calendar, the Sheriff's Post Bond, Inmate Information and Crash Report Policy pages, the Clerk's records and civil pages, and FLHSMV. The Pasco records in sources/tampa-communities.md, including 2026-035, 2023-005, PA-CIR-97-20, Pasco Corrections, the Sheriff's Detention Center transition and Victims' Rights Brochure, the Clerk's records pages, M.D. Fla. Local Rule 1.04(a), and F.S. 34.01(1)(c). Statewide: Rule 3.130(a), F.S. 95.11, F.S. 627.736(1)(a), F.S. 768.81, F.S. 322.2615(1)(b)3.
+
+**Added from the Sheriff's pages, beyond the St. Petersburg record:**
+https://pinellassheriff.gov/Post-Bond and https://pinellassheriff.gov/InmateInfo
+
+> The Pinellas County Jail is now accepting bond payments through the AllPaid program.
+
+> Friends and family members can add funds to an inmate's Smart Communications account by visiting www.smartinmate.com.
+
+> Kiosks that accept cash deposits are available at our Misdemeanor Probation Office and Public Lobby.
+
+You need the inmate's name and inmate or booking number, on Who's In Jail or from the Clerk. The bonding agent list is posted in Intake Processing, on housing unit kiosks, and in Central Division's public lobby. **The Post Bond page gives no hours and no release time**, so the hub says to call first.
+
+#### INFERENCES, for the attorney read
+
+1. **"About seven miles" from downtown Clearwater to the Justice Center.** Straight line from Census Geocoder points: Justice Center to 315 Court St is 7.4 miles, to 645 Pierce St 7.3 miles. Driving distance is longer.
+2. **Other distances, all straight line.** Largo police records to Justice Center 4.7 miles ("about five"). Sheriff's Dunedin station to the jail 11.2 ("more than 10"). Tarpon Springs police to Justice Center 16.8 ("about 17"). Palm Harbor's southern CDP edge to the Justice Center is a little over 10 ("more than 10"). New Port Richey police to the Land O' Lakes jail 14.7 ("about 15").
+3. **New Port Richey is about three miles north of the county line.** The city's southern limit is latitude 28.2193 and the line is 28.1732 at that longitude.
+4. **New Port Richey is West Pasco for criminal cases.** The order does not name the city. Its easternmost point is -82.6977, and US 41 at those latitudes runs from -82.506 to -82.458 in Census data, more than 10 miles east. The page says "should".
+5. **New Port Richey is West Pasco for civil cases.** BLM PLSS point tests at the city's west and east limits both return "26S 16E", west of Range 18 East. Assumes the crash happened there. Same 1997 order caveat as Wesley Chapel, and its "Active" status was not confirmed.
+6. **Adults are usually booked at the county jail, by every agency here.** No source says where each department books. Same "usually" as St. Petersburg and Wesley Chapel.
+7. **Outside the city limits, deputies usually respond.** For Clearwater, Largo and Tarpon Springs from the Sheriff's "unincorporated" wording. For New Port Richey, from the city's "within the city limits" and the Sheriff's county role; no Pasco source says it in those words.
+8. **Palm Harbor is in the North District.** The CDP lies entirely north of Gulf to Bay Boulevard (southern limit 28.0488), and the page says unincorporated land there is the North District's. The Sheriff's pages do not name Palm Harbor.
+9. **CDP means no city government or police of its own.** Same inference as Brandon, supported here by the county's "N/A" for municipal administration.
+10. **Tarpon Springs' north edge reaches the Pasco line.** City limit latitude 28.1733; county line 28.1732 to 28.1733.
+11. **Palm Harbor's fine-paying office is closer than the Justice Center.** 3165 McMullen Booth Rd geocodes to latitude 28.037; the Palm Harbor CDP runs 28.049 to 28.123; the Justice Center is at 27.902.
+12. **Which ZIP codes belong to which town.** Census ZCTA intersections, not USPS data. Largo: 33770, 33771, 33773, 33774, 33778 are the codes named. Palm Harbor: 34683, 34684, 34685. Tarpon Springs: 34688, 34689. 34698 is the ZIP of the Sheriff's Dunedin station. Mailing cities were not checked.
+13. **Roads named in the injury intros and FAQ.** Census segments tested inside each boundary. Clearwater: US Hwy 19 N, State Hwy 60 and Gulf To Bay Blvd, Clearwater Memorial Cswy. Largo: Ulmerton Rd, E Bay Dr, Seminole Blvd, US Hwy 19 N. Dunedin: US Hwy 19 Alt, Curlew Rd, Bayshore Blvd, Main St. Palm Harbor: US Hwy 19 N, US Hwy 19 Alt, Tampa Rd. Tarpon Springs: US Hwy 19, US Hwy 19 Alt, Pinellas Ave. New Port Richey: US Hwy 19, Main St. "Pinellas Avenue, which is Alternate US 19" comes from those segments running together; no source says it in words.
+14. **Pinellas venue on the New Port Richey page.** The FAQ says a New Port Richey crash reaches Clearwater "only if the suit is properly filed in Pinellas County, which depends on the facts." Venue was not researched, and no statute is cited.
+15. **Sheriff's code notices apply to Dunedin.** AO 2020-019 covers "municipal violations and county violations filed by the Pinellas County Sheriff's Office". The Dunedin page applies it as a contract city. It is a 2020 order, and the page tells readers to go by their own notice.
+16. **The Dunedin and Palm Harbor traffic court.** The tables list the Sheriff's Office, not the towns. Traffic Court I follows from who writes the ticket.
+17. **F.S. 768.81 below the bar.** The injury hub says "At 50 percent or less, your share of the fault cuts what you can recover." As in the St. Petersburg record, this goes beyond the recorded WHY note, which covers the bar in subsection (6).
+
+#### Expiry dates
+
+- PINELLAS_BOND (2026-036) and PASCO_BOND (2026-035) run through 31 December 2026.
+- FHP's move from Traffic Court I to II takes effect 1 January 2027 (AO 2026-048). Copy states both sides of the date on the Clearwater market and hub, Dunedin, Palm Harbor, Tarpon Springs and Largo pages. After that date, rewrite those lines.
+- Section numbers in 2026-027 and 2026-037 change with each assignment order.
