@@ -56,7 +56,7 @@ export default function DetailsGrid({ items }: { items: DetailsGridItem[] }) {
           <div
             key={item.id}
             id={item.id}
-            className={`scroll-mt-28 border transition-colors ${
+            className={`scroll-mt-38 border transition-colors ${
               isOpen ? "border-navy/25 bg-linen/25" : "border-navy/15 bg-white hover:border-bronze hover:bg-linen/15"
             }`}
           >

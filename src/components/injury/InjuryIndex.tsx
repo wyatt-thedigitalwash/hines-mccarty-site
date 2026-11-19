@@ -31,7 +31,15 @@ function ArrowUpRight({ className = "" }: { className?: string }) {
  * every injury page, and content behind an interaction is discounted or missed
  * by crawlers. Same rule as the charge index, same reason.
  */
-export default function InjuryIndex({ heading }: { heading?: string }) {
+export default function InjuryIndex({
+  heading,
+  pillars,
+}: {
+  heading?: string;
+  /** Pillar slugs to list; all pillars when omitted. */
+  pillars?: string[];
+}) {
+  const shown = pillars ? injuryPillars.filter((p) => pillars.includes(p.slug)) : injuryPillars;
   return (
     <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
@@ -42,7 +50,7 @@ export default function InjuryIndex({ heading }: { heading?: string }) {
         )}
 
         <div className={`grid gap-12 lg:grid-cols-2 ${heading ? "mt-12" : ""}`}>
-          {injuryPillars.map((pillar) => (
+          {shown.map((pillar) => (
             <div key={pillar.slug}>
               <h3 className="border-t-2 border-navy pt-5 font-display text-2xl leading-tight">
                 <Link

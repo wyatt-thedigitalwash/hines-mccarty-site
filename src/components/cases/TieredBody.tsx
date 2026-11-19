@@ -138,7 +138,7 @@ export default function TieredBody({
   // Shared by the accordion and the box grid (D47).
   const topicBody = (secs: ChargeSection[]) =>
     secs.map((section) => (
-      <div key={section.id} id={section.id} className="scroll-mt-28">
+      <div key={section.id} id={section.id} className="scroll-mt-38">
         <h4 className={`${type.itemHeading} ${color.heading}`}>{section.heading}</h4>
         <div className={`${space.inItem} ${space.paragraphs}`}>
           <SectionBody section={section} />
@@ -191,7 +191,7 @@ export default function TieredBody({
       </div>
     );
     return (
-    <div key={section.id} id={section.id} className="scroll-mt-28">
+    <div key={section.id} id={section.id} className="scroll-mt-38">
       {heading}
       {/* TIER 2 PROSE IS NOT CAPPED. It used to inherit the 68ch measure, which
           left the paragraphs under the penalty table stopping two thirds of the
@@ -223,7 +223,7 @@ export default function TieredBody({
                 /* One section in the band (the action list): its heading and
                    the call button share a header row, as on Common questions,
                    instead of the button trailing under the list. D48. */
-                <div id={band.sections[0].id} className="scroll-mt-28">
+                <div id={band.sections[0].id} className="scroll-mt-38">
                   <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-16">
                     <div className="max-w-2xl">
                       <h2 className={`${type.sectionHeading} ${color.onDarkHeading}`}>
@@ -278,7 +278,7 @@ export default function TieredBody({
           content and not wrapper blocks. */}
       <section data-bg="white" className="bg-white py-24 lg:py-32 text-navy">
         <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
-          <h2 id="details" className={`scroll-mt-28 ${type.sectionHeading} ${color.heading}`}>
+          <h2 id="details" className={`scroll-mt-38 ${type.sectionHeading} ${color.heading}`}>
             The details.
           </h2>
           <p className={`${space.afterHeading} max-w-2xl ${type.lead} ${color.body}`}>
@@ -342,7 +342,7 @@ export default function TieredBody({
           <div className="mx-auto max-w-[1120px] px-6 lg:px-10">
             <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between md:gap-16">
               <div className="max-w-2xl">
-                <h2 id="common-questions" className={`scroll-mt-28 ${type.sectionHeading} ${color.heading}`}>
+                <h2 id="common-questions" className={`scroll-mt-38 ${type.sectionHeading} ${color.heading}`}>
                   Common questions.
                 </h2>
                 <p className={`${space.afterHeading} ${type.lead} ${color.body}`}>
@@ -355,7 +355,7 @@ export default function TieredBody({
             </div>
             <div className={`${space.beforeContent} border-t border-navy/15`}>
               {charge.faq.map((item, i) => (
-                <details key={item.question} id={`faq-${i}`} className="group scroll-mt-28 border-b border-navy/15">
+                <details key={item.question} id={`faq-${i}`} className="group scroll-mt-38 border-b border-navy/15">
                   <summary className="flex cursor-pointer list-none items-baseline justify-between gap-4 py-5 [&::-webkit-details-marker]:hidden">
                     <h3 className={`${type.itemHeading} ${color.heading} transition-colors group-hover:text-bronze`}>
                       {item.question}

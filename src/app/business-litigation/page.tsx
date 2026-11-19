@@ -120,7 +120,7 @@ export default function BusinessLitigationPage() {
               return (
                 <li key={head} className="flex gap-6 border-t border-navy/15 pt-6">
                   <span aria-hidden="true" className="font-display text-4xl leading-none text-[#8a6d2f]">
-                    {String(i + 1).padStart(2, "0")}
+                    {i + 1}
                   </span>
                   <p className="leading-relaxed text-charcoal">
                     <span className="block font-display text-2xl leading-snug text-navy">{head}.</span>

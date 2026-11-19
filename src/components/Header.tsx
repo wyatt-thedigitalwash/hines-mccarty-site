@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import CallBar from "@/components/CallBar";
 import Logo from "@/components/Logo";
 import SiteSearch from "@/components/SiteSearch";
 import Link from "next/link";
@@ -56,11 +57,20 @@ export default function Header() {
   const compact = scrolled || menuOpen;
 
   return (
+    <>
+    {/* The header is fixed, so this spacer holds the call bar's height in
+        the page flow: every hero starts below the bar, with its own top
+        padding still clearing the nav row as before. Navy, not the bar's
+        white: when the page bounces past the top (trackpad and iOS
+        overscroll) the spacer slides out from under the fixed bar, and
+        navy reads as the hero rather than a stray white strip. */}
+    <div aria-hidden="true" className="h-[var(--call-bar-h)] shrink-0 bg-navy" />
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled || menuOpen ? "bg-navy" : "bg-transparent"
       }`}
     >
+      <CallBar />
       {/*
         FULL BLEED, unlike the page content below it.
 
@@ -112,7 +122,7 @@ export default function Header() {
               const menu = dropdownFor(item, primaryNav);
               const grouped = item.href === PRACTICE_AREAS;
               const current = grouped ? inPracticeAreas(pathname) : isCurrent(item.href);
-              const labelClass = `inline-flex items-center gap-1.5 font-heading text-[0.8125rem] font-medium uppercase xl:text-[0.9375rem] transition-colors hover:text-bronze ${
+              const labelClass = `inline-flex items-center gap-1.5 font-heading text-[0.8125rem] font-semibold uppercase xl:text-[0.9375rem] transition-colors hover:text-bronze ${
                 current ? "text-bronze" : "text-white"
               }`;
               return (
@@ -158,19 +168,19 @@ export default function Header() {
                 </li>
               );
             })}
-            <li className="flex items-center gap-4 pl-1 xl:gap-5">
-              {/* D129, D137: an outlined white call button (client direction), the number in
-                  the sans so its figures line up; the 24/7 line shows from
-                  xl, where the bar has room for it. */}
+            <li>
+              {/* A plain Call Now button right after Contact Us (client
+                  direction), on top of the call bar above. */}
               <a
                 href={firm.phoneHref}
-                className="group/call flex flex-col items-center border border-white px-4 py-2 text-white transition-colors hover:bg-white hover:text-navy"
+                aria-label={`Call Now, ${firm.phone}`}
+                className="inline-flex items-center gap-2 whitespace-nowrap border border-white bg-white px-4 py-2 font-heading text-[0.8125rem] font-semibold uppercase text-navy transition-colors hover:border-bronze hover:bg-bronze xl:text-[0.9375rem]"
               >
-                <span className="font-heading text-[0.9375rem] font-semibold leading-tight tabular-nums">{firm.phone}</span>
-                <span className="hidden font-heading text-[0.6875rem] font-medium leading-tight text-white/80 group-hover/call:text-navy/70 xl:block">
-                  Available 24/7 · Free consultation
-                </span>
+                <PhoneIcon />
+                Call Now
               </a>
+            </li>
+            <li className="flex items-center gap-4 pl-1 xl:gap-5">
               <button
                 type="button"
                 onClick={() => setSearchOpen(true)}
@@ -195,25 +205,13 @@ export default function Header() {
 
         {/* Mobile controls */}
         <div className={`flex items-center gap-4 lg:hidden transition-transform duration-300 ease-out motion-reduce:transition-none ${compact ? "" : "translate-y-[7px]"}`}>
-          {/* D69: on the narrowest phones the full number beside the longer
-              firm name wrapped onto three lines, so below 640px the number is
-              not written out. D95: the gold icon with the words "Call Now"
-              beside it, now an outlined button like the desktop one (D138), so it reads as the call
-              rather than one more icon beside search and menu.
-              Named with the number for screen readers. */}
           <a
             href={firm.phoneHref}
             aria-label={`Call Now, ${firm.phone}`}
-            className="inline-flex items-center gap-2 border border-white px-3 py-1.5 font-heading text-sm font-semibold text-white transition-colors hover:bg-white hover:text-navy sm:hidden"
+            className="inline-flex items-center gap-1.5 whitespace-nowrap border border-white bg-white px-3 py-1.5 font-heading text-[0.8125rem] font-semibold uppercase text-navy transition-colors hover:border-bronze hover:bg-bronze"
           >
-            <PhoneIcon />
+            <PhoneIcon className="h-3.5 w-3.5" />
             Call Now
-          </a>
-          <a
-            href={firm.phoneHref}
-            className="hidden whitespace-nowrap border border-white px-3 py-1.5 font-heading text-sm font-semibold tabular-nums text-white transition-colors hover:bg-white hover:text-navy sm:inline-block"
-          >
-            {firm.phone}
           </a>
           <button
             type="button"
@@ -370,6 +368,7 @@ export default function Header() {
         </div>
       </div>
     </header>
+    </>
   );
 }
 
@@ -390,13 +389,13 @@ function ArrowUpRight({ className = "" }: { className?: string }) {
   );
 }
 
-function PhoneIcon({ className = "h-5 w-5" }: { className?: string }) {
+function PhoneIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (
     <svg
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
-      strokeWidth="1.5"
+      strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
       className={className}

@@ -73,7 +73,7 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
             <div className="relative z-10 mx-auto grid max-w-[1400px] gap-12 px-6 lg:grid-cols-[1fr_400px] lg:items-start lg:gap-16 lg:px-10">
               <div>
               <Breadcrumbs trail={injuryTrail(page)} tone="dark" />
-              <h1 className={`mt-6 max-w-2xl ${type.pageTitle} ${color.onDarkHeading}`}>{page.title}</h1>
+              <h1 className={`mt-6 max-w-2xl ${type.pageTitle} ${color.onDarkHeading}`}>{page.heroTitle ?? page.title}</h1>
               {page.lead ? (
                 <p className={`mt-6 max-w-xl ${type.lead} ${color.onDarkBody}`}>{page.lead}</p>
               ) : null}
@@ -111,7 +111,7 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
       <section data-bg="navy" className={`bg-navy pt-28 lg:pt-44 ${quickNav.length > 1 ? "" : "pb-10 lg:pb-16"}`}>
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <Breadcrumbs trail={injuryTrail(page)} tone="dark" />
-          <h1 className={`mt-6 max-w-4xl ${type.pageTitle} ${color.onDarkHeading}`}>{page.title}</h1>
+          <h1 className={`mt-6 max-w-4xl ${type.pageTitle} ${color.onDarkHeading}`}>{page.heroTitle ?? page.title}</h1>
           {page.lead ? (
             <p className={`mt-6 max-w-2xl ${type.lead} ${color.onDarkBody}`}>{page.lead}</p>
           ) : null}
@@ -139,7 +139,16 @@ export default function InjuryTemplate({ page }: { page: InjuryPage }) {
         </>
       )}
 
-      <TieredBody charge={page} sections={sections} copy={INJURY_COPY} />
+      <TieredBody
+        charge={page}
+        sections={sections}
+        copy={{
+          ...INJURY_COPY,
+          ...(page.introCopy?.facing ? { facingIntro: page.introCopy.facing } : {}),
+          ...(page.introCopy?.timeline ? { timelineIntro: page.introCopy.timeline } : {}),
+          ...(page.introCopy?.doNow ? { doNowIntro: page.introCopy.doNow } : {}),
+        }}
+      />
 
       {spokes.length ? (
         <section data-bg="white" className="bg-white py-24 lg:py-32 text-navy">

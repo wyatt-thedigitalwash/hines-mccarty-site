@@ -125,7 +125,7 @@ cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
         is deliberately a stronger claim than the "practice areas" list on a
         bio: leading an area is not the same as practising in it.
       */}
-      {/* scroll-mt clears the 77px fixed header. Without it an anchor jump from
+      {/* scroll-mt clears the 120px fixed header (call bar plus nav row). Without it an anchor jump from
           the silo hubs lands with this heading hidden behind the nav. */}
       {/*
         NO TOP PADDING: the credential strip immediately above is a WHITE band
@@ -140,7 +140,7 @@ cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
       <section
         id="who-handles-what"
         data-bg="white"
-        className="scroll-mt-28 bg-white pb-20 text-navy lg:pb-28"
+        className="scroll-mt-38 bg-white pb-20 text-navy lg:pb-28"
       >
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <h2 className="font-display text-4xl leading-tight sm:text-5xl">

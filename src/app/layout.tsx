@@ -6,23 +6,12 @@ import Footer from "@/components/Footer";
 import { firm, siteUrl } from "@/lib/site";
 
 /*
-  D143: the three faces are bundled with the site (Fontsource 5.3.0, SIL Open
+  D143: the faces are bundled with the site (Fontsource 5.3.0, SIL Open
   Font License, licences in ./fonts) instead of fetched from Google at build
   time. Turbopack's next/font/google intermittently failed to resolve its own
   font module and broke builds, locally and on Vercel; local files remove
-  that step. Same families, weights and latin subset as before.
+  that step. Latin subset only. D162: Oswald replaced Cormorant Garamond.
 */
-const cormorantGaramond = localFont({
-  variable: "--font-cormorant",
-  display: "swap",
-  src: [
-    { path: "./fonts/cormorant-garamond-latin-400-normal.woff2", weight: "400", style: "normal" },
-    { path: "./fonts/cormorant-garamond-latin-500-normal.woff2", weight: "500", style: "normal" },
-    { path: "./fonts/cormorant-garamond-latin-600-normal.woff2", weight: "600", style: "normal" },
-    { path: "./fonts/cormorant-garamond-latin-700-normal.woff2", weight: "700", style: "normal" },
-  ],
-});
-
 const poppins = localFont({
   variable: "--font-poppins",
   display: "swap",
@@ -43,6 +32,20 @@ const lora = localFont({
     { path: "./fonts/lora-latin-500-normal.woff2", weight: "500", style: "normal" },
     { path: "./fonts/lora-latin-600-normal.woff2", weight: "600", style: "normal" },
     { path: "./fonts/lora-latin-700-normal.woff2", weight: "700", style: "normal" },
+  ],
+});
+
+/* The display face for h1 and h2 headings across the site (client choice,
+   replacing Cormorant Garamond after the home hero tried it). Oswald has no
+   italic, so no display text is set in italic. */
+const oswald = localFont({
+  variable: "--font-oswald",
+  display: "swap",
+  src: [
+    { path: "./fonts/oswald-latin-400-normal.woff2", weight: "400", style: "normal" },
+    { path: "./fonts/oswald-latin-500-normal.woff2", weight: "500", style: "normal" },
+    { path: "./fonts/oswald-latin-600-normal.woff2", weight: "600", style: "normal" },
+    { path: "./fonts/oswald-latin-700-normal.woff2", weight: "700", style: "normal" },
   ],
 });
 
@@ -89,7 +92,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorantGaramond.variable} ${lora.variable} ${poppins.variable} h-full`}
+      className={`${oswald.variable} ${lora.variable} ${poppins.variable} h-full`}
     >
       <body className="min-h-full flex flex-col bg-navy text-linen">
         {/* Skip link: the first stop on Tab, visible only when focused. */}

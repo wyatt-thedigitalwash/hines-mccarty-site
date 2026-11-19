@@ -300,7 +300,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
              outlined rows with a small boxed numeral, which read as a form.
              Each step is now a filled card with a large serif numeral, the
              step as a serif headline, and the reason under it. The reading
-             order is carried by the "01" to "04" numerals (left to right, then
+             order is carried by the "1" to "4" numerals (left to right, then
              down) and by the <ol>; a phone gets one column. */
           <ol className="grid gap-4 md:grid-cols-2">
             {section.bullets.map((item, i) => {
@@ -323,7 +323,7 @@ export function SectionPrimary({ section }: { section: ChargeSection }) {
                     aria-hidden="true"
                     className={`${type.numeral} ${color.accent}`}
                   >
-                    {String(i + 1).padStart(2, "0")}
+                    {i + 1}
                   </span>
                   {head && (
                     <h3 className={`mt-6 ${type.subheading} ${color.onDarkHeading}`}>

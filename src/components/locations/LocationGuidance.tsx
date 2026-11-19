@@ -21,7 +21,7 @@ export function FirstStepsSection({ steps }: { steps: NonNullable<LocationPage["
           {steps.items.map((s, i) => (
             <li key={s.title} className="flex flex-col bg-linen/[0.06] p-8 lg:p-10">
               <span aria-hidden="true" className="font-display text-4xl leading-none text-bronze">
-                {String(i + 1).padStart(2, "0")}
+                {i + 1}
               </span>
               <h3 className="mt-4 font-display text-2xl leading-tight">{s.title}</h3>
               <p className="mt-4 flex-1 leading-relaxed text-linen/75">{s.body}</p>
@@ -50,7 +50,7 @@ export function FirstStepsSection({ steps }: { steps: NonNullable<LocationPage["
 
 export function BondSection({ bond }: { bond: NonNullable<LocationPage["bond"]> }) {
   return (
-    <section id="bond" data-bg="white" className="scroll-mt-28 bg-white py-20 text-navy lg:py-28">
+    <section id="bond" data-bg="white" className="scroll-mt-38 bg-white py-20 text-navy lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <h2 className={H2}>{bond.heading}</h2>
         <p className={LEAD}>{bond.intro}</p>
@@ -110,7 +110,7 @@ export function DeadlinesSection({
     { title: "The clocks that start", ...deadlines.clocks },
   ];
   return (
-    <section id="bond" data-bg="white" className="scroll-mt-28 bg-white py-20 text-navy lg:py-28">
+    <section id="bond" data-bg="white" className="scroll-mt-38 bg-white py-20 text-navy lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <h2 className={H2}>{`Bond and deadlines in ${place}.`}</h2>
         <ul className="mt-12 grid gap-6 md:grid-cols-2">
@@ -137,7 +137,7 @@ export function DeadlinesSection({
 
 export function TimelineSection({ timeline }: { timeline: NonNullable<LocationPage["timeline"]> }) {
   return (
-    <section id="timeline" data-bg="navy" className="scroll-mt-28 bg-navy py-20 text-linen lg:py-28">
+    <section id="timeline" data-bg="navy" className="scroll-mt-38 bg-navy py-20 text-linen lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <h2 className={H2}>{timeline.heading}</h2>
         <p className={LEAD_DARK}>{timeline.intro}</p>

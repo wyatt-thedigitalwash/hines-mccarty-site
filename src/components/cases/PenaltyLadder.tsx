@@ -71,9 +71,9 @@ export default function PenaltyLadder({ rows }: { rows: PenaltyRow[] }) {
                 squeezed the situations into wrapping. D50. */}
             <div>
               <p className={`${type.label} ${color.muted}`}>{level.degree}</p>
-              {/* Lining figures: Cormorant's default old-style digits drop below the
-                  baseline and read small, and the numbers are the point of this
-                  line. The font carries the lnum feature (verified). */}
+              {/* Lining figures, kept from Cormorant (whose default old-style
+                  digits dropped below the baseline). Oswald's digits already
+                  line, so this is a harmless safeguard. */}
               <h3 className={`${space.inItem} ${type.subheading} ${color.heading} lining-nums`}>{max}</h3>
             </div>
             <ul className={`mt-5 ${space.items}`}>

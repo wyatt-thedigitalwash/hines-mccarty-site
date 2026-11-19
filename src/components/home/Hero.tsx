@@ -61,12 +61,13 @@ export default function Hero() {
             centred in it, clear of the header, to give the video room. */}
         <div className="relative mx-auto flex max-w-[1400px] flex-col justify-center px-6 pt-36 pb-24 lg:min-h-[max(85vh,640px)] lg:px-10 lg:pt-32 lg:pb-20">
           <div className="max-w-5xl">
-            {/* Sentence case in the display serif, one weight; the second
-                line in gold italic carries the contrast the all-caps
-                two-tone used to (client choice). */}
-            <h1 className="font-display font-semibold text-5xl leading-[1.1] tracking-tight text-linen sm:text-6xl lg:text-7xl 2xl:text-8xl">
-              <span className="block">Aggressive representation.</span>
-              <span className="block italic text-bronze">Defending your future.</span>
+            {/* Oswald 400 (the site's display face), title case, tracked in
+                slightly (client choice, after Anton read too aggressive and
+                Barlow Semi Condensed was tried). Oswald has no italic, so
+                the second line carries its contrast in gold alone. */}
+            <h1 className="font-display text-5xl leading-[1.1] tracking-[-0.01em] text-linen sm:text-6xl lg:text-7xl 2xl:text-8xl">
+              <span className="block">Aggressive Representation.</span>
+              <span className="block text-bronze">Defending Your Future.</span>
             </h1>
             <p className="mt-8 max-w-2xl text-lg leading-relaxed text-linen/80">
               We defend state and federal criminal cases, handle injury claims for

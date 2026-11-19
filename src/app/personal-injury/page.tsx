@@ -3,6 +3,7 @@ import Link from "next/link";
 import { pageMetadata } from "@/lib/metadata";
 import { breadcrumbJsonLd } from "@/lib/schema";
 import CallToAction from "@/components/CallToAction";
+import CasesWeHandle from "@/components/injury/CasesWeHandle";
 import HandledBy from "@/components/attorneys/HandledBy";
 import InjuryIndex from "@/components/injury/InjuryIndex";
 import PageHero from "@/components/PageHero";
@@ -48,6 +49,13 @@ export const metadata: Metadata = pageMetadata({
   noindex: !injuryPages.some(injuryIsIndexable),
 });
 
+/**
+ * The two auto pillars. The cards and the "Auto Accident Cases" index list
+ * only these; every other case type is reached from the "Cases we handle"
+ * grid above them (D163).
+ */
+const AUTO_PILLARS = ["car-accidents", "truck-accidents"];
+
 export default function PersonalInjuryHub() {
   return (
     <>
@@ -65,16 +73,26 @@ export default function PersonalInjuryHub() {
 
       <PageHero
 cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
-        title="If someone else caused it, you should not be the one paying for it."
+        title="Injured? Get paid what you deserve."
         photo={INJURY_HUB_PHOTO}
       >
+        {/* Client direction: the old headline becomes the subheader, with
+            the fee promise in gold under it. */}
+        <p className="font-heading text-xl font-medium leading-snug text-linen lg:text-2xl">
+          If someone else caused it, you should not be the one paying for it.
+        </p>
+        <p className="mt-3 font-heading text-xl font-semibold uppercase tracking-wide text-bronze lg:text-2xl">
+          No fee unless we win.
+        </p>
         {/* One string, so the space after the firm name cannot be lost. The
             claim pages lead with who pays and what to do first now (D72), so
             this no longer promises the statute's own words. */}
-        <p>
+        <p className="mt-6">
           {`${firm.name} handles injury claims arising from car and commercial vehicle collisions in Hillsborough County and across Tampa Bay. Select a claim type to see who pays, the deadlines, and what to do first.`}
         </p>
       </PageHero>
+
+      <CasesWeHandle />
 
       {/*
         Same card geometry as the criminal hub: min-h-[380px] lg:min-h-[440px],
@@ -85,13 +103,15 @@ cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
       <section data-bg="white" className="bg-white py-20 text-navy lg:py-28">
         <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
           <ul className="grid gap-6 md:grid-cols-2">
-            {injuryPractices.map((practice) => (
+            {injuryPractices.filter((p) => AUTO_PILLARS.includes(p.key)).map((practice) => (
               <li key={practice.key}>
                 <Link
                   href={practice.href}
                   className="group flex h-full min-h-[380px] flex-col border border-navy/20 bg-white p-10 transition-colors hover:border-navy lg:min-h-[440px] lg:p-12"
                 >
-                  <h2 className="font-display text-3xl font-medium leading-tight transition-colors group-hover:text-bronze lg:text-4xl">
+                  {/* Bold on client direction. The ! is needed: the global h2
+                      rule is unlayered and beats any plain weight utility. */}
+                  <h2 className="font-display text-3xl font-bold! leading-tight transition-colors group-hover:text-bronze lg:text-4xl">
                     {practice.title}
                   </h2>
                   <p className="mt-6 flex-1 text-lg leading-relaxed text-charcoal">
@@ -108,7 +128,7 @@ cta={{ label: `Call ${firm.phone}`, href: firm.phoneHref }}
       </section>
 
       {/* The full index. Every page, server-rendered, no interaction. */}
-      <InjuryIndex heading="Every claim we handle" />
+      <InjuryIndex heading="Auto Accident Cases" pillars={AUTO_PILLARS} />
 
       {/*
         One row out, after the index on purpose: the index is this page's SEO

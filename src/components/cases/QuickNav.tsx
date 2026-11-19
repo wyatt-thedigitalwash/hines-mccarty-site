@@ -11,7 +11,7 @@ export type QuickNavItem = { id: string; label: string };
  * click scrolls smoothly to the section and updates the hash. Smoothness is
  * scoped to these links ON PURPOSE: globals.css records why there is no global
  * `scroll-behavior: smooth` (it animated every route change). Visitors who ask
- * for reduced motion get an instant jump. Each target carries `scroll-mt-28`,
+ * for reduced motion get an instant jump. Each target carries `scroll-mt-38`,
  * so it lands below the fixed header.
  *
  * TWO SHAPES, one per screen size; only one is ever displayed, and the other

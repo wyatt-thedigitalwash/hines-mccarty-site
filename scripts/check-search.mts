@@ -28,6 +28,8 @@ const CASES: [string, string, number][] = [
   ["893.13", "/criminal-defense/state/drug-possession", 3],
   ["sexual battery", "/criminal-defense/state/sexual-battery", 1],
   ["domestic violence", "/criminal-defense/state/domestic-violence", 1],
+  ["violation of probation", "/criminal-defense/state/violation-of-probation", 1],
+  ["vop", "/criminal-defense/state/violation-of-probation", 1],
   ["target letter", "/criminal-defense/federal/target-letter", 1],
   ["car accident", "/personal-injury/car-accidents", 2],
   ["uber", "/personal-injury/car-accidents/types-of-car-accidents", 3],

@@ -17,7 +17,7 @@ const LOGO = `data:image/svg+xml;base64,${readFileSync(join(process.cwd(), "publ
  * the wordmark as type, which is what the header does today. Replace with the
  * real mark when it lands.
  *
- * Uses the default typeface, not the site's Cormorant. Embedding a font here
+ * Uses the default typeface, not the site's Oswald. Embedding a font here
  * means shipping the file to the edge, and the only local family in the repo is
  * Gazpacho, whose licence is unconfirmed. Not worth a licence question for a
  * share card.

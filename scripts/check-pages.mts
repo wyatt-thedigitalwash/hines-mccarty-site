@@ -237,6 +237,24 @@ const RECORDED_LINES: Set<string> = (() => {
 const isRecordedVerbatim = (s: string) =>
   RECORDED_LINES.has(s.replace(/\s+/g, " ").trim());
 
+/**
+ * The client's own words, exempt from the superiority and outcome-claim rules
+ * only (D165).
+ *
+ * The client, a Florida Bar member, supplied these sentences word for word
+ * and asked that they be used as written. "Best" here modifies the medical
+ * treatment and the claim, not the firm, and "No Fee Unless We Win" is a fee
+ * term. Each is on ATTORNEY-FLAGS.md for the costs disclosure and Bar review.
+ *
+ * Exact strings, not patterns, so the exemption cannot spread to new copy.
+ */
+const CLIENT_WORDS = new Set([
+  "Auto Accident: Our lawyers can help you receive the best medical treatment for your injuries which can be covered by the at fault driver's insurance.",
+  "Our attorneys will determine the best claim to file to get you paid and keep your insurance rates from going up. These deadlines shape every claim.",
+  "Personal Attention. Trial-Ready Representation. No Fee Unless We Win.",
+  "Personal attention, trial-ready representation, and no fee unless we win.",
+]);
+
 type Hit = { rule: string; text: string };
 
 function bannedHits(strings: string[]): Hit[] {
@@ -251,7 +269,13 @@ function bannedHits(strings: string[]): Hit[] {
     ] as const) {
       // `re` is a RegExp for most rules and an object with the same exec
       // shape for superiority, which needs two conditions rather than one.
-      const m = re.exec(s);
+      // Client sentences are cut out before these two rules look, so the rest
+      // of the same string is still checked (D165).
+      const t =
+        rule === "superiority" || rule === "outcome-claim"
+          ? [...CLIENT_WORDS].reduce((acc, w) => acc.split(w).join(" "), s)
+          : s;
+      const m = re.exec(t);
       if (!m) continue;
       // The only exempted rule. Superiority, outcome claims, promissory
       // language and case results are forbidden in quoted text too, because a
@@ -1264,7 +1288,6 @@ console.log("\nReader-question coverage");
 console.log("\nService page standard (D67), pages rebuilt to it");
 const STANDARD_PAGES = [
   "/criminal-defense/state/battery",
-  "/criminal-defense/state/computer-crimes",
   "/criminal-defense/state/domestic-violence",
   "/criminal-defense/state/drug-possession",
   "/criminal-defense/state/drug-trafficking",
@@ -1274,6 +1297,7 @@ const STANDARD_PAGES = [
   "/criminal-defense/state/homicide",
   "/criminal-defense/state/sex-crimes",
   "/criminal-defense/state/sexual-battery",
+  "/criminal-defense/state/violation-of-probation",
   "/criminal-defense/federal/computer-internet-crimes",
   "/criminal-defense/federal/conspiracy-charges",
   "/criminal-defense/federal/csam",

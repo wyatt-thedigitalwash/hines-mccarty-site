@@ -39,6 +39,11 @@ let failed = false;
 const fail = (m: string) => { console.error(`  FAIL  ${m}`); failed = true; };
 
 const PILLAR_T2 = ["Who pays.", "What happens next.", "What to do right now."];
+/* D163: client direction renamed the car accidents pillar's second and third
+   Tier 2 sections. Same kinds and rules, by position; only the words differ. */
+const PILLAR_T2_BY_SLUG: Record<string, string[]> = {
+  "car-accidents": ["Who pays.", "Insurance claims.", "How to get started."],
+};
 const SPOKE_T2 = ["The short answer."];
 const OFFICE_HOLDERS = /Susan S\. Lopez|Victor Crist|Christopher C\. Sabella|Lisa B\. McLean|Chad Chronister/;
 
@@ -47,19 +52,19 @@ function problems(p: InjuryPage): string[] {
   const pillar = !p.parent;
   const secs = p.sections ?? [];
   const t2 = secs.filter((s) => s.tier === 2);
-  const want = pillar ? PILLAR_T2 : SPOKE_T2;
+  const want = pillar ? (PILLAR_T2_BY_SLUG[p.slug] ?? PILLAR_T2) : SPOKE_T2;
   if (JSON.stringify(t2.map((s) => s.heading)) !== JSON.stringify(want))
     out.push(`I${pillar ? 1 : 2} Tier 2 headings must be exactly ${want.join(" / ")} (has: ${t2.map((s) => s.heading).join(" / ")})`);
   if (pillar) {
-    const pays = t2.find((s) => s.heading === PILLAR_T2[0]);
+    const pays = t2.find((s) => s.heading === want[0]);
     if (pays && (pays.kind !== "penalties" || pays.display !== "ladder"))
       out.push(`I1 "Who pays." must be a penalties section with display: "ladder"`);
     const steps = t2.find((s) => s.kind === "timeline")?.steps ?? [];
     if (steps.length < 3 || steps.length > 6) out.push(`I1 the timeline has ${steps.length} steps; the standard is 3 to 6`);
-    const doNow = t2.find((s) => s.heading === PILLAR_T2[2]);
-    if (doNow && doNow.background !== "navy") out.push(`I1 "What to do right now." must be the navy band`);
+    const doNow = t2.find((s) => s.heading === want[2]);
+    if (doNow && doNow.background !== "navy") out.push(`I1 "${want[2]}" must be the navy band`);
     const bullets = doNow?.bullets ?? [];
-    if (bullets.length < 3 || bullets.length > 5) out.push(`I1 "What to do right now." has ${bullets.length} bullets; the standard is 3 to 5`);
+    if (bullets.length < 3 || bullets.length > 5) out.push(`I1 "${want[2]}" has ${bullets.length} bullets; the standard is 3 to 5`);
     for (const b of bullets)
       if (!/^[\s\S]{1,64}?[.!?]\s/.test(b)) out.push(`I1 do-now bullet needs a first sentence of 64 characters or fewer: "${b.slice(0, 60)}..."`);
   } else {

@@ -41,10 +41,11 @@ in user-facing copy (use commas, periods, or double hyphens).
 - Tokens defined in src/app/globals.css @theme (bg-navy, text-bronze, etc.)
 
 ## Typography
-- Display Font: EB Garamond, weight 800 (headers) -- class .font-display
-- Subheaders: Lora, all caps, no tracking -- class .eyebrow
-- Body Font: Lora
-- Loaded via next/font/google in src/app/layout.tsx
+- Display Font: Oswald, h1 and h2 at 400 (no italic) -- class .font-display (D162)
+- Subheaders: Lora italic -- class .eyebrow
+- Body and UI Font: Poppins (nav, buttons, h3 and smaller)
+- Bundled locally from Fontsource in src/app/fonts, loaded with next/font/local
+  in src/app/layout.tsx (D143)
 - Sizing: hero display up to text-7xl; section headers text-4xl to text-5xl;
   body text-lg
 

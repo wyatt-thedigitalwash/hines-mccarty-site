@@ -39,7 +39,7 @@ export default function FirmTasks() {
 
   return (
     <>
-      <div className="sticky top-[68px] z-10 border-b border-navy/10 bg-white py-4 sm:top-[76px]">
+      <div className="sticky top-[calc(68px+var(--call-bar-h))] z-10 border-b border-navy/10 bg-white py-4 sm:top-[calc(76px+var(--call-bar-h))]">
         <p className="font-display text-2xl tabular-nums">
           {count} of {total} done
         </p>

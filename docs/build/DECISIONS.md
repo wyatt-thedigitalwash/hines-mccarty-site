@@ -3907,3 +3907,93 @@ the county's one bond table and timeline (D155). AO 3.23 adopts each new statewi
 schedule on its own, so the 2027 amounts need no circuit order, only an update to
 `LEE_BOND`. No photo was supplied, so the pages keep the firm's criminal and injury
 photos.
+
+
+### D162. Oswald replaces Cormorant Garamond as the display face
+
+**2026-11-19. Client direction.** Every h1, h2 and `.font-display` element is now
+set in Oswald, bundled at 400, 500, 600 and 700 (Fontsource 5.3.0, OFL), and the
+Cormorant Garamond files are removed. The face was chosen on the home hero after
+Anton read too aggressive and Barlow Semi Condensed was tried. h1 drops from 500
+(D53, set for the hairline serif) to 400, the weight the client picked on the
+hero, so every page headline matches it. Oswald has no italic, so no display text
+is set in italic; the hero's gold second line carries its contrast in color
+alone. The hero headline is title case with -0.01em tracking.
+
+### D163. Personal injury hub and car accidents pillar, client rework
+
+**2026-11-19. Client direction.** From the client's mark-up and an SEO brief.
+
+- **Hub.** New H1 "Injured? Get paid what you deserve.", the old headline as
+  the subheader and "No fee unless we win." under it; a "Cases we handle" grid
+  of eight case types with icons (lucide-react) under the hero; the car and
+  truck card headings bold; the index renamed "Auto Accident Cases". The cards
+  and the index list only the two auto pillars; the other case types are
+  reached from the grid.
+- **Car accidents pillar.** Hero H1 "Tampa Car Accident Lawyers Fighting for
+  You" (`heroTitle`; the card title stays the question). Tier 2 is "Who pays."
+  (three cards: medical bills, car damage, injuries, in the client's words),
+  "Insurance claims." (the deadline timeline under the client's line) and
+  "How to get started." (the client's four steps). `introCopy` carries this
+  page's Tier 2 intros; check:injury accepts the renamed headings for this
+  page only (`PILLAR_T2_BY_SLUG`). The details grid now answers the brief's
+  questions: what to do after a crash, PIP including the $10,000 limit with
+  an emergency medical condition, uninsured and underinsured coverage with
+  stacking and household policies, the pain and suffering threshold (F.S.
+  627.737(2), fetched and recorded today), fault, compensation, what a claim
+  is worth, time limits including wrongful death, and why hire the firm. Two
+  client FAQs were added. "No fee unless we win" became "No fee unless you
+  recover" on this page, because check:pages reads "we ... win" as an outcome
+  claim. Wording that needs an attorney is in ATTORNEY-FLAGS.md.
+- **Six new pillars** for the grid's case types without pages: motorcycle
+  accidents, slip and fall, trip and fall, dog bites, brain injuries and
+  wrongful death, each on the PAGE-STANDARD section 13 pillar spine with its
+  statutes fetched and recorded in PAGE-SOURCES.md.
+
+**Outcome (D163, same day).** The six pillars were written in parallel, one
+writer each, against PAGE-STANDARD section 13, with 20 new statute records in
+PAGE-SOURCES.md (three fetched twice were identical and are recorded once).
+Each page carries its own Tier 2 intros (`introCopy`), because the shared
+template sentences speak of "a crash". Two H1s changed for check:seo: dog
+bites reads "Hurt by a dog bite in Tampa?" and wrongful death "Lost a family
+member to a wrongful death in Tampa?". The car accidents pillar's $2,500 PIP
+sentence was corrected to the statute's terms (the cap applies when a provider
+finds there was no emergency medical condition; $10,000 needs a finding that
+there was one). The new pages reuse the injury hub's car crash photo until the
+client supplies one per case type. `npm run verify` passes in full and
+`audit:pages` reports no violations on the hub, the car pillar or the six new
+pages. Each writer's review list is in ATTORNEY-FLAGS.md and their source maps
+in docs/research/briefs/pi-*.notes.md.
+
+### D164. State charges ordered by search demand
+
+**2026-11-19. Client direction.** The state charge list (`stateCharges` in
+site.ts) is reordered by Tampa search demand from DataForSEO (Google Ads
+volumes, Tampa and Florida targeting): DUI (about 640 a month for "dui
+lawyer/attorney tampa"), Drug Possession, Drug Trafficking ("drug lawyer
+tampa" reports 2,900, likely a grouped figure), Domestic Violence (about 100),
+Sex Crimes (about 50), Sexual Battery (kept beside Sex Crimes), Battery, Gun
+Crimes, Grand Theft, Homicide, Unauthorized Computer Access (about 10 each or
+below the reporting floor). The Practice Areas flyout, the charge index and the
+home page grid all read this order.
+
+### D165. Client's exact words on the car accidents page; charge list per the client's notes
+
+**2026-11-19. Client direction (the "PI Subpage" notes).**
+
+The car accidents page now uses the client's supplied copy word for word: the
+Who pays cards, the "Insurance claims." intro, the first FAQ (question and
+answer as written), the after-a-crash steps, the compensation table's two
+lists (headed "Economic damages" and "Non-economic damages"), and the "Why
+hire" heading and points. Plain-language sentences are added after the
+client's text only where a gate needed them (the 14-day PIP note, a grade 8
+line under the "Why hire" points). Two client sentences ("the best medical
+treatment", "the best claim to file") and the "No Fee Unless We Win" heading
+are exempted in check:pages by exact string, so the exemption cannot reach new
+copy. All are on ATTORNEY-FLAGS.md.
+
+The state charge list follows the notes: DUI first, then Battery, then the
+D164 demand order. Unauthorized Computer Access is removed; its URL and the
+legacy /criminal-defense/computer-crimes-defense redirect to the federal
+computer crimes page. A Violation of Probation page is added after Battery.
+

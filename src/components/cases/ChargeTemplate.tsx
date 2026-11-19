@@ -501,11 +501,11 @@ function Block({
   children: React.ReactNode;
 }) {
   return (
-    /* scroll-mt-28 clears the 77px fixed header, the same value /attorneys uses
+    /* scroll-mt-38 clears the 120px fixed header (call bar plus nav row), the same value /attorneys uses
        on its anchor. Without it a jump from the contents list lands with the
        heading it just took you to hidden behind the nav, which reads as a
        broken link rather than a near miss. */
-    <div id={id} className="scroll-mt-28">
+    <div id={id} className="scroll-mt-38">
       <h2 className="font-display text-4xl leading-tight sm:text-5xl">
         {heading}
       </h2>

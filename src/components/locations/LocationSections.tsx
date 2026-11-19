@@ -24,7 +24,7 @@ export function FactsSection({
   children?: ReactNode;
 }) {
   return (
-    <section id={id} data-bg="white" className="scroll-mt-28 bg-white py-20 text-navy lg:py-28">
+    <section id={id} data-bg="white" className="scroll-mt-38 bg-white py-20 text-navy lg:py-28">
       <div className="mx-auto max-w-[1400px] px-6 lg:px-10">
         <h2 className={H2}>{facts.heading}</h2>
         <p className={LEAD}>{facts.intro}</p>

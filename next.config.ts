@@ -45,7 +45,9 @@ const nextConfig: NextConfig = {
       { source: "/sitemap.ols.xml", destination: "/sitemap.xml", permanent: true },
       { source: "/cases-we-defend", destination: "/criminal-defense", permanent: true },
       { source: "/criminal-defense/battery-defense", destination: "/criminal-defense/state/battery", permanent: true },
-      { source: "/criminal-defense/computer-crimes-defense", destination: "/criminal-defense/state/computer-crimes", permanent: true },
+      { source: "/criminal-defense/computer-crimes-defense", destination: "/criminal-defense/federal/computer-internet-crimes", permanent: true },
+      // The state computer access page was removed on client direction (D165).
+      { source: "/criminal-defense/state/computer-crimes", destination: "/criminal-defense/federal/computer-internet-crimes", permanent: true },
       { source: "/criminal-defense/domestic-violence-defense", destination: "/criminal-defense/state/domestic-violence", permanent: true },
       { source: "/criminal-defense/drug-possession-defense", destination: "/criminal-defense/state/drug-possession", permanent: true },
       { source: "/criminal-defense/drug-trafficking-defense", destination: "/criminal-defense/state/drug-trafficking", permanent: true },

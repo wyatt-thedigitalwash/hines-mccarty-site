@@ -135,8 +135,8 @@ export default function NavDropdown({
               className={`group/item flex items-center justify-between gap-6 whitespace-nowrap py-2.5 pr-6 font-heading transition-colors hover:bg-white/[0.04] hover:text-bronze ${
                 child.indent ? "pl-10 text-[0.8125rem]" : "pl-6 text-sm"
               } ${
-                child.head ? "font-semibold text-linen" : child.divider || pathname === child.href ? "text-bronze" : "text-linen/75"
-              } ${child.divider && !child.head ? "font-semibold" : ""}`}
+                child.head ? "font-semibold text-white" : child.divider || pathname === child.href ? "text-bronze" : "text-white"
+              } ${child.divider && !child.head ? "font-semibold" : child.head ? "" : "font-medium"}`}
             >
               {child.label}
               <svg
@@ -163,8 +163,8 @@ export default function NavDropdown({
                         href={g.href}
                         onClick={onNavigate}
                         aria-current={pathname === g.href ? "page" : undefined}
-                        className={`block whitespace-nowrap px-6 py-2 font-heading text-[0.8125rem] transition-colors hover:bg-white/[0.04] hover:text-bronze ${
-                          pathname === g.href ? "text-bronze" : "text-linen/75"
+                        className={`block whitespace-nowrap px-6 py-2 font-heading text-[0.8125rem] font-medium transition-colors hover:bg-white/[0.04] hover:text-bronze ${
+                          pathname === g.href ? "text-bronze" : "text-white"
                         }`}
                       >
                         {g.label}
